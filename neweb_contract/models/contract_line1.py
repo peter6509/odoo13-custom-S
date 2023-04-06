@@ -11,6 +11,7 @@ _logger = logging.getLogger(__name__)
 class ContractLine1(models.Model):
     _name = 'neweb_contract.contract.line1'
     _description = "Contract Line1"
+    _order = "sequence,contract_line_id"
 
     contract_id = fields.Many2one('neweb_contract.contract', ondelete='cascade', string="Contract")
     prod_set = fields.Many2one('neweb.prodset', string="產品組別")
@@ -41,6 +42,7 @@ class ContractLine1(models.Model):
     ram_line = fields.One2many('neweb_contract.ram_line', 'ram_id', string="RAM明細")
     expand_card_line = fields.One2many('neweb_contract.expand_card_line', 'expand_card_id', string="擴充卡明細")
     power_line = fields.One2many('neweb_contract.power_line', 'power_id', string="電源明細")
+    sequence = fields.Integer('sequence')
 
 
 
@@ -53,7 +55,7 @@ class ContractLine1(models.Model):
         context = dict(self._context or {})
         return {
             'type': 'ir.actions.act_window',
-            'name': 'HD Info',
+            'name': '硬碟明細資料',
             'view_type': 'form',
             'view_mode': 'form',
             'res_model': 'neweb_contract.contract.line1',
@@ -75,7 +77,7 @@ class ContractLine1(models.Model):
         context = dict(self._context or {})
         return {
             'type': 'ir.actions.act_window',
-            'name': 'HD Info',
+            'name': 'CPU明細資料',
             'view_type': 'form',
             'view_mode': 'form',
             'res_model': 'neweb_contract.contract.line1',
@@ -97,7 +99,7 @@ class ContractLine1(models.Model):
         context = dict(self._context or {})
         return {
             'type': 'ir.actions.act_window',
-            'name': 'HD Info',
+            'name': 'RAM明細資料',
             'view_type': 'form',
             'view_mode': 'form',
             'res_model': 'neweb_contract.contract.line1',
@@ -119,7 +121,7 @@ class ContractLine1(models.Model):
         context = dict(self._context or {})
         return {
             'type': 'ir.actions.act_window',
-            'name': 'HD Info',
+            'name': '擴充卡明細資料',
             'view_type': 'form',
             'view_mode': 'form',
             'res_model': 'neweb_contract.contract.line1',
@@ -141,7 +143,7 @@ class ContractLine1(models.Model):
         context = dict(self._context or {})
         return {
             'type': 'ir.actions.act_window',
-            'name': 'HD Info',
+            'name': 'POWER明細資料',
             'view_type': 'form',
             'view_mode': 'form',
             'res_model': 'neweb_contract.contract.line1',

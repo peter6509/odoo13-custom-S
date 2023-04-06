@@ -17,11 +17,11 @@
                            <field name="warranty_duedate"/>
                        </group>
                        <group>
-                           <field name="server_name" attrs="{'readonly':1}"/>
-                            <field name="machine_used_desc" attrs="{'readonly':1}"/>
-                            <field name="prod_line_os" attrs="{'readonly':1}"/>
-                           <field name="expand_module" attrs="{'readonly':1}"/>
-                           <field name="machine_other" attrs="{'readonly':1}"/>
+                           <field name="server_name"/>
+                            <field name="machine_used_desc"/>
+                            <field name="prod_line_os"/>
+                           <field name="expand_module"/>
+                           <field name="machine_other"/>
                        </group>
                          <field name="cpu_line" nolabel="1">
                              <tree editable="bottom" string="CPU Info" widget="one2many">

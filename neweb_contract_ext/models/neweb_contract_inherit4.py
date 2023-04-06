@@ -6,7 +6,7 @@ from odoo.exceptions import UserError
 
 class newebcontractinherit4(models.Model):
     _inherit = "neweb_contract.contract.line"
-    _order = "sequence"
+    _order = "sequence,id"
 
     conline_item = fields.Integer(string="項次",default=1)
 
