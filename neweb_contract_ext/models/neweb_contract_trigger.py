@@ -123,26 +123,26 @@ class newebcontractTrigger(models.Model):
                                          for each row execute procedure ins_neweb_contract_contract_line();""")
 
         self._cr.execute("""drop function if exists upd_neweb_contract_contract_line() cascade""")
-        self._cr.execute("""create  or replace function upd_neweb_contract_contract_line() returns trigger as $BODY$
-          DECLARE
-             ncount int ;
-          BEGIN
-             select count(*) into ncount from neweb_contract_contract_line1 where contract_line_id=NEW.id ;
-             if ncount = 0 then
-                insert into neweb_contract_contract_line1(prod_set,prod_brand,prod_modeltype,prod_modeltype1,machine_serial_no,rack_loc,warranty_duedate,
-                  prod_line_os,contract_line_id) values (NEW.prod_set,NEW.prod_brand,NEW.prod_modeltype,NEW.prod_modeltype1,NEW.machine_serial_no,NEW.rack_loc,NEW.warranty_duedate,NEW.prod_line_os,NEW.id) ;
-             else
-                update neweb_contract_contract_line1 set prod_set=NEW.prod_set,prod_brand=NEW.prod_brand,prod_modeltype=NEW.prod_modeltype,prod_modeltype1=NEW.prod_modeltype1,
-                  machine_serial_no=NEW.machine_serial_no,rack_loc=NEW.rack_loc,warranty_duedate=NEW.warranty_duedate where contract_line_id=NEW.id ;
-             end if ;
-             return NEW ; 
-          END;$BODY$
-          LANGUAGE plpgsql;""")
+        # self._cr.execute("""create  or replace function upd_neweb_contract_contract_line() returns trigger as $BODY$
+        #   DECLARE
+        #      ncount int ;
+        #   BEGIN
+        #      select count(*) into ncount from neweb_contract_contract_line1 where contract_line_id=NEW.id ;
+        #      if ncount = 0 then
+        #         insert into neweb_contract_contract_line1(prod_set,prod_brand,prod_modeltype,prod_modeltype1,machine_serial_no,rack_loc,warranty_duedate,
+        #           prod_line_os,contract_line_id) values (NEW.prod_set,NEW.prod_brand,NEW.prod_modeltype,NEW.prod_modeltype1,NEW.machine_serial_no,NEW.rack_loc,NEW.warranty_duedate,NEW.prod_line_os,NEW.id) ;
+        #      else
+        #         update neweb_contract_contract_line1 set prod_set=NEW.prod_set,prod_brand=NEW.prod_brand,prod_modeltype=NEW.prod_modeltype,prod_modeltype1=NEW.prod_modeltype1,
+        #           machine_serial_no=NEW.machine_serial_no,rack_loc=NEW.rack_loc,warranty_duedate=NEW.warranty_duedate where contract_line_id=NEW.id ;
+        #      end if ;
+        #      return NEW ;
+        #   END;$BODY$
+        #   LANGUAGE plpgsql;""")
 
         # 針對每次更新prod_set neweb_contract_contract_line  作動一次 trigger
         self._cr.execute("""drop trigger if exists upd_neweb_contract_contract_line on neweb_contract_contract_line ;""")
-        self._cr.execute("""create trigger upd_neweb_contract_contract_line after update 
-             on neweb_contract_contract_line for each row execute procedure upd_neweb_contract_contract_line();""")
+        # self._cr.execute("""create trigger upd_neweb_contract_contract_line after update
+        #      on neweb_contract_contract_line for each row execute procedure upd_neweb_contract_contract_line();""")
 
 
 

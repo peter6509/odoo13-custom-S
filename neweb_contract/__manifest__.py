@@ -36,6 +36,11 @@ Specially designed Contract Management Module for Neweb.""",
         'security/contract_exceldownload_security.xml',
         'wizards/neweb_maincontract_export_wizard.xml',
         'wizards/neweb_modeltype1_import_wizard.xml',
+        'views/contract_hd_line.xml',
+        'views/contract_cpu_line.xml',
+        'views/contract_ram_line.xml',
+        'views/contract_expand_card_line.xml',
+        'views/contract_power_line.xml',
 
     ],
     # only loaded in demonstration mode

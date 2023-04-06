@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_contract_hd_line_form" model="ir.ui.view">
+           <field name="name">view.contract.hd.line.form</field>
+           <field name="model">neweb_contract.contract.line1</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <field name="prod_set" attrs="{'readonly':1}"/>
+                           <field name="prod_brand" attrs="{'readonly':1}" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                           <field name="prod_modeltype" attrs="{'readonly':1}"/>
+                           <field name="prod_modeltype1" attrs="{'readonly':1}" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                           <field name="machine_serial_no" attrs="{'readonly':1}"/>
+                           <field name="rack_loc"/>
+                           <field name="warranty_duedate"/>
+                       </group>
+                       <group>
+                           <field name="server_name" attrs="{'readonly':1}"/>
+                            <field name="machine_used_desc" attrs="{'readonly':1}"/>
+                            <field name="prod_line_os" attrs="{'readonly':1}"/>
+                           <field name="expand_module" attrs="{'readonly':1}"/>
+                           <field name="machine_other" attrs="{'readonly':1}"/>
+                       </group>
+                         <field name="hd_line" nolabel="1">
+                             <tree editable="bottom" string="Hdisk Info" widget="one2many">
+                                 <field name="hd_item"/>
+                                 <field name="hd_no"/>
+                                 <field name="hd_num"/>
+                             </tree>
+                          </field>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="action_contract_hd_line_view" model="ir.actions.act_window">
+           <field name="name">HD明細資料資料</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">neweb_contract.contract.line1</field>
+           <field name="view_mode">form</field>
+           <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('neweb_contract.view_contract_hd_line_form')}),]"/>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+
+             </p><p>
+
+             </p>
+           </field>
+       </record>
+
+    </data>
+</odoo>

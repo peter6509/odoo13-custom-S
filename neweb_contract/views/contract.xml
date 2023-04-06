@@ -218,16 +218,21 @@
                                         <field name="server_name"/>
                                         <field name="machine_used_desc"/>
                                         <field name="prod_line_os"/>
-                                        <field name="hd_no"/>
-                                        <field name="hd_num"/>
-                                        <field name="cpu_no"/>
-                                        <field name="cpu_num"/>
-                                        <field name="ram_no"/>
-                                        <field name="ram_num"/>
-                                        <field name="expand_card_no"/>
-                                        <field name="expand_card_num"/>
-                                        <field name="power_no"/>
-                                        <field name="power_num"/>
+<!--                                        <field name="hd_no"/>-->
+<!--                                        <field name="hd_num"/>-->
+<!--                                        <field name="cpu_no"/>-->
+<!--                                        <field name="cpu_num"/>-->
+<!--                                        <field name="ram_no"/>-->
+<!--                                        <field name="ram_num"/>-->
+<!--                                        <field name="expand_card_no"/>-->
+<!--                                        <field name="expand_card_num"/>-->
+<!--                                        <field name="power_no"/>-->
+<!--                                        <field name="power_num"/>-->
+                                          <button name="hd_button" string="硬碟" type="object" class="oe_highlight"/>
+                                          <button name="cpu_button" string="CPU" type="object" class="oe_highlight"/>
+                                          <button name="ram_button" string="RAM" type="object" class="oe_highlight"/>
+                                          <button name="expand_card_button" string="擴充卡" type="object" class="oe_highlight"/>
+                                          <button name="power_button" string="電源" type="object" class="oe_highlight"/>
                                         <field name="expand_module"/>
                                         <field name="machine_other"/>
                                         <field name="contract_line_id" attrs="{'invisible':1}"/>
