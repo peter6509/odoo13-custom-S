@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cloudrent_grant_value_1" model="cloudrent.grant_fee">
+            <field name="grant_item">1</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">3500</field>
+        </record>
+        <record id="cloudrent_grant_value_11" model="cloudrent.grant_fee">
+            <field name="grant_item">1</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">3500</field>
+        </record>
+        <record id="cloudrent_grant_value_12" model="cloudrent.grant_fee">
+            <field name="grant_item">1</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">3500</field>
+        </record>
+        <record id="cloudrent_grant_value_13" model="cloudrent.grant_fee">
+            <field name="grant_item">1</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">3500</field>
+        </record>
+        <record id="cloudrent_grant_value_14" model="cloudrent.grant_fee">
+            <field name="grant_item">1</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">3500</field>
+        </record>
+        <record id="cloudrent_grant_value_15" model="cloudrent.grant_fee">
+            <field name="grant_item">1</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">3500</field>
+        </record>
+        <record id="cloudrent_grant_value_16" model="cloudrent.grant_fee">
+            <field name="grant_item">1</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">3500</field>
+        </record>
+        <record id="cloudrent_grant_value_21" model="cloudrent.grant_fee">
+            <field name="grant_item">2</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">4500</field>
+        </record>
+        <record id="cloudrent_grant_value_22" model="cloudrent.grant_fee">
+            <field name="grant_item">2</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">4500</field>
+        </record>
+        <record id="cloudrent_grant_value_23" model="cloudrent.grant_fee">
+            <field name="grant_item">2</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">3000</field>
+        </record>
+        <record id="cloudrent_grant_value_24" model="cloudrent.grant_fee">
+            <field name="grant_item">2</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">3000</field>
+        </record>
+        <record id="cloudrent_grant_value_25" model="cloudrent.grant_fee">
+            <field name="grant_item">2</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">3000</field>
+        </record>
+        <record id="cloudrent_grant_value_26" model="cloudrent.grant_fee">
+            <field name="grant_item">2</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">3000</field>
+        </record>
+        <record id="cloudrent_grant_value_31" model="cloudrent.grant_fee">
+            <field name="grant_item">3</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">10000</field>
+        </record>
+        <record id="cloudrent_grant_value_32" model="cloudrent.grant_fee">
+            <field name="grant_item">3</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">10000</field>
+        </record>
+        <record id="cloudrent_grant_value_33" model="cloudrent.grant_fee">
+            <field name="grant_item">3</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">10000</field>
+        </record>
+        <record id="cloudrent_grant_value_34" model="cloudrent.grant_fee">
+            <field name="grant_item">3</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">10000</field>
+        </record>
+        <record id="cloudrent_grant_value_35" model="cloudrent.grant_fee">
+            <field name="grant_item">3</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">10000</field>
+        </record>
+        <record id="cloudrent_grant_value_36" model="cloudrent.grant_fee">
+            <field name="grant_item">3</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">10000</field>
+        </record>
+        <record id="cloudrent_grant_value_401" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_402" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_403" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_404" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_405" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_406" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_407" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_408" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_409" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_410" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_411" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_412" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">1</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_413" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_414" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_415" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_416" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_417" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_418" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">2</field>
+            <field name="discount_rate">0.225</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">4545</field>
+        </record>
+        <record id="cloudrent_grant_value_419" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_420" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_421" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_422" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_423" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_424" model="cloudrent.grant_fee">
+            <field name="grant_item">4</field>
+            <field name="lessor_type">2</field>
+            <field name="lessee_type">3</field>
+            <field name="discount_rate">0.445</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">2</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">7200</field>
+        </record>
+        <record id="cloudrent_grant_value_51" model="cloudrent.grant_fee">
+            <field name="grant_item">5</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">24000</field>
+        </record>
+        <record id="cloudrent_grant_value_52" model="cloudrent.grant_fee">
+            <field name="grant_item">5</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">22000</field>
+        </record>
+        <record id="cloudrent_grant_value_53" model="cloudrent.grant_fee">
+            <field name="grant_item">5</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">18000</field>
+        </record>
+        <record id="cloudrent_grant_value_54" model="cloudrent.grant_fee">
+            <field name="grant_item">5</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">18000</field>
+        </record>
+        <record id="cloudrent_grant_value_55" model="cloudrent.grant_fee">
+            <field name="grant_item">5</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">16000</field>
+        </record>
+        <record id="cloudrent_grant_value_56" model="cloudrent.grant_fee">
+            <field name="grant_item">5</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">16000</field>
+        </record>
+        <record id="cloudrent_grant_value_61" model="cloudrent.grant_fee">
+            <field name="grant_item">6</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">4000</field>
+        </record>
+        <record id="cloudrent_grant_value_62" model="cloudrent.grant_fee">
+            <field name="grant_item">6</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">3600</field>
+        </record>
+        <record id="cloudrent_grant_value_63" model="cloudrent.grant_fee">
+            <field name="grant_item">6</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">3000</field>
+        </record>
+         <record id="cloudrent_grant_value_64" model="cloudrent.grant_fee">
+            <field name="grant_item">6</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">3000</field>
+        </record>
+         <record id="cloudrent_grant_value_65" model="cloudrent.grant_fee">
+            <field name="grant_item">6</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">2600</field>
+        </record>
+         <record id="cloudrent_grant_value_66" model="cloudrent.grant_fee">
+            <field name="grant_item">6</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">3</field>
+            <field name="grant_max_value">2600</field>
+        </record>
+         <record id="cloudrent_grant_value_71" model="cloudrent.grant_fee">
+            <field name="grant_item">7</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">16000</field>
+        </record>
+        <record id="cloudrent_grant_value_72" model="cloudrent.grant_fee">
+            <field name="grant_item">7</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">14000</field>
+        </record>
+        <record id="cloudrent_grant_value_73" model="cloudrent.grant_fee">
+            <field name="grant_item">7</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">13000</field>
+        </record>
+        <record id="cloudrent_grant_value_74" model="cloudrent.grant_fee">
+            <field name="grant_item">7</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">13000</field>
+        </record>
+        <record id="cloudrent_grant_value_75" model="cloudrent.grant_fee">
+            <field name="grant_item">7</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">11000</field>
+        </record>
+        <record id="cloudrent_grant_value_76" model="cloudrent.grant_fee">
+            <field name="grant_item">7</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">1</field>
+            <field name="grant_time">1</field>
+            <field name="grant_max_value">11000</field>
+        </record>
+        <record id="cloudrent_grant_value_81" model="cloudrent.grant_fee">
+            <field name="grant_item">8</field>
+            <field name="admin_area">1</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">2400</field>
+        </record>
+        <record id="cloudrent_grant_value_82" model="cloudrent.grant_fee">
+            <field name="grant_item">8</field>
+            <field name="admin_area">2</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">2200</field>
+        </record>
+        <record id="cloudrent_grant_value_83" model="cloudrent.grant_fee">
+            <field name="grant_item">8</field>
+            <field name="admin_area">3</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">1800</field>
+        </record>
+        <record id="cloudrent_grant_value_84" model="cloudrent.grant_fee">
+            <field name="grant_item">8</field>
+            <field name="admin_area">4</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">1800</field>
+        </record>
+        <record id="cloudrent_grant_value_85" model="cloudrent.grant_fee">
+            <field name="grant_item">8</field>
+            <field name="admin_area">5</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">1500</field>
+        </record>
+        <record id="cloudrent_grant_value_86" model="cloudrent.grant_fee">
+            <field name="grant_item">8</field>
+            <field name="admin_area">6</field>
+            <field name="grant_freq">3</field>
+            <field name="grant_time">-1</field>
+            <field name="grant_max_value">1500</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="acme_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">acme.sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="so_pi"/>
+                    <field name="commitment_date" attrs="{'required':1}"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                     <button name="run_sale_report" string="銷貨單" type="object" class="oe_highlight"/>
+                </xpath>
+                <header>
+                    <button name="del_sale_order" string="刪除銷貨單" groups="alldo_acme_iot.group_iot_manager"
+                            type="object" class="oe_highlight"/>
+                </header>
+            </field>
+        </record>
+        <record id="acme_sale_order_tree_inherit" model="ir.ui.view">
+            <field name="name">acme.sale.order.tree.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='invoice_status']" position="after">
+                    <button name="run_archive" string="結案歸檔" type="object" class="oe_highlight"/>
+                    <!-- Add new fields here -->
+                </xpath>
+                <xpath expr="//field[@name='expected_date']" position="replace">
+                    <field name="prod_desc"/>
+                </xpath>
+                <xpath expr="//field[@name='commitment_date']" position="after">
+                    <field name="so_pi"/>
+                </xpath>
+
+            </field>
+        </record>
+         <record id="acme_sale_order_tree_inherit1" model="ir.ui.view">
+            <field name="name">acme.sale.order.tree.inherit1</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+
+<!--                <xpath expr="//field[@name='invoice_status']" position="after">-->
+<!--                    <button name="run_archive" string="結案歸檔" type="object" class="oe_highlight"/>-->
+<!--                    &lt;!&ndash; Add new fields here &ndash;&gt;-->
+<!--                </xpath>-->
+                <xpath expr="//field[@name='expected_date']" position="replace">
+                    <field name="prod_desc"/>
+                </xpath>
+                 <xpath expr="//field[@name='commitment_date']" position="after">
+                    <field name="so_pi"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+
+
+    </data>
+</odoo>

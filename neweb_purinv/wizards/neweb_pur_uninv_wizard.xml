@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_purinv_view_form_wizard" model="ir.ui.view">
+            <field name="name">neweb.purinv.view.form.wizard</field>
+            <field name="model">neweb.uninvselect</field>
+            <field name="arch" type="xml">
+                <form string="採購單請款作業">
+                    <sheet>
+                        <group>
+                           <field name="uninvoice_list" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="select_pur" string="選取" class="oe_highlight" context="{'purinv_id': context.get('active_id')}"/>
+                        <button special="cancel" string="離開"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="purinv_wizard_action" model="ir.actions.act_window">
+                     <field name="name">供應商請款申請</field>
+                     <field name="res_model">neweb.uninvselect</field>
+                     <field name="view_mode">form</field>
+                     <field name="target">new</field>
+                 </record>
+
+        <!--<menuitem id="menu_purinv_wizard_categ" name="請款申請作業" sequence="60"-->
+            <!--parent="neweb_project.menu_neweb_project_root"/>-->
+        <!--<menuitem id="menu_purinv_wizard_action" name="" sequence="10"-->
+                  <!--parent="menu_purinv_wizard_categ"-->
+                  <!--action="purinv_wizard_action"/>-->
+
+    </data>
+</odoo>

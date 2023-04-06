@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_cloudrent_month_wizard" model="ir.ui.view">
+             <field name="name">views.cloudrent.month.wizard</field>
+             <field name="model">cloudrent.month_report</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>月報產生精靈</h1>
+                     <group>
+                       <field name="escrow_no" attrs="{'readonly':1}" force_save="1"/>
+                       <field name="report_date"/>
+                       <field name="report_year"/>
+                       <field name="report_month"/>
+                       <field name="report_type" domain="[('contract_type','=','3')]"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_month_report" string="產生報表" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_cloudrent_mreport_wizard_action" model="ir.actions.act_window">
+             <field name="name">月報產生精靈</field>
+             <field name="res_model">cloudrent.month_report</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

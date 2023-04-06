@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+"access_config_user","access.config.user","neweb_migration.model_neweb_migration_config","base.group_user","True","True","True","True"
+"access_config_line_user","access.config.line.user","neweb_migration.model_neweb_migration_config_line","base.group_user","True","True","True","True"

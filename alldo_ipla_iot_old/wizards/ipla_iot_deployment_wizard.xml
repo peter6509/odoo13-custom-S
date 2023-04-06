@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_iot_deployment_wizard" model="ir.ui.view">
+             <field name="name">views.iot.deployment.wizard</field>
+             <field name="model">alldo_ipla_iot.deployment_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>IOT節點程式拓普</h1>
+                         <group>
+                             <field name="equipment_ids" widget="many2many_tags" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="source_file"/>
+                             <field name="destination_file"/>
+                             <field name="restart_node"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_deployment" string="拓普程式" class="oe_hiiplaliiplat"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="iot_deployment_wizard_action" model="ir.actions.act_window">
+             <field name="name">IOT節點程式拓普</field>
+             <field name="res_model">alldo_ipla_iot.deployment_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

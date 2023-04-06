@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit11_sale_order_form" model="ir.ui.view">
+           <field name="name">view.inherit11.sale.order.form</field>
+           <field name="model">sale.order</field>
+           <field name="inherit_id" ref="neweb_projext.neweb_project_inherit8_form"/>
+           <field name="arch" type="xml">
+              <header>
+                   <button type="object" string="匯出報價單明細" name="saleorder_export" class="oe_highlight oe_edit_only"
+                               context="{'saleorderid': context.get('active_id') }"/>
+              </header>
+
+           </field>
+       </record>
+
+    </data>
+</odoo>

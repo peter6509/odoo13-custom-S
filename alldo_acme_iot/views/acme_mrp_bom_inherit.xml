@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="alldo_acme_iot_bom_inherit_form" model="ir.ui.view">
+            <field name="name">alldo.acme.iot.bom.inherit.form</field>
+            <field name="model">mrp.bom</field>
+            <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//notebook/page[1]" position="after">
+                     <page string="出貨包材耗料" name="Packaging Line">
+                                    <field
+                                        name="packaging_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                    >
+                                   <tree string="出貨包材耗料" editable="bottom">
+                                      <field name="product_id" options="{'no_create':true,'no_create_edit':true}"/>
+                                       <field name="m_set_qty"/>
+                                       <field name="c_set_qty"/>
+                                       <field name="product_uom_id" options="{'no_create':true,'no_create_edit':true}"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="views_neweb_rps_wizard" model="ir.ui.view">
+            <field name="name">views.neweb.rps.wizard</field>
+            <field name="model">neweb.rps_wizard</field>
+            <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <h1>申購-採購-進貨狀態查詢精靈</h1>
+                    <group>
+                      <field name="rps_type"/>
+                      <field name="require_no" attrs="{'invisible':['|',('rps_type','=','2'),('rps_type','=',False)]}"/>
+                      <field name="emp_name"/>
+                      <field name="start_date" attrs="{'invisible':['|',('rps_type','=','1'),('rps_type','=',False)]}"/>
+                      <field name="end_date" attrs="{'invisible':['|',('rps_type','=','1'),('rps_type','=',False)]}"/>
+                      <field name="display_type"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button type="object" name="run_rps_search" string="查詢" class="oe_highlight"/>
+                    <button special="cancel" string="放棄"/>
+                </footer>
+            </form>
+            </field>
+        </record>
+        <record id="menu_neweb_rps_wizard_action" model="ir.actions.act_window">
+             <field name="name">申購-採購-進貨狀態查詢精靈</field>
+             <field name="res_model">neweb.rps_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+        <menuitem id="menu_neweb_rps_search_wizard_action"
+                  name="申購-採購-進貨狀態精靈"
+                  parent="menu_neweb_puchase_categ"
+                  action="menu_neweb_rps_wizard_action"
+                  groups="base.group_user"
+                  sequence="50"/>
+    </data>
+</odoo>

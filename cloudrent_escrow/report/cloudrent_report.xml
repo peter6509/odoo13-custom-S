@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="action_report_lessor_applyfor_escrow1" model="ir.actions.report">
+            <field name="name">出租人出租住宅申請書(代管)空表格</field>
+            <field name="model">crm.lead</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cloudrent_escrow.lessor_applyfor_escrow1</field>
+            <field name="report_file">cloudrent_escrow.lessor_applyfor_escrow1</field>
+            <field name="print_report_name">('出租人出租住宅申請書(代管).pdf')</field>
+            <field name="binding_model_id" ref="model_crm_lead"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_lessor_applyfor_escrow2" model="ir.actions.report">
+            <field name="name">出租人出租住宅申請書(包租)空表格</field>
+            <field name="model">crm.lead</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cloudrent_escrow.lessor_applyfor_escrow2</field>
+            <field name="report_file">cloudrent_escrow.lessor_applyfor_escrow2</field>
+            <field name="print_report_name">('出租人出租住宅申請書(包租).pdf')</field>
+            <field name="binding_model_id" ref="model_crm_lead"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_lessee_applyfor_escrow1" model="ir.actions.report">
+            <field name="name">民眾(房客)承租住宅申請書(代管)空表格</field>
+            <field name="model">crm.lead</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cloudrent_escrow.lessee_applyfor_escrow1</field>
+            <field name="report_file">cloudrent_escrow.lessee_applyfor_escrow1</field>
+            <field name="print_report_name">('民眾(房客)承租住宅申請書(代管).pdf')</field>
+            <field name="binding_model_id" ref="model_crm_lead"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_lessee_applyfor_escrow2" model="ir.actions.report">
+            <field name="name">民眾(房客)承租住宅申請書(包租)空表格</field>
+            <field name="model">crm.lead</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cloudrent_escrow.lessee_applyfor_escrow2</field>
+            <field name="report_file">cloudrent_escrow.lessee_applyfor_escrow2</field>
+            <field name="print_report_name">('民眾(房客)承租住宅申請書(包租).pdf')</field>
+            <field name="binding_model_id" ref="model_crm_lead"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_build_situation_sitecheck" model="ir.actions.report">
+            <field name="name">屋況及租屋安全檢核表(空表格)</field>
+            <field name="model">crm.lead</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cloudrent_escrow.build_situation_sitecheck</field>
+            <field name="report_file">cloudrent_escrow.build_situation_sitecheck</field>
+            <field name="print_report_name">('屋況及租屋安全檢核表.pdf')</field>
+            <field name="binding_model_id" ref="model_crm_lead"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_agent_applyfor_report" model="ir.actions.report">
+            <field name="name">業者服務-補助費用申請書</field>
+            <field name="model">cloudrent.agent_applyfor_report</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">cloudrent_escrow.report_agent_applyfor_report</field>
+            <field name="report_file">cloudrent_escrow.report_agent_applyfor_report</field>
+            <field name="print_report_name">('業者服務-補助費用申請書.pdf')</field>
+            <field name="binding_model_id" ref="model_cloudrent_agent_applyfor_report"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>

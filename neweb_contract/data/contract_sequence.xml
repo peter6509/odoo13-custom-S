@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Sequences for neweb_contract.contract -->
+        <record id="seq_neweb_contract_contract_pus" model="ir.sequence">
+            <field name="name">Contract PUS No</field>
+            <field name="code">neweb_contract.contract.pus</field>
+            <field name="prefix">PUS</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_neweb_contract_contract_mss" model="ir.sequence">
+            <field name="name">Contract MSS No</field>
+            <field name="code">neweb_contract.contract.mss</field>
+            <field name="prefix">MSS</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_neweb_contract_contract_pms" model="ir.sequence">
+            <field name="name">Contract PMS No</field>
+            <field name="code">neweb_contract.contract.pms</field>
+            <field name="prefix">PMS</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_neweb_contract_contract_asg" model="ir.sequence">
+            <field name="name">Contract ASG No</field>
+            <field name="code">neweb_contract.contract.asg</field>
+            <field name="prefix">ASG</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_neweb_contract_contract_lrs" model="ir.sequence">
+            <field name="name">Contract LRS No</field>
+            <field name="code">neweb_contract.contract.lrs</field>
+            <field name="prefix">LRS</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_neweb_contract_contract_svc" model="ir.sequence">
+            <field name="name">Contract SVC No</field>
+            <field name="code">neweb_contract.contract.svc</field>
+            <field name="prefix">SVC</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

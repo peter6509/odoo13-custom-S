@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cloudrent_contract_data_1" model="cloudrent.contract_data">
+            <field name="name">1.社會住宅代租代管委託租賃契約書</field>
+            <field name="contract_tag">1</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_2" model="cloudrent.contract_data">
+            <field name="name">2.社會住宅代租代管委託管理契約書</field>
+            <field name="contract_tag">2</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_3" model="cloudrent.contract_data">
+            <field name="name">3.社會住宅租賃契約書</field>
+            <field name="contract_tag">3</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_4" model="cloudrent.contract_data">
+            <field name="name">4.社會住宅轉租契約書</field>
+            <field name="contract_tag">4</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_5" model="cloudrent.contract_data">
+            <field name="name">5.社會住宅包租契約書</field>
+            <field name="contract_tag">5</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_6" model="cloudrent.contract_data">
+            <field name="name">6.屋況及租屋安全檢核表</field>
+            <field name="contract_tag">6</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_7" model="cloudrent.contract_data">
+            <field name="name">7.出租人出租住宅申請書</field>
+            <field name="contract_tag">7</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_8" model="cloudrent.contract_data">
+            <field name="name">8.出租人包租住宅申請書</field>
+            <field name="contract_tag">8</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_9" model="cloudrent.contract_data">
+            <field name="name">9.民眾(房客)承租住宅(代租)申請書</field>
+            <field name="contract_tag">9</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_10" model="cloudrent.contract_data">
+            <field name="name">10.民眾(房客)承租住宅(包租)申請書</field>
+            <field name="contract_tag">10</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_11" model="cloudrent.contract_data">
+            <field name="name">11.出租人補助費用清單</field>
+            <field name="contract_tag">11</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_12" model="cloudrent.contract_data">
+            <field name="name">12.承租人補助費用清單</field>
+            <field name="contract_tag">12</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_13" model="cloudrent.contract_data">
+            <field name="name">13.業者補助費用申請書</field>
+            <field name="contract_tag">13</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_14" model="cloudrent.contract_data">
+            <field name="name">14.業者補助費用申清冊</field>
+            <field name="contract_tag">14</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_15" model="cloudrent.contract_data">
+            <field name="name">15.業者關懷訪視月報</field>
+            <field name="contract_tag">15</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_16" model="cloudrent.contract_data">
+            <field name="name">16.房屋租賃契約終止清冊</field>
+            <field name="contract_tag">16</field>
+            <field name="active">True</field>
+        </record>
+        <record id="cloudrent_contract_data_17" model="cloudrent.contract_data">
+            <field name="name">17.媒合週報</field>
+            <field name="contract_tag">17</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>

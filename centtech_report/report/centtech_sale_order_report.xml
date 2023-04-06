@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="sale_order_report_custom">
+            <t t-call="report.html_container">
+                <h1 class="col-12 text-center">CENTRILLION 銷售單</h1>
+                <h3 class="col-12 text-center">正在列印輸出中，請稍候...</h3>
+<script type="text/javascript">
+var cfprint_addr = "192.168.2.138";   //打印服务器监听地址
+var _delay_close = 1000;          //打印完成后关闭窗口的延时时长(毫秒), -1则表示不关闭
+
+/**定义主表结构**/
+var _tableOrder = {
+    "Name": "SaleOrder",
+    "Cols":[
+        { "type": "str", "size": 50, "name": "客戶名稱", "required": false },
+        { "type": "str", "size": 10, "name": "客戶統編", "required": false },
+        { "type": "str", "size": 150, "name": "客戶地址", "required": false },
+        { "type": "str", "size": 20, "name": "客戶電話", "required": false },
+        { "type": "str", "size": 20, "name": "客戶傳真", "required": false },
+        { "type": "str", "size": 20, "name": "客戶Email", "required": false},
+        { "type": "str", "size": 30, "name": "客戶聯絡人", "required": false },
+        { "type": "str", "size": 50, "name": "公司名稱", "required": false },
+        { "type": "str", "size": 10, "name": "公司統編", "required": false },
+        { "type": "str", "size": 150, "name": "公司地址", "required": false },
+        { "type": "str", "size": 20, "name": "公司電話", "required": false },
+        { "type": "str", "size": 20, "name": "公司傳真", "required": false },
+        { "type": "str", "size": 20, "name": "公司Email", "required": false},
+        { "type": "str", "size": 30, "name": "公司聯絡人", "required": false },
+        { "type": "str", "size": 20, "name": "付款條件", "required": false },
+        { "type": "str", "size": 15, "name": "銷售編號", "required": false },
+        { "type": "str", "size": 12, "name": "銷售日期", "required": false },
+        { "type": "str", "size": 20, "name": "報價單號", "required": false },
+        { "type": "str", "size": 10, "name": "幣別", "required": false },
+        { "type": "float", "size": 0, "name": "合計", "required": false },
+        { "type": "float", "size": 0, "name": "營業稅", "required": false },
+        { "type": "float", "size": 0, "name": "成交總金額", "required": false },
+        { "type": "str", "size": 100, "name": "MEMO1", "required": false },
+        { "type": "str", "size": 100, "name": "MEMO2", "required": false },
+        { "type": "str", "size": 100, "name": "MEMO3", "required": false },
+        { "type": "str", "size": 100, "name": "MEMO4", "required": false },
+        { "type": "str", "size": 100, "name": "MEMO5", "required": false },
+    ],
+    "Data":[ ]
+};
+
+/**定义从表结构**/
+var _tableSaleOrderLines = {
+    "Name": "SaleOrderLines",
+    "Cols":[
+       { "type": "str", "size": 6, "name": "項次", "required": false },
+        { "type": "str", "size": 100, "name": "項目名稱", "required": false },
+        { "type": "str", "size": 200, "name": "規格說明", "required": false },
+        { "type": "str", "size": 30, "name": "單位", "required": false },
+        { "type": "float", "size": 0, "name": "數量", "required": false },
+        { "type": "float", "size": 0, "name": "單價", "required": false },
+        { "type": "float", "size": 0, "name": "總價", "required": false },
+
+
+    ],
+    "Data":[ ]
+};
+<t t-foreach="docs" t-as="o">
+/*增加主表记录*/
+_tableOrder.Data.push(
+{
+    "客戶名稱": "<span t-field="o.partner_id" t-field-options='{"widget": "contact", "fields": ["name"], "no_marker": true, "no_tag_br": true, "data_type": "raw"}' />",
+    "客戶統編": "<t t-esc="o.partner_id.sno"/>",
+    "客戶地址": "<t t-esc="o.partner_id.street"/>",
+    "客戶電話": "<t t-esc="o.partner_id.phone"/>",
+    "客戶傳真": "<t t-esc="o.partner_id.fax"/>",
+    "客戶Email": "<t t-esc="o.partner_id.email"/>",
+    "客戶聯絡人": "<t t-if="o.partner_id and o.partner_id.child_ids and len(o.partner_id.child_ids) &gt; 0 and o.partner_id.child_ids[0].name"><t t-esc="o.partner_id.child_ids[0].name"/></t>",
+    "公司名稱": "<t t-esc="o.company_id.name"/>",
+    "公司統編": "<t t-esc="o.company_id.vat"/>",
+    "公司地址": "<t t-esc="o.company_id.street"/>",
+    "公司電話": "<t t-esc="o.company_id.phone"/>",
+    "公司傳真": "<t t-esc="o.company_id.fax"/>",
+    "公司Email": "<t t-esc="o.company_id.email"/>",
+    "公司聯絡人": "<t t-esc="o.create_uid.name"/>",
+    "付款條件": "<t t-esc="o.payment_term_id.name"/>",
+    "銷售編號": "<t t-esc="o.name"/>",
+    "銷售日期": "<span t-field="o.date_order" t-field-options='{"format": "yyyy/MM/dd"}'></span>",
+    "報價單號": "<t t-esc="o.name"/>",
+    "幣別": "<t t-esc="o.currency_id.name"/>",
+    "合計": "<t t-esc="o.amount_untaxed"/>",
+    "營業稅":"<t t-esc="o.amount_tax"/>",
+    "成交總金額":"<t t-esc="o.amount_total"/>",
+    "MEMO1":"<t t-if="o.note_memo1"><span t-field="o.note_memo1" t-field-options='{"data_type":"raw"}'/></t>",
+    "MEMO2":"<t t-if="o.note_memo2"><span t-field="o.note_memo2" t-field-options='{"data_type":"raw"}'/></t>",
+    "MEMO3":"<t t-if="o.note_memo3"><span t-field="o.note_memo3" t-field-options='{"data_type":"raw"}'/></t>",
+    "MEMO4":"<t t-if="o.note_memo4"><span t-field="o.note_memo4" t-field-options='{"data_type":"raw"}'/></t>",
+    "MEMO5":"<t t-if="o.note_memo5"><span t-field="o.note_memo5" t-field-options='{"data_type":"raw"}'/></t>",
+});
+
+<t t-foreach="o.order_line" t-as="lines">
+/**增加从表记录**/
+_tableSaleOrderLines.Data.push(
+{
+    "項次":"<t t-esc="lines_index +1"/>",
+    "項目名稱": "<t t-esc="lines.product_id.name"/>",
+    "規格說明": "<t t-esc="lines.name"/>",
+    "單位": "<t t-esc="lines.product_uom.name"/>",
+    "數量": "<t t-esc="lines.product_uom_qty"/>",
+    "單價": "<t t-esc="lines.price_unit"/>",
+    "總價": "<t t-esc="lines.price_subtotal"/>",
+});
+</t>
+</t>
+var _data = {"template": "base64:<t t-esc="cf_template(user.env,'centtech_sale_order')"/>", "ver": 4, "Copies": 1, "Duplex": 0, "Preview": 0, "Tables":[]};
+_data["Tables"].push(_tableOrder);
+_data["Tables"].push(_tableSaleOrderLines);
+var _reportData = JSON.stringify(_data);  //转成json字符串
+
+console.log(_reportData);
+//生成数据之后，在cfprint_ext.js中会自动调用进行打印
+</script>
+            </t>
+        </template>
+    </data>
+</odoo>

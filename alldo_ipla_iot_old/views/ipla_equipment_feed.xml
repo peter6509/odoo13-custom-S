@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ipla_equipment_feed_tree" model="ir.ui.view">
+            <field name="name">ipla.equipment.feed.tree</field>
+            <field name="model">alldo_ipla_iot.equipment_feed</field>
+            <field name="arch" type="xml">
+                <tree string="" create="false">
+                    <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+<!--                    <field name="mixprod_no" options="{'no_create':true,'no_create_edit':true}"/>-->
+                    <field name="lot_id" options="{'no_create':true,'no_create_edit':true}"/>
+<!--                    <field name="mo_no" options="{'no_create':true,'no_create_edit':true}"/>-->
+                    <field name="move_datetime" string="投料時間"/>
+                    <field name="quantity" string="數量"/>
+                    <field name="product_uom_id" options="{'no_create':true,'no_create_edit':true}"/>
+                    <field name="equipment_no" options="{'no_create':true,'no_create_edit':true}"
+                       domain="[('category_id','=',3)]"/>
+                    <field name="stock_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                </tree>
+            </field>
+        </record>
+        <record id="acme_furnace_stockmove_form" model="ir.ui.view">
+            <field name="name">acme.furnace.stockmove.form</field>
+            <field name="model">alldo_ipla_iot.equipment_feed</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+<!--                            <field name="mixprod_no" options="{'no_create':true,'no_create_edit':true}"/>-->
+                            <field name="lot_id" options="{'no_create':true,'no_create_edit':true}"/>
+<!--                            <field name="mo_no" options="{'no_create':true,'no_create_edit':true}"/>-->
+<!--                            <field name="move_type"/>-->
+                            <field name="move_datetime" string="投耗料時間"/>
+                            <field name="quantity" string="數量"/>
+                            <field name="product_uom_id" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="equipment_no" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="stock_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="acme_furnace_search" model="ir.ui.view">
+           <field name="name">acme.furnace.search</field>
+           <field name="model">alldo_ipla_iot.equipment_feed</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="product_no" string="關鍵字" filter_domain="['|',('product_no.default_code','like',self),('lot_id.name','like',self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="acme_furnace_stockmove_action" model="ir.actions.act_window">
+            <field name="name">鋁料投耗熔爐記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_ipla_iot.equipment_feed</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

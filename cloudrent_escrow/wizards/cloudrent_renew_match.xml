@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_cloudrent_renew_match_wizard" model="ir.ui.view">
+             <field name="name">views.cloudrent.renew.match.wizard</field>
+             <field name="model">cloudrent.renew_match</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>媒合合約續約作業</h1>
+                     <group>
+                       <field name="match_type"/>
+                       <field name="match_no" domain="[('can_renew','=',True)]"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_renew_match" string="產生媒合續約" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_cloudrent_renew_match_wizard_action" model="ir.actions.act_window">
+             <field name="name">媒合合約續約作業</field>
+             <field name="res_model">cloudrent.renew_match</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

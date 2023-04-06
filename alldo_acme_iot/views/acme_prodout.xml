@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="acme_prodout_tree" model="ir.ui.view">
+            <field name="name">acme.prodout.tree</field>
+            <field name="model">alldo_acme_iot.prodout</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="prodout_date"/>
+                    <field name="partner_id"/>
+                    <field name="prodout_owner"/>
+                </tree>
+            </field>
+        </record>
+        <record id="acme_prodout_form" model="ir.ui.view">
+            <field name="name">acme.prodout.form</field>
+            <field name="model">alldo_acme_iot.prodout</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="prodout_date"/>
+                            <field name="partner_id"/>
+                            <field name="prodout_owner"/>
+                            <field name="prodout_memo"/>
+                        </group>
+                         <notebook>
+                            <page string="委外供料記錄" name="outsourcing Line">
+                                <field name="prodout_line" widget="section_and_note_one2many" mode="tree">
+                               <tree string="委外供料記錄" editable="bottom">
+                                    <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+                                    <field name="prodout_no" options="{'no_create':true,'no_create_edit':true}"/>
+                                    <field name="eng_type" invisible="1"/>
+                                    <field name="out_good_num" />
+                                    <field name="out_plastic_frame1"/>
+                                    <field name="out_plastic_frame2" />
+                                    <field name="out_pallet"/>
+                                    <field name="prodout_desc"/>
+                                    <field name="picking_id" options="{'no_create':true,'no_create_edit':true}" attrs="{'readonly':1}"/>
+                                </tree>
+                                </field>
+                            </page>
+                         </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="acme_prodout_search" model="ir.ui.view">
+           <field name="name">acme.prodout.search</field>
+           <field name="model">alldo_acme_iot.prodout</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="partner_id" string="關鍵字" filter_domain="['|',('partner_id.name','ilike',self),('prodout_line.product_no.default_code','ilike',self)]"/>
+                <filter name="group_partner_id" string="委外商群組" icon="terp-partner" context="{'group_by':'partner_id'}"/>
+            </search>
+           </field>
+        </record>
+        <record id="acme_prodout_action" model="ir.actions.act_window">
+            <field name="name">委外加工供料作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_acme_iot.prodout</field>
+            <field name="view_mode">tree,form</field>
+<!--            <field name="context">{ 'search_default_group_partner_id':1 }</field>-->
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_entrust_escrow_contract_tree" model="ir.ui.view">
+            <field name="name">view.entrust.escrow.contract.tree</field>
+            <field name="model">cloudrent.entrust_escrow_contract</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" width="6%%"/>
+                    <field name="escrow_no" width="8%"/>
+                    <field name="build_no" width="7%%"/>
+                    <field name="house_number" width="7%%"/>
+                    <field name="place_number" width="7%%"/>
+                    <field name="build_number" width="7%%"/>
+                    <field name="build_rent_situation" width="8%%"/>
+                    <field name="entrust_start_date" width="5%%"/>
+                    <field name="entrust_end_date" width="5%%"/>
+                    <field name="build_for_rent" width="5%%"/>
+                    <field name="entrust_applyfor_date" width="5%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_entrust_escrow_contract_form" model="ir.ui.view">
+            <field name="name">view.entrust.escrow.contract.form</field>
+            <field name="model">cloudrent.entrust_escrow_contract</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" attrs="{'readonly':1}" save_force="1"/>
+                                <field name="escrow_no"/>
+                                <field name="build_no"/>
+                                <field name="build_number"/>
+                                <field name="house_number"/>
+                                <field name="place_number"/>
+                                <field name="parking_space"/>
+                                <field name="ancillary_equipment"/>
+                                <field name="build_rent_situation"/>
+                                <field name="entrust_start_date"/>
+                                <field name="entrust_end_date"/>
+                                <field name="deposit_nmonth"/>
+                                <field name="escrow_nyear"/>
+                                <field name="escrow_nmonth"/>
+                            </group>
+                            <gropu>
+                                <field name="rent_man" attrs="{'invisible':[('build_rent_situation','in',('1','2','4'))]}"/>
+                                <field name="rent_duedate" attrs="{'invisible':[('build_rent_situation','in',('1','2','4'))]}"/>
+                                <field name="rent_other_desc" attrs="{'invisible':[('build_rent_situation','in',('1','2','3'))]}"/>
+                                <field name="build_for_rent"/>
+                                <field name="rent_paytype"/>
+                                <field name="build_lessor" domain="[('escrow_type','=','1')]"/>
+                                <field name="lessor_pid"/>
+                                <field name="lessor_fin_instno"/>
+                                <field name="lessor_fin_branch"/>
+                                <field name="lessor_fin_account"/>
+                                <field name="agent_man" domain="[('escrow_type','in',('3','4','5'))]"/>
+                                <field name="real_estate_broker" domain="[('escrow_type','=','4')]"/>
+                                <field name="entrust_applyfor_date"/>
+                            </gropu>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_entrust_escrow_contract_search" model="ir.ui.view">
+           <field name="name">view.entrust.escrow.contract.search</field>
+           <field name="model">cloudrent.entrust_escrow_contract</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="name" string="單號" filter_domain="[('name','ilike',self)]"/>
+                <field name="escrow_no" string="代管業者" filter_domain="[('escrow_no.bus_nme','ilike',self)]"/>
+                <field name="build_number" string="建號" filter_domain="[('build_number','ilike',self)]"/>
+                <field name="build_lessor" string="出租人" filter_domain="[('build_lessor.escrow_man','ilike',self)]"/>
+                <field name="build_no" string="物件編號" filter_domain="[('build_no.object_no','ilike',self)]"/>
+                <filter string="所有權人自行使用" domain="[('build_rent_situation','=','1')]" name="situation1"/>
+                <filter string="空屋無人使用" domain="[('build_rent_situation','=','2')]" name="situation2"/>
+                <filter string="現有人承租" domain="[('build_rent_situation','=','3')]" name="situation3"/>
+                <separator/>
+                <filter string="有車位" domain="[('parking_space','=',True)]" name="parking1"/>
+                <filter string="無車位" domain="[('parking_space','=',False)]" name="parking2"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_entrust_escrow_contract_view" model="ir.actions.act_window">
+            <field name="name">代租代管委託租賃契約書</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.entrust_escrow_contract</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_entrust_escrow_contract_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_entrust_escrow_contract_form')}),]"/>
+            <field name="search_view_id" ref="view_entrust_escrow_contract_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

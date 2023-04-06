@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_contract_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.contract.form.inherit</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="inherit_id" ref="neweb_contract.contract_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button name="%(action_neweb_contract_wizard)d" type="action" string="成本分析匯入合約"  context="{'contract_id': context.get('active_id') }"
+                       class="oe_highlight oe_edit_only" attrs="{'invisible':[('name','!=','NEW')]}"/>
+                    <button name="%(neweb_contractline_action)d" type="action" string="維運明細資料匯入" context="{'contract_id': context.get('active_id')}"
+                       class="oe_highlight oe_edit_only" />
+                </header>
+                <xpath expr="//field[@name='tx_price']" position="replace">
+                    <field name="main_cost" groups="neweb_project.neweb_cs50_assi,neweb_project.neweb_cs40_user,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs20_vp,neweb_project.neweb_cs10_gm"/>
+                    <field name="main_manpower_cost" groups="neweb_project.neweb_cs50_assi,neweb_project.neweb_cs40_user,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs20_vp,neweb_project.neweb_cs10_gm"/>
+                </xpath>
+                <!--<xpath expr="//field[@name='main_cost']" position="replace">-->
+
+                <!--</xpath>-->
+                 <!--<xpath expr="//field[@name='main_manpower_cost']" position="replace">-->
+
+                <!--</xpath>-->
+                <xpath expr="//field[@name='project_no']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='customer_name']" position="before">
+                    <field name="project_no" string="專案編號"/>
+                    <field name="contract_no" string="合約編號"/>
+                </xpath>
+                <xpath expr="//field[@name='ae_dept']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='ae']" position="replace">
+                    <field name="ae1" widget="many2many_tags"/>
+                </xpath>
+                 <xpath expr="//field[@name='daily_maintain_hour_start']" position="replace">
+                </xpath>
+                 <xpath expr="//field[@name='daily_maintain_hour_end']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='ae1']" position="after">
+                    <field name="daily_maintain_hour_start"/>
+                    <field name="daily_maintain_hour_end"/>
+                </xpath>
+                <xpath expr="//field[@name='penalties']" position="after">
+                   <group>
+                    <sheet>
+                         <h2>定檢維護記錄</h2>
+                        <field name="routine_maintenance_new" attrs="{'invisible':1}"/>
+                         <button type="object" string="合約維護時序產生" name="subscribe_run" class="oe_highlight oe_edit_only"
+                              attrs="{'invisible':['|','|',('subscribe_build','!=',False),('routine_maintenance_new','=',False),('inspection_method','=','none')]}"
+                               context="{'contract_id': context.get('active_id') }"/>
+
+
+                              <field name="inspection_line" nolabel="1" mode="tree" widget="section_and_note_one2many" context="{'group_by':'subscribe_year'}">
+                                  <tree editable="bottom" string="定保記錄" >
+                                    <field name="subscribe_year"/>
+                                    <field name="subscribe_date"/>
+                                    <field name="actual_date" />
+                                    <field name="inspection_man" widget="many2many_tags" />
+                                    <field name="inspection_memo" />
+                                    <field name="inspection_attach" context="{'default_res_model': 'neweb_contract.inspection_list'}" widget="many2many_binary" />
+                                  </tree>
+                              </field>
+
+
+                    </sheet>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='inspection_date']" position="after">
+                    <field name="subscribe_build" attrs="{'invisible':1}"/>
+                </xpath>
+                <xpath expr="//field[@name='recovery_rehearsal_datetime']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='recovery_rehearsal_status']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='recovery_rehearsal_description']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='penalties']" position="before">
+                    <group>
+                    <field name="dr_line" nolabel="1" widget="section_and_note_one2many" attrs="{'invisible':[('need_recovery_rehearsal','=',False)]}">
+                            <tree editable="bottom" string="DR記錄" >
+                              <field name="dr_date" />
+                              <field name="dr_description"/>
+                              <field name="dr_attach" context="{'default_res_model': 'neweb_contract.dr_practice'}" widget="many2many_binary"/>
+                            </tree>
+                     </field>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='need_recovery_rehearsal']" position="after">
+                    <field name="dr_time" string="需演練次數" attrs="{'invisible':[('need_recovery_rehearsal','=',False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='penalties']" position="before">
+                    <label for="need_training" string="需要教育訓練"/>
+                    <field name="need_training" />
+                     <group>
+                       <field name="training_line" nolabel="1" widget="section_and_note_one2many" attrs="{'invisible':[('need_training','=',False)]}">
+                            <tree editable="bottom" string="Training記錄">
+                              <field name="training_date"/>
+                              <field name="training_desc"/>
+                            </tree>
+                       </field>
+                     </group>
+                </xpath>
+                <xpath expr="//field[@name='value_added_service_ids']" position="replace">
+                </xpath>
+                <xpath expr="//field[@name='penalties']" position="before">
+                    <field name="value_added_service_ids" widget="many2many_tags" />
+                </xpath>
+                 <!--<xpath expr="//field[@name='state']" position="attributes">-->
+                     <!--<attribute name="attrs">{'invisible':1}</attribute>-->
+                 <!--</xpath>-->
+                <!--<xpath expr="//button[@name='contract_validate']" position="attribuates">-->
+                    <!--<attribute name="attrs">{'invisible':1}</attribute>-->
+                <!--</xpath>-->
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,55 @@
+# -*- coding: utf-8 -*-
+{
+	'name': '<11>.NEWEB FOR 正航進銷存模組',
+	'version': '13.0',
+	'summary': "NEWEB FOR CHI INVOICING MODULE",
+	'sequence': 14,
+	'description': """
+Neweb Contract
+==============
+Neweb For Chi Invoicing Module.""",
+    "website": "http://www.odootw.com.tw",
+    "author": "AllDo Technology",
+    'category': 'Invoicing',
+    'version': '10',
+    'depends': ['base', 'neweb_project','neweb_purchase','neweb_stockin','neweb_invoice'],
+    'data': [
+             'data/neweb_chi_invoicing_report_data.xml',
+             'security/neweb_chi_invoicing_security.xml',
+             'security/ir.model.access.csv',
+             # 'security/neweb_export_download_security.xml',
+             'security/neweb_export_package_download_security.xml',
+             'views/neweb_chi_invoicing_un_export_proj.xml',
+             'wizards/neweb_chi_invoicing1_wizard.xml',
+             'wizards/neweb_chi_invoicing2_wizard.xml',
+             'wizards/neweb_chi_invoicing3_wizard.xml',
+             'wizards/neweb_chi_invoicing4_wizard.xml',
+             'wizards/neweb_chi_invoicing5_wizard.xml',
+             'views/neweb_chi_invoicing_download.xml',
+             'views/neweb_chi_invoicing_un_export_proj.xml',
+             'views/neweb_chi_invoicing_package_download.xml',
+             'views/neweb_chi_invoicing_purchase_log.xml',
+             'views/neweb_chi_invoicing_sales_log.xml',
+             'views/neweb_chi_invoicing_purinv_gen.xml',
+             'views/neweb_chi_invoicing_project_saleitem_inherit.xml', # 臨時 mark
+             'views/neweb_chi_invoicing_un_export_purinv.xml',
+             'views/neweb_chi_invoicing_purinv_download.xml',
+             'views/neweb_chi_invoicing_package_purinv_download.xml',
+             'views/neweb_chi_invoicing_package_saleinv_download.xml',
+             'views/neweb_chi_invoicing_saleinv_download.xml',
+             'views/neweb_chi_invoicing_invoiceopen_gen.xml',
+             'views/neweb_chi_invoicing_un_export_invoiceopen.xml',
+             'wizards/neweb_chi_invoicing6_wizard.xml',
+             'views/neweb_chi_invoicing_un_export_main_proj.xml',
+             'wizards/neweb_chi_invoicing7_wizard.xml',
+             'wizards/neweb_chi_invoicing8_wizard.xml',
+             'views/neweb_chi_purchase_line.xml',
+             'views/neweb_chi_invoicing_menu.xml',
+    ],
+
+    'description' : '<11>.NEWEB FOR 正航進銷存模組',
+    'summary': '<11>.NEWEB FOR 正航進銷存模組',
+    'installable': True,
+    'application': True,
+
+}

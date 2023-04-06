@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <report id="action_alldo_gh_iot_wkorder_report"
+                model="alldo_gh_iot.workorder"
+                string="生產工單"
+                report_type="qweb-html"
+                name="alldo_gh_iot.alldo_gh_iot_wkorder_report"
+                file="alldo_gh_iot.alldo_gh_iot_wkorder_report"
+                />
+         <report id="action_alldo_gh_iot_wkorder_report1"
+                model="alldo_gh_iot.workorder"
+                string="台灣瀧澤生產工單"
+                report_type="qweb-html"
+                name="alldo_gh_iot.alldo_gh_iot_wkorder_report1"
+                file="alldo_gh_iot.alldo_gh_iot_wkorder_report1"
+                />
+         <report id="action_alldo_gh_iot_empbarcode_report"
+                model="alldo_gh_iot.empinfo"
+                string="人員識別卡"
+                report_type="qweb-html"
+                name="alldo_gh_iot.alldo_gh_iot_empbarcode_report"
+                file="alldo_gh_iot.alldo_gh_iot_empbarcode_report"
+                />
+        <report id="action_alldo_gh_iot_equipstatusbarcode_report"
+                model="alldo_gh_iot.equipstatusinfo"
+                string="設備故障條碼"
+                report_type="qweb-html"
+                name="alldo_gh_iot.alldo_gh_iot_equipstatusbarcode_report"
+                file="alldo_gh_iot.alldo_gh_iot_equipstatusbarcode_report"
+                />
+         <report id="action_alldo_gh_iot_shipping_report"
+                model="alldo_gh_iot.stockpicking_report"
+                string="JH出貨單"
+                report_type="qweb-html"
+                name="alldo_gh_iot.stockpicking_report"
+                file="alldo_gh_iot.stockpicking_report"
+                />
+        <report id="action_alldo_gh_iot_ngreturn_report"
+                model="alldo_gh_iot.ngreturn_report"
+                string="JH NG退料單"
+                report_type="qweb-html"
+                name="alldo_gh_iot.ngreturn_report"
+                file="alldo_gh_iot.ngreturn_report"
+                />
+        <report id="action_alldo_gh_iot_outsourcing_report"
+                model="alldo_gh_iot.outsourcing_report"
+                string="JH 委外加工單"
+                report_type="qweb-html"
+                name="alldo_gh_iot.outsourcing_report"
+                file="alldo_gh_iot.outsourcing_report"
+                />
+         <report id="action_report_purchase_order"
+                model="purchase.order"
+                string="JH 採購單"
+                report_type="qweb-pdf"
+                name="alldo_gh_iot.report_jhiot_purchase_order"
+                file="alldo_gh_iot.report_jhiot_purchase_order"
+                print_report_name="('JH採購單')"
+                />
+         <report id="action_report_purchase_order1"
+                model="purchase.order"
+                string="JH 詢價單"
+                report_type="qweb-pdf"
+                name="alldo_gh_iot.report_jhiot_purchase_order1"
+                file="alldo_gh_iot.report_jhiot_purchase_order1"
+                print_report_name="('JH詢價單')"
+                />
+    </data>
+</odoo>

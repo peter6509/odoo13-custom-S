@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_acme_iot_po_wkorder_tree" model="ir.ui.view">
+           <field name="name">view.acme.iot.po.wkorder.tree</field>
+           <field name="model">alldo_acme_iot.po_wkorder</field>
+           <field name="arch" type="xml">
+               <tree string="" create="false">
+                   <field name="so_no"/>
+                   <field name="cus_name"/>
+                   <field name="product_no"/>
+                   <field name="shipping_date"/>
+                   <field name="po_num"/>
+                   <field name="blank_num"/>
+                   <field name="stock_num"/>
+                   <field name="shipping_num"/>
+                   <field name="state"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_acme_iot_po_wkorder_form" model="ir.ui.view">
+           <field name="name">view.acme.iot.po.wkorder.form</field>
+           <field name="model">alldo_acme_iot.po_wkorder</field>
+           <field name="arch" type="xml">
+               <form string="">
+                    <header>
+                     <button name="complete_powkorder" type="object"
+                            string="訂單結案" class="oe_highlight"
+                            context="{'powkorder_id': context.get('active_id')}"
+                            attrs="{'invisible': [('state', 'in', ['3','4'])]}"/>
+                     <field name="state" widget="statusbar"/>
+                    </header>
+                   <sheet>
+                       <group>
+                           <field name="so_no"/>
+                           <field name="cus_name" options="{'no_create':true,'no_create_edit':true}"/>
+                           <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+                           <field name="shipping_date"/>
+                       </group>
+                       <group>
+                           <field name="po_num"/>
+                           <field name="blank_num"/>
+                           <field name="stock_num"/>
+                           <field name="shipping_num"/>
+                           <field name="is_closed"/>
+                       </group>
+                       <notebook>
+                                <page string="生產工單" name="PO Line">
+                                    <field
+                                        name="po_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                    >
+                                   <tree string="產品工單記錄" editable="bottom">
+                                      <field name="wkorder_id" string="工單" options="{'no_create':true,'no_create_edit':true}" />
+                                      <field name="eng_type" />
+                                      <field name="eng_order" />
+                                      <field name="eng_seq"/>
+                                      <field name="complete_num"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                                <page string="委外加工" name="PO Line">
+                                    <field
+                                        name="sub_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                    >
+                                   <tree string="委外加工記錄" editable="bottom">
+                                      <field name="outsourcing_id" string="委外工單" options="{'no_create':true,'no_create_edit':true}" />
+                                      <field name="eng_type" />
+                                      <field name="eng_seq"/>
+                                      <field name="eng_order" />
+                                      <field name="complete_num"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                       </notebook>
+                   </sheet>
+
+               </form>
+           </field>
+       </record>
+         <record id="view_acme_iot_po_wkorder_search" model="ir.ui.view">
+           <field name="name">view.acme.iot.po.wkorder.search</field>
+           <field name="model">alldo_acme_iot.po_wkorder</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="po_no" string="關鍵字" filter_domain="['|',('po_no', 'ilike',self),('cus_name.name,'ilike',self)]"/>
+              <filter domain="[('state','in',['1','2'])]" string="未完工" name="uncomplete"/>
+              <filter domain="[('state','=','3')]" string="已完工" name="complete"/>
+            </search>
+           </field>
+        </record>
+       <record id="action_acme_iot_po_wkorder_view" model="ir.actions.act_window">
+           <field name="name">客戶訂單狀況</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">alldo_acme_iot.po_wkorder</field>
+           <field name="view_mode">tree,form</field>
+             <field name="search_view_id" ref="view_acme_iot_po_wkorder_search"></field>
+            <field name="context">{ 'search_default_uncomplete': 1, }</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+
+             </p><p>
+
+             </p>
+           </field>
+       </record>
+    </data>
+</odoo>

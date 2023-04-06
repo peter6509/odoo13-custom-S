@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_assign_tree_inherit" model="ir.ui.view">
+            <field name="name">neweb.assign.tree.inherit</field>
+            <field name="model">neweb.proj_eng_assign</field>
+            <field name="inherit_id" ref="neweb_project.neweb_proj_assign_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='setup_date']" position="after">
+                    <field name="perm_member" invisible="1"/>
+                    <!-- Add new fields here -->
+                </xpath>
+
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_proj_assign_form" model="ir.ui.view">
+            <field name="name">view.inherit.proj.assign.form</field>
+            <field name="model">neweb.proj_eng_assign</field>
+            <field name="inherit_id" ref="neweb_project.neweb_proj_assign_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='eng_attach']" position="after">
+                    <button name="run_clean_setupprod" string="清除裝機明細" type="object" class="oe_highlight oe_edit_only"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

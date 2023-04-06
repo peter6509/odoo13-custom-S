@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_contract_contract_form_ext" model="ir.ui.view">
+            <field name="name">neweb_contract.contract.form.ext</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="inherit_id" ref="neweb_contract.contract_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@class='oe_title']" position="before">
+
+                    <div class="oe_button_box" name="button_box">
+                         <button name="action_view_timesheet"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-wrench">
+                            <field name="timesheet_count" widget="statinfo" string="TimeSheet Hrs"/>
+                        </button>
+                        <button name="action_view_repair"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-wrench">
+                            <field name="repair_count" widget="statinfo" string="Repair"/>
+                        </button>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_contract_repair_list" model="ir.actions.act_window">
+            <field name="name">Repairs</field>
+            <field name="res_model">neweb_repair.repair</field>
+        </record>
+
+    </data>
+</odoo>

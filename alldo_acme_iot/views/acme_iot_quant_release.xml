@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="acme_iot_quant_release_tree" model="ir.ui.view">
+            <field name="name">acme.iot.quant.release.tree</field>
+            <field name="model">alldo_acme_iot.quant_release</field>
+            <field name="arch" type="xml">
+                <tree string="" create="false">
+                    <field name="release_owner"/>
+                    <field name="release_lot"/>
+                    <field name="release_prod"/>
+                    <field name="release_num"/>
+                    <field name="release_date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="acme_iot_quant_release_action" model="ir.actions.act_window">
+            <field name="name">批號歸檔記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_acme_iot.quant_release</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    	 <report id="action_centtech_sale_order_report"
+                model="sale.order"
+                string="國內銷售訂單"
+                report_type="qweb-html"
+                name="centtech_report.sale_order_report_custom"
+                file="centtech_report.sale_order_report_custom"
+                />
+
+        <report id="action_centtech_sale_order_reportp"
+                model="sale.order"
+                string="國內銷售訂單(預覽)"
+                report_type="qweb-html"
+                name="centtech_report.sale_order_report_customp"
+                file="centtech_report.sale_order_report_customp"
+                />
+
+
+		 <report id="action_centtech_purchase_order_report"
+                model="purchase.order"
+                string="國內採購單"
+                report_type="qweb-html"
+                name="centtech_report.purchase_order_report_custom"
+                file="centtech_report.purchase_order_report_custom"
+                />
+
+         <report id="action_centtech_purchase_order_reportp"
+                model="purchase.order"
+                string="國內採購單(預覽)"
+                report_type="qweb-html"
+                name="centtech_report.purchase_order_report_customp"
+                file="centtech_report.purchase_order_report_customp"
+                />
+
+
+        <report id="action_centtech_purchase_order_report1"
+                model="purchase.order"
+                string="國外採購單"
+                report_type="qweb-html"
+                name="centtech_report.purchase_order_report_custom1"
+                file="centtech_report.purchase_order_report_custom1"
+                />
+
+        <report id="action_centtech_purchase_order_report1p"
+                model="purchase.order"
+                string="國外採購單(預覽)"
+                report_type="qweb-html"
+                name="centtech_report.purchase_order_report_custom1p"
+                file="centtech_report.purchase_order_report_custom1p"
+                />
+
+
+
+		<!--<report id="action_neweb_purchase_require_report"-->
+                <!--model="neweb.require_purchase"-->
+                <!--string="申購單"-->
+                <!--report_type="qweb-html"-->
+                <!--name="neweb_report.purchase_require_report_custom"-->
+                <!--file="neweb_report.purchase_require_report_custom"-->
+                <!--/>-->
+
+		<!--<report id="action_neweb_stock_picking_in_custom"-->
+                <!--model="stock.picking"-->
+                <!--string="進貨通知單"-->
+                <!--report_type="qweb-html"-->
+                <!--name="neweb_report.stock_picking_in_report_custom"-->
+                <!--file="neweb_report.stock_picking_in_report_custom"-->
+                <!--/>-->
+
+		<!--<report id="action_neweb_project_analytic_custom_report"-->
+                <!--model="neweb.project"-->
+                <!--string="成本分析"-->
+                <!--report_type="qweb-html"-->
+                <!--name="neweb_report.neweb_project_analytic_custom_report"-->
+                <!--file="neweb_report.neweb_project_analytic_custom_report"-->
+                <!--/>-->
+    </data>
+</odoo>

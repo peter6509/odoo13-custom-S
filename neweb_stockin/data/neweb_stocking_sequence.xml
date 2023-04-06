@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+          <!-- Sequences for sale.order -->
+        <record id="seq_neweb_stockpickoutb" model="ir.sequence">
+            <field name="name">STOCKOUT SEQB</field>
+            <field name="code">neweb_stockin.outb</field>
+            <field name="prefix">B%(year)s%(month)s%(day)s</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+<!--            <field name="auto_reset" eval="True"/>-->
+<!--            <field name="reset_period">day</field>-->
+<!--            <field name="reset_init_number">1</field>-->
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+        </record>
+         <record id="seq_neweb_stockpickouto" model="ir.sequence">
+            <field name="name">STOCKOUT SEQO</field>
+            <field name="code">neweb_stockin.outo</field>
+            <field name="prefix">O%(year)s%(month)s%(day)s</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+<!--            <field name="auto_reset" eval="True"/>-->
+<!--            <field name="reset_period">day</field>-->
+<!--            <field name="reset_init_number">1</field>-->
+            <field name="number_increment">1</field>
+            <field name="number_next">1</field>
+        </record>
+    </data>
+</odoo>

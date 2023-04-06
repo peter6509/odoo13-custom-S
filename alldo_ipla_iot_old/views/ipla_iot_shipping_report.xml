@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ipla_iot_shipping_report_tree" model="ir.ui.view">
+            <field name="name">ipla.iot.shipping.report.tree</field>
+            <field name="model">alldo_ipla_iot.stockpicking_report</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="report_date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ipla_iot_shipping_report_form" model="ir.ui.view">
+            <field name="name">ipla.iot.shipping.report.form</field>
+            <field name="model">alldo_ipla_iot.stockpicking_report</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="report_date"/>
+                            <field name="report_memo"/>
+                        </group>
+                         <notebook>
+                                <page string="出貨清單" name="shipping Line">
+                                    <field
+                                        name="report_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                    >
+                                   <tree string="出貨清單" editable="False">
+                                      <field name="item" string="項次1" />
+                                      <field name="prod_no" string="產品1"/>
+                                      <field name="prod_num" string="數量1" />
+                                      <field name="prod_uom" string="單位1"/>
+                                      <field name="prod_price" string="單價1" />
+                                      <field name="line_memo" string="MEMO1"/>
+                                      <field name="item1" string="項次2" />
+                                      <field name="prod_no1" string="產品2"/>
+                                      <field name="prod_num1" string="數量2" />
+                                      <field name="prod_uom1" string="單位2"/>
+                                      <field name="prod_price1" string="單價2" />
+                                      <field name="line_memo1" string="MEMO2"/>
+                                      <field name="item2" string="項次3" />
+                                      <field name="prod_no2" string="產品3"/>
+                                      <field name="prod_num2" string="數量3" />
+                                      <field name="prod_uom2" string="單位3"/>
+                                      <field name="prod_price2" string="單價3" />
+                                      <field name="line_memo2" string="MEMO3"/>
+                                      <field name="item3" string="項次4" />
+                                      <field name="prod_no3" string="產品4"/>
+                                      <field name="prod_num3" string="數量4" />
+                                      <field name="prod_uom3" string="單位4"/>
+                                      <field name="prod_price3" string="單價4" />
+                                      <field name="line_memo3" string="MEMO4"/>
+                                      <field name="item4" string="項次5" />
+                                      <field name="prod_no4" string="產品5"/>
+                                      <field name="prod_num4" string="數量5" />
+                                      <field name="prod_uom4" string="單位5"/>
+                                      <field name="prod_price4" string="單價5" />
+                                      <field name="line_memo4" string="MEMO5"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ipla_iot_shipping_report_action" model="ir.actions.act_window">
+            <field name="name">出貨單列印</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_ipla_iot.stockpicking_report</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

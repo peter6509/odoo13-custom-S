@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_ipla_accountmove_selectitem_wizard" model="ir.ui.view">
+             <field name="name">views.ipla.accountmove.selectitem.wizard</field>
+             <field name="model">alldo_ipla_iot.accountmove_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>客戶應收帳對帳單明細產出精靈</h1>
+                         <group>
+                             <field name="partner_id" options="{'no_create':true,'no_create_edit':true}"
+                                 domain="[('is_company','=',True),('active','=',True)]"/>
+                             <field name="report_type"/>
+                             <field name="report_no" attrs="{'invisible':[('report_type','=','1')]}"/>
+                             <field name="start_date" attrs="{'invisible':[('report_type','=','2')]}"/>
+                             <field name="end_date" attrs="{'invisible':[('report_type','=','2')]}"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_accountmove" string="明細產出" class="oe_highlight"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="ipla_accountmove_wizard_action" model="ir.actions.act_window">
+             <field name="name">客戶應收帳對帳單明細產出精靈</field>
+             <field name="res_model">alldo_ipla_iot.accountmove_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

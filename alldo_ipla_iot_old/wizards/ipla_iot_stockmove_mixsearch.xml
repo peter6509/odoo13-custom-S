@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_stockmove_mixsearch_wizard" model="ir.ui.view">
+             <field name="name">views.stockmove.mixsearch.wizard</field>
+             <field name="model">alldo_ipla_iot.stockmove_mixsearch</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>產品料號出貨複合式查詢</h1>
+                         <group>
+                             <field name="start_date"/>
+                             <field name="end_date"/>
+                             <field name="partner_id" options="{'no_create':true,'no_create_edit':true}" domain="[('is_company','=',True)]"/>
+                             <field name="product_id" options="{'no_create':true,'no_create_edit':true}"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_stockmove_mixsearch" string="查詢" class="oe_hiiplaliiplat"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="stockmove_mixsearch_wizard_action" model="ir.actions.act_window">
+             <field name="name">產品料號出貨複合式查詢</field>
+             <field name="res_model">alldo_ipla_iot.stockmove_mixsearch</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

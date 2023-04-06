@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_neweb_chi_invoicing_package_purinv_download_tree" model="ir.ui.view">
+            <field name="name">view.neweb.chi.invoicing.package.purinv.download.tree</field>
+            <field name="model">neweb_chi_invoicing.package_purinv_excel_download</field>
+            <field name="arch" type="xml">
+                <tree string="" >
+                    <field name="xls_file" filename="xls_file_name" widget="binary"/>
+                    <field name="xls_file_name" invisible="1"/>
+                    <field name="purchase_no"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_neweb_chi_invoicing_package_purinv_download_form" model="ir.ui.view">
+            <field name="name">view.neweb.chi.invoicing.package.purinv.download.form</field>
+            <field name="model">neweb_chi_invoicing.package_purinv_excel_download</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="purchase_no"/>
+                            <field name="xls_file" filename="xls_file_name" widget="binary"/>
+                            <field name="xls_file_name" invisible="1"/>
+                            <field name="invoicing_date"/>
+                            <field name="invoicing_owner"/>
+                            <field name="run_desc"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+         <record id="view_neweb_chi_invoicing_package_purinv_download_search" model="ir.ui.view">
+            <field name="name">view.neweb.chi.invoicing.package.purinv.download.search</field>
+            <field name="model">neweb_chi_invoicing.package_purinv_excel_download</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="purchase_no" filter_domain="[('purchase_no','ilike',self)]"/>
+                </search>
+            </field>
+        </record>
+        <record id="action_neweb_chi_invoicing_package_purinv_download_view" model="ir.actions.act_window">
+            <field name="name">(四).EXCEL整包匯出進項資料儲存區</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_chi_invoicing.package_purinv_excel_download</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

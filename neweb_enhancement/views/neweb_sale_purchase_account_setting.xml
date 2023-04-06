@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_sale_purchase_account_tree" model="ir.ui.view">
+            <field name="name">neweb.sale.purchase.account.tree</field>
+            <field name="model">neweb_enhancement.sale_purchase_account</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="sale_id"/>
+                    <field name="purchase_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_sale_purchase_account_form" model="ir.ui.view">
+            <field name="name">neweb.sale.purchase.account.form</field>
+            <field name="model">neweb_enhancement.sale_purchase_account</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="sale_id" options="{'no_create':1,'no_create_edit':1,'no_open':1}"/>
+                            <field name="purchase_id" options="{'no_create':1,'no_create_edit':1,'no_open':1}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_sale_purchase_account_action" model="ir.actions.act_window">
+            <field name="name">應收/應付會科設定</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_enhancement.sale_purchase_account</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_sale_purchase_account_action" name="" sequence="110"
+                  parent="base.menu_administration"
+                  groups="base.group_system"
+                  action="neweb_sale_purchase_account_action"/>
+    </data>
+</odoo>

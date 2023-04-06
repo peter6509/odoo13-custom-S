@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_require_maparts_tree" model="ir.ui.view">
+            <field name="name">neweb_require_maparts_tree</field>
+            <field name="model">neweb.ma_parts_type</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_require_maparts_form" model="ir.ui.view">
+            <field name="name">neweb_require_maparts_form</field>
+            <field name="model">neweb.ma_parts_type</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_require_maparts_action" model="ir.actions.act_window">
+            <field name="name">neweb_require_maparts_action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.ma_parts_type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_require_maparts_action"
+                  name=""
+                  parent="neweb_project.neweb_proj_config"
+                  action="neweb_require_maparts_action"
+                  sequence="210"/>
+    </data>
+</odoo>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_match_import_wizard" model="ir.ui.view">
+             <field name="name">views.match.import.wizard</field>
+             <field name="model">cloudrent.match_import_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>媒合主檔EXCEL匯入系統</h1>
+                     <group>
+                         <field name="excel_file"/>
+                         <field name="sheet_num"/>
+                         <field name="escrow_agent"/>
+                         <field name="admin_area"/>
+                         <field name="start_row"/>
+                         <field name="end_row"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="match_action_import" string="匯入" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_match_import_wizard_action" model="ir.actions.act_window">
+             <field name="name">媒合主檔EXCEL匯入</field>
+             <field name="res_model">cloudrent.match_import_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

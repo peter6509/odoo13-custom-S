@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_callserviceresponse_view_tree" model="ir.ui.view">
+            <field name="name">neweb.callserviceresponse.view.tree</field>
+            <field name="model">neweb.call_service_response</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_callserviceresponse_view_form" model="ir.ui.view">
+            <field name="name">neweb.callserviceresponse.view.form</field>
+            <field name="model">neweb.call_service_response</field>
+            <field name="arch" type="xml">
+                <form>
+                 <sheet>
+                   <group>
+                      <field name="name"/>
+                   </group>
+                 </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_callserviceresponse_action" model="ir.actions.act_window">
+            <field name="name">報價單叫修時效配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.call_service_response</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_callserviceresponse_action" name="" sequence="160"
+                  parent="neweb_proj_config"
+                  groups="neweb_sys_man"
+                  action="neweb_callserviceresponse_action"/>
+    </data>
+</odoo>

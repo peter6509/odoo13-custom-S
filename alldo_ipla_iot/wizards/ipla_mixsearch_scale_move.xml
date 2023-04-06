@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_mixsearch_scalemove_wizard" model="ir.ui.view">
+             <field name="name">views.mixsearch.stockmove.wizard</field>
+             <field name="model">alldo_ipla_iot.mixsearch_scalemove</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>電子磅秤投料/入庫查詢</h1>
+                         <group>
+                             <field name="start_date"/>
+                             <field name="end_date"/>
+                             <field name="scale_type"/>
+                             <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_mixsearch_scalemove" string="查詢" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="mixsearch_scalemove_wizard_action" model="ir.actions.act_window">
+             <field name="name">電子磅秤投料/入庫查詢</field>
+             <field name="res_model">alldo_ipla_iot.mixsearch_scalemove</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_equip_part_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.equip.part.tree</field>
+            <field name="model">cloudrent.equip_part</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="equip_categ" width="10%%"/>
+                    <field name="name" width="30%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_equip_part_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.equip.part.form</field>
+            <field name="model">cloudrent.equip_part</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="equip_categ"/>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_cloudrent_equip_part_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.equip.part.search</field>
+           <field name="model">cloudrent.equip_part</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="name" string="關鍵字" filter_domain="[('name', 'ilike', self)]"/>
+                <filter string="家電類" domain="[('equip_categ','=','1')]" name="categ1"/>
+                <filter string="家俱類" domain="[('equip_categ','=','2')]" name="categ2"/>
+                <filter string="鑰匙類" domain="[('equip_categ','=','3')]" name="categ3"/>
+                <filter string="其他" domain="[('equip_categ','=','4')]" name="categ4"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_equip_part_view" model="ir.actions.act_window">
+            <field name="name">家俱設備清單</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.equip_part</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_equip_part_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_cloudrent_equip_part_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_equip_part_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

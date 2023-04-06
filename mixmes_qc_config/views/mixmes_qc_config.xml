@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_mixmes_qc_config_tree" model="ir.ui.view">
+           <field name="name">view.mixmes.qc.config.tree</field>
+           <field name="model">qc.setup</field>
+           <field name="arch" type="xml">
+               <tree string="QC Basic Setup Tree">
+                   <field name="prod_no"/>
+                   <field name="prod_desc"/>
+                   <field name="barcode_num"/>
+                   <field name="pic_num"/>
+               </tree>
+           </field>
+       </record>
+      <record id="view_mixmes_qc_config_form" model="ir.ui.view">
+          <field name="name">view.mixmes.qc.config.form</field>
+          <field name="model">qc.setup</field>
+          <field name="arch" type="xml">
+              <form string="QC Basic Setup Form">
+                  <sheet>
+                      <group>
+                          <group>
+                            <field name="prod_no"/>
+                            <field name="prod_desc"/>
+                          </group>
+                          <group>
+                            <field name="barcode_num"/>
+                            <field name="pic_num"/>
+                          </group>
+                      </group>
+                        <notebook>
+                            <page string="產品質檢條碼記錄配置" name="QC Barcode Line">
+                                <field name="barcode_ids" widget="section_and_note_one2many" mode="tree">
+                                <tree string="產品質檢條碼記錄配置" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="barcode_seq" readonly="1" style="width:150px"/>
+                                    <field name="barcode_name" />
+                                </tree>
+                                </field>
+                            </page>
+                            <page string="產品質檢照片記錄配置" name="QC Picture LINE">
+                                <field name="pic_ids" widget="section_and_note_one2many" mode="tree" >
+                               <tree string="產品質檢照片記錄配置" editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="pic_seq" readonly="1" style="width:150px"/>
+                                    <field name="pic_name" />
+                                </tree>
+                                </field>
+                            </page>
+
+                         </notebook>
+                  </sheet>
+
+              </form>
+          </field>
+      </record>
+        <record id="action_mixmes_qc_config_view" model="ir.actions.act_window">
+            <field name="name">混合型產線QC基礎配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">qc.setup</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <data noupdate="1">
+         <record id="alldo_acme_iot_furance01" model="alldo_acme_iot.furance_report">
+            <field name="name">熔爐1</field>
+            <field name="code">furance01</field>
+         </record>
+          <record id="alldo_acme_iot_furance02" model="alldo_acme_iot.furance_report">
+            <field name="name">熔爐2</field>
+            <field name="code">furance02</field>
+         </record>
+         <record id="alldo_acme_iot_furance03" model="alldo_acme_iot.furance_report">
+            <field name="name">熔爐3</field>
+            <field name="code">furance03</field>
+         </record>
+         <record id="alldo_acme_iot_furance04" model="alldo_acme_iot.furance_report">
+            <field name="name">熔爐4</field>
+            <field name="code">furance04</field>
+         </record>
+         <record id="alldo_acme_iot_furance05" model="alldo_acme_iot.furance_report">
+            <field name="name">熔爐5</field>
+            <field name="code">furance05</field>
+         </record>
+         <record id="alldo_acme_iot_furance06" model="alldo_acme_iot.furance_report">
+            <field name="name">熔爐6</field>
+            <field name="code">furance06</field>
+         </record>
+    </data>
+    </data>
+</odoo>

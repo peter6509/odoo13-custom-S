@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_migration_base1_wizard" model="ir.ui.view">
+             <field name="name">views.migration.base1.wizard</field>
+             <field name="model">neweb_migration.base_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>基礎模組移轉(1)</h1>
+                          <h3>(1).SLA/(2).Value Add Service/(3).hr.department</h3>
+                         <h3>(4).res.partner.title/(5).res.partner/(6).res.users</h3>
+                         <h3>(7).resource.resource/(8).Hr Job/(9).hr.employee</h3>
+                         <group>
+                             <field name="passcode"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="sla_migration" string="(1).SLA" class="oe_highlight"/>
+                         <button type="object" name="value_add_service_migration" string="(2).Value Add Service" class="oe_highlight"/>
+                         <button type="object" name="hr_department_migration" string="(3).HR Department" class="oe_highlight"/>
+                         <button type="object" name="res_partner_migration" string="(4).PARTNER" class="oe_highlight"/>
+                         <button type="object" name="res_users_migration" string="(5).RES_USERS" class="oe_highlight"/>
+                         <button type="object" name="hr_employee_migration" string="(6).HR EMPLOYEE" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="migration_base1_wizard_action" model="ir.actions.act_window">
+             <field name="name">基礎模組</field>
+             <field name="res_model">neweb_migration.base_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

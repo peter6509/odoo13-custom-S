@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="view_neweb_projwarranty_download_tree" model="ir.ui.view">
+            <field name="name">view.neweb.projwarranty.download.tree</field>
+            <field name="model">neweb.projwarranty_excel_download</field>
+            <field name="arch" type="xml">
+                <tree string="" >
+                    <field name="xls_file" filename="xls_file_name" string="保固資料EXCEL下載" widget="binary"/>
+                    <field name="xls_file_name" invisible="1"/>
+                     <field name="run_desc"/>
+                    <field name="export_date"/>
+                    <field name="export_owner"/>
+                    <field name="proj_no"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_neweb_projwarranty_download_form" model="ir.ui.view">
+            <field name="name">view.neweb.projwarranty.download.form</field>
+            <field name="model">neweb.projwarranty_excel_download</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                             <field name="xls_file" filename="xls_file_name" string="保固資料EXCEL下載" widget="binary"/>
+                            <field name="xls_file_name" invisible="1"/>
+                            <field name="export_date"/>
+                            <field name="export_owner"/>
+                            <field name="run_desc"/>
+                            <field name="proj_no"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+         <record id="view_neweb_projwarranty_download_search" model="ir.ui.view">
+            <field name="name">view.neweb.projwarranty.download.search</field>
+            <field name="model">neweb.projwarranty_excel_download</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="proj_no" filter_domain="[('proj_no','ilike',self)]"/>
+                </search>
+            </field>
+        </record>
+        <record id="action_neweb_projwarranty_download_view" model="ir.actions.act_window">
+            <field name="name">專案保固資料匯出儲存區</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.projwarranty_excel_download</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_assservicetype_config_tree" model="ir.ui.view">
+           <field name="name">neweb_assservicetype_config_tree</field>
+           <field name="model">neweb.ass_service_type</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="sequence" widget="handle"/>
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+       <record id="neweb_assservicetype_config_form" model="ir.ui.view">
+           <field name="name">neweb_assservicetype_config_form</field>
+           <field name="model">neweb.ass_service_type</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="neweb_assservicetype_config_action" model="ir.actions.act_window">
+           <field name="name">neweb_assservicetype_config_action</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">neweb.ass_service_type</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+        <menuitem id="menu_assservicetype_config_action"
+                  name=""
+                  parent="neweb_proj_config"
+                  action="neweb_assservicetype_config_action"
+                  groups="neweb_sys_man"
+                  sequence="120"/>
+    </data>
+</odoo>

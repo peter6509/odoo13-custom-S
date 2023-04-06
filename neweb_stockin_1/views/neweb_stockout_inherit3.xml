@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_stockout_inherit3_tree" model="ir.ui.view">
+           <field name="name">neweb.stockout.inherit3.tree</field>
+           <field name="model">stock.picking</field>
+           <field name="inherit_id" ref="stock.vpicktree"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='location_dest_id']" position="replace">
+                   <!-- Add new fields here -->
+               </xpath>
+                <xpath expr="//field[@name='backorder_id']" position="replace">
+                   <!-- Add new fields here -->
+               </xpath>
+           </field>
+       </record>
+
+    </data>
+</odoo>

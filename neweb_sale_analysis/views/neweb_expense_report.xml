@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_expense_report_view_tree" model="ir.ui.view">
+            <field name="name">neweb.expense.report.view.tree</field>
+            <field name="model">neweb_sale_analysis.expense_report</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="emp_no"/>
+                    <field name="exp_type"/>
+                    <field name="travel_no"/>
+                    <field name="exp_sum"/>
+                    <field name="x_wkf_state" string="狀態"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_expense_report_view_form" model="ir.ui.view">
+            <field name="name">neweb.expense.report.view.form</field>
+            <field name="model">neweb_sale_analysis.expense_report</field>
+            <field name="arch" type="xml">
+                <header>
+                   <field name="create_date" invisible="1"/>
+                </header>
+                <form>
+                 <sheet>
+                     <div class="oe_title">
+                          <h1>
+                              <field name="name" readonly="1"/>
+                           </h1>
+                     </div>
+<!--                   <group>-->
+                       <group>
+                           <field name="emp_no"/>
+                           <field name="exp_type" widget="radio" options="{'horizontal':true}"/>
+                           <field name="travel_no" attrs="{'invisible':[('exp_type','=','1')]}"/>
+                       </group>
+                       <group>
+                           <field name="exp_sum"/>
+                           <button name="re_index_item" type="object" string="項次重編號" class="oe_highlight"/>
+<!--                           <button name="re_gen_cfsumline" string="重新統計" type="object" class="oe_highlight"/>-->
+                       </group>
+                        <field name="exp_line" nolabel="1" >
+                              <tree editable="bottom" string="EMP EXPENSE LIST" widget="one2many">
+<!--                                <field name="sequence" widget="handle"/>-->
+                                <field name="seq_item"/>
+                                <field name="exp_date1" string="日期" />
+                                <field name="exp_item" string="項目" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                <field name="exp_event" string="事由" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                <field name="exp_location" string="地點(起-訖)"/>
+                                <field name="exp_desc" string="其他說明(參訪客戶/對象)"/>
+                                <field name="exp_attach" string="檢附單據" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                <field name="exp_money" string="金額"/>
+                               </tree>
+                        </field>
+<!--                   </group>-->
+                 </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_expense_report_action" model="ir.actions.act_window">
+            <field name="name">一般費用申報單</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_sale_analysis.expense_report</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_neweb_tool_categ" name="人員出差/費用" sequence="100"
+            parent="neweb_purchase.menu_neweb_tool_root" action="neweb_expense_report_action"/>
+<!--        <menuitem id="menu_expense_report_action" name="" sequence="50"-->
+<!--                  parent="menu_neweb_tool_categ"-->
+<!--                  action="neweb_expense_report_action"/>-->
+    </data>
+</odoo>

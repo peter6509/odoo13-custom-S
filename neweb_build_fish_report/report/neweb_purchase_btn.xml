@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_purchase_taiwan_btn_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.purchase.taiwan.btn.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="neweb_purchase.neweb_purchase_order_inherit_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button type="object" string="國內採購單預覽" name="action_purchase_taiwan_print" class="oe_highlight"/>
+                    <button type="object" string="國外採購單預覽" name="action_purchase_english_print" class="oe_highlight"/>
+                </header>
+            </field>
+        </record>
+
+    </data>
+</odoo>

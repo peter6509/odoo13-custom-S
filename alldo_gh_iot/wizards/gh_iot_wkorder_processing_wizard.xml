@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_wkorder_processing_wizard" model="ir.ui.view">
+             <field name="name">views.wkorder.processing.wizard</field>
+             <field name="model">alldo_gh_iot.wk_processing_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>在線工單生產 良品/不良品 查詢精靈</h1>
+                         <group>
+                             <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="mo_no" options="{'no_create':true,'no_create_edit':true}"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_genwkprocessing" string="查詢" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="ghiot_wkorder_processing_wizard_action" model="ir.actions.act_window">
+             <field name="name">在線工單生產查詢精靈</field>
+             <field name="res_model">alldo_gh_iot.wk_processing_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

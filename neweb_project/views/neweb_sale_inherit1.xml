@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_sale_inherit1" model="ir.ui.view">
+           <field name="name">neweb.sale.inherit1</field>
+           <field name="model">sale.order</field>
+           <field name="inherit_id" ref="neweb_project.neweb_sale_inherit_form"/>
+           <field name="arch" type="xml">
+               <xpath expr="//field[@name='sitem_brand']" position="before">
+                   <field name="sitem_item1"/>
+               </xpath>
+               <xpath expr="//field[@name='sitem_desc']" position="before">
+                   <field name="sitem_serial"/>
+               </xpath>
+                <xpath expr="//field[@name='partner_id']" position="after">
+                   <field name="contact_id" domain="[('parent_id','=',partner_id)]" context="{'show_address1':False}"/>
+               </xpath>
+           </field>
+       </record>
+    </data>
+</odoo>

@@ -1,0 +1,346 @@
+<odoo>
+    <data>
+
+        <menuitem id="menu_report_10010"
+                  name="报表"
+                  groups="huaguang_reports.group_report_user"
+                  web_icon="huaguang_reports,static/description/icon.png"
+                  sequence="99" />
+
+        <!--二级菜单-->
+<!--        <menuitem action="action_30090"-->
+<!--                  name="生产汇总表"-->
+<!--                  id="production_summary_report_menu"-->
+<!--                  parent="menu_report_10010"-->
+<!--                  sequence="15"/>-->
+
+<!--        <menuitem action="action_quality_report"-->
+<!--              name="品质报表"-->
+<!--              id="quality_report_menu"-->
+<!--              parent="menu_report_10010" sequence="16"/>-->
+
+        <menuitem name="工序产量查询"
+                  id="wo_qty_menu"
+                  parent="menu_report_10010"
+                  sequence="15"/>
+        <menuitem action="action_30070"
+                  name="品质报表"
+                  id="quality_report_menu"
+                  parent="menu_report_10010"
+                  sequence="16"/>
+        <menuitem action="action_routing_inspection_report"
+          name="品质巡检报表"
+          id="routing_inspection_report_menu"
+          parent="menu_report_10010"
+          sequence="17"/>
+
+
+        <menuitem action="action_30080"
+                  name="炉号成品率报表"
+                  id="luhao_rate_report_menu"
+                  parent="menu_report_10010"
+                  sequence="13"/>
+
+
+        <menuitem action="action_30090"
+                  name="生产汇总表"
+                  id="account_production_report_menu"
+                  parent="menu_report_10010"
+                  sequence="15"/>
+
+        <menuitem action="action_30090a"
+                  name="生产汇总表a"
+                  id="zimo_menu_30090a"
+                  parent="menu_report_10010"
+                  sequence="15"/>
+
+        <menuitem action="zimo_action_huaguang_report_30101"
+                  name="在制品库存报表1"
+                  id="zimo_menu_huaguang_report_30101"
+                  parent="menu_report_10010"
+                  sequence="18"/>
+        <menuitem action="zimo_action_huaguang_report_30102"
+                  name="在制品库存报表2"
+                  id="zimo_menu_huaguang_report_30102"
+                  parent="menu_report_10010"
+                  sequence="18"/>
+        <menuitem action="zimo_action_huaguang_report_30103"
+                  name="在制品库存报表3"
+                  id="zimo_menu_huaguang_report_30103"
+                  parent="menu_report_10010"
+                  sequence="18"/>
+
+        <menuitem action="action_pcr_stock_report"
+                  name="在制品库存报表"
+                  id="action_pcr_stock_report_menu"
+                  parent="menu_report_10010"
+                  sequence="18"/>
+
+
+        <menuitem action="zimo_action_huaguang_report_30120"
+                  name="生产单汇总表"
+                  id="zimo_menu_huaguang_report_30120"
+                  parent="menu_report_10010"
+                  sequence="19"/>
+
+        <menuitem action="zimo_action_huaguang_report_30120a"
+                  name="30120a生产单汇总表"
+                  id="zimo_menu_huaguang_report_30120a"
+                  parent="menu_report_10010"
+                  sequence="19"/>
+
+        <menuitem action="production_summary_report_wizard_action"
+                  name="生产汇总表(新)"
+                  id="zimo_menu_huaguang_report_30100"
+                  parent="menu_report_10010"
+                  sequence="19"/>
+
+        <menuitem action="zimo_action_huaguang_report_30130"
+                  name="并包报表"
+                  id="zimo_menu_huaguang_report_30130"
+                  parent="menu_report_10010"
+                  sequence="20"/>
+
+<!--        <menuitem action="action_pcr_process_line_report"-->
+<!--                  name="在制品明细报表"-->
+<!--                  id="action_pcr_process_line_menu"-->
+<!--                  parent="menu_report_10010"-->
+<!--                  sequence="19"/>-->
+        <menuitem action="zimo_action_huaguang_report_30110"
+                  name="生产单明细报表"
+                  id="action_pcr_process_line_menu"
+                  parent="menu_report_10010"
+                  sequence="18"/>
+
+
+
+        <menuitem id="menu_report_20010"
+                  name="产量报表"
+                  parent="menu_report_10010"
+                  sequence="11"
+                  />
+
+        <menuitem id="menu_report_20020"
+          name="车间状态查询"
+          parent="menu_report_10010"
+          sequence="20"
+          />
+
+        <menuitem id="menu_report_20030"
+          name="工序加工状态"
+          parent="menu_report_10010"
+          sequence="30"
+          />
+
+        <menuitem id="menu_report_300301"
+                  name="车间设备开机情况"
+                  parent="menu_report_20020"
+                  sequence="10"
+        />
+
+
+<!--        <menuitem id="menu_report_20030"-->
+<!--                  name="数采终端"-->
+<!--                  parent="menu_report_10010"-->
+<!--                  sequence="30"-->
+<!--                  />-->
+
+        <!--三级菜单-->
+        <!--<menuitem id="menu_report_0001"-->
+                  <!--name="特种制环产品明细表"-->
+                  <!--parent="menu_report_new"-->
+                  <!--sequence="1"-->
+                  <!--action="action_0001"/>-->
+
+        <menuitem id="menu_report_30010"
+                  name="产量明细表(开工日期)"
+                  parent="menu_report_20010"
+                  sequence="10"
+                  action="action_30010"/>
+        <menuitem id="menu_report_30011"
+                  name="产量明细表(开工日期+入库日期)"
+                  parent="menu_report_20010"
+                  sequence="20"
+                  action="action_30011"/>
+        <menuitem id="menu_report_30012"
+                  name="产量明细表(入库日期)"
+                  parent="menu_report_20010"
+                  sequence="30"
+                  action="action_30012"/>
+
+
+<!--        <menuitem id="menu_report_30013"-->
+<!--                  name="工序产量明细表4"-->
+<!--                  parent="menu_report_20010"-->
+<!--                  sequence="40"-->
+<!--                  action="action_30013"/>-->
+<!--        <menuitem id="menu_report_30014"-->
+<!--                  name="工序产量明细表5"-->
+<!--                  parent="menu_report_20010"-->
+<!--                  sequence="50"-->
+<!--                  action="action_30014"/>-->
+
+        <menuitem id="menu_report_30020"
+                  name="开机情况看板"
+                  parent="menu_report_300301"
+                  sequence="10"
+                  action="action_30020"/>
+        <menuitem id="menu_report_30021"
+                  name="开机情况看板_通用拉丝车间"
+                  parent="menu_report_300301"
+                  sequence="20"
+                  action="action_30021"/>
+        <menuitem id="menu_report_30022"
+                  name="开机情况看板_包装车间"
+                  parent="menu_report_300301"
+                  sequence="30"
+                  action="action_30022"/>
+        <menuitem id="menu_report_30023"
+                  name="开机情况看板_挤压车间"
+                  parent="menu_report_300301"
+                  sequence="40"
+                  action="action_30023"/>
+        <menuitem id="menu_report_30024"
+                  name="开机情况看板_熔炼车间"
+                  parent="menu_report_300301"
+                  sequence="50"
+                  action="action_30024"/>
+        <menuitem id="menu_report_30025"
+                  name="开机情况看板_特种制环车间"
+                  parent="menu_report_300301"
+                  sequence="60"
+                  action="action_30025"/>
+        <menuitem id="menu_report_30026"
+                  name="开机情况看板_特种拉丝车间"
+                  parent="menu_report_300301"
+                  sequence="70"
+                  action="action_30026"/>
+        <menuitem id="menu_report_30027"
+                  name="开机情况看板_矫直车间"
+                  parent="menu_report_300301"
+                  sequence="80"
+                  action="action_30027"/>
+        <menuitem id="menu_report_30028"
+                  name="开机情况看板_综合组"
+                  parent="menu_report_300301"
+                  sequence="90"
+                  action="action_30028"/>
+        <menuitem id="menu_report_30029"
+                  name="开机情况看板_薄带车间"
+                  parent="menu_report_300301"
+                  sequence="100"
+                  action="action_30029"/>
+        <menuitem id="menu_report_300201"
+                  name="开机情况看板_通用制环车间"
+                  parent="menu_report_300301"
+                  sequence="110"
+                  action="action_300201"/>
+
+
+        <menuitem id="menu_report_30030"
+                  name="数采终端状态表"
+                  parent="menu_report_20020"
+                  sequence="20"
+                  action="action_30030"/>
+
+        <menuitem id="menu_report_0009"
+                  name="炉号开工记录查询"
+                  parent="menu_report_20020"
+                  sequence="90"
+                  action="action_0009"/>
+
+        <menuitem action="zimo_action_huaguang_report_30140"
+                  name="炉号开工记录查询30140"
+                  id="zimo_menu_huaguang_report_30140"
+                  parent="menu_report_20020"
+                  sequence="90"/>
+
+<!--        <menuitem id="menu_report_30040"-->
+<!--                  name="生产汇报记录查询"-->
+<!--                  parent="menu_report_10010"-->
+<!--                  sequence="80"-->
+<!--                  action="action_30040"/>-->
+        <menuitem id="menu_report_300402"
+                  name="生产汇报记录查询"
+                  parent="menu_report_10010"
+                  sequence="81"
+                  action="action_300402"/>
+
+        <menuitem id="menu_report_300500"
+                  name="工序产量汇总表"
+                  parent="wo_qty_menu"
+                  sequence="85"
+                  action="action_300500"/>
+
+        <menuitem id="menu_report_300501"
+                  name="拉丝工序产量汇总表"
+                  parent="wo_qty_menu"
+                  sequence="86"
+                  action="action_300501"/>
+
+        <menuitem id="menu_report_300600"
+                  name="工序产量汇总简表"
+                  parent="wo_qty_menu"
+                  sequence="88"
+                  action="action_300600"/>
+
+        <data>
+
+
+
+        </data>
+<!--        <menuitem id="menu_report_0003"-->
+<!--                  name="在制品列表"-->
+<!--                  parent="menu_report_10010"-->
+<!--                  sequence="90"-->
+<!--                  action="action_0003"/>-->
+
+<!--        <menuitem id="menu_report_0004"-->
+<!--                  name="设备稼动率"-->
+<!--                  parent="menu_report_10010"-->
+<!--                  sequence="90"-->
+<!--                  action="action_0004"/>-->
+
+<!--        <menuitem id="menu_report_0005"-->
+<!--                  name="制环工序成材率"-->
+<!--                  parent="menu_report_10010"-->
+<!--                  sequence="90"-->
+<!--                  action="action_0005"/>-->
+
+<!--        <menuitem id="menu_report_0006"-->
+<!--                  name="产能对比表"-->
+<!--                  parent="menu_report_10010"-->
+<!--                  sequence="90"-->
+<!--                  action="action_0006"/>-->
+
+
+<!--        <menuitem id="menu_report_0008"-->
+<!--                  name="炉号开工记录查询"-->
+<!--                  parent="menu_report_10010"-->
+<!--                  sequence="90"-->
+<!--                  action="action_0008"/>-->
+
+
+
+        <menuitem id="menu_report_0010"
+                  name="工序加工状态表(开工日期)"
+                  parent="menu_report_20030"
+                  sequence="90"
+                  action="action_0010"/>
+        <menuitem id="menu_report_00102"
+                  name="工序加工状态表(入库日期)"
+                  parent="menu_report_20030"
+                  sequence="91"
+                  action="action_00102"/>
+
+    </data>
+    <data>
+
+        <menuitem id="zimo_menu_zimo_report_mrp_pcrl"
+                  name="生产单明细"
+                  parent="menu_report_10010"
+                  action="zimo_action_zimo_wizard_mrp_pcrl"
+                  sequence="100"/>
+
+    </data>
+</odoo>

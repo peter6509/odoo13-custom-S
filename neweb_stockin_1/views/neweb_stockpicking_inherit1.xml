@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_stockpicking_inherit_form1" model="ir.ui.view">
+           <field name="name">neweb.stockpicking.inherit.form1</field>
+           <field name="model">stock.picking</field>
+           <field name="inherit_id" ref="neweb_stock_picking_inherit_form"/>
+           <field name="arch" type="xml">
+               <xpath expr="//field[@name='stockout_customer']" position="replace">
+                   <field name="stockout_customer1" attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming')]}"
+                       domain="[('parent_id','=', partner_id)]"/>
+               </xpath>
+               <xpath expr="//field[@name='stockout_shipaddr']" position="after">
+                   <field name="neweb_user_id" attrs="{'invisible':[('stockin_picktype','!=','outgoing')]}"/>
+                   <field name="neweb_phone" attrs="{'invisible':[('stockin_picktype','!=','outgoing')]}" />
+                   <field name="neweb_email" attrs="{'invisible':[('stockin_picktype','!=','outgoing')]}" />
+                   <field name="neweb_address" attrs="{'invisible':1}"/>
+                   <field name="neweb_fax" attrs="{'invisible':1}"/>
+               </xpath>
+               <xpath expr="//field[@name='location_dest_id']" position="after">
+                   <group>
+                       <group>
+                          <button type="object" name="get_sale_info" string="截取專案資訊"
+                                  attrs="{'invisible':1}"
+                                   class="oe_highlight oe_edit_only" context="{'stockopid': context.get('active_id')}" />
+                           <!--attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming')]}"-->
+
+                       </group>
+                       <group>
+
+                       </group>
+                   </group>
+               </xpath>
+           </field>
+       </record>
+    </data>
+</odoo>

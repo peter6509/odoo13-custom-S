@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit19_neweb_project_form" model="ir.ui.view">
+            <field name="name">view.inherit19.neweb.project.form</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_projext.view_inherit132_neweb_project_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//notebook" position="inside">
+
+                       <page string="專案出貨單">
+                           <field name="main_stockoutno"/>
+                           <field name="stockoutno_line" nolabel="1">
+                            <tree editable="bottom" string="Setup Cost Info" widget="one2many">
+                                <field name="name" domain="[('picking_type_id.sequence_code','=','OUT')]"
+                                    options="{'no_create_edit':True,'no_create':True,'no_open':True}" />
+                            </tree>
+                        </field>
+                       </page>
+
+                 </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

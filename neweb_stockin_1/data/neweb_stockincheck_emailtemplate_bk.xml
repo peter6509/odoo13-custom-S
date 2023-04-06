@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <!--Email template -->
+        <record id="email_template_stockin_check" model="mail.template">
+            <field name="name">進貨檢驗通知Email</field>
+            <field name="email_from">
+                ${(object.write_uid.email and '%s &lt;%s&gt;' % (object.write_uid.name, object.write_uid.email) or '')|safe}
+            </field>
+            <field name="subject">${object.origin} 採購進貨檢驗</field>
+            <!--<field name="partner_to">${object.stockin_checkman.id}</field>-->
+            <field name="email_to">${object.stockin_checkman.email|safe}</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="auto_delete" eval="True"/>
+            <!--<field name="report_template" ref="report_sale_order"/>-->
+            <!--<field name="report_name">${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}</field>-->
+            <field name="lang">${object.stockin_checkman.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+<h2><p>工程部的同事${object.stockin_checkman.name},你好！</p>
+<p>
+因採購單號 ${object.origin} /成本分析編號 ${object.stockout_proj_no}/ 進貨單號 ${object.name}收貨，需清點及檢測;
+     請安排清點檢驗，不勝感谢!</strong>
+</p>
+
+    <br/><br/>
+% if object.stockin_line:
+   <p>收貨清單如下：</p>
+   <br/>
+    % for line in object.stockin_line:
+      % if not line.stockin_sendemail :
+          <ul>
+              <li>機種-機型/料號: ${line.stockin_modeltype}</li>
+              <li>規格: ${line.stockin_spec}</li>
+              <li>收貨數量: ${line.stockin_num}</li>
+              <li>備註: ${line.stockin_desc}</li>
+              <li>來源單據: ${object.stockout_proj_no}</li>
+              <br/>
+          </ul>
+      %endif
+    % endfor
+
+% endif
+
+<p>如果有任何問题，請及時與我聯繫！</p>
+<p>谢谢！！</p></h2>
+
+<p style="color:#eeeeee;">
+% if object.write_uid and object.write_uid.signature:
+    ${object.write_uid.signature | safe}
+% endif
+</p>
+]]></field>
+        </record>
+
+
+    </data>
+</odoo>

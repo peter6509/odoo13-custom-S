@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <data noupdate="1">
+          <record id="neweb_invoice_reminder_alert_rule1" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule1</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_sa40_user'))]"/>
+             <field name="domain_force">['|',('own_user1','=',user.id),('own_user2','=',user.id)]</field>
+         </record>
+
+        <record id="neweb_invoice_reminder_alert_rule2" model="ir.rule">
+            <field name="name">neweb.invoice.reminder.alert.rule2</field>
+            <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+            <field name="domain_force">['|',('own_user1','=',user.id),('own_user2','=',user.id)]</field>
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_sa30_ass'))]"/>
+        </record>
+        <record id="neweb_invoice_reminder_alert_rule2_1" model="ir.rule">
+            <field name="name">neweb.invoice.reminder.alert.rule2_1</field>
+            <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="global" eval="1"/>
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_sa50_assi'))]"/>
+        </record>
+         <record id="neweb_invoice_reminder_alert_rule3_1" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3_1</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_fn20_mgr'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+         <record id="neweb_invoice_reminder_alert_rule3_2" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3.2</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_fn30_user'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_invoice_reminder_alert_rule3_3" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3.3</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_fn40_assi'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_invoice_reminder_alert_rule3_4" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3.4</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_sa10_gm'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_invoice_reminder_alert_rule3_5" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3.5</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_sa20_vp'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_invoice_reminder_alert_rule3_6" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3.6</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_cs10_gm'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_invoice_reminder_alert_rule3_7" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3.7</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4,ref('neweb_project.neweb_cs20_vp'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_invoice_reminder_alert_rule3_8" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3.8</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_cs30_dir'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_invoice_reminder_alert_rule3_9" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3.9</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_cs50_assi'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_invoice_reminder_alert_rule3_10" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3.10</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_cs40_user'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_invoice_reminder_alert_rule3_11" model="ir.rule">
+             <field name="name">neweb.invoice.reminder.alert.rule3.11</field>
+             <field ref="neweb_invoice.model_neweb_invoice_reminder_alert" name="model_id"/>
+             <field name="groups" eval="[(4,ref('neweb_project.neweb_pur20_assi'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+    </data>
+</odoo>

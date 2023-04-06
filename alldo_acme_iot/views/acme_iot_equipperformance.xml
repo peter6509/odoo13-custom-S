@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="acme_iot_equipperformance_tree" model="ir.ui.view">
+            <field name="name">acme.iot.equipperformance.tree</field>
+            <field name="model">alldo_acme_iot.equipment_performance_list</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="equip_no"/>
+                    <field name="equipment_duration"/>
+                </tree>
+            </field>
+        </record>
+        <record id="acme_iot_equipperformance_action" model="ir.actions.act_window">
+            <field name="name">機台稼動時間</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_acme_iot.equipment_performance_list</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

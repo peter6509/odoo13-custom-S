@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="acme_furance_report_wizard" model="ir.ui.view">
+             <field name="name">acme.furance.report.wizard</field>
+             <field name="model">alldo_acme_iot.furance_report_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>熔爐條碼製作精靈</h1>
+                         <group>
+                             <field name="report_user"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_furance_print" string="產出條碼" class="oe_highlight"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+        <record id="acme_furance_report_wizard_action" model="ir.actions.act_window">
+            <field name="name">熔爐條碼製作精靈</field>
+            <field name="res_model">alldo_acme_iot.furance_report_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

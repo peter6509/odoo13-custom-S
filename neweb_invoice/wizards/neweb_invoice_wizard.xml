@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_project_invoice_view_form" model="ir.ui.view">
+            <field name="name">neweb.project.invoice.view.form</field>
+            <field name="model">neweb_invoice.invoiceopen_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                         <h1>專案 發票開立產生精靈</h1>
+                        <group>
+                           <field name="project_no"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="gen_project_invoice" string="開立發票資訊" class="oe_highlight"/>
+                        <button special="cancel" string="放棄"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="neweb_project_invoice_view_action" model="ir.actions.act_window">
+                     <field name="name">發票開立產生精靈</field>
+                     <field name="res_model">neweb_invoice.invoiceopen_wizard</field>
+                     <field name="view_mode">form</field>
+                     <field name="target">new</field>
+                 </record>
+
+        <menuitem id="menu_neweb_project_invoice_view_categ" name="發票開立功能" sequence="200"
+            parent="neweb_project.menu_neweb_project_root"
+            groups="neweb_project.neweb_cs50_assi,neweb_project.neweb_sa50_assi,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user"/>
+            />
+        <menuitem id="menu_neweb_project_invoice_view_action" name="" sequence="10"
+                  parent="menu_neweb_project_invoice_view_categ"
+                  groups="neweb_project.neweb_cs50_assi,neweb_project.neweb_sa50_assi"
+                  action="neweb_project_invoice_view_action"/>
+
+    </data>
+</odoo>

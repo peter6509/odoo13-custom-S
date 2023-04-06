@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit_invoiceopen_gen_form" model="ir.ui.view">
+           <field name="name">view.inherit.invoiceopen.gen.form</field>
+           <field name="model">neweb_invoice.invoiceopen</field>
+           <field name="inherit_id" ref="neweb_invoice.neweb_invoice_view_form"/>
+           <field name="arch" type="xml">
+
+               <!-- position: after|before|replace|attributes|inside -->
+               <xpath expr="//field[@name='invoice_paymentdate']" position="after">
+                   <!-- Add your fields or attributes here -->
+<!--                    <field name="is_gen" attrs="{'readonly':['|',('is_completed','=',False),('gen_date','!=',False)]}"/>-->
+                    <field name="is_gen" attrs="{'readonly':[('is_completed','=',False)]}"/>
+
+               </xpath>
+                <xpath expr="//field[@name='invoice_address']" position="after">
+                   <!-- Add your fields or attributes here -->
+
+                    <field name="gen_date" attrs="{'readonly':1}"/>
+                    <field name="gen_man" attrs="{'readonly':1}"/>
+               </xpath>
+               <xpath expr="//tree/field[@name='invoice_state']" position="before">
+                   <field name="is_main_completed" invisible="1"/>
+                   <field name="receive_date" attrs="{'readonly':[('is_main_completed','=',True)]}"/>
+                   <field name="receive_date1"/>
+               </xpath>
+               <xpath expr="//tree/field[@name='invoice_state']" position="after">
+                   <field name="is_main_gen" attrs="{'readonly':[('is_main_completed','=',True)]}"/>
+               </xpath>
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="change_parts_wizard" model="ir.ui.view">
+                    <field name="name">change.parts.wizard</field>
+                    <field name="model">neweb_repair.change_parts_wizard</field>
+                    <field name="arch" type="xml">
+                        <form string="報修單領用零組件強制變更">
+                            <sheet>
+                                <h1>報修單領用零組件強制變更</h1>
+                                <group>
+                                    <field name="repair_no" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                    <field name="origin_parts" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                    <field name="change_parts" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                </group>
+
+                            </sheet>
+                            <footer>
+                                <button type="object" name="changeparts" string="執行" class="oe_highlight"/>
+                                <button special="cancel" string="放棄"/>
+                            </footer>
+                        </form>
+                    </field>
+                </record>
+
+                 <record id="change_partys_action" model="ir.actions.act_window">
+                             <field name="name">報修單領用零組件強制變更</field>
+                             <field name="res_model">neweb_repair.change_parts_wizard</field>
+                             <field name="view_mode">form</field>
+                             <field name="target">new</field>
+                         </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_change_parts_action" parent="neweb_base.menu_repair" action="change_partys_action" sequence="200"
+            groups="neweb_project.neweb_en60_stock,neweb_project.neweb_en50_stockm"/>/>
+
+    </data>
+</odoo>

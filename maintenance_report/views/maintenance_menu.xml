@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="maintenance.menu_maintenance_teams" model="ir.ui.menu">
+            <field name="groups_id" eval="[(3,ref('maintenance.group_equipment_manager'))]"/>
+        </record>
+
+        <record id="maintenance.menu_maintenance_teams" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_mreport_user'))]"/>
+        </record>
+
+        <record id="maintenance.menu_maintenance_cat" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_mreport_user'))]"/>
+        </record>
+
+        <record id="maintenance.menu_maintenance_stage_configuration" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_mreport_user'))]"/>
+        </record>
+
+        <record id="j_mrp_maintenance.maintenance_content_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(3,ref('maintenance.group_equipment_manager'))]"/>
+        </record>
+        <record id="j_mrp_maintenance.maintenance_content_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_mreport_user'))]"/>
+        </record>
+        <record id="j_mrp_maintenance.maintenance_content_type_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(3,ref('maintenance.group_equipment_manager'))]"/>
+        </record>
+        <record id="j_mrp_maintenance.maintenance_content_type_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_mreport_user'))]"/>
+        </record>
+        <record id="j_mrp_maintenance.maintenance_fault_cause_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(3,ref('maintenance.group_equipment_manager'))]"/>
+        </record>
+        <record id="j_mrp_maintenance.maintenance_fault_cause_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_mreport_user'))]"/>
+        </record>
+        <record id="j_mrp_maintenance.maintenance_fault_type_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(3,ref('maintenance.group_equipment_manager'))]"/>
+        </record>
+        <record id="j_mrp_maintenance.maintenance_fault_type_menu" model="ir.ui.menu">
+            <field name="groups_id" eval="[(4,ref('group_mreport_user'))]"/>
+        </record>
+
+    </data>
+
+</odoo>

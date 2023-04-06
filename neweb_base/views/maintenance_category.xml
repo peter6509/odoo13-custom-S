@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="maintenance_category_tree">
+            <field name="name">neweb_base.maintenance_category.tree</field>
+            <field name="model">neweb_base.maintenance_category</field>
+            <field name="arch" type="xml">
+                <tree string="Maintenance Category">
+                    <field name="name"/>
+                    <field name="product_attr"/>
+                    <field name="disabled"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="maintenance_category_form">
+            <field name="name">neweb_base.maintenance_category.form</field>
+            <field name="model">neweb_base.maintenance_category</field>
+            <field name="arch" type="xml">
+                <form string="Maintenance Category">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="name"/>
+                            <field name="product_attr"/>
+                            <field name="disabled"/>
+                        </group>
+                        <!--
+                        <field name="product_type_ids" mode="tree">
+                            <form string="Product Type Number">
+                                <group>
+                                    <field name="name"/>
+                                </group>
+                            </form>
+                            <tree string="Product Type Number" editable="bottom">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                        <field name="maintenance_item_ids" mode="tree">
+                            <form string="Maintenance Item">
+                                <group>
+                                    <field name="name"/>
+                                </group>
+                            </form>
+                            <tree string="Maintenance Item" editable="bottom">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                        -->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="maintenance_category_search">
+            <field name="name">neweb_base.maintenance_category.search</field>
+            <field name="model">neweb_base.maintenance_category</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="product_attr"/>
+                    <field name="disabled"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_maintenance_category">
+            <field name="name">Maintenance Category</field>
+            <field name="res_model">neweb_base.maintenance_category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<menuitem id="menu_maintenance_category" parent="neweb_base.menu_contract_configuration" name="Maintenance Category" sequence="65"-->
+                  <!--action="action_list_maintenance_category"/>-->
+    </data>
+</odoo>

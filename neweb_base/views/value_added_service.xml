@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="value_added_service_tree">
+            <field name="name">neweb_base.value_added_service.tree</field>
+            <field name="model">neweb_base.value_added_service</field>
+            <field name="arch" type="xml">
+                <tree string="Value-Added Service">
+                    <field name="name"/>
+                    <field name="disabled"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="value_added_service_form">
+            <field name="name">neweb_base.value_added_service.form</field>
+            <field name="model">neweb_base.value_added_service</field>
+            <field name="arch" type="xml">
+                <form string="Value-Added Service">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="name"/>
+                            <field name="disabled"/>
+                            <field name="content"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="value_added_service_search">
+            <field name="name">neweb_base.value_added_service.search</field>
+            <field name="model">neweb_base.value_added_service</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="disabled"/>
+                    <field name="content"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_value_added_service">
+            <field name="name">Value-Added Service</field>
+            <field name="res_model">neweb_base.value_added_service</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<menuitem id="menu_value_added_service" parent="neweb_base.menu_contract_configuration" name="Value-Added Service" sequence="67"-->
+                  <!--action="action_list_value_added_service"/>-->
+    </data>
+</odoo>

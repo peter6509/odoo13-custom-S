@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wizard_line_notify_send_wizard_view_form" model="ir.ui.view">
+            <field name="name">wizard.line.notify.send</field>
+            <field name="model">era.line_notify_send</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="member_ids" widget="many2many_tags"
+                                   options="{'no_create_edit': True}"/>
+                            <field name="messages_text"/>
+                            <field name="messages_pic"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="send_line_notify_messages" string="發送訊息"
+                                class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_line_send_notify_messages" model="ir.actions.act_window">
+            <field name="name">Line Notify訊息通知</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">era.line_notify_send</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="wizard_line_notify_send_wizard_view_form"/>
+            <field name="target">new</field>
+        </record>
+
+<!--        <menuitem id="line_notify_send_messages_menu" name="Line Notify訊息通知"-->
+<!--                  parent="sf_demand_order.sf_normal_order_root" action="action_line_send_notify_messages"-->
+<!--                  sequence="30" groups="line_notify_tw.line_notify_tw_group_manager"/>-->
+    </data>
+</odoo>

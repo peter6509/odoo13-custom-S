@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_archive_delete_wizard" model="ir.ui.view">
+             <field name="name">views.archive.delete.wizard</field>
+             <field name="model">era.archive_delete</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>歸檔資料清除作業精靈</h1>
+                     <group>
+                       <field name="passcode"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_archive_delete" string="清除" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+         <record id="menu_archive_delete_wizard_action" model="ir.actions.act_window">
+              <field name="name">歸檔資料清除作業精靈</field>
+              <field name="res_model">era.archive_delete</field>
+              <field name="view_mode">form</field>
+              <field name="target">new</field>
+          </record>
+    </data>
+</odoo>

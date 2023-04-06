@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="report_eco_product_check_item" model="ir.actions.report">
+        <field name="name">設計變更ECO單</field>
+        <field name="type">ir.actions.report</field>
+        <field name="model">mrp.eco</field>
+        <field name="report_name">plm_eco_report</field>
+        <field name="report_type">py3o</field>
+        <field name="py3o_filetype">pdf</field>
+        <field name="module">plm_eco</field>
+        <field name="py3o_template_fallback">report/plm_eco_report.odt</field>
+        <field name="binding_model_id" ref="plm_eco.model_mrp_eco"/>
+        <field name="binding_type">report</field>
+
+
+
+    </record>
+</odoo>

@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_zimo_reports_zimo_view_user,zimo_reports.zimo_view_user,model_zimo_view,group_report_user,1,0,0,0
+access_zimo_reports_zimo_view_manager,zimo_reports.zimo_view_manager,model_zimo_view,group_report_manager,1,1,1,1
+zimo_report_001,zimo_report_mrp_pcrl_base,model_zimo_report_mrp_pcrl,group_report_manager,1,1,1,0
+zimo_report_002,zimo_wizard_mrp_pcrl_base,model_zimo_wizard_mrp_pcrl,group_report_manager,1,1,1,0
+access_production_summary_new_report,production.summary.new.report,model_production_summary_new_report,group_report_manager,1,1,1,0
+access_routing_inspection_report,routing.inspection.report,model_routing_inspection_report,group_report_manager,1,1,1,0
+access_routing_inspection_report_wizard,routing.inspection.report.wizard,model_routing_inspection_report_wizard,group_report_manager,1,1,1,0
+access_production_summary_report_wizard,production.summary.report.wizard,model_production_summary_report_wizard,group_report_manager,1,1,1,0
+access_zimo_pcr_stock_report_wizard,zimo.pcr.stock.report.wizard,model_zimo_pcr_stock_report_wizard,group_report_manager,1,1,1,0
+access_zimo_pcr_stock_report,zimo.pcr.stock.report,model_zimo_pcr_stock_report,group_report_manager,1,0,0,0

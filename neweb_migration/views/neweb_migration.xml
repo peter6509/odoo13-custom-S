@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_migration_wizard_form" model="ir.ui.view">
+            <field name="name">neweb.migration.wizard.form</field>
+            <field name="model">neweb.base_migration</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>NEWEB DATABASE MIGRATION</h1>
+                        <group>
+                           <field name="SOURCE_IP"/>
+                           <field name="DB_NAME"/>
+                           <field name="USER_NAME"/>
+                           <field name="PASSWORD"/>
+                           <field name="RUN_CODE"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <!--<button type="object" name="sla_migration" string="SLA" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}"/>-->
+                        <!--<button type="object" name="value_add_service_migration" string="VALUE ADD SERVICE" class="oe_highlight"  attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}"/>-->
+                        <!--<button type="object" name="hr_department_migration" string="HR DEPARTMENT" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="res_partner_migration" string="RES PARTNER" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="res_users_migration" string="RES USERS" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="hr_employee_migration" string="HR EMPLOYEE" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="product_migration" string="PRODUCT" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="contract_migration" string="CONTRACT" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="contract_line_migration" string="CONTRACT LINE" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="repair_migration" string="REPAIR" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="warehouse_orderpoint" string="ORDERPOINT" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}"  />-->
+                        <!--<button type="object" name="stock_location" string="STOCKLOC" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="stock_warehouse" string="STOCKWAREHOUSE" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="neweb_to_prod" string="NEWEB_TO_PROD" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="setsladisabled" string="SLA DISABLE" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="contract_newupdate_migration" string ="CONTRACT_NEWUPDATE" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <!--<button type="object" name="contract_line_newupdate_migration" string="CONTRACT_LINE_NEWUPDATE" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />-->
+                        <button type="object" name="updatemaindate" string="CONTRACTDATE" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />
+                        <button type="object" name="serviceadd_migration" string="SERVICEADD"  class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />
+                        <button type="object" name="calendar_migration" string="CALENDAR DATA" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />
+                        <button type="object" name="repair_carecalldate" string="CARECALLDATE" class="oe_highlight" attrs="{'invisible':[('RUN_CODE','!=','!99999ibm')]}" />
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="neweb_base_migration_action" model="ir.actions.act_window">
+             <field name="name">NEWEB DATABASE MIGRATION</field>
+             <field name="res_model">neweb.base_migration</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+        <menuitem id="menu_base_migration_action"
+                  name="NEWEB DATABASE MIGRATION"
+                  parent="neweb_project.neweb_proj_config"
+                  action="neweb_base_migration_action"
+                  groups="neweb_project.neweb_sys_man"
+                  sequence="200"/>
+
+    </data>
+</odoo>

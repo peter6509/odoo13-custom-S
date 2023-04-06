@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="migration_contractline_view_form" model="ir.ui.view">
+            <field name="name">migration.contractline.view.form</field>
+            <field name="model">neweb.contractline_migration</field>
+            <field name="arch" type="xml">
+                <form string="CONTRACTLINE MIGRATION">
+                    <sheet>
+                        <group>
+                             <field name="project_no"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="proj_engassign_resuser" string="指派工程師轉檔" class="oe_highlight"/>
+                        <button type="object" name="partner_contact_user" string="PARTNER聯絡人轉檔" class="oe_highlight"/>
+                        <button type="object" name="purchase_reciver" string="RECIVER聯絡人轉檔" class="oe_highlight"/>
+                        <button type="object" name="invoice_open_ret" string="回復invoiceopen line" class="oe_highlight"/>
+                        <button type="object" name="picking_min_date" string="picking Date" class="oe_highlight"/>
+                        <button special="cancel" string="離開"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="migration_contractline_action" model="ir.actions.act_window">
+             <field name="name">CONTRACTLINE MIGRATION</field>
+             <field name="res_model">neweb.contractline_migration</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+<!--        <menuitem id="menu_contractline_migration_action"-->
+<!--                  name="指派工程師轉檔"-->
+<!--                  parent="neweb_project.neweb_proj_config"-->
+<!--                  action="migration_contractline_action"-->
+<!--                  groups="neweb_project.neweb_sys_man"-->
+<!--                  sequence="210"/>-->
+
+    </data>
+</odoo>

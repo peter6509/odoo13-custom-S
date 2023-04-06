@@ -1,0 +1,166 @@
+<template>
+
+    <!--实例文件begin-->
+    <!--<t t-name="t-name1">-->
+    <!--<iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_001特种制环产量明细表.cpt&amp;op=view"></iframe>-->
+    <!--</t>-->
+    <t t-name="t-name30010">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30010工序产量明细表.cpt"></iframe>
+    </t>
+    <t t-name="t-name30011">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30011工序产量明细表2.cpt"></iframe>
+    </t>
+    <t t-name="t-name30012">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30012工序产量明细表3.cpt"></iframe>
+    </t>
+    <t t-name="t-name30013">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30013工序产量明细表4.cpt"></iframe>
+    </t>
+    <t t-name="t-name30014">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30014工序产量明细表5.cpt"></iframe>
+    </t>
+
+
+    <t t-name="t-name30020">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板.cpt&amp;op=view"></iframe>
+    </t>
+    <t t-name="t-name30021">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板_通用拉丝车间.cpt&amp;op=view"></iframe>
+    </t>
+    <t t-name="t-name30022">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板_包装车间.cpt&amp;op=view"></iframe>
+    </t>
+    <t t-name="t-name30023">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板_挤压车间.cpt&amp;op=view"></iframe>
+    </t>
+    <t t-name="t-name30024">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板_熔炼车间.cpt&amp;op=view"></iframe>
+    </t>
+    <t t-name="t-name30025">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板_特种制环车间.cpt&amp;op=view"></iframe>
+    </t>
+    <t t-name="t-name30026">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板_特种拉丝车间.cpt&amp;op=view"></iframe>
+    </t>
+    <t t-name="t-name30027">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板_矫直车间.cpt&amp;op=view"></iframe>
+    </t>
+    <t t-name="t-name30028">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板_综合组.cpt&amp;op=view"></iframe>
+    </t>
+    <t t-name="t-name30029">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板_薄带车间.cpt&amp;op=view"></iframe>
+    </t>
+    <t t-name="t-name300201">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_002开机情况看板_通用制环车间.cpt&amp;op=view"></iframe>
+    </t>
+
+
+    <t t-name="t-name30030">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_30030数采终端状态列表.cpt&amp;op=view"></iframe>
+    </t>
+
+    <t t-name="t-name30040">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_30040生产汇报查询.cpt"></iframe>
+    </t>
+    <t t-name="t-name300402">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG300402生产汇报记录查询.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name300500">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG300500工序产量汇总表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name300501">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG300501拉丝工序产量汇总表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name300600">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG300600工序产量汇总简表.cpt"/>
+    </t>
+
+    <t t-name="t-name30070">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30070品质报表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name30080">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30080炉号成品率报表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name30090">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30090生产汇总表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name30090a">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30090a生产汇总表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name30100">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_30100在制品汇总表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name30101">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_30101在制品库存报表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name30102">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_30102在制品库存报表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name30103">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_30103在制品库存报表.cpt"></iframe>
+    </t>
+    <t t-name="t-name30110">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30110生产单明细报表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name30120">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30120生产单汇总表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name30120a">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30120a生产单汇总表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name30130">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30130流转单并炉报表.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name3">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_003在制品列表.cpt&amp;op=view"></iframe>
+    </t>
+
+    <t t-name="t-name4">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_004设备稼动率(时间).cpt&amp;op=view"></iframe>
+    </t>
+
+    <t t-name="t-name5">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_005制环工序成材率.cpt&amp;op=view"></iframe>
+    </t>
+
+    <t t-name="t-name6">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_006产能对比.cpt&amp;op=view"></iframe>
+    </t>
+
+
+    <t t-name="t-name8">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_008炉号开工记录查询.cpt&amp;op=view"></iframe>
+    </t>
+
+    <t t-name="t-name10">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG0010工序加工状态表.cpt"></iframe>
+    </t>
+    <t t-name="t-name102">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG00102工序加工状态表2.cpt"></iframe>
+    </t>
+
+    <t t-name="t-name9">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/hg_008炉号开工记录查询3203.cpt&amp;op=view"></iframe>
+    </t>
+
+    <t t-name="t-name30140">
+        <iframe height="100%" width="100%" src="/WebReport/ReportServer?reportlet=cpt/HG30140加工记录查询表.cpt&amp;op=view"></iframe>
+    </t>
+
+
+</template>

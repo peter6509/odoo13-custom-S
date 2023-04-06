@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="neweb_repair_repair_inherit_search" model="ir.ui.view">
+         <field name="name">neweb.repair.search.expand.filter</field>
+         <field name="model">neweb_repair.repair</field>
+         <field name="inherit_id" ref="neweb_repair.neweb_repair_search_view"/>
+         <field name="arch" type="xml">
+        <xpath expr="//search" position="inside">
+          <!-- This field will show up on the default filters
+               &lt; is the XML encoding for < and &gt; is the XML encoding for > -->
+<!--          <filter string="已完成Care Call報修記錄" name="Completed_care_call" domain="[('care_call_date', '&lt;=', datetime.datetime.now().strftime('%Y-%m-%d'))]"/>-->
+          <filter string="已完成Care Call報修記錄" name="Completed_care_call" domain="[('completed_care_call','=',True)]"/>
+          <filter string="已完修尚未Care Call報修記錄" name="Uncompleted_care_call" domain="[('completed_care_call','=',False),('x_wkf_state','=','47')]"/>
+        </xpath>
+      </field>
+    </record>
+    </data>
+</odoo>

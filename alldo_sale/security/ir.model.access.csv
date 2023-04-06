@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_alldo_sale_sitem_list_user","access.alldo.sale.sitem.list.user","alldo_sale.model_alldo_sale_sitem_list","base.group_user","True","True","True","True"
+"access_alldo_sale_attach_line_user","access.alldo.sale.attach.line.user","alldo_sale.model_alldo_sale_attach_line","base.group_user","True","True","True","True"
+

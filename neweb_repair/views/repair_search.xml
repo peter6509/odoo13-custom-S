@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_repair_search_view" model="ir.ui.view">
+            <field name="name">neweb.repair.search.view</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"
+                           filter_domain="['|','|','|','|',('repair_lines.machine_serial_no1','like',self),('ae_id.department_id.name','like',self),('name','like',self),('contact_user.name','ilike',self),('ae_dept','ilike',self)]"/>
+                    <filter name="x_wkf_state" string="草稿" domain="[('x_wkf_state','=','43')]"/>
+                    <filter name="x_wkf_state" string="待料中" domain="[('x_wkf_state','=','44')]"/>
+                    <filter name="x_wkf_state" string="待工程師處理" domain="[('x_wkf_state','=','45')]"/>
+                    <filter name="x_wkf_state" string="待主管簽核" domain="[('x_wkf_state','=','46')]"/>
+                    <filter name="x_wkf_state" string="完成" domain="[('x_wkf_state','=','47')]"/>
+                    <filter name="x_wkf_state" string="結案" domain="[('x_wkf_state','=','48')]"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>
+

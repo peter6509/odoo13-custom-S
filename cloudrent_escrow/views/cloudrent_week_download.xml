@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_week_download_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.week.download.tree</field>
+            <field name="model">cloudrent.week_download</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="match_year" width="5%%"/>
+                    <field name="week_seq" width="5%%"/>
+                    <field name="escrow_no" width="10%%"/>
+                    <field name="xls_file" widget="binary" filename="xls_file_name" width="40%"/>
+                    <field name="xls_file_name" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_cloudrent_week_download_view" model="ir.actions.act_window">
+            <field name="name">週報下載暫存區</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.week_download</field>
+            <field name="view_mode">tree</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_week_download_tree')}),]"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

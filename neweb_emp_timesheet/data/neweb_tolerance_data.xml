@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_tolerance_1" model="neweb_emp_timesheet.tolerance_setting">
+                <field name="tolerance_time">30</field>
+         </record>
+    </data>
+</odoo>

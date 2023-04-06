@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_res_partner_rule_form" model="ir.ui.view">
+            <field name="name">neweb.res.partner.rule.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="neweb_base.view_res_partner_form_ext" />
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_hr_manager') ])]" />
+            <field name="arch" type="xml">
+                <field name="name" position="attributes">
+                   <attribute name="readonly">0</attribute>
+                </field>
+            </field>
+    </record>
+    <record id="ids_hr_attendance_view_form_mgr" model="ir.ui.view">
+            <field name="name">hr.attendance.form.inheritmgr</field>
+
+            <field name="model">hr.attendance</field>
+            <field name="inherit_id" ref="hr_attendance.view_attendance_form" />
+            <field name="groups_id" eval="[(6, 0, [ref('base.group_user') ])]" />
+            <field name="arch" type="xml">
+                <field name="name" position="attributes">
+                   <attribute name="readonly">1</attribute>
+                </field>
+            </field>
+    </record>
+
+
+    </data>
+</odoo>

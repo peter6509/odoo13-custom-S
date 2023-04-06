@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="line_notify_configure_tree_view" model="ir.ui.view">
+            <field name="name">line.notify.configure.tree</field>
+            <field name="model">cloudrent.line_notify_configure</field>
+            <field name="arch" type="xml">
+                <tree string="Line Notify 設定頁面">
+                    <field name="name"/>
+                    <field name="notify_url"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="line_notify_configure_form_view" model="ir.ui.view">
+            <field name="name">line.notify.configure.form</field>
+            <field name="model">cloudrent.line_notify_configure</field>
+            <field name="arch" type="xml">
+                <form string="Line Notify 設定頁面">
+                    <sheet>
+                        <group>
+                            <field name="active"/>
+                            <field name="name"/>
+                            <field name="client_id"/>
+                            <field name="client_secret"/>
+                            <field name="redirect_url"/>
+                            <field name="notify_url"/>
+                            <field name="test_mode"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_line_notify_configure" model="ir.actions.act_window">
+            <field name="name">Line Notify Configure</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.line_notify_configure</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <h1>
+                        設定Line Notify 服務的相關資訊！！
+                    </h1>
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+<!--        &lt;!&ndash; This Menu Item Must have a parent &ndash;&gt;-->
+<!--        <menuitem id="menu_line_notify_categ" name="Line Notify" parent="base.menu_administration" sequence="150"/>-->
+<!--        &lt;!&ndash; This Menu Item must have a parent and an action &ndash;&gt;-->
+<!--        <menuitem id="menu_line_notify_configure" name="Line Notify 設定" parent="menu_line_notify_categ"-->
+<!--                  action="action_view_line_notify_configure" sequence="10" groups="base.group_system"/>-->
+    </data>
+</odoo>

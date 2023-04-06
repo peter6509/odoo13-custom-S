@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_purchase_quotation" model="ir.attachment">
+            <field name="name">report_purchase_quotation</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="alldo_gh_iot/report/report_purchase_quotation.odt"/>
+        </record>
+        <record id="report_purchase_order" model="ir.attachment">
+            <field name="name">report_purchase_order</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="alldo_gh_iot/report/report_purchase_order.odt"/>
+        </record>
+    </data>
+</odoo>

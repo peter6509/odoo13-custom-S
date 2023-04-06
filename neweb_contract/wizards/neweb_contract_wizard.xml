@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_contract_wizard_form" model="ir.ui.view">
+            <field name="name">neweb.contract.wizard.form</field>
+            <field name="model">neweb_contract.newcontract_build</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>成本分析資料轉入合約明細</h1>
+                        <group>
+                            <field name="project_no" options="{'no_create':True,'no_open':True}"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="import_from_project" string="匯入資料" class="oe_highlight"/>
+                        <button special="cancel" string="放棄"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+         <record id="action_neweb_contract_wizard" model="ir.actions.act_window">
+             <field name="name"></field>
+             <field name="res_model">neweb_contract.newcontract_build</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

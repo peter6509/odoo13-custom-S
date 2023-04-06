@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+                <!--此内容表示引用js,多个例子不用重复引用，一次即可 begin-->
+        <template id="zimo_backend" name="zimo_reports assets" inherit_id="web.assets_backend">
+                <xpath expr="." position="inside">
+                    <script type="text/javascript" src="/huaguang_reports/static/src/js/acme_reports.js"></script> <!--指定JS文件-->
+                </xpath>
+        </template>
+    </data>
+</odoo>

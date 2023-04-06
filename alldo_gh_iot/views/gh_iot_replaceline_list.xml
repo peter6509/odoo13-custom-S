@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="gh_iot_replaceline_list_tree" model="ir.ui.view">
+            <field name="name">gh.iot.replaceline.list.tree</field>
+            <field name="model">alldo_gh_iot.replaceline_list</field>
+            <field name="arch" type="xml">
+                <tree string="" create="false">
+                    <field name="replace_owner"/>
+                    <field name="equipment_id"/>
+                    <field name="order_id"/>
+                    <field name="product_no"/>
+                    <field name="eng_type"/>
+                    <field name="replace_start_datetime"/>
+                    <field name="replace_end_datetime"/>
+                    <field name="replace_duration"/>
+                    <field name="wk_start_datetime"/>
+                    <field name="wk_end_datetime"/>
+                    <field name="wk_num"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ghiot_replaceline_list_action" model="ir.actions.act_window">
+            <field name="name"></field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.replaceline_list</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_hr_job_tree" model="ir.ui.view">
+            <field name="name">neweb.hr.job.tree</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='state']" position="after">
+                    <field name="pos_type"/>
+                </xpath>
+
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="neweb_hr_job_form" model="ir.ui.view">
+            <field name="name">neweb.hr.job.form</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='no_of_recruitment']" position="after">
+                    <field name="pos_type"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

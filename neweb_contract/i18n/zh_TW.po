@@ -1,0 +1,1455 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* neweb_contract
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-28 05:50+0000\n"
+"PO-Revision-Date: 2016-06-28 05:50+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: neweb_contract
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_special_warn
+msgid "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"            	    <p>\n"
+"            	        Remind you that according to Maintenance Contract ${object.contract_id.name} with ${object.contract_id.customer_name.name}.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        There is a special warn for machine ${object.machine_serial_no} on ${object.special_warn_date}.\n"
+"                    </p>\n"
+"                </p>\n"
+"\n"
+"            \n"
+"            "
+msgstr "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"            	    <p>\n"
+"            	        Remind you that according to Maintenance Contract ${object.contract_id.name} with ${object.contract_id.customer_name.name}.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        There is a special warn for machine ${object.machine_serial_no} on ${object.special_warn_date}.\n"
+"                    </p>\n"
+"                </p>\n"
+"\n"
+"            \n"
+"            "
+
+#. module: neweb_contract
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_inspection_warn
+msgid "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"            	    <p>\n"
+"            	        Remind you that according to Maintenance Contract ${object.name} with ${object.customer_name.name}.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        The end customer ${object.end_customer.name} need you to do regular inspection on ${object.cur_inspection_date}.\n"
+"                    </p>\n"
+"                </p>\n"
+"\n"
+"            \n"
+"            "
+msgstr "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"            	    <p>\n"
+"            	        Remind you that according to Maintenance Contract ${object.name} with ${object.customer_name.name}.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        The end customer ${object.end_customer.name} need you to do regular inspection on ${object.cur_inspection_date}.\n"
+"                    </p>\n"
+"                </p>\n"
+"\n"
+"            \n"
+"            "
+
+#. module: neweb_contract
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_maintenance_warn
+msgid "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"            	    <p>\n"
+"                        Contract ${object.name} maintenance is expired on ${object.maintenance_end_date}.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        Please contact the customer ${object.customer_name.name} as soon as possible.\n"
+"                    </p>\n"
+"                </p>\n"
+"            \n"
+"            "
+msgstr "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"            	    <p>\n"
+"                        Contract ${object.name} maintenance is expired on ${object.maintenance_end_date}.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        Please contact the customer ${object.customer_name.name} as soon as possible.\n"
+"                    </p>\n"
+"                </p>\n"
+"            \n"
+"            "
+
+#. module: neweb_contract
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_warranty_warn
+msgid "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"            	    <p>\n"
+"                        Contract ${object.name} warranty is expired on ${object.warranty_end_date}.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        Please contact the customer ${object.customer_name.name} as soon as possible.\n"
+"                    </p>\n"
+"                </p>\n"
+"            \n"
+"            "
+msgstr "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"            	    <p>\n"
+"                        Contract ${object.name} warranty is expired on ${object.warranty_end_date}.\n"
+"                    </p>\n"
+"                    <p>\n"
+"                        Please contact the customer ${object.customer_name.name} as soon as possible.\n"
+"                    </p>\n"
+"                </p>\n"
+"            \n"
+"            "
+
+#. module: neweb_contract
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_approval1
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_approval2
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_approval3
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_approval4
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_approval5
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_approval6
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_approval7
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_approval8
+msgid "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"                </p>\n"
+"\n"
+"                <p><a href=\"${object.form_url}\">Please, click here to approval contract</a></p>\n"
+"            \n"
+"            "
+msgstr "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"                </p>\n"
+"\n"
+"                <p><a href=\"${object.form_url}\">Please, click here to approval contract</a></p>\n"
+"            \n"
+"            "
+
+#. module: neweb_contract
+#: model:mail.template,body_html:neweb_contract.mail_template_contract_site_check_warn
+msgid "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"                </p>\n"
+"\n"
+"                <p><a href=\"${object.form_url}\">Please, click here to verify site check contract</a></p>\n"
+"            \n"
+"            "
+msgstr "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"                </p>\n"
+"\n"
+"                <p><a href=\"${object.form_url}\">Please, click here to verify site check contract</a></p>\n"
+"            \n"
+"            "
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_ae_report_nbr
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_brand_report_nbr
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_category_report_nbr
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_model_report_nbr
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_serial_report_nbr
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_sla_report_nbr
+msgid "# of Target Device"
+msgstr "維護設備統計"
+
+#. module: neweb_contract
+#: model:ir.ui.menu,name:neweb_contract.menu_neweb_contract_ae_report
+msgid "# of Target Device with AE"
+msgstr "工程師維護統計"
+
+#. module: neweb_contract
+#: model:ir.ui.menu,name:neweb_contract.menu_neweb_contract_product_brand_report
+msgid "# of Target Device with Product Brand"
+msgstr "品牌設備數"
+
+#. module: neweb_contract
+#: model:ir.ui.menu,name:neweb_contract.menu_neweb_contract_product_category_report
+msgid "# of Target Device with Product Category"
+msgstr "產品維護統計"
+
+#. module: neweb_contract
+#: model:ir.ui.menu,name:neweb_contract.menu_neweb_contract_product_model_report
+msgid "# of Target Device with Product Model"
+msgstr "機型設備數"
+
+#. module: neweb_contract
+#: model:ir.ui.menu,name:neweb_contract.menu_neweb_contract_product_serial_report
+msgid "# of Target Device with Product Serial"
+msgstr "機種設備數"
+
+#. module: neweb_contract
+#: model:ir.ui.menu,name:neweb_contract.menu_neweb_contract_sla_report
+msgid "# of Target Device with SLA"
+msgstr "SLA維護統計"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:114
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (副本)"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "00:00"
+msgstr "00:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "00:30"
+msgstr "00:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "01:00"
+msgstr "01:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "01:30"
+msgstr "01:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "02:00"
+msgstr "02:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "02:30"
+msgstr "02:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "03:00"
+msgstr "03:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "03:30"
+msgstr "03:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "04:00"
+msgstr "04:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "04:30"
+msgstr "04:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "05:00"
+msgstr "05:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "05:30"
+msgstr "05:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "06:00"
+msgstr "06:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "06:30"
+msgstr "06:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "07:00"
+msgstr "07:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "07:30"
+msgstr "07:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "08:00"
+msgstr "08:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "08:30"
+msgstr "08:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "09:00"
+msgstr "09:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "09:30"
+msgstr "09:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "10:00"
+msgstr "10:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "10:30"
+msgstr "10:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "11:00"
+msgstr "11:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "11:30"
+msgstr "11:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "12:00"
+msgstr "12:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "12:30"
+msgstr "12:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "13:00"
+msgstr "13:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "13:30"
+msgstr "13:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "14:00"
+msgstr "14:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "14:30"
+msgstr "14:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "15:00"
+msgstr "15:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "15:30"
+msgstr "15:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "16:00"
+msgstr "16:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "16:30"
+msgstr "16:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "17:00"
+msgstr "17:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "17:30"
+msgstr "17:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "18:00"
+msgstr "18:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "18:30"
+msgstr "18:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "19:00"
+msgstr "19:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "19:30"
+msgstr "19:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "20:00"
+msgstr "20:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "20:30"
+msgstr "20:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "21:00"
+msgstr "21:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "21:30"
+msgstr "21:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "22:00"
+msgstr "22:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "22:30"
+msgstr "22:30"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "23:00"
+msgstr "23:00"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,daily_maintain_hour_end:0
+#: selection:neweb_contract.contract,daily_maintain_hour_start:0
+msgid "23:30"
+msgstr "23:30"
+
+#. module: neweb_contract
+#: model:ir.actions.server,body_html:neweb_contract.send_approval1_email
+#: model:ir.actions.server,body_html:neweb_contract.send_approval2_email
+#: model:ir.actions.server,body_html:neweb_contract.send_approval3_email
+#: model:ir.actions.server,body_html:neweb_contract.send_approval4_email
+#: model:ir.actions.server,body_html:neweb_contract.send_approval5_email
+#: model:ir.actions.server,body_html:neweb_contract.send_approval6_email
+#: model:ir.actions.server,body_html:neweb_contract.send_approval7_email
+#: model:ir.actions.server,body_html:neweb_contract.send_approval8_email
+msgid "<p>\n"
+"                    Dears,\n"
+"                </p>\n"
+"\n"
+"                <p><a href=\"${object.form_url}\">Please, click here to approval contract</a></p>\n"
+"            \n"
+"            "
+msgstr "<p>\n"
+"                    你好!\n"
+"                </p>\n"
+"\n"
+"                <p>有合約需要你的簽核，<a href=\"${object.form_url}\">請點這裡進行簽核。</a></p>\n"
+"            \n"
+"            "
+
+#. module: neweb_contract
+#: model:res.groups,name:neweb_contract.group_contract_ae
+msgid "AE"
+msgstr "指派工程師"
+
+#. module: neweb_contract
+#: model:res.groups,name:neweb_contract.group_contract_admin
+msgid "Administrator"
+msgstr "管理者"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,inspection_method:0
+msgid "Annually"
+msgstr "每年"
+
+#. module: neweb_contract
+#: model:res.groups,name:neweb_contract.group_contract_assistance
+msgid "Assistant"
+msgstr "助理"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,inspection_method:0
+msgid "Bimonthly"
+msgstr "雙月"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_brand_report_prod_brand
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Brand"
+msgstr "品牌"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_maintenance_target_search
+msgid "By Product & Machine"
+msgstr "依產品 & 機器"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_clinch_date
+msgid "Clinch Date"
+msgstr "成交時間"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_contact_person
+msgid "Contact Person"
+msgstr "聯絡人"
+
+#. module: neweb_contract
+#: model:ir.actions.act_window,name:neweb_contract.action_list_contract
+#: model:ir.model,name:neweb_contract.model_neweb_contract_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_contract_id
+#: model:ir.module.category,name:neweb_contract.module_category_neweb_contract
+#: model:ir.ui.menu,name:neweb_contract.menu_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_form
+#: model:ir.ui.view,arch_db:neweb_contract.contract_tree
+#: model:ir.ui.view,arch_db:neweb_contract.view_contract_graph
+#: model:ir.ui.view,arch_db:neweb_contract.view_contract_pivot
+msgid "Contract"
+msgstr "合約"
+
+#. module: neweb_contract
+#: sql_constraint:neweb_contract.contract.line:0
+msgid "Contract + Machine Serial No must be unique!!"
+msgstr "合約 + 機器序號 不可重覆"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Contract Done"
+msgstr "已完成合約"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Contract In-progress"
+msgstr "處理中合約"
+
+#. module: neweb_contract
+#: model:ir.model,name:neweb_contract.model_neweb_contract_contract_line
+#: model:ir.ui.view,arch_db:neweb_contract.contract_form
+msgid "Contract Line"
+msgstr "合約細項"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_contract_line_ids
+#: model:ir.ui.view,arch_db:neweb_contract.contract_form
+msgid "Contract Lines"
+msgstr "合約細項"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_is_locked
+msgid "Contract Lock"
+msgstr "合約鎖定"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_name
+msgid "Contract Number"
+msgstr "合約編號"
+
+#. module: neweb_contract
+#: sql_constraint:neweb_contract.contract:0
+msgid "Contract Number must be unique!!"
+msgstr "合約編號不可重覆"
+
+#. module: neweb_contract
+#: model:ir.actions.act_window,name:neweb_contract.action_neweb_contract_ae_report
+#: model:ir.actions.act_window,name:neweb_contract.action_neweb_contract_product_brand_report
+#: model:ir.actions.act_window,name:neweb_contract.action_neweb_contract_product_category_report
+#: model:ir.actions.act_window,name:neweb_contract.action_neweb_contract_product_model_report
+#: model:ir.actions.act_window,name:neweb_contract.action_neweb_contract_product_serial_report
+#: model:ir.actions.act_window,name:neweb_contract.action_neweb_contract_sla_report
+#: model:ir.actions.act_window,name:neweb_contract.action_neweb_contract_tx_price_report
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_ae_report_graph
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_ae_report_pivot
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_ae_report_search
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_brand_report_graph
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_brand_report_pivot
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_brand_report_search
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_category_report_graph
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_category_report_pivot
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_category_report_search
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_model_report_graph
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_model_report_pivot
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_model_report_search
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_serial_report_graph
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_serial_report_pivot
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_product_serial_report_search
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_sla_report_graph
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_sla_report_pivot
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_sla_report_search
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_graph
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_pivot
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Contracts Analysis"
+msgstr "合約分析"
+
+#. module: neweb_contract
+#: model:ir.model,name:neweb_contract.model_neweb_contract_contract_ae_report
+#: model:ir.model,name:neweb_contract.model_neweb_contract_contract_product_brand_report
+#: model:ir.model,name:neweb_contract.model_neweb_contract_contract_product_category_report
+#: model:ir.model,name:neweb_contract.model_neweb_contract_contract_product_model_report
+#: model:ir.model,name:neweb_contract.model_neweb_contract_contract_product_serial_report
+#: model:ir.model,name:neweb_contract.model_neweb_contract_contract_report
+#: model:ir.model,name:neweb_contract.model_neweb_contract_contract_sla_report
+#: model:ir.model,name:neweb_contract.model_neweb_contract_contract_tx_price_report
+msgid "Contracts Statistics"
+msgstr "合約統計"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_create_uid
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_create_uid
+msgid "Created by"
+msgstr "建立者"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_create_date
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_create_date
+msgid "Created on"
+msgstr "建立於"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_customer_name
+msgid "Customer Name"
+msgstr "客戶名稱"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_daily_maintain_hour_end
+msgid "Daily Maintain Hour End"
+msgstr "每日維修結束時間"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_daily_maintain_hour_start
+msgid "Daily Maintain Hour Start"
+msgstr "每日維修開始時間"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_ae_report_date
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_brand_report_date
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_category_report_date
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_model_report_date
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_serial_report_date
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_sla_report_date
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_tx_price_report_date
+msgid "Date"
+msgstr "日期"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Day"
+msgstr "日"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_deployment
+msgid "Deployment"
+msgstr "建置"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_ae_report_display_name
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_display_name
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_display_name
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_brand_report_display_name
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_category_report_display_name
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_model_report_display_name
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_serial_report_display_name
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_report_display_name
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_sla_report_display_name
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_tx_price_report_display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:104
+#: selection:neweb_contract.contract,state:0
+#, python-format
+msgid "Done"
+msgstr "完成"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:95
+#: selection:neweb_contract.contract,state:0
+#, python-format
+msgid "Draft"
+msgstr "草稿"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_end_customer
+msgid "End Customer"
+msgstr "終端客戶"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_ae
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_ae_report_ae
+msgid "Engineer"
+msgstr "工程師"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_ae_dept
+msgid "Engineer Department"
+msgstr "工程部門"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_form_url
+msgid "Form url"
+msgstr "Form url"
+
+#. module: neweb_contract
+#: model:res.groups,name:neweb_contract.group_contract_gm
+msgid "GM"
+msgstr "總經理"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_maintenance_target_search
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Group By"
+msgstr "分組方式"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "H1"
+msgstr "H1"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "H2"
+msgstr "H2"
+
+#. module: neweb_contract
+#: model:ir.module.category,description:neweb_contract.module_category_neweb_contract
+msgid "Helps you handle your contract needs."
+msgstr "協助你處理合約事宜"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_ae_report_id
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_id
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_id
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_brand_report_id
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_category_report_id
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_model_report_id
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_serial_report_id
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_report_id
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_sla_report_id
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_tx_price_report_id
+msgid "ID"
+msgstr "編號"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_inspection_warn
+#: model:mail.template,subject:neweb_contract.mail_template_contract_inspection_warn
+msgid "Inspection Warn"
+msgstr "定檢示警"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_inspection_warn_days
+msgid "Inspection Warn Days"
+msgstr "示警天數"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_inspection_warn_users
+msgid "Inspection Warn Employee"
+msgstr "示警對象"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:255
+#, python-format
+msgid "Inspection date '%s' format error!"
+msgstr "定檢時間輸入的「%s」不是合法的日期格式，請用8位數字表示日期並用逗點分格，例如: \n"
+"20160101,20160201,20160301,20160401,20160501"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_is_maintenance_target
+msgid "Is Maintenance Target"
+msgstr "維護設備"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Keyword"
+msgstr "關鍵字"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract___last_update
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_ae_report___last_update
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line___last_update
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_brand_report___last_update
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_category_report___last_update
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_model_report___last_update
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_serial_report___last_update
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_report___last_update
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_sla_report___last_update
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_tx_price_report___last_update
+msgid "Last Modified on"
+msgstr "最後修改於"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_write_uid
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_write_uid
+msgid "Last Updated by"
+msgstr "最後更新："
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_write_date
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_write_date
+msgid "Last Updated on"
+msgstr "最後更新於"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Machine Model"
+msgstr "機型"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Machine Serial"
+msgstr "機種"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_machine_serial_no
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Machine Serial No"
+msgstr "機器序號"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Machine Serial No is empty"
+msgstr "機器序號未填"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_form
+msgid "Maintenance"
+msgstr "維護"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_maintenance_category
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Maintenance Category"
+msgstr "維護類別"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_maintenance_target_search
+msgid "Maintenance Category is empty"
+msgstr "維護總類未選"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_is_maintenance_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Maintenance Contract"
+msgstr "維護合約"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_maintenance_end_date
+msgid "Maintenance End Date"
+msgstr "維護結束日期"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_maintain_partner
+msgid "Maintenance Partner"
+msgstr "維護廠商"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_maintenance_start_date
+msgid "Maintenance Start Date"
+msgstr "維護開始日期"
+
+#. module: neweb_contract
+#: model:ir.actions.act_window,name:neweb_contract.action_list_contract_maintenance_target
+#: model:ir.ui.view,arch_db:neweb_contract.contract_maintenance_target_form
+#: model:ir.ui.view,arch_db:neweb_contract.contract_maintenance_target_tree
+msgid "Maintenance Target"
+msgstr "維護設備"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_maintenance_warn
+#: model:mail.template,subject:neweb_contract.mail_template_contract_maintenance_warn
+msgid "Maintenance Warn"
+msgstr "維護到期前示警"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_maintenance_warn_days
+msgid "Maintenance Warn Days"
+msgstr "示警天數"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_maintenance_warn_users
+msgid "Maintenance Warn Employee"
+msgstr "示警對象"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:273
+#, python-format
+msgid "Maintenance end day must later then maintenance start day!"
+msgstr "維護結束日期必須晚於維護開始日期"
+
+#. module: neweb_contract
+#: model:res.groups,name:neweb_contract.group_contract_marketing
+msgid "Marketing"
+msgstr "行銷"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_model_report_prod_model
+msgid "Model"
+msgstr "模型"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,weekly_maintain_day:0
+msgid "Mon-Fri"
+msgstr "週 一 ～ 五"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,weekly_maintain_day:0
+msgid "Mon-Sun"
+msgstr "週 一 ～ 日"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_tx_price_report_month
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Month"
+msgstr "月"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,inspection_method:0
+msgid "Monthly"
+msgstr "每月"
+
+#. module: neweb_contract
+#: model:ir.actions.server,subject:neweb_contract.send_approval1_email
+#: model:ir.actions.server,subject:neweb_contract.send_approval2_email
+#: model:ir.actions.server,subject:neweb_contract.send_approval3_email
+#: model:ir.actions.server,subject:neweb_contract.send_approval4_email
+#: model:ir.actions.server,subject:neweb_contract.send_approval5_email
+#: model:ir.actions.server,subject:neweb_contract.send_approval6_email
+#: model:ir.actions.server,subject:neweb_contract.send_approval7_email
+#: model:ir.actions.server,subject:neweb_contract.send_approval8_email
+#: model:mail.template,subject:neweb_contract.mail_template_contract_approval1
+#: model:mail.template,subject:neweb_contract.mail_template_contract_approval2
+#: model:mail.template,subject:neweb_contract.mail_template_contract_approval3
+#: model:mail.template,subject:neweb_contract.mail_template_contract_approval4
+#: model:mail.template,subject:neweb_contract.mail_template_contract_approval5
+#: model:mail.template,subject:neweb_contract.mail_template_contract_approval6
+#: model:mail.template,subject:neweb_contract.mail_template_contract_approval7
+#: model:mail.template,subject:neweb_contract.mail_template_contract_approval8
+msgid "Need Approval"
+msgstr "需簽核"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract_line.py:49
+#, python-format
+msgid "No SN"
+msgstr "無序號"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,inspection_method:0
+msgid "None"
+msgstr "無"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_form
+msgid "Notes"
+msgstr "備註"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_num_of_contract_lines
+msgid "Num of contract lines"
+msgstr "合約項目數"
+
+#. module: neweb_contract
+#: model:res.groups,name:neweb_contract.group_contract_officer
+msgid "Officer"
+msgstr "申請人主管"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_is_outsourcing_service
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Outsourcing Service"
+msgstr "派遣服務"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_penalties
+msgid "Penalties Description"
+msgstr "罰則說明"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_recovery_rehearsal_datetime
+msgid "Planned Rehearsal Time"
+msgstr "預計演練時間"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:261
+#, python-format
+msgid "Please select at least one contract type!"
+msgstr "請勾選至少一種合約類型!"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_prod
+msgid "Product"
+msgstr "產品"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_category_report_prod_categ
+msgid "Product Category"
+msgstr "產品分類"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_project
+msgid "Project"
+msgstr "專案"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_project_no
+msgid "Project Number"
+msgstr "專案編號"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Q1"
+msgstr "Q1"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Q2"
+msgstr "Q2"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Q3"
+msgstr "Q3"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Q4"
+msgstr "Q4"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Quarter"
+msgstr "季"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,inspection_method:0
+msgid "Quarterly"
+msgstr "每季度"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_need_recovery_rehearsal
+msgid "Recovery Rehearsal"
+msgstr "是否需回復演練"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_cur_inspection_date
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_inspection_date
+msgid "Regular Inspection Date"
+msgstr "定檢時間"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_inspection_method
+msgid "Regular Inspection Method"
+msgstr "定檢方式"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_recovery_rehearsal_description
+msgid "Rehearsal Description"
+msgstr "演練說明"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_recovery_rehearsal_status
+msgid "Rehearsal Status"
+msgstr "回復演練狀態"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_related_user
+msgid "Related User"
+msgstr "相關使用者"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_contract_memo
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_memo
+msgid "Remark"
+msgstr "備註"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:288
+#, python-format
+msgid "Remember to upload the document!"
+msgstr "請記得要上傳文件附檔!"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,inspection_method:0
+msgid "Remote"
+msgstr "遠端"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_is_rental_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Rental Contract"
+msgstr "租賃合約"
+
+#. module: neweb_contract
+#: model:ir.ui.menu,name:neweb_contract.menu_neweb_contract_report_all
+msgid "Reports"
+msgstr "報表"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_prod_sla
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_sla
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_sla_report_sla
+msgid "SLA Name"
+msgstr "SLA 名稱"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Sale & Maintenance Contract"
+msgstr "買賣及維護合約"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_search
+msgid "Sale Contract"
+msgstr "買賣合約"
+
+#. module: neweb_contract
+#: model:res.groups,name:neweb_contract.group_contract_sales
+msgid "Sales"
+msgstr "銷售"
+
+#. module: neweb_contract
+#: model:res.groups,name:neweb_contract.group_contract_sales_am
+msgid "Sales AM"
+msgstr "業務協理"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_is_sales_contract
+msgid "Sales Contract"
+msgstr "買賣合約"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_sales_dept
+msgid "Sales Department"
+msgstr "業務部門"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_sales
+msgid "Sales Representative"
+msgstr "業務代表"
+
+#. module: neweb_contract
+#: model:res.groups,name:neweb_contract.group_contract_sales_vp
+msgid "Sales VP"
+msgstr "業務部副總"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:142
+#, python-format
+msgid "Select Maintenance Target"
+msgstr "選擇維護設備"
+
+#. module: neweb_contract
+#: selection:neweb_contract.contract,inspection_method:0
+msgid "Semiannually"
+msgstr "每半年"
+
+#. module: neweb_contract
+#: model:ir.actions.server,name:neweb_contract.send_approval1_email
+#: model:ir.actions.server,name:neweb_contract.send_approval2_email
+#: model:ir.actions.server,name:neweb_contract.send_approval5_email
+msgid "Send approval1 email"
+msgstr "寄送簽核電子郵件"
+
+#. module: neweb_contract
+#: model:ir.actions.server,name:neweb_contract.send_approval3_email
+msgid "Send approval3 email"
+msgstr "寄送簽核電子郵件"
+
+#. module: neweb_contract
+#: model:ir.actions.server,name:neweb_contract.send_approval4_email
+msgid "Send approval4 email"
+msgstr "寄送簽核電子郵件"
+
+#. module: neweb_contract
+#: model:ir.actions.server,name:neweb_contract.send_approval6_email
+msgid "Send approval6 email"
+msgstr "寄送簽核電子郵件"
+
+#. module: neweb_contract
+#: model:ir.actions.server,name:neweb_contract.send_approval7_email
+msgid "Send approval7 email"
+msgstr "寄送簽核電子郵件"
+
+#. module: neweb_contract
+#: model:ir.actions.server,name:neweb_contract.send_approval8_email
+msgid "Send approval8 email"
+msgstr "寄送簽核電子郵件"
+
+#. module: neweb_contract
+#: model:ir.model.fields,help:neweb_contract.field_neweb_contract_contract_line_sequence
+msgid "Sequence for the handle."
+msgstr "Sequence for the handle."
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_product_serial_report_prod_serial
+msgid "Serial"
+msgstr "Serial"
+
+#. module: neweb_contract
+#: model:res.groups,name:neweb_contract.group_contract_service_vp
+msgid "Service VP"
+msgstr "服務部副總"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_site_check
+#: model:mail.template,subject:neweb_contract.mail_template_contract_site_check_warn
+msgid "Site Check"
+msgstr "Site Check"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_site_check_upload
+msgid "Site Check Uploaded"
+msgstr "Site Check 已上傳"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_special_warn
+#: model:mail.template,subject:neweb_contract.mail_template_contract_special_warn
+msgid "Special Warn"
+msgstr "特殊示警"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_special_warn_date
+msgid "Special Warn Date"
+msgstr "特殊示警日期"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_special_warn_days
+msgid "Special Warn Days"
+msgstr "示警天數"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_special_warn_users
+msgid "Special Warn Employee"
+msgstr "示警對象"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_state
+msgid "Status"
+msgstr "狀態"
+
+#. module: neweb_contract
+#: model:ir.actions.act_window,help:neweb_contract.action_neweb_contract_ae_report
+#: model:ir.actions.act_window,help:neweb_contract.action_neweb_contract_product_brand_report
+#: model:ir.actions.act_window,help:neweb_contract.action_neweb_contract_product_category_report
+#: model:ir.actions.act_window,help:neweb_contract.action_neweb_contract_product_model_report
+#: model:ir.actions.act_window,help:neweb_contract.action_neweb_contract_product_serial_report
+#: model:ir.actions.act_window,help:neweb_contract.action_neweb_contract_sla_report
+#: model:ir.actions.act_window,help:neweb_contract.action_neweb_contract_tx_price_report
+msgid "This report performs analysis on your Contracts"
+msgstr "此報表進行合約的分析"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_tx_price
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_tx_price_report_tx_price
+msgid "Transaction Price"
+msgstr "成交金額"
+
+#. module: neweb_contract
+#: model:ir.ui.menu,name:neweb_contract.menu_neweb_contract_tx_price_report
+msgid "Tx Price"
+msgstr "成交金額"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_form
+msgid "Validate Contract"
+msgstr "驗証合約"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_value_added_service_ids
+msgid "Value Added Services"
+msgstr "加值服務"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:103
+#: selection:neweb_contract.contract,state:0
+#, python-format
+msgid "Waiting for Contract Upload"
+msgstr "待上傳合約為附件"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:102
+#: selection:neweb_contract.contract,state:0
+#, python-format
+msgid "Waiting for GM Approval"
+msgstr "待總經理簽核"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:98
+#: selection:neweb_contract.contract,state:0
+#, python-format
+msgid "Waiting for Marketing Approval"
+msgstr "待行銷人員簽核"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:96
+#: selection:neweb_contract.contract,state:0
+#, python-format
+msgid "Waiting for Officer Approval"
+msgstr "待申請人主管簽核"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:99
+#: selection:neweb_contract.contract,state:0
+#, python-format
+msgid "Waiting for Sales AM Approval"
+msgstr "待業務協理簽核"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:97
+#: selection:neweb_contract.contract,state:0
+#, python-format
+msgid "Waiting for Sales Approval"
+msgstr "待業務簽核"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:100
+#: selection:neweb_contract.contract,state:0
+#, python-format
+msgid "Waiting for Sales VP Approval"
+msgstr "待業務部副總簽核"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:101
+#: selection:neweb_contract.contract,state:0
+#, python-format
+msgid "Waiting for Service VP Approval"
+msgstr "待服務部副總簽核"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.contract_form
+msgid "Warranty"
+msgstr "保固"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_warranty_end_date
+msgid "Warranty End Date"
+msgstr "保固結束日期"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_warranty_start_date
+msgid "Warranty Start Date"
+msgstr "保固開始日期"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_warranty_warn
+#: model:mail.template,subject:neweb_contract.mail_template_contract_warranty_warn
+msgid "Warranty Warn"
+msgstr "保固到期前示警"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_warranty_warn_days
+msgid "Warranty Warn Days"
+msgstr "示警天數"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_warranty_warn_users
+msgid "Warranty Warn Employee"
+msgstr "示警對象"
+
+#. module: neweb_contract
+#: code:addons/neweb_contract/models/contract.py:267
+#, python-format
+msgid "Warranty end day must later then warranty start day!"
+msgstr "保固結束日期必須晚於保固開始日期"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Week"
+msgstr "週"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_weekly_maintain_day
+msgid "Weekly Maintain Day"
+msgstr "每週維修時段"
+
+#. module: neweb_contract
+#: model:ir.ui.view,arch_db:neweb_contract.view_neweb_contract_tx_price_report_search
+msgid "Year"
+msgstr "年"
+
+#. module: neweb_contract
+#: model:ir.model.fields,field_description:neweb_contract.field_neweb_contract_contract_line_sequence
+msgid "sequence"
+msgstr "sequence"
+

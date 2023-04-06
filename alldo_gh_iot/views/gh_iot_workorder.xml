@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_gh_iot_workorder_tree" model="ir.ui.view">
+            <field name="name">view.gh.iot.workorder.tree</field>
+            <field name="model">alldo_gh_iot.workorder</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="product_no"/>
+                    <field name="eng_type"/>
+                    <field name="po_no2" invisible="1"/>
+                    <field name="cus_name"/>
+                    <field name="order_num"/>
+                    <field name="blank_num"/>
+                    <field name="shipping_num"/>
+                    <field name="shipping_date"/>
+                    <field name="blank_input_date"/>
+                    <field name="workorder_memo"/>
+                    <field name="state"/>
+                    <button name="run_archive" string="結案歸檔" type="object" class="oe_highlight" attrs="{'invisible':[('state','!=','4')]}"/>
+                    <field name="eng_order" invisible="1"/>
+                    <field name="uncomplete_shipping" invisible="1"/>
+                    <field name="can_achive"/>
+                    <button type="object" name="run_archive" string="工單歸檔" attrs="{'invisible':[('can_achive','=',False)]}" class="oe_highlight"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_gh_iot_workorder_form" model="ir.ui.view">
+            <field name="name">view.gh_iot_workorder.form</field>
+            <field name="model">alldo_gh_iot.workorder</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                     <button name="complete_workorder" type="object"
+                            string="完工結案" class="oe_highlight"
+                            context="{'workorder_id': context.get('active_id')}"
+                            attrs="{'invisible': [('state','!=','3')]}"/>
+                       <field name="state" widget="statusbar"/>
+<!--                      <field name="active" attrs="{'readonly':[('state','!=','4')]}"/>-->
+<!--                    <button name="run_archive" string="結案歸檔" type="object" class="oe_highlight" attrs="{'invisible':[('state','not in',['4','5'])]}"/>-->
+                    </header>
+                    <sheet>
+                         <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                            </div>
+                        <group>
+
+<!--                            <field name="name"/>-->
+                            <group>
+                                <field name="product_no" options="{'no_create':true,'no_create_edit':true}"
+                                  attrs="{'readonly':1}"/>
+                                <field name="blank_no" options="{'no_create':true,'no_create_edit':true}"
+                                  attrs="{'invisible':[('eng_order','=','4')]}"/>
+                                <field name="eng_type"/>
+                                <field name="eng_order" attrs="{'invisible':1}"/>
+                                <field name="po_no1" options="{'no_create':true,'no_create_edit':true}" attrs="{'readonly':1}"/>
+
+                                <field name="cus_name" options="{'no_create':true,'no_create_edit':true}"
+                                   attrs="{'readonly':1}"/>
+                                <field name="order_num"/>
+                                <field name="blank_num" attrs="{'invisible':[('eng_order','=','4')]}"/>
+                                <field name="mo_production_num" attrs="{'readonly':1}"/>
+                            </group>
+                            <group>
+
+                                <field name="shipping_date"/>
+                                <field name="prodin_num" attrs="{'readonly':1}"/>
+                                <field name="shipping_num" attrs="{'readonly':1}"/>
+                                <field name="blank_input_date"/>
+                                <field name="workorder_memo"/>
+                                <field name="blankin_picking" domain="[('picking_type_id','=',1)]" options="{'no_create':true,'no_create_edit':true}"
+                                   attrs="{'readonly':1}"/>
+                                <field name="prodout_picking" domain="[('picking_type_id','=',2)]" options="{'no_create':true,'no_create_edit':true}"
+                                       string="產生出貨單" attrs="{'readonly':1}"/>
+                                <button type="object" string="開立出貨單" name="open_shipping_report" class="oe_highlight" attrs="{'invisible':[('prodout_picking','!=',False)]}"/>
+                                <field name="not_close" attrs="{'invisible':[('state','in',['1','2','3','4'])]}"/>
+                            </group>
+
+                        </group>
+                         <notebook>
+                                <page string="產品質檢記錄" name="QC Line">
+                                    <field
+                                        name="qc_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                    >
+                                   <tree
+                                        string="產品質檢記錄"
+                                        editable="bottom"
+                                    >
+                                        <field name="qc_date" />
+                                        <field name="iot_node" string="機台" options="{'no_create':true,'no_create_edit':true}" />
+                                        <field name="qc_good_num"/>
+                                        <field name="material_ng_num"/>
+                                       <field name="processing_ng_num"/>
+                                       <field name="loss_num"/>
+                                        <field name="total_amount_num"/>
+                                        <field name="complete_date"/>
+                                        <field name="line_memo"/>
+                                        <field name="report_no"/>
+                                        <field name="iot_owner1" options="{'no_open':1}"/>
+                                        <field name="product_no" invisible="1"/>
+                                        <field name="cus_name" invisible="1"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                                <page string="產品履歷記錄" name="IOT PROD LINE">
+                                    <field name="iot_line" widget="section_and_note_one2many" mode="tree" >
+                                   <tree string="產品履歷記錄" create="false" editable="false">
+                                        <field name="iot_date" attrs="{'readonly':1}"/>
+                                        <field name="iot_node" string="機台" attrs="{'readonly':1}" options="{'no_create':true,'no_create_edit':true}"/>
+                                        <field name="iot_owner" attrs="{'readonly':1}"/>
+                                        <field name="iot_num" attrs="{'readonly':1}"/>
+                                        <field name="iot_duration" attrs="{'readonly':1}"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                                 <page string="工單來料記錄" name="IN PROD LINE" attrs="{'invisible':[('eng_order','=','4')]}">
+                                    <field name="prodin_line" widget="section_and_note_one2many" mode="tree" >
+                                   <tree string="工單來料記錄" >
+                                        <field name="prodin_datetime"/>
+                                        <field name="product_no" string="產品" options="{'no_create':true,'no_create_edit':true}"/>
+                                        <field name="in_type"/>
+                                        <field name="in_good_num"/>
+<!--                                        <field name="in_ng_num"/>-->
+                                        <field name="process_num"/>
+                                        <field name="in_loc"/>
+                                        <field name="in_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                                <page string="加工完成轉出記錄" name="IN PROD LINE" attrs="{'invisible':[('eng_order','=','4')]}">
+                                    <field name="prodout_line" widget="section_and_note_one2many" mode="tree" >
+                                   <tree string="加工完成轉出記錄" >
+                                        <field name="prodout_datetime"/>
+                                        <field name="product_no" string="產品" options="{'no_create':true,'no_create_edit':true}"/>
+                                        <field name="out_type"/>
+                                        <field name="out_good_num"/>
+<!--                                        <field name="out_ng_num"/>-->
+                                        <field name="out_loc"/>
+<!--                                        <field name="out_owner" options="{'no_open': True,'no_create':true,'no_create_edit':true}"/>-->
+                                    </tree>
+                                    </field>
+                                </page>
+                                 <page string="工程師架機換線記錄" name="REPLACE LINE" attrs="{'invisible':[('eng_order','=','4')]}">
+                                    <field name="replace_line" widget="section_and_note_one2many" mode="tree" >
+                                   <tree string="工程師架機換線記錄" >
+                                        <field name="replace_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                                        <field name="equipment_id"  options="{'no_create':true,'no_create_edit':true}"/>
+                                        <field name="replace_start_datetime"/>
+                                        <field name="replace_end_datetime"/>
+                                        <field name="replace_duration"/>
+                                        <field name="replace_std" attrs="{'readonly':1}"/>
+                                        <field name="replace_performance" attrs="{'readonly':1}"/>
+
+                                    </tree>
+                                    </field>
+                                </page>
+                                 <page string="工單不良率" name="NG Ratio LINE" attrs="{'invisible':[('eng_order','=','4')]}">
+                                    <field name="ngratio_line" widget="section_and_note_one2many" mode="tree" >
+                                   <tree string="工程師架機換線記錄" >
+                                        <field name="wk_good_num"/>
+                                        <field name="wk_ng_num"/>
+                                        <field name="material_ng_num"/>
+                                        <field name="wk_loss_num"/>
+                                        <field name="ng_ratio"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                         </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_ghiot_wkorder_search" model="ir.ui.view">
+           <field name="name">view.gh.iot.wkorder.search</field>
+           <field name="model">alldo_gh_iot.workorder</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="name" string="關鍵字" filter_domain="['|','|','|',('name','ilike',self),('po_no', 'ilike',self ),('product_no.default_code','ilike',self),('cus_name.name','ilike',self)]"/>
+              <filter domain="[('state','in',['1','2','3','5'])]" string="未完工" name="uncomplete"/>
+              <filter domain="[('state','=','4')]" string="已完工" name="complete"/>
+              <filter domain="[('eng_order','in',['1','4'])]" string="首工序" name="firstmo"/>
+              <filter domain="[('eng_order','in',['3','4'])]" string="完工序" name="lastmo"/>
+              <filter domain="[('uncomplete_shipping','=',True),('eng_order','in',['3','4'])]" string="出貨未完" name="needshipping"/>
+            </search>
+           </field>
+        </record>
+         <record id="view_alldo_gh_iot_workorder_calendar" model="ir.ui.view">
+            <field name="name">view.alldo.gh.iot.workorder.calendar</field>
+            <field name="model">alldo_gh_iot.workorder</field>
+            <field name="arch" type="xml">
+                <calendar string="Workorder List" date_start="prod_date" color="state" hide_time="true" event_limit="5">
+                    <field name="workorder_name"/>
+                </calendar>
+            </field>
+        </record>
+        <record id="action_gh_iot_workorder_view" model="ir.actions.act_window">
+            <field name="name">工單作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.workorder</field>
+            <field name="view_mode">tree,form,calendar</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('view_gh_iot_workorder_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('view_gh_iot_workorder_form')}),]"/>
+            <field name="search_view_id" ref="view_ghiot_wkorder_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+<!--        <record id="action_gh_iot_workorder_view" model="ir.actions.act_window">-->
+<!--            <field name="name">工單作業</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">alldo_gh_iot.workorder</field>-->
+<!--            <field name="view_mode">tree,form,calendar</field>-->
+<!--             <field name="search_view_id" ref="view_ghiot_wkorder_search"></field>-->
+<!--            <field name="context">{ 'search_default_uncomplete': 1, }</field>-->
+<!--            <field name="help" type="html">-->
+<!--              <p class="oe_view_nocontent_create">-->
+
+<!--              </p><p>-->
+
+<!--              </p>-->
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>

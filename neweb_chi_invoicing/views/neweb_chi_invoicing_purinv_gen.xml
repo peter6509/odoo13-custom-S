@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_purinv_invoice_form" model="ir.ui.view">
+            <field name="name">view.inherit.purinv.invoice.form</field>
+            <field name="model">neweb_purinv.invoice</field>
+            <field name="inherit_id" ref="neweb_purinv.neweb_purinv_invoice_view_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='invline_memo']" position="after">
+                    <field name="purinvtype" invisible="1"/>
+                     <button type="object" name="get_select" string="點選"
+                             attrs="{'invisible':[('purinvtype','in',['2','3'])]}" class="oe_highlight"/>
+                    <field name="is_gen"  string="產出進項資料"/>
+                    <field name="gen_date" string="進項產出日期"/>
+                    <field name="gen_man" invisible="1"/>
+                     <button type="object" name="get_m_select" string="維護點選"
+                                      attrs="{'invisible':[('purinvtype','in',['1','3'])]}"/>
+                    <field name="is_m_gen"/>
+                    <field name="gen_m_date"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='is_gen']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('purinvtype','in',['2','3'])]}</attribute>
+                </xpath>
+                 <xpath expr="//field[@name='invoice_line']/tree/field[@name='gen_date']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('purinvtype','in',['2','3'])]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='is_m_gen']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('purinvtype','in',['1','3'])]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='invoice_line']/tree/field[@name='gen_m_date']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('purinvtype','in',['1','3'])]}</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

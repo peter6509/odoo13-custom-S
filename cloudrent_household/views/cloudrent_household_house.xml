@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cloudrent_household_house_tree" model="ir.ui.view">
+            <field name="name">cloudrent.household.house.tree</field>
+            <field name="model">cloudrent.household_house</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="project_no"/>
+                    <field name="project_desc"/>
+                    <field name="project_address"/>
+                    <field name="manager_man"/>
+                    <field name="project_prefixcode"/>
+                </tree>
+            </field>
+        </record>
+        <record id="cloudrent_household_house_form" model="ir.ui.view">
+            <field name="name">cloudrent.household.house.tree</field>
+            <field name="model">cloudrent.household_house</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="case_code"/>
+                                <field name="project_no"/>
+                                <field name="project_desc"/>
+                                <field name="project_address"/>
+                                <field name="manager_man"/>
+<!--                                <field name="project_prefixcode"/>-->
+                            </group>
+                            <group>
+                                <field name="manager_man"/>
+                                <field name="manager_address"/>
+                                <field name="manager_phone"/>
+                                <field name="rent_convention" widget="image"/>
+<!--                                <field name="project_amount"/>-->
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="租戶資訊" name="PROJECT LINE">
+                                <field name="project_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="租戶資訊" editable="bottom">
+                                    <field name="house_no" />
+                                    <field name="member_id" options="{'no_create':true,'no_create_edit':true}" />
+                                    <field name="house_level"/>
+                                    <field name="in_used"/>
+                                     <field name="repair_grant_amount"/>
+                                     <field name="repair_payment_amount"/>
+                                 </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="cloudrent_household_house_action" model="ir.actions.act_window">
+            <field name="name">租戶專案主檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.household_house</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

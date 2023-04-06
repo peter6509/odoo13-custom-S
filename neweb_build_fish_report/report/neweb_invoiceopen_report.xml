@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <report id="action_report_neweb_invoiceopen"
+                model="neweb_invoice.invoiceopen"
+                string="發票開立申請單NEW"
+                report_type="controller"
+                print_report_name="'發票開立申請單_%s.pdf' % (object.name)"
+                name="neweb_invoiceopen_report"/>
+        <record id="action_report_neweb_invoiceopen" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_invoiceopen_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+    </data>
+</odoo>

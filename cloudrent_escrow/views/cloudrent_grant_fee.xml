@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_grant_fee_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.grant.fee.tree</field>
+            <field name="model">cloudrent.grant_fee</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="grant_item"/>
+                    <field name="lessor_type"/>
+                    <field name="lessee_type"/>
+                    <field name="admin_area"/>
+                    <field name="grant_freq"/>
+                    <field name="grant_time"/>
+                    <field name="grant_max_value"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_grant_fee_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.grant.fee.form</field>
+            <field name="model">cloudrent.grant_fee</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="grant_item"/>
+                            <field name="lessor_type"/>
+                            <field name="lessee_type"/>
+                            <field name="admin_area"/>
+                            <field name="grant_freq"/>
+                            <field name="grant_time"/>
+                            <field name="discount_rate" attrs="{'invisible':[('grant_item','!=',4)]}"/>
+                            <field name="grant_max_value"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_cloudrent_grant_fee_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.grant.fee.search</field>
+           <field name="model">cloudrent.grant_fee</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <filter string="台北市" domain="[('admin_area','=','1')]" name="area1"/>
+                <filter string="新北市" domain="[('admin_area','=','2')]" name="area2"/>
+                <filter string="桃園市" domain="[('admin_area','=','3')]" name="area3"/>
+                <filter string="台中市" domain="[('admin_area','=','4')]" name="area4"/>
+                <filter string="台南市" domain="[('admin_area','=','5')]" name="area5"/>
+                <filter string="高雄市" domain="[('admin_area','=','6')]" name="area6"/>
+                <separator/>
+                <filter string="一般戶" domain="[('lessee_type','=','1')]" name="lessee_type1"/>
+                <filter string="第一類弱勢戶" domain="[('lessee_type','=','2')]" name="lessee_type2"/>
+                <filter string="第二類弱勢戶" domain="[('lessee_type','=','3')]" name="lessee_type3"/>
+                <separator/>
+                <filter string="包租/包管" domain="[('lessor_type','=','1')]" name="lessor_type1"/>
+                <filter string="代租/代管" domain="[('lessor_type','=','2')]" name="lessor_type2"/>
+
+                <filter name="group_grant_fee" string="項目群組" icon="terp-partner" context="{'group_by':'grant_item'}"/>
+                <filter name="group_admin_area" string="行政區群組" icon="terp-partner" context="{'group_by':'admin_area'}"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_grant_fee_view" model="ir.actions.act_window">
+            <field name="name">市政府補助設定</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.grant_fee</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_grant_fee_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_cloudrent_grant_fee_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_grant_fee_search"/>
+            <field name="context">{'search_default_group_grant_fee':1,'search_default_group_admin_area':2}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

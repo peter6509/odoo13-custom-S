@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_inspection_calendar_tree" model="ir.ui.view">
+            <field name="name">view.inspection.calendar.tree</field>
+            <field name="model">neweb_emp_timesheet.inspection_calendar</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="emp_id" attrs="{'readonly':1}"/>
+                    <field name="dept_id" attrs="{'readonly':1}"/>
+                    <field name="emp_manager" attrs="{'readonly':1}"/>
+                    <field name="contract_no" attrs="{'readonly':1}"/>
+                    <field name="cus_id" attrs="{'readonly':1}"/>
+                    <field name="inspection_datetime" attrs="{'readonly':1}"/>
+                    <field name="inspection_complete" attrs="{'readonly':1}"/>
+                    <field name="alert_date1" attrs="{'readonly':1}"/>
+                    <field name="alert_date2" attrs="{'readonly':1}"/>
+                    <field name="inspection_start_datetime" attrs="{'readonly':1}"/>
+                    <field name="inspection_end_datetime" attrs="{'readonly':1}"/>
+                    <field name="inspection_memo" attrs="{'readonly':1}"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_inspection_calendar_form" model="ir.ui.view">
+            <field name="name">view.inspection.calendar.form</field>
+            <field name="model">neweb_emp_timesheet.inspection_calendar</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="emp_id"/>
+                            <field name="dept_id" attrs="{'readonly':1}"/>
+                            <field name="emp_manager" attrs="{'readonly':1}"/>
+                            <field name="contract_no" attrs="{'readonly':1}"/>
+                            <field name="cus_id" attrs="{'readonly':1}"/>
+                            <field name="inspection_datetime"/>
+                            <field name="inspection_complete" attrs="{'readonly':1}"/>
+                            <field name="alert_date1" attrs="{'readonly':1}"/>
+                            <field name="alert_date2" attrs="{'readonly':1}"/>
+                            <field name="inspection_start_datetime" attrs="{'readonly':1}"/>
+                            <field name="inspection_end_datetime" attrs="{'readonly':1}"/>
+                            <field name="inspection_memo" attrs="{'readonly':1}"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+         <record id="view_inspection_calendar_search" model="ir.ui.view">
+           <field name="name">view.inspection.calendar.search</field>
+           <field name="model">neweb_emp_timesheet.inspection_calendar</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="emp_id" string="關鍵字" filter_domain="['|','|',('emp_id.name','ilike',self),('emp_id.department_id.name', 'ilike',self),('cus_id.name','ilike',self)]"/>
+              <field name="emp_id" string="人員" filter_domain="[('emp_id.name','ilike',self)]"/>
+              <field name="emp_id" string="部門" filter_domain="[('emp_id.department_id.name','ilike',self)]"/>
+              <field name="cus_id" string="客戶" filter_domain="[('cus_id.name','ilike',self)]"/>
+            </search>
+           </field>
+        </record>
+
+
+        <record id="calendar_inspection_calendar" model="ir.ui.view">
+          <field name="name">calendar.inspection.calendar</field>
+          <field name="model">neweb_emp_timesheet.inspection_calendar</field>
+          <field name="arch" type="xml">
+               <calendar  string="Inspection" date_start="inspection_datetime" mode="month" event_open_popup="true" color="emp_id">
+                  <field name="inspection_name" />
+              </calendar>
+          </field>
+      </record>
+        <record id="action_calendar_inspection_task_view" model="ir.actions.act_window">
+            <field name="name">合約定期維護行事曆</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_emp_timesheet.inspection_calendar</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <!--<field name="context">{'calendarinput':1}</field>-->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_stockin_wizard_form" model="ir.ui.view">
+            <field name="name">neweb_stockin_wizard_form</field>
+            <field name="model">neweb.stockin_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>採購單進貨明細選取精靈</h1>
+                          <group>
+                            <field name="purchase_no" options="{'no_create_edit':True,'no_create':True,'no_open':True}"
+                                      attrs="{'invisible':'1'}"/>
+                            <field name="purchase_line" widget="many2many_tags"  colspan="8" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                          </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="trans_stockin_list" string="選擇進貨" class="oe_highlight"/>
+                        <button type="object" name="trans_stockin_all" string="全選進貨" class="oe_highlight" context="{'stockin_id': context.get('active_id')}"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="neweb_stockin_wizard_action" model="ir.actions.act_window">
+             <field name="name">進貨選單精靈</field>
+             <field name="res_model">neweb.stockin_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_expensedoc_view_tree" model="ir.ui.view">
+            <field name="name">neweb.expensedoc.view.tree</field>
+            <field name="model">neweb_sale_analysis.expensedoc</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_expensedoc_view_form" model="ir.ui.view">
+            <field name="name">neweb.expensedoc.view.form</field>
+            <field name="model">neweb_sale_analysis.expensedoc</field>
+            <field name="arch" type="xml">
+                <form>
+                 <sheet>
+                   <group>
+                      <field name="name"/>
+                   </group>
+                 </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_expensedoc_action" model="ir.actions.act_window">
+            <field name="name">費用報支檢附單據配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_sale_analysis.expensedoc</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_expensedoc_action" name="" sequence="220"
+                  parent="neweb_project.neweb_proj_config"
+                  groups="neweb_project.neweb_sys_man"
+                  action="neweb_expensedoc_action"/>
+    </data>
+</odoo>

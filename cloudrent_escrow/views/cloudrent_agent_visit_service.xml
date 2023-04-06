@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_agent_visit_service_tree" model="ir.ui.view">
+            <field name="name">view.agent.visit.service_.tree</field>
+            <field name="model">cloudrent.agent_visit_service</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="escrow_no" width="8%%"/>
+                    <field name="member_no" width="5%%"/>
+                    <field name="match_no" width="8%%"/>
+                    <field name="visit_name" width="5%%"/>
+                    <field name="visit_start_date" width="5%%"/>
+                    <field name="visit_end_date" width="5%%"/>
+                    <field name="visit_type" width="5%%"/>
+                    <field name="require_item" width="8%%"/>
+                    <field name="other_alert" width="10%%"/>
+                    <field name="visit_memo" width="15%%"/>
+                    <field name="visit_process" width="15%%"/>
+                    <field name="state" width="5%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_agent_visit_service_form" model="ir.ui.view">
+            <field name="name">view.agent.visit.service.form</field>
+            <field name="model">cloudrent.agent_visit_service</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="escrow_no"/>
+                                <field name="member_no" domain="[('escrow_type','=','3')]"/>
+                                <field name="match_no" domain="[('match_enable','=',True)]"/>
+                                <field name="visit_name"/>
+                                <field name="visit_start_date"/>
+                                <field name="visit_end_date"/>
+                            </group>
+                            <group>
+                                <field name="visit_type"/>
+                                <field name="require_item"/>
+                                <field name="other_alert" attrs="{'invisible':[('require_item','in',('1','2'))]}"/>
+                                <field name="visit_memo"/>
+                                <field name="visit_process"/>
+                                <field name="state" attrs="{'readonly':1}" save_forced="1"/>
+                                <button type="object" string="訪視作業完成" class="oe_highlight oe_edit_only"
+                                        name="run_visit_complete" attrs="{'invisible':[('state','!=','1')]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="訪視照片">
+                                <group>
+                                    <group>
+                                        <group>
+                                            <field name="visit_pic" widget="image" options="{'size': [100, 100]}"/>
+                                            <field name="visit_pic1" widget="image" options="{'size': [100, 100]}"/>
+                                            <field name="visit_pic2" widget="image" options="{'size': [100, 100]}"/>
+                                        </group>
+                                        <group>
+                                            <field name="visit_pic3" widget="image" options="{'size': [100, 100]}"/>
+                                            <field name="visit_pic4" widget="image" options="{'size': [100, 100]}"/>
+                                            <field name="visit_pic5" widget="image" options="{'size': [100, 100]}"/>
+                                        </group>
+                                    </group>
+                                    <group>
+                                        <group>
+                                            <field name="visit_pic6" widget="image" options="{'size': [100, 100]}"/>
+                                            <field name="visit_pic7" widget="image" options="{'size': [100, 100]}"/>
+                                            <field name="visit_pic8" widget="image" options="{'size': [100, 100]}"/>
+                                        </group>
+                                        <group>
+                                            <field name="visit_pic9" widget="image" options="{'size': [100, 100]}"/>
+                                        </group>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_agent_visit_service_search" model="ir.ui.view">
+           <field name="name">view.agent.visit.service.search</field>
+           <field name="model">cloudrent.agent_visit_service</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="member_no" string="關鍵字" domain="['|',('member_no.escrow_man', 'ilike', self),('match_no.match_no','ilike',self)]"/>
+                <filter string="有效合約" domain="[('match_no.match_enable','=',True)]" name="matchenable"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_agent_visit_service_view" model="ir.actions.act_window">
+            <field name="name">租戶訪視紀錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.agent_visit_service</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_agent_visit_service_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_agent_visit_service_form')}),]"/>
+            <field name="search_view_id" ref="view_agent_visit_service_search"/>
+            <field name="context">{'search_default_matchenable':1}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

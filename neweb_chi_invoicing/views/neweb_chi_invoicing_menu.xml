@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <menuitem id="menu_chi_invoicing_root" name="進銷存資料匯出"
+                 web_icon="neweb_chi_invoicing,static/description/chi_invoice.png"
+                 sequence="190"/>
+        <!-- EXCEL匯出資料儲存夾 -->
+        <!-- This Menu Item Must have a parent -->
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="menu_chi_invoiceing_wizard" name="進銷存匯出精靈" parent="menu_chi_invoicing_root" sequence="30"/>
+        <menuitem id="menu_chi_invoicing_categ3" name="進項/銷項 記錄" parent="menu_chi_invoicing_root" sequence="10"/>
+        <menuitem id="menu_chi_invoiceing_data" name="Excel儲存專區" parent="menu_chi_invoicing_root" sequence="50"/>
+        <menuitem id="menu_chi_invoicing_categ4" name="資料查詢" parent="menu_chi_invoicing_root" sequence="100"/>
+        <menuitem id="menu_chi_invoicing_view5" name="(一).EXCEL匯出專案資料儲存區" parent="menu_chi_invoiceing_data"
+                 groups="neweb_chi_invoicing_user" action="action_neweb_chi_invoicing_download_view" sequence="1"/>
+        <menuitem id="menu_chi_invoicing_vie11" name="(二).EXCEL整包匯出專案資料儲存區" parent="menu_chi_invoiceing_data"
+                 groups="neweb_chi_invoicing_user" action="action_neweb_chi_invoicing_package_download_view" sequence="2"/>
+
+        <menuitem id="menu_chi_invoicing_view15" name="(三).EXCEL進項資料儲存區" parent="menu_chi_invoiceing_data"
+                  groups="neweb_chi_invoicing_user" action="action_neweb_chi_invoicing_purinv_download_view" sequence="3"/>
+        <menuitem id="menu_chi_invoicing_view16" name="(四).EXCEL整包匯出進項資料儲存區" parent="menu_chi_invoiceing_data"
+                  groups="neweb_chi_invoicing_user" action="action_neweb_chi_invoicing_package_purinv_download_view" sequence="4"/>
+        <menuitem id="menu_chi_invoicing_view17" name="(五).EXCEL銷項資料儲存區" parent="menu_chi_invoiceing_data"
+                  groups="neweb_chi_invoicing_user" action="action_neweb_chi_invoicing_saleinv_download_view" sequence="5"/>
+        <menuitem id="menu_chi_invoicing_view18" name="(六).EXCEL整包匯出銷項資料儲存區" parent="menu_chi_invoiceing_data"
+                  groups="neweb_chi_invoicing_user" action="action_neweb_chi_invoicing_package_saleinv_download_view" sequence="6"/>
+
+        <menuitem id="menu_chi_invoicing_view14" name="(一).專案資訊匯出精靈" parent="menu_chi_invoiceing_wizard"
+                  groups="neweb_chi_invoicing_user" action="neweb_chi_invoicing5_view_action" sequence="10"/>
+
+
+       <!-- 銷貨憑證 -->
+       <menuitem id="menu_chi_invoicing_categ1" name="(二).銷貨憑證匯出精靈" parent="menu_chi_invoiceing_wizard" sequence="20"/>
+       <menuitem id="menu_chi_invoicing_view1" name="銷貨憑證整批匯出精靈" parent="menu_chi_invoicing_categ1"
+                 groups="neweb_chi_invoicing_user" action="neweb_chi_invoicing1_view_action" sequence="10"/>
+       <menuitem id="menu_chi_invoicing_view2" name="銷貨憑證單筆匯出精靈" parent="menu_chi_invoicing_categ1"
+                 groups="neweb_chi_invoicing_user" action="neweb_chi_invoicing2_view_action" sequence="15"/>
+
+        <!-- 進貨憑證 -->
+        <menuitem id="menu_chi_invoicing_categ2" name="(三).進貨憑證匯出精靈" parent="menu_chi_invoiceing_wizard" sequence="30"/>
+       <menuitem id="menu_chi_invoicing_view3" name="進貨憑證整批匯出精靈" parent="menu_chi_invoicing_categ2"
+                 groups="neweb_chi_invoicing_user" action="neweb_chi_invoicing3_view_action" sequence="10"/>
+       <menuitem id="menu_chi_invoicing_view4" name="進貨憑證單筆匯出精靈" parent="menu_chi_invoicing_categ2"
+                 groups="neweb_chi_invoicing_user" action="neweb_chi_invoicing4_view_action" sequence="15"/>
+
+
+        <!-- 匯出記錄集 -->
+
+          <menuitem id="menu_chi_invoicing_view12" name="進項資料記錄" parent="menu_chi_invoicing_categ3"
+                  groups="neweb_chi_invoicing_user" action="action_export_purchase_log_view" sequence="10"/>
+         <menuitem id="menu_chi_invoicing_view13" name="銷項資料記錄" parent="menu_chi_invoicing_categ3"
+                  groups="neweb_chi_invoicing_user" action="action_export_sales_log_view" sequence="20"/>
+
+        <!-- 資料查詢 -->
+
+        <menuitem id="menu_chi_invoicing_view6" name="料號銷貨單查詢" parent="menu_chi_invoicing_categ4"
+                  groups="neweb_chi_invoicing_user" action="" sequence="10"/>
+        <menuitem id="menu_chi_invoicing_view7" name="料號進貨單查詢" parent="menu_chi_invoicing_categ4"
+                  groups="neweb_chi_invoicing_user" action="" sequence="20"/>
+        <menuitem id="menu_chi_invoicing_view8" name="銷貨料號查詢" parent="menu_chi_invoicing_categ4"
+                  groups="neweb_chi_invoicing_user" action="" sequence="30"/>
+        <menuitem id="menu_chi_invoicing_view9" name="進貨料號查詢" parent="menu_chi_invoicing_categ4"
+                  groups="neweb_chi_invoicing_user" action="" sequence="40"/>
+       <menuitem id="menu_chi_invoicing_view10" name="匯出記錄查詢" parent="menu_chi_invoicing_categ4"
+                  groups="neweb_chi_invoicing_user" action="" sequence="50"/>
+
+       <menuitem id="menu_chi_invoicing_view21" name="(四).(維護)專案資訊匯出精靈" parent="menu_chi_invoiceing_wizard"
+                  groups="neweb_chi_invoicing_user" action="neweb_chi_invoicing6_view_action" sequence="50"/>
+       <menuitem id="menu_chi_invoicing_view22" name="(五).(維護)銷貨憑證匯出精靈" parent="menu_chi_invoiceing_wizard"
+                  groups="neweb_chi_invoicing_user" action="neweb_chi_invoicing7_view_action" sequence="55"/>
+       <menuitem id="menu_chi_invoicing_view23" name="(六).(維護)進貨憑證匯出精靈" parent="menu_chi_invoiceing_wizard"
+                  groups="neweb_chi_invoicing_user" action="neweb_chi_invoicing8_view_action" sequence="60"/>
+    </data>
+</odoo>

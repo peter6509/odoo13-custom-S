@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_household_member_form" model="ir.ui.view">
+            <field name="name">view.inherit.household.member.form</field>
+            <field name="model">era.household_member</field>
+            <field name="inherit_id" ref="era_household.era_household_member_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="租戶綁定LINE記錄" name="member line account">
+                         <field name="line_user_ids" widget="section_and_note_one2many" mode="tree">
+                         <tree string="租戶綁定LINE記錄">
+                            <field name="member_pid"/>
+                            <field name="member_name"/>
+                            <field name="line_user_id" />
+                            <field name="send_acc_bill"/>
+                            <field name="send_announcement"/>
+                            <field name="send_bus_adv"/>
+                         </tree>
+                        </field>
+                     </page>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="contract_id"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

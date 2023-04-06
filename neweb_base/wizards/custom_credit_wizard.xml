@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_custom_credit_wizard" model="ir.ui.view">
+             <field name="name">views.custom.credit.wizard</field>
+             <field name="model">base.custom_credit_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>客戶信用狀態變更設定精靈</h1>
+                     <group>
+                       <field name="custom_id" domain="[('is_company','=',True),('customer_rank','=',1)]"/>
+                       <field name="payment_days"/>
+<!--                        <field name="open_account_day1"/>-->
+                       <field name="credit_limit"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="change_credit_limit" string="變更" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_custom_credit_wizard_action" model="ir.actions.act_window">
+             <field name="name">客戶信用狀態變更設定精靈</field>
+             <field name="res_model">base.custom_credit_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+        <menuitem id="menu_customer_change_credit" parent="neweb_project.menu_neweb_sale_categ"
+                  groups="neweb_project.neweb_cs30_dir,neweb_project.neweb_sa50_assi"
+                  name="客戶信用狀態變更設定精靈" sequence="100"
+                  action="menu_custom_credit_wizard_action"/>
+    </data>
+</odoo>

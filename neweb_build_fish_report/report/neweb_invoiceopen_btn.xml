@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_invoice_btn_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.invoice.btn.form.inherit</field>
+            <field name="model">neweb_invoice.invoiceopen</field>
+            <field name="inherit_id" ref="neweb_invoice.neweb_invoice_view_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button type="object" string="發票開立申請預覽" name="action_print_invoiceopen" class="oe_highlight"/>
+                </header>
+            </field>
+        </record>
+
+    </data>
+</odoo>

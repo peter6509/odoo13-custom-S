@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_era_housemember_chk_wizard" model="ir.ui.view">
+             <field name="name">views.era.housemember.chk.wizard</field>
+             <field name="model">era.household_member_chk_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>租房會員帳號檢測</h1>
+                     <group>
+                       <field name="passcode"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_household_member_chk" string="檢測" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_era_housemember_chk_wizard_action" model="ir.actions.act_window">
+             <field name="name">租房會員帳號檢測</field>
+             <field name="res_model">era.household_member_chk_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

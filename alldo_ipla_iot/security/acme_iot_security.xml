@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="security_iot_categ" model="ir.module.category">
+           <field name="name">IPLA 生產管理分析系統權限表</field>
+           <field name="sequence" eval="1"/>
+       </record>
+        <record id="group_iot_user" model="res.groups">
+            <field name="name">一般使用者</field>
+            <field name="category_id" ref="security_iot_categ"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="group_iot_ass" model="res.groups">
+            <field name="name">助理人員</field>
+            <field name="category_id" ref="security_iot_categ"/>
+            <field name="implied_ids" eval="[(4, ref('group_iot_user'))]"/>
+        </record>
+         <record id="group_iot_manager" model="res.groups">
+            <field name="name">管理人員</field>
+            <field name="category_id" ref="security_iot_categ"/>
+            <field name="implied_ids" eval="[(4, ref('group_iot_ass'))]"/>
+        </record>
+<!--        <record id="group_iot_mobile" model="res.groups">-->
+<!--            <field name="name">手機版管理者</field>-->
+<!--            <field name="category_id" ref="security_iot_categ"/>-->
+<!--            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>-->
+<!--        </record>-->
+    </data>
+</odoo>

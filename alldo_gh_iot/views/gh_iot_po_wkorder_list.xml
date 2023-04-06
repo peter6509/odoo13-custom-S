@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="po_wkorder_list_tree" model="ir.ui.view">
+            <field name="name">po.wkorder.list.tree</field>
+            <field name="model">alldo_gh_iot.powkorder_list</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="po_no"/>
+                    <field name="cus_name"/>
+                    <field name="product_no"/>
+                    <field name="order_date"/>
+                    <field name="shipping_date"/>
+                    <field name="response_shipping_date"/>
+                    <field name="po_num"/>
+                    <field name="unstockin_num"/>
+                    <field name="custom_system"/>
+                    <field name="open_wkorder"/>
+                    <field name="booking_blank"/>
+                    <field name="stockin_blank"/>
+                </tree>
+            </field>
+        </record>
+        <record id="po_wkorder_list_form" model="ir.ui.view">
+            <field name="name">po.wkorder.list.form</field>
+            <field name="model">alldo_gh_iot.powkorder_list</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="po_no"/>
+                            <field name="cus_name"/>
+                            <field name="product_no"/>
+                            <field name="order_date"/>
+                            <field name="shipping_date"/>
+                            <field name="response_shipping_date"/>
+                        </group>
+                        <group>
+                             <field name="custom_system"/>
+                             <field name="open_wkorder"/>
+                             <field name="booking_blank"/>
+                             <field name="stockin_blank"/>
+                             <field name="po_num"/>
+                             <field name="unstockin_num"/>
+                             <field name="po_id" attrs="{'invisible':[('booking_blank','=',False)]}"/>
+                        </group>
+                         <notebook>
+                            <page string="產品庫存" name="product Line">
+                                <field
+                                    name="stock_pquant_line"
+                                    widget="section_and_note_one2many"
+                                    mode="tree" attrs="{'readonly':1}"
+                                >
+                               <tree string="產品庫存">
+                                  <field name="product_no" options="{'no_create':true,'no_create_edit':true}" />
+                                  <field name="location_id" />
+                                  <field name="qty" />
+
+                                </tree>
+                                </field>
+                            </page>
+                            <page string="毛胚庫存" name="blank Line">
+                                    <field
+                                        name="stock_bquant_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree" attrs="{'readonly':1}"
+                                    >
+                                   <tree string="毛胚庫存">
+                                      <field name="product_no" options="{'no_create':true,'no_create_edit':true}" />
+                                      <field name="location_id" />
+                                      <field name="qty" />
+
+                                    </tree>
+                                    </field>
+                                </page>
+                         </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="po_wkorder_list_action" model="ir.actions.act_window">
+            <field name="name">訂單狀態</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.powkorder_list</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="era_household_house_line_tree" model="ir.ui.view">
+           <field name="name">era.household.house.line.tree</field>
+           <field name="model">era.household_house_line</field>
+           <field name="arch" type="xml">
+               <tree string="" create="false">
+                   <field name="house_no"/>
+                   <field name="house_level"/>
+                   <field name="member_id"/>
+                   <field name="in_used"/>
+<!--                   <field name="store_amount"/>-->
+                   <field name="start_date"/>
+                   <field name="start110_scale"/>
+                   <field name="current110_scale"/>
+                   <field name="start220_scale"/>
+<!--                   <field name="start_scale"/>-->
+
+                   <field name="current220_scale"/>
+                   <field name="is_payment"/>
+               </tree>
+           </field>
+       </record>
+       <record id="era_household_house_line_form" model="ir.ui.view">
+           <field name="name">era.household.house.line.form</field>
+           <field name="model">era.household_house_line</field>
+           <field name="arch" type="xml">
+               <form string="">
+<!--                    <div>-->
+<!--                       <widget name="web_ribbon" title="未繳費" bg_color="bg-danger" attrs="{'invisible': [('is_payment','=',True)]}"/>-->
+<!--                        <widget name="web_ribbon" title="已付費" attrs="{'invisible':[('is_payment','=',False)]}"/>-->
+<!--                    </div>-->
+                   <sheet>
+                       <group>
+                           <group>
+                               <field name="house_no"/>
+                               <field name="house_level"/>
+                               <field name="member_id" options="{'no_create':true,'no_create_edit':true}"/>
+                               <field name="user_id" groups="base.group_no_one"/>
+                               <field name="in_used"/>
+                               <field name="start_date"/>
+                               <field name="start110_scale"/>
+                               <field name="current110_scale"/>
+                               <field name="start220_scale"/>
+                               <field name="current220_scale"/>
+                               <field name="is_payment" attrs="{'invisible':1}"/>
+                               <field name="price_unit"/>
+                           </group>
+                           <group>
+                               <field name="uncomplete_fee" attrs="{'invisible':1}"/>
+                               <field name="house_rental_fee" attrs="{'invisible':1}" />
+                               <field name="house_management_fee" attrs="{'invisible':1}"/>
+                               <field name="parking_space_rent" attrs="{'invisible':1}"/>
+                               <field name="parking_management" attrs="{'invisible':1}"/>
+                               <field name="lo_parking_management" attrs="{'invisible':1}"/>
+                               <field name="current_emeter_fee" attrs="{'invisible':1}"/>
+                               <field name="water_fee" attrs="{'invisible':1}"/>
+                               <field name="current_total_fee" attrs="{'invisible':1}"/>
+                               <field name="payment_bank"/>
+                               <field name="payment_account"/>
+                           </group>
+                       </group>
+                       <notebook>
+                          <page string="電錶配置" name="E-METER LINE">
+                                <field name="emeter_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="租戶資訊">
+                                    <field name="emeter_name" attrs="{'readonly':1}"/>
+                                    <field name="ig8000_id" attrs="{'readonly':1}"/>
+                                     <field name="pi_id" attrs="{'readonly':1}"/>
+                                    <field name="modbus_id" attrs="{'readonly':1}"/>
+                                    <field name="modbus10_id" attrs="{'readonly':1}"/>
+                                    <field name="emeter_status"/>
+                                    <button name="run_push_scale" type="object" string="傳送電錶度數" class="oe_highlight"/>
+                                 </tree>
+                                </field>
+                            </page>
+
+                            <page string="用電記錄明細" name="PRE-PAID LINE">
+                                <field name="used_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="用電記錄明細">
+                                    <field name="used_emeter_id" options="{'no_create':true,'no_create_edit':true}" attrs="{'readonly':1}"/>
+                                    <field name="used_datetime" attrs="{'readonly':1}"/>
+                                    <field name="used_scale" attrs="{'readonly':1}"/>
+                                 </tree>
+                                </field>
+                            </page>
+<!--                           <page string="本期電費對帳明細" name="CURRENT EMETER USED LINE">-->
+<!--                                <field name="bill_line" widget="section_and_note_one2many" mode="tree">-->
+<!--                                 <tree string="區間對帳明細">-->
+<!--                                    <field name="bill_ym"/>-->
+<!--                                     <field name="emeter_id"/>-->
+<!--                                    <field name="bill_start_date"/>-->
+<!--                                     <field name="bill_end_date"/>-->
+<!--                                    <field name="emeter_start_scale"/>-->
+<!--                                    <field name="emeter_end_scale"/>-->
+<!--                                    <field name="emeter_used_scale"/>-->
+<!--                                    <field name="emeter_price_unit"/>-->
+<!--                                    <field name="emeter_amount"/>-->
+<!--                                 </tree>-->
+<!--                                </field>-->
+<!--                            </page>-->
+<!--                           <page string="歷史電費對帳明細" name="CURRENT EMETER USED LINE">-->
+<!--                                <field name="bill_line_his" widget="section_and_note_one2many" mode="tree">-->
+<!--                                 <tree string="歷史區間對帳明細">-->
+<!--                                    <field name="bill_ym"/>-->
+<!--                                      <field name="emeter_id"/>-->
+<!--                                    <field name="bill_start_date"/>-->
+<!--                                     <field name="bill_end_date"/>-->
+<!--                                    <field name="emeter_start_scale"/>-->
+<!--                                    <field name="emeter_end_scale"/>-->
+<!--                                    <field name="emeter_used_scale"/>-->
+<!--                                    <field name="emeter_price_unit"/>-->
+<!--                                    <field name="emeter_amount"/>-->
+<!--                                 </tree>-->
+<!--                                </field>-->
+<!--                            </page>-->
+<!--                            <page string="租戶費用已付核銷記錄" name="PAYMENT LINE">-->
+<!--                                <field name="payment_line" widget="section_and_note_one2many" mode="tree">-->
+<!--                                 <tree string="租戶費用已付核銷記錄">-->
+<!--                                    <field name="payment_ym"/>-->
+<!--&lt;!&ndash;                                    <field name="payment_start_date"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                                     <field name="payment_end_date"/>&ndash;&gt;-->
+<!--                                    <field name="payment_amount"/>-->
+<!--                                    <field name="emeter_scale"/>-->
+<!--                                    <field name="house_rental"/>-->
+<!--                                    <field name="house_management"/>-->
+<!--                                    <field name="parking_space_rent"/>-->
+<!--                                    <field name="parking_management"/>-->
+<!--                                    <field name="lo_parking_management"/>-->
+<!--                                    <field name="payment_date"/>-->
+<!--                                    <field name="payment_desc"/>-->
+<!--                                    <field name="uncomplete_fee"/>-->
+<!--                                 </tree>-->
+<!--                                </field>-->
+<!--                            </page>-->
+                       </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+        <record id="era_household_house_line_action" model="ir.actions.act_window">
+            <field name="name">住房資訊管理</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">era.household_house_line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

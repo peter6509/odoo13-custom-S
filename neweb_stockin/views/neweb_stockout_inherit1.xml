@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Inherit Form View to Modify it -->
+       <record id="neweb_stockout_search_inherit" model="ir.ui.view">
+           <field name="name">neweb.stockout.search.inherit</field>
+           <field name="model">stock.picking</field>
+           <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+           <field name="arch" type="xml">
+
+
+          <xpath expr="//field[@name='name']" position="replace">
+                <field name="name" filter_domain="['|','|',('name','ilike',self),('origin','ilike',self),('stockout_proj_no','ilike',self)]"/>
+          </xpath>         <!-- Add your fields or attributes here -->
+
+
+           </field>
+       </record>
+
+    </data>
+</odoo>

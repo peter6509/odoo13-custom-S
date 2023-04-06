@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_landlord_contract_tree" model="ir.ui.view">
+            <field name="name">view.landlord.contract.tree</field>
+            <field name="model">cloudrent.landlord_contract</field>
+            <field name="arch" type="xml">
+                <tree string="" decoration-primary="states=='1'" decoration-success="states=='2'" decoration-it="states=='3'" create="false">
+                    <field name="name"/>
+                    <field name="project_no" widget="many2many_tags"/>
+                    <field name="landlord_pid"/>
+                    <field name="contract_type"/>
+                    <field name="landlord_name"/>
+                    <field name="income_date"/>
+                    <field name="start_rental"/>
+                    <field name="end_rental"/>
+                    <field name="states"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_landlord_contract_form" model="ir.ui.view">
+            <field name="name">view.landlord.contract.form</field>
+            <field name="model">cloudrent.landlord_contract</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <div>
+                         <field name="states" attrs="{'invisible':1}"/>
+                       <widget name="web_ribbon" title="草稿" bg_color="bg-primary" attrs="{'invisible': ['|',('states','=','3'),('states','=','2')]}"/>
+                        <widget name="web_ribbon" title="已生效" bg_color="bg-success" attrs="{'invisible':['|',('states','=','3'),('states','=','1')]}"/>
+                        <widget name="web_ribbon" title="已失效" bg_color="bg-danger" attrs="{'invisible': ['|',('states','=','1'),('states','=','2')]}"/>
+                    </div>
+                    <sheet>
+                        <group>
+                        <group>
+                            <group>
+                                <field name="name" attrs="{'readonly':1}" force_save="1"/>
+                                <field name="project_no" widget="many2many_tags" attrs="{'readonly':1}" force_save="1"/>
+                                <field name="landlord_pid" attrs="{'readonly':[('contract_type','=','2')]}" force_save="1"/>
+                                <field name="landlord_name" attrs="{'readonly':[('contract_type','=','2')]}" force_save="1"/>
+                                <field name="contract_type" attrs="{'readonly':1}" force_save="1"/>
+                            </group>
+                            <group>
+                                <field name="landlord_email"/>
+                                <field name="income_date"/>
+                                <field name="start_rental"/>
+                                <field name="end_rental"/>
+                                <field name="landlord_desc"/>
+                            </group>
+                        </group>
+                        <group>
+                        <group>
+
+                            <field name="landlord_address1"/>
+                            <field name="landlord_address2"/>
+                            <field name="landlord_phone1"/>
+                            <field name="landlord_phone2"/>
+                            <field name="landlord_phone3"/>
+                            <field name="landlord_phone4"/>
+
+                        </group>
+                         <group>
+                             <button string="合約確認生效" type="object" name="run_landlord_contract_action"
+                                     attrs="{'invisible':[('states','in',('2','3'))]}"
+                                     class="oe_highlight"/>
+                         </group>
+                        </group>
+                        </group>
+                        <notebook>
+                            <page string="房東雲平台租用合約資訊" name="Landlord Contract Data">
+                                <group>
+                                    <group>
+                                        <field name="have_contract_data"/>
+                                        <field name="have_emeter"/>
+                                        <field name="have_account_push"/>
+                                        <field name="have_call_notice"/>
+                                        <field name="have_repair_message"/>
+                                    </group>
+                                    <group>
+                                        <field name="month_fee"/>
+                                        <field name="contract_data_fee" attrs="{'invisible':[('have_contract_data','=',False)]}"/>
+                                        <field name="emeter_fee" attrs="{'invisible':[('have_emeter','=',False)]}"/>
+                                        <field name="account_push_fee" attrs="{'invisible':[('have_account_push','=',False)]}"/>
+                                        <field name="call_notice_fee" attrs="{'invisible':[('have_call_notice','=',False)]}"/>
+                                        <field name="repair_message_fee" attrs="{'invisible':[('have_repair_message','=',False)]}"/>
+                                    </group>
+                                </group>
+                            </page>
+
+                            <page string="合約文檔PDF" name="Landlord Contract PDF">
+                                <field name="contract_attachment" widget="pdf_viewer"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+         <record id="cloudrent_landlord_contract_search" model="ir.ui.view">
+           <field name="name">cloudrent.landlord.contract.search</field>
+           <field name="model">cloudrent.landlord_contract</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="name" string="關鍵字" filter_domain="['|',('landlord_name','ilike',self),('landlord_pid','ilike',self)]"/>
+              <filter name="contract_filter1" domain="[('contract_type','=','1')]" string="合約類型-新約" />
+              <filter name="contract_filter2" domain="[('contract_type','=','2')]" string="合約類型-續約" />
+              <filter name="contract_filter3" domain="[('states','=','1')]" string="合約狀態-未生效" />
+              <filter name="contract_filter4" domain="[('states','=','2')]" string="合約狀態-已生效" />
+              <filter name="contract_filter5" domain="[('states','=','3')]" string="合約狀態-已失效" />
+            </search>
+           </field>
+        </record>
+
+
+        <record id="action_landlord_contract_view" model="ir.actions.act_window">
+            <field name="name">房東合約資訊</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.landlord_contract</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

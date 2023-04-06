@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_product_form_ext" model="ir.ui.view">
+            <field name="name">product.product.form.ext</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <div name="options" position="after">
+                    <div name="options1">
+                        <div>
+                            <field name="is_maintenance_target"/>
+                            <label for="is_maintenance_target"/>
+                        </div>
+                    </div>
+                </div>
+                <field name="type" position="before">
+                    <field name="serial"/>
+                    <field name="model"/>
+                </field>
+                <field name="list_price" position="before">
+                    <field name="serial_num"/>
+                    <field name="brand"/>
+                </field>
+                <group name="group_standard_price" position="after">
+                    <group colspan="2">
+                        <field name="specification"/>
+                    </group>
+                </group>
+                <page name="notes" position="before">
+                    <page name="maintenance" string="Maintenance" attrs="{'invisible':[('is_maintenance_target','=',False)]}">
+                        <group string="Maintenance">
+                            <field name="maintenance_category_id"/>
+                        </group>
+                    </page>
+                    <page name="parts" string="Parts" attrs="{'invisible':[('is_maintenance_target','=',False)]}">
+                        <field name="prod_ids"/>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <!--<record id="product_normal_form_view_ext" model="ir.ui.view">-->
+            <!--<field name="name">product.product.form.ext</field>-->
+            <!--<field name="model">product.product</field>-->
+            <!--<field name="inherit_id" ref="product.product_normal_form_view"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<field name="default_code" position="replace">-->
+                    <!--<field name="default_code" string="Material Num"/>-->
+                <!--</field>-->
+            <!--</field>-->
+        <!--</record>-->
+
+        <record model="ir.ui.view" id="product_link_form">
+            <field name="name">neweb_base.product_link.form</field>
+            <field name="model">neweb_base.product_link</field>
+            <field name="arch" type="xml">
+                <form string="Product_Part_Link">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="prod"/>
+                            <field name="quantity"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="product_link_tree">
+            <field name="name">neweb_base.product_link.tree</field>
+            <field name="model">neweb_base.product_link</field>
+            <field name="arch" type="xml">
+                <tree string="Product_Part_Link" editable="bottom">
+                    <field name="prod"/>
+                    <field name="quantity"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</odoo>

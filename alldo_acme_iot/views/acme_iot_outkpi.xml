@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="acme_outsuborder_kpi_tree" model="ir.ui.view">
+           <field name="name">acme.outsuborder.kpi.tree</field>
+           <field name="model">alldo_acme_iot.outsuborder_kpi</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="partner_id"/>
+                   <field name="outsub_id"/>
+                   <field name="product_no"/>
+                   <field name="outsub_num"/>
+                   <field name="kpi_ratio"/>
+                   <field name="kpi_deduction"/>
+               </tree>
+           </field>
+       </record>
+       <record id="acme_outsuborder_kpi_form" model="ir.ui.view">
+           <field name="name">acme.outsuborder.kpi.form</field>
+           <field name="model">alldo_acme_iot.outsuborder_kpi</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <field name="partner_id"/>
+                           <field name="outsub_id"/>
+                           <field name="product_no"/>
+                           <field name="outsub_num"/>
+                           <field name="kpi_ratio"/>
+                           <field name="kpi_deduction"/>
+                       </group>
+                        <notebook>
+                            <page string="委外供貨記錄" name="OutSub Supply Line">
+                                <field name="supply_line" widget="section_and_note_one2many" mode="tree">
+                                <tree string="委外供貨記錄" create="false" editable="false">
+                                    <field name="date_supply" />
+                                    <field name="supply_num"/>
+                                    <field name="date_due"/>
+                                </tree>
+                                </field>
+                            </page>
+                            <page string="委外交貨記錄" name="OutSub Delivery Line">
+                                <field name="delivery_line" widget="section_and_note_one2many" mode="tree" >
+                                <tree string="委外交貨記錄" create="false" editable="false">
+                                    <field name="date_delivery"/>
+                                    <field name="delivery_num"/>
+                                </tree>
+                                </field>
+                            </page>
+
+                            <page string="KPI統計" name="KPI Line">
+                                <field name="quant_line" widget="section_and_note_one2many" mode="tree" >
+                               <tree string="KPI統計" >
+                                    <field name="date_supply"/>
+                                    <field name="supply_num"/>
+                                    <field name="date_due"/>
+                                    <field name="date_delivery"/>
+                                    <field name="delivery_num"/>
+                                    <field name="kpi_ratio"/>
+                                    <field name="kpi_deduction"/>
+                                </tree>
+                                </field>
+                            </page>
+                         </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="action_acme_outsuborder_kpi" model="ir.actions.act_window">
+           <field name="name">委外加工KPI統計分析</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">alldo_acme_iot.outsuborder_kpi</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_routine_maintenance_user,access.routine.maintenance.user,neweb_project.model_neweb_routine_maintenance,base.group_user,1,0,0,0
+access_main_service_rule_user,access.main.service.rule.user,neweb_project.model_neweb_main_service_rule,base.group_user,1,0,0,0

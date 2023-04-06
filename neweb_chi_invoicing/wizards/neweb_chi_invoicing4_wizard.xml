@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="neweb_chi_invoicing4_form_wizard" model="ir.ui.view">
+         <field name="name">neweb.chi.invoicing4.form.wizard</field>
+         <field name="model">neweb_chi_invoicing.chiinvoicing4_wizard</field>
+         <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                      <h1>進貨憑證單筆匯出精靈</h1>
+                     <group>
+                        <field name="purchase_no"/>
+                          <field name="export_user" attrs="{'invisible':1}"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_invoicing4_export" string="單筆匯出"
+                             context="{'neweb_export_type':'P2'}" class="oe_highlight"/>
+                     <button special="cancel" string="放棄離開"/>
+                 </footer>
+             </form>
+         </field>
+     </record>
+      <record id="neweb_chi_invoicing4_view_action" model="ir.actions.act_window">
+          <field name="name">進貨憑證單筆匯出精靈</field>
+          <field name="res_model">neweb_chi_invoicing.chiinvoicing4_wizard</field>
+          <field name="view_mode">form</field>
+          <field name="target">new</field>
+      </record>
+
+    </data>
+</odoo>

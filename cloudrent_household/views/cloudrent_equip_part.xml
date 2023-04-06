@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_equip_part_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.equip.part.tree</field>
+            <field name="model">cloudrent.equip_part</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="equip_categ"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_equip_part_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.equip.part.form</field>
+            <field name="model">cloudrent.equip_part</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                              <field name="equip_categ"/>
+                              <field name="name"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="action_cloudrent_equip_part_view" model="ir.actions.act_window">
+            <field name="name">租房設備說明主檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.equip_part</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_household.view_cloudrent_equip_part_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_household.view_cloudrent_equip_part_form')}),]"/>
+<!--            <field name="search_view_id" ref="view_process_control_return_search"/>-->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

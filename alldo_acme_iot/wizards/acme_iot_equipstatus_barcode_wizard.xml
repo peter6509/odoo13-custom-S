@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_equipstatusbarcode_wizard" model="ir.ui.view">
+             <field name="name">views.equipstatusbarcode.wizard</field>
+             <field name="model">alldo_acme_iot.equipstatus_barcode_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>設備故障條碼製作精靈</h1>
+                         <group>
+                             <field name="print_num"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_equipstatus_barcode_print" string="產出條碼" class="oe_highlight"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+        <record id="acme_iot_equipstatusbarcode_wizard_action" model="ir.actions.act_window">
+            <field name="name">設備故障條碼製作精靈</field>
+            <field name="res_model">alldo_acme_iot.equipstatus_barcode_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

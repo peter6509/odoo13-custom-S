@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_prodbrand_tree" model="ir.ui.view">
+            <field name="name">neweb_prodbrand_tree</field>
+            <field name="model">neweb.prodbrand</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_prodbrand_form" model="ir.ui.view">
+            <field name="name">neweb_prodbrand_form</field>
+            <field name="model">neweb.prodbrand</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_prodbrand_action" model="ir.actions.act_window">
+            <field name="name">neweb_prodbrand_action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.prodbrand</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <menuitem id="menu_neweb_prodbrand_action"
+                  name=""
+                  parent="neweb_proj_config"
+                  action="neweb_prodbrand_action"
+                  groups="neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi"
+                  sequence="95"/>
+    </data>
+</odoo>

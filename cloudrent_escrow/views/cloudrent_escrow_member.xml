@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_cloudrent_escrow_member_tree" model="ir.ui.view">
+           <field name="name">view.cloudrent.escrow.member.tree</field>
+           <field name="model">cloudrent.escrow_member</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="escrow_agent"/>
+                   <field name="escrow_man"/>
+                   <field name="escrow_pid"/>
+                   <field name="escrow_type"/>
+                   <field name="line_user_id"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_cloudrent_escrow_member_form" model="ir.ui.view">
+           <field name="name">view.cloudrent.escrow.member.form</field>
+           <field name="model">cloudrent.escrow_member</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <group>
+                                <field name="escrow_agent"/>
+                                <field name="escrow_man"/>
+                                <field name="escrow_pid"/>
+                                <field name="escrow_type"/>
+                                <field name="fin_instno" attrs="{'invisible':[('escrow_type','in',('3','4','5','7'))]}"/>
+                                <field name="fin_branch" attrs="{'invisible':[('escrow_type','in',('3','4','5','7'))]}"/>
+                                <field name="fin_name" attrs="{'invisible':[('escrow_type','in',('3','4','5','7'))]}"/>
+                                <field name="fin_account" attrs="{'invisible':[('escrow_type','in',('3','4','5','7'))]}"/>
+                                <field name="member_sex"/>
+                                <field name="member_phone1"/>
+                                <field name="member_phone2"/>
+                                <field name="member_cell"/>
+                                <field name="member_email"/>
+                                <field name="member_addr"/>
+                                <field name="member_addr1"/>
+                                <field name="member_memo"/>
+                                <field name="users_id" attrs="{'readonly':1}"/>
+                           </group>
+                           <group>
+                               <field name="lessee_no" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}"/>
+                               <field name="lessee_age" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}"/>
+                               <field name="build_pattern" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}" string="需求房型"/>
+                               <field name="elevator" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}"/>
+                               <field name="lessee_expected_value" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}" string="期望租金(下)"/>
+                               <field name="lessee_expected_value1" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}" string="期望租金(上)"/>
+                               <field name="build_area" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}"/>
+                               <field name="pet" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}"/>
+                               <field name="worship_god" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}"/>
+                               <field name="member_number" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}"/>
+                               <field name="license_no" attrs="{'invisible':[('escrow_type','in',('1','2','6','7'))]}"/>
+                               <field name="line_user_id" attrs="{'readonly':1}" save_force="1"/>
+                           </group>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+        <record id="view_cloudrent_escrow_member_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.escrow.member.search</field>
+           <field name="model">cloudrent.escrow_member</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="escrow_man" string="關鍵字" filter_domain="['|','|',('escrow_agent.bus_name','ilike',self),('escrow_pid','ilike',self),('escrow_man', 'ilike',self)]"/>
+                <filter string="管理師" domain="[('escrow_type','=','3')]" name="escrow_type1"/>
+                <filter string="出租人" domain="[('escrow_type','=','1')]" name="escrow_type2"/>
+                <filter string="承租人" domain="[('escrow_type','=','2')]" name="escrow_type3"/>
+                <filter string="不動產經紀人" domain="[('escrow_type','=','4')]" name="escrow_type4"/>
+                <filter string="系統管理員" domain="[('escrow_type','=','7')]" name="escrow_type5"/>
+                <filter string="業務" domain="[('escrow_type','=','5')]" name="escrow_type6"/>
+                <filter string="廠商" domain="[('escrow_type','=','6')]" name="escrow_type7"/>
+                <filter name="group_escrow_agent" string="業者群組" icon="terp-partner" context="{'group_by':'escrow_agent'}"/>
+                <filter name="group_escrow_type" string="身份類別群組" icon="terp-partner" context="{'group_by':'escrow_type'}"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_escrow_member_view" model="ir.actions.act_window">
+            <field name="name">人員主檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.escrow_member</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_escrow_member_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_cloudrent_escrow_member_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_escrow_member_search"/>
+            <field name="context">{'search_default_group_escrow_agent':1,'search_default_group_escrow_type':2}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

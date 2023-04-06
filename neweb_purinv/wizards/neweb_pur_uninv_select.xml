@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_unpurinv_select" model="ir.ui.view">
+            <field name="name">neweb_unpurinv_select</field>
+            <field name="model">neweb.unpurinv</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <!--<field name="name" attrs="{'readonly':'1'}"/>-->
+                             <field name="invitem_line" nolabel="1" >
+                                    <tree widget="one2many">
+                                        <button type="object" name="get_select" string="點選" class="oe_highlight"/>
+                                        <field name="selectyn"/>
+                                        <field name="prod_modeltype" string="機種-機型/料號" colspan="2"/>
+                                        <field name="prod_desc" string="規格說明" colspan="2"/>
+                                        <field name="prod_num" string="購買數量" colspan="1"/>
+                                        <field name="prod_price" string="價格" colspan="1"/>
+                                        <field name="prod_sum" string="合計" colspan="1"/>
+                                        <field name="prod_tottax" string="合計(含税)" colspan="1"/>
+                                        <field name="supplier" string="報價廠商" colspan="2"/>
+                                    </tree>
+                             </field>
+                        </group>
+                        <button type="object" name="selectbtn" string="點選匯入" class="oe_highlight" context="{'purinv_id': context.get('active_id')}"/>
+                        <button type="object" name="selectall" string="全選匯入" class="oe_highlight" context="{'purinv_id': context.get('active_id')}"/>
+                        <button type="object" name="noselect"  string="離開"/>
+                         <!--<button special="cancel" string="離開"/>-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_unpurinv_select_action" model="ir.actions.act_window">
+            <field name="name">neweb_unpurinv_select_action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.unpurinv</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cloudrent_household_landlord_tree" model="ir.ui.view">
+            <field name="name">cloudrent.household.landlord.tree</field>
+            <field name="model">cloudrent.household_landlord</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="landlord_no"/>
+                    <field name="landlord_name"/>
+                    <field name="landlord_pid"/>
+                    <field name="landlord_email"/>
+                    <field name="landlord_address1"/>
+                    <field name="landlord_phone1"/>
+                    <field name="income_date"/>
+                    <field name="ap_system_sd"/>
+                    <field name="ap_system_ed"/>
+                    <field name="month_fee"/>
+                </tree>
+            </field>
+        </record>
+        <record id="cloudrent_household_landlord_form" model="ir.ui.view">
+            <field name="name">cloudrent.household.landlord.form</field>
+            <field name="model">cloudrent.household_landlord</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                         <group>
+                            <group>
+                                <field name="landlord_no"/>
+                                <field name="landlord_name"/>
+                                <field name="user_id" options="{'no_create':true,'no_create_edit':true}" groups="base.group_no_one"/>
+                                <field name="landlord_pid"/>
+                                <field name="landlord_email"/>
+                            </group>
+                            <group>
+                              <field name="landlord_address1"/>
+                              <field name="landlord_phone1"/>
+                              <field name="landlord_address2"/>
+                              <field name="landlord_phone2"/>
+                              <field name="landlord_project_ids" widget="many2many_tags" />
+
+                            </group>
+                         </group>
+                         <group>
+                           <group>
+                               <field name="ar_tot_amount"/>
+                                <field name="ar_tot_payment"/>
+                                <field name="ar_tot_balance"/>
+                                <field name="ap_tot_amount"/>
+                                <field name="ap_tot_payment"/>
+                                <field name="ap_tot_balance"/>
+                           </group>
+                            <group>
+                               <button type="object" string="展開房東應繳費用記錄"
+                                        class="oe_highlight" name="run_landlord_payment" />
+                                <button type="object" string="刪除房東應繳費用記錄"
+                                        groups="base.group_no_one"
+                                        class="oe_highlight" name="del_landlord_account" />
+                                <button type="object" string="房東費用從新計算"
+                                        class="oe_highlight" name="recall_landlord_payment" />
+                            </group>
+                        </group>
+                       </group>
+                        <notebook>
+                            <page string="房東合約資訊" name="Contract Data">
+                                <group>
+                                      <field name="income_date"/>
+                                      <field name="ap_system_sd"/>
+                                      <field name="ap_system_ed"/>
+                                      <field name="month_fee"/>
+                                      <field name="is_management_ar" string="管理應收帳?"/>
+                                      <field name="is_management_ap" string="管理應付帳?"/>
+                                </group>
+                            </page>
+                             <page string="房東應收帳明細" name="landlord AR line Data">
+                                 <field name="landlord_ar_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="房東應收帳明細" create="false" edit="false" delete="false" >
+                                    <field name="landlord_ar_ym"/>
+                                    <field name="project_no"/>
+                                    <field name="house_id" />
+                                    <field name="member_id"/>
+                                     <field name="house_rental_fee"/>
+                                    <field name="house_management_fee"/>
+                                    <field name="parking_space_rent"/>
+                                    <field name="parking_management"/>
+                                    <field name="lo_parking_management"/>
+                                    <field name="emeter_fee"/>
+                                    <field name="water_fee"/>
+                                    <field name="tot_amount"/>
+                                 </tree>
+                                </field>
+                             </page>
+                               <page string="房客已繳交記錄" name="member deposit payline Data">
+                                   <field name="landlord_arpayment_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="房客已繳交記錄" create="false" edit="false" delete="false">
+                                     <field name="landlord_arpayment_ym"/>
+                                     <field name="landlord_arpayment_date"/>
+                                     <field name="project_no"/>
+                                     <field name="house_id"/>
+                                     <field name="member_id"/>
+                                     <field name="house_rental_pay"/>
+                                     <field name="house_management_pay"/>
+                                     <field name="parking_space_pay"/>
+                                     <field name="parking_management_pay"/>
+                                     <field name="lopark_management_pay"/>
+                                     <field name="water_pay"/>
+                                     <field name="emeter_pay"/>
+                                    <field name="payment_tot"/>
+                                    <field name="member_payment_ids" widget="many2many_tags"/>
+                                     <button name="button_action" type="object" string="核銷記錄" class="oe_highlight"/>
+                                 </tree>
+                                </field>
+                             </page>
+                             <page string="房東應付費用明細表" name="member income emeter Data">
+                                 <field name="landlord_ap_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="房東應付費用明細表" create="false" edit="false" delete="false">
+                                    <field name="landlord_ap_ym"/>
+                                    <field name="project_no" />
+                                    <field name="management_num"/>
+                                    <field name="management_fee"/>
+                                    <field name="line_month_record" />
+                                    <field name="line_month_fee"/>
+                                    <field name="tot_amount"/>
+                                    <field name="active"/>
+                                 </tree>
+                                </field>
+                             </page>
+                             <page string="房東應付費用核銷明細表" name="member payment line Data">
+                                  <field name="landlord_appayment_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="房東應付費用核銷明細表" create="false" edit="false" delete="false" >
+                                     <field name="name"/>
+                                     <field name="pay_status"/>
+                                     <field name="pay_active"/>
+                                     <field name="pay_name"/>
+                                     <field name="pay_year"/>
+                                     <field name="pay_month"/>
+                                     <field name="pay_ap"/>
+                                     <field name="pay_confirm"/>
+                                 </tree>
+                                </field>
+                             </page>
+                              <page string="房東人員LINE APP綁定記錄" name="member emeter payline Data">
+                                   <field name="landlord_line_user" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="房東人員LINE APP綁定記錄" create="false" edit="false" delete="false">
+                                    <field name="line_user_id"/>
+                                    <field name="line_rich_menu_id" invisible="1"/>
+                                    <field name="landlord_pid"/>
+                                    <field name="landlord_name"/>
+                                    <field name="active"/>
+                                 </tree>
+                                </field>
+                             </page>
+                             <page string="房東所屬租戶LINE Message記錄" name="member breach contract payline Data">
+                                   <field name="landlord_line_message" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="房東所屬租戶LINE Message記錄" create="false" edit="false" delete="false">
+                                    <field name="project_no"/>
+                                    <field name="house_id"/>
+                                    <field name="member_id"/>
+                                     <field name="line_type"/>
+                                    <field name="send_date"/>
+                                 </tree>
+                                </field>
+                             </page>
+
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="cloudrent_household_landlord_action" model="ir.actions.act_window">
+            <field name="name">房東資訊主檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.household_landlord</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

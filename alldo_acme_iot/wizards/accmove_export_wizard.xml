@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="views_accmove_export_wizard" model="ir.ui.view">
+            <field name="name">views.accmove.export.wizard</field>
+            <field name="model">alldo_acme_iot.accmove_excel_export_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>(應收/應付)帳款EXCEL匯出精靈</h1>
+                        <group>
+                            <field name="emp_no"/>
+                            <field name="acc_type"/>
+                            <field name="run_desc"/>
+                        </group>
+
+                    </sheet>
+                    <footer>
+                        <button type="object" name="run_accmove_export" string="匯出EXCEL" class="oe_highlight"/>
+                        <button special="cancel" string="放棄"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="accmove_export_wizard_action" model="ir.actions.act_window">
+             <field name="name">(應收/應付)帳款EXCEL匯出精靈</field>
+             <field name="res_model">alldo_acme_iot.accmove_excel_export_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+    </data>
+</odoo>

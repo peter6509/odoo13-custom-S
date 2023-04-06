@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="menu_neweb_project_rev_cost_action" model="ir.ui.menu">
+            <field name="name">專案合約分攤維護作業</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_cs50_assi'),ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_cs30_dir')]),]"/>
+        </record>
+        <record id="menu_neweb_project_analysis_categ" model="ir.ui.menu">
+            <field name="name">專案合約分攤作業</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_cs50_assi'),ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_cs30_dir')]),]"/>
+        </record>
+        <record id="menu_neweb_project_analysis_wizard_action" model="ir.ui.menu">
+            <field name="name">分攤數據產生精靈</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_cs50_assi'),ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_cs30_dir')]),]"/>
+        </record>
+        <record id="menu_action_neweb_projectcontract_revenue_analysis" model="ir.ui.menu">
+            <field name="name">維護收入分析</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_cs50_assi'),ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_cs30_dir')]),]"/>
+        </record>
+    </data>
+</odoo>

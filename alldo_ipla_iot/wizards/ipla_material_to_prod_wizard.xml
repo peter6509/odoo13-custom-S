@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="views_ipla_material_to_prod_wizard" model="ir.ui.view">
+            <field name="name">views.ipla.material.to.prod.wizard</field>
+            <field name="model">alldo_ipla_iot.materialtoprod_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>ipla原物料移動至成品倉精靈</h1>
+                        <group>
+                            <field name="product_id" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="move_num" />
+                            <field name="move_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="move_note"/>
+                        </group>
+
+                    </sheet>
+                    <footer>
+                        <button type="object" name="run_move_material" string="物料移轉" class="oe_highlight"/>
+                        <button special="cancel" string="放棄離開"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="ipla_material_to_prod_action" model="ir.actions.act_window">
+             <field name="name">ipla原物料移動至成品倉精靈</field>
+             <field name="res_model">alldo_ipla_iot.materialtoprod_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_project_inherit1" model="ir.ui.view">
+            <field name="name">neweb.project.inherit1</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_project.neweb_project_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='acc_close_day']" position="attributes">
+                     <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='self_receive_date']" position="before">
+                    <field name="self_receive_type" widget="radio" options="{'horizontal':true}" attrs="{'invisible':[('acc_receivable','in',['1','2','3'])]}"/>
+                </xpath>
+                <xpath expr="//field[@name='self_receive_date']" position="after">
+                    <field name="open_account_day"/>
+                    <field name="proj_info_desc"/>
+                    <field name="proj_info_memo"/>
+                    <field name="shipping_type" widget="radio" options="{'horizontal':true}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

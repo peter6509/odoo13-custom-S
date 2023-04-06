@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="purchase_order_report_custom">
+            <t t-call="report.html_container">
+                <h1 class="col-12 text-center">CENTRILLION 採購單</h1>
+                <h3 class="col-12 text-center">正在列印輸出中，請稍候...</h3>
+<script type="text/javascript">
+var cfprint_addr = "192.168.2.138";   //列印服務監聽地址
+var _delay_close = 1000;          //列印完成後關閉窗口的延遲時間(毫秒), -1则表示不關閉
+
+/**定義主結構表**/
+var _tablePurchaseOrder = {
+    "Name": "PurchaseOrder",
+    "Cols":[
+        { "type": "str", "size": 50, "name": "廠商名稱", "required": false },
+        { "type": "str", "size": 10, "name": "廠商統編", "required": false },
+        { "type": "str", "size": 150, "name": "廠商地址", "required": false },
+        { "type": "str", "size": 20, "name": "廠商電話", "required": false },
+        { "type": "str", "size": 20, "name": "廠商傳真", "required": false },
+        { "type": "str", "size": 20, "name": "廠商Email", "required": false},
+        { "type": "str", "size": 30, "name": "廠商聯絡人", "required": false },
+        { "type": "str", "size": 50, "name": "公司名稱", "required": false },
+        { "type": "str", "size": 10, "name": "公司統編", "required": false },
+        { "type": "str", "size": 150, "name": "公司地址", "required": false },
+        { "type": "str", "size": 20, "name": "公司電話", "required": false },
+        { "type": "str", "size": 20, "name": "公司傳真", "required": false },
+        { "type": "str", "size": 20, "name": "公司Email", "required": false},
+        { "type": "str", "size": 30, "name": "公司聯絡人", "required": false },
+        { "type": "str", "size": 20, "name": "付款條件", "required": false },
+        { "type": "str", "size": 15, "name": "採購編號", "required": false },
+        { "type": "str", "size": 12, "name": "採購日期", "required": false },
+        { "type": "str", "size": 20, "name": "報價單號", "required": false },
+        { "type": "str", "size": 10, "name": "幣別", "required": false },
+        { "type": "float", "size": 0, "name": "合計", "required": false },
+        { "type": "float", "size": 0, "name": "營業稅", "required": false },
+        { "type": "float", "size": 0, "name": "成交總金額", "required": false },
+    ],
+
+    "Data":[ ]
+};
+
+/* 定義從表結構 */
+var _tablePurchaseOrderLines = {
+    "Name": "PurchaseOrderLines",
+    "Cols":[
+        { "type": "str", "size": 6, "name": "項次", "required": false },
+        { "type": "str", "size": 100, "name": "項目名稱", "required": false },
+        { "type": "str", "size": 200, "name": "規格說明", "required": false },
+        { "type": "str", "size": 30, "name": "單位", "required": false },
+        { "type": "float", "size": 0, "name": "數量", "required": false },
+        { "type": "float", "size": 0, "name": "單價", "required": false },
+        { "type": "float", "size": 0, "name": "總價", "required": false },
+    ],
+    "Data":[ ]
+};
+<t t-foreach="docs" t-as="o">
+/* 增加主表記錄 */
+_tablePurchaseOrder.Data.push(
+{
+    "廠商名稱": "<span t-field="o.partner_id" t-field-options='{"widget": "contact", "fields": ["name"], "no_marker": true, "no_tag_br": true, "data_type": "raw"}' />",
+    "廠商統編": "<t t-esc="o.partner_id.sno"/>",
+    "廠商地址": "<t t-esc="o.partner_id.street"/>",
+    "廠商電話": "<t t-esc="o.partner_id.phone"/>",
+    "廠商傳真": "<t t-esc="o.partner_id.fax"/>",
+    "廠商Email": "<t t-esc="o.partner_id.email"/>",
+    "廠商聯絡人": "<t t-if="o.partner_id and o.partner_id.child_ids and len(o.partner_id.child_ids) &gt; 0 and o.partner_id.child_ids[0].name"><t t-esc="o.partner_id.child_ids[0].name"/></t>",
+    "公司名稱": "<t t-esc="o.company_id.name"/>",
+    "公司統編": "<t t-esc="o.company_id.vat"/>",
+    "公司地址": "<t t-esc="o.company_id.street"/>",
+    "公司電話": "<t t-esc="o.company_id.phone"/>",
+    "公司傳真": "<t t-esc="o.company_id.fax"/>",
+    "公司Email": "<t t-esc="o.company_id.email"/>",
+    "公司聯絡人": "<t t-esc="o.create_uid.name"/>",
+    "付款條件": "<t t-esc="o.partner_id.property_supplier_payment_term_id.name"/>",
+    "採購編號": "<t t-esc="o.name"/>",
+    "採購日期": "<span t-field="o.date_order" t-field-options='{"format": "yyyy/MM/dd"}'></span>",
+    "報價單號": "<t t-esc="o.origin_no"/>",
+    "幣別": "<t t-esc="o.currency_id.name"/>",
+    "合計": "<t t-esc="o.amount_untaxed"/>",
+    "營業稅":"<t t-esc="o.amount_tax"/>",
+    "成交總金額":"<t t-esc="o.amount_total"/>",
+});
+
+<t t-foreach="o.order_line" t-as="lines">
+/* 增加從表記錄 */
+_tablePurchaseOrderLines.Data.push(
+{
+    "項次":"<t t-esc="lines_index +1"/>",
+    "項目名稱": "<t t-esc="lines.product_id.name"/>",
+    "規格說明": "<t t-esc="lines.name"/>",
+    "單位": "<t t-esc="lines.product_uom.name"/>",
+    "數量": "<t t-esc="lines.product_qty"/>",
+    "單價": "<t t-esc="lines.price_unit"/>",
+    "總價": "<t t-esc="lines.price_subtotal"/>",
+});
+</t>
+</t>
+var _data = {"template": "base64:<t t-esc="cf_template(user.env,'centtech_purchase_order')"/>", "ver": 4, "Copies": 1, "Duplex": 0, "Preview": 0, "Tables":[]};
+_data["Tables"].push(_tablePurchaseOrder);
+_data["Tables"].push(_tablePurchaseOrderLines);
+var _reportData = JSON.stringify(_data);  //轉成json字符串
+
+console.log(_reportData);
+/**生成数據之後，在cfprint_ext.js 中會自動調用jason產出**/
+</script>
+            </t>
+        </template>
+    </data>
+</odoo>

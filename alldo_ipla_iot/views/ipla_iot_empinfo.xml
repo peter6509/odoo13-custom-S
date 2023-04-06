@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="views_empinfo_tree" model="ir.ui.view">
+           <field name="name">views.empinfo.tree</field>
+           <field name="model">alldo_ipla_iot.empinfo</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="empinfo_date"/>
+               </tree>
+           </field>
+       </record>
+       <record id="views_empinfo_form" model="ir.ui.view">
+           <field name="name">views.empinfo.form</field>
+           <field name="model">alldo_ipla_iot.empinfo</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                        <notebook>
+                                <page string="人員名條" name="emp Line">
+                                    <field
+                                        name="barcode_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                    >
+                                   <tree string="製作條碼名單" editable="False">
+                                      <field name="emp_code1" string="1工號"  />
+                                      <field name="emp_name1" string="1姓名" />
+                                      <field name="emp_code2" string="2工號"  />
+                                      <field name="emp_name2" string="2姓名" />
+                                      <field name="emp_code3" string="3工號"  />
+                                      <field name="emp_name3" string="3姓名" />
+                                      <field name="emp_code4" string="4工號"  />
+                                      <field name="emp_name4" string="4姓名" />
+                                       <field name="emp_code5" string="5工號"  />
+                                      <field name="emp_name5" string="5姓名" />
+                                      <field name="emp_code6" string="5工號"  />
+                                      <field name="emp_name6" string="5姓名" />
+                                       <field name="emp_code7" string="7工號"  />
+                                      <field name="emp_name7" string="7姓名" />
+                                      <field name="emp_code8" string="8工號"  />
+                                      <field name="emp_name8" string="8姓名" />
+                                       <field name="emp_code9" string="9工號"  />
+                                      <field name="emp_name9" string="9姓名" />
+                                      <field name="emp_code10" string="10工號"  />
+                                      <field name="emp_name10" string="10姓名" />
+                                    </tree>
+                                    </field>
+                                </page>
+                        </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="views_empinfo_action" model="ir.actions.act_window">
+           <field name="name"></field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">alldo_ipla_iot.empinfo</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+
+    </data>
+</odoo>

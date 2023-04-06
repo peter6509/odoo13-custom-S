@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <!-- Sequences for sale.order -->
+
+         <record id="seq_neweb_chi_incomeoutcome1" model="neweb_chi_invoicing.incomeoutcome_seq">
+            <field name="chi_sname">income</field>
+        </record>
+         <record id="seq_neweb_chi_incomeoutcome2" model="neweb_chi_invoicing.incomeoutcome_seq">
+            <field name="chi_sname">outcome</field>
+        </record>
+        <record id="seq_neweb_chi_incomeoutcome3" model="neweb_chi_invoicing.incomeoutcome_seq">
+            <field name="chi_sname">mincome</field>
+        </record>
+        <record id="seq_neweb_chi_incomeoutcome4" model="neweb_chi_invoicing.incomeoutcome_seq">
+            <field name="chi_sname">moutcome</field>
+        </record>
+    </data>
+</odoo>

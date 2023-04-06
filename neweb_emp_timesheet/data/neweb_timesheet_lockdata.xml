@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="neweb_timesheetlock_1" model="neweb_emp_timesheet.timesheet_lock">
+                <field name="yearmonth">2019-01</field>
+         </record>
+    </data>
+</odoo>

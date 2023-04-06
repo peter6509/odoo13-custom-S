@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_escrow_lessee_tree" model="ir.ui.view">
+            <field name="name">view.escrow.lessee.tree</field>
+            <field name="model">cloudrent.escrow_member</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="lessee_no" width="10%%"/>
+                    <field name="escrow_agent" width="8%%"/>
+                    <field name="escrow_man" width="6%%"/>
+                    <field name="escrow_pid" width="8%%"/>
+                    <field name="escrow_type" width="8%%"/>
+                    <field name="line_user_id" width="10%%"/>
+                    <field name="member_phone1" width="6%%"/>
+                    <field name="member_phone2" width="6%%"/>
+                    <field name="member_cell" width="6%%"/>
+                    <field name="lessee_type" width="10%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_escrow_lessee_form" model="ir.ui.view">
+            <field name="name">view.escrow.lessee.form</field>
+            <field name="model">cloudrent.escrow_member</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="lessee_no"/>
+                                <field name="escrow_agent"/>
+                                <field name="escrow_man"/>
+                                <field name="escrow_pid"/>
+                                <field name="escrow_type" attrs="{'readonly':1}" save_forced="1"/>
+                                <field name="line_user_id" attrs="{'readonly':1}" save_forced="1"/>
+                                <field name="fin_instno"/>
+                                <field name="fin_branch"/>
+                                <field name="fin_account"/>
+                                <field name="lessee_no"/>
+                                <field name="member_sex"/>
+                                <field name="member_birthday"/>
+                                <field name="lessee_age"/>
+                                <field name="member_email"/>
+                                <field name="lessee_type" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="household_no"/>
+                                <field name="member_phone1"/>
+                                <field name="member_phone2"/>
+                                <field name="member_cell"/>
+                                <field name="build_pattern"/>
+                                <field name="lessee_type" attrs="{'invisible':[('escrow_type','in',('1','3','4','5','6','7'))]}"/>
+                                <field name="elevator"/>
+                                <field name="member_revenue"/>
+                                <field name="lessee_expected_value"/>
+                                <field name="lessee_expected_value1"/>
+                                <field name="build_area"/>
+                                <field name="pet"/>
+                                <field name="worship_god"/>
+                                <field name="member_number"/>
+                                <field name="member_memo"/>
+                            </group>
+                        </group>
+                        <h1>申請人家屬成員資料</h1>
+                          <field name="lessee_family_line" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="family_seq" attrs="{'readonly':1}" force_save="1" width="3%%"/>
+                                  <field name="escrow_man" width="5%%"/>
+                                  <field name="escrow_pid" width="7%%"/>
+                                  <field name="member_birthday" width="5%%"/>
+                                  <field name="escrow_title" width="8%%"/>
+                                  <field name="escrow_revenue" width="8%%"/>
+                              </tree>
+                           </field>
+                        <h1>申請人家屬成員房產清單</h1>
+                           <field name="lessee_family_realestate" nolabel="1">
+                               <tree editable="bottom" string="Student Info" widget="one2many">
+                                   <field name="family_seq" attrs="{'readonly':1}" force_save="1" width="3%%"/>
+                                   <field name="lessee_estate_owner" width="5%%"/>
+                                   <field name="lessee_estate_address" width="15%%"/>
+                                   <field name="total_area" width="5%%"/>
+                                   <field name="stakeholder_per" width="8%%"/>
+                                   <field name="stakeholder_area" width="5%%"/>
+                                   <field name="naturalization" width="8%%"/>
+                               </tree>
+                            </field>
+                        <h1>申請人家屬(動產)/(不動產)總額清單</h1>
+                          <field name="lessee_family_assets" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="family_seq" attrs="{'readonly':1}" force_save="1" width="3%%"/>
+                                  <field name="lessee_assets_owner" width="5%%"/>
+                                  <field name="movable_property" width="8%%"/>
+                                  <field name="real_estate" width="8%%"/>
+                              </tree>
+                           </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_escrow_lessee_search" model="ir.ui.view">
+           <field name="name">view.escrow.lessee.search</field>
+           <field name="model">cloudrent.escrow_member</field>
+            <field name="arch" type="xml">
+                <search string="">
+                   <field name="lessee_no" string="房客編號" filter_domain="[('lessee_no','ilike',self)]"/>
+                   <field name="escrow_man" string="人員姓名" filter_domain="[('escrow_man', 'ilike', self)]"/>
+                   <field name="escrow_pid" string="身份證號" filter_domain="[('escrow_pid', 'ilike', self)]"/>
+                <separator/>
+                <filter string="一般戶" domain="[('lessee_type','=','1')]" name="lesseetype1"/>
+                <filter string="第一類弱勢戶" domain="[('lessee_type','=','2')]" name="lesseetype2"/>
+                <filter string="第二類弱勢戶" domain="[('lessee_type','=','3')]" name="lesseetype3"/>
+                <filter string="就學,就業,警消" domain="[('lessee_type','=','4')]" name="lesseetype4"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_escrow_lessee_view" model="ir.actions.act_window">
+            <field name="name">(承租人/房客)基本資料</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.escrow_member</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_escrow_lessee_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_escrow_lessee_form')}),]"/>
+            <field name="search_view_id" ref="view_escrow_lessee_search"/>
+            <field name="domain">[('escrow_type', '=', '2')]</field>
+            <field name="context">{'default_escrow_type':'2'}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

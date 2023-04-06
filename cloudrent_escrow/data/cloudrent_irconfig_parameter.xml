@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="cloudrent_ir_config_1" model="ir.config_parameter">
+            <field name="key">have_aspose_license</field>
+            <field name="value">N</field>
+        </record>
+        <record id="cloudrent_ir_config_2" model="ir.config_parameter">
+            <field name="key">cloudrent.docx.path</field>
+            <field name="value">/odoo/custom/addons/cloudrent_escrow/docx</field>
+        </record>
+        <record id="cloudrent_ir_config_3" model="ir.config_parameter">
+            <field name="key">cloudrent.docx.path1</field>
+            <field name="value">/tmp</field>
+        </record>
+        <record id="cloudrent_ir_config_4" model="ir.config_parameter">
+            <field name="key">cloudrent.xlsx.path</field>
+            <field name="value">/odoo/custom/addons/cloudrent_escrow/xlsx</field>
+        </record>
+        <record id="cloudrent_ir_config_5" model="ir.config_parameter">
+            <field name="key">cloudrent.xlsx.path1</field>
+            <field name="value">/tmp</field>
+        </record>
+    </data>
+</odoo>

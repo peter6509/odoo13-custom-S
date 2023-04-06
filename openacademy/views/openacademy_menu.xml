@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_openacademy_root" name="學生成績系統" sequence="200"/>
+        <menuitem id="menu_openacademy_categ" name="基礎資料" parent="menu_openacademy_root" sequence="10"/>
+        <menuitem id="menu_openacademy_student_view" name="" parent="menu_openacademy_categ"
+
+                  action="action_openacademy_student_view" sequence="10"/>
+        <menuitem id="menu_openacademy_score_categ" name="成績記錄" parent="menu_openacademy_root" sequence="20"/>
+        <menuitem id="menu_openacademy_score_view" name="" parent="menu_openacademy_score_categ"
+
+                  action="action_openacademy_score_view" sequence="10"/>
+
+        <menuitem id="menu_openacademy_teacher_view" name="" parent="menu_openacademy_categ"
+
+                  action="action_openacademy_teacher_view" sequence="20"/>
+        <menuitem id="menu_openacademy_studentclass_view" name="" parent="menu_openacademy_categ"
+
+                  action="action_openacademy_student_class_view" sequence="30"/>
+        <menuitem id="menu_openacademy_course_view" name="" parent="menu_openacademy_categ"
+                  action="action_openacademy_course_view" sequence="40"/>
+<!--        <menuitem id="menu_openacademy_search_categ" name="複合查詢" parent="menu_openacademy_root" sequence="30"/>-->
+<!--        <menuitem id="menu_openacademy_search1_view" name="" parent="menu_openacademy_search_categ"-->
+<!--                  action="openacademy_student_wizard_action" sequence="10"/>-->
+<!--        <menuitem id="menu_openacademy_excel_export_view" name="" parent="menu_openacademy_search_categ"-->
+<!--                  action="openacademy_excel_download_action" sequence="100"/>-->
+<!--        <menuitem id="menu_openacademy_export_wuzard_view" name="" parent="menu_openacademy_search_categ"-->
+<!--                  action="openacademy_student_export_view_action" sequence="20"/>-->
+<!--        <menuitem id="menu_openacademy_score_import_view" name="" parent="menu_openacademy_score_categ"-->
+<!--                  action="openacademy_score_import_action" sequence="20"/>-->
+    </data>
+</odoo>

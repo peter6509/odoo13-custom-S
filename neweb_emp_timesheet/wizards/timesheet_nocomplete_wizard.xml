@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="timesheet_nocomplete_form_wizard" model="ir.ui.view">
+         <field name="name">timesheet.nocomplete.form.wizard</field>
+         <field name="model">neweb_emp_timesheet.timesheet_nocomplete_wizard</field>
+         <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                      <h1>工時未達標記錄列表精靈</h1>
+                     <group>
+                        <field name="emp_level" attrs="{'invisible':1}"/>
+                        <field name="timesheet_start_date"/>
+                        <field name="timesheet_end_date"/>
+                        <field name="alldept" attrs="{'invisible':[('emp_level','=','en70')]}"/>
+                        <field name="emp_id" attrs="{'invisible':['|',('timesheet_end_date','=',False),('alldept','=',True)]}"/>
+                        <field name="dept_id" attrs="{'invisible':['|','|',('emp_level','=','en70'),('timesheet_end_date','=',False),('alldept','=',True)]}"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_check_timesheet_complete" string="匯出記錄" class="oe_highlight"/>
+                     <button special="cancel" string="放棄離開"/>
+                 </footer>
+             </form>
+         </field>
+     </record>
+         <record id="timesheet_nocomplete_view_action" model="ir.actions.act_window">
+             <field name="name">工時未達標記錄列表精靈</field>
+             <field name="res_model">neweb_emp_timesheet.timesheet_nocomplete_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+
+    </data>
+</odoo>

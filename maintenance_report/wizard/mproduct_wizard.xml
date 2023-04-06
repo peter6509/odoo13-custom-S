@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mproduct_wizard" model="ir.ui.view">
+            <field name="name">MProduct Wizard</field>
+            <field name="model">mproduct.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>維修零組件印表作業</h1>
+                        <group>
+                            <field name="defaultcode"/>
+                            <field name="prodname"/>
+                            <field name="qtystatus" widget="selection"/>
+                            <field name="qtyvalue"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="product_qty_print" string="MProdust Print" class="btn-primary"/>
+                        <button special="cancel" string="Cancel" class="btn-default"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_mproduct_wizard" name="mproduct wizard" res_model="mproduct.wizard"
+                    view_mode="form" target="new"/>
+        <menuitem id="menu_mproduct_wizard" name="MProduct_Wizard" parent="stock.menu_warehouse_report"
+                  action="action_mproduct_wizard" groups="group_mreport_user" sequence="30"/>
+    </data>
+</odoo>

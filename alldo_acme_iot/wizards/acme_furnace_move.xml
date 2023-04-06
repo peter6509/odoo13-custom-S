@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_acme_casting_furnace_wizard" model="ir.ui.view">
+             <field name="name">views.acme.casting.furnace.wizard</field>
+             <field name="model">alldo_acme_iot.furnace_move_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>原材物料投料熔爐精靈</h1>
+                     <group>
+                         <field name="product_no" options="{'no_create':true,'no_create_edit':true}"
+                            domain="[('categ_id','in',[5,6])]"/>
+                         <field name="have_lot" attrs="{'invisible':1}"/>
+                         <field name="quant_id" options="{'no_create':true,'no_create_edit':true}"
+                                attrs="{'invisible':[('have_lot','=',False)]}" />
+                         <field name="equipment_no" options="{'no_create':true,'no_create_edit':true}"/>
+                         <field name="quantity" />
+                         <field name="move_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_furnace_move" string="熔爐投料" class="oe_highlight"/>
+                     <button special="cancel" string="放棄離開"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+         <record id="acme_casting_furnace_wizard_action" model="ir.actions.act_window">
+             <field name="name">原材物料投料熔爐精靈</field>
+             <field name="res_model">alldo_acme_iot.furnace_move_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="context">{'lot_search': True}</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

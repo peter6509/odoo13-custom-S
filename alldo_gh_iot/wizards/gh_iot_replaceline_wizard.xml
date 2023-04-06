@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_replaceline_wizard" model="ir.ui.view">
+             <field name="name">views.replaceline.wizard</field>
+             <field name="model">alldo_gh_iot.replaceline_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>工程師換線記錄EXCEL匯出精靈</h1>
+                         <group>
+                             <field name="rep_start_date"/>
+                             <field name="rep_end_date"/>
+                             <field name="rep_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="run_desc"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_replaceline" string="換線記錄匯出精靈" class="oe_highlight"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="replaceline_wizard_action" model="ir.actions.act_window">
+             <field name="name">工程師換線記錄EXCEL匯出精靈</field>
+             <field name="res_model">alldo_gh_iot.replaceline_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

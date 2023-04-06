@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="contract_wkf" model="workflow">
+            <field name="name">neweb_contract.contract.basic</field>
+            <field name="osv">neweb_contract.contract</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <record id="contract_draft" model="workflow.activity">
+            <field name="wkf_id" ref="contract_wkf"/>
+            <field name="flow_start">True</field>
+            <field name="name">Draft</field>
+            <field name="action">write({'state':'contract_draft'})</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="contract_approv1" model="workflow.activity">
+            <field name="wkf_id" ref="contract_wkf"/>
+            <field name="name">Waiting for Officer Approval</field>
+            <field name="action">write({'state':'contract_approv1'})</field>
+            <field name="action_id" ref="send_approval1_email"/>
+            <field name="kind">function</field>
+        </record>
+        <record id="contract_approv2" model="workflow.activity">
+            <field name="wkf_id" ref="contract_wkf"/>
+            <field name="name">Waiting for Sales Approval</field>
+            <field name="action">write({'state':'contract_approv2'})</field>
+            <field name="action_id" ref="send_approval2_email"/>
+            <field name="kind">function</field>
+        </record>
+        <record id="contract_approv3" model="workflow.activity">
+            <field name="wkf_id" ref="contract_wkf"/>
+            <field name="name">Waiting for Marketing Approval</field>
+            <field name="action">write({'state':'contract_approv3'})</field>
+            <field name="action_id" ref="send_approval3_email"/>
+            <field name="kind">function</field>
+        </record>
+        <record id="contract_approv4" model="workflow.activity">
+            <field name="wkf_id" ref="contract_wkf"/>
+            <field name="name">Waiting for Sales AM Approval</field>
+            <field name="action">write({'state':'contract_approv4'})</field>
+            <field name="action_id" ref="send_approval4_email"/>
+            <field name="kind">function</field>
+        </record>
+        <record id="contract_approv5" model="workflow.activity">
+            <field name="wkf_id" ref="contract_wkf"/>
+            <field name="name">Waiting for Sales VP Approval</field>
+            <field name="action">write({'state':'contract_approv5'})</field>
+            <field name="action_id" ref="send_approval5_email"/>
+            <field name="kind">function</field>
+        </record>
+        <record id="contract_approv6" model="workflow.activity">
+            <field name="wkf_id" ref="contract_wkf"/>
+            <field name="name">Waiting for Service VP Approval</field>
+            <field name="action">write({'state':'contract_approv6'})</field>
+            <field name="action_id" ref="send_approval6_email"/>
+            <field name="kind">function</field>
+        </record>
+        <record id="contract_approv7" model="workflow.activity">
+            <field name="wkf_id" ref="contract_wkf"/>
+            <field name="name">Waiting for GM Approval</field>
+            <field name="action">write({'state':'contract_approv7'})</field>
+            <field name="action_id" ref="send_approval7_email"/>
+            <field name="kind">function</field>
+        </record>
+        <record id="contract_approv8" model="workflow.activity">
+            <field name="wkf_id" ref="contract_wkf"/>
+            <field name="name">Waiting for Contract Upload</field>
+            <field name="action">write({'state':'contract_approv8'})</field>
+            <field name="action_id" ref="send_approval8_email"/>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="contract_done" model="workflow.activity">
+            <field name="wkf_id" ref="contract_wkf"/>
+            <field name="name">Done</field>
+            <field name="flow_stop">True</field>
+            <field name="action">write({'state':'contract_done', 'is_locked': True})</field>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="t_draft_done" model="workflow.transition">
+            <field name="act_from" ref="contract_draft"/>
+            <field name="act_to" ref="contract_done"/>
+            <field name="signal">contract_validate</field>
+        </record>
+
+        <record id="t_open" model="workflow.transition">
+            <field name="act_from" ref="contract_draft"/>
+            <field name="act_to" ref="contract_approv1"/>
+            <field name="signal">contract_open</field>
+        </record>
+
+        <record id="t_1_2" model="workflow.transition">
+            <field name="act_from" ref="contract_approv1"/>
+            <field name="act_to" ref="contract_approv2"/>
+            <field name="signal">contract_approval1</field>
+        </record>
+        <record id="t_1_cancel" model="workflow.transition">
+            <field name="act_from" ref="contract_approv1"/>
+            <field name="act_to" ref="contract_draft"/>
+            <field name="signal">contract_reject</field>
+        </record>
+
+        <record id="t_2_3" model="workflow.transition">
+            <field name="act_from" ref="contract_approv2"/>
+            <field name="act_to" ref="contract_approv3"/>
+            <field name="signal">contract_approval2</field>
+        </record>
+        <record id="t_2_cancel" model="workflow.transition">
+            <field name="act_from" ref="contract_approv2"/>
+            <field name="act_to" ref="contract_draft"/>
+            <field name="signal">contract_reject</field>
+        </record>
+
+        <record id="t_3_4" model="workflow.transition">
+            <field name="act_from" ref="contract_approv3"/>
+            <field name="act_to" ref="contract_approv4"/>
+            <field name="signal">contract_approval3</field>
+        </record>
+        <record id="t_3_cancel" model="workflow.transition">
+            <field name="act_from" ref="contract_approv3"/>
+            <field name="act_to" ref="contract_draft"/>
+            <field name="signal">contract_reject</field>
+        </record>
+
+        <record id="t_4_5" model="workflow.transition">
+            <field name="act_from" ref="contract_approv4"/>
+            <field name="act_to" ref="contract_approv5"/>
+            <field name="signal">contract_approval4</field>
+        </record>
+        <record id="t_4_cancel" model="workflow.transition">
+            <field name="act_from" ref="contract_approv4"/>
+            <field name="act_to" ref="contract_draft"/>
+            <field name="signal">contract_reject</field>
+        </record>
+
+        <record id="t_5_6" model="workflow.transition">
+            <field name="act_from" ref="contract_approv5"/>
+            <field name="act_to" ref="contract_approv6"/>
+            <field name="signal">contract_approval5</field>
+        </record>
+        <record id="t_5_7" model="workflow.transition">
+            <field name="act_from" ref="contract_approv5"/>
+            <field name="act_to" ref="contract_approv7"/>
+            <field name="signal">contract_approval57</field>
+        </record>
+        <record id="t_5_cancel" model="workflow.transition">
+            <field name="act_from" ref="contract_approv5"/>
+            <field name="act_to" ref="contract_draft"/>
+            <field name="signal">contract_reject</field>
+        </record>
+
+        <record id="t_6_7" model="workflow.transition">
+            <field name="act_from" ref="contract_approv6"/>
+            <field name="act_to" ref="contract_approv7"/>
+            <field name="signal">contract_approval6</field>
+        </record>
+        <record id="t_6_cancel" model="workflow.transition">
+            <field name="act_from" ref="contract_approv6"/>
+            <field name="act_to" ref="contract_draft"/>
+            <field name="signal">contract_reject</field>
+        </record>
+
+        <record id="t_7_8" model="workflow.transition">
+            <field name="act_from" ref="contract_approv7"/>
+            <field name="act_to" ref="contract_approv8"/>
+            <field name="signal">contract_approval7</field>
+        </record>
+        <record id="t_7_cancel" model="workflow.transition">
+            <field name="act_from" ref="contract_approv7"/>
+            <field name="act_to" ref="contract_draft"/>
+            <field name="signal">contract_reject</field>
+        </record>
+
+        <record id="t_8_done" model="workflow.transition">
+            <field name="act_from" ref="contract_approv8"/>
+            <field name="act_to" ref="contract_done"/>
+            <field name="signal">contract_done</field>
+        </record>
+
+    </data>
+</odoo>

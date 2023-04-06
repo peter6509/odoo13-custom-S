@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_build_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.build.tree</field>
+            <field name="model">cloudrent.build</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="object_no" width="8%%"/>
+                    <field name="escrow_agent" width="8%%" invisible="1"/>
+                    <field name="case_type" width="6%%" optional="show"/>
+                    <field name="admin_area" width="6%%" optional="hide"/>
+                    <field name="build_loc" width="5%%" optional="show"/>
+                    <field name="build_community" width="5%%" optional="hide"/>
+                    <field name="build_sec" width="5%%" optional="hide"/>
+                    <field name="build_msec" width="5%%" optional="hide"/>
+                    <field name="build_number" width="5%%" optional="show"/>
+                    <field name="house_number" width="10%%" optional="show"/>
+                    <field name="build_createdate" width="7%%" optional="hide"/>
+                    <field name="build_age" width="5%%" optional="show"/>
+                    <field name="place_number" width="5%%" optional="hide"/>
+                    <field name="parking_space" width="5%%" optional="hide"/>
+                    <field name="ancillary_equipment" width="5%%" optional="hide"/>
+                    <field name="build_rent_situation" width="8%%" optional="show"/>
+                    <field name="rent_man" width="5%%" optional="hide"/>
+                    <field name="rent_duedate" width="5%%" optional="hide"/>
+                    <field name="entrust_start_date" width="5%%" optional="hide"/>
+                    <field name="entrust_end_date" width="5%%" optional="hide"/>
+                    <field name="build_area" width="5%%" optional="show"/>
+                    <field name="build_for_rent" width="6%%" optional="show"/>
+                    <field name="general_build" width="5%%" optional="show"/>
+                    <field name="build_type" width="=5%%" optional="show"/>
+                    <field name="build_pattern" width="5%%" optional="show"/>
+                    <field name="build_pattern1" width="5%%" optional="hide"/>
+                    <field name="build_lessor" width="6%%" optional="show"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_build_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.build.form</field>
+            <field name="model">cloudrent.build</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="object_no"/>
+                                <field name="escrow_agent" invisible="1" options="{'no_create_edit':True,'no_create':True}"/>
+                                <field name="case_type"/>
+                                <field name="admin_area"/>
+                                <field name="build_loc"/>
+                                <field name="build_community"/>
+                                <field name="build_sec"/>
+                                <field name="build_msec"/>
+                                <field name="build_number"/>
+                                <field name="house_number"/>
+                                <field name="build_createdate"/>
+                                <field name="build_age"/>
+                                <field name="place_number"/>
+                                <field name="build_for_rent"/>
+                                <field name="guarantee_fee" attrs="{'invisible':[('case_type','=','2')]}"/>
+                                <field name="escrow_fee" attrs="{'invisible':[('case_type','=','1')]}"/>
+                            </group>
+                            <group>
+                                <field name="parking_space"/>
+                                <field name="ancillary_equipment"/>
+                                <field name="build_rent_situation"/>
+                                <field name="rent_man" attrs="{'invisible':[('build_rent_situation','in',('1','2','4',False))]}"/>
+                                <field name="rent_duedate" attrs="{'invisible':[('build_rent_situation','in',('1','2','4',False))]}"/>
+                                <field name="entrust_start_date"/>
+                                <field name="entrust_end_date"/>
+                                <field name="build_area1"/>
+                                <field name="build_area"/>
+                                <field name="general_build"/>
+                                <field name="build_type"/>
+                                <field name="build_pattern"/>
+                                <field name="build_pattern1"/>
+                                <field name="build_lessor"/>
+                            </group>
+                        </group>
+                    <h1>建物場勘照片</h1>
+                      <field name="build_line" nolabel="1">
+                          <tree editable="bottom" string="建物場勘照片" widget="one2many">
+                              <field name="sequence" width="2%%"/>
+                              <field name="pic_type" width="3%%"/>
+                              <field name="build_desc" width="20%%"/>
+                              <field name="build_pic"  widget="image" options="{'size': [100, 100]}" width="20%%"/>
+                              <field name="build_pic1" widget="image" options="{'size': [100, 100]}" width="20%%"/>
+                              <field name="build_pic2" widget="image" options="{'size': [100, 100]}" width="20%%"/>
+                          </tree>
+                       </field>
+                    <h1>租房傢俱清單</h1>
+                      <field name="build_equip_part" nolabel="1">
+                          <tree editable="bottom" string="租房傢俱清單" widget="one2many">
+                              <field name="equip_categ" width="5%%"/>
+                              <field name="equip_no" options="{'no_create_edit':True,'no_create':True}" width="8%%"/>
+                              <field name="equip_qty" width="5%%"/>
+                              <field name="equip_status" width="15%%"/>
+                              <field name="equip_image1" widget="image" options="{'size': [100, 100]}" width="10%%"/>
+                              <field name="equip_image2" widget="image" options="{'size': [100, 100]}" width="10%%"/>
+                              <field name="equip_image3" widget="image" options="{'size': [100, 100]}" widtd="10%%"/>
+                          </tree>
+                       </field>
+                    <h1>修繕申請記錄</h1>
+                        <field name="build_repair_line" nolabel="1">
+                            <tree editable="bottom" string="修繕申請記錄" widget="one2many">
+                                <field name="repair_year" width="5%%"/>
+                                <field name="repair_date" width="6%%"/>
+                                <field name="match_no" width="10%%"/>
+                                <field name="repair_vendor" width="8%%"/>
+                                <field name="repair_desc" width="50%%"/>
+                                <field name="repair_fee" width="5%%"/>
+                            </tree>
+                         </field>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_cloudrent_build_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.build.search</field>
+           <field name="model">cloudrent.build</field>
+            <field name="arch" type="xml">
+                <search string="">
+                 <field name="object_no" string="物件編號" filter_domain="[('object_no', 'ilike', self )]"/>
+                 <field name="build_area" string="坪數以上" filter_domain="[('build_area', '&gt;=', self )]"/>
+                 <field name="build_age" string="屋齡以下" filter_domain="[('build_age', '&lt;=', self )]"/>
+                 <field name="build_for_rent" string="待租租金以下" filter_domain="[('build_for_rent', '&lt;=', self )]"/>
+                 <separator/>
+                 <filter string="台北市" domain="[('admin_area','=','1')]" name="adminarea1"/>
+                 <filter string="新北市" domain="[('admin_area','=','2')]" name="adminarea2"/>
+                 <filter string="桃園市" domain="[('admin_area','=','3')]" name="adminarea3"/>
+                 <filter string="台中市" domain="[('admin_area','=','4')]" name="adminarea4"/>
+                 <filter string="台南市" domain="[('admin_area','=','5')]" name="adminarea5"/>
+                 <filter string="高雄市" domain="[('admin_area','=','6')]" name="adminarea6"/>
+                 <separator/>
+                 <filter string="公寓" domain="[('build_type','=','1')]" name="buildtype1"/>
+                 <filter string="華廈" domain="[('build_type','=','2')]" name="buildtype2"/>
+                 <filter string="電梯大樓" domain="[('build_type','=','3')]" name="buildtype3"/>
+                 <separator/>
+                 <filter string="套房" domain="[('build_pattern','=','1')]" name="buildpattern1"/>
+                 <filter string="一房" domain="[('build_pattern','=','2')]" name="buildpattern2"/>
+                 <filter string="二房" domain="[('build_pattern','=','3')]" name="buildpattern3"/>
+                 <filter string="三房以上" domain="[('build_pattern','=','4')]" name="buildpattern4"/>
+                 <separator/>
+                 <filter string="包租/包管" domain="[('case_type','=','1')]" name="casetype1"/>
+                 <filter string="代租/代管" domain="[('case_type','=','2')]" name="casetype2"/>
+                 <separator/>
+                 <filter string="已出租" domain="[('is_rent','=',True)]" name="isrent1"/>
+                 <filter string="未出租" domain="[('is_rent','=',False)]" name="isrent2"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_build_view" model="ir.actions.act_window">
+            <field name="name">物件基本資料</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.build</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_build_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_cloudrent_build_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_build_search"/>
+            <field name="context">{'search_default_isrent2':1}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

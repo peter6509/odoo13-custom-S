@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_era_bill_document">
+        <t t-call="web.external_layout">
+            <!--<t t-set="o" t-as="o"/>-->
+            <div class="page">
+                <div class="oe_structure"/>
+                <h4>
+                    租戶地點：
+                     <span t-field="o.house_id.project_no"/>
+                </h4>
+                <h4>租戶房號：
+                    <span t-field="o.house_no"/>
+                </h4>
+                <h4>租戶姓名：
+                    <span t-field="o.member_id.member_name"/>
+                </h4>
+                 <h4>本期電費明細</h4>
+
+                <table  class="table table-condensed" style="border: 2px solid Darkblue;border-collapse: collapse;">
+                    <thead>
+                        <tr style="background:#DCDCDC">
+                        <th name="th_start_date" class="text-left"  style="font-size:11px; width: 15%"><strong>啟始日</strong></th>
+                        <th name="th_end_date"  class="text-left"  style="font-size:11px ; width: 14%"><strong>截止日</strong></th>
+                        <th name="th_emeter" class="text-left" style="font-size:11px;  width: 14%"><strong>電錶</strong></th>
+                        <th name="th_start_scale" class="text-right" style="font-size:11px; width: 12%"><strong>啟始度數</strong></th>
+                        <th name="th_end_scale" class="text-right" style="font-size:11px; width: 12%"><strong>截止度數</strong></th>
+                        <th name="th_used_scale" class="text-right" style="font-size:11px; width: 12%"><strong>使用度數</strong></th>
+                        <th name="th_price_unit" class="text-right" style="font-size:11px; width: 10%"><strong>單價(度)</strong></th>
+                        <th name="th_emeter_amount" class="text-right" style="font-size:11px; width: 12%"><strong>電費小計</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="o.bill_line" t-as="bill_line">
+                            <tr>
+                                <td class="text-left">
+                                <span t-field="bill_line.bill_start_date" style="font-size:11px"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="bill_line.bill_end_date" style="font-size:11px"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="bill_line.emeter_id.emeter_name" style="font-size:11px"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="bill_line.emeter_start_scale" style="font-size:11px"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="bill_line.emeter_end_scale" style="font-size:11px"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="bill_line.emeter_used_scale" style="font-size:11px"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="bill_line.emeter_price_unit" style="font-size:11px"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="bill_line.emeter_amount" style="font-size:11px"/>
+                                </td>
+                            </tr>
+                        </t>
+
+                    </tbody>
+                </table>
+                <br/>
+                <strong>
+                    上期未結餘額：NT$
+                     <span t-field="o.uncomplete_fee"/>
+                </strong>
+                <br/>
+                <strong>
+                    本期使用電費：NT$
+                     <span t-field="o.current_emeter_fee" />
+                </strong>
+                <br/>
+                 <strong>
+                    本期房屋租金：NT$
+                     <span t-field="o.member_id.house_rental_fee" />
+                </strong>
+                <br/>
+                <strong>
+                    本期房屋管理費：NT$
+                     <span t-field="o.member_id.house_management_fee" />
+                </strong>
+                 <br/>
+                <strong>
+                    本期車位租金：NT$
+                     <span t-field="o.member_id.parking_space_rent" />
+                </strong>
+                 <br/>
+                <strong>
+                    本期車位管理費：NT$
+                     <span t-field="o.member_id.parking_management" />
+                </strong>
+                 <br/>
+                <strong>
+                    本期機車位管理費：NT$
+                     <span t-field="o.member_id.lo_parking_management" />
+                </strong>
+                 <br/>
+                <strong>
+                    本期水費：NT$
+                     <span t-field="o.member_id.water_fee" />
+                </strong>
+                 <br/>
+                 <br/>
+                <strong>
+                    ##本期應繳總費用金額：NT$
+                     <span t-field="o.current_total_fee" />
+                </strong>
+                 <br/>
+                <br/>
+                <strong>
+                    請將本期應繳金額電匯至以下銀行帳戶
+                </strong>
+                <br/>
+                <strong>
+                    電匯銀行/匯款帳號 ：
+                     <span t-field="o.payment_bank" />
+                     <span t-field="o.payment_account" />
+                </strong>
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+
+    <template id="era_household.report_era_bill">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="era_household.report_era_bill_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+<!--        <record id="neweb_project_rule1" model="ir.rule">-->
+<!--           <field name="name">neweb.project.rule1</field>-->
+<!--           <field ref="neweb_project.model_neweb_project" name="model_id"/>-->
+<!--           <field name="domain_force">['|',('proj_sale.id', '=', user.employee_ids.id),('cus_name.emp_ids','in',[x.id for x in user.employee_ids])]</field>-->
+<!--           <field name="groups" eval="[(4,ref('neweb_project.neweb_sa40_user'))]"/>-->
+<!--        </record>-->
+<!--        <record id="neweb_project_rule1" model="ir.rule">-->
+<!--           <field name="name">neweb.project.rule1</field>-->
+<!--           <field ref="neweb_project.model_neweb_project" name="model_id"/>-->
+<!--           <field name="domain_force">[('proj_sale.id', '=', user.employee_ids.id)]</field>-->
+<!--           <field name="groups" eval="[(4,ref('neweb_project.neweb_sa40_user'))]"/>-->
+<!--        </record>-->
+          <record id="neweb_project_rule1" model="ir.rule">
+             <field name="name">neweb.project.rule1</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_sa40_user'))]"/>
+             <field name="domain_force">['|','|','|','|','|',('cus_name.salesp1','=',user.id),('cus_name.salesp2','=',user.id),('cus_name.salesp3','=',user.id),('cus_name.salesp4','=',user.id),('cus_name.salesp5','=',user.id),(cus_name,'=',False)]</field>
+         </record>
+
+        <record id="neweb_project_rule2" model="ir.rule">
+            <field name="name">neweb.project.rule2</field>
+            <field ref="neweb_project.model_neweb_project" name="model_id"/>
+            <field name="domain_force">['|','|',('proj_sale','=','False),('proj_sale.department_id.id','in', [x.department_id.id for x in user.employee_ids]),('proj_sale.department_id.manager_id.id','in',[y.id for y in user.employee_ids])]</field>
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_sa30_ass'))]"/>
+        </record>
+        <record id="neweb_project_rule2_1" model="ir.rule">
+            <field name="name">neweb.project.rule2_1</field>
+            <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="global" eval="1"/>
+<!--            <field name="domain_force">[('proj_sale.department_id.id','in', [x.department_id.id for x in user.employee_ids])]</field>-->
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_sa50_assi'))]"/>
+        </record>
+<!--         <record id="neweb_project_rule3" model="ir.rule">-->
+<!--             <field name="name">neweb.project.rule3</field>-->
+<!--             <field ref="neweb_project.model_neweb_project" name="model_id"/>-->
+<!--             <field name="groups" eval="[(6, [ref('neweb_project.neweb_fn10_gm'),ref('neweb_project.neweb_fn20_mgr'),ref('neweb_project.neweb_fn40_assi'),ref('neweb_project.neweb_sa10_gm'),ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_cs10_gm'),ref('neweb_project.neweb_cs20_vp'),ref('neweb_project.neweb_cs30_dir'),ref('neweb_project.neweb_cs50_assi'),ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_pur20_assi')])]"/>-->
+<!--             <field name="global" eval="1"/>-->
+<!--         </record>-->
+         <record id="neweb_project_rule3_1" model="ir.rule">
+             <field name="name">neweb.project.rule3_1</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_fn20_mgr'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+         <record id="neweb_project_rule3_2" model="ir.rule">
+             <field name="name">neweb.project.rule3_2</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_fn30_user'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_project_rule3_3" model="ir.rule">
+             <field name="name">neweb.project.rule3_3</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_fn40_assi'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_project_rule3_4" model="ir.rule">
+             <field name="name">neweb.project.rule3_4</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_sa10_gm'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_project_rule3_5" model="ir.rule">
+             <field name="name">neweb.project.rule3_5</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_sa20_vp'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_project_rule3_6" model="ir.rule">
+             <field name="name">neweb.project.rule3_6</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_cs10_gm'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_project_rule3_7" model="ir.rule">
+             <field name="name">neweb.project.rule3_7</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4,ref('neweb_project.neweb_cs20_vp'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_project_rule3_8" model="ir.rule">
+             <field name="name">neweb.project.rule3_8</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_cs30_dir'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_project_rule3_9" model="ir.rule">
+             <field name="name">neweb.project.rule3_9</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_cs50_assi'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_project_rule3_10" model="ir.rule">
+             <field name="name">neweb.project.rule3_10</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_cs40_user'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_project_rule3_11" model="ir.rule">
+             <field name="name">neweb.project.rule3_11</field>
+             <field ref="neweb_project.model_neweb_project" name="model_id"/>
+             <field name="groups" eval="[(4,ref('neweb_project.neweb_pur20_assi'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+    </data>
+</odoo>

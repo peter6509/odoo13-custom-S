@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="neweb_contract_contract_form_inherit2" model="ir.ui.view">
+            <field name="name">neweb.contract.contract.form.inherit2</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="inherit_id" ref="neweb_contract.contract_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='inspection_method']" position="after">
+                   <field name="ae2" attrs="{'invisible':1}"/>
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+               <xpath expr="//field[@name='need_recovery_rehearsal']" position="before">
+                    <field name="need_control"/>
+               </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

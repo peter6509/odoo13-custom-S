@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="cloudrent_member_payment_tree" model="ir.ui.view">
+           <field name="name">cloudrent.member.payment.tree</field>
+           <field name="model">cloudrent.member_payment</field>
+           <field name="arch" type="xml">
+               <tree string="" decoration-success="has_confirm==True" decoration-danger="has_confirm==False">
+                   <field name="name"/>
+                   <field name="payment_date"/>
+                   <field name="member_id"/>
+                   <field name="house_id"/>
+<!--                   <field name="payment_ar"/>-->
+<!--                   <field name="payment_ap"/>-->
+                   <field name="payment_ap_now"/>
+<!--                   <field name="payment_balance"/>-->
+                   <field name="user_id"/>
+                   <field name="has_confirm"/>
+               </tree>
+           </field>
+       </record>
+        <record id="cloudrent_member_payment_form" model="ir.ui.view">
+            <field name="name">cloudrent.member.payment.form</field>
+            <field name="model">cloudrent.member_payment</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <div>
+                       <widget name="web_ribbon" title="未入帳" bg_color="bg-danger" attrs="{'invisible': [('has_confirm','=',True)]}"/>
+                        <widget name="web_ribbon" title="已入帳" attrs="{'invisible':[('has_confirm','=',False)]}"/>
+                    </div>
+                    <sheet>
+                        <group>
+                            <group>
+                               <field name="name" attrs="{'readonly':1}"/>
+                               <field name="payment_date"/>
+                               <field name="payment_year"/>
+                               <field name="member_id"/>
+                               <field name="house_id"/>
+                               <field name="user_id"/>
+                               <field name="payment_memo"/>
+                               <field name="has_payline" attrs="{'invisible':1}"/>
+                               <field name="has_confirm" attrs="{'invisible':1}"/>
+                                <button type="object" string="展開租戶應繳項目"
+                                        attrs="{'invisible':[('has_payline','=',True)]}"
+                                        class="oe_highlight" name="gen_payitem" />
+                                 <button type="object" string="核銷入帳確認"
+                                        attrs="{'invisible':['|',('has_payline','=',False),('has_confirm','=',True)]}"
+                                        class="oe_highlight" name="gen_confirm" />
+                           </group>
+                           <group>
+                               <field name="payment_ar"/>
+                               <field name="payment_ap"/>
+                               <field name="payment_balance"/>
+                               <field name="payment_ap_now"/>
+                               <field name="tt_date"/>
+                               <field name="account_date"/>
+                               <button type="object" string="核銷入帳取消"
+                                        attrs="{'invisible':['|',('has_payline','=',False),('has_confirm','=',False)]}"
+                                        class="oe_highlight" name="cancel_confirm" />
+                           </group>
+                        </group>
+                          <notebook>
+                            <page string="租戶繳費核銷明細" name="PROJECT LINE">
+                                <field name="payment_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="租戶繳費核銷明細" editable="bottom">
+<!--                                     <button type="object" string="S" class="oe_highlight" name="active_tag"/>-->
+                                    <field name="pay_status"/>
+                                    <field name="pay_active" invisible="1" force_save="1"/>
+                                    <field name="pay_name"/>
+                                    <field name="pay_year"/>
+                                    <field name="pay_month" widget="many2many_tags" options="{'no_create':true,'no_create_edit':true}" force_save="1" />
+                                    <field name="month_num" attrs="{'readonly':1}" force_save="1"/>
+                                    <field name="pay_ar" force_save="1" />
+                                    <field name="pay_ap" force_save="1" />
+                                 </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="cloudrent_member_payment_search" model="ir.ui.view">
+           <field name="name">cloudrent.member.payment.search</field>
+           <field name="model">cloudrent.member_payment</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="member_id" string="關鍵字" filter_domain="['|','|',('member_id.member_no','ilike',self),('member_id.member_name','ilike',self),('house_id.house_no','ilike',self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="cloudrent_member_payment_action" model="ir.actions.act_window">
+            <field name="name">租戶繳費核銷作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.member_payment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

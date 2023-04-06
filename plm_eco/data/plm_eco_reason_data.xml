@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+        <record id="mrp_eco_reason_1" model="mrp.eco.reason">
+            <field name="name">舊品使用完，立即更換。</field>
+        </record>
+        <record id="mrp_eco_reason_2" model="mrp.eco.reason">
+            <field name="name">立即更換，舊品納入庫存當售服件。</field>
+        </record>
+        <record id="mrp_eco_reason_3" model="mrp.eco.reason">
+            <field name="name">立即更換，舊品全數報廢並請倉庫提供庫存數量。</field>
+        </record>
+        <record id="mrp_eco_reason_4" model="mrp.eco.reason">
+            <field name="name">舊品重工，立即更換，不可再採購舊件。</field>
+        </record>
+        <record id="mrp_eco_reason_5" model="mrp.eco.reason">
+            <field name="name">需進行風險評估。</field>
+        </record>
+        <record id="mrp_eco_reason_6" model="mrp.eco.reason">
+            <field name="name">通知客戶。</field>
+        </record>
+        <record id="mrp_eco_reason_7" model="mrp.eco.reason">
+            <field name="name">其他:</field>
+        </record>
+
+
+</odoo>

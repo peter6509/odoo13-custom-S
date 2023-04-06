@@ -1,0 +1,46 @@
+<odoo>
+    <record id="ipla_iot_restartsetting_tree" model="ir.ui.view">
+        <field name="name">ipla.iot.restartsetting.tree</field>
+        <field name="model">alldo_ipla_iot.restartiot_setting</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="restart_time"/>
+                <field name="restart_freq"/>
+                <field name="next_run_restart"/>
+            </tree>
+        </field>
+    </record>
+    <record id="ipla_iot_restartsetting_form" model="ir.ui.view">
+        <field name="name">ipla.iot.restartsetting.form</field>
+        <field name="model">alldo_ipla_iot.restartiot_setting</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="restart_time"/>
+                            <field name="restart_freq"/>
+                        </group>
+                        <group>
+                            <field name="next_run_restart" attrs="{'readonly':1}"/>
+                            <button type="object" string="產生下次執行時間" class="oe_highlight oe_edit_only" name="run_iot_restarttime"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="ipla_iot_restartsetting_action" model="ir.actions.act_window">
+        <field name="name">IOT裝置重開機時間設置</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">alldo_ipla_iot.restartiot_setting</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="oe_view_nocontent_create">
+            <!-- Add Text Here -->
+          </p><p>
+            <!-- More details about what a user can do with this object will be OK -->
+          </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <!--<report id="action_report_fqc_order_check"-->
+                <!--model="mes.fqc.order"-->
+                <!--string="QC"-->
+                <!--report_type="qweb-html"-->
+                <!--name="sf_mes_fqc_config.report_fqc_product_check_item"-->
+                <!--file="sf_mes_fqc_config.report_fqc_product_check_item"-->
+                <!--menu="True"/>-->
+
+    <record id="report_ecr_product_check_item" model="ir.actions.report">
+        <field name="name">設計變更申請處理單</field>
+        <field name="type">ir.actions.report</field>
+        <field name="model">mrp.ecr.order</field>
+        <field name="report_name">plm_ecr_report</field>
+        <field name="report_type">py3o</field>
+        <field name="py3o_filetype">pdf</field>
+        <field name="module">plm_ecr</field>
+        <field name="py3o_template_fallback">report/plm_ecr_report.odt</field>
+        <field name="binding_model_id" ref="plm_ecr.model_mrp_ecr_order" />
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="era_household_root" name="ERA租戶管理系統" sequence="10"
+         web_icon="era_household,static/description/icon.png"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="era_household_categ" name="ERA租戶管理主檔" parent="era_household_root" sequence="50"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_household_house_action" name="專案主檔" parent="era_household_categ" action="era_household_house_action" sequence="10"
+           groups="era_household.group_era_ass,era_household.group_era_manager"/>
+        <menuitem id="menu_household_house_line_action" name="住房管理主檔" parent="era_household_categ" action="era_household_house_line_action" sequence="20"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_household_member_action" name="租戶資料主檔" parent="era_household_categ" action="era_household_member_action" sequence="30"/>
+        <menuitem id="menu_household_memberout_action" name="租戶退租作業" parent="era_household_categ"
+                  groups="era_household.group_era_ass,era_household.group_era_manager"
+                  action="era_memberout_wizard_action" sequence="35"/>
+        <menuitem id="menu_household_memberin_action" name="租戶入租作業" parent="era_household_categ"
+                  groups="era_household.group_era_ass,era_household.group_era_manager"
+                  action="era_memberin_wizard_action" sequence="40"/>
+        <menuitem id="menu_archive_delete_action" name="歸檔資料清除精靈" parent="era_household_categ"
+                  groups="base.group_no_one"
+                  action="menu_archive_delete_wizard_action" sequence="50"/>
+
+<!--        <menuitem id="menu_conn_mysql_action" name="MYSQL連線測試" parent="era_household_categ" action="conn_mysql_wizard_action" sequence="40"-->
+<!--          groups="era_household.group_era_ass,era_household.group_era_manager"/>-->
+<!--        <menuitem id="menu_line_send_action" name="LINE傳送測試" parent="era_household_categ" action="action_line_send_notify_messages" sequence="50"-->
+<!--         groups="era_household.group_era_ass,era_household.group_era_manager"/>-->
+
+        <menuitem id="era_household_categ1" name="ERA住戶電錶數據" parent="era_household_root" sequence="100"
+         groups="era_household.group_era_ass,era_household.group_era_manager"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_household_config_action" name="ERA對帳參數" parent="era_household_categ1" action="era_household_config_action" sequence="10"
+         groups="era_household.group_era_ass,era_household.group_era_manager" />
+        <menuitem id="menu_line_notify_action" name="LINE服務設定" parent="era_household_categ1" action="action_view_line_notify_configure" sequence="15"
+        groups="era_household.group_era_ass,era_household.group_era_manager" />
+        <menuitem id="menu_era_emeterhub_action" name="ERA電錶數據資訊" parent="era_household_categ1" action="era_emeterhub_action" sequence="20"
+        groups="era_household.group_era_ass,era_household.group_era_manager" />
+        <menuitem id="menu_era_house_member_chk_wizard" name="租房會員帳號檢測精靈"
+                  groups="base.group_no_one"
+                  parent="era_household_categ1"
+                  action="menu_era_housemember_chk_wizard_action" sequence="30"/>
+        <menuitem id="menu_era_house_member_chk_view" name="租房會員帳號檢測清單"
+                  groups="base.group_no_one"
+                  parent="era_household_categ1"
+                  action="action_era_house_member_chk_view" sequence="40"/>
+
+
+
+        <menuitem id="menu_household_bill_his_action" name="住戶歷史用電數據" parent="era_household_categ1" action="era_household_bill_line_his_action" sequence="20"
+        groups="era_household.group_era_ass,era_household.group_era_manager" />
+
+        <menuitem id="era_household_categ2" name="ERA住戶管理費用" parent="era_household_root" sequence="150" groups="era_household.group_era_ass,era_household.group_era_manager"/>
+        <!-- This Menu Item must have a parent and an action -->
+<!--        <menuitem id="menu_mon_amount_report_wizard_action" name="ERA租戶(月)對帳單產生精靈" parent="era_household_categ2" action="era_month_report_wizard_action" sequence="5"/>-->
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_previous_balance_wizard_action" name="ERA租戶合約啟始電錶度數及押金設定" parent="era_household_categ2" action="era_contract_init_wizard_action" sequence="7"/>
+
+        <menuitem id="menu_household_payment_action" name="ERA租戶繳費核銷作業" parent="era_household_categ2" action="era_member_payment_action" sequence="10"/>
+<!--        <menuitem id="menu_household_payment_wizard_action" name="ERA租戶繳費登記精靈" parent="era_household_categ2" action="household_payment_wizard_action" sequence="10"/>-->
+        <menuitem id="menu_emeter_mixsearch_wizard_action" name="ERA租戶用電統計查詢精靈" parent="era_household_categ2" action="emeter_mixsearch_wizard_action" sequence="20"/>
+        <menuitem id="menu_emeter_mixsearch_wizard_action" name="ERA案場用電統計查詢精靈" parent="era_household_categ2" action="era_escaletot_wizard_action" sequence="25"/>
+
+        <menuitem id="menu_member_line_wizard_action" name="ERA LINE 通知帳務產生精靈" parent="era_household_categ2" action="views_member_line_wizard_action" sequence="30"/>
+        <menuitem id="menu_excel_download_action" name="ERA 對帳單EXCEL暫存區" parent="era_household_categ2" action="era_excel_download_action" sequence="50"/>
+        <menuitem id="menu_line_message_return_action" name="租戶繳費LINE訊息回傳總表" parent="era_household_categ2" action="line_bot.era_household_member_history_action" sequence="60"/>
+
+
+        <menuitem id="era_household_categ3" name="ERA住房設施報修" parent="era_household_root" sequence="160" />
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_era_household_maintenance_action" name="租戶設施報修" parent="era_household_categ3" action="era_household_maintenance_action" sequence="10"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_maintenance_report_wizard_action" name="租戶設施報修印表精靈" parent="era_household_categ3" action="maintenance_report_wizard_action" sequence="20"/>
+
+    </data>
+</odoo>

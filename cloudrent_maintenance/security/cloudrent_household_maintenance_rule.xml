@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="rule_househols_maintenance_rule1" model="ir.rule">
+            <field name="name">rule.househols.maintenance.rule1</field>
+            <field ref="model_cloudrent_household_maintenance" name="model_id"/>
+            <field name="domain_force">['|','|','|','|','|','|','|',('landlord_user1','=',user.id),('landlord_user1','=',False),('manager_user1','=',user.id),('manager_user1','=',False),('manager_user2','=',user.id),('manager_user2','=',False),('manager_user3','=',user.id),('manager_user3','=',False)]</field>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="1"/>
+            <field name="perm_read" eval="1"/>
+            <field name="perm_unlink" eval="1"/>
+            <!-- You can attach this rule to a specific group, Or make it Global -->
+            <field name="groups" eval="[(4, ref('cloudrent_household.group_cloudrent_landlord'),ref('cloudrent_household.group_cloudrent_ass'),ref('cloudrent_household.group_cloudrent_agent'))]"/>
+            <!--<field name="global" eval="1"/> -->
+        </record>
+    </data>
+</odoo>

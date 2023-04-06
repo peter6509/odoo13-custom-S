@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit_product_template_form" model="ir.ui.view">
+           <field name="name">view.inherit.product.template.form</field>
+           <field name="model">product.template</field>
+           <field name="inherit_id" ref="product.product_template_only_form_view"/>
+           <field name="arch" type="xml">
+               <xpath expr="//notebook" position="inside">
+                   <page string="CNC加工資訊" name="Detail_Line" >
+                    <group>
+                         <field name="product_blank" string="毛胚說明" attrs="{'invisible':1}"/>
+                         <field name="blank_no" options="{'no_create':true,'no_create_edit':true}"/>
+                         <field name="prod_version" string="版別"/>
+                         <field name="cus_no" string="所屬客戶" options="{'no_create':true,'no_create_edit':true}"
+                            domain="[('is_company','=',True),('active','=',True),('customer_rank','=',1)]"/>
+                         <field name="wkorder_memo"/>
+                        <field name="equip_id" options="{'no_create':true,'no_create_edit':true}"/>
+                    </group>
+                    <field name="eng_line" widget="one2many" nolabel="1">
+                        <tree editable="bottom">
+                         <field name="sequence" widget="handle"/>
+                         <field name="eng_type"/>
+                         <field name="eng_order"/>
+                         <field name="is_outsourcing"/>
+<!--                         <field name="is_package"/>-->
+                         <field name="partner_id"/>
+                         <field name="cnc_prog"/>
+                         <field name="clamping_power"/>
+                         <field name="standard_num"/>
+                         <field name="prod_real_num" attrs="{'readonly':1}"/>
+                         <field name="replace_std"/>
+                         <field name="replace_real_time" attrs="{'readonly':1}"/>
+                         <field name="mold_cavity"/>
+<!--                         <field name="is_combine"/>-->
+                         <field name="image_filename" invisible="1"/>
+                         <field widget="binary" height="64" name="image" filename="image_filename" />
+                         <field name="equip_id" options="{'no_create':true,'no_create_edit':true}"/>
+                        </tree>
+                    </field>
+                </page>
+                 <page string="平均數據資訊" name="avgdata_Line" >
+                    <field name="avgdata_line" widget="one2many" nolabel="1">
+                        <tree editable="bottom">
+                         <field name="sequence" widget="handle"/>
+                         <field name="eng_type"/>
+                         <field name="iot_machine"/>
+                         <field name="iot_single_avg"/>
+                         <field name="iot_min_avg"/>
+                        </tree>
+                    </field>
+                </page>
+
+               </xpath>
+                <xpath expr="//notebook" position="inside">
+                   <page string="CNC加工檢驗規範" name="Detail_Line" >
+                    <field name="inspect_line" widget="one2many" >
+                        <tree editable="bottom">
+                         <field name="sequence" widget="handle"/>
+                         <field name="eng_type"/>
+<!--                         <field name="order_id" />-->
+                         <field name="inspect_name"/>
+                         <field name="inspect_size"/>
+                         <field name="drawing_tolerance"/>
+                         <field name="real_work_size"/>
+                         <field name="correct_no"/>
+                         <field name="inspect_point"/>
+                         <field name="inspect_tool" options="{'no_create':true,'no_create_edit':true}"/>
+                        </tree>
+                    </field>
+                   </page>
+                   <page string="CNC刀具使用記錄" name="Cutter_Line">
+                    <field name="cutter_line" widget="one2many" >
+                        <tree editable="bottom">
+                         <field name="prod_date" width="5%%"/>
+                         <field name="prod_eng_type1" width="5%%"/>
+                         <field name="cutter_desc" width="60%%"/>
+                        </tree>
+                    </field>
+                   </page>
+               </xpath>
+               <xpath expr="//field[@name='default_code']" position="replace">
+                   <field name="default_code" string="料號"/>
+                   <field name="prod_material"/>
+                   <field name="prod_spec"/>
+                   <field name="prod_deliver"/>
+               </xpath>
+               <xpath expr="//field[@name='barcode']" position="after">
+                   <field name="is_blank" string="毛胚"/>
+                   <field name="stock_location"/>
+               </xpath>
+           </field>
+       </record>
+    </data>
+</odoo>

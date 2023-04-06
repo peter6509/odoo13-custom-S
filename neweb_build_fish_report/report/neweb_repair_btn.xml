@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_repair_btn_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.repair.btn.form.inherit</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="inherit_id" ref="neweb_emp_timesheet.view_inherit_repair_worl_logs_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button type="object" string="維修工作記錄及出貨單預覽" name="action_repair_print" class="oe_highlight"/>
+                    <button type="object" string="維修報表預覽" name="action_repair_work" class="oe_highlight"/>
+                </header>
+            </field>
+        </record>
+
+    </data>
+</odoo>

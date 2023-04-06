@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="gh_po_stockin_wizard_form_view" model="ir.ui.view">
+            <field name="name">gh.po.stockin.wizard.form</field>
+            <field name="model">alldo_gh_iot.po_stockin_wizard</field>
+            <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="product_no" options="{'no_create':true,'no_create_edit':true}"
+                               domain="[('product_tmpl_id.is_blank','!=',True)]"/>
+                        <field name="product_no1" options="{'no_create':true,'no_create_edit':true}"/>
+                        <field name="mo_no" options="{'no_create':true,'no_create_edit':true}"/>
+
+                        <field name="prod_num" />
+<!--                         <field name="ng_num"/>-->
+                         <field name="is_close"/>
+                        <field name="stockin_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                    </group>
+                    <group>
+                       <field name="stockloc"/>
+                       <field name="blank_onhand1" attrs="{'readonly':1}"/>
+<!--                       <field name="blank_onhand2" attrs="{'readonly':1}"/>-->
+                       <field name="prod_onhand1" attrs="{'readonly':1}"/>
+<!--                       <field name="prod_onhand2" attrs="{'readonly':1}"/>-->
+
+                    </group>
+                </group>
+                <footer>
+                    <button string="產品入庫" name="run_po_stockin" type="object" class="oe_highlight"/>
+                    <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+            </field>
+        </record>
+
+        <record id="gh_po_stockin_wizard_action" model="ir.actions.act_window">
+            <field name="name">生產工單完工入庫</field>
+            <field name="res_model">alldo_gh_iot.po_stockin_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</odoo>

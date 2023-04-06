@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit_timesheet_cost_form" model="ir.ui.view">
+           <field name="name">view.inherit.timesheet.cost.form</field>
+           <field name="model">hr.employee</field>
+           <field name="inherit_id" ref="hr.view_employee_form"/>
+           <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="工時成本配置" name="timesheet_cost"  groups="neweb_emp_timesheet.neweb_timesheet_manager">
+                        <group>
+                             <field name="timesheet_expense"/>
+                            <field name="timesheet_cost"/>
+                        </group>
+                    </page>
+                </notebook>
+
+           </field>
+       </record>
+    </data>
+</odoo>

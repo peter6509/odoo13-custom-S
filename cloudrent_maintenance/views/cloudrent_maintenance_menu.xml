@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_cloudrent_main_wizard_view" name="租房修繕創建精靈" parent="cloudrent_household.cloudrent_household_categ3" action="menu_cloudrent_maintenance_wizard_action" sequence="10"/>
+        <menuitem id="menu_cloudrent_maintenance_view" name="租房修繕記錄" parent="cloudrent_household.cloudrent_household_categ3" action="action_cloudrent_maintenance_view" sequence="45"/>
+        <menuitem id="menu_member_care_view" name="租戶訪視記錄" parent="cloudrent_household.cloudrent_household_categ3" action="action_cloudrent_care_view" sequence="50"/>
+    </data>
+</odoo>

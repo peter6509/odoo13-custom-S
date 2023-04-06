@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="hr_employee_qrcode_extend_form_view" model="ir.ui.view">
+            <field name="name">hr.employee.qrcode.extend</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="/form/*" position="before">
+                    <header>
+                        <button name="generate_secrets_code"
+                        string="建立QRCode"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o"
+                        attrs="{'invisible': [('qr_image', 'not in', False)]}">
+                        </button>
+                        <button name="generate_unlink"
+                        string="取消Notify通知"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o"
+                        attrs="{'invisible': [('qr_image', '=', True), ('line_access_token', '!=', False)]}">
+                        </button>
+                    </header>
+                </xpath>
+
+                <xpath expr="//field[@name='work_phone']" position="after">
+                    <field name="qr_image" widget='image' class="oe_avatar"/>
+                    <field name="state_code" invisible="1"/>
+                    <field name="line_access_token" invisible="1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

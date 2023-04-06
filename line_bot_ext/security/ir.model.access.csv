@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+"access_era_send_line_message_user","access.era.send.line.message.user","model_era_send_line_message","era_household.group_era_manager","True","True","True","True"
+"access_era_send_line_message_ass","access.era.send.line.message.ass","model_era_send_line_message","era_household.group_era_ass","True","True","True","True"
+"access_era_send_line_message_agent","access.era.send.line.message.agent","model_era_send_line_message","era_household_ext.group_era_agent","True","True","True","True"
+"access_era_send_line_message_landlord","access.era.send.line.message.landlord","model_era_send_line_message","era_household_ext.group_era_landlord","True","True","True","True"
+
+"access_era_manual_send_line_message_user","access.era.manual.send.line.message.user","model_era_manual_send_line_message","era_household.group_era_manager","True","True","True","True"
+"access_era_manual_send_line_message_ass","access.era.manual.send.line.message.ass","model_era_manual_send_line_message","era_household.group_era_ass","True","True","True","True"
+"access_era_manual_send_line_message_agent","access.era.manual.send.line.message.agent","model_era_manual_send_line_message","era_household_ext.group_era_agent","True","True","True","True"
+"access_era_manual_send_line_message_landlord","access.era.manual.send.line.message.landlord","model_era_manual_send_line_message","era_household_ext.group_era_landlord","True","True","True","True"

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="neweb_project_ext_inherit_form" model="ir.ui.view">
+            <field name="name">neweb.project.ext.inherit.form</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_project.neweb_project_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='proj_pay']" position="replace">
+                    <field name="proj_pay1"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

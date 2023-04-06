@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_gh_iot_outsuborder_tree" model="ir.ui.view">
+            <field name="name">view.gh.iot.outsuborder.tree</field>
+            <field name="model">alldo_gh_iot.outsuborder</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="product_no"/>
+                    <field name="eng_type"/>
+                    <field name="so_no"/>
+                    <field name="cus_name"/>
+                    <field name="order_num"/>
+                    <field name="prod_num"/>
+<!--                    <field name="shipping_date"/>-->
+<!--                    <field name="blank_input_date"/>-->
+                    <field name="outsuborder_memo"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_gh_iot_outsuborder_form" model="ir.ui.view">
+            <field name="name">view.gh_iot_outsuborder.form</field>
+            <field name="model">alldo_gh_iot.outsuborder</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                     <button name="complete_outsuborder" type="object"
+                            string="完工結案" class="oe_highlight"
+                            context="{'outsuborder_id': context.get('active_id')}"
+                            attrs="{'invisible':[('state','in',['3','4'])]}"
+                           />
+                       <field name="state" widget="statusbar"/>
+
+                    </header>
+                    <sheet>
+                         <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                            </div>
+                        <group>
+                            <group>
+                                <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+
+                                <field name="so_no" domain="[('is_openwkorder','=',False),('state','in',['sale','done'])]"/>
+                                <field name="cus_name" options="{'no_create':true,'no_create_edit':true}"/>
+                            </group>
+                            <group>
+                                <field name="eng_type"/>
+                                <field name="order_num"/>
+                                <field name="prod_num"/>
+                                <field name="outsuborder_memo"/>
+                            </group>
+
+                        </group>
+                         <notebook>
+                                 <page string="委外加工供料記錄" name="OUT PROD LINE">
+                                    <field name="prodout_line" widget="section_and_note_one2many" mode="tree" >
+                                   <tree string="委外加工供料記錄" editable="bottom">
+                                        <field name="prodout_datetime"/>
+                                        <field name="product_no" string="產品" options="{'no_create':true,'no_create_edit':true}"/>
+
+                                        <field name="out_good_num"/>
+
+                                        <field name="out_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                                 <page string="委外完工入庫記錄" name="IN PROD LINE">
+                                    <field name="prodin_line" widget="section_and_note_one2many" mode="tree" >
+                                   <tree string="委外完工入庫記錄" editable="bottom">
+                                        <field name="prodin_datetime"/>
+                                        <field name="product_no" string="產品" options="{'no_create':true,'no_create_edit':true}"/>
+
+                                        <field name="in_good_num"/>
+                                        <field name="in_ng_num"/>
+                                        <field name="process_num"/>
+
+                                        <field name="in_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                                    </tree>
+                                    </field>
+                                </page>
+
+                         </notebook>
+                    </sheet>
+
+                </form>
+
+            </field>
+        </record>
+
+        <record id="view_ghiot_outsuborder_search" model="ir.ui.view">
+           <field name="name">view.gh.iot.outsuborder.search</field>
+           <field name="model">alldo_gh_iot.outsuborder</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="po_no" string="客戶訂單" filter_domain="[('po_no', 'ilike',self )]"/>
+               <filter domain="[('state','in',['1','2'])]" string="未完工" name="uncomplete"/>
+              <filter domain="[('state','=','3')]" string="已完工" name="complete"/>
+            </search>
+           </field>
+        </record>
+         <record id="view_alldo_gh_iot_outsuborder_calendar" model="ir.ui.view">
+            <field name="name">view.alldo.gh.iot.outsuborder.calendar</field>
+            <field name="model">alldo_gh_iot.outsuborder</field>
+            <field name="arch" type="xml">
+                <calendar string="outsuborder List" date_start="prod_date" color="state" hide_time="true" event_limit="5">
+                    <field name="outsuborder_name"/>
+                </calendar>
+            </field>
+        </record>
+        <record id="action_gh_iot_outsuborder_view" model="ir.actions.act_window">
+            <field name="name">委外加工工單作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.outsuborder</field>
+            <field name="view_mode">tree,form,calendar</field>
+             <field name="search_view_id" ref="view_ghiot_outsuborder_search"></field>
+            <field name="context">{ 'search_default_uncomplete': 1, }</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

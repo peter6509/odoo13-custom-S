@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="gh_mo_add_wizard_form_view" model="ir.ui.view">
+            <field name="name">gh.mo.add.wizard.form</field>
+            <field name="model">alldo_gh_iot.mo_add_wizard</field>
+            <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="product_no" options="{'no_create':true,'no_create_edit':true}"
+                               domain="[('product_tmpl_id.is_blank','!=',True)]"/>
+                        <field name="mo_no" options="{'no_create':true,'no_create_edit':true}"
+                           domain="[('state','not in',['4']),'|',('eng_order','=','4'),('eng_order','=','3')]"/>
+
+                    </group>
+                    <group>
+                         <field name="prod_origin_num" attrs="{'readonly':1}"/>
+                         <field name="prod_num"/>
+<!--                         <field name="is_outsourcing"/>-->
+<!--                         <field name="partner_id" options="{'no_create':true,'no_create_edit':true}" attrs="{'invisible':[('is_outsourcing','=',False)]}"/>-->
+                        <field name="addin_owner" options="{'no_create':true,'no_create_edit':true}"/>
+
+                    </group>
+                </group>
+                <footer>
+                    <button string="工單追加數量" name="run_mo_add" type="object" class="oe_highlight"/>
+                    <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+            </field>
+        </record>
+
+        <record id="gh_mo_add_wizard_action" model="ir.actions.act_window">
+            <field name="name">工單訂單數量追加</field>
+            <field name="res_model">alldo_gh_iot.mo_add_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</odoo>

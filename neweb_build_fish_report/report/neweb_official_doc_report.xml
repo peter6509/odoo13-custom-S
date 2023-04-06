@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <report id="action_report_neweb_official_doc"
+                model="neweb_sale_analysis.official_doc"
+                string="公文列印作業NEW"
+                report_type="controller"
+                print_report_name="'公文列印作業_%s.pdf' % object.name"
+                name="neweb_official_doc_report"/>
+        <record id="action_report_neweb_official_doc" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_official_doc_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+    </data>
+</odoo>

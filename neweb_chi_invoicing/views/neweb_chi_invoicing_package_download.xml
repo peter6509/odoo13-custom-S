@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_neweb_chi_invoicing_package_download_tree" model="ir.ui.view">
+            <field name="name">view.neweb.chi.invoicing.package.download.tree</field>
+            <field name="model">neweb_chi_invoicing.package_excel_download</field>
+            <field name="arch" type="xml">
+                <tree string=""  >
+                    <field name="xls_file1" filename="xls_file_name1" widget="binary"/>
+                    <field name="xls_file_name1" invisible="1"/>
+                    <field name="xls_file2" filename="xls_file_name2" widget="binary"/>
+                    <field name="xls_file_name2" invisible="1"/>
+                    <field name="project_no"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_neweb_chi_invoicing_package_download_form" model="ir.ui.view">
+            <field name="name">view.neweb.chi.invoicing.package.download.form</field>
+            <field name="model">neweb_chi_invoicing.package_excel_download</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="project_no"/>
+                                 <field name="xls_file1" filename="xls_file_name1" widget="binary"/>
+                                <field name="xls_file_name1" invisible="1"/>
+                                <field name="invoicing1_date"/>
+                                <field name="invoicing1_owner"/>
+                                <field name="xls_file2" filename="xls_file_name2" widget="binary"/>
+                                <field name="xls_file_name2" invisible="1"/>
+                                 <field name="invoicing2_date"/>
+                                <field name="invoicing2_owner"/>
+                                <field name="run_desc"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+         <record id="view_neweb_chi_invoicing_package_download_search" model="ir.ui.view">
+            <field name="name">view.neweb.chi.invoicing.package.download.search</field>
+            <field name="model">neweb_chi_invoicing.package_excel_download</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="project_no" filter_domain="[('project_no','ilike',self)]"/>
+
+                </search>
+            </field>
+        </record>
+        <record id="action_neweb_chi_invoicing_package_download_view" model="ir.actions.act_window">
+            <field name="name">(二).EXCEL整包匯出資料儲存區</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_chi_invoicing.package_excel_download</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

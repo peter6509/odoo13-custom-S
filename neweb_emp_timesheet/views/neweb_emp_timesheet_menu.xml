@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_emp_timesheet_root" name="工時系統"
+                  web_icon="neweb_emp_timesheet,static/description/timesheet.png"
+                  sequence="200"/>
+        <!--工時行事曆檢視-->
+        <menuitem id="menu_timesheet_calendar_view" name="工時行事曆檢視" parent="menu_emp_timesheet_root"
+                   groups="base.group_user" action="action_calendar_timesheet_task_view" sequence="10"/>
+        <menuitem id="menu_inspection_calendar_view" name="合約定期維護行事曆" parent="menu_emp_timesheet_root"
+                  groups="base.group_user" action="action_calendar_inspection_task_view" sequence="13"/>
+         <menuitem id="menu_todo_calendar_view" name="待辦工作行事曆" parent="menu_emp_timesheet_root"
+                  groups="base.group_user" action="action_todo_calendar_view" sequence="12"/>
+        <!--<menuitem id="menu_repair_calendar_view" name="客戶報修事件行事曆" parent="menu_emp_timesheet_root"-->
+                  <!--groups="base.group_user" action="action_calendar_repair_task_view" sequence="15"/>-->
+
+        <!--工時資料作業-->
+        <menuitem id="menu_timesheet_data_categ" name="工時申報作業" parent="menu_emp_timesheet_root" sequence="20"/>
+<!--        <menuitem id="menu_timesheet_input_view" name="工時單筆申報作業" parent="menu_timesheet_data_categ"-->
+<!--                  groups="base.group_user" action="action_timesheet_input_view" sequence="10"/>-->
+        <menuitem id="menu_import_timesheet_view" name="工時整批EXCEL申報作業" parent="menu_timesheet_data_categ"
+                  action="action_neweb_import_timesheet" groups="base.group_user" sequence="20"/>
+
+        <!--工時樞紐分析-->
+        <menuitem id="menu_timesheet_pivot_categ" name="人員工時樞紐分析" groups="base.group_user" parent="menu_emp_timesheet_root" sequence="30"/>
+        <menuitem id="menu_timesheet_pivot_view" name="" groups="base.group_user" parent="menu_timesheet_pivot_categ" action="neweb_timesheet_report_action" sequence="10"/>
+        <menuitem id="menu_timesheet_expcost_view" name="" groups="base.group_user"  parent="menu_timesheet_pivot_categ" action="neweb_timesheet_expcost_report_action" sequence="20"/>
+<!--        <menuitem id="menu_timesheet_noncomplete_view" name="" parent="menu_timesheet_pivot_categ" action="neweb_timesheet_noncomplete_action" sequence="30"/>-->
+
+
+        <!--工時數據報表-->
+        <menuitem id="menu_timesheet_report_categ" name="工時數據EXCEL報表" parent="menu_emp_timesheet_root" sequence="40"/>
+        <menuitem id="menu_timesheet_nocomplete_view" name="" parent="menu_timesheet_report_categ" action="timesheet_nocomplete_view_action" sequence="10"/>
+        <menuitem id="menu_timesheet_record_view" name="" parent="menu_timesheet_report_categ" action="timesheet_record_view_action" sequence="20"/>
+        <menuitem id="menu_timesheet_download_view" name="" parent="menu_timesheet_report_categ" action="action_timesheetdownload_view" sequence="200"/>
+
+
+
+
+        <!--管理配置-->
+        <menuitem id="menu_timesheet_categ" name="管理配置" parent="menu_emp_timesheet_root" sequence="200"/>
+        <menuitem id="menu_timesheet_worktype_view" name="工時型態配置" parent="menu_timesheet_categ"
+                   groups="neweb_timesheet_manager,neweb_timesheet_cost_user"
+                   action="action_timesheet_worktype_view" sequence="10"/>
+        <menuitem id="menu_timesheet_lockdate_view" name="工時關帳設定" parent="menu_timesheet_categ"
+                  groups="neweb_timesheet_manager,neweb_timesheet_cost_user" action="action_timesheet_lockdate_view" sequence="20"/>
+        <menuitem id="menu_neweb_hrholiday_view" name="例假日配置作業" parent="menu_timesheet_categ"
+                  groups="neweb_timesheet_manager,neweb_timesheet_cost_user"
+                  action="action_neweb_hrholiday_view" sequence="30"/>
+        <menuitem id="menu_neweb_tolerance_setting_view" name="" parent="menu_timesheet_categ"
+                  groups="neweb_timesheet_manager,neweb_timesheet_cost_user"
+                  action="action_timesheet_tolerance_setting_view" sequence="40"/>
+        <menuitem id="menu_update_contract_type_view" name="合約型態變更批次作業" parent="menu_timesheet_categ"
+                  groups="base.group_no_one"
+                  action="action_neweb_update_contract_type" sequence="50"/>
+        <menuitem id="menu_timesheet_adjustowner_view" name="關帳後可調整人員" parent="menu_timesheet_categ"
+                  groups="base.group_no_one" action="action_timesheet_adjustowner_view" sequence="60"/>
+        <menuitem id="menu_timesheet_change_emp_view" name="合約維護工程師變更作業" parent="menu_timesheet_categ"
+                  groups="neweb_timesheet_manager,neweb_timesheet_cost_user" action="action_todo_change_timesheet" sequence="70"/>
+
+    </data>
+</odoo>

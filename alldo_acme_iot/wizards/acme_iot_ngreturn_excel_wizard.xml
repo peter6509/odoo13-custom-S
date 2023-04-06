@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_ngreturn_excel_wizard" model="ir.ui.view">
+             <field name="name">views.ngreturn.excel.wizard</field>
+             <field name="model">alldo_acme_iot.ngreturn_excel_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>委外加工NG記錄 匯出EXCEL精靈</h1>
+                         <group>
+                             <field name="partner_id" domain="[('is_company','=',True),('supplier_rank','=',1)]" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="start_date" />
+                             <field name="end_date" />
+                             <field name="run_desc"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_ngreturn_excel" string="NG記錄匯出EXCEL" class="oe_highlight"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+        <record id="views_ngreturn_excel_action" model="ir.actions.act_window">
+                 <field name="name">NG匯出EXCEL精靈</field>
+                 <field name="type">ir.actions.act_window</field>
+                 <field name="res_model">alldo_acme_iot.ngreturn_excel_wizard</field>
+<!--                 <field name="view_type">form</field>-->
+                 <field name="view_mode">form</field>
+                 <field name="view_id" ref="views_ngreturn_excel_wizard"/>
+                 <field name="target">new</field>
+             </record>
+    </data>
+</odoo>

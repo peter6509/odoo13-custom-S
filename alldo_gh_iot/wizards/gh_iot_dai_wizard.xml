@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_dai_shipping_wizard" model="ir.ui.view">
+             <field name="name">views.dai.shipping.wizard</field>
+             <field name="model">alldo_gh_iot.dai_shipping_wizards</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>手動開立出貨單</h1>
+                         <group>
+                             <field name="partner_id" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="stock_picking_no"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_partner_shipping" string="手動開立出貨單" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="ghiot_dai_shipping_wizard_action" model="ir.actions.act_window">
+             <field name="name">手動開立出貨單</field>
+             <field name="res_model">alldo_gh_iot.dai_shipping_wizards</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

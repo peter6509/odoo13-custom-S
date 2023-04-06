@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_contract_inspection_line_form" model="ir.ui.view">
+            <field name="name">view.inherit.contract.inspection.line.form</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="inherit_id" ref="neweb_contract.neweb_contract_form_inherit"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='inspection_line']/tree/field[@name='actual_date']" position="after">
+                    <field name="actual_start_datetime"/>
+                    <field name="actual_end_datetime"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+                <xpath expr="//field[@name='inspection_line']/tree/field[@name='actual_date']" position="replace">
+
+                </xpath>
+                <xpath expr="//field[@name='inspection_line']/tree/field[@name='inspection_man']" position="replace">
+                    <field name="emp_id" string="維護工程師"/>
+                </xpath>
+                <xpath expr="//button[@name='subscribe_reset']" position="after">
+                    <button type="object" string="工程師變更同步待辦行事曆" name="run_change_eng" class="oe_highlight oe_edit_only"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

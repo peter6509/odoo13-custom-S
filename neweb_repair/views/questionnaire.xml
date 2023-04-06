@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="repair_questionnaire_tree">
+            <field name="name">neweb_repair.repair_questionnaire.tree</field>
+            <field name="model">neweb_repair.questionnaire</field>
+            <field name="arch" type="xml">
+                <tree string="Questionnaires">
+                    <field name="name"/>
+                    <field name="disabled"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="repair_questionnaire_form">
+            <field name="name">neweb_repair.repair_questionnaire.form</field>
+            <field name="model">neweb_repair.questionnaire</field>
+            <field name="arch" type="xml">
+                <form string="Questionnaire">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="disabled"/>
+                            </group>
+                            <group>
+                                <field name="code" readonly="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Questions">
+                                <field name="question_ids" mode="tree">
+                                    <form string="Question">
+                                        <group>
+                                            <field name="name"/>
+                                            <field name="disabled"/>
+                                        </group>
+                                    </form>
+                                    <tree string="Questions" editable="bottom">
+                                        <field name="name"/>
+                                        <field name="disabled"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="repair_questionnaire_search">
+            <field name="name">neweb_repair.repair_questionnaire.search</field>
+            <field name="model">neweb_repair.questionnaire</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="disabled"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_repair_questionnaire">
+            <field name="name">Questionnaire</field>
+            <field name="res_model">neweb_repair.questionnaire</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_repair_configuration"
+                  name="Configuration"
+                  parent="neweb_base.menu_repair"
+                  groups="neweb_project.neweb_en40_mgt,neweb_project.neweb_en30_ass,neweb_project.neweb_en20_vp,neweb_project.neweb_en10_gm"
+                  sequence="99"/>
+
+        <menuitem id="menu_km" parent="neweb_repair.menu_repair_configuration" name="KM" sequence="66"/>
+        <menuitem id="menu_qa" parent="neweb_repair.menu_km" name="Problem Handling" sequence="66" action="neweb_base.action_list_qa"/>
+        <menuitem id="menu_qa_solution" parent="neweb_repair.menu_km" name="Problem Solution" sequence="68"
+                  action="neweb_base.action_list_qa_solution"/>
+
+        <menuitem id="menu_repair_questionnaire" parent="menu_repair_configuration" name="Questionnaires" sequence="55"
+                  action="action_list_repair_questionnaire"/>
+    </data>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="gh_iot_company_loc_tree" model="ir.ui.view">
+            <field name="name">gh.iot.company.loc.tree</field>
+            <field name="model">alldo_gh_iot.company_stockloc</field>
+            <field name="arch" type="xml">
+                <tree string="" >
+                    <field name="prod_loc"/>
+                    <field name="semi_prod_loc"/>
+                    <field name="blank_loc"/>
+                    <field name="mo_loc"/>
+                    <field name="scrap_loc"/>
+                    <field name="trans_loc"/>
+                </tree>
+            </field>
+        </record>
+        <record id="gh_iot_company_loc_form" model="ir.ui.view">
+            <field name="name">gh.iot.company.loc.form</field>
+            <field name="model">alldo_gh_iot.company_stockloc</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="prod_loc"/>
+                            <field name="semi_prod_loc"/>
+                            <field name="blank_loc"/>
+                            <field name="mo_loc"/>
+                            <field name="scrap_loc"/>
+                             <field name="trans_loc"/>
+                            <field name="pbooking_loc"/>
+                            <field name="bbooking_loc"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="gh_iot_company_loc_action" model="ir.actions.act_window">
+            <field name="name">公司倉庫設定配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.company_stockloc</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

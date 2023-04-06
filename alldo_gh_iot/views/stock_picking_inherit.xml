@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="alldo_stockpicking_form_inherit" model="ir.ui.view">
+            <field name="name">alldo.stockpicking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="report_no" attrs="{'readonly':1,'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
+                    <button name="run_shipping_report" string="出貨單" type="object" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
+                    <button name="run_newshipping_report" string="清除出貨單號" type="object" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing'),('report_no','=',False)]}"/>
+                    <field name="report_memo" />
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+<!--                 <xpath expr="//field[@name='move_line_ids_without_package']/tree/field[@name='product_uom_qty']" position="after">-->
+<!--                    <field name="po_no" options="{'no_create':true,'no_create_edit':true}" />-->
+<!--                </xpath>-->
+
+
+
+
+            </field>
+
+        <!-- Inherit Form View to Modify it -->
+
+        </record>
+
+         <record id="ghiot_stock_move_line_inherit" model="ir.ui.view">
+            <field name="name">ghiot.stock.move.line.inherit</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_stock_move_line_detailed_operation_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='qty_done']" position="after">
+                    <field name="po_no" widget="many2many_tags" options="{'no_create':true,'no_create_edit':true}"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

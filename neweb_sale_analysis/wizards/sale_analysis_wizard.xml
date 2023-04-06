@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_analysis_view_form_wizard" model="ir.ui.view">
+            <field name="name">sale.analysis.view.form.wizard</field>
+            <field name="model">neweb_sale_analysis.saleanalysis_wizard</field>
+            <field name="arch" type="xml">
+                <form string="業務團隊業績統計演算">
+                    <sheet>
+                         <h1>業務團隊業績統計演算</h1>
+                        <group>
+                           <field name="sale_team"/>
+                           <field name="sale_year"/>
+                           <field name="sale_quarter" widget="radio" options="{'horizontal':true}"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="saleanalysis_run" string="演算統計" class="oe_highlight"/>
+                        <button special="cancel" string="放棄離開"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="sale_analysys_view_action" model="ir.actions.act_window">
+            <field name="name">業績統計演算</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_sale_analysis.saleanalysis_wizard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+<!--        <menuitem id="menu_sale_analysis_view_action" name="團隊業績統計精靈" sequence="50"-->
+<!--                  parent="neweb_project.menu_neweb_sale_categ"-->
+<!--                  action="sale_analysys_view_action"/>-->
+    </data>
+</odoo>

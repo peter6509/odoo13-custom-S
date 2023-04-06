@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit14_neweb_project_form" model="ir.ui.view">
+           <field name="name">view.inherit14.neweb.project.form</field>
+           <field name="model">neweb.project</field>
+           <field name="inherit_id" ref="neweb_projext.view_inherit132_neweb_project_form"/>
+           <field name="arch" type="xml">
+
+               <!-- position: after|before|replace|attributes|inside -->
+               <xpath expr="//field[@name='sale_no']" position="after">
+                   <field name="have_contract"/>
+               </xpath>
+               <xpath expr="//field[@name='revenue_ratio']" position="after">
+                   <field name="stamp_duty_type"/>
+                   <field name="stamp_duty"/>
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+               <xpath expr="//sheet/sheet[2]" position="after">
+                   <sheet>
+                       <h1>建置成本歸屬</h1>
+                        <HR colors="#0000ff" size="10"/>
+                        <field name="setupcost_ids" nolabel="1">
+                            <tree editable="bottom" string="Setup Cost Info" widget="one2many">
+                                <field name="name" string="類別/組別"/>
+                                <field name="r6_revenue" string="  R6   "/>
+                                <field name="r6_percent" string="R6百分比"/>
+                                <field name="nt_revenue" string="  NT  "/>
+                                <field name="nt_percent" string="NT百分比"/>
+                                <field name="networking_revenue" string="Networking"/>
+                                <field name="networking_percent" string="Networking百分比"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                   <sheet>
+                       <h1>維護成本歸屬</h1>
+                        <HR colors="#0000ff" size="10"/>
+                        <field name="maincost_ids" nolabel="1">
+                            <tree editable="bottom" string="Setup Cost Info" widget="one2many">
+                                <field name="name" string="類別/組別"/>
+                                <field name="r6_revenue" string="   R6  "/>
+                                <field name="r6_percent" string="R6百分比"/>
+                                <field name="nt_revenue" string="   NT  "/>
+                                <field name="nt_percent" string="NT百分比"/>
+                                <field name="networking_revenue" string="Networking"/>
+                                <field name="networking_percent" string="Networking百分比"/>
+                                <field name="support_revenue" string="Support"/>
+                                <field name="support_percent" string="Support百分比"/>
+                            </tree>
+                        </field>
+                    </sheet>
+               </xpath>
+
+
+           </field>
+       </record>
+
+    </data>
+</odoo>

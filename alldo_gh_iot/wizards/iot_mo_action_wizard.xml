@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="iot_mo_action_wizard_form_view" model="ir.ui.view">
+            <field name="name">iot.mo.action.wizard.form</field>
+            <field name="model">alldo_gh_iot.iot_mo_stop_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="equipment_ids" widget="many2many_tags" options="{'no_create':true,'no_create_edit':true}"/>
+                        </group>
+                        <group>
+                            <field name="action_type"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="執行動作" name="run_action_iot" type="object" class="oe_highlight"/>
+                        <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="iot_mo_action_wizard_action" model="ir.actions.act_window">
+            <field name="name">工單主控暫停精靈</field>
+            <field name="res_model">alldo_gh_iot.iot_mo_stop_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

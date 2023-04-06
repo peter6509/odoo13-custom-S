@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_repair_timesheet_form" model="ir.ui.view">
+            <field name="name">view.inherit.repair.timesheet.form</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="inherit_id" ref="neweb_repair_repair_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="/notebook/page/field[@name='repair_lines']/form/sheet/field[@name='maintenance_category']" position="after">
+                    <field name="repair_timesheet_worktype"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

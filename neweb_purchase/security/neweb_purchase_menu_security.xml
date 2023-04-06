@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="menu_require_mabackup_action" model="ir.ui.menu">
+            <field name="name">MaBackup</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+        <record id="menu_require_maparts_action" model="ir.ui.menu">
+            <field name="name">Maparts</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+        <!--<record id="menu_neweb_purchase_categ" model="ir.ui.menu">-->
+            <!--<field name="name">PURCHASEDATA</field>-->
+            <!--<field name="groups_id" eval="[(6,0,[ref('base.group_user')]),]"/>-->
+        <!--</record>-->
+        <!--<record id="menu_neweb_purchase_action" model="ir.ui.menu">-->
+            <!--<field name="name">PURCHASACTION</field>-->
+            <!--<field name="groups_id" eval="[(6,0,[ref('base.group_user')]),]"/>-->
+        <!--</record>-->
+        <record id="menu_neweb_rfq_action" model="ir.ui.menu">
+            <field name="name">RFQ action</field>
+            <field name="groups_id" eval="[(6,0,[ref('base.group_user')])]"/>
+        </record>
+        <record id="menu_newebpurchase_action" model="ir.ui.menu">
+            <field name="name">PURCHAS</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_pur20_assi'),ref('neweb_project.neweb_pur10_user'),ref('neweb_project.neweb_cs30_dir'),ref('neweb_project.neweb_cs20_vp'),ref('neweb_project.neweb_cs10_gm')]),]"/>
+        </record>
+        <record id="menu_neweb_purchase_manager_action" model="ir.ui.menu">
+            <field name="name">PURCHASEDATA</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_pur20_assi'),ref('neweb_project.neweb_pur10_user'),ref('neweb_project.neweb_cs30_dir'),ref('neweb_project.neweb_cs20_vp'),ref('neweb_project.neweb_cs10_gm')]),]"/>
+        </record>
+    </data>
+</odoo>

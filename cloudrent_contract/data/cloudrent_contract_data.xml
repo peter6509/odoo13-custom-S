@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="seq_cloudrent_contract" model="ir.sequence">
+            <field name="name">cloudrent contract No</field>
+            <field name="code">cloudrent.contract</field>
+            <field name="prefix">C%(year)s%(month)s%(day)s</field>
+            <field name="padding">2</field>
+        </record>
+        <record id="seq_cloudrent_landlord_contract" model="ir.sequence">
+            <field name="name">cloudrent landlord contract No</field>
+            <field name="code">cloudrent.landlord_contract</field>
+            <field name="prefix">L%(year)s%(month)s%(day)s</field>
+            <field name="padding">2</field>
+        </record>
+    </data>
+</odoo>

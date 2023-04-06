@@ -1,0 +1,63 @@
+# -*- coding: utf-8 -*-
+# Author : Peter Wu
+
+
+from odoo import models,fields,api
+from odoo.exceptions import UserError
+
+class ghiotshippingreportwizard(models.TransientModel):
+    _name = "alldo_gh_iot.shipping_report_wizard"
+
+    partner_id = fields.Many2one('res.partner',string="客戶")
+    report_type = fields.Selection([('1','新單'),('2','舊單'),('3','最後一單')],string="列印模式",default='2')
+    report_date = fields.Date(string="出貨日期",default=lambda *a:fields.Datetime.today())
+    report_no = fields.Char(string="出貨單號")
+
+    @api.onchange('report_type')
+    def onchangereporttype(self):
+        if not self.partner_id:
+            mypartnerid = 0
+        else:
+            mypartnerid = self.partner_id.id
+        self.env.cr.execute("""select shippingreport(%d)""" % mypartnerid)
+        self.report_no = self.env.cr.fetchone()[0]
+
+    def run_shipping_report(self):
+        if self.report_type=='1' and not self.partner_id:
+            raise UserError("新單列印要輸入客戶")
+        if self.report_type=='2' and not self.report_no:
+            raise UserError("舊單列印必需輸入出貨單號")
+        self.env.cr.execute("""delete from alldo_gh_iot_stockpicking_report""")
+        self.env.cr.execute("""commit""")
+        if self.report_type=='1':     # 新單
+            self.env.cr.execute("""select ckshipping(%d)""" % self.partner_id.id)
+            myres = self.env.cr.fetchone()[0]
+            if myres:
+                myrec = self.env['alldo_gh_iot.stockpicking_report']
+                if not self.report_date:
+                    myrec.create({'partner_id': self.partner_id.id})
+                else:
+                    myrec.create({'partner_id': self.partner_id.id,'report_date': self.report_date})
+                self.env.cr.execute("""select gennewshipping(%d)""" % self.partner_id.id)
+                self.env.cr.execute("""commit""")
+            else:
+                raise UserError("目前沒有新單可供列印！")
+        else:                         # 舊單
+            self.env.cr.execute("""select genoldshipping('%s')""" % (self.report_no))
+            self.env.cr.execute("""commit""")
+
+        myrec = self.env['alldo_gh_iot.stockpicking_report'].search([])
+        myid = myrec[0].id
+        myviewid = self.env.ref('alldo_gh_iot.gh_iot_shipping_report_action')
+        return {'view_name': 'gh_iot_shipping_report_action',
+                'name': (u'employee info  item Data'),
+                'views': [[False, 'form']],
+                'res_model': 'alldo_gh_iot.stockpicking_report',
+                'context': self._context,
+                'type': 'ir.actions.act_window',
+                'res_id': myid,
+                'target': 'current',
+                'view_id': myviewid.id,
+                'view_mode': 'form',
+                'view_type': 'form'
+                }

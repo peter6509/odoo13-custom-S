@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_invoice_sendmail_tree" model="ir.ui.view">
+            <field name="name">view.invoice.sendmail.tree</field>
+            <field name="model">neweb_invoice.invoice_sendmail</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="invoice_date" width="5%%"/>
+                    <field name="send_date" width="5%%"/>
+                    <field name="send_date1" width="5%%"/>
+                    <field name="partner_id" width="5%%"/>
+                    <field name="invoice_contact1" width="7%%"/>
+                    <field name="invoice_no" width="8%%"/>
+                    <field name="invoice_untax_amount" width="8%%"/>
+                    <field name="invoice_taxtype" width="8%%"/>
+                    <field name="invoice_tax_amount" width="8%%"/>
+                    <field name="cando" width="5%%"/>
+                    <field name="is_send" width="5%%"/>
+                    <field name="invoice_paymentdate" width="5%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_invoice_sendmail_form" model="ir.ui.view">
+            <field name="name">view.invoice.sendmail.form</field>
+            <field name="model">neweb_invoice.invoice_sendmail</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="invoice_date" />
+                                <field name="send_date"/>
+                                <field name="partner_id"/>
+                                <field name="invoice_contact1"/>
+                            </group>
+                            <group>
+                                <field name="invoice_untax_amount"/>
+                                <field name="invoice_taxtype"/>
+                                <field name="invoice_tax_amount"/>
+                                <field name="invoice_no"/>
+                                <field name="is_send"/>
+                                <field name="invoice_paymentdate"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook>
+                        <page>
+                          <field name="sendmail_line" nolabel="1">
+                              <tree editable="false" string="Student Info" widget="one2many">
+                                  <field name="invoice_spec" width="20%%"/>
+                                  <field name="invoice_num" width="5%%"/>
+                                  <field name="invoice_unit_price" width="8%%"/>
+                                  <field name="invoice_taxtype" width="5%%"/>
+                                  <field name="invoice_untax_amount" width="8%%"/>
+                                  <field name="invoice_tax_amount" width="8%%"/>
+                              </tree>
+                           </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+         <record id="view_invoice_sendmail_search" model="ir.ui.view">
+            <field name="name">view.invoice.sendmail.search</field>
+            <field name="model">neweb_invoice.invoice_sendmail</field>
+             <field name="arch" type="xml">
+                 <search string="">
+                 <field name="partner_id" string="關鍵字" filter_domain="['|',('invoice_no','ilike',self),('partner_id.comp_sname','ilike',self )]"/>
+                 <filter string="已發送" domain="[('is_send','=',True)]" name="is_send1"/>
+                 <filter string="未發送" domain="[('is_send','=',False)]" name="is_send2"/>
+                 <filter name="group_cus_name" string="客戶群組" icon="terp-partner" context="{'group_by':'partner_id'}"/>
+                 <filter name="group_invoice_no" string="發票號群組" icon="terp-partner" context="{'group_by':'invoice_no'}"/>
+             </search>
+            </field>
+         </record>
+        <record id="action_invoice_sendmail_view" model="ir.actions.act_window">
+            <field name="name">開立發票後傳送給客戶Email清單</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_invoice.invoice_sendmail</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_invoice.view_invoice_sendmail_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('neweb_invoice.view_invoice_sendmail_form')}),]"/>
+            <field name="search_view_id" ref="view_invoice_sendmail_search"/>
+            <field name="context">{'search_default_is_send2':1,'show_sname':True}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_neweb_invoice_sendmail_action" name="開立發票給客戶Email清單" sequence="120"
+                  parent="menu_neweb_project_invoice_view_categ"
+                  groups="neweb_project.neweb_cs50_assi,neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass"
+                  action="action_invoice_sendmail_view"/>
+    </data>
+</odoo>

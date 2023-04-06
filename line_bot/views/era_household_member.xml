@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="era_household_member_form" model="ir.ui.view">
+            <field name="name">住戶通知繳費歷史訊息</field>
+            <field name="model">era.household_member</field>
+            <field name="inherit_id" ref="era_household.era_household_member_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//header" position="inside">
+                    <button name="unlink_line_user_id"
+                        string="解除line綁定"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o"
+                        groups="era_household.group_era_ass,era_household.group_era_manager"
+                        attrs="{'invisible': [('line_user_id', '=', False)]}">
+                    </button>
+                </xpath>
+                <xpath expr="//field[@name='line_access_token']" position="after">
+                    <field name="line_binding" readonly="1"/>
+                    <field name="line_user_id" readonly="1"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+<!--                    <page string="查閱帳單內容" name="check_balance">-->
+<!--                        <group>-->
+<!--                            <group string="增加金額之細節">-->
+<!--                                <field name="period_electric"/>-->
+<!--                                <field name="period_house_rent"/>-->
+<!--                                <field name="period_house_manage"/>-->
+<!--                                <field name="period_park_rent"/>-->
+<!--                                <field name="period_park_manage"/>-->
+<!--                                <field name="period_moto_park_manage"/>-->
+<!--                                <field name="period_water_fee"/>-->
+<!--                            </group>-->
+<!--                            <group string="總覽">-->
+<!--                                <field name="previous_arrears"/>-->
+<!--                                <field name="period_addition"/>-->
+<!--                                <field name="period_total"/>-->
+<!--                                <field name="period_complete_total"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                    </page>-->
+                    <page string="租戶LINE回傳繳費通知" name="notify_history">
+                        <field name="history_ids">
+                            <tree>
+                                <field name="bank_last_5_digit"/>
+                                <field name="amount"/>
+                                <field name="notify_datetime"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

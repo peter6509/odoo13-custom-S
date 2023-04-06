@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="gh_iot_booking_tree" model="ir.ui.view">
+           <field name="name">gh.iot.booking.tree</field>
+           <field name="model">alldo_gh_iot.prod_booking</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="booking_custom"/>
+                   <field name="booking_prod"/>
+                   <field name="booking_blank"/>
+                   <field name="booking_num"/>
+                   <field name="booking_owner"/>
+                   <field name="booking_date"/>
+                   <field name="booking_release"/>
+                   <field name="booking_desc"/>
+                   <field name="booking_type"/>
+               </tree>
+           </field>
+       </record>
+        <record id="gh_iot_booking_form" model="ir.ui.view">
+            <field name="name">gh.iot.booking.form</field>
+            <field name="model">alldo_gh_iot.prod_booking</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="booking_custom" options="{'no_create':true,'no_create_edit':true}"
+                                   domain="[('is_company','=',1)]"/>
+                               <field name="booking_prod" options="{'no_create':true,'no_create_edit':true}"/>
+                               <field name="booking_blank" options="{'no_create':true,'no_create_edit':true}"/>
+                               <field name="booking_num"/>
+                               <field name="booking_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                               <field name="booking_desc"/>
+                               <field name="booking_type" attrs="{'readonly':1}"/>
+                               <field name="po_id" />
+                           </group>
+                            <group>
+                                <field name="prod_onhand" attrs="{'readonly':1}"/>
+                                <field name="blank_onhand" attrs="{'readonly':1}"/>
+                                <field name="booking_date" attrs="{'readonly':1}"/>
+                                <field name="booking_release" attrs="{'readonly':1}"/>
+                                <field name="booking_p_picking" attrs="{'readonly':1}" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="booking_b_picking" attrs="{'readonly':1}" options="{'no_create':true,'no_create_edit':true}"/>
+                            </group>
+                            <button name="%(gh_booking_release_wizard_action)d" string="預留解除" class="oe_highlight oe_edit_only" type="action"
+                                    context="{'booking_id': context.get('active_id')}"
+                                    attrs="{'invisible':['|',('booking_type','=','2'),('booking_type','=',False)]}"/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="gh_iot_booking_search" model="ir.ui.view">
+           <field name="name">gh.iot.booking.search</field>
+           <field name="model">alldo_gh_iot.prod_booking</field>
+            <field name="arch" type="xml">
+                <search string="">
+                  <field name="booking_custom" string="關鍵字" filter_domain="['|',('booking_custom.name','ilike',self),('booking_prod.default_code', 'ilike',self )]"/>
+                  <filter domain="[('booking_type','=','1')]" string="預留鎖定" name="prodlock"/>
+                  <filter domain="[('booking_type','=','2')]" string="解除鎖定" name="unprodlock"/>
+            </search>
+           </field>
+        </record>
+        <record id="gh_iot_booking_action" model="ir.actions.act_window">
+            <field name="name">訂單產品預留記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.prod_booking</field>
+            <field name="view_mode">tree,form</field>
+             <field name="search_view_id" ref="gh_iot_booking_search"></field>
+            <field name="context">{ 'search_default_prodlock': 1, }</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

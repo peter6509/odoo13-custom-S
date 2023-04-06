@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_shipping_excel_wizard" model="ir.ui.view">
+             <field name="name">views.shipping.excel.wizard</field>
+             <field name="model">alldo_gh_iot.shipping_excel_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>出貨單匯出EXCEL精靈</h1>
+                         <group>
+                             <field name="partner_id" domain="[('is_company','=',True)]" options="{'no_open': True,'no_create':true,'no_create_edit':true}"/>
+                             <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="start_date" />
+                             <field name="end_date" />
+                             <field name="run_desc"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_shipping_excel" string="出貨記錄匯出EXCEL" class="oe_highlight"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+        <record id="views_shipping_excel_action" model="ir.actions.act_window">
+                 <field name="name">出貨單匯出EXCEL精靈</field>
+                 <field name="type">ir.actions.act_window</field>
+                 <field name="res_model">alldo_gh_iot.shipping_excel_wizard</field>
+<!--                 <field name="view_type">form</field>-->
+                 <field name="view_mode">form</field>
+                 <field name="view_id" ref="views_shipping_excel_wizard"/>
+                 <field name="target">new</field>
+             </record>
+    </data>
+</odoo>

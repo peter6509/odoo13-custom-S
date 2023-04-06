@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_mon_amount_report_wizard" model="ir.ui.view">
+             <field name="name">views.mon.amount.report.wizard</field>
+             <field name="model">cloudrent.mon_amount_report_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>CloudRent電費用度帳單</h1>
+                         <group>
+                             <field name="project_no" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="house_id" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="start_date"/>
+                             <field name="end_date"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_mon_amount" string="產生帳單" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="mon_amount_report_wizard_action" model="ir.actions.act_window">
+             <field name="name">CloudRent電費用度帳單精靈</field>
+             <field name="res_model">cloudrent.mon_amount_report_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

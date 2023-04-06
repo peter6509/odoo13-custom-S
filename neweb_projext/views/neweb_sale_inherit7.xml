@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="neweb_sale_inherit7_tree" model="ir.ui.view">
+            <field name="name">neweb.sale.inherit7.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='commitment_date']" position="replace">
+
+               </xpath>
+                 <xpath expr="//field[@name='expected_date']" position="replace">
+
+               </xpath>
+                <xpath expr="//field[@name='amount_total']" position="replace">
+                    <field name="sitem_amounttot"/>
+               </xpath>
+                 <xpath expr="//field[@name='date_order']" position="replace">
+                    <field name="date_order1"/>
+               </xpath>
+            </field>
+        </record>
+        <record id="neweb_sale_inherit71_tree" model="ir.ui.view">
+            <field name="name">neweb.sale.inherit71.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='commitment_date']" position="replace">
+               </xpath>
+                 <xpath expr="//field[@name='expected_date']" position="replace">
+               </xpath>
+                <xpath expr="//field[@name='amount_total']" position="replace">
+                    <field name="sitem_amounttot"/>
+               </xpath>
+                <xpath expr="//field[@name='create_date']" position="replace">
+                    <field name="date_order1"/>
+               </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

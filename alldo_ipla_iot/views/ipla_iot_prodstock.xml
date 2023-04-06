@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ipla_iot_prodstock_tree" model="ir.ui.view">
+            <field name="name">ipla.iot.prodstock.tree</field>
+            <field name="model">alldo_ipla_iot.prod_stock_list</field>
+            <field name="arch" type="xml">
+                <tree string="" create="false">
+                    <field name="product_no"/>
+                    <field name="stock_location"/>
+                    <field name="prod_num"/>
+
+
+                </tree>
+            </field>
+        </record>
+         <record id="ipla_iot_prodstock_search" model="ir.ui.view">
+           <field name="name">iplaiot.prodstock.search</field>
+           <field name="model">alldo_ipla_iot.prod_stock_list</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="product_no" string="關鍵字" filter_domain="['|',('product_no.default_code','ilike',self),('stock_location.name','ilike',self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="view_ipla_iot_prodstock_action" model="ir.actions.act_window">
+            <field name="name">alldo_ipla_iot.prod_stock_list</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_ipla_iot.prod_stock_list</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

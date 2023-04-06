@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <!-- Inherit Form View to Modify it -->
+      <record id="ipla_account_move_inherit" model="ir.ui.view">
+          <field name="name">ipla.account.move.inherit</field>
+          <field name="model">account.move</field>
+          <field name="inherit_id" ref="account.view_move_form"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//field[@name='ref']" position="after">
+                  <field name="taiwan_receipt" />
+                  <field name="report_no" attrs="{'invisible':[('type','not in',('out_invoice','out_refund'))]}"/>
+                  <field name="receive_check" />
+                  <field name="check_duedate" />
+
+                  <!-- Add your fields or attributes here -->
+              </xpath>
+
+          </field>
+      </record>
+    </data>
+</odoo>

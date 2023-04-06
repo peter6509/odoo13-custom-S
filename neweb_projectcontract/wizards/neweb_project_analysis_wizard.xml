@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_project_analysis_form_wizard" model="ir.ui.view">
+            <field name="name">neweb.project.analysis.form.wizard</field>
+            <field name="model">neweb_projectcontract.contract_to_analysis_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>專案合約收入/成本分攤產生精靈</h1>
+                        <group>
+                           <field name="contract_no"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="contractgenanalysis_run" string="產生分攤數據" class="oe_highlight"/>
+                        <button special="cancel" string="離開"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="neweb_project_analysis_wizard_action" model="ir.actions.act_window">
+                     <field name="name">專案合約收入/成本分攤產生精靈</field>
+                     <field name="res_model">neweb_projectcontract.contract_to_analysis_wizard</field>
+                     <field name="view_mode">form</field>
+                     <field name="target">new</field>
+                 </record>
+
+        <menuitem id="menu_neweb_project_analysis_categ" name="專案合約分攤作業" parent="neweb_project.menu_neweb_project_root" sequence="100"/>
+        <menuitem id="menu_neweb_project_analysis_wizard_action"
+                  name="分攤數據產生精靈"
+                  parent="menu_neweb_project_analysis_categ"
+                  action="neweb_project_analysis_wizard_action"
+                  sequence="10"/>
+    </data>
+</odoo>

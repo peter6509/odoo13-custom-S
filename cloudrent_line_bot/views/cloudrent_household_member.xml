@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="cloudrent_household_member_form" model="ir.ui.view">
+            <field name="name">住戶通知繳費歷史訊息</field>
+            <field name="model">cloudrent.household_member</field>
+            <field name="inherit_id" ref="cloudrent_household.cloudrent_household_member_form" />
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="租戶LINE回傳繳費通知" name="notify_history" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}">
+                        <field name="history_ids">
+                            <tree>
+                                <field name="bank_last_5_digit"/>
+                                <field name="amount"/>
+                                <field name="notify_datetime"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="使用者LINE訊息記錄" name="line log">
+                        <field name="linelog_ids">
+                            <tree>
+                                <field name="date"/>
+                                <field name="content_text"/>
+                                <field name="content_img" widget="image" class="oe_left oe_avatar"
+                                   options='{"preview_image": "image_medium", "size": [90, 90]}'/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

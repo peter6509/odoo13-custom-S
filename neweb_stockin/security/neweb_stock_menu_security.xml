@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="menu_neweb_stockprod_action" model="ir.ui.menu">
+            <field name="name">stockprod</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en60_stock'),ref('neweb_project.neweb_en50_stockm')]),]"/>
+        </record>
+        <record id="menu_neweb_pickingtreeall_action" model="ir.ui.menu">
+            <field name="name">pickingtreeall</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en60_stock'),ref('neweb_project.neweb_en50_stockm')]),]"/>
+        </record>
+        <record id="menu_neweb_stockhis_action" model="ir.ui.menu">
+            <field name="name">stockprod</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en60_stock'),ref('neweb_project.neweb_en50_stockm')]),]"/>
+        </record>
+        <record id="menu_neweb_stock_quantsact_action" model="ir.ui.menu">
+            <field name="name">stockprod</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en60_stock'),ref('neweb_project.neweb_en50_stockm')]),]"/>
+        </record>
+        <record id="menu_neweb_qcsendmail_action" model="ir.ui.menu">
+            <field name="name">qc_sendmail</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en70_user'),ref('neweb_project.neweb_en80_assi'),ref('neweb_project.neweb_pur20_assi'),
+            ref('neweb_project.neweb_pur10_user'),ref('neweb_project.neweb_pur20_assi'),ref('neweb_project.neweb_cs30_dir')]),]"/>
+        </record>
+        <record id="menu_neweb_stockin_quout_action" model="ir.ui.menu">
+            <field name="name">stockinqcout</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en50_stockm'),ref('neweb_project.neweb_en60_stock'),ref('neweb_project.neweb_en70_user'),ref('neweb_project.neweb_en80_assi'),
+            ref('neweb_project.neweb_en40_mgt')]),]"/>
+        </record>
+        <record id="menu_neweb_stockinqc_wizard_action" model="ir.ui.menu">
+            <field name="name">stockinqc wizard</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en50_stockm'),ref('neweb_project.neweb_en60_stock'),ref('neweb_project.neweb_en70_user'),ref('neweb_project.neweb_en80_assi'),
+            ref('neweb_project.neweb_en40_mgt')]),]"/>
+        </record>
+    </data>
+</odoo>

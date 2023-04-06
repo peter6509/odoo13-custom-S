@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <menuitem id="menu_iot_root" name="產線數據收集分析系統" sequence="200"/>
+       <menuitem id="menu_iot_categ1" name="基礎配置" parent="menu_iot_root" sequence="10"/>
+        <menuitem id="menu_iot_view1_1" name="IOT參數配置" parent="menu_iot_categ1" action="" sequence="10"/>
+       <menuitem id="menu_iot_categ2" name="主檔資料" parent="menu_iot_root" sequence="20"/>
+
+        <menuitem id="menu_iot_view2_1" name="設備主檔" parent="menu_iot_categ2" action="maintenance.hr_equipment_action" sequence="10"/>
+        <menuitem id="menu_iot_view2_2" name="產品主檔" parent="menu_iot_categ2" action="stock.product_template_action_product" sequence="20"/>
+        <menuitem id="menu_iot_view2_3" name="人員主檔" parent="menu_iot_categ2" action="hr.open_view_employee_list_my" sequence="30" />
+        <menuitem id="menu_iot_view2_5" name="客戶主檔" parent="menu_iot_categ2" action="account.res_partner_action_customer" sequence="35"/>
+        <menuitem id="menu_iot_view2_9" name="供應商主檔" parent="menu_iot_categ2" action="account.res_partner_action_supplier" sequence="36"/>
+
+        <menuitem id="menu_iot_view2_8" name="公司倉庫配置設定" parent="menu_iot_categ2" action="ipla_iot_company_loc_action"
+                  groups="base.group_no_one" sequence="55"/>
+        <menuitem id="menu_iot_view2_7" name="測試資料清除作業" parent="menu_iot_categ2"
+                  groups="base.group_no_one" action="alldo_iplaiot_dbclear_wizard_action" sequence="60"/>
+
+       <menuitem id="menu_iot_categ3" name="生產作業" parent="menu_iot_root" sequence="30"/>
+        <menuitem id="menu_iot_view3_1" name="IOT重啟精靈" parent="menu_iot_categ3" groups="base.group_no_one"
+                  action="ipla_iot_restart_wizard_action" sequence="10"/>
+         <menuitem id="menu_iot_view3_7" name="IOT關機精靈" parent="menu_iot_categ3" groups="base.group_no_one"
+                   action="ipla_iot_shutdown_wizard_action" sequence="13"/>
+        <menuitem id="menu_iot_view3_14" name="生產製造命令" parent="menu_iot_categ3" action="mrp.mrp_production_action" sequence="14"/>
+<!--        <menuitem id="menu_iot_view3_4" name="工單開立精靈" parent="menu_iot_categ3" action="ipla_iot_open_workorder_wizard_action" sequence="15"/>-->
+        <menuitem id="menu_iot_view3_2" name="工單管理作業" parent="menu_iot_categ3" action="action_ipla_iot_workorder_view" sequence="20"/>
+        <menuitem id="menu_iot_view3_3" name="工單主控開工精靈" parent="menu_iot_categ3" groups="base.group_no_one"
+                  action="iot_mo_start_wizard_action" sequence="30"/>
+        <menuitem id="menu_iot_view3_6" name="工單主控暫停精靈" parent="menu_iot_categ3" groups="base.group_no_one"
+                  action="iot_mo_action_wizard_action" sequence="40"/>
+        <menuitem id="menu_iot_view3_13" name="工單數量追加精靈" parent="menu_iot_categ3" action="ipla_mo_add_wizard_action" sequence="42"/>
+        <menuitem id="menu_iot_view3_8" name="生產工單完工入庫" parent="menu_iot_categ3" action="ipla_po_stockin_wizard_action" sequence="50"/>
+
+        <menuitem id="menu_iot_categ4" name="生產數據" parent="menu_iot_root" sequence="40"/>
+        <menuitem id="menu_iot_view4_1" name="即時生產數據" parent="menu_iot_categ4" action="" sequence="10"/>
+        <menuitem id="menu_iot_view4_2" name="工單狀況" parent="menu_iot_categ4" action="" sequence="20"/>
+
+       <menuitem id="menu_iot_categ5" name="數據查詢分析" parent="menu_iot_root" sequence="50"/>
+       <menuitem id="menu_iot_view5_1" name="生產數據複合查詢統計" parent="menu_iot_categ5" action="ipla_iot_mixsearch_wizard_action" sequence="10"/>
+        <menuitem id="menu_iot_view5_2" name="工程師換線複合查詢統計" parent="menu_iot_categ5" action="views_mixsearch_replaceline_wizard_action" sequence="20"/>
+        <menuitem id="menu_iot_view5_3" name="產品庫存查詢" parent="menu_iot_categ5" action="iplaiot_prodstock_wizard_action" sequence="30"/>
+        <menuitem id="menu_iot_view5_7" name="產品出貨複合查詢統計" parent="menu_iot_categ5" action="stockmove_mixsearch_wizard_action" sequence="35"/>
+        <menuitem id="menu_iot_view5_4" name="在線工單良品/不良品查詢" parent="menu_iot_categ5" action="iplaiot_wkorder_processing_wizard_action" sequence="40"/>
+
+        <menuitem id="menu_iot_view5_5" name="人員出勤記錄匯出精靈" parent="menu_iot_categ5" action="emp_attendnace_export_wizard_action" sequence="50"/>
+        <menuitem id="menu_iot_view5_6" name="EXCEL匯出資料夾" parent="menu_iot_categ5" action="action_alldo_excel_download_download_view" sequence="60"/>
+
+
+
+
+       <menuitem id="menu_iot_categ7" name="系統啟始配置" parent="menu_iot_root" sequence="70"/>
+        <menuitem id="menu_iot_view7_1" name="IOT資料庫連線設定" parent="menu_iot_categ7" groups="base.group_no_one"
+                  action="action_ipla_iot_server_view" sequence="10"/>
+        <menuitem id="menu_iot_view7_2" name="IOT連線資訊派送" parent="menu_iot_categ7" groups="base.group_no_one"
+                  action="alldo_iot_init_pickle_wizard_action" sequence="20"/>
+        <menuitem id="menu_iot_view7_5" name="IOT節點程式拓普" parent="menu_iot_categ7" groups="base.group_no_one"
+                  action="iot_deployment_wizard_action" sequence="22"/>
+        <menuitem id="menu_iot_view7_3" name="人員條碼印製" parent="menu_iot_categ7" action="ipla_iot_empbarcode_wizard_action" sequence="30"/>
+<!--        <menuitem id="menu_iot_view7_4" name="設備故障條碼印製" parent="menu_iot_categ7" action="ipla_iot_equipstatusbarcode_wizard_action" sequence="40"/>-->
+        <menuitem id="menu_iot_view7_6" name="MP3鐘聲設定" parent="menu_iot_categ7" action="ipla_iot_bells_action" sequence="50"/>
+
+
+        <menuitem id="menu_iot_stock_categ" name="倉庫單據列印" sequence="100" parent="menu_iot_root" />
+        <!-- This Menu Item must have a parent and an action -->
+<!--        <menuitem id="menu_iot_shipping_report_view1" name="出貨列印精靈" parent="menu_iot_stock_categ" action="views_shipping_report_action" sequence="10"/>-->
+        <!-- This Menu Item must have a parent and an action -->
+<!--        <menuitem id="menu_iot_ngreturn_report_view1" name="NG件退回列印精靈" parent="menu_iot_stock_categ" action="views_ngreturn_report_action" sequence="20"/>-->
+        <!-- This Menu Item must have a parent and an action -->
+<!--        <menuitem id="menu_iot_outsourcing_report_view1" name="委外加工單列印精靈" parent="menu_iot_stock_categ" action="views_outsourcing_report_action" sequence="30"/>-->
+
+    </data>
+</odoo>

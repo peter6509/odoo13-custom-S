@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="repair_tree">
+            <field name="name">neweb_repair.repair.tree</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="arch" type="xml">
+                <tree string="Repair">
+                    <field name="name"/>
+                    <field name="contact_user"/>
+                    <field name="ae_id"/>
+                    <field name="maintenance_category"/>
+                    <field name="repair_datetime"/>
+                    <!--<field name="ae_id"/>-->
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="repair_form">
+            <field name="name">neweb_repair.repair.form</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="arch" type="xml">
+                <form string="Repair">
+                    <header>
+                        <button name="repair_call" states="repair_draft" groups="neweb_repair.group_repair_assistance" string="Send" class="oe_highlight"/>
+                        <button name="repair_check" type="object" states="repair_waiting,repair_AE" groups="neweb_repair.group_repair_assistance,neweb_repair.group_repair_ae" string="Check Part Available" class="oe_highlight"/>
+                        <button name="repair_ae_manager" states="repair_AE" groups="neweb_repair.group_repair_ae" string="Resolve" class="oe_highlight"/>
+                        <button name="repair_manager_done" states="repair_Manager" groups="neweb_repair.group_repair_mgr" string="Approval" class="oe_highlight"/>
+                        <button name="repair_cancel" states="repair_draft" groups="neweb_repair.group_repair_assistance" string="Cancel" class="oe_highlight"/>
+                        <button name="repair_cancel_draft" states="repair_cancel" groups="neweb_repair.group_repair_assistance" string="Set to Draft" class="oe_highlight"/>
+                        <button name="repair_manager_ae" states="repair_Manager" groups="neweb_repair.group_repair_mgr" string="Reject" class="oe_highlight"/>
+                        <button name="repair_done_ae" states="repair_done" groups="neweb_repair.group_repair_assistance" string="Reject(Done)" class="oe_highlight"/>
+                        <button name="repair_close" states="repair_done" groups="neweb_repair.group_repair_assistance" string="Close" class="oe_highlight"/>
+                        <field name="state" widget="statusbar" statusbar_visible="repair_draft, repair_done, repair_closed"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="create_user" attrs="{'readonly':1}"/>
+                                <field name="customer_id" attrs="{'readonly':1}"
+                                                domain="[('is_company','=',True)]"
+                                                context="{'search_default_customer':1, 'show_address': 1}"
+                                                options='{"always_reload": True}'/>
+                                <field name="contract_id" attrs="{'readonly':1}"
+                                                domain="[('state', 'in', ['contract_done']), ('customer_name', '=?', customer_id)]"
+                                                options='{"always_reload": False}'/>
+                                <field name="repair_type" attrs="{'readonly':1}"/>
+                                <field name="repair_datetime" attrs="{'readonly':1}"/>
+                            </group>
+                            <group>
+                                <field name="create_date" attrs="{'readonly':1}"/>
+                                <field name="contact_user" attrs="{'readonly':1}"
+                                                domain="[('is_company','=',False)]"
+                                                context="{'search_default_customer':1, 'show_address': 1}"
+                                                options='{"always_reload": True}'/>
+                                <field name="contact_tel" attrs="{'readonly':1}"/>
+                                <field name="ae_id" attrs="{'readonly':1}"/>
+                                <field name="device_location" attrs="{'readonly':1}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="維修內容">
+                                <field name="repair_lines" attrs="{'readonly':1}" mode="tree" widget="one2many_list">
+                                    <form string="Maintenance Targets">
+                                        <sheet>
+                                            <div class="oe_title">
+                                                <label class="oe_edit_only" for="contract_line"/>
+                                                <h1><field name="contract_line" attrs="{'readonly':1}" filter_domain="[('machine_serial_no','ilike',self)]"
+                                                           context="{'show_detail': 1}" options='{"always_reload": True}'/>
+                                                </h1>
+                                            </div>
+                                            <field name="related_parts" options='{"always_reload": True}' widget="many2many_tags" readonly="1"/>
+                                            <group>
+                                                <group>
+                                                    <field name="repair_sla" attrs="{'readonly':1}" options='{"always_reload": True}'/>
+                                                    <field name="maintenance_category" readonly="1"/>
+                                                </group>
+                                                <group>
+                                                    <field name="sla_delay_warn" attrs="{'readonly':1}"/>
+                                                </group>
+                                                <group colspan="2">
+                                                    <group>
+                                                        <field name="asset_num" attrs="{'readonly':1}"/>
+                                                    </group>
+                                                    <group>
+                                                        <field name="ip_address" attrs="{'readonly':1}"/>
+                                                    </group>
+                                                </group>
+                                                <group colspan="2">
+                                                    <field name="problem_desc" attrs="{'readonly':1}"/>
+                                                </group>
+                                                <group colspan="2">
+                                                    <field name="repair_parts" attrs="{'readonly':1}" mode="tree" widget="one2many_list" options='{"always_reload": True}'>
+                                                        <tree string="Maintenance Targets" editable="bottom">
+                                                            <field name="prod" options='{"always_reload": True}'/>
+                                                            <field name="required_parts_qty" options='{"always_reload": True}'/>
+                                                            <field name="used_parts_qty" options='{"always_reload": True}'/>
+                                                        </tree>
+                                                    </field>
+                                                </group>
+                                            </group>
+                                        </sheet>
+                                    </form>
+                                    <tree string="Maintenance Targets">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="contract_line"/>
+                                        <field name="repair_sla"/>
+                                        <field name="problem_desc"/>
+                                        <!--<field name="sla_delay_warn"/>-->
+                                    </tree>
+                                </field>
+                            </page>
+                            <page name="ae_info" string="工程師資訊">
+                                <group>
+                                    <group>
+                                        <field name="ae_response_datetime" attrs="{'readonly':1}"/>
+                                        <field name="ae_on_site_datetime" attrs="{'readonly':1}"/>
+                                        <field name="ae_complete_datetime" attrs="{'readonly':1}"/>
+                                    </group>
+                                    <group>
+                                        <field name="ae_total_ma_time" attrs="{'readonly':1}"/>
+                                        <field name="ae_is_sla_delay" attrs="{'readonly':1}"/>
+                                        <field name="problem" attrs="{'readonly':1}"/>
+                                    </group>
+                                </group>
+                                <!--<group>-->
+                                    <!--<field name="ae_description"/>-->
+                                <!--</group>-->
+                                <field name="repair_work_logs" attrs="{'readonly':1}" mode="tree" widget="one2many_list">
+                                    <tree string="Work Logs" editable="bottom">
+                                        <field name="create_uid" readonly="1"/>
+                                        <field name="work_date"  readonly="1"/>
+                                        <field name="work_log"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="問卷" states="repair_done,repair_closed">
+                                <field name="survey_ids" attrs="{'readonly': 1}" mode="tree" widget="one2many_list">
+                                    <form string="Questions">
+                                        <group>
+                                            <field name="question_id" attrs="{'readonly':1}"/>
+                                            <field name="rating" widget="priority" attrs="{'readonly':1}"/>
+                                            <field name="state" invisible="1"/>
+                                        </group>
+                                    </form>
+                                    <tree string="Questions">
+                                        <field name="question_id"/>
+                                        <field name="rating"/>
+                                        <field name="state" invisible="1"/>
+                                    </tree>
+                                </field>
+                                <field name="repair_care_call_logs" attrs="{'readonly':1}" mode="tree" widget="one2many_list">
+                                    <tree string="Care Call Logs" editable="bottom">
+                                        <field name="create_uid" readonly="1"/>
+                                        <field name="care_call_date"  readonly="1"/>
+                                        <field name="care_call_log"/>
+                                    </tree>
+                                </field>
+                                <!--<field name="survey_remark" attrs="{'readonly':1}"/>-->
+                            </page>
+                            <page string="備註">
+                                <field name="memo" attrs="{'readonly':1}"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="repair_form_ae_security" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.form.ae.security</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="inherit_id" ref="neweb_repair.repair_form"/>
+            <field name="groups_id" eval="[(6,0, [ref('neweb_repair.group_repair_ae')])]"/>
+            <field name="arch" type="xml">
+                <field name="ae_response_datetime" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="ae_on_site_datetime" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="ae_complete_datetime" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="ae_total_ma_time" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="ae_is_sla_delay" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="problem" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+
+                <field name="repair_work_logs" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+
+                <field name="repair_lines" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="repair_parts" position="attributes">
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="repair_form_assist_security" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.form.assist.security</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="inherit_id" ref="neweb_repair.repair_form"/>
+            <field name="groups_id" eval="[(6,0, [ref('neweb_repair.group_repair_assistance'),ref('neweb_repair.group_repair_admin')])]"/>
+            <field name="arch" type="xml">
+                <field name="create_user" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="customer_id" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="contract_id" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="repair_type" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="repair_datetime" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <!--<field name="create_date" position="attributes">-->
+                    <!--<attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>-->
+                <!--</field>-->
+                <field name="contact_user" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="contact_tel" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="ae_id" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')], 'required': 1}</attribute>
+                </field>
+                <field name="device_location" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="repair_lines" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="contract_line" position="attributes">
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                </field>
+                <!--<field name="repair_sla" position="attributes">-->
+                    <!--<attribute name="attrs">{'readonly': 0}</attribute>-->
+                <!--</field>-->
+                <field name="sla_delay_warn" position="attributes">
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                </field>
+
+                <field name="asset_num" position="attributes">
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                </field>
+                <field name="ip_address" position="attributes">
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                </field>
+
+                <field name="problem_desc" position="attributes">
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                </field>
+                <field name="repair_parts" position="attributes">
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                </field>
+
+                <field name="ae_response_datetime" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="ae_on_site_datetime" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="ae_complete_datetime" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="ae_total_ma_time" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="ae_is_sla_delay" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="problem" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+
+                <field name="repair_work_logs" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+
+                <field name="survey_ids" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="question_id" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="rating" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+
+                <!--<field name="survey_remark" position="attributes">-->
+                    <!--<attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>-->
+                <!--</field>-->
+                <field name="repair_care_call_logs" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+                <field name="memo" position="attributes">
+                    <attribute name="attrs">{'readonly': [('state','=','repair_closed')]}</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="repair_search">
+            <field name="name">neweb_repair.repair.search</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <separator/>
+                    <filter domain="[('state','=','repair_closed')]" string="Repair Done" help="Repair Done"/>
+                    <filter domain="[('state','!=','repair_closed')]" string="Repair In-progress" help="Repair In-progress"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_repair_graph">
+            <field name="name">neweb_repair.repair.graph</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="arch" type="xml">
+                <graph string="Repair">
+                    <field name="repair_datetime" type="row"/>
+                    <field name="num_of_repair_lines" type="measure"></field>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_repair_pivot">
+            <field name="name">neweb_repair.repair.pivot</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="arch" type="xml">
+                <pivot string="Repair">
+                    <field name="repair_datetime" type="row"/>
+                    <field name="num_of_repair_lines" type="measure"></field>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_repair">
+            <field name="name">Repair</field>
+            <field name="res_model">neweb_repair.repair</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+        </record>
+
+        <menuitem id="menu_repair"
+                  parent="neweb_base.menu_repair"
+                  name="Repair"
+                  sequence="1"
+                  action="action_list_repair"
+                  groups="neweb_repair.group_repair_assistance,neweb_repair.group_repair_sales,neweb_repair.group_repair_ae,neweb_repair.group_repair_mgr,neweb_repair.group_repair_admin"/>
+    </data>
+</openerp>

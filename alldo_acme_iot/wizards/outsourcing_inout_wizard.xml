@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record id="views_outsourcing_inout_export_wizard" model="ir.ui.view">
+             <field name="name">views.outsourcing.inout.export.wizard</field>
+             <field name="model">alldo_acme_iot.outsourcing_inout_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>委外進出料記錄匯出精靈</h1>
+                         <group>
+                             <field name="partner_id" options="{'no_open': True,'no_create':true,'no_create_edit':true}"
+                                domain="[('is_company','=',True)]"/>
+                             <field name="product_id" options="{'no_open': True,'no_create':true,'no_create_edit':true}"/>
+                             <field name="start_date"/>
+                             <field name="end_date"/>
+                             <field name="run_desc"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_outsourcing_inout" string="委外進出料記錄匯出EXCEL" class="oe_highlight"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="outsourcing_inout_export_wizard_action" model="ir.actions.act_window">
+             <field name="name">委外進出料記錄匯出精靈</field>
+             <field name="res_model">alldo_acme_iot.outsourcing_inout_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

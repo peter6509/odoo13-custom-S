@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="neweb_proj_assign1_tree_inherit" model="ir.ui.view">
+           <field name="name">neweb.proj.assign1.tree.inherit</field>
+           <field name="model">neweb.proj_eng_assign</field>
+           <field name="inherit_id" ref="neweb_project.neweb_proj_assign1_tree"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='assign_no']" position="after">
+                   <field name="assign_man_subject"/>
+                   <!-- Add new fields here -->
+               </xpath>
+
+           </field>
+       </record>
+
+    </data>
+</odoo>

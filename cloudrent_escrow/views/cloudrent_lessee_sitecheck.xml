@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_lessee_sitecheck_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.lessee.sitecheck.tree</field>
+            <field name="model">cloudrent.lessee_sitecheck</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="lessee_id"/>
+                    <field name="lessee_date"/>
+                    <field name="lessee_name"/>
+                    <field name="lessee_pid"/>
+                    <field name="lessee_sex"/>
+                    <field name="lessee_phone1"/>
+                    <field name="lessee_phone2"/>
+                    <field name="lessee_cell"/>
+                    <field name="lessee_email"/>
+                    <field name="build_pattern"/>
+                    <field name="elevator"/>
+                    <field name="lessee_expected_value"/>
+                    <field name="lessee_expected_value1"/>
+                    <field name="build_area"/>
+                    <field name="pet"/>
+                    <field name="worship_god"/>
+                    <field name="member_number"/>
+                    <field name="lessee_memo"/>
+                    <field name="rent_success"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_lessee_sitecheck_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.lessee.sitecheck.form</field>
+            <field name="model">cloudrent.lessee_sitecheck</field>
+            <field name="arch" type="xml">
+                <form string="租客帶看相關資訊">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="lessee_id" attrs="{'readonly':1}" force_save="1"/>
+                                <field name="lessee_date"/>
+                                <field name="lessee_name"/>
+                                <field name="lessee_pid"/>
+                                <field name="lessee_sex"/>
+                                <field name="lessee_phone1"/>
+                                <field name="lessee_phone2"/>
+                                <field name="lessee_cell"/>
+                                <field name="lessee_email"/>
+                            </group>
+                            <group>
+                                <field name="build_pattern"/>
+                                <field name="elevator"/>
+                                <field name="lessee_expected_value"/>
+                                <field name="lessee_expected_value1"/>
+                                <field name="build_area"/>
+                                <field name="pet"/>
+                                <field name="worship_god"/>
+                                <field name="member_number"/>
+                                <field name="lessee_memo"/>
+                                <field name="rent_success"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="action_cloudrent_lessee_sitecheck_view" model="ir.actions.act_window">
+            <field name="name">cloudrent_lessee_sitecheck</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.lessee_sitecheck</field>
+            <field name="view_mode">form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_lessee_sitecheck_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_cloudrent_lessee_sitecheck_form')}),]"/>
+<!--            <field name="search_view_id" ref="view_process_control_return_search"/>-->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="acme_mrp_production_inherit_view" model="ir.ui.view">
+            <field name="name">acme.mrp.production.inherit.view</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[1]" position="after">
+                    <page string="生產耗料清單檢核表" name="Material Line">
+                        <field
+                            name="acme_material_line"
+                            widget="section_and_note_one2many"
+                            mode="tree"
+                        >
+                       <tree
+                            string="生產耗料清單檢核表"
+                        >
+                            <field name="product_no" options="{'no_create':true,'no_create_edit':true}" attrs="{'readonly':1}"/>
+                            <field name="product_qty" attrs="{'readonly':1}"/>
+                            <field name="onhand_qty" attrs="{'readonly':1}"/>
+                            <field name="need_qty" attrs="{'readonly':1}"/>
+                            <field name="prod_uom_id" options="{'no_create':true,'no_create_edit':true}" attrs="{'readonly':1}"/>
+
+                        </tree>
+                        </field>
+                    </page>
+                     <page string="工單生產記錄" name="WK Line">
+                        <field
+                            name="acme_wk_line"
+                            widget="section_and_note_one2many"
+                            mode="tree"
+                        >
+                       <tree
+                            string="工單生產記錄"
+                            editable="bottom"
+                        >
+                            <field name="name"/>
+                            <field name="product_no"  options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="eng_type"/>
+                            <field name="order_num"/>
+                            <field name="prod_date"/>
+                            <field name="state"/>
+                        </tree>
+                        </field>
+                    </page>
+                     <page string="委外加工記錄" name="SUB WK Line">
+                        <field
+                            name="acme_sub_line"
+                            widget="section_and_note_one2many"
+                            mode="tree"
+                        >
+                       <tree
+                            string="委外加工記錄"
+                            editable="bottom"
+                        >
+<!--                            <field name="prod_date"/>-->
+
+                            <field name="name"/>
+                            <field name="product_no"  options="{'no_create':true,'no_create_edit':true}" />
+                            <field name="eng_type"/>
+                            <field name="order_num" />
+                           <field name="cus_name"/>
+                           <field name="shipping_date"/>
+                           <field name="blank_good_num"/>
+                           <field name="blank_ng_num"/>
+                           <field name="state"/>
+                        </tree>
+                        </field>
+                    </page>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="so_pi" attrs="{'readonly':1}"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

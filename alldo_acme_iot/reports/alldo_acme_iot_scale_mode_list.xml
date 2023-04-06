@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="acme_scale_move_list_tree" model="ir.ui.view">
+            <field name="name">acme.scale.move.list.tree</field>
+            <field name="model">alldo_acme_iot.scale_move_list</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="scale_type"/>
+                    <field name="product_no"/>
+                    <field name="need_lotno"/>
+                    <field name="lot_no"/>
+                    <field name="scale_weight"/>
+                    <field name="uom_id"/>
+                    <field name="scale_owner"/>
+                    <field name="picking_no"/>
+                    <field name="scale_datetime"/>
+                    <field name="is_posting"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="acme_electronic_scale_action" model="ir.actions.act_window">
+            <field name="name">電子秤過磅複合查詢記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_acme_iot.electronic_scale</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

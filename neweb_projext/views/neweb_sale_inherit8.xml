@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_so_openaccday_form" model="ir.ui.view">
+            <field name="name">view.inherit.so.openaccday.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="neweb_project.neweb_sale_inherit_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='open_account_day']" position="replace">
+                    <field name="open_account_day1" attrs="{'readonly':1}" force_save="1"/>
+                    <field name="open_account_day2"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

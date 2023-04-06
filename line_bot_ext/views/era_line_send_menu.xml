@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_send_line_categ" name="LINE訊息管理" parent="era_household.era_household_root" sequence="300"/>
+        <menuitem id="menu_send_line_action1" name="LINE訊息發佈" parent="menu_send_line_categ" action="menu_send_message_wizard_action" sequence="10"/>
+        <menuitem id="menu_send_line_action2" name="LINE訊息發佈排程" parent="menu_send_line_categ" action="action_era_line_send_message_view" sequence="20"/>
+    </data>
+</odoo>

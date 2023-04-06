@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_member_line_wizard" model="ir.ui.view">
+             <field name="name">views.member.line.wizard</field>
+             <field name="model">cloudrent_household.member_line_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>住戶各項費用LINE通知帳務產生精靈</h1>
+                         <group>
+                             <field name="project_no" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="bill_ym"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_member_line" string="住戶帳務數據生成" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="views_member_line_wizard_action" model="ir.actions.act_window">
+             <field name="name">住戶各項費用LINE通知帳務產生精靈</field>
+             <field name="res_model">cloudrent_household.member_line_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

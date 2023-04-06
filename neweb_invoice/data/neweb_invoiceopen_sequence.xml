@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <!-- Sequences for sale.order -->
+        <record id="seq_neweb_invoiceopen" model="ir.sequence">
+            <field name="name">INVOICE OPEN</field>
+            <field name="code">neweb_invoice.invoiceopen</field>
+            <field name="prefix">INV%(year)s%(month)s</field>
+            <field name="padding">3</field>
+            <field name="company_id" eval="False"/>
+<!--            <field name="auto_reset" eval="True"/>-->
+<!--            <field name="reset_period">month</field>-->
+<!--            <field name="reset_init_number">1</field>-->
+            <field name="number_increment">1</field>
+            <field name="number_next">2</field>
+        </record>
+    </data>
+</odoo>

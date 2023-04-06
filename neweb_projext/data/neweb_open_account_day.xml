@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="neweb_open_account_day_1" model="neweb.open_account_day1">
+                <field name="name">14天</field>
+<!--                <field name="day_seq">1</field>-->
+                <field name="active">True</field>
+         </record>
+        <record id="neweb_open_account_day_2" model="neweb.open_account_day1">
+                <field name="name">30天</field>
+<!--                <field name="day_seq">2</field>-->
+                <field name="active">True</field>
+         </record>
+        <record id="neweb_open_account_day_3" model="neweb.open_account_day1">
+                <field name="name">月結30天</field>
+<!--                <field name="day_seq">3</field>-->
+                <field name="active">True</field>
+         </record>
+        <record id="neweb_open_account_day_4" model="neweb.open_account_day1">
+                <field name="name">月結45天</field>
+<!--                <field name="day_seq">4</field>-->
+                <field name="active">True</field>
+         </record>
+         <record id="neweb_open_account_day_5" model="neweb.open_account_day1">
+                <field name="name">月結60天</field>
+<!--                <field name="day_seq">5</field>-->
+                <field name="active">True</field>
+         </record>
+        <record id="neweb_open_account_day_6" model="neweb.open_account_day1">
+                <field name="name">月結90天</field>
+<!--                <field name="day_seq">6</field>-->
+                <field name="active">True</field>
+         </record>
+        <record id="neweb_open_account_day_7" model="neweb.open_account_day1">
+                <field name="name">月結120天</field>
+<!--                <field name="day_seq">7</field>-->
+                <field name="active">True</field>
+         </record>
+        <record id="neweb_open_account_day_8" model="neweb.open_account_day1">
+                <field name="name">月結180天</field>
+<!--                <field name="day_seq">8</field>-->
+                <field name="active">True</field>
+         </record>
+        <record id="neweb_open_account_day_9" model="neweb.open_account_day1">
+                <field name="name">其他詳細說明欄</field>
+<!--                <field name="day_seq">9</field>-->
+                <field name="active">True</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_purinv_btn_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.purinv.btn.form.inherit</field>
+            <field name="model">neweb_purinv.invoice</field>
+            <field name="inherit_id" ref="neweb_purinv.neweb_purinv_invoice_view_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button type="object" string="請款申請單預覽" name="action_purinv_print" class="oe_highlight"/>
+
+                </header>
+            </field>
+        </record>
+
+    </data>
+</odoo>

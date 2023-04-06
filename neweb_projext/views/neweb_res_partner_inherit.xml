@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_res_partner_filter_inherit" model="ir.ui.view">
+            <field name="name">neweb.res.partner.filter.inherit</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//filter[@name='type_company']" position="after">
+                    <filter string="我的業務伙伴" name="My Partner" domain="[('[x.id for x in emp_ids]','in',employee_ids.id )]"/>
+                    <!-- Add new fields here -->
+                </xpath>
+
+            </field>
+        </record>
+        <record id="action_res_partner_action_inherit" model="ir.actions.act_window.view">
+                <field name="act_window_id" ref="action_all_customers" />
+                <field name="view_id" ref="form_all_customers" />
+                <field name="view_mode">form</field>
+                <field name="sequence">10</field>
+        </record>
+    </data>
+</odoo>

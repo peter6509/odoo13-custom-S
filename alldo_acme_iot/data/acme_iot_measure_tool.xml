@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+      <record id="alldo_acme_iot_tool_1" model="alldo_acme_iot.measure_tool">
+           <field name="sequence">10</field>
+           <field name="inspect_code">A</field>
+           <field name="name">卡尺</field>
+      </record>
+       <record id="alldo_acme_iot_tool_2" model="alldo_acme_iot.measure_tool">
+               <field name="sequence">10</field>
+               <field name="inspect_code">B</field>
+               <field name="name">附表卡尺</field>
+       </record>
+       <record id="alldo_acme_iot_tool_3" model="alldo_acme_iot.measure_tool">
+               <field name="sequence">10</field>
+               <field name="inspect_code">C</field>
+               <field name="name">外徑分厘卡(磐式)</field>
+       </record>
+        <record id="alldo_acme_iot_tool_4" model="alldo_acme_iot.measure_tool">
+               <field name="sequence">10</field>
+               <field name="inspect_code">D</field>
+               <field name="name">三點式內徑分厘卡</field>
+       </record>
+        <record id="alldo_acme_iot_tool_5" model="alldo_acme_iot.measure_tool">
+               <field name="sequence">10</field>
+               <field name="inspect_code">E</field>
+               <field name="name">三次元</field>
+       </record>
+        <record id="alldo_acme_iot_tool_6" model="alldo_acme_iot.measure_tool">
+               <field name="sequence">10</field>
+               <field name="inspect_code">F</field>
+               <field name="name">塞規</field>
+       </record>
+        <record id="alldo_acme_iot_tool_7" model="alldo_acme_iot.measure_tool">
+               <field name="sequence">10</field>
+               <field name="inspect_code">G</field>
+               <field name="name">牙規</field>
+       </record>
+        <record id="alldo_acme_iot_tool_8" model="alldo_acme_iot.measure_tool">
+               <field name="sequence">10</field>
+               <field name="inspect_code">H</field>
+               <field name="name">高度規</field>
+       </record>
+        <record id="alldo_acme_iot_tool_9" model="alldo_acme_iot.measure_tool">
+               <field name="sequence">10</field>
+               <field name="inspect_code">I</field>
+               <field name="name">氣壓量規</field>
+       </record>
+        <record id="alldo_acme_iot_tool_10" model="alldo_acme_iot.measure_tool">
+               <field name="sequence">10</field>
+               <field name="inspect_code">J</field>
+               <field name="name">百(千)分表</field>
+       </record>
+        <record id="alldo_acme_iot_tool_11" model="alldo_acme_iot.measure_tool">
+               <field name="sequence">10</field>
+               <field name="inspect_code">K</field>
+               <field name="name">專屬量具</field>
+       </record>
+    </data>
+</odoo>

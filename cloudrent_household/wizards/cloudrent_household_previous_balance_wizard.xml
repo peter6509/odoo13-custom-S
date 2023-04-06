@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_previous_balance_wizard" model="ir.ui.view">
+             <field name="name">views.previous.balance.wizard</field>
+             <field name="model">cloudrent.previous_balance_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>租房期初未結清餘額設定</h1>
+                         <group>
+                             <field name="payment_account"/>
+                             <field name="payment_ym"/>
+                             <field name="uncomplete_fee"/>
+                             <field name="renew_uncomplete"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="previous_balance_setting" string="期初金額設定" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="views_previous_balance_wizard_action" model="ir.actions.act_window">
+             <field name="name"></field>
+             <field name="res_model">cloudrent.previous_balance_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

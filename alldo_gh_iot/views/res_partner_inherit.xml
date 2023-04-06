@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="alldo_partner_form_inherit_view" model="ir.ui.view">
+           <field name="name">alldo.partner.form.inherit.view</field>
+           <field name="model">res.partner</field>
+           <field name="inherit_id" ref="alldo_gh_iot.view_inherit_gh_iot_partner_form"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//notebook" position="inside">
+                    <page string="委外供應商加工給料記錄" name="Outsourcing Out">
+                        <field
+                            name="outsourcing_out_line"
+                            widget="section_and_note_one2many"
+                            mode="tree"
+                        >
+                       <tree
+                            string="委外供應商加工給料記錄"
+                            editable="bottom"
+                        >
+                            <field name="prodout_datetime" />
+                            <field name="product_no" options="{'no_create':true,'no_create_edit':true}" />
+                            <field name="out_good_num" />
+                            <field name="out_return_date"/>
+                            <field name="out_owner" />
+                            <field name="out_loc" />
+                            <field name="report_no" attrs="{'readonly':1}"/>
+                            <field name="report_date" attrs="{'readonly':1}"/>
+                            <field name="picking_no" attrs="{'readonly':1}" options="{'no_create':true,'no_create_edit':true}" />
+                        </tree>
+                        </field>
+                    </page>
+                         <page string="委外供應商加工回廠記錄" name="Outsourcing IN">
+                        <field
+                            name="outsourcing_in_line"
+                            widget="section_and_note_one2many"
+                            mode="tree"
+                        >
+                       <tree
+                            string="委外供應商加工回廠記錄"
+                            editable="bottom"
+                        >
+                            <field name="prodin_datetime" />
+                            <field name="product_no" options="{'no_create':true,'no_create_edit':true}" />
+                            <field name="in_good_num" />
+                            <field name="in_ng_num"/>
+                            <field name="loss_num"/>
+                           <field name="in_loc"/>
+                            <field name="in_owner" />
+                           <field name="picking_no" attrs="{'readonly':1}" options="{'no_create':true,'no_create_edit':true}" />
+                        </tree>
+                        </field>
+                    </page>
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

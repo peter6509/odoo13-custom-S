@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mail_template_contract_approval1" model="mail.template">
+            <field name="name">Contract - 待申請人主管簽核 範本</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">approval1@newebinfo.com</field>
+            <field name="subject">Need Approval</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+                </p>
+
+                <p><a href="${object.form_url}">Please, click here to approval contract</a></p>
+            ]]>
+            </field>
+        </record>
+        <record id="send_approval1_email" model="ir.actions.server">
+            <field name="name">Send approval1 email</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="state">email</field>
+            <field name="type">ir.actions.server</field>
+<!--            <field name="condition">True</field>-->
+            <field name="template_id" ref="mail_template_contract_approval1"/>
+        </record>
+
+        <record id="mail_template_contract_approval2" model="mail.template">
+            <field name="name">Contract - 待業務簽核 範本</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">approval2@newebinfo.com</field>
+            <field name="subject">Need Approval</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+                </p>
+
+                <p><a href="${object.form_url}">Please, click here to approval contract</a></p>
+            ]]>
+            </field>
+        </record>
+        <record id="send_approval2_email" model="ir.actions.server">
+            <field name="name">Send approval1 email</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="state">email</field>
+            <field name="type">ir.actions.server</field>
+<!--            <field name="condition">True</field>-->
+            <field name="template_id" ref="mail_template_contract_approval2"/>
+        </record>
+
+        <record id="mail_template_contract_approval3" model="mail.template">
+            <field name="name">Contract - 待Marketing簽核 範本</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">approval3@newebinfo.com</field>
+            <field name="subject">Need Approval</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+                </p>
+
+                <p><a href="${object.form_url}">Please, click here to approval contract</a></p>
+            ]]>
+            </field>
+        </record>
+        <record id="send_approval3_email" model="ir.actions.server">
+            <field name="name">Send approval3 email</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="state">email</field>
+            <field name="type">ir.actions.server</field>
+<!--            <field name="condition">True</field>-->
+            <field name="template_id" ref="mail_template_contract_approval3"/>
+        </record>
+
+        <record id="mail_template_contract_approval4" model="mail.template">
+            <field name="name">Contract - 待業務協理簽核 範本</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">approval4@newebinfo.com</field>
+            <field name="subject">Need Approval</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+                </p>
+
+                <p><a href="${object.form_url}">Please, click here to approval contract</a></p>
+            ]]>
+            </field>
+        </record>
+        <record id="send_approval4_email" model="ir.actions.server">
+            <field name="name">Send approval4 email</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="state">email</field>
+            <field name="type">ir.actions.server</field>
+<!--            <field name="condition">True</field>-->
+            <field name="template_id" ref="mail_template_contract_approval4"/>
+        </record>
+
+        <record id="mail_template_contract_approval5" model="mail.template">
+            <field name="name">Contract - 待業務部副總簽核 範本</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">approval5@newebinfo.com</field>
+            <field name="subject">Need Approval</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+                </p>
+
+                <p><a href="${object.form_url}">Please, click here to approval contract</a></p>
+            ]]>
+            </field>
+        </record>
+        <record id="send_approval5_email" model="ir.actions.server">
+            <field name="name">Send approval1 email</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="state">email</field>
+            <field name="type">ir.actions.server</field>
+<!--            <field name="condition">True</field>-->
+            <field name="template_id" ref="mail_template_contract_approval5"/>
+        </record>
+
+        <record id="mail_template_contract_approval6" model="mail.template">
+            <field name="name">Contract - 待服務部副總簽核 範本</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">approval6@newebinfo.com</field>
+            <field name="subject">Need Approval</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+                </p>
+
+                <p><a href="${object.form_url}">Please, click here to approval contract</a></p>
+            ]]>
+            </field>
+        </record>
+        <record id="send_approval6_email" model="ir.actions.server">
+            <field name="name">Send approval6 email</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="state">email</field>
+            <field name="type">ir.actions.server</field>
+<!--            <field name="condition">True</field>-->
+            <field name="template_id" ref="mail_template_contract_approval6"/>
+        </record>
+
+        <record id="mail_template_contract_approval7" model="mail.template">
+            <field name="name">Contract - 待總經理簽核 範本</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">approval7@newebinfo.com</field>
+            <field name="subject">Need Approval</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+                </p>
+
+                <p><a href="${object.form_url}">Please, click here to approval contract</a></p>
+            ]]>
+            </field>
+        </record>
+        <record id="send_approval7_email" model="ir.actions.server">
+            <field name="name">Send approval7 email</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="state">email</field>
+            <field name="type">ir.actions.server</field>
+<!--            <field name="condition">True</field>-->
+            <field name="template_id" ref="mail_template_contract_approval7"/>
+        </record>
+
+        <record id="mail_template_contract_approval8" model="mail.template">
+            <field name="name">Contract - 待業助上傳合約附件 範本</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">approval8@newebinfo.com</field>
+            <field name="subject">Need Approval</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+                </p>
+
+                <p><a href="${object.form_url}">Please, click here to approval contract</a></p>
+            ]]>
+            </field>
+        </record>
+        <record id="send_approval8_email" model="ir.actions.server">
+            <field name="name">Send approval8 email</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="state">email</field>
+            <field name="type">ir.actions.server</field>
+<!--            <field name="condition">True</field>-->
+            <field name="template_id" ref="mail_template_contract_approval8"/>
+        </record>
+
+        <record id="mail_template_contract_warranty_warn" model="mail.template">
+            <field name="name">Contract-Warranty_Warn_template</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_emails(object.warranty_warn_users)}</field>
+            <field name="subject">Warranty Warn</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+            	    <p>
+                        Contract ${object.name} warranty is expired on ${object.warranty_end_date}.
+                    </p>
+                    <p>
+                        Please contact the customer ${object.customer_name.name} as soon as possible.
+                    </p>
+                </p>
+            ]]>
+            </field>
+        </record>
+
+        <record id="mail_template_contract_inspection_warn" model="mail.template">
+            <field name="name">Contract-Inspection_Warn_template</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_emails(object.inspection_warn_users)}</field>
+            <field name="subject">Inspection Warn</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+            	    <p>
+            	        Remind you that according to Maintenance Contract ${object.name} with ${object.customer_name.name}.
+                    </p>
+                    <p>
+                        The end customer ${object.end_customer.name} need you to do regular inspection on ${object.cur_inspection_date}.
+                    </p>
+                </p>
+
+            ]]>
+            </field>
+        </record>
+
+        <record id="mail_template_contract_maintenance_warn" model="mail.template">
+            <field name="name">Contract-Maintenance_Warn_template</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_emails(object.maintenance_warn_users)}</field>
+            <field name="subject">Maintenance Warn</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+            	    <p>
+                        Contract ${object.name} maintenance is expired on ${object.maintenance_end_date}.
+                    </p>
+                    <p>
+                        Please contact the customer ${object.customer_name.name} as soon as possible.
+                    </p>
+                </p>
+            ]]>
+            </field>
+        </record>
+
+        <record id="mail_template_contract_special_warn" model="mail.template">
+            <field name="name">Contract-Special_Warn_template</field>
+            <field name="model_id" ref="model_neweb_contract_contract_line"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_emails(object.special_warn_users)}</field>
+            <field name="subject">Special Warn</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+            	    <p>
+            	        Remind you that according to Maintenance Contract ${object.contract_id.name} with ${object.contract_id.customer_name.name}.
+                    </p>
+                    <p>
+                        There is a special warn for machine ${object.machine_serial_no} on ${object.special_warn_date}.
+                    </p>
+                </p>
+
+            ]]>
+            </field>
+        </record>
+
+        <!-- site check warn -->
+        <record id="mail_template_contract_site_check_warn" model="mail.template">
+            <field name="name">Contract-Site_Check_Warn_template</field>
+            <field name="model_id" ref="model_neweb_contract_contract"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">sitecheck@newebinfo.com</field>
+            <field name="subject">Site Check</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            	<p>
+                    Dears,
+                </p>
+
+                <p><a href="${object.form_url}">Please, click here to verify site check contract</a></p>
+            ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_purchase_manager_tree" model="ir.ui.view">
+           <field name="name">neweb.purchase.manager.tree</field>
+           <field name="model">neweb_purchase.purchase_manager</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="name" string="採購主辦"/>
+               </tree>
+           </field>
+       </record>
+       <record id="neweb_purchase_manager_form" model="ir.ui.view">
+           <field name="name">neweb.purchase.manager.form</field>
+           <field name="model">neweb_purchase.purchase_manager</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <field name="name" string="採購主辦"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="neweb_purchase_manager_action" model="ir.actions.act_window">
+           <field name="name">採購主辦</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">neweb_purchase.purchase_manager</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+<!--        <menuitem id="menu_neweb_purchase_manager_action"-->
+<!--                  name=""-->
+<!--                  parent="purchase.menu_purchase_config"-->
+<!--                  action="neweb_purchase_manager_action"-->
+<!--                  sequence="100"/>-->
+    </data>
+</odoo>

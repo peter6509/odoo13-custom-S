@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="super_main_mod_wizard" model="ir.ui.view">
+            <field name="name">super_main_mod_wizard</field>
+            <field name="model">maintenance.supermod</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>高級管理者維修記錄調整作業</h1>
+                        <group>
+                            <field name="name" options="{'no_quick_create':True,'no_create_edit':True}"/>
+                            <field name="department_id" options="{'no_quick_create':True,'no_create_edit':True}"
+                                   readonly="1"/>
+                            <field name="equipment_id" options="{'no_quick_create':True,'no_create_edit':True}"
+                                   readonly="1"/>
+                            <field name="technician_user_id" options="{'no_quick_create':True,'no_create_edit':True}"
+                                   readonly="1"/>
+                            <field name="process_date"/>
+                            <field name="repaired_date"/>
+                            <field name="maintenance_time" readonly="1"/>
+                            <field name="keyin_wait_time"/>
+                            <field name="broken_time" readonly="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="main_request_mod" string="SUPER MAIN MOD" class="btn-primary"/>
+                        <button type="object" name="change_request_data" string="CHANGE DATA" class="btn-primary"
+                                invisible="0"/>
+                        <button special="cancel" string="Cancel" class="btn-default"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_super_main_mod" name="Mainb Request Mod" res_model="maintenance.supermod"
+                    view_mode="form" target="new"/>
+        <menuitem id="menu_main_request_super_mod" name="main_request_super_mod" parent="maintenance.menu_m_reports"
+                  action="action_super_main_mod" groups="group_mreport_superuser" sequence="60"/>
+
+    </data>
+</odoo>

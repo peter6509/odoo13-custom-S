@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_travel_btn_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.travel.btn.form.inherit</field>
+            <field name="model">neweb_sale_analysis.travel_report</field>
+            <field name="inherit_id" ref="neweb_sale_analysis.neweb_travel_form_inherit"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button type="object" string="出差申請報告單預覽" name="action_print_travel" class="oe_highlight"/>
+                </header>
+            </field>
+        </record>
+
+    </data>
+</odoo>

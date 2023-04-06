@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_cloudrent_week_wizard" model="ir.ui.view">
+             <field name="name">views.cloudrent.week.wizard</field>
+             <field name="model">cloudrent.week_report</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>媒合週報列印精靈</h1>
+                     <group>
+                       <field name="escrow_no" attrs="{'readonly':1}" force_save="1"/>
+                       <field name="report_date"/>
+                       <field name="report_year"/>
+                       <field name="week_seq"/>
+                       <field name="report_type" domain="[('contract_type','=','4')]"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_week_report" string="產生媒合週報" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_cloudrent_week_wizard_action" model="ir.actions.act_window">
+             <field name="name">週報列印精靈</field>
+             <field name="res_model">cloudrent.week_report</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

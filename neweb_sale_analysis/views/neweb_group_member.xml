@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_group_member_tree" model="ir.ui.view">
+            <field name="name">neweb.group.member.tree</field>
+            <field name="model">neweb_sale_analysis.group_member</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="op_id" />
+                    <field name="leader_man" />
+                    <field name="group_owner"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_group_member_form" model="ir.ui.view">
+            <field name="name">neweb.group.member.form</field>
+            <field name="model">neweb_sale_analysis.group_member</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="op_id" options="{'no_create_edit':True,'no_create':True,'no_open':True}" />
+                            <field name="leader_man" options="{'no_create_edit':True,'no_create':True,'no_open':True}" />
+                            <field name="group_owner" widget="many2many_tags" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_group_member_action" model="ir.actions.act_window">
+            <field name="name">作業組合權限</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_sale_analysis.group_member</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+         <menuitem id="menu_groupmember_action" name="" sequence="250"
+                  parent="neweb_project.neweb_proj_config"
+                  groups="neweb_project.neweb_sys_man"
+                  action="neweb_group_member_action"/>
+    </data>
+</odoo>

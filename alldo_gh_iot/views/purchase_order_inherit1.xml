@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="ghiot_purchase_order_inherit" model="ir.ui.view">
+            <field name="name">ghiot.purchase.order.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='order_line']/tree/field[@name='qty_invoiced']" position="replace">
+<!--                    <field name="po_wkorder_id" options="{'no_create':true,'no_create_edit':true}" domain="[('active','=',True)]"/>-->
+                    <field name="po_wkorder_ids1" options="{'no_create':true,'no_create_edit':true}"
+                           widget="many2many_tags" domain="[('active','=',True)]" width="10%%"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+                    <field name="prod_material"/>
+                    <field name="prod_spec"/>
+                    <field name="prod_deliver"/>
+                    <field name="product_uom"/>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='name']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="after">
+                    <field name="memo"/>
+                </xpath>
+<!--                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                 <xpath expr="//field[@name='order_line']/tree/field[@name='taxes_id']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                 <xpath expr="//field[@name='order_line']/tree/field[@name='price_subtotal']" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="ghiot_purchase_order_inherit2" model="ir.ui.view">
+            <field name="name">ghiot.purchase.order.inherit2</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='date_approve']" position="after">
+                    <field name="change_prodloc"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

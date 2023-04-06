@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="mmonth_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="oe_structure"/>
+                    <!--                    <t t-foreach="docs" t-as="o">-->
+                    <!--&lt;!&ndash;                        <t t-call="cloudrent_household.mmonth_report_document"/>&ndash;&gt;-->
+                    <!--                    </t>-->
+                    <div class="page">
+                        <!--                <div class="oe_structure"/>-->
+                        <h2>          cloudrent租戶租金費用對帳報表
+                        </h2>
+                        <h4>案場名稱:
+                            <span t-esc="projectno"/>
+                        </h4>
+                        <h4>對帳年月:
+                            <span t-esc="billym"/>
+                        </h4>
+                        <h4>製表日期:
+                            <span t-esc='date'/>
+                        </h4>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th name="th_houseno" class="text-left" style="font-size:11px; width: 4%">
+                                        <strong>房號</strong>
+                                    </th>
+                                    <th name="th_membername" class="text-left" style="font-size:11px; width: 6%">
+                                        <strong>租戶</strong>
+                                    </th>
+                                    <th name="th_startrental" class="text-left" style="font-size:11px; width: 5%">
+                                        <strong>起租日</strong>
+                                    </th>
+                                    <th name="th_startdate" class="text-left" style="font-size:11px; width: 5%">
+                                        <strong>啟始日</strong>
+                                    </th>
+                                    <th name="th_enddate" class="text-left" style="font-size:11px; width: 5%">
+                                        <strong>截止日</strong>
+                                    </th>
+                                    <th name="th_uncompletefee" class="text-right" style="font-size:11px; width: 6%">
+                                        <strong>前期餘額</strong>
+                                    </th>
+                                    <th name="th_emeterfee" class="text-right" style="font-size:11px; width: 4%">
+                                        <strong>電費</strong>
+                                    </th>
+                                    <th name="th_houserentalfee" class="text-right" style="font-size:11px; width: 6%">
+                                        <strong>房屋租金</strong>
+                                    </th>
+                                    <th name="th_housemanagementfee" class="text-right" style="font-size:11px; width: 6%">
+                                        <strong>房屋管理費</strong>
+                                    </th>
+                                    <th name="th_parkingspacerent" class="text-right" style="font-size:11px; width: 6%">
+                                        <strong>車位租金</strong>
+                                    </th>
+                                    <th name="th_parkingspacerent" class="text-right" style="font-size:11px; width: 6%">
+                                        <strong>車位管理費</strong>
+                                    </th>
+                                    <th name="th_loparkingmanagement" class="text-right" style="font-size:11px; width: 6%">
+                                        <strong>機車位管理費</strong>
+                                    </th>
+                                     <th name="th_waterfee" class="text-right" style="font-size:11px; width: 6%">
+                                        <strong>水費</strong>
+                                    </th>
+                                    <th name="th_currenttotalfee" class="text-right" style="font-size:11px; width: 6%">
+                                        <strong>應繳費總額</strong>
+                                    </th>
+                                    <th name="th_ispayment" class="text-right" style="font-size:11px; width: 3%">
+                                        <strong>繳費</strong>
+                                    </th>
+                                    <th name="th_paymentdate" class="text-left" style="font-size:11px; width: 5%">
+                                        <strong>繳費日</strong>
+                                    </th>
+                                    <th name="th_paymentamount" class="text-right" style="font-size:11px; width: 6%">
+                                        <strong>繳費金額</strong>
+                                    </th>
+                                    <th name="th_paymentdesc" class="text-left" style="font-size:11px; width: 7%">
+                                        <strong>繳費說明</strong>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="m">
+                                    <tr>
+                                        <td class="text-left">
+                                            <span t-esc="m['houseno']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['membername']" style="font-size:11px"/>
+                                        </td>
+
+                                        <td class="text-left">
+                                            <span t-esc="m['startrental']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['startdate']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['enddate']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="m['uncompletefee']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="m['emeterfee']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="m['houserentalfee']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="m['housemanagementfee']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="m['parkingspacerent']" style="font-size:11px"/>
+                                        </td>
+
+                                        <td class="text-right">
+                                            <span t-esc="m['parkingmanagement']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="m['loparkingmanagement']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="m['waterfee']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="m['currenttotalfee']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="m['ispayment']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['paymentdate']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-esc="m['paymentamount']" style="font-size:11px"/>
+                                        </td>
+
+                                        <td class="text-left">
+                                            <span t-esc="m['paymentdesc']" style="font-size:11px"/>
+                                        </td>
+                                    </tr>
+                                </t>
+
+                            </tbody>
+                        </table>
+                        <br/>
+                        <!--                <div class="oe_structure"/>-->
+                    </div>
+                </t>
+            </t>
+        </template>
+
+<!--        <template id="mmonth_report_document">-->
+<!--            &lt;!&ndash;        <t t-call="web.external_layout">&ndash;&gt;-->
+<!--            &lt;!&ndash;<t t-set="o" t-as="o"/>&ndash;&gt;-->
+<!--            <div class="page">-->
+<!--                &lt;!&ndash;                <div class="oe_structure"/>&ndash;&gt;-->
+<!--                <h2>cloudrent租戶(月)費用對帳報表-->
+<!--                </h2>-->
+<!--                <h4>對帳年月:-->
+<!--                    <span t-field="o.billym"/>-->
+<!--                </h4>-->
+<!--                <h4>製表日期:-->
+<!--                    <span t-field='datetime.date.today()'/>-->
+<!--                </h4>-->
+<!--                <table class="table table-sm">-->
+<!--                    <thead>-->
+<!--                        <tr>-->
+<!--                            <th name="th_houseno" class="text-left" style="font-size:12px">-->
+<!--                                <strong>房號</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_membername" class="text-left" style="font-size:12px">-->
+<!--                                <strong>租戶</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_startrental" class="text-left" style="font-size:12px">-->
+<!--                                <strong>起租日</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_startdate" class="text-left" style="font-size:12px">-->
+<!--                                <strong>啟始日</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_enddate" class="text-left" style="font-size:12px">-->
+<!--                                <strong>截止日</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_emeterfee" class="text-left" style="font-size:12px">-->
+<!--                                <strong>電費</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_houserentalfee" class="text-left" style="font-size:12px">-->
+<!--                                <strong>房屋租金</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_housemanagementfee" class="text-left" style="font-size:12px">-->
+<!--                                <strong>房屋管理費</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_parkingspacerent" class="text-left" style="font-size:12px">-->
+<!--                                <strong>車位租金</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_parkingspacerent" class="text-left" style="font-size:12px">-->
+<!--                                <strong>車位管理費</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_loparkingmanagement" class="text-left" style="font-size:12px">-->
+<!--                                <strong>機車位管理費</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_currenttotalfee" class="text-left" style="font-size:12px">-->
+<!--                                <strong>應繳費總額</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_ispayment" class="text-left" style="font-size:12px">-->
+<!--                                <strong>繳費</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_paymentdate" class="text-left" style="font-size:12px">-->
+<!--                                <strong>繳費日期</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_paymentamount" class="text-left" style="font-size:12px">-->
+<!--                                <strong>繳費金額</strong>-->
+<!--                            </th>-->
+<!--                            <th name="th_paymentdesc" class="text-left" style="font-size:12px">-->
+<!--                                <strong>繳費說明</strong>-->
+<!--                            </th>-->
+<!--                        </tr>-->
+<!--                    </thead>-->
+<!--                    <tbody>-->
+<!--                        <t t-foreach="o['monthdata']" t-as="m">-->
+<!--                            <tr>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['houseno']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['membername']" style="font-size:12px"/>-->
+<!--                                </td>-->
+
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['startrental']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['startdate']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['enddate']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['emeterfee']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['houserentalfee']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['housemanagementfee']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['parkingspacerent']" style="font-size:12px"/>-->
+<!--                                </td>-->
+
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['parkingmanagement']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['loparkingmanagement']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['currenttotalfee']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['ispayment']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['paymentdate']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['paymentamount']" style="font-size:12px"/>-->
+<!--                                </td>-->
+
+<!--                                <td class="text-left ml16 mr16">-->
+<!--                                    <span t-field="m['paymentdesc']" style="font-size:12px"/>-->
+<!--                                </td>-->
+<!--                            </tr>-->
+<!--                        </t>-->
+
+<!--                    </tbody>-->
+<!--                </table>-->
+<!--                <br/>-->
+<!--                &lt;!&ndash;                <div class="oe_structure"/>&ndash;&gt;-->
+<!--            </div>-->
+<!--            &lt;!&ndash;        </t>&ndash;&gt;-->
+<!--        </template>-->
+
+
+    </data>
+</odoo>

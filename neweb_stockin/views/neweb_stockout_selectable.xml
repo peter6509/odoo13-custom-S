@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_stockout_selectable_from_wizard" model="ir.ui.view">
+            <field name="name">neweb_stockout_selectable_from_wizard</field>
+            <field name="model">neweb.saleselectable</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>銷單出貨明細選取精靈</h1>
+                        <group>
+                             <field name="display_line" widget="many2many_checkboxes" nolabel="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                         <button type="object" name="trans_stockout_list" string="選擇出貨" class="oe_highlight"/>
+                        <button type="object" name="trans_stockout_all" string="全選出貨" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="neweb_stockout_selectable_form_action" model="ir.actions.act_window">
+             <field name="name"></field>
+             <field name="res_model">neweb.saleselectable</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="neweb_acceptance_config1" model="neweb_acceptance.config">
+                <field name="config_key">url_address</field>
+                <field name="config_value">http://</field>
+        </record>
+    </data>
+</odoo>

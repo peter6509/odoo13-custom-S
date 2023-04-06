@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <!-- Inherit Form View to Modify it -->
+        <record id="neweb_assign_inherit_form3" model="ir.ui.view">
+            <field name="name">neweb.assign.inherit.form3</field>
+            <field name="model">neweb.proj_eng_assign</field>
+            <field name="inherit_id" ref="neweb_project.neweb_proj_assign1_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='service_type']" position="replace">
+                    <field name="service_type1" widget="many2many_tags"/>
+                    <field name="servicetypename" attrs="{'invisible':1}"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <!--<xpath expr="//field[@name='service_namne']" position="before">-->
+                    <!--<field name="assign_man_subject"/>-->
+                <!--</xpath>-->
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

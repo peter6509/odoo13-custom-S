@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_stockoutselectable_from_wizard" model="ir.ui.view">
+            <field name="name">neweb_stockoutselectable_from_wizard</field>
+            <field name="model">neweb.saleselectable</field>
+            <field name="arch" type="xml">
+                <form string="">
+                     <group>
+                     <field name="display_line" widget="section_and_note_one2many" mode="tree" >
+                        <tree create="false">
+                            <button type="object" name="get_select" string="點選" class="oe_highlight"/>
+                            <field name="selectyn"/>
+                            <field name="line_item" attrs="{'readonly':1}"/>
+                            <field name="sitem_modeltype" string="機種-機型/料號"/>
+                            <field name="sitem_spec" string="規格說明"/>
+                            <field name="sitem_desc" string="備註"/>
+                            <field name="sitem_num" string="銷單數量"/>
+                            <field name="sitem_stockout_num" string="已交數量"/>
+                            <field name="sale_no" string="成本分析"/>
+                        </tree>
+                    </field>
+                    </group>
+                    <button type="object" name="selectbtn" string="點選匯入" class="oe_highlight" attrs="{'invisible':[('display_line','=',False)]}"/>
+                    <button type="object" name="selectall" string="全選匯入" class="oe_highlight" attrs="{'invisible':[('display_line','=',False)]}"/>
+                    <button type="object" name="noselect" string="離開"/>
+                </form>
+            </field>
+        </record>
+         <record id="neweb_stockoutselectable_form_action" model="ir.actions.act_window">
+             <field name="name"></field>
+             <field name="res_model">neweb.saleselectable</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

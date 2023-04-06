@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="alldo_sale_rule1" model="ir.rule">
+           <field name="name">alldo.sale.rule1</field>
+           <field ref="sale.model_sale_order" name="model_id"/>
+           <field name="domain_force">[('create_uid.id', '=', user.id)]</field>
+           <field name="groups" eval="[(4,ref('alldo_sale.lansir_user_man'))]"/>
+        </record>
+        <record id="alldo_sale_rule2" model="ir.rule">
+           <field name="name">alldo.sale.rule2</field>
+           <field ref="sale.model_sale_order" name="model_id"/>
+           <field name="domain_force">[('create_uid.id', '=', user.id)]</field>
+           <field name="groups" eval="[(4,ref('alldo_sale.alldo_user_man'))]"/>
+        </record>
+        <record id="alldo_sale_rule3" model="ir.rule">
+           <field name="name">alldo.sale.rule3</field>
+           <field ref="sale.model_sale_order" name="model_id"/>
+           <field name="global" eval="1"/>
+           <field name="groups" eval="[(4,ref('alldo_sale.alldo_sys_man'))]"/>
+        </record>
+    </data>
+</odoo>

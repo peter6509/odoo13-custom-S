@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="iplaiot_prodstock_form_view" model="ir.ui.view">
+            <field name="name">iplaiot.prodstock.wizard.form</field>
+            <field name="model">alldo_ipla_iot.prodstock_wizard</field>
+            <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+                </group>
+                <footer>
+                    <button string="庫存查詢" name="run_prod_stock" type="object" class="oe_highlight"/>
+                    <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+            </field>
+        </record>
+
+        <record id="iplaiot_prodstock_wizard_action" model="ir.actions.act_window">
+            <field name="name">產品庫存查詢</field>
+            <field name="res_model">alldo_ipla_iot.prodstock_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</odoo>

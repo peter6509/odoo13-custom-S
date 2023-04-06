@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="neweb_quotationinclude_1" model="neweb.quotation_include">
+                <field name="name">不含安裝建置及教育訓練</field>
+         </record>
+         <record id="neweb_quotationinclude_2" model="neweb.quotation_include">
+                <field name="name">不含安裝建置</field>
+         </record>
+        <record id="neweb_quotationinclude_3" model="neweb.quotation_include">
+                <field name="name">不含教育訓練</field>
+         </record>
+        <record id="neweb_quotationinclude_4" model="neweb.quotation_include">
+                <field name="name">含安裝建置及教育訓練</field>
+         </record>
+        <record id="neweb_quotationinclude_5" model="neweb.quotation_include">
+                <field name="name">含安裝建置</field>
+         </record>
+        <record id="neweb_quotationinclude_6" model="neweb.quotation_include">
+                <field name="name">含教育訓練服務</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="neweb_inspection_alert_mail1" model="mail.template">
+            <field name="name">定檢警示通知信-1</field>
+            <field name="model_id" ref="model_neweb_emp_timesheet_inspection_alert_mail"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.emp_id.work_email}</field>
+            <field name="subject">${object.contract_no.name}第一次合約定期維護警示通知信</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<h2>
+     合約 : ${object.contract_no.name} 第一次定期維護警示提醒通知信
+</h2>
+<h3>
+<ul>
+   <li>工程師 ：${object.emp_id.name}</li>
+   <li>部門 ：${object.dept_id.name}</li>
+   <li>合約客戶 :${object.cus_id.name}</li>
+   <li>維護排定日期 :${object.inspection_datetime}</li>
+   <li>一次警示日期 :${object.alert_date1}</li>
+   <li>二次警示日期 :${object.alert_date2}</li>
+</ul>
+</h3>
+<h2>
+
+</h2>
+]]></field>
+        </record>
+
+          <record id="neweb_inspection_alert_mail2" model="mail.template">
+            <field name="name">定檢警示通知信-2</field>
+            <field name="model_id" ref="model_neweb_emp_timesheet_inspection_alert_mail"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.emp_id.work_email,object.emp_manager.work_email}</field>
+            <field name="subject">${object.contract_no.name}第二次合約定期維護警示通知信</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<h2>
+     合約 : ${object.contract_no.name} 第二次定期維護警示提醒通知信
+</h2>
+<h3>
+<ul>
+   <li>工程師 ：${object.emp_id.name}</li>
+   <li>部 門 ：${object.dept_id.name}</li>
+   <li>主 管 ：${object.emp_manager.name}</li>
+   <li>合約客戶 :${object.cus_id.name}</li>
+   <li>維護排定日期 :${object.inspection_datetime}</li>
+   <li>一次警示日期 :${object.alert_date1}</li>
+   <li>二次警示日期 :${object.alert_date2}</li>
+</ul>
+</h3>
+<h2>
+
+</h2>
+]]></field>
+        </record>
+    </data>
+</odoo>

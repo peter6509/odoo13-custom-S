@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="neweb_projext_form_inherit17" model="ir.ui.view">
+            <field name="name">neweb.projext.form.inherit17</field>
+            <field name="model">neweb.prodbrand</field>
+            <field name="inherit_id" ref="neweb_project.neweb_prodbrand_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="active"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

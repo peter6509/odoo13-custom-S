@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_acceptance_alert_wizard" model="ir.ui.view">
+             <field name="name">views.acceptance.alert.wizard</field>
+             <field name="model">neweb_acceptance.alert_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>專案驗收異常匯出精靈</h1>
+                     <group>
+                       <field name="proj_sale"/>
+                       <field name="proj_sdate"/>
+                       <field name="proj_edate"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_acceptance_alert" string="匯出" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_acceptance_alert_wizard_action" model="ir.actions.act_window">
+             <field name="name">專案驗收異常匯出精靈</field>
+             <field name="res_model">neweb_acceptance.alert_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

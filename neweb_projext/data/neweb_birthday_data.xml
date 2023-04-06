@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="neweb_birthday_m1" model="neweb.partner_birthday_month">
+                <field name="name">1月</field>
+                <field name="month_code">01</field>
+         </record>
+        <record id="neweb_birthday_m2" model="neweb.partner_birthday_month">
+                <field name="name">2月</field>
+                <field name="month_code">02</field>
+         </record>
+       <record id="neweb_birthday_m3" model="neweb.partner_birthday_month">
+                <field name="name">3月</field>
+                <field name="month_code">03</field>
+         </record>
+        <record id="neweb_birthday_m4" model="neweb.partner_birthday_month">
+                <field name="name">4月</field>
+                <field name="month_code">04</field>
+         </record>
+        <record id="neweb_birthday_m5" model="neweb.partner_birthday_month">
+                <field name="name">5月</field>
+                <field name="month_code">05</field>
+         </record>
+        <record id="neweb_birthday_m6" model="neweb.partner_birthday_month">
+                <field name="name">6月</field>
+                <field name="month_code">06</field>
+         </record>
+        <record id="neweb_birthday_m7" model="neweb.partner_birthday_month">
+                <field name="name">7月</field>
+                <field name="month_code">07</field>
+         </record>
+        <record id="neweb_birthday_m8" model="neweb.partner_birthday_month">
+                <field name="name">8月</field>
+                <field name="month_code">08</field>
+         </record>
+        <record id="neweb_birthday_m9" model="neweb.partner_birthday_month">
+                <field name="name">9月</field>
+                <field name="month_code">09</field>
+         </record>
+        <record id="neweb_birthday_m10" model="neweb.partner_birthday_month">
+                <field name="name">10月</field>
+                <field name="month_code">10</field>
+         </record>
+        <record id="neweb_birthday_m11" model="neweb.partner_birthday_month">
+                <field name="name">11月</field>
+                <field name="month_code">11</field>
+         </record>
+        <record id="neweb_birthday_m12" model="neweb.partner_birthday_month">
+                <field name="name">12月</field>
+                <field name="month_code">12</field>
+         </record>
+
+         <record id="neweb_birthday_d1" model="neweb.partner_birthday_day">
+                <field name="name">01</field>
+                <field name="day_code">01</field>
+         </record>
+        <record id="neweb_birthday_d2" model="neweb.partner_birthday_day">
+                <field name="name">02</field>
+                <field name="day_code">02</field>
+         </record>
+        <record id="neweb_birthday_d3" model="neweb.partner_birthday_day">
+                <field name="name">03</field>
+                <field name="day_code">03</field>
+         </record>
+        <record id="neweb_birthday_d4" model="neweb.partner_birthday_day">
+                <field name="name">04</field>
+                <field name="day_code">04</field>
+         </record>
+        <record id="neweb_birthday_d5" model="neweb.partner_birthday_day">
+                <field name="name">05</field>
+                <field name="day_code">05</field>
+         </record>
+        <record id="neweb_birthday_d6" model="neweb.partner_birthday_day">
+                <field name="name">06</field>
+                <field name="day_code">06</field>
+         </record>
+        <record id="neweb_birthday_d7" model="neweb.partner_birthday_day">
+                <field name="name">07</field>
+                <field name="day_code">07</field>
+         </record>
+        <record id="neweb_birthday_d8" model="neweb.partner_birthday_day">
+                <field name="name">08</field>
+                <field name="day_code">08</field>
+         </record>
+        <record id="neweb_birthday_d9" model="neweb.partner_birthday_day">
+                <field name="name">09</field>
+                <field name="day_code">09</field>
+         </record>
+        <record id="neweb_birthday_d10" model="neweb.partner_birthday_day">
+                <field name="name">10</field>
+                <field name="day_code">10</field>
+         </record>
+        <record id="neweb_birthday_d11" model="neweb.partner_birthday_day">
+                <field name="name">11</field>
+                <field name="day_code">11</field>
+         </record>
+        <record id="neweb_birthday_d12" model="neweb.partner_birthday_day">
+                <field name="name">12</field>
+                <field name="day_code">12</field>
+         </record>
+        <record id="neweb_birthday_d13" model="neweb.partner_birthday_day">
+                <field name="name">13</field>
+                <field name="day_code">13</field>
+         </record>
+        <record id="neweb_birthday_d14" model="neweb.partner_birthday_day">
+                <field name="name">14</field>
+                <field name="day_code">14</field>
+         </record>
+        <record id="neweb_birthday_d15" model="neweb.partner_birthday_day">
+                <field name="name">15</field>
+                <field name="day_code">15</field>
+         </record>
+        <record id="neweb_birthday_d16" model="neweb.partner_birthday_day">
+                <field name="name">16</field>
+                <field name="day_code">16</field>
+         </record>
+        <record id="neweb_birthday_d17" model="neweb.partner_birthday_day">
+                <field name="name">17</field>
+                <field name="day_code">17</field>
+         </record>
+        <record id="neweb_birthday_d18" model="neweb.partner_birthday_day">
+                <field name="name">18</field>
+                <field name="day_code">18</field>
+         </record>
+        <record id="neweb_birthday_d19" model="neweb.partner_birthday_day">
+                <field name="name">19</field>
+                <field name="day_code">19</field>
+         </record>
+        <record id="neweb_birthday_d20" model="neweb.partner_birthday_day">
+                <field name="name">20</field>
+                <field name="day_code">20</field>
+         </record>
+        <record id="neweb_birthday_d21" model="neweb.partner_birthday_day">
+                <field name="name">21</field>
+                <field name="day_code">21</field>
+         </record>
+        <record id="neweb_birthday_d22" model="neweb.partner_birthday_day">
+                <field name="name">22</field>
+                <field name="day_code">22</field>
+         </record>
+        <record id="neweb_birthday_d23" model="neweb.partner_birthday_day">
+                <field name="name">23</field>
+                <field name="day_code">23</field>
+         </record>
+        <record id="neweb_birthday_d24" model="neweb.partner_birthday_day">
+                <field name="name">24</field>
+                <field name="day_code">24</field>
+         </record>
+        <record id="neweb_birthday_d25" model="neweb.partner_birthday_day">
+                <field name="name">25</field>
+                <field name="day_code">25</field>
+         </record>
+        <record id="neweb_birthday_d26" model="neweb.partner_birthday_day">
+                <field name="name">26</field>
+                <field name="day_code">26</field>
+         </record>
+        <record id="neweb_birthday_d27" model="neweb.partner_birthday_day">
+                <field name="name">27</field>
+                <field name="day_code">27</field>
+         </record>
+        <record id="neweb_birthday_d28" model="neweb.partner_birthday_day">
+                <field name="name">28</field>
+                <field name="day_code">28</field>
+         </record>
+        <record id="neweb_birthday_d29" model="neweb.partner_birthday_day">
+                <field name="name">29</field>
+                <field name="day_code">29</field>
+         </record>
+        <record id="neweb_birthday_d30" model="neweb.partner_birthday_day">
+                <field name="name">30</field>
+                <field name="day_code">30</field>
+         </record>
+        <record id="neweb_birthday_d31" model="neweb.partner_birthday_day">
+                <field name="name">31</field>
+                <field name="day_code">31</field>
+         </record>
+    </data>
+</odoo>

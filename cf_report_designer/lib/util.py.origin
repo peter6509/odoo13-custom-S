@@ -1,0 +1,221 @@
+# -*- coding: utf-8 -*-
+# 康虎软件工作室
+# http://www.khcloud.net
+# QQ: 360026606
+# wechat: 360026606
+# -------------------------
+
+import logging
+import os
+import subprocess
+import base64
+import uuid
+import hashlib
+from datetime import datetime
+import configparser
+
+_logger = logging.getLogger(__name__)
+
+
+class LicInfo(object):
+    """Licensen对象"""
+    _LIC_SEPARATOR = '$'
+    LICTYPE_INVALID = -1
+    MAX_FREE_COUNT_EACH_RUN = 10  # 试用Lincese每次启动免费使用次数
+    MAX_FREE_COUNT_EACH_DAY = 50  # 试用Lincese每天最大打印数
+    MAX_FREE_COUNT = 5000  # 试用License最多免费试用次数，超过该天数则需要重新申请许可证
+    _HASH_SALT = (
+        'CF', 'P', 'ri', 'nt', '_s', 'ig', 'n_s', 'he', 'ng', 'y',
+        'ou', 'fu', '_Q', 'Q', '3', '60', '02', '66', '06'
+    )
+    _DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
+    KEY_LIC_REQ_MACHINECODE = 'mcode'  # 授权请求中机器码参数名
+    KEY_LIC_REQ_TOKEN = 'token'  # 授权请求中口令参数名
+
+    Sign = ""  # 签名
+    Ver = ""  # 版本
+    LicType = 0  # 许可证类型， 0:试用版，1：单机版（限本机使用），2：专业版(限用户数)， 3：企业版（不限用户数）
+    UUID = ""  # 许可证唯一序号，用来追踪是谁泄漏了许可证
+    UserName = ""  # 注册用户名
+    MachineCode = ""  # 机器码
+    Count = 0  # 授权用户数，通过在程序目录下设置iplist.txt来设置允许哪些IP使用，只限该列表中前N个（N值即为授权数）
+    TotalUseCount = 0  # 总使用次数，对于授权服务器来说，就是已签发许可证数量
+    TodayUseCount = 0  # 今天使用次数
+    LastUpdateAt = datetime.now()  # 最后更新时间
+    FreeCountEachRun = 0  # 每次启动后免费使用次数
+    FreeCountEachDay = 0  # 每天免费使用次数
+    MaxFreeCount = 0  # 最大免费使用次数
+    ParentUUID = ""  # 上级许可证UUID
+
+    def __init__(self):
+        pass
+
+    @staticmethod
+    def get_conf_path():
+        conf_path = "%s/%s" % (os.path.abspath('.'), LicInfo._CONF_PATH)
+        conf_path = conf_path.replace("//", "/")
+        return conf_path
+
+    @staticmethod
+    def get_machine_code():
+        """获取机器码
+        在docker中获取机器码不用使用 uuid.getnode()，每次重启容器会导致机器码变化。
+        """
+        mcode = False
+        if 'nt' in os.name:
+            try:
+                mcode = str(subprocess.check_output('wmic csproduct get uuid')).split('\\r\\n')[1].strip('\\r').strip()
+            except:
+                import uuid
+                mcode = str(uuid.UUID(int=uuid.getnode()))
+        else:
+            retcode, mcode = subprocess.getstatusoutput('cat /sys/class/dmi/id/product_uuid')
+            if retcode != 0:
+                _logger.error("Get machine code failed!")
+                raise RuntimeError("Get machine code failed!")
+        # _logger.debug("mcode: %s" % (mcode))
+        return mcode
+
+    # @staticmethod
+    # def lic_type_name(licInfo):
+    #     if licInfo.LicType == 0:
+    #         return "永久免费版"
+    #     elif licInfo.LicType == 1:
+    #         return "单机版"
+    #     elif licInfo.LicType == 2:
+    #         return "专业版"
+    #     elif licInfo.LicType == 3:
+    #         return "企业版"
+    #     elif licInfo.LicType == 4:
+    #         return "企业E版"
+    #     elif licInfo.LicType == 5:
+    #         return "企业网络授权版"
+    #     elif licInfo.LicType == 6:
+    #         return "Odoo企业E版"
+    #     elif licInfo.LicType == 7:
+    #         return "Odoo企业版"
+    #     else:
+    #         return "免费版"
+
+    @staticmethod
+    def Serialize(licInfo):
+        _licTxt = ''
+
+        _licTxt = licInfo.Ver
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + str(licInfo.LicType)
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + licInfo.UUID
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + licInfo.UserName
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + licInfo.MachineCode
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + str(licInfo.Count)
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + str(licInfo.TotalUseCount)  # 该参数对于授权服务器来说，就是已签发许可证数量
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + str(licInfo.TodayUseCount)
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + licInfo.LastUpdateAt.strftime(LicInfo._DATE_FORMAT)
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + str(licInfo.FreeCountEachRun)
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + str(licInfo.FreeCountEachDay)
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + str(licInfo.MaxFreeCount)
+        if licInfo.ParentUUID != '':
+            _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + licInfo.ParentUUID
+        return _licTxt
+
+    @staticmethod
+    def UnSerialize(licTxt=False):
+        if licTxt and licTxt != '':
+            lic_txt = base64.b64decode(licTxt)
+            if not lic_txt == "":
+                _lic_arr = str(lic_txt, encoding="utf-8").split(LicInfo._LIC_SEPARATOR)
+                licInfo = LicInfo()
+                licInfo.Sign = _lic_arr[0]
+                licInfo.Ver = _lic_arr[1]
+                licInfo.LicType = int(_lic_arr[2])
+                licInfo.UUID = _lic_arr[3]
+                licInfo.UserName = _lic_arr[4]
+                licInfo.MachineCode = _lic_arr[5]
+                licInfo.Count = int(_lic_arr[6])
+                licInfo.TotalUseCount = int(_lic_arr[7])
+                licInfo.TodayUseCount = int(_lic_arr[8])
+                licInfo.LastUpdateAt = datetime.strptime(_lic_arr[9], LicInfo._DATE_FORMAT)
+                licInfo.FreeCountEachRun = int(_lic_arr[10])
+                licInfo.FreeCountEachDay = int(_lic_arr[11])
+                licInfo.MaxFreeCount = int(_lic_arr[12])
+                if len(_lic_arr) >= 14:
+                    licInfo.ParentUUID = _lic_arr[13]
+
+                # _app.logger.debug("licInfo.MachineCode: %s" % (licInfo.MachineCode))
+                # _app.logger.debug("licInfo.UserName: %s" % (licInfo.UserName))
+                # _app.logger.debug("licInfo.Count: %s" % (licInfo.Count))
+
+                return licInfo
+            else:
+                _logger.error("License file invalid!")
+        else:
+            _logger.error("License file not exist or is empty!")
+
+    @staticmethod
+    def GetBuildInfo():
+        pass
+
+    @staticmethod
+    def MakeEmptyLic():
+        lic = LicInfo()
+        lic.Ver = LicInfo.GetBuildInfo()
+        lic.LicType = LicInfo.LICTYPE_INVALID
+        lic.UUID = str(uuid.uuid1())
+        lic.UserName = ''
+        lic.MachineCode = LicInfo.get_machine_code()
+        lic.Count = 0
+        lic.TotalUseCount = 0
+        lic.TodayUseCount = 0
+        lic.LastUpdateAt = datetime.now()
+        lic.FreeCountEachRun = LicInfo.MAX_FREE_COUNT_EACH_RUN
+        lic.FreeCountEachDay = LicInfo.MAX_FREE_COUNT_EACH_DAY
+        lic.MaxFreeCount = LicInfo.MAX_FREE_COUNT
+        lic.ParentUUID = ''
+        return lic
+
+    @staticmethod
+    def IsEmpty(licInfo):
+        return not licInfo or licInfo.Ver == ''
+
+    @staticmethod
+    def SignLic(licInfo):
+        _licTxt = LicInfo.Serialize(licInfo)
+        _licTxt = _licTxt + LicInfo._LIC_SEPARATOR + "".join(LicInfo._HASH_SALT)
+        _sign = hashlib.sha1(_licTxt.encode("utf-8")).hexdigest()
+        return _sign
+
+    @staticmethod
+    def ValifySign(licInfo):
+        _cpuid = LicInfo.get_machine_code()
+        _sign = LicInfo.SignLic(licInfo)
+        if licInfo.Sign.lower() != _sign:
+            _logger.error("The signature of License invalid")
+            # return False
+            pass  # FIXME: 这里在docker 中验签失败，暂时不验签，尽快实现验签功能
+
+        # 对于机器码为空，不校验机器码是否相符
+        # 只有在试用版首次使用时机器码为空，以后都会更新License，机器码会写入
+        if licInfo.MachineCode and (licInfo.MachineCode.strip() != _cpuid.strip()):
+            _logger.debug("MachineCode in license is not match: %s, %s" % (licInfo.MachineCode, _cpuid))
+            return False
+
+        return True
+
+    @staticmethod
+    def ParseLicense(licTxt):
+        licInfo = LicInfo.UnSerialize(licTxt)
+        return (not LicInfo.IsEmpty(licInfo)) and (LicInfo.ValifySign(licInfo))
+
+    @staticmethod
+    def LoadLicense(licTxt ):
+        if licTxt:
+            licInfo = LicInfo.ParseLicense(licTxt)
+
+        return licInfo
+
+    @staticmethod
+    def IsLicenseValid(licInfo):
+        return licInfo.Ver and licInfo.Ver != '' and licInfo.LicType != LicInfo.LICTYPE_INVALID
+
+    @staticmethod
+    def check_license(licTxt):
+        return LicInfo.ParseLicense(licTxt)

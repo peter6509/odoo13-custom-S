@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_migration_project3_wizard" model="ir.ui.view">
+             <field name="name">views.migration.project3.wizard</field>
+             <field name="model">neweb_migration.project3_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>PROJECT Migration Task</h1>
+                         <h3>(22).neweb_projbranch/(23).neweb_costtype</h3>
+                         <h3>(27).neweb_warranty_service_rule/(28).neweb_payment_term_rule</h3>
+                         <h3>(29).neweb_main_service_rule/(30).neweb_routine_maintenance</h3>
+                         <h3>(33).neweb_salenocheck</h3>
+                         <group>
+                             <field name="passcode"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="project22_migration" string="(22).projbranch" class="oe_highlight"/>
+                         <button type="object" name="project23_migration" string="(23).costtype" class="oe_highlight"/>
+                         <button type="object" name="project27_migration" string="(27).warranty_service_rule" class="oe_highlight"/>
+                         <button type="object" name="project28_migration" string="(28).payment_term_rule" class="oe_highlight"/>
+                         <button type="object" name="project29_migration" string="(29).main_service_rule" class="oe_highlight"/>
+                         <button type="object" name="project30_migration" string="(30).routine_maintenance" class="oe_highlight"/>
+                         <button type="object" name="project33_migration" string="(33).salenocheck" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="migration_project3_wizard_action" model="ir.actions.act_window">
+             <field name="name">PROJECT Migration</field>
+             <field name="res_model">neweb_migration.project3_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_era_household_member_history_manager","access.era.household.member.history.manager","model_era_household_member_history","era_household.group_era_manager","True","True","True","True"
+"access_era_household_member_history_ass","access.era.household.history.member.ass","model_era_household_member_history","era_household.group_era_manager","True","True","True",""
+"access_era_household_member_history_user","access.era.household.history.member.user","model_era_household_member_history","era_household.group_era_user","True","","",""
+
+"access_line_setting_manager","access.line.setting.manager","model_line_setting","era_household.group_era_manager","True","True","True","True"
+"access_line_setting_ass","access.line.setting.ass","model_line_setting","era_household.group_era_manager","True","True","True",""
+"access_line_setting_user","access.line.setting.user","model_line_setting","era_household.group_era_user","True","","",""

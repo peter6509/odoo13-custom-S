@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="neweb_gov_sale_order" model="ir.attachment">
+            <field name="name">neweb_gov_sale_order</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_gov_order_report.odt"/>
+        </record>
+        <record id="neweb_sale_order" model="ir.attachment">
+            <field name="name">neweb_sale_order</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_sale_order_report.odt"/>
+        </record>
+        <record id="neweb_sale_main" model="ir.attachment">
+            <field name="name">neweb_sale_main</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_sale_main_report.odt"/>
+        </record>
+         <record id="neweb_project_report" model="ir.attachment">
+            <field name="name">neweb_project_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_project_report.odt"/>
+        </record>
+         <record id="neweb_expense_report" model="ir.attachment">
+            <field name="name">neweb_expense_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_expense_report.odt"/>
+        </record>
+        <record id="neweb_travel_report" model="ir.attachment">
+            <field name="name">neweb_travel_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_travel_report.odt"/>
+        </record>
+        <record id="neweb_require_purchase_report" model="ir.attachment">
+            <field name="name">neweb_require_purchase_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_require_purchase.odt"/>
+        </record>
+        <record id="neweb_repair_print_report" model="ir.attachment">
+            <field name="name">neweb_repair_print_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_repair_print_report.odt"/>
+        </record>
+        <record id="neweb_repair_work_report" model="ir.attachment">
+            <field name="name">neweb_repair_work_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_repair_work_report.odt"/>
+        </record>
+        <record id="neweb_purchase_taiwan_report" model="ir.attachment">
+            <field name="name">neweb_purchase_taiwan_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_purchase_taiwan_report.odt"/>
+        </record>
+        <record id="neweb_purchase_english_report" model="ir.attachment">
+            <field name="name">neweb_purchase_english_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_purchase_english_report.odt"/>
+        </record>
+        <record id="neweb_shipping_report" model="ir.attachment">
+            <field name="name">neweb_shipping_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_shipping_report.odt"/>
+        </record>
+         <record id="neweb_stockin_report" model="ir.attachment">
+            <field name="name">neweb_stockin_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_stockin_report.odt"/>
+        </record>
+        <record id="neweb_invoiceopen_report" model="ir.attachment">
+            <field name="name">neweb_invoiceopen_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_invoiceopen_report.odt"/>
+        </record>
+        <record id="neweb_assign_custom_report" model="ir.attachment">
+            <field name="name">neweb_assign_custom_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_assign_custom_report.odt"/>
+        </record>
+        <record id="neweb_eng_assign_report" model="ir.attachment">
+            <field name="name">neweb_eng_assign_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_eng_assign_report.odt"/>
+        </record>
+         <record id="neweb_official_doc_report" model="ir.attachment">
+            <field name="name">neweb_official_doc_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_official_doc_report.odt"/>
+        </record>
+         <record id="neweb_purinv_report" model="ir.attachment">
+            <field name="name">neweb_purinv_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_purinv_report.odt"/>
+        </record>
+         <record id="neweb_custom_data_report" model="ir.attachment">
+            <field name="name">neweb_custom_data_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="neweb_build_fish_report/report/neweb_custom_data_report.odt"/>
+        </record>
+
+    </data>
+</odoo>

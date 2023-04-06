@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="py3o_purchase_require_form_inherit" model="ir.ui.view">
+            <field name="name">py3o.purchase.require.form.inherit</field>
+            <field name="model">neweb.require_purchase</field>
+            <field name="inherit_id" ref="neweb_purchase.neweb_require_purchase_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='emp_name']" position="after">
+                    <field name="cassetexpensecateg" attrs="{'invisible':1}"/>
+                    <field name="cexpensetype" attrs="{'invisible':1}"/>
+                    <field name="cassettype" attrs="{'invisible':1}"/>
+                    <field name="ccataattachyn" attrs="{'invisible':1}"/>
+
+
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

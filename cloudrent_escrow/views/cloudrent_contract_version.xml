@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_contract_version_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.contract.version.tree</field>
+            <field name="model">cloudrent.contract_version</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="create_date" string="創建日期"/>
+                    <field name="create_uid" string="創建人"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_contract_version_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.contract.version.form</field>
+            <field name="model">cloudrent.contract_version</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="create_date" string="創建日期" attrs="{'readonly':1}"/>
+                            <field name="create_uid" string="創建人" attrs="{'readonly':1}"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="action_cloudrent_contract_version_view" model="ir.actions.act_window">
+            <field name="name">合約版本記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.contract_version</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_contract_version_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_cloudrent_contract_version_form')}),]"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

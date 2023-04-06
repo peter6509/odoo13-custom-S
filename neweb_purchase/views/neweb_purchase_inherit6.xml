@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="neweb_purchase_order_form_inherit6" model="ir.ui.view">
+            <field name="name">neweb.purchase.order.form.inherit6</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='date_order']" position="attributes">
+                     <attribute name="attrs">{'invisible':1}</attribute>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="after">
+                     <field name="date_order1"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="進貨單記錄" attrs="{'invisible':[('state','!=','purchase')]}">
+                         <field name="main_stockinno"/>
+                          <field name="stockinno_line" nolabel="1">
+                              <tree editable="bottom" string="進貨單記錄" widget="one2many">
+                                  <field name="name"/>
+                              </tree>
+                           </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

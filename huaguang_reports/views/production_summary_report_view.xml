@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="production_summary_report_view_tree" model="ir.ui.view">
+        <field name="name">production.summary.report.view.tree</field>
+        <field name="model">production.summary.new.report</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="workcenter"/>
+                <field name="date_in"/>
+                <field name="material_quality"/>
+                <field name="cx_size"/>
+                <field name="pcr_id"/>
+                <field name="rl_collar_qty_amount"/>
+                <field name="rl_completed_qty_amount"/>
+                <field name="jy_completed_qty_amount"/>
+                <field name="xc_completed_qty_amount"/>
+                <field name="ls_completed_qty_amount"/>
+                <field name="bz_qty_amount"/>
+                <field name="ls_rate"/>
+                <field name="all_finished_in"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="production_summary_report_view_search" model="ir.ui.view">
+        <field name="name">production.summary.report.view.search</field>
+        <field name="model">production.summary.new.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="material_quality"/>
+                <field name="cx_size"/>
+                <field name="workcenter"/>
+                <group>
+                    <filter name="group_by_materia" string="品种" context="{'group_by':'material_quality'}"/>
+                    <filter name="group_by_workcenter" string="成型设备" context="{'group_by':'workcenter'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="ir_cron_production_summary_report" model="ir.cron">
+        <field name="name">生产汇总表（新）</field>
+        <field name="model_id" ref="model_production_summary_new_report"/>
+        <field name="user_id" ref="base.user_root"/>
+        <field name="state">code</field>
+        <field name="code">model.create_report()</field>
+        <field name="interval_number">12</field>
+        <field name="interval_type">hours</field>
+        <field name="numbercall">-1</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="maintenance_report">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <div class="oe_structure"/>
+                    <div class="page">
+                                        <div class="oe_structure"/>
+                        <h2>          cloudrent租戶設施報修總表
+                        </h2>
+                        <h4>起始時間:
+                            <span t-esc="startdate"/>
+                        </h4>
+                        <h4>截止時間:
+                            <span t-esc="enddate"/>
+                        </h4>
+                        <h4>製表日期:
+                            <span t-esc='date'/>
+                        </h4>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th name="th_houseno" class="text-left" style="font-size:11px; width: 4%">
+                                        <strong>房號</strong>
+                                    </th>
+                                    <th name="th_repairdate" class="text-left" style="font-size:11px; width: 6%">
+                                        <strong>報修日</strong>
+                                    </th>
+                                    <th name="th_repairmemo" class="text-left" style="font-size:11px; width: 30%">
+                                        <strong>報修內容說明</strong>
+                                    </th>
+                                    <th name="th_mainrating" class="text-left" style="font-size:11px; width: 4%">
+                                        <strong>等級</strong>
+                                    </th>
+                                    <th name="th_state" class="text-left" style="font-size:11px; width: 6%">
+                                        <strong>狀態</strong>
+                                    </th>
+                                    <th name="th_repairment" class="text-left" style="font-size:11px; width: 20%">
+                                        <strong>處理程序說明</strong>
+                                    </th>
+                                    <th name="th_repairdate" class="text-left" style="font-size:11px; width: 5%">
+                                        <strong>處理日期</strong>
+                                    </th>
+                                    <th name="th_completememo" class="text-left" style="font-size:11px; width: 15%">
+                                        <strong>完工說明</strong>
+                                    </th>
+                                    <th name="th_completedate" class="text-left" style="font-size:11px; width: 5%">
+                                        <strong>完工日</strong>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="docs" t-as="m">
+                                    <tr>
+                                        <td class="text-left">
+                                            <span t-esc="m['houseno']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['requiredate']" style="font-size:11px"/>
+                                        </td>
+
+                                        <td class="text-left">
+                                            <span t-esc="m['mainmemo']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['mainrating']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['state']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['repairmemo']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['repairdate']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['completememo']" style="font-size:11px"/>
+                                        </td>
+                                        <td class="text-left">
+                                            <span t-esc="m['completedate']" style="font-size:11px"/>
+                                        </td>
+
+                                    </tr>
+                                </t>
+
+                            </tbody>
+                        </table>
+                        <br/>
+                                        <div class="oe_structure"/>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+
+    </data>
+</odoo>

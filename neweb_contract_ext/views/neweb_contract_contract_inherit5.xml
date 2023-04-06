@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit5_contract_form" model="ir.ui.view">
+            <field name="name">view.inherit5.contract.form</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="inherit_id" ref="neweb_contract.contract_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+
+                <xpath expr="//field[@name='is_sales_contract']" position="after">
+                    <field name="is_warranty_contract"/>
+
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <xpath expr="//field[@name='is_sales_contract']" position="attributes">
+                       <field name="is_sales_contract" position="attributes">
+                           <attribute name="attrs">{'invisible':1}</attribute>
+                       </field>
+                </xpath>
+                <label for="is_sales_contract" position="replace">
+                    <label string="保固支援合約" for="is_warranty_contract"  />
+                </label>
+                <xpath expr="//field[@name='sla']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False),('is_warranty_contract','=',False)]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='inspection_warn_users']" position="after">
+                    <field name="hasbackuphw"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

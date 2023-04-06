@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mreport,mreport_user,model_report_maintenance_report_mreport_request,group_mreport_user,1,1,1,1
+access_mainteam,mainteam_group,model_main_team_group,j_mrp_maintenance.group_maintenance_man,1,1,1,1

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_maintenance_report_wizard" model="ir.ui.view">
+             <field name="name">views.maintenance.report.wizard</field>
+             <field name="model">cloudrent.maintenance_report_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>CloudRent租戶報修記錄報表精靈</h1>
+                         <group>
+                             <field name="main_start_date"/>
+                             <field name="main_end_date"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="cloudrent_maintenance_print" string="列印" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="maintenance_report_wizard_action" model="ir.actions.act_window">
+             <field name="name">CloudRent租戶報修記錄報表精靈</field>
+             <field name="res_model">cloudrent.maintenance_report_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

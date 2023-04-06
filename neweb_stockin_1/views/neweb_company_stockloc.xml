@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_company_stockloc_tree" model="ir.ui.view">
+            <field name="name">neweb.company.stockloc.tree</field>
+            <field name="model">neweb.company_stockloc</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="tp_outloc"/>
+                    <field name="tp_inloc"/>
+                    <field name="tc_outloc"/>
+                    <field name="tc_inloc"/>
+                    <field name="tk_outloc"/>
+                    <field name="tk_inloc"/>
+                    <field name="ts_outloc"/>
+                    <field name="ts_inloc"/>
+                    <field name="th_outloc"/>
+                    <field name="th_inloc"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_company_stockloc_form" model="ir.ui.view">
+            <field name="name">neweb.company.stockloc.form</field>
+            <field name="model">neweb.company_stockloc</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                             <field name="tp_outloc"/>
+                             <field name="tp_inloc"/>
+                             <field name="tc_outloc"/>
+                             <field name="tc_inloc"/>
+                             <field name="tk_outloc"/>
+                             <field name="tk_inloc"/>
+                             <field name="ts_outloc"/>
+                             <field name="ts_inloc"/>
+                             <field name="th_outloc"/>
+                             <field name="th_inloc"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_company_stockloc_action" model="ir.actions.act_window">
+            <field name="name">公司倉位配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.company_stockloc</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_neweb_company_stockloc_action"
+                  name="公司倉位配置"
+                  parent="neweb_project.menu_neweb_stockmove_categ"
+                  action="neweb_company_stockloc_action"
+                  sequence="80"/>
+    </data>
+</odoo>

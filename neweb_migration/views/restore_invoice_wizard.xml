@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views__wizard" model="ir.ui.view">
+             <field name="name">views..wizard</field>
+             <field name="model"></field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1></h1>
+                         <group>
+                             <field name=""/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_gotoproject" string="導向" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="_wizard_action" model="ir.actions.act_window">
+             <field name="name"></field>
+             <field name="res_model"></field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

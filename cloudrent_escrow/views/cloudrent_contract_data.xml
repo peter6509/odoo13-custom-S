@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_contract_data_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.contract.data.tree</field>
+            <field name="model">cloudrent.contract_data</field>
+            <field name="arch" type="xml">
+                <tree string="" editable="bottom">
+                    <field name="name"/>
+                    <field name="contract_tag"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_cloudrent_contract_data_view" model="ir.actions.act_window">
+            <field name="name">契約書/申請書</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.contract_data</field>
+            <field name="view_mode">tree</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_contract_data_tree')}),]"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

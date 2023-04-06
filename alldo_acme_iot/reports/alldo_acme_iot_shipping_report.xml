@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="stockpicking_report">
+            <t t-call="cfprint.html_container">
+                <h1 class="col-12 text-center">ACME出貨單</h1>
+                <h3 class="col-12 text-center">正在列印輸出中，請稍候...</h3>
+<script type="text/javascript">
+var cfprint_addr = "127.0.0.1";   //打印服务器监听地址
+var _delay_close = -1 ;          //打印完成后关闭窗口的延时时长(毫秒), -1则表示不关闭
+var _tableShipping = {
+    "Name": "shippinginfo",
+    "Cols":[
+        { "type": "str", "size": 15, "name": "reportno", "required": false },
+        { "type": "str", "size": 300, "name": "reportmemo", "required": false },
+        { "type": "str", "size": 30, "name": "reporttype", "required": false },
+        { "type": "str", "size": 15, "name": "taiinv", "required": false },
+    ],
+    "Data":[ ]
+};
+
+/**定义从表结构**/
+var _tableShippingLines = {
+    "Name": "shippingInfoLines",
+    "Cols":[
+        { "type": "str", "size": 15, "name": "reportno", "required": false },
+        { "type": "str", "size": 15, "name": "shippingdate", "required": false },
+        { "type": "str", "size": 300, "name": "acmeaddress", "required": false },
+        { "type": "str", "size": 20, "name": "acmetel", "required": false },
+        { "type": "str", "size": 20, "name": "acmefax", "required": false },
+        { "type": "str", "size": 300, "name": "acmememo", "required": false },
+        { "type": "str", "size": 15, "name": "acmetotuntaxamount", "required": false },
+        { "type": "str", "size": 15, "name": "acmetottaxamount", "required": false },
+        { "type": "str", "size": 15, "name": "acmetotamount", "required": false },
+        { "type": "str", "size": 30, "name": "partnername", "required": false },
+        { "type": "str", "size": 15, "name": "partnertel", "required": false },
+        { "type": "str", "size": 10, "name": "partnervat", "required": false },
+        { "type": "str", "size": 5,  "name": "proditem", "required": false },
+        { "type": "str", "size": 30, "name": "prodno", "required": false },
+        { "type": "str", "size": 10, "name": "prodnum", "required": false },
+        { "type": "str", "size": 10, "name": "produom", "required": false },
+        { "type": "str", "size": 10, "name": "prodprice", "required": false },
+        { "type": "str", "size": 12, "name": "sumprice", "required": false },
+        { "type": "str", "size": 30, "name": "linememo", "required": false },
+
+    ],
+    "Data":[ ]
+};
+<t t-foreach="docs" t-as="o">
+/*增加主表记录*/
+_tableShipping.Data.push({
+    "reportno":"<t t-if="o['shippingno']" t-esc="o['shippingno']"/>",
+    "reportmemo":"<t t-if="o['reportmemo']" t-esc="o['reportmemo']"/>",
+    "reporttype":"<t t-if="o['reporttype']" t-esc="o['reporttype']"/>",
+    "taiinv":"<t t-if="o['taiwan_receipt']" t-esc="o['taiwan_receipt']"/>",
+});
+
+<t t-foreach="o['shipping_line']" t-as="lines">
+/**增加从表记录**/
+_tableShippingLines.Data.push(
+{
+    "reportno":"<t t-if="lines['report_no']" t-esc="lines['report_no']"/>",
+    "shippingdate":"<t t-if="lines['shipping_date']" t-esc="lines['shipping_date']"/>",
+    "acmeaddress":"<t t-if="lines['acme_address']" t-esc="lines['acme_address']"/>",
+    "acmetel":"<t t-if="lines['acme_tel']" t-esc="lines['acme_tel']"/>",
+    "acmefax":"<t t-if="lines['acme_fax']" t-esc="lines['acme_fax']"/>",
+    "acmememo":"<t t-if="lines['acme_memo']" t-esc="lines['acme_memo']"/>",
+    "acmetotuntaxamount":"<t t-if="lines['acme_totuntaxamount']" t-esc="lines['acme_totuntaxamount']"/>",
+    "acmetottaxamount":"<t t-if="lines['acme_tottaxamount']" t-esc="lines['acme_tottaxamount']"/>",
+    "acmetotamount":"<t t-if="lines['acme_totamount']" t-esc="lines['acme_totamount']"/>",
+    "partnername":"<t t-if="lines['partner_name']" t-esc="lines['partner_name']"/>",
+    "partnertel":"<t t-if="lines['partner_tel']" t-esc="lines['partner_tel']"/>",
+    "partnervat":"<t t-if="lines['partner_vat']" t-esc="lines['partner_vat']"/>",
+    "proditem":"<t t-if="lines['prod_item']" t-esc="lines['prod_item']"/>",
+    "prodno":"<t t-if="lines['prod_no']" t-esc="lines['prod_no']"/>",
+    "prodnum":"<t t-if="lines['prod_num']" t-esc="lines['prod_num']"/>",
+    "produom":"<t t-if="lines['prod_uom']" t-esc="lines['prod_uom']"/>",
+    "prodprice":"<t t-if="lines['prod_price']" t-esc="lines['prod_price']"/>",
+    "sumprice":"<t t-if="lines['sum_price']" t-esc="lines['sum_price']"/>",
+    "linememo":"<t t-if="lines['line_memo']" t-esc="lines['line_memo']"/>",
+
+});
+</t>
+</t>
+
+var _data = {"template": "base64:<t t-esc="get_cf_template(user.env,'alldo_acme_iot_stockpicking_report')"/>", "ver": 4, "Copies": 1, "Duplex": 0, "Preview": 1, "Tables":[]};
+_data["Tables"].push(_tableShipping);
+_data["Tables"].push(_tableShippingLines);
+var _reportData = JSON.stringify(_data);  //转成json字符串
+
+console.log(_reportData);
+//生成数据之后，在cfprint_ext.js中会自动调用进行打印
+</script>
+            </t>
+        </template>
+    </data>
+</odoo>

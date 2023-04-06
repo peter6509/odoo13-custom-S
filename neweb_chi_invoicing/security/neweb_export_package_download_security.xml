@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_chi_package_export_download_rule1" model="ir.rule">
+           <field name="name">neweb.chi.package.export.download.rule1</field>
+           <field ref="neweb_chi_invoicing.model_neweb_chi_invoicing_package_excel_download" name="model_id"/>
+           <field name="domain_force">['|','|','|',('create_uid', '=', user.id),('write_uid','=',user.id),('create_uid','=',False),('write_uid','=',False)]</field>
+           <field name="groups" eval="[(4,ref('neweb_chi_invoicing.neweb_chi_invoicing_user'))]"/>
+        </record>
+    </data>
+</odoo>

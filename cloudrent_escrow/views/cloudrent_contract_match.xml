@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_contract_match_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.contract.match.tree</field>
+            <field name="model">cloudrent.contract_match</field>
+            <field name="arch" type="xml">
+                <tree string="" >
+                    <field name="lessee_renew1" width="3%%" optional="hide"/>
+                    <field name="lessee_renew2" width="3%%" optional="hide"/>
+                    <field name="lessee_terminate" width="3%%" optional="hide"/>
+                    <field name="match_seq" width="2%%" optional="show"/>
+                    <field name="match_no" width="8%%" optional="show"/>
+                    <field name="match_version" width="5%%" optional="show"/>
+                    <field name="object_no1" width="8%%" optional="hide"/>
+                    <field name="lessee_no" width="8%%" optional="hide"/>
+                    <field name="build_loc" width="4%%" optional="show"/>
+                    <field name="build_community" width="4%%" optional="hide"/>
+                    <field name="writ_addr" width="8%%" optional="hide"/>
+                    <field name="build_lessor" width="5%%" optional="show"/>
+                    <field name="lessor_cell" width="4%%" />
+                    <field name="build_lessee" width="5%%"/>
+                    <field name="lessee_cell" width="4%%"/>
+                    <field name="lessee_contact" width="5%%" optional="hide"/>
+                    <field name="build_type" width="4%%" optional="hide"/>
+                    <field name="build_pattern1" width="4%%" optional="hide"/>
+                    <field name="lesseetype0_rent" width="4%%" optional="show"/>
+                    <field name="lesseetype1_rent" width="4%%" optional="show"/>
+                    <field name="lesseetype2_rent" width="4%%" optional="show"/>
+                    <field name="management_fee" width="4%%" optional="show"/>
+                    <field name="parking_fee" width="4%%" optional="show"/>
+                    <field name="lessee_type" width="4%%"/>
+<!--                    <field name="is_gov_300" string="300億補助專案" width="5%%" optional="show"/>-->
+                    <field name="lessee_grant" width="4%%" optional="show"/>
+                    <field name="register_household" width="3%%" optional="hide"/>
+                    <field name="lessee_memo" width="8%%" optional="show"/>
+                    <field name="lessee_tot_rent" width="4%%"/>
+                    <field name="match_start_date" width="5%%"/>
+                    <field name="match_end_date" width="5%%"/>
+                    <field name="match_complete_date" width="5%%" optional="hide"/>
+                    <field name="renew_ym" width="4%%" optional="hide"/>
+                    <field name="lessor_notice_date" width="4%%" optional="hide"/>
+                    <field name="lessee_notice_date" width="4%%" optional="hide"/>
+                    <field name="renew_notarial_date" width="4%%" optional="hide"/>
+                    <field name="origin_lessee_type" width="4%%" optional="hide"/>
+                    <field name="new_lessee_type" width="4%%" optional="hide"/>
+                    <field name="renew_start_date" width="4%%" optional="hide"/>
+                    <field name="renew_end_date" width="4%%" optional="hide"/>
+                    <field name="lessee_visit" width="4%%" optional="hide"/>
+                    <field name="lessee_visit1" width="4%%" optional="hide"/>
+                    <field name="lessee_visit2" width="4%%" optional="hide"/>
+                    <field name="lessee_visit3" width="4%%" optional="hide"/>
+                    <field name="lessor_sale" width="4%%" optional="show"/>
+                    <field name="lessee_sale" width="4%%" optional="show"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_contract_match_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.contract.match.form</field>
+            <field name="model">cloudrent.contract_match</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>媒合案件基本資料</h1>
+                        <group>
+                            <group>
+                                <group>
+                                    <field name="lessee_renew1"/>
+                                    <field name="lessee_renew2"/>
+                                    <field name="lessee_terminate"/>
+                                    <field name="escrow_no" options="{'no_create_edit':True,'no_create':True}"/>
+                                    <field name="match_no"/>
+                                    <field name="match_version"/>
+                                    <field name="object_no1" options="{'no_create_edit':True,'no_create':True}"/>
+                                    <field name="build_lessor" domain="[('escrow_type','=','1')]" options="{'no_create_edit':True,'no_create':True}"/>
+                                    <field name="build_lessee" domain="[('escrow_type','=','2')]" options="{'no_create_edit':True,'no_create':True}"/>
+                                    <field name="build_loc"/>
+                                    <field name="build_community"/>
+                                    <field name="writ_addr"/>
+                                    <field name="lessor_cell"/>
+                                    <field name="lessee_cell"/>
+                                    <field name="lessee_contact"/>
+                                    <field name="match_start_date"/>
+                                    <field name="match_end_date"/>
+                                    <field name="match_complete_date"/>
+
+                                </group>
+                                 <group>
+                                    <field name="case_type"/>
+                                    <field name="admin_area"/>
+                                    <field name="build_sec"/>
+                                    <field name="build_msec"/>
+                                    <field name="build_number"/>
+                                    <field name="house_number"/>
+                                    <field name="place_number"/>
+                                    <field name="build_area"/>
+                                    <field name="entrust_start_date"/>
+                                    <field name="entrust_end_date"/>
+                                    <field name="lessee_visit"/>
+                                    <field name="lessee_visit1"/>
+                                    <field name="lessee_visit2"/>
+                                    <field name="lessee_visit3"/>
+                                </group>
+                            </group>
+                            <group>
+
+                                <group>
+                                    <field name="build_createdate"/>
+                                    <field name="build_age"/>
+                                    <field name="parking_space"/>
+                                    <field name="ancillary_equipment"/>
+                                    <field name="build_rent_situatiuon"/>
+                                    <field name="rent_man" attrs="{'invisible':[('build_rent_situatiuon','in',('1','2','4',False))]}"/>
+                                    <field name="rent_duedate" attrs="{'invisible':[('build_rent_situatiuon','in',('1','2','4',False))]}"/>
+                                    <field name="rent_other_desc" attrs="{'invisible':[('build_rent_situatiuon','in',('1','2','3',False))]}"/>
+                                    <field name="build_for_rent"/>
+                                    <field name="build_contract_rent"/>
+                                    <field name="general_build"/>
+                                    <field name="build_type"/>
+                                    <field name="build_pattern"/>
+                                    <field name="build_pattern1"/>
+<!--                                    <field name="is_gov_300" string="300億補助專案"/>-->
+                                    <field name="member_type"/>
+                                    <field name="is_send"/>
+                                </group>
+                                <group>
+                                    <field name="lessee_type"/>
+                                    <field name="lesseetype0_rent"/>
+                                    <field name="lesseetype1_rent"/>
+                                    <field name="lesseetype2_rent"/>
+                                    <field name="management_fee"/>
+                                    <field name="parking_fee"/>
+                                    <field name="lessee_grant"/>
+                                    <field name="lessee_tot_rent"/>
+                                    <field name="substitue_rent"/>
+                                    <field name="register_household"/>
+                                    <field name="lessee_memo"/>
+                                    <field name="renew_ym"/>
+                                    <field name="lessor_notice_date"/>
+                                    <field name="lessee_notice_date"/>
+                                    <field name="renew_notarial_date"/>
+                                    <field name="origin_lessee_type"/>
+                                    <field name="new_lessee_type"/>
+                                    <field name="renew_start_date"/>
+                                    <field name="renew_end_date"/>
+                                    <field name="lessor_sale" domain="[('escrow_type','in',('3','4','5'))]" options="{'no_create_edit':True,'no_create':True}"/>
+                                    <field name="lessee_sale" domain="[('escrow_type','in',('3','4','5'))]" options="{'no_create_edit':True,'no_create':True}"/>
+                                    <field name="renew1" attrs="{'invisible':[('lessee_renew1','=',False),('lessee_renew2','=',False)]}"/>
+                                </group>
+                            </group>
+                        </group>
+                        <h1>銀行帳戶資訊</h1>
+                        <group>
+                            <group>
+                                <field name="lessor_fin_instno"/>
+                                <field name="lessor_fin_branch"/>
+                                <field name="lessor_fin_name"/>
+                                <field name="lessor_fin_account"/>
+                                <field name="lessor_pid"/>
+                            </group>
+                            <group>
+                                <field name="lessee_fin_instno"/>
+                                <field name="lessee_fin_branch"/>
+                                <field name="lessee_fin_name"/>
+                                <field name="lessee_fin_account"/>
+                                <field name="lessee_pid"/>
+                            </group>
+                        </group>
+                        <h1>申請書/契約書</h1>
+                            <group>
+                                <group>
+                                    <field name="match_version"/>
+                                    <field name="gen_doc_ids" widget="many2many_tags" domain="[('contract_version','=',match_version),('contract_type','in',('1','2')),('doc_active','=','1')]"
+                                           options="{'no_create_edit':True,'no_create':True}"/>
+                                </group>
+                                <group>
+                                    <button type="object" name="run_docx_replace" attrs="{'invisible':[('match_version','=',False)]}"
+                                            string="申請書/契約書生成" class="oe_highlight"/>
+                                </group>
+                            </group>
+                              <field name="match_doc_line" nolabel="1">
+                               <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="doc_date" width="6%%"/>
+                                  <field name="doc_name" width="6%%" options="{'no_create_edit':True,'no_create':True}"/>
+                                  <field name="doc_file" filename="doc_filename" widget="binary" width="10%%"/>
+                                  <field name="doc_filename" invisible="1"/>
+                                  <field name="doc_file1" filename="doc_filename1" widget="binary" width="10%%"/>
+                                  <field name="doc_filename1" invisible="1"/>
+                                  <field name="create_uid" string="建檔人" attrs="{'readonly':1}" force_save="1" width="6%%"/>
+                               </tree>
+                            </field>
+
+                        <h1>入租前傢俱設備清單</h1>
+                         <group>
+                             <group>
+                                 <button type="object" name="gen_btom_equip_part" string="從租房同步設備清單" class="oe_highlight"/>
+                             </group>
+                             <group>
+
+                             </group>
+                         </group>
+                         <group>
+                              <field name="equip_part_line" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="equip_categ" width="5%%" options="{'no_create_edit':True,'no_create':True}"/>
+                                  <field name="equip_no" width="6%%" options="{'no_create_edit':True,'no_create':True}"/>
+                                  <field name="equip_qty" width="5%%"/>
+                                  <field name="equip_status" width="15%%"/>
+                                  <field name="equip_image1" widget="image" options="{'size': [300, 200]}" width="5%%"/>
+                                  <field name="equip_image2" widget="image" options="{'size': [300, 200]}" width="5%%"/>
+                                  <field name="equip_image3" widget="image" options="{'size': [300, 200]}" width="5%%"/>
+                              </tree>
+                           </field>
+                         </group>
+
+                         <h1>費用補助申請</h1>
+                        <group>
+                            <group>
+                                <button type="object" name="gen_new_fee" string="重置費用及補助款明細"
+                                            class="oe_highlight"/>
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+                        <notebook>
+                        <page string="居家安全保險費">
+                          <field name="safe_ins_fee_line" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="ins_applyfor_year" width="5%%"/>
+                                  <field name="ins_applyfor_month" width="5%%"/>
+                                  <field name="real_insurance_fee" width="10%%"/>
+                                  <field name="ins_applyfor_date" width="10%"/>
+                                  <field name="is_applyfor" width="5%%"/>
+                              </tree>
+                           </field>
+                        </page>
+                        <page string="公證費">
+                          <field name="notarial_fee_line" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="notarial_applyfor_year" width="5%%"/>
+                                  <field name="notarial_applyfor_month" width="5%%"/>
+                                  <field name="notarial_applyfor_fee" width="10%%"/>
+                                  <field name="notarial_applyfor_date" width="10%%"/>
+                                  <field name="is_applyfor" width="5%%"/>
+                              </tree>
+                           </field>
+                        </page>
+                        <page string="住宅出租修繕費">
+                            <field name="escrow_repair_line" nolabel="1">
+                                <tree editable="bottom" string="Student Info" widget="one2many">
+                                    <field name="repair_year" width="5%%"/>
+                                    <field name="repair_month" width="5%%"/>
+                                    <field name="real_repair_fee" width="10%%"/>
+                                    <field name="repair_applyfor_date" width="10%%"/>
+                                    <field name="is_applyfor" width="5%%"/>
+                                </tree>
+                             </field>
+                        </page>
+                        <page string="租金補助">
+                          <field name="grant_rent_line" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="applyfor_rent_year" width="5%%"/>
+                                  <field name="applyfor_rent_month" width="5%%"/>
+                                  <field name="contract_rent_fee" width="10%%"/>
+                                  <field name="applyfor_rent_fee" width="10%%"/>
+                                  <field name="rent_period" width="5%%"/>
+                                  <field name="tot_rent_period" width="5%%"/>
+                                  <field name="applyfor_rent_date" width="10%%"/>
+                                  <field name="is_applyfor" width="5%%"/>
+                              </tree>
+                           </field>
+                        </page>
+                        <page string="開發費">
+                         <field name="escrow_develop_line" nolabel="1">
+                             <tree editable="bottom" string="Student Info" widget="one2many">
+                                 <field name="develop_applyfor_year" width="5%%"/>
+                                 <field name="develop_applyfor_month" width="5%%"/>
+                                 <field name="develop_applyfor_fee" width="10%%"/>
+                                 <field name="develop_applyfor_date" width="10%%"/>
+                                 <field name="is_applyfor" width="5%%"/>
+                             </tree>
+                          </field>
+                        </page>
+                        <page string="包管費" attrs="{'invisible':[('case_type','=','2')]}">
+                            <field name="escrow_guarantee_line" nolabel="1">
+                                <tree editable="bottom" string="Student Info" widget="one2many">
+                                    <field name="guarantee_applyfor_year" width="5%%"/>
+                                    <field name="guarantee_applyfor_month" width="5%%"/>
+                                    <field name="guarantee_applyfor_fee" width="10%%"/>
+                                    <field name="guarantee_period" width="5%%"/>
+                                    <field name="guarantee_tot_period" width="5%%"/>
+                                    <field name="guarantee_applyfor_date" width="10%%"/>
+                                    <field name="is_applyfor" width="5%%"/>
+                                </tree>
+                             </field>
+                        </page>
+                        <page string="媒合費">
+                            <field name="contract_match_line" nolabel="1">
+                                <tree editable="bottom" string="Student Info" widget="one2many">
+                                    <field name="match_applyfor_year" width="5%%"/>
+                                    <field name="match_applyfor_month" width="5%%"/>
+                                    <field name="match_applyfor_fee" width="10%%"/>
+                                    <field name="match_applyfor_date" width="10%%"/>
+                                    <field name="is_applyfor" width="5%%"/>
+                                </tree>
+                             </field>
+                        </page>
+                        <page string="代管費" attrs="{'invisible':[('case_type','=','1')]}">
+                            <field name="escrow_fee_line" nolabel="1">
+                                <tree editable="bottom" string="Student Info" widget="one2many">
+                                    <field name="escrow_applyfor_year" width="5%%"/>
+                                    <field name="escrow_applyfor_month" width="5%%"/>
+                                    <field name="escrow_applyfor_fee" width="10%%"/>
+                                    <field name="escrow_period" width="5%%"/>
+                                    <field name="escrow_tot_period" width="5%%"/>
+                                    <field name="escrow_applyfor_date" width="10%%"/>
+                                    <field name="is_applyfor" width="5%%"/>
+                                </tree>
+                             </field>
+                        </page>
+
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_cloudrent_contract_match_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.contract.match.search</field>
+           <field name="model">cloudrent.contract_match</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="match_no" string="關鍵字" filter_domain="['|','|','|','|',('build_loc','ilike',self),('writ_addr','ilike',self),('build_lessor.escrow_man','ilike',self),('build_lessee.escrow_man','ilike',self),('match_no', 'ilike', self)]"/>
+                <filter string="包租/包管" domain="[('case_type','=','1')]" name="case_type1"/>
+                <filter string="代租/代管" domain="[('case_type','=','2')]" name="case_type2"/>
+                <separator/>
+                <filter string="台北市" domain="[('admin_area','=','1')]" name="area1"/>
+                <filter string="新北市" domain="[('admin_area','=','2')]" name="area2"/>
+                <filter string="桃園市" domain="[('admin_area','=','3')]" name="area3"/>
+                <filter string="台中市" domain="[('admin_area','=','4')]" name="area4"/>
+                <filter string="台南市" domain="[('admin_area','=','5')]" name="area5"/>
+                <filter string="高雄市" domain="[('admin_area','=','6')]" name="area6"/>
+                <separator/>
+                <filter string="一般戶" domain="[('lessee_type','=','1')]" name="lesseetype1"/>
+                <filter string="第一類弱勢戶" domain="[('lessee_type','=','2')]" name="lesseetype2"/>
+                <filter string="第二類弱勢戶" domain="[('lessee_type','=','3')]" name="lesseetype3"/>
+                <separator/>
+                <filter string="公寓" domain="[('build_type','=','1')]" name="buildtype1"/>
+                <filter string="華廈" domain="[('build_type','=','2')]" name="buildtype2"/>
+                <filter string="電梯大樓" domain="[('build_type','=','3')]" name="buildtype3"/>
+                <separator/>
+                <filter string="新約" domain="[('lessee_renew1','=',False),('lessee_renew2','=',False)]" name="renew1"/>
+                <filter string="續約一" domain="[('lessee_renew1','=',True),('lessee_renew2','=',False)]" name="renew2"/>
+                <filter string="續約二" domain="[('lessee_renew2','=',True),('lessee_renew1','=',False)]" name="renew3"/>
+                <filter string="有效合約" domain="[('match_enable','=',True)]" name="matchenable"/>
+                <group expand="0" string="Group By">
+                    <filter name="escrowno" string="業者" icon="terp-partner" context="{'group_by':'escrow_no'}"/>
+                    <filter name="adminarea" string="行政區"  icon="terp-partner" context="{'group_by':'admin_area'}"/>
+                    <filter name="lesseetype" string="承租人類型" icon="terp-partner"  context="{'group_by':'lessee_type'}"/>
+                </group>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_contract_match_view" model="ir.actions.act_window">
+            <field name="name">雲房租賃媒合主檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.contract_match</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_contract_match_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_cloudrent_contract_match_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_contract_match_search"/>
+            <field name="context">{'search_default_matchenable':1}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

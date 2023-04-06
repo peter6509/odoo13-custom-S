@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_accmove_excel_download_tree" model="ir.ui.view">
+            <field name="name">view.accmove.excel.download.tree</field>
+            <field name="model">alldo_acme_iot.accmove_excel_download</field>
+            <field name="arch" type="xml">
+                <tree string="" create="false" edit="false" import="false">
+                    <field name="xls_file" filename="xls_file_name" widget="binary"/>
+                    <field name="xls_file_name" invisible="1"/>
+                    <field name="run_desc"/>
+                    <field name="create_uid" string="製表人"/>
+                    <field name="create_date" string="製表時間"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_accmove_excel_download_form" model="ir.ui.view">
+            <field name="name">view.accmove.excel.download.form</field>
+            <field name="model">alldo_acme_iot.accmove_excel_download</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+<!--                            <field name="emp_no"/>-->
+                            <group>
+<!--                                 <field name="download_name"/>-->
+                                 <field name="xls_file" filename="xls_file_name"/>
+                            </group>
+                           <group>
+                                   <field name="xls_file_name" invisible="1"/>
+                                    <field name="run_desc"/>
+                           </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_accmove_excel_download_view" model="ir.actions.act_window">
+            <field name="name">應收未收帳款EXCEL匯出記錄表</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_acme_iot.accmove_excel_download</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

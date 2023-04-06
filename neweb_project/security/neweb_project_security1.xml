@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+       <record id="neweb_project_form_security1" model="ir.ui.view">
+           <field name="name">neweb.project.form.security1</field>
+           <field name="model">neweb.project</field>
+           <field name="inherit_id" ref="neweb_project.neweb_project_inherit_form"/>
+           <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en_stock'),ref('neweb_project.neweb_en_user'),ref('neweb_project.neweb_cs_user'),ref('neweb_project.neweb_on_user')])]"/>
+           <field name="arch" type="xml">
+               <!--<xpath expr="//form/sheet/group[@string='project_cost']" position="attributes">-->
+                    <!--<attribute name="attrs">{'invisible': 1}</attribute>-->
+               <!--</xpath>-->
+               <xpath expr="//field[@name='analysis_line']" position="attributes">
+                   <attribute name="attrs">{'invisible': 1}</attribute>
+               </xpath>
+               <xpath expr="//field[@name='total_analysis_revenue']" position="attributes">
+                   <attribute name="attrs">{'invisible': 1}</attribute>
+               </xpath>
+               <xpath expr="//field[@name='total_analysis_cost']" position="attributes">
+                   <attribute name="attrs">{'invisible': 1}</attribute>
+               </xpath>
+               <xpath expr="//field[@name='total_analysis_profit']" position="attributes">
+                   <attribute name="attrs">{'invisible': 1}</attribute>
+               </xpath>
+               <xpath expr="//field[@name='total_analysis_profitrate']" position="attributes">
+                   <attribute name="attrs">{'invisible': 1}</attribute>
+               </xpath>
+           </field>
+       </record>
+
+    </data>
+</odoo>

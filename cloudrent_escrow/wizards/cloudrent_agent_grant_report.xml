@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_agent_grant_report_wizard" model="ir.ui.view">
+             <field name="name">views.agent.grant.report.wizard</field>
+             <field name="model">cloudrent.agent_grant_report</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>業者補助費用清冊列印精靈</h1>
+                     <group>
+                       <field name="report_date"/>
+                       <field name="report_year"/>
+                       <field name="report_month"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_agent_grantfee_report" string="產生業者補助費用清冊" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_agent_grant_report_wizard_action" model="ir.actions.act_window">
+             <field name="name">業者補助費用清冊列印精靈</field>
+             <field name="res_model">cloudrent.agent_grant_report</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

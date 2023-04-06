@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--<template id="neweb_base_assets_backend" name="neweb_base assets" inherit_id="web.assets_backend">-->
+            <!--<xpath expr="." position="inside">-->
+                <!--<link rel="stylesheet" href="/neweb_base/static/src/css/neweb_base.css"/>-->
+                <!--<script type="text/javascript" src="/neweb_base/static/src/js/neweb_base.js"></script>-->
+            <!--</xpath>-->
+        <!--</template>-->
+
+        <template id="web.neweb_login_layout" inherit_id="web.biznavi_login_layout">
+            <xpath expr="//div" position="before">
+                <t t-set="disable_database_manager" t-value="True"/>
+                <t t-set="disable_footer" t-value="True"/>
+            </xpath>
+            <xpath expr="(//a[@target='_blank'])[2]" position="replace">
+                <!--<a href="http://www.cenoq.com" target="_blank">Powered by <span>BizNavi2</span></a>-->
+                <div>
+                    Powered by <span>BizNavi2</span>
+                </div>
+            </xpath>
+        </template>
+        <template id="web.neweb_menu_secondary" inherit_id="web.biznavi_menu_secondary">
+            <xpath expr="//div[@class='oe_footer']" position="replace">
+                <div class="oe_footer">
+                    BizNavi2@<a href="http://www.cenoq.com" target="_blank"><span>藍新資訊</span></a>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="alldo_ipla_mold_tree" model="ir.ui.view">
+            <field name="name">alldo.ipla.mold.tree</field>
+            <field name="model">alldo_ipla_iot.ipla_mold</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="mold_no"/>
+                    <field name="name"/>
+                    <field name="mold_ver"/>
+                    <field name="partner_id"/>
+                    <field name="mold_create_date"/>
+                    <field name="lifespan_times"/>
+                    <field name="current_times"/>
+                    <field name="maintenance_spantime"/>
+                    <field name="mold_cavity"/>
+                    <field name="active"/>
+                </tree>
+            </field>
+        </record>
+        <record id="alldo_ipla_mold_form" model="ir.ui.view">
+            <field name="name">alldo.ipla.mold.form</field>
+            <field name="model">alldo_ipla_iot.ipla_mold</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="mold_no"/>
+                                <field name="name"/>
+                                <field name="mold_ver"/>
+                                <field name="partner_id" options="{'no_create':true,'no_create_edit':true}" />
+                                <field name="current_times"/>
+                                 <field name="mold_cavity"/>
+                                <field name="work_man"/>
+                            </group>
+                            <group>
+                                <field name="mold_create_date"/>
+                                <field name="mold_supplier_id" options="{'no_create':true,'no_create_edit':true}" />
+                                <field name="lifespan_times"/>
+                                <field name="maintenance_spantime"/>
+                                <field name="image_filename" invisible="1"/>
+                                <field widget="binary" height="64" name="image" filename="image_filename" />
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <notebook>
+                                <page string="模具維護記錄" name="mold maintenance Line">
+                                    <field
+                                        name="main_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                    >
+                                   <tree
+                                        string="模具維護記錄"
+                                        editable="bottom"
+                                    >
+
+                                        <field name="main_date" />
+                                        <field name="span_times" />
+                                        <field name="mold_partner" options="{'no_create':true,'no_create_edit':true}" />
+                                        <field name="main_desc" />
+                                        <field name="image_filename" invisible="1"/>
+                                        <field widget="binary" height="64" name="image" filename="image_filename" />
+                                    </tree>
+                                    </field>
+                                </page>
+                            <page string="生產模具準備履歷" name="mold preprod Line">
+                                 <field
+                                        name="preprod_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree">
+                                 <tree
+                                        string="模具生產前準備履歷"
+                                        editable="bottom">
+                                        <field name="preprod_type" />
+                                        <field name="preprod_date" />
+                                        <field name="preprod_owner" options="{'no_create':true,'no_create_edit':true}" />
+                                    </tree>
+                                    </field>
+                            </page>
+
+                         </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+       <record id="alldo_ipla_mold_view_action" model="ir.actions.act_window">
+           <field name="name">模具主檔配置</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">alldo_ipla_iot.ipla_mold</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+    </data>
+</odoo>

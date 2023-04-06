@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_cloudrent_escrow_root" name="雲房包租代管系統" sequence="200"
+                    web_icon="cloudrent_escrow,static/description/icon.png"/>
+        <menuitem id="menu_cloudrent_escrow_categ1" name="系統基礎設定"
+                  groups="group_cloudrent_manager,group_cloudrent_secretary"
+                  parent="menu_cloudrent_escrow_root" sequence="70"/>
+        <menuitem id="menu_cloudrent_escrow_action11" name="代管業者主檔" parent="menu_cloudrent_escrow_categ1"
+                  action="action_cloudrent_escrow_view" sequence="10"/>
+        <menuitem id="menu_cloudrent_escrow_action12" name="人員主檔" parent="menu_cloudrent_escrow_categ1"
+                  action="action_cloudrent_escrow_member_view" sequence="20"/>
+        <menuitem id="menu_cloudrent_escrow_action13" name="補助項目主檔" parent="menu_cloudrent_escrow_categ1"
+                  action="action_cloudrent_grant_item_view" sequence="30"/>
+        <menuitem id="menu_cloudrent_escrow_action14" name="市政府補助設定" parent="menu_cloudrent_escrow_categ1"
+                  action="action_cloudrent_grant_fee_view" sequence="40"/>
+        <menuitem id="menu_cloudrent_escrow_action15" name="家俱設備清單設定" parent="menu_cloudrent_escrow_categ1"
+                  action="action_cloudrent_equip_part_view" sequence="50"/>
+        <menuitem id="menu_cloudrent_escrow_action17" name="合約版本記錄" parent="menu_cloudrent_escrow_categ1"
+                  action="action_cloudrent_contract_version_view" sequence="55"/>
+        <menuitem id="menu_cloudrent_escrow_action18" name="契約書/申請書" parent="menu_cloudrent_escrow_categ1"
+                  action="action_cloudrent_contract_data_view" sequence="56"/>
+        <menuitem id="menu_cloudrent_escrow_action16" name="表單檔名設定" parent="menu_cloudrent_escrow_categ1"
+                  action="action_cloudrent_docfilename_view" sequence="60"/>
+
+
+
+
+        <menuitem id="menu_cloudrent_escrow_action99" name="媒合主檔EXCEL匯入" parent="menu_cloudrent_escrow_categ1"
+                  action="menu_match_import_wizard_action" sequence="900"/>
+
+
+        <menuitem id="menu_cloudrent_escrow_categ2" name="行政部作業"
+                  groups="group_cloudrent_manager,group_cloudrent_secretary,group_cloudrent_agent1,group_cloudrent_agent2"
+                  parent="menu_cloudrent_escrow_root" sequence="20"/>
+        <menuitem id="menu_cloudrent_escrow_action21" name="審查文件" parent="menu_cloudrent_escrow_categ2"
+                   sequence="10"/>
+
+        <menuitem id="menu_cloudrent_escrow_action221" name="媒合主檔" parent="menu_cloudrent_escrow_action21"
+                    action="action_cloudrent_contract_match_view" sequence="10"/>
+
+        <menuitem id="menu_cloudrent_escrow_action213" name="(出租人/房東)基本資料" parent="menu_cloudrent_escrow_action21"
+                  action="action_escrow_lessor_view" sequence="30"/>
+        <menuitem id="menu_cloudrent_escrow_action214" name="(承租人/房客)基本資料" parent="menu_cloudrent_escrow_action21"
+                  action="action_escrow_lessee_view" sequence="40"/>
+
+
+
+        <menuitem id="menu_cloudrent_escrow_action215" name="物件基本資料" parent="menu_cloudrent_escrow_action21"
+                  action="action_cloudrent_build_view" sequence="50"/>
+        <menuitem id="menu_cloudrent_escrow_action216" name="業務基本資料" parent="menu_cloudrent_escrow_action21"
+                  action="action_escrow_sale_view" sequence="60"/>
+
+        <menuitem id="menu_cloudrent_escrow_action217" name="管理師基本資料" parent="menu_cloudrent_escrow_action21"
+                  action="action_escrow_manager_view" sequence="70"/>
+
+        <menuitem id="menu_cloudrent_escrow_action2175" name="秘書基本資料" parent="menu_cloudrent_escrow_action21"
+                  action="action_escrow_secretary_view" sequence="71"/>
+
+        <menuitem id="menu_cloudrent_escrow_action218" name="不動產經紀人基本資料" parent="menu_cloudrent_escrow_action21"
+                  action="action_escrow_assetagent_view" sequence="80"/>
+        <menuitem id="menu_cloudrent_escrow_action219" name="廠商代表人基本資料" parent="menu_cloudrent_escrow_action21"
+                  action="action_escrow_vendor_view" sequence="90"/>
+
+        <menuitem id="menu_cloudrent_escrow_action23" name="週報列印精靈" parent="menu_cloudrent_escrow_categ2"
+                  action="menu_cloudrent_week_wizard_action" sequence="40"/>
+
+        <menuitem id="menu_cloudrent_escrow_action24" name="月報列印精靈" parent="menu_cloudrent_escrow_categ2"
+                  action="menu_cloudrent_mreport_wizard_action" sequence="50"/>
+
+        <menuitem id="menu_cloudrent_escrow_action25" name="週報下載暫存區" parent="menu_cloudrent_escrow_categ2"
+                  action="action_cloudrent_week_download_view" sequence="60"/>
+        <menuitem id="menu_cloudrent_escrow_action26" name="月報下載暫存區" parent="menu_cloudrent_escrow_categ2"
+                  action="action_cloudrent_month_download_view" sequence="70"/>
+
+
+        <menuitem id="menu_cloudrent_escrow_categ3" name="管理部作業"
+                  groups="group_cloudrent_manager,group_cloudrent_secretary,group_cloudrent_agent1,group_cloudrent_agent2"
+                  parent="menu_cloudrent_escrow_root" sequence="30"/>
+        <menuitem id="menu_cloudrent_escrow_action31" name="修繕作業" parent="menu_cloudrent_escrow_categ3"
+                  action="action_cloudrent_vendor_repair_service_view" sequence="10"/>
+        <menuitem id="menu_cloudrent_escrow_action32" name="繳租作業" parent="menu_cloudrent_escrow_categ3"
+                  action="action_cloudrent_contract_match_view" sequence="20"/>
+        <menuitem id="menu_cloudrent_escrow_action33" name="訪視作業" parent="menu_cloudrent_escrow_categ3"
+                  action="action_agent_visit_service_view" sequence="30"/>
+        <menuitem id="menu_cloudrent_escrow_action34" name="續約作業" parent="menu_cloudrent_escrow_categ3"
+                  action="menu_cloudrent_renew_match_wizard_action" sequence="40"/>
+        <menuitem id="menu_cloudrent_escrow_action35" name="退租點交作業" parent="menu_cloudrent_escrow_categ3"
+                  action="action_cloudrent_quit_lease_view" sequence="50"/>
+
+
+        <menuitem id="menu_cloudrent_escrow_categ4" name="業務部作業"
+                  groups="group_cloudrent_manager,group_cloudrent_secretary,group_cloudrent_sale"
+                  parent="menu_cloudrent_escrow_root" sequence="10"/>
+        <menuitem id="menu_cloudrent_escrow_action41" name="業務Pipeline" parent="menu_cloudrent_escrow_categ4"
+                  action="crm.action_your_pipeline" sequence="10"/>
+
+        <menuitem id="menu_cloudrent_escrow_categ5" name="行事曆"
+                  parent="menu_cloudrent_escrow_root" sequence="50"/>
+        <menuitem id="menu_cloudrent_escrow_action51" name="業務行事曆"
+                  groups="group_cloudrent_manager,group_cloudrent_secretary,group_cloudrent_sale"
+                  parent="menu_cloudrent_escrow_categ5"
+                  action="action_cloudrent_sale_calendar" sequence="10"/>
+        <menuitem id="menu_cloudrent_escrow_action52" name="管理師訪視事曆"
+                  groups="group_cloudrent_manager,group_cloudrent_secretary,group_cloudrent_agent1,group_cloudrent_agent2"
+                  parent="menu_cloudrent_escrow_categ5"
+                  action="action_cloudrent_visit_calendar" sequence="20"/>
+        <menuitem id="menu_cloudrent_escrow_action53" name="秘書行事曆"
+                  groups="group_cloudrent_manager,group_cloudrent_secretary"
+                  parent="menu_cloudrent_escrow_categ5"
+                  action="action_cloudrent_secretary_calendar" sequence="30"/>
+        <menuitem id="menu_cloudrent_escrow_action54" name="廠商修繕行事曆"
+                  groups="group_cloudrent_manager,group_cloudrent_secretary,group_cloudrent_repair"
+                  parent="menu_cloudrent_escrow_categ5"
+                  action="action_cloudrent_repair_calendar" sequence="40"/>
+
+        <menuitem id="menu_cloudrent_escrow_action55" name="行事曆專用標籤"
+                  groups="group_cloudrent_manager,group_cloudrent_secretary"
+                  parent="menu_cloudrent_escrow_categ5" sequence="50"/>
+        <menuitem id="menu_cloudrent_escrow_action551" name="業務標籤" parent="menu_cloudrent_escrow_action55"
+                  action="action_sale_calendar_tag_view" sequence="10"/>
+        <menuitem id="menu_cloudrent_escrow_action552" name="管理師標籤" parent="menu_cloudrent_escrow_action55"
+                  action="action_visit_calendar_tag_view" sequence="20"/>
+        <menuitem id="menu_cloudrent_escrow_action553" name="廠商修繕標籤" parent="menu_cloudrent_escrow_action55"
+                  action="action_repair_calendar_tag_view" sequence="30"/>
+
+
+    </data>
+</odoo>

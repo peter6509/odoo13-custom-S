@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="newebsaleorder_inherit" model="ir.ui.view">
+            <field name="name">newebsaleorder.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="neweb_project.neweb_sale_inherit_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_term']" position="replace">
+                       <field name="payment_term_new" string="付款條件"/>
+                </xpath>
+                <xpath expr="//field[@name='warranty_service_rule1']" position="replace">
+                       <field name="warranty_service_rule_new" string="保固服務條款"/>
+                </xpath>
+                <xpath expr="//field[@name='maintenance_service_rule']" position="replace">
+                       <field name="main_service_rule_new" string="維護服務時段"/>
+                </xpath>
+                <xpath expr="//field[@name='routine_maintenance']" position="replace">
+                       <field name="routine_maintenance_new" string="定期維護條款"/>
+                </xpath>
+                <xpath expr="//field[@name='neweb_memo']" position="before">
+                    <field name="quotation_memo"/>
+                </xpath>
+                 <xpath expr="//field[@name='service_rule']" position="replace">
+
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

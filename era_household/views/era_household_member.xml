@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="era_household_member_tree" model="ir.ui.view">
+            <field name="name">era.household.member.tree</field>
+            <field name="model">era.household_member</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="member_no"/>
+                    <field name="member_name"/>
+                    <field name="member_sex"/>
+                    <field name="member_age"/>
+                    <field name="member_amount"/>
+                    <field name="member_address1"/>
+                    <field name="member_phone1"/>
+                    <field name="income_date"/>
+                    <field name="start_rental"/>
+                    <field name="end_rental"/>
+                </tree>
+            </field>
+        </record>
+        <record id="era_household_member_form" model="ir.ui.view">
+            <field name="name">era.household.member.form</field>
+            <field name="model">era.household_member</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button name="generate_secrets_code"
+                        string="建立QRCode"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o"
+                        groups="era_household.group_era_ass,era_household.group_era_manager"
+                        attrs="{'invisible': [('qr_image', 'not in', False)]}">
+                        </button>
+                        <button name="generate_unlink"
+                        string="取消Notify通知"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-pencil-square-o"
+                        groups="era_household.group_era_ass,era_household.group_era_manager"
+                        attrs="{'invisible': [('qr_image', '=', True), ('line_access_token', '!=', False)]}">
+                        </button>
+
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="member_no"/>
+                                <field name="member_name"/>
+                                <field name="house_id" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="member_pid"/>
+                                <field name="member_email"/>
+                                <field name="member_sex"/>
+                                <field name="member_age"/>
+                                <field name="member_amount"/>
+                                <field name="member_type"/>
+                                <field name="has_rent_line" attrs="{'invisible':1}"/>
+                                <field name="user_id" groups="base.group_no_one"/>
+                                <button type="object" string="展開租戶房租應繳記錄"
+                                        attrs="{'invisible':['|',('has_rent_line','=',True),('member_type','in',('2','3','4'))]}"
+                                        class="oe_highlight" name="run_account_payment" />
+                                <button type="object" string="刪除租戶房租應繳記錄"
+                                        attrs="{'invisible':['|',('has_rent_line','=',False),('member_type','in',('2','3','4'))]}"
+                                        groups="base.group_no_one"
+                                        class="oe_highlight" name="del_member_account" />
+
+
+                            </group>
+                            <group>
+                              <field name="member_address1"/>
+                              <field name="member_phone1"/>
+                              <field name="member_address2"/>
+                              <field name="member_phone2"/>
+                              <field name="member_desc"/>
+                              <field name="qr_image" widget='image' class="oe_avatar"/>
+                              <field name="state_code" invisible="1"/>
+                              <field name="line_access_token" invisible="1"/>
+                              <field name="member_account_balance"/>
+                              <field name="member_account_emeter"/>
+                              <field name="member_breach_amount"/>
+                              <field name="member_deposit1"/>
+                                <button type="object" string="租戶房租從新計算"
+                                        attrs="{'invisible':[('has_rent_line','=',False)]}"
+                                        class="oe_highlight" name="recall_account_payment" />
+                           </group>
+
+                        </group>
+                        <notebook>
+                            <page string="租房合約資訊" name="Contract Data" attrs="{'invisible':[('member_type','in',('1','2','4'))]}">
+                                <group>
+                                     <field name="income_date"/>
+                                    <field name="member_deposit"/>
+                                    <field name="start_rental"/>
+                                    <field name="end_rental"/>
+                                    <field name="house_rental_fee"/>
+                                    <field name="house_rental_desc"/>
+                                    <field name="house_management_fee"/>
+                                    <field name="house_management_desc"/>
+                                    <field name="parking_space_rent"/>
+                                    <field name="parking_rent_desc"/>
+                                    <field name="parking_management"/>
+                                    <field name="parking_management_desc"/>
+                                    <field name="lo_parking_management"/>
+                                    <field name="lo_parking_desc"/>
+                                    <field name="water_fee"/>
+                                </group>
+                            </page>
+                             <page string="月房租明細記錄" name="member rent line Data" attrs="{'invisible':[('member_type','in',('1','2','4'))]}">
+                                 <field name="member_rent_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="月房租明細記錄" create="false" edit="false" delete="false" >
+                                    <field name="member_payment_ids" widget="many2many_tags"/>
+                                    <field name="account_active"/>
+                                    <field name="account_ym" />
+                                    <field name="house_rental_fee"/>
+                                    <field name="house_management_fee"/>
+<!--                                    <field name="parking_space_rent"/>-->
+<!--                                    <field name="parking_management"/>-->
+<!--                                    <field name="lo_parking_management"/>-->
+<!--                                    <field name="water_fee"/>-->
+                                    <field name="account_tot"/>
+                                    <field name="house_rental_pay"/>
+                                    <field name="house_management_pay"/>
+                                    <field name="parking_space_pay"/>
+                                    <field name="parking_management_pay"/>
+                                    <field name="lopark_management_pay"/>
+                                    <field name="water_pay"/>
+                                    <field name="payment_tot"/>
+<!--                                    <button name="button_action" type="object" string="核銷記錄" class="oe_highlight"/>-->
+                                 </tree>
+                                </field>
+                             </page>
+
+                             <page string="租戶電錶數據" name="member income emeter Data" attrs="{'invisible':[('member_type','in',('1','2','4'))]}">
+                                 <field name="member_income_emeter" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="租戶電錶數據" create="false" edit="false" delete="false">
+                                    <field name="emeter_id"/>
+                                    <field name="start_date" />
+                                     <field name="end_date"/>
+                                    <field name="start_scale"/>
+                                    <field name="current_scale"/>
+                                    <field name="emeter_unit"/>
+                                    <field name="tot_ar_fee"/>
+                                     <field name="in_used"/>
+                                 </tree>
+                                </field>
+                             </page>
+                             <page string="房租繳款記錄" name="member payment line Data" attrs="{'invisible':[('member_type','in',('1','2','4'))]}">
+                                  <field name="member_payment_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="房租繳款記錄" create="false" edit="false" delete="false" >
+                                     <field name="name"/>
+                                     <field name="account_date"/>
+                                     <field name="payment_ap_now"/>
+                                     <field name="user_id"/>
+                                     <button name="button_action" type="object" string="核銷記錄" class="oe_highlight"/>
+                                 </tree>
+                                </field>
+                             </page>
+                              <page string="租戶電費繳費記錄" name="member emeter payline Data" attrs="{'invisible':[('member_type','in',('1','2','4'))]}">
+                                   <field name="member_emeter_payline" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="租戶電費繳費記錄" create="false" edit="false" delete="false">
+                                    <field name="member_payment_id"/>
+                                    <field name="account_date"/>
+                                    <field name="account_amount" />
+                                    <field name="user_id"/>
+                                    <button name="button_action" type="object" string="核銷記錄" class="oe_highlight"/>
+                                 </tree>
+                                </field>
+                             </page>
+                             <page string="租戶違約金繳費記錄" name="member breach contract payline Data" attrs="{'invisible':[('member_type','in',('2','1','4'))]}">
+                                   <field name="member_breach_contract" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="租戶違約金繳費記錄" create="false" edit="false" delete="false">
+                                    <field name="member_payment_id"/>
+                                    <field name="account_date"/>
+                                    <field name="breach_07_amount"/>
+                                     <field name="breach_08_amount"/>
+                                    <field name="breach_09_amount"/>
+                                    <field name="user_id"/>
+                                     <button name="button_action" type="object" string="核銷記錄" class="oe_highlight"/>
+                                 </tree>
+                                </field>
+                             </page>
+                            <page string="租戶押金金繳交記錄" name="member deposit payline Data" attrs="{'invisible':[('member_type','in',('2','1','4'))]}">
+                                   <field name="member_deposit_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="租戶押金金繳交記錄" create="false" edit="false" delete="false">
+                                     <field name="member_payment_id"/>
+                                    <field name="account_date"/>
+                                    <field name="deposit_amount"/>
+                                     <field name="deposit_status"/>
+                                    <field name="user_id"/>
+                                     <button name="button_action" type="object" string="核銷記錄" class="oe_highlight"/>
+                                 </tree>
+                                </field>
+                             </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="era_household_member_action" model="ir.actions.act_window">
+            <field name="name">住戶資訊主檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">era.household_member</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

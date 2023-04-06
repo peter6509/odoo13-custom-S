@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <record id="neweb_project_btn_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.project.btn.form.inherit</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_projext.neweb_project_form_inherit9"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button type="object" string="專案成本分析預覽" name="action_print_neweb_project" class="oe_highlight"/>
+                    <button type="object" string="專案客戶基本資料預覽" name="action_print_custom_data" class="oe_highlight"/>
+
+                </header>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

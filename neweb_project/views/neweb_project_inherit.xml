@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_project_inherit_form" model="ir.ui.view">
+            <field name="name">neweb_project_inherit_form</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_project.neweb_project_form"/>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_fn30_user'),ref('neweb_project.neweb_fn40_assi'),ref('neweb_project.neweb_en70_user'),ref('neweb_project.neweb_en80_assi'),
+               ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_cs50_assi'),ref('neweb_project.neweb_pur10_user'),ref('neweb_project.neweb_pur20_assi'),ref('neweb_project.neweb_en50_stockm'),
+                ref('neweb_project.neweb_en60_stock')])]"/>
+            <field name="arch" type="xml">
+                <field name="proj_cus_ids" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="proj_contact_ids" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="proj_pay_type" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="proj_pay" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+                <field name="acc_close_day" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+                <field name="pay_term" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="payto_date" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+                <field name="acc_receivable" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+
+               <field name="analysis_line" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="other_date" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="total_analysis_revenue" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="total_analysis_cost" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+                <field name="total_analysis_profit" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="total_analysis_profitrate" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="total_saleitem" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+                <field name="total_saleitem_tax" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="total_saleitem_amount" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="saleitem_line" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="setup_type" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="eng_assign" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="setup_description" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="proj_main_type" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="main_start_date" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="main_end_date" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+                <field name="main_other" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="ship_type" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="ship_description" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="invoice_type" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+               <field name="invoice_description" position="attributes">
+                   <attribute name="attrs">{'readonly': '1'}</attribute>
+               </field>
+            </field>
+        </record>
+        <record id="neweb_project_inherit1_form" model="ir.ui.view">
+            <field name="name">neweb_project_inherit1_form</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_project.neweb_project_form"/>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa30_ass'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa50_assi')])]"/>
+
+            <field name="arch" type="xml">
+                <field name="proj_cus_ids" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="proj_contact_ids" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="proj_pay_type" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="proj_pay" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+                <field name="acc_close_day" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+                <field name="pay_term" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="payto_date" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+                <field name="acc_receivable" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+
+               <field name="analysis_line" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="other_date" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="total_analysis_revenue" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="total_analysis_cost" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+                <field name="total_analysis_profit" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="total_analysis_profitrate" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="total_saleitem" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+                <field name="total_saleitem_tax" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="total_saleitem_amount" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="saleitem_line" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="setup_type" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="eng_assign" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="setup_description" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="proj_main_type" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="main_start_date" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="main_end_date" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+                <field name="main_other" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="ship_type" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="ship_description" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="invoice_type" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+               <field name="invoice_description" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+               </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_stockin_qcout_tree" model="ir.ui.view">
+            <field name="name">neweb_stockin_qcout_tree</field>
+            <field name="model">neweb.stockinline_qcout</field>
+            <field name="arch" type="xml">
+                <tree create="false" edit="false" delete="false">
+                    <field name="origin"/>
+                    <field name="stockin_machinetype"/>
+                    <field name="stockin_modeltype"/>
+                    <field name="stockin_prodno"/>
+                    <field name="stockin_spec"/>
+                    <field name="stockin_serial"/>
+                    <field name="stockin_qcoutnum"/>
+                    <field name="stockin_desc"/>
+                    <field name="stockin_checkman"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_stockin_qcout_form" model="ir.ui.view">
+            <field name="name">neweb_stockin_qcout_form</field>
+            <field name="model">neweb.stockinline_qcout</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                             <field name="origin" attrs="{'readonly':'1'}"/>
+                            <field name="stockin_machinetype" attrs="{'readonly':'1'}" />
+                            <field name="stockin_modeltype" attrs="{'readonly':'1'}" />
+                            <field name="stockin_prodno" attrs="{'readonly':'1'}" />
+                            <field name="stockin_spec"  />
+                        </group>
+                        <group>
+                            <field name="stockin_serial"/>
+                            <field name="stockin_qcoutnum" attrs="{'readonly':'1'}"/>
+                            <field name="stockin_desc"/>
+                            <field name="stockin_checkman" attrs="{'readonly':'1'}"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_stockin_qcout_action" model="ir.actions.act_window">
+            <field name="name">neweb_stockin_qcout_action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.stockinline_qcout</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_neweb_stockin_qcout_action"
+                  name=""
+                  parent="neweb_project.menu_neweb_stockmove_categ"
+                  action="neweb_stockin_qcout_action"
+                  sequence="30"/>
+    </data>
+</odoo>

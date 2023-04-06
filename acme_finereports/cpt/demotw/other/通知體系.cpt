@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20170720" releaseVersion="10.0.0">
+<ReportWebAttr>
+<ServerPrinter/>
+<WebPageContent>
+<ToolBars/>
+<WebPage isPage="false" showAsImage="false" autoScale="false" tdHeavy="false"/>
+</WebPageContent>
+<WebWriteContent>
+<ToolBars/>
+<EditRowColor setColor="false"/>
+<WebWrite SheetPosition="3"/>
+<RptLocation isShowAtLeft="true"/>
+<UnloadCheck/>
+<ShowWidgets/>
+<OtherAttr autoStash="false"/>
+</WebWriteContent>
+</ReportWebAttr>
+<ReportFitAttr fitStateInPC="2" fitFont="false"/>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[266700,1524000,1485900,1447800,1485900,2286000,1333500,571500,571500,1104900,571500,571500,1104900,571500,571500,1181100,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[0,1371600,1333500,3581400,381000,1485900,1333500,3390900,381000,1447800,1333500,4533900,800100,2095500,1333500,4076700,381000,2209800,1333500,3962400,381000,2209800,1333500,4038600,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="1" cs="11" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="1" s="0">
+<O t="Image">
+<IM>
+<![CDATA[!E9*#reXHH7h#eD$31&+%7s)Y;?-[s*WQ0?*XDrM!!#)7Y+bmr!?4Tu5u`*!@pg,W7"G=;s)
+S;4*[(Ff`$P&_3;u,Dr!$VRH<Hd4*u,(0bMiR[Ma_;n)']A[t!q?:6re"hQ4!:+&`+mf1PQQ_
+Cs!J5(!c]Ad!//86GUI84A$u2_LnH'=TK`Mu^/2[IfIq2`1$&G"k[<OKqQGPmH3L6rPnQ-&LS
+kkBcne>77!f+k%fUN9ah^6D':b#TFSK*QGW*h=cLllHB"=dPj6E8#jW+9ljW>;,$P/Tkc=P?
+"d90iR-8hhO@ijVmo(^)/sC[pimjHn9Xi!0f@P7l[;5V,AJ('\5;U+I\L+>+f!`I_6l@K@O.
+kMlhGB3JMUO!XdD!\jpS/V[FM!lS1>6aFiM+BG;KV*c:(!!AEmr,l6KAcMf2!(fUS7'8jaJc
+~
+]]></IM>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="1" cs="11" s="1">
+<O>
+<![CDATA[通知體系]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="2" s="3">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="3" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="3" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="3" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="3" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="3" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="3" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="4" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="4" s="5">
+<O t="Image">
+<IM>
+<![CDATA[!HeI$rJ=?G7h#eD$31&+%7s)Y;?-[s*WQ0?*XDrM!!#)7Y+bmr!^'%B5u`*!m?TJ"*'k:Z9k
+B3TG(G`%(1Lhgfj.Ir'fPjf<f6\gkn:AUffKTi>d+ct"@S0#J03a7O=t!8TuK]AhO>NBY40M1
+1q>Y)G@Cb.AgV*+an\MNSba\WNk09CK2`,Vp.AjM%i/*3Sq.dk\Woj*Ie.FGmO82g6p<eZ0<
+e*r<(*NMi!::-d#I#k!+LbW"f?Akce&FTH(gi6D4b;9ar<^CP>%38i+"e;ZoiO/&p<eZ0ArN
+qeWK@KJ;ee:BrkODe;[f#!bhb_o@lTbmeEUc+S7kY?FMBO!K\r20gnmFJXSh7@3e\+@TlCk5
+dTO2.Q5:GY25ir<C3OfB"8.EG1F(D-I\F#Db9SFA;]AY"YH5'ee@paCr6"?Z:[E7XroL/J31I
+EKagBLT?g15<Nb#`p\WpdBiYu.!L2"3FL68dG.DQFscjHD]A(=kb1*Wfka9`jt[B=\cD&+M%s
+m-@FunO8<CTN0G(#hmi[Bh's8#PSL5DKOZC_2OI<Nj"[=8NXe_527[tHRY1$`;mrCO+/au;6
++@m$iO31H?6ChT[rD+(cmt=RZD*,Zcc=[rF19YDg+ThrT0tM'3QYVG'+Oj;3%m,;D_X./W'?
+=m&,A7:0R"ZOS&mu2E4u*P.=KpdX]A"@=Z^u)kDE3/J]ATlqZ3n%gWU)tQP&$QF;W:s/7X"MbC
+Pq6hS?F<\f`cj%'Rg>]A9D!4B;$2+csaKUOtF$Xkp+M^'WrrMt,6hkdW22;/3!!#SZ:.26O@"
+J~
+]]></IM>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="4" s="6">
+<O>
+<![CDATA[簡訊]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="4" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="4" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="4" s="8">
+<O t="Image">
+<IM>
+<![CDATA[!D!7#reXHH7h#eD$31&+%7s)Y;?-[s*WQ0?*XDrM!!#)7Y+bmr!=qai5u`*!@pg,W,7^*MIW
+75`s&<^[qRM.q(h=E'9Y?[[[=)@jf)"Vq9eaq1S3DWUZ=s,?6cBUQK:.YJkF`rK8:Ea=f)#3
+G=iZjgat<R^%5tQ[o565kZi`Z--pBnZ%eK^A!#=pre8cg-f;HmkcO(.RTH-!D#-fVb*8OMS(
+f;&I@Q?>>8[=^'bAgZWZGiVANmCV//1/AW6C*dO0tQH^m@R8f#(A!HA19q_UKS/9kTURF-,r
+i?/Hu7%8cRJg><d62IJsXgiF@s5L]A.6U#jJ,:@WK;``?X#EGdZ3"9nqAfK$;/9/]A&D-^oXi$
+R[/TM!h"nO+TMQGde#j!3SbX$UL71*!:WTW2N-`L0)ttP!(fUS7'8jaJc~
+]]></IM>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="4" s="6">
+<O>
+<![CDATA[郵件]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="4" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="4" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="4" s="8">
+<O t="Image">
+<IM>
+<![CDATA[!BgM$rJ=?G7h#eD$31&+%7s)Y;?-[s*WQ0?*XDrM!!#)7Y+bmr!X)(_5u`*!m?Tn/!\kD0+n
+9X#_3hatCu!8-J7+2\5mK=Q<sP:=FOHjGLkq1ti#k+6-5oCLZ]AbbB/jp\Lom-jq+8*>-/s:k
+I.sIm<^8*2@gAYFYI;N=6n8CIWbk*bZeON3YepRR^N#3p94dDrqYfN'tGn-)R^*k^B+dB_R`
+qMV$LXKWG5fWm'"DB6IeE792]AEHEZ8gL8t8<eVFMOKRe`JF2Z-fE7>(mGo9YgR_$U2i60([Q
+Pg_4X7%qJk_+KQ7bunCaD,TnG</KC<ehW)"U/1"N@3,<3oI+ekna;!/J2<)Fg;ZgiVaEWe[m
+?<L/%?2-3aqJ&(sSYV:Be4EK0?oic(#WG#-hr5n`@iGJaU)h_n7]AFd<piZ\=Ngek69R+#+"9
+ok"SY5[rL=DIN0HO&&JFArr!k)>$\Jnr"0^8\12rRVu*VUNUc;SZa]ASs-8rTXDboGigEZK%M
+q^EM>$W4<$@Fq'0@+1_aWAQ#^B`3?G]Aojc%AmgI'_EtPEHo`B$<Y-6'H]A,KO3nG5SJg32gP%
+!2U>l]AGkLn=VZAK?id5k9X9YQ9'S&Gnqt6\X*nE^/emP;O_h2]A5I:p5hgk?]ARgeSbdB,>nf2
+H`#+KTrNW&#T8GqJ]AAXR4D%X.#NH>Ao[,"NDr"8;]A8[tO`VgD:mBD\cC,Q\kbC!!#SZ:.26O
+@"J~
+]]></IM>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="4" s="6">
+<O>
+<![CDATA[系統資訊]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="4" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="4" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="4" s="8">
+<O t="Image">
+<IM>
+<![CDATA[!ETB%r/"6F7h#eD$31&+%7s)Y;?-[s*WQ0?*XDrM!!#)7Y+bmr"!1$%5u`*!m?V+89MleM#:
+8q+,Z<JW6m?[?SK5n2otmIg%m1Ho+N4uaYd4#YRFNo?s-*KE:]A;'?rZm_m_?4^,??V7Tf&E3
+@Vhn^"pNOong[):'G.FB4?_-W/\Yn?Jp]A'#:ikL^DOt9l+pnH">GfsFp<]A8%P/ea9cT.@UBp
+ek.#.MGQt)*\3VHN<4#F;XIirU=?#J4gEO;#otc."le)QcW81'i2q]A$@/_g3i.SJU\0.b"QT
+gGQed2\[_K#UJS<%ZRqttI@tVA,XF\eYj:S!04I1+Q?YhGnIUV=q2%7fTXrgSNV:&fWPhia$
+o,c6ner]A:+k:q7N,*C%/VX"24f^u'_:&s>X<]A</*!alt[)QqspGYRiP;b@M@2e53aG4KPP.6
+ko6*l'`LIm`'&@;fuS*oX6MiPp<g6^`0mW>IIR/;Mbk;)fRCXQ!hIaAqk4/d!'L9`G$SZl8?
+.ik*6a5<(<a=9r\LRIK__=B1&fYh*OrCOb;)6t)?uUNEqb5f!1H2[,(VfmL2SJQrlM/.rs0-
+B8p=`SUUdT_QeW6Ch(d-%UuB)@+VtSO9$!76YoqT2d*CcWTH\D-.p)oVY@V2PAPt-(uC?)kc
+CN<@_'\'bfVc.V/II%^.Op(=Q@,Z:We?X%S';e1mYn`p]AYY`-M_W*mjO&A"5g6cXYrXSO%KZ
+QZbdl<*7ZUeX4eC[%'Q+kZM]A<I0g+b,37'Y5TBD]Al"HHM\R&0:6FY?XX=(bD2]AshlV-Br)hC
+L."NeW7eFBKOjfP:cU=G7c[RUUD)j3cXOHs/(/)@5'WHC:J]A#"<^=Yg#_CItqba(20mLC(Xe
+m7@lHl_6Pls4cNJt$EH0fYUMJM?Q6i"<N9:_PP'5298C]A,X4>,qVJ;1/Qu'oF351VP^$(F/L
+>!-WM<Ms::$<?:055;KS0.B9%XH=;%1@'7I`Er6/HtoR5c3#$D"isZ4qH8a%h?Iep8d43<B9
+H7X-:"\PHVP`:5g2eP"a&eKl'3oN1O&N^K;985;,5%m"&4bGg:cNz8OZBBY!QNJ~
+]]></IM>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="4" s="6">
+<O>
+<![CDATA[app通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="4" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="4" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="4" s="8">
+<O t="Image">
+<IM>
+<![CDATA[!O`)%r/"6F7h#eD$31&+%7s)Y;?-[s*WQ0?*XDrM!!#)7Y+bmr"+<a/5u`*!eQ,C\%8dggrZ
+a`rLkqZ4/+F:8be0p@`hFUhOba/bLr@m56BE<FG@!om.3XN)`.HXk:JcrV2H\=6iMTCB84<[
+UhY6k[\\<,t7VATHY;<AnE0?\Ln(`!0GL!nbkGD/W""C&N%6-m]A9n'[qjA*T.[ga\<9NuV+9
+QX]Ak1)PLWg:Sd"Lrt2OBK>l+!4iTS?\Zf?^0^m(I%&/lJ0"jn"F0[Fnp91/:X^l,]AO.=fE$I
+Unei2'DbcK)a.Hk01)G0L=js<#q14GO6a['dS`AJe+>'7BtEV25^<5YAM!%77T^NZ!pWtDU&
+ND+M`#.;G#asJu&Z.C+'`Hq9)`9CA2<JT'PSNJm;<EI[hT9!L;MW<`!(Sa$W/_B4P@/OW`;+
+`eT^g^bMhjulLK2*%L/.V6eHg<!h=-\R:pu!3`]A^P=JMWX\]A3bHN\37Q;&YZi`m--D"Z*AEY
+oBjBr.a5f9L-g4=iNl-1U#$9AieuLOEJT8oI))%7K8$(2fiFM-G"e8*$[A<pB)*(cbT$8A9"
+PR;Q-Vj1^eMm#4^CY?'22J&Y$Ysf^&_T%FM>R?e'5S[b1L\b9rXZ_Eisd7U1&ukpGl'N.-tO
+uP^/,1@8:A%D`qC`LI+m2S(@n/88$nbm<uG<c$e3;DUG@J<k>k'tNhlh<Os`E@f?=EKC,Ct3
+,J]Ap>1Gh_&o-*V;fc:uO@O`+B=HU8J0:L"CAg6LTDGB\C`C:qaIP&YFLI0_RF_&kAjN<([L+
+Tk8j9&uh?WlT,IG!d"A:1ikI\@<,A?KFW2&$@U]A?Z5G&cP-^QuM-!Q0b:j_N!&j$3=Z*4VZ4
+qGfU?<jZSu)j+@1a>KfDmg_\4IdO.-8LiCs&.'PE>?JX&I+8(J(NfnC^H#tX9OCN9$f/DuK4
+k,+V^S7%Wc=Co-lN+f9Hdf#Y)KAZLl%Sf5gCm7*D]AX,M/#.]AQ#se``>hHe'^#PoAP'ReQA':
+!-kfHc)2LEX4,ih`f)QS]A/He*1a.aN31o=A4K8WSj/3Ysq;kb/%8m`nf>`U23)1SP3;-Ec-1
+18n!fVA$\)kpJ5U,efn=Ni[8n9&`gbJUK"%O$D*C6]AXdpig!tcIk)]AT\aM5dMk3Q%5dX2iS1
+9P0-Q.qL]AjIbTo`#Gjs1H[H%]AL-B!!!!j78?7R6=>B~
+]]></IM>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="4" s="6">
+<O>
+<![CDATA[微信通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="4" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="4" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="4" s="8">
+<O t="Image">
+<IM>
+<![CDATA[!H81&qh\-E7h#eD$31&+%7s)Y;?-[s*WQ0?*XDrM!!#)7Y+bmr"?/n?5u`*!]AiJ?r'L`^A?V
+u1Y5sJ>)-n6JJ)S<%cG(bQ<bf5`p5sI%(@[*P=CfZP!%t]AP<WpU`G\cTH2_=18f68h]A_U&d1
+a5`tCG1lC^Mq;T:^e?8)*q9Ti=[VR^\*QDN"\OgADVlT+<Hg\GRWhH-)S9#JM\`CJ`9"]AldB
+hXm!R5B=clJkQAFaq[p[WK+(7i[nO2WII%6QjW8^=)t!i+J"XI@8;pQ>Xp&!W/RYl3mPRMtB
+[C:A0ru!KQMT,1]AF7]ADTaY2FbZtl40=amKR%`D?:gSO%&aX*YoLlHn1EN+(4+:UdK]Aq=cJQU
+VJb=C0Hh,+"2;d7.fI+r]At6=%Ai:K.NUOo9(&nak[ehOW7P$[5dp5ib0LZ&S#7+kMn#ncr0r
+;^EF;sB1KEH_?OZk+TFb.o#q>%mE<#ns@;e2PA'/o49O_LDNG?:'#]A@L9F(f;S]AKbWp.!sLZ
+j+0;U8_rTdV;o,5>*l*--_:MBFpT[jO9'r3kQ.GTXp/^$Yk;-[Ua4_cb_r"S&eJDg@YuD;lV
+,HM_^52e_,7q+QLP4Bt7%j0-EoLmEPci?nMRPC,4G.buVY`ot[bUd:/6/g2HTYl*"=dQ*pFV
+4!F)55[4#-euD=Nm>Q>416f3LGm5+0't&Wu7MQX;nOXYTB<1C"Nk'SrQ=hML6n.ScZ5#$<D>
+HioCO_jTuOeBoC4k*FgRZ2mkr)]A.Y1MSO;Fgm-Bo0Y7&uHh22tW9-\->j<2$S)"fjJV@EjH+
+bb1S6-AjN(;Gh1nRW4Tnp4;n)gWp#=Ug5kaed8hJuTecqH`>*Xa1Hp:ikJ/@-hrONX4\l<cZ
+Q:O(=[KAnO%FY@0`TYo_K5)At,Ze(?r=<$5rDX)[N!WNC2(_<Y??j$%:r=qS@#9A+0R-6quQ
+ZHlqLJo`PSd>u=!do"<TO^G,^cnH>B6%T&.<T?k]ABid<Ar#e8(8agi?.S8C4YPacEY'QniK-
+#jI6&;_`g)!#7o1h!QZfl('qQ\ij1"9c5gKFsjuMMq>NGQ(1l%pKqpSptO4*kA%fM2G/tfbN
+?DQN[qY"--UOi2T#5<db7]AnZoIjY5>P+4ds^.HXM"Z-`6Hjr^IQ^S?F%3S(EZEe^f:#KP]Aj)
+e_N8BW*:HE8LSQbc-%U:Z8r:YA#+D;)hEo5NV!J2^BNf*ko!,VnG01Eq:/,)-k:W/O:/@%ma
+5?P)HnFTj'9Tqtg8S4(jBOk[dLI%8GWi;"=pm/4GI%N.\.#[JK6U"=qV:XabFj.e$!QYO7"<
+&10a;/]A)(]A@&d.MRu.JkRdtEU[&Da4p62@V$@&3NtDUCU\bp7)BcCQJ1e>STOc..MZE[q;t2
+C":9(lE2&8ZJ!i^Cn]Aj<3,$f`e/@b%P?"Wq9X*gq3(bl@_D!(fUS7'8jaJc~
+]]></IM>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="4" s="6">
+<O>
+<![CDATA[釘釘通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="5" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="5" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="5" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="5" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="5" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="5" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="6" cs="3" s="9">
+<O>
+<![CDATA[身份驗證]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="6" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="6" cs="3" s="9">
+<O>
+<![CDATA[身份驗證]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="6" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="6" cs="3" rs="2" s="9">
+<O>
+<![CDATA[平台內部資訊通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="6" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="6" cs="3" rs="10" s="9">
+<O>
+<![CDATA[定時調度任務通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="6" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="6" cs="3" rs="10" s="9">
+<O>
+<![CDATA[定時調度任務通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="6" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="6" cs="3" rs="10" s="9">
+<O>
+<![CDATA[定時調度任務通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="7" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="7" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="7" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="7" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="7" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="7" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="7" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="7" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="7" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="7" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="7" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="8" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="8" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="8" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="8" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="8" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="8" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="8" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="8" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="8" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="8" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="8" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="8" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="8" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="8" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="9" cs="3" s="9">
+<O>
+<![CDATA[定時調度失敗提醒]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="9" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="9" cs="3" s="9">
+<O>
+<![CDATA[定時調度失敗提醒]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="9" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="9" cs="3" rs="4" s="9">
+<O>
+<![CDATA[上報資訊]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="9" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="9" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="9" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="10" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="10" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="10" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="10" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="10" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="10" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="10" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="10" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="10" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="10" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="10" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="11" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="11" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="11" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="11" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="11" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="11" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="11" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="11" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="11" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="11" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="11" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="12" cs="3" s="9">
+<O>
+<![CDATA[定時調度任務通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="12" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="12" cs="3" s="9">
+<O>
+<![CDATA[定時調度任務通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="12" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="12" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="12" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="12" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="13" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="13" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="13" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="13" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="13" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="13" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="13" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="13" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="13" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="13" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="13" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="13" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="13" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="13" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="14" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="14" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="14" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="14" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="14" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="14" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="14" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="14" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="14" cs="3" rs="2" s="9">
+<O>
+<![CDATA[範本資訊]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="14" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="14" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="14" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="15" cs="3" s="9">
+<O>
+<![CDATA[記憶體閥值通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="15" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="15" cs="3" s="9">
+<O>
+<![CDATA[記憶體閥值通知]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="15" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="15" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="15" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="15" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings shrinkToFitMode="0" headerHeight="0" footerHeight="0">
+<PaperSetting>
+<PaperSize width="51840000" height="21600000"/>
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+<Background name="ColorBackground" color="-1"/>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0" useParamsTemplate="true"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style imageLayout="4">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ColorBackground" color="-13203982"/>
+<Border/>
+</Style>
+<Style imageLayout="4">
+<FRFont name="SimSun" style="0" size="160" foreground="-1"/>
+<Background name="ColorBackground" color="-13203982"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="2" color="-13203982"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="2" color="-13203982"/>
+<Left style="2" color="-13203982"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="2" color="-13203982"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="160"/>
+<Background name="ColorBackground" color="-2299142"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="128" foreground="-13203982"/>
+<Background name="ColorBackground" color="-2299142"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="128"/>
+<Background name="ColorBackground" color="-2299142"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96" foreground="-12759706"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2" color="-13203982"/>
+<Bottom style="2" color="-13203982"/>
+<Left style="2" color="-13203982"/>
+<Right style="2" color="-13203982"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="2" color="-13203982"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="2" color="-13203982"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="KAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateIdAttMark class="com.fr.base.iofile.attr.TemplateIdAttrMark">
+<TemplateIdAttMark TemplateId="452f2d5d-07b4-4faa-a831-5c1977adcdb3"/>
+</TemplateIdAttMark>
+</WorkBook>

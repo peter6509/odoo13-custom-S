@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="saleorder_excel_download_tree" model="ir.ui.view">
+           <field name="name">saleorder.excel.download.tree</field>
+           <field name="model">neweb.saleorder_excel_download</field>
+           <field name="arch" type="xml">
+               <tree string="" >
+                   <field name="xls_file" widget="binary" string="下載" filename="xls_file_name"/>
+                   <field name="xls_file_name"/>
+                   <field name="create_uid" string="創建人"/>
+                   <field name="create_date" string="創建時間"/>
+               </tree>
+           </field>
+       </record>
+
+       <record id="action_saleorder_excel_download_view" model="ir.actions.act_window">
+           <field name="name">報價單匯出EXCEL下載</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">neweb.saleorder_excel_download</field>
+           <field name="view_mode">tree</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+
+             </p><p>
+
+             </p>
+           </field>
+       </record>
+         <menuitem id="menu_saleorder_excel_download_action" name=""
+                   action="action_saleorder_excel_download_view"
+                   groups="base.group_user"
+                   parent="sale.report_sales_team" sequence="50"/>
+    </data>
+</odoo>

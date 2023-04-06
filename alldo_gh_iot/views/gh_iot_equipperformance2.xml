@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="gh_iot_equipperformance_tree2" model="ir.ui.view">
+            <field name="name">gh.iot.equipperformance.tree2</field>
+            <field name="model">alldo_gh_iot.workorder_performance_list2</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="iot_date"/>
+                    <field name="iot_week"/>
+                    <field name="timesheet1"/>
+                    <field name="timesheet2"/>
+                    <field name="timesheet3"/>
+                    <field name="timesheet1_per"/>
+                    <field name="timesheet2_per"/>
+                    <field name="timesheet3_per"/>
+                </tree>
+            </field>
+        </record>
+        <record id="gh_iot_equipperformance_action2" model="ir.actions.act_window">
+            <field name="name">機台稼動率統計表</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.workorder_performance_list2</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

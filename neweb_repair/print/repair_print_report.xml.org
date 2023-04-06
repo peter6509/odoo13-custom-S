@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                id="repair_print_report"
+                model="neweb_repair.repair"
+                string="Print Repairs"
+                report_type="qweb-pdf"
+                name="neweb_repair.repair_print_report_main"
+                file="neweb_repair.repair_print_report"
+                attachment_use="False"
+        />
+        <record id="paperformat_repair" model="report.paperformat">
+            <field name="name">Repair</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">200</field>
+            <field name="dpi">96</field>
+        </record>
+
+        <record id="neweb_repair.repair_print_report" model="ir.actions.report.xml">
+            <field name="paperformat_id" ref="paperformat_repair"/>
+        </record>
+    </data>
+</odoo>

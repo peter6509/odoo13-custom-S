@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <record id="cloudrent_maintenance_security_rule1" model="ir.rule">
+             <field name="name">cloudrent.maintenance.security.rule1</field>
+             <field ref="cloudrent_household.model_cloudrent_household_maintenance" name="model_id"/>
+             <field name="groups" eval="[(4, ref('cloudrent_household.group_cloudrent_manager'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="cloudrent_maintenance_security_rule2" model="ir.rule">
+             <field name="name">cloudrent.maintenance.security.rule2</field>
+             <field ref="cloudrent_household.model_cloudrent_household_maintenance" name="model_id"/>
+             <field name="groups" eval="[(4, ref('cloudrent_household.group_cloudrent_ass'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+         <record id="cloudrent_maintenance_security_rule3" model="ir.rule">
+           <field name="name">cloudrent.maintenance.security.rule3</field>
+           <field ref="cloudrent_household.model_cloudrent_household_maintenance" name="model_id"/>
+           <field name="domain_force">[('main_user_id', '=', user.id)]</field>
+           <field name="groups" eval="[(4,ref('cloudrent_household.group_cloudrent_user'))]"/>
+        </record>
+    </data>
+</odoo>

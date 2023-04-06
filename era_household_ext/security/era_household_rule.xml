@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+<!--房東權限rule-->
+         <record id="era_household_landlord_rule1" model="ir.rule">
+           <field name="name">era.household.landlord.rule1</field>
+           <field ref="era_household_ext.model_era_household_landlord" name="model_id"/>
+           <field name="domain_force">['|','|','|','|',('landlord_user1.id','=',user.id),('landlord_user2.id','=',user.id),('manager_user1.id','=',user.id),('manager_user2.id','=',user.id),('manager_user3.id','=',user.id)]</field>
+           <field name="groups" eval="[(6,0, [ref('era_household_ext.group_era_agent'),ref('era_household_ext.group_era_landlord')])]"/>
+         </record>
+         <record id="era_household_landlord_rule2" model="ir.rule">
+           <field name="name">era.household.landlord.rule3</field>
+           <field ref="era_household_ext.model_era_household_landlord" name="model_id"/>
+           <field name="global" eval="1"/>
+           <field name="groups" eval="[(6,0, [ref('era_household.group_era_manager'),ref('era_household.group_era_ass')])]"/>
+          </record>
+<!--    案場權限rule    -->
+         <record id="era_household_house_rule1" model="ir.rule">
+           <field name="name">era.household.house.rule1</field>
+           <field ref="era_household.model_era_household_house" name="model_id"/>
+           <field name="domain_force">['|','|','|','|',('landlord_user1.id','=',user.id),('landlord_user2.id','=',user.id),('manager_user1.id','=',user.id),('manager_user2.id','=',user.id),('manager_user3.id','=',user.id)]</field>
+           <field name="groups" eval="[(6,0, [ref('era_household_ext.group_era_agent'),ref('era_household_ext.group_era_landlord')])]"/>
+         </record>
+        <record id="era_household_house_rule2" model="ir.rule">
+           <field name="name">era.household.house.rule2</field>
+           <field ref="era_household.model_era_household_house" name="model_id"/>
+           <field name="global" eval="1"/>
+           <field name="groups" eval="[(6,0, [ref('era_household.group_era_manager'),ref('era_household.group_era_ass')])]"/>
+         </record>
+<!--        案場租房權限rule-->
+         <record id="era_household_house_line_rule1" model="ir.rule">
+           <field name="name">era.household.house.line.rule1</field>
+           <field ref="era_household.model_era_household_house_line" name="model_id"/>
+           <field name="domain_force">['|','|','|','|',('landlord_user1.id','=',user.id),('landlord_user2.id','=',user.id),('manager_user1.id','=',user.id),('manager_user2.id','=',user.id),('manager_user3.id','=',user.id)]</field>
+           <field name="groups" eval="[(6,0, [ref('era_household_ext.group_era_agent'),ref('era_household_ext.group_era_landlord')])]"/>
+         </record>
+        <record id="era_household_house_line_rule2" model="ir.rule">
+           <field name="name">era.household.house.line.rule2</field>
+           <field ref="era_household.model_era_household_house_line" name="model_id"/>
+           <field name="global" eval="1"/>
+           <field name="groups" eval="[(6,0, [ref('era_household.group_era_manager'),ref('era_household.group_era_ass')])]"/>
+         </record>
+<!--        租戶權限rule-->
+        <record id="era_household_member_rule1" model="ir.rule">
+           <field name="name">era.household.member.rule1</field>
+           <field ref="era_household.model_era_household_member" name="model_id"/>
+           <field name="domain_force">['|','|','|','|',('landlord_user1.id','=',user.id),('landlord_user2.id','=',user.id),('manager_user1.id','=',user.id),('manager_user2.id','=',user.id),('manager_user3.id','=',user.id)]</field>
+           <field name="groups" eval="[(6,0, [ref('era_household_ext.group_era_agent'),ref('era_household_ext.group_era_landlord')])]"/>
+         </record>
+        <record id="era_household_member_rule2" model="ir.rule">
+           <field name="name">era.household.member.rule2</field>
+           <field ref="era_household.model_era_household_member" name="model_id"/>
+           <field name="global" eval="1"/>
+           <field name="groups" eval="[(6,0, [ref('era_household.group_era_manager'),ref('era_household.group_era_ass')])]"/>
+         </record>
+    </data>
+</odoo>

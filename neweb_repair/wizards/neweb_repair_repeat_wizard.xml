@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_repeatcall_form_wizard" model="ir.ui.view">
+            <field name="name">neweb.repeatcall.form.wizard</field>
+            <field name="model">neweb_repair.repair_repeat_call_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                         <h1>報修 REPEAT CALL 精靈</h1>
+                        <group>
+                           <field name="repair_start"/>
+                           <field name="repair_end"/>
+                           <field name="repeat_num" />
+                        </group>
+                    </sheet>
+                         <footer>
+                                <button type="object" name="run_repeat_call" string="執行" class="oe_highlight"/>
+                                <button special="cancel" string="放棄"/>
+                            </footer>
+                </form>
+            </field>
+        </record>
+         <record id="neweb_repeatcall_view_action" model="ir.actions.act_window">
+                     <field name="name">報修 REPEAT_CALL 統計精靈</field>
+                     <field name="res_model">neweb_repair.repair_repeat_call_wizard</field>
+                     <field name="view_mode">form</field>
+                     <field name="target">new</field>
+                 </record>
+
+<!--            要修改-->
+        <menuitem id="menu_repeatcall_view_action" name="" sequence="100"
+                  parent="neweb_base.menu_repair"
+                  groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa20_vp,neweb_project.neweb_en80_assi,neweb_project.neweb_en70_user,neweb_project.neweb_en40_mgt,neweb_project.neweb_en30_ass,neweb_project.neweb_cs50_assi,neweb_project.neweb_cs40_user,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs20_vp,neweb_project.neweb_on10_gm,neweb_project.neweb_on20_vp,neweb_project.neweb_on30_mgt,neweb_project.neweb_on40_pm,neweb_project.neweb_on50_user"
+                  action="neweb_repeatcall_view_action"/>
+
+    </data>
+</odoo>

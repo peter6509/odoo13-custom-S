@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_neweb_hrholiday_tree" model="ir.ui.view">
+            <field name="name">view.neweb.hrholiday.tree</field>
+            <field name="model">neweb_emp_timesheet.hrholiday</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="hr_holiday_year"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_neweb_hrholiday_form" model="ir.ui.view">
+            <field name="name">view.neweb.hrholiday.form</field>
+            <field name="model">neweb_emp_timesheet.hrholiday</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="hr_holiday_year"/>
+                        </group>
+                         <notebook>
+                            <page string="例假日列表">
+                                <group>
+                                    <field name="hr_holiday_line" nolabel="1">
+                                        <tree editable="bottom" string="Custom Info" widget="one2many">
+                                            <field name="nitem" attrs="{'readonly':1}"/>
+                                            <field name="holiday_date"/>
+                                            <field name="holiday_memo"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_neweb_hrholiday_view" model="ir.actions.act_window">
+            <field name="name">例假日配置作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_emp_timesheet.hrholiday</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

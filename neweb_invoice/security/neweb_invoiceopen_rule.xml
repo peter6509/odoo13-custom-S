@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="do_not_update_invoiceopen_rule" model="ir.rule">
+            <field name="name">do not update invoiceopen rule</field>
+            <field ref="neweb_invoice.model_neweb_invoice_invoiceopen" name="model_id"/>
+            <field name="domain_force">[('have_inherit','=',False)]</field>
+            <field name="perm_write" eval="1"/>
+            <field name="perm_create" eval="0"/>
+            <field name="perm_read" eval="0"/>
+            <field name="perm_unlink" eval="1"/>
+            <field name="global" eval="1"/>
+        </record>
+         <record id="neweb_invoiceopen_rule1" model="ir.rule">
+             <field name="name">neweb.invoiceopen.rule1</field>
+             <field ref="neweb_invoice.model_neweb_invoice_invoiceopen" name="model_id"/>
+             <field name="groups" eval="[(6,0,[ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass')])]"/>
+             <field name="domain_force">['|','|','|','|',('salesp1','=',user.id),('salesp2','=',user.id),('salesp3','=',user.id),('salesp4','=',user.id),('salesp5','=',user.id)]</field>
+         </record>
+    </data>
+</odoo>
+

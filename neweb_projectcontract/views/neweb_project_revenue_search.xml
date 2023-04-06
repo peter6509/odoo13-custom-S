@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_revenue_cost_analysis_search_view" model="ir.ui.view">
+            <field name="name">neweb.revenue.cost.analysis.view</field>
+            <field name="model">neweb_projectcontract.revenue_cost_analysis</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="contract_no"
+                           filter_domain="['|','|',('contract_no','ilike',self),('project_no','ilike',self),('customer_name.name','ilike',self)]"/>
+
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

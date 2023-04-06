@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_require_purchase_btn_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.require.purchase.btn.form.inherit</field>
+            <field name="model">neweb.require_purchase</field>
+            <field name="inherit_id" ref="neweb_purchase.neweb_require_purchase_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button type="object" string="申購單預覽" name="action_print_require_purchase" class="oe_highlight"/>
+                </header>
+            </field>
+        </record>
+
+    </data>
+</odoo>

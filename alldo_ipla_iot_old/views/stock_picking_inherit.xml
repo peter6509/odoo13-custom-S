@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="alldo_stockpicking_form_inherit" model="ir.ui.view">
+            <field name="name">alldo.stockpicking.form.inherit</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="report_no" attrs="{'readonly':1,'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
+                    <button name="run_shipping_report" string="出貨單" type="object" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing')]}"/>
+                    <button name="run_newshipping_report" string="清除出貨單號" type="object" attrs="{'invisible':[('picking_type_code', '!=', 'outgoing'),('report_no','=',False)]}"/>
+                    <field name="report_memo" />
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_ipla_iot_mixsearch_wizard" model="ir.ui.view">
+             <field name="name">views.ipla.iot.mixsearch.wizard</field>
+             <field name="model">alldo_ipla_iot.mix_search_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>生產數據複合查詢統計</h1>
+                         <group>
+                             <field name="wk_start_date"/>
+                             <field name="wk_end_date"/>
+                             <field name="search_type"/>
+                             <field name="product_id" options="{'no_create':true,'no_create_edit':true}" attrs="{'invisible':[('search_type','in',['2','3'])]}"/>
+                             <field name="equipment_no" options="{'no_create':true,'no_create_edit':true}" attrs="{'invisible':[('search_type','in',['2','3'])]}"/>
+                             <field name="iot_owner" options="{'no_create':true,'no_create_edit':true}" attrs="{'invisible':[('search_type','in',['2','3'])]}"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_mixsearch" string="複合查詢" class="oe_hiiplaliiplat"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="ipla_iot_mixsearch_wizard_action" model="ir.actions.act_window">
+                     <field name="name">生產數據複合查詢統計</field>
+                     <field name="res_model">alldo_ipla_iot.mix_search_wizard</field>
+                     <field name="view_mode">form</field>
+                     <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_partner_export_wizard" model="ir.ui.view">
+             <field name="name">views.partner.export.wizard</field>
+             <field name="model">neweb.partner_export_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>業務員匯出客戶資訊(EXCEL)</h1>
+                         <group>
+                             <field name="create_uid" attrs="{'invisible':1}"/>
+                             <field name="emp_id" options="{'no_create_edit':True,'no_create':True,'no_open':True}" attrs="{'invisible':1}"/>
+                             <field name="all_select"/>
+                             <field name="export_type"/>
+                             <field name="partner_ids" widget="many2many_tags"
+                                    options="{'no_create_edit':True,'no_create':True,'no_open':True}"
+                                    attrs="{'invisible':[('all_select','=',True)]}"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_partner_export" string="匯出EXCEL" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="views_partner_export_action" model="ir.actions.act_window">
+             <field name="name">業務員匯出客戶精靈</field>
+             <field name="res_model">neweb.partner_export_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+
+        <menuitem id="menu_partner_excel_wizard" name="" sequence="10"
+                  parent="menu_partner_excel_categ"
+                  groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi"
+                  action="views_partner_export_action"/>
+    </data>
+</odoo>

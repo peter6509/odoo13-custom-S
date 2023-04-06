@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_repair_pivot_1" model="product.template">
+               <field name="name">No Parts</field>
+               <field name="categ_id">1</field>
+               <field name="uom_id">1</field>
+               <field name="uom_po_id">1</field>
+               <field name="type">consu</field>
+               <field name="purchase_ok">False</field>
+               <field name="sale_ok">False</field>
+               <field name="purchase_method">receive</field>
+               <field name="uom_id">1</field>
+               <field name="uom_po_id">1</field>
+            </record>
+
+
+    </data>
+</odoo>

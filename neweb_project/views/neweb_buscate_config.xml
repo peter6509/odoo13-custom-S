@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_buscate_tree" model="ir.ui.view">
+            <field name="name">neweb_buscate_tree</field>
+            <field name="model">neweb.buscate</field>
+            <field name="arch" type="xml">
+                <tree string="" edit="false">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_buscate_form" model="ir.ui.view">
+            <field name="name">neweb_buscate_form</field>
+            <field name="model">neweb.buscate</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_buscate_action" model="ir.actions.act_window">
+            <field name="name">neweb_buscate_action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.buscate</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+        <menuitem id="menu_neweb_buscate_action"
+                  name=""
+                  parent="neweb_proj_config"
+                  action="neweb_buscate_action"
+                  groups="neweb_sys_man"
+                  sequence="20"/>
+    </data>
+</odoo>

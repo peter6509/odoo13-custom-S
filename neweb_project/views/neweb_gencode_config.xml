@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_projgencode_tree" model="ir.ui.view">
+            <field name="name">neweb_projgencode_tree</field>
+            <field name="model">neweb.projgencode</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="prefixcode"/>
+                    <field name="gencode" />
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_projgencode_form" model="ir.ui.view">
+            <field name="name">neweb_projgencode_form</field>
+            <field name="model">neweb.projgencode</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="prefixcode"/>
+                            <field name="gencode"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_projgencode_action" model="ir.actions.act_window">
+            <field name="name">neweb_projgencode_action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.projgencode</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_neweb_projgencode_action"
+                  name="" parent="neweb_proj_config"
+                  action="neweb_projgencode_action"
+                  groups="neweb_sys_man"
+                  sequence="70"/>
+    </data>
+</odoo>

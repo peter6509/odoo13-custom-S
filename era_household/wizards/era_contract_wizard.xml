@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_era_contract_init_wizard" model="ir.ui.view">
+             <field name="name">views.era.contract.init.wizard</field>
+             <field name="model">era.contract_init_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>租戶合約啟始電錶度數及押金設定</h1>
+                         <group>
+                             <field name="member_id" domain="[('member_type','=','3')]"
+                                    options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="emeter_220v_start"/>
+                             <field name="emeter_110v_start"/>
+                             <field name="member_deposit" attrs="{'invisible':1}"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="gen_contract_start" string="啟始設定" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="era_contract_init_wizard_action" model="ir.actions.act_window">
+             <field name="name">租戶合約啟始電錶度數</field>
+             <field name="res_model">era.contract_init_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

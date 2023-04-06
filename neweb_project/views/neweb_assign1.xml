@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_proj_assign1_tree" model="ir.ui.view">
+            <field name="name">neweb_proj_assign1_tree</field>
+            <field name="model">neweb.proj_eng_assign</field>
+            <!--<filter string="PROJECT_ASSIGN" name="PROJECT_ASSIGN" domain="[('proj_no', '!=', False)]"/>-->
+            <field name="arch" type="xml">
+                <tree string="" create="false" import="false" >
+                    <field name="proj_no" invisible="1"/>
+                    <field name="assign_no"/>
+                    <field name="proj_sale"/>
+                    <field name="setup_contact" />
+                    <field name="setup_contact_phone"/>
+                    <field name="setup_contact_mobile"/>
+                    <field name="setup_date"/>
+                    <!--<field name="state"/>-->
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="neweb_proj_assign1_form" model="ir.ui.view">
+            <field name="name">neweb_proj_assign1_form</field>
+            <field name="model">neweb.proj_eng_assign</field>
+            <field name="arch" type="xml">
+                <form string="">
+                     <header>
+                         <button name="assign_sendmail" type="object" string="專案派工發送EMAIL" class="oe_highlight"
+                                context="{'eng_assign_id': context.get('active_id') }" groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user"/>
+                         <!--<field name="state" widget="statusbar" />-->
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="proj_no" attrs="{'invisible':1}" />
+                                <field name="proj_sale" attrs="{'readonly':1}"  string="派工業務"/>
+                                <field name="assign_no" attrs="{'readonly':1}" />
+                                <field name="require_date"/>
+                                <field name="setup_date" string="預定派工日"/>
+                                <field name="assign_man" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="assign_type" attrs="{'invisible':1}"/>
+<!--                                <field name="proj_cus_name" attrs="{'readonly':1}" />-->
+                                <field name="proj_cus_name" attrs="{'readonly':1,'invisible':[('assign_type','=','1')]}" string="客戶名稱"/>
+                                <field name="proj_cus_name1" attrs="{'readonly':1,'invisible':['|',('assign_type','=','2'),('assign_type','=',False)]}" string="客戶名稱"/>
+                                <field name="setup_address" string="客戶地址"/>
+                                <field name="setup_contact" domain="[('parent_id','=',proj_cus_name)]"  string="客戶姓名" attrs="{'invisible':[('assign_type','=','1')]}"/>
+                                <field name="setup_contact1" string="客戶姓名" attrs="{'invisible':[('assign_type','=','2')]}"/>
+                                <field name="setup_contact_phone" string="客戶電話"/>
+                                <field name="setup_contact_mobile" string="客戶手機"/>
+                            </group>
+                        </group>
+                        <sheet>
+                            <h1>服務名稱</h1>
+<!--                            <HR colors="#0000ff" size="10"/>-->
+                            <group>
+                                <group>
+                                     <field name="service_name" />
+                                </group>
+                                <group>
+                                     <field name="service_type" />
+                                </group>
+                            </group>
+                            <h1>裝機及施工說明</h1>
+<!--                            <HR colors="#0000ff" size="10"/>-->
+                            <group>
+                                <group>
+                                    <field name="setup_desc" widget="many2many_tags"/>
+                                </group>
+                                <group>
+                                    <field name="setup_other_desc"  attrs="{'invisible':1}"/>
+                                </group>
+                            </group>
+                            <h1>附件</h1>
+<!--                            <HR colors="#0000ff" size="10"/>-->
+                            <group>
+                                <group>
+                                    <field name="setup_attach" widget="many2many_binary"/>
+                                </group>
+                                <group>
+                                    <field name="setup_other_attach"  attrs="{'invisible':1}"/>
+                                    <field name="task_desc" attrs="{'invisible':1}"/>
+                                </group>
+
+                            </group>
+
+                            <h1>派工需求說明</h1>
+<!--                            <HR colors="#0000ff" size="10"/>-->
+                            <group>
+                                <group>
+                                    <group>
+                                        <field name="assign_man_num" />
+                                    </group>
+                                    <group>
+                                        <field name="assign_man_day" />
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="assign_man_hour" />
+                                    </group>
+                                </group>
+                            </group>
+                            <group>
+                                    <field name="assign_man_desc"/>
+                             </group>
+
+                            <h1>工程師工時說明</h1>
+<!--                            <HR colors="#0000ff" size="10"/>-->
+                            <group>
+
+                                <field name="proj_complete_line" widget="section_and_note_one2many" mode="tree" nolabel="1"  >
+                                      <tree editable="bottom" string="ASSIGN COMPLETE LIST">
+                                        <field name="man_id" string="工程人員"  />
+                                        <field name="man_day" string="天數"/>
+                                        <field name="man_hour" string="時數"/>
+                                        <field name="man_memo" string="備註"/>
+                                       </tree>
+                                 </field>
+
+
+                            </group>
+                            <group>
+                                <field name="eng_man_desc" />
+                                <field name="eng_attach" />
+                            </group>
+                            <h1>裝機內容明細</h1>
+<!--                            <HR colors="#0000ff" size="10"/>-->
+                            <group attrs="{'invisible': [('proj_no','=', False)]}">
+                                    <field name="proj_setup_line" widget="section_and_note_one2many" mode="tree" nolabel="1" attrs="{'invisible': [('proj_no','=', False)]}">
+                                      <tree editable="bottom" string="ITEM LIST" >
+                                        <field name="prod_set" string="產品組別"/>
+                                        <field name="prod_modeltype" string="機種-機型/料號"/>
+                                        <field name="prod_serial" string="序號"/>
+                                        <field name="prod_desc" string="規格說明"/>
+                                        <field name="prod_num" string="數量"/>
+                                        <field name="software_ver" string="軟體版本"/>
+                                        <field name="prod_memo" string="備註"/>
+                                       </tree>
+                                    </field>
+                            </group>
+
+                        </sheet>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="neweb_proj_assign_search" model="ir.ui.view">
+            <field name="name">neweb_proj_assign_search</field>
+            <field name="model">neweb.proj_eng_assign</field>
+            <field name="arch" type="xml">
+                <search>
+                     <field name="assign_no"  string="關鍵字" filter_domain="['|','|','|',('assign_no','ilike',self),('proj_cus_name.name','ilike',self),('assign_mans','ilike',self),('assign_man_subject','ilike',self)]"/>
+                </search>
+            </field>
+        </record>
+        <record id="neweb_proj_assign1_action" model="ir.actions.act_window">
+            <field name="name">人力支援派工單</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.proj_eng_assign</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_project.neweb_proj_assign1_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('neweb_project.neweb_proj_assign1_form')}),]"/>
+            <field name="search_view_id" ref="neweb_proj_assign_search"/>
+            <field name="domain">[('assign_no','ilike', 'SUP')]</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_proj_assign1_action"
+                  name=""
+                  parent="menu_proj_assign_categ"
+                  action="neweb_proj_assign1_action"
+                  sequence="22"/>
+    </data>
+</odoo>

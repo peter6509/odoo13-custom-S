@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+            <record id="quick_create_opportunity_form_inherit" model="ir.ui.view">
+            <field name="name">quick.create.opportunity.form.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.quick_create_opportunity_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name" string="案件名稱"/>
+                </xpath>
+
+                <xpath expr="//field[@name='partner_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='planned_revenue']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='priority']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+            </field>
+        </record>
+<!--        <record id="quick_create_opportunity_form" model="ir.ui.view">-->
+<!--            <field name="name">crm.lead.form.quick_create</field>-->
+<!--            <field name="model">crm.lead</field>-->
+<!--            <field name="priority">1000</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
+<!--                    <group>-->
+<!--                        <field name="name" string="Name"/>-->
+<!--&lt;!&ndash;                        <field name="partner_id" widget="res_partner_many2one" context="{'res_partner_search_mode': 'customer', 'show_vat': True}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <field name="planned_revenue" widget="monetary" options="{'currency_field': 'company_currency'}"/>&ndash;&gt;-->
+<!--                        <field name="company_currency" invisible="1"/>-->
+<!--                        <field name="company_id" invisible="1"/>-->
+<!--&lt;!&ndash;                        <field name="priority" nolabel="1" widget="priority"/>&ndash;&gt;-->
+<!--                    </group>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
+    </data>
+</odoo>

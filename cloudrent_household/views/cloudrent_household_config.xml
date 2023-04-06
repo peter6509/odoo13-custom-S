@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="cloudrent_household_config_tree" model="ir.ui.view">
+           <field name="name">cloudrent.household.config.tree</field>
+           <field name="model">cloudrent.household_config</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="bill_ym"/>
+                   <field name="price_unit"/>
+                   <field name="payment_bank"/>
+                   <field name="payment_account"/>
+               </tree>
+           </field>
+       </record>
+        <record id="cloudrent_household_config_form" model="ir.ui.view">
+            <field name="name">cloudrent.household.config.form</field>
+            <field name="model">cloudrent.household_config</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                             <field name="bill_ym"/>
+                             <field name="price_unit"/>
+                             <field name="payment_bank"/>
+                             <field name="payment_account"/>
+                              <button type="object" string="執行PI設定"
+                                        groups="base.group_no_one"
+                                        class="oe_highlight" name="run_pi_id" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="cloudrent_household_config_action" model="ir.actions.act_window">
+            <field name="name">用電帳單參數</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.household_config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

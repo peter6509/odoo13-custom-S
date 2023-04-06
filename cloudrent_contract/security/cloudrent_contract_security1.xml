@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+     <data noupdate="1">
+         <record id="cloudrent_contract_rule1" model="ir.rule">
+           <field name="name">cloudrent.contract.rule1</field>
+           <field ref="cloudrent_contract.model_cloudrent_contract" name="model_id"/>
+           <field name="domain_force">[('user_id', '=', user.id)]</field>
+           <field name="groups" eval="[(4,ref('cloudrent_contract.contract_cloudrent_user'))]"/>
+        </record>
+         <record id="cloudrent_contract_rule2" model="ir.rule">
+             <field name="name">cloudrent.contract.rule2</field>
+             <field ref="cloudrent_contract.model_cloudrent_contract" name="model_id"/>
+             <field name="groups" eval="[(4, ref('cloudrent_contract.contract_cloudrent_ass'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="cloudrent_contract_rule3" model="ir.rule">
+             <field name="name">cloudrent.contract.rule3</field>
+             <field ref="cloudrent_contract.model_cloudrent_contract" name="model_id"/>
+             <field name="groups" eval="[(4, ref('cloudrent_contract.contract_cloudrent_manager'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+
+         <record id="cloudrent_security_rule4" model="ir.rule">
+           <field name="name">cloudrent.security.rule4</field>
+           <field ref="cloudrent_household.model_cloudrent_household_member" name="model_id"/>
+           <field name="domain_force">[('user_id', '=', user.id)]</field>
+           <field name="groups" eval="[(4,ref('cloudrent_household.group_cloudrent_user'))]"/>
+        </record>
+        <record id="cloudrent_security_rule5" model="ir.rule">
+             <field name="name">cloudrent.security.rule5</field>
+             <field ref="cloudrent_household.model_cloudrent_household_member" name="model_id"/>
+             <field name="groups" eval="[(4, ref('cloudrent_household.group_cloudrent_ass'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="cloudrent_security_rule6" model="ir.rule">
+             <field name="name">cloudrent.security.rule6</field>
+             <field ref="cloudrent_household.model_cloudrent_household_member" name="model_id"/>
+             <field name="groups" eval="[(4, ref('cloudrent_household.group_cloudrent_manager'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+    </data>
+</odoo>

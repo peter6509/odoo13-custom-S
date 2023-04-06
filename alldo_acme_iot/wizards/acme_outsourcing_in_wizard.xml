@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="outsourcing_in_wizard_form_view" model="ir.ui.view">
+            <field name="name">outsourcing.in.wizard.form</field>
+            <field name="model">alldo_acme_iot.outsourcing_in</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="product_id" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="suborder_id" options="{'no_create':true,'no_create_edit':true}"
+                                  domain="[('state','in',['1','2'])]" />
+                             <field name="partner_id" options="{'no_create':true,'no_create_edit':true}"
+                                   domain="[('is_company','=',True)]" />
+                            <field name="product_id" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="loc_type"/>
+                            <field name="in_desc"/>
+                            <field name="is_complete" attrs="{'invisible':[('loc_type','=','2')]}"/>
+                            <field name="in_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                        </group>
+                        <group>
+                            <field name="in_good_num" />
+                            <field name="in_ng_num"/>
+                            <field name="in_date"/>
+                            <field name="in_plastic_frame1"/>
+                            <field name="in_plastic_frame2"/>
+                            <field name="in_pallet"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="委外加工完工入庫" name="run_outsourcing_in" type="object" class="oe_highlight"/>
+                        <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="outsourcing_in_wizard_action" model="ir.actions.act_window">
+            <field name="name">委外加工完工移轉ACME精靈</field>
+            <field name="res_model">alldo_acme_iot.outsourcing_in</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_partner_export_wizard1" model="ir.ui.view">
+             <field name="name">views.partner.export.wizard1</field>
+             <field name="model">neweb.partner_export_wizard1</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>匯出供應商資訊(EXCEL)</h1>
+                         <group>
+                            <field name="export_memo"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_partner_export" string="匯出EXCEL" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="views_partner_export_action1" model="ir.actions.act_window">
+             <field name="name">匯出供應商精靈</field>
+             <field name="res_model">neweb.partner_export_wizard1</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+        <!-- This Menu Item must have a parent and an action -->
+
+        <menuitem id="menu_partner_excel_wizard1" name="" sequence="12"
+                  parent="menu_partner_excel_categ"
+                  groups="neweb_project.neweb_pur10_user,neweb_project.neweb_pur20_assi,neweb_project.neweb_cs50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs40_user"
+                  action="views_partner_export_action1"/>
+    </data>
+</odoo>

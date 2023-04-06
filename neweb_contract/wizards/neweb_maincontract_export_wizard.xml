@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_neweb_contract_mainline_wizard" model="ir.ui.view">
+             <field name="name">views.neweb.contract.mainline.wizard</field>
+             <field name="model">neweb_contract.main_export_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>維護合約標地物明細匯出精靈</h1>
+                     <group>
+                        <field name="contract_no" domain="[('is_maintenance_contract','=',True)]"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_export_maintenance_line" string="匯出" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_contract_mainline_wizard_action" model="ir.actions.act_window">
+             <field name="name">維護合約標地物明細匯出精靈</field>
+             <field name="res_model">neweb_contract.main_export_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+        <menuitem id="menu_contract_mainline_export_action" name="維護合約標地物明細匯出精靈" sequence="100"
+                  groups = "base.group_user"
+                  parent="menu_contract_custom_categ"
+                  action="menu_contract_mainline_wizard_action"/>
+    </data>
+</odoo>

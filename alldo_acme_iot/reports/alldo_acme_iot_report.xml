@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <report id="action_alldo_acme_iot_wkorder_report"
+                model="alldo_acme_iot.workorder"
+                string="生產工單"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_wkorder_report"
+                file="alldo_acme_iot.alldo_acme_iot_wkorder_report"
+                />
+         <report id="action_alldo_acme_iot_empbarcode_report"
+                model="alldo_acme_iot.empinfo"
+                string="人員識別卡"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_empbarcode_report"
+                file="alldo_acme_iot.alldo_acme_iot_empbarcode_report"
+                />
+        <report id="action_alldo_acme_iot_equipstatusbarcode_report"
+                model="alldo_acme_iot.equipstatusinfo"
+                string="設備故障條碼"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_equipstatusbarcode_report"
+                file="alldo_acme_iot.alldo_acme_iot_equipstatusbarcode_report"
+                />
+         <report id="action_alldo_acme_iot_shipping_report1"
+                model="alldo_acme_iot.stockpicking_report"
+                string="ACME出(銷)貨單"
+                report_type="qweb-html"
+                name="alldo_acme_iot.stockpicking_report"
+                file="alldo_acme_iot.stockpicking_report"
+                />
+        <report id="action_alldo_acme_iot_shipping_report2"
+                model="alldo_acme_iot.stockpicking_report1"
+                string="ACME銷貨單"
+                report_type="qweb-html"
+                name="alldo_acme_iot.stockpicking_report1"
+                file="alldo_acme_iot.stockpicking_report1"
+                />
+
+        <report id="action_alldo_acme_iot_ngreturn_report"
+                model="alldo_acme_iot.ngreturn_report"
+                string="ACME NG退料單"
+                report_type="qweb-html"
+                name="alldo_acme_iot.ngreturn_report"
+                file="alldo_acme_iot.ngreturn_report"
+                />
+
+        <report id="action_alldo_acme_iot_outsourcing_report"
+                model="alldo_acme_iot.outsuborder"
+                string="ACME 委外加工單(ALL)"
+                report_type="qweb-html"
+                name="alldo_acme_iot.outsourcing_report"
+                file="alldo_acme_iot.outsourcing_report"
+                />
+
+         <report id="action_alldo_acme_iot_outsourcing_report1"
+                model="alldo_acme_iot.outsuborder"
+                string="ACME 委外加工單(Last Record)"
+                report_type="qweb-html"
+                name="alldo_acme_iot.outsourcing_report1"
+                file="alldo_acme_iot.outsourcing_report1"
+                />
+
+        <report id="action_alldo_acme_iot_outsourcing_report2"
+                model="alldo_acme_iot.outsuborder"
+                string="ACME 委外加工單(空白單)"
+                report_type="qweb-html"
+                name="alldo_acme_iot.outsourcing_report2"
+                file="alldo_acme_iot.outsourcing_report2"
+                />
+
+        <report id="action_alldo_acme_iot_prodout_report"
+                model="alldo_acme_iot.prodout"
+                string="ACME 委外加工單"
+                report_type="qweb-html"
+                name="alldo_acme_iot.prodout_report"
+                file="alldo_acme_iot.prodout_report"
+                />
+
+
+          <report id="action_alldo_acme_iot_barcode1_report"
+                model="alldo_acme_iot.furance_report"
+                string="條碼(1)"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_barcode1_report"
+                file="alldo_acme_iot.alldo_acme_iot_barcode1_report"
+                />
+         <report id="action_alldo_acme_iot_barcode2a_report"
+                model="alldo_acme_iot.furance_report"
+                string="條碼(2A)"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_barcode2a_report"
+                file="alldo_acme_iot.alldo_acme_iot_barcode2a_report"
+                />
+        <report id="action_alldo_acme_iot_barcode2b_report"
+                model="alldo_acme_iot.furance_report"
+                string="條碼(2B)"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_barcode2b_report"
+                file="alldo_acme_iot.alldo_acme_iot_barcode2b_report"
+                />
+        <report id="action_alldo_acme_iot_barcode34_report"
+                model="alldo_acme_iot.furance_report"
+                string="條碼(3,4)"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_barcode34_report"
+                file="alldo_acme_iot.alldo_acme_iot_barcode34_report"
+                />
+       <report id="action_alldo_acme_iot_barcode5_report"
+                model="alldo_acme_iot.furance_report"
+                string="條碼(5)"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_barcode5_report"
+                file="alldo_acme_iot.alldo_acme_iot_barcode5_report"
+                />
+
+
+
+          <report id="action_alldo_acme_iot_mold_report"
+                model="alldo_acme_iot.mold_report"
+                string="模具條碼"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_mold_report"
+                file="alldo_acme_iot.alldo_acme_iot_mold_report"
+                />
+           <report id="action_alldo_acme_iot_quant_report"
+                model="alldo_acme_iot.quant_report"
+                string="批次號條碼"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_quant_report"
+                file="alldo_acme_iot.alldo_acme_iot_quant_report"
+                />
+
+           <report id="action_alldo_acme_iot_accountmove_report"
+                model="alldo_acme_iot.accountmove_selectitem"
+                string="客戶對帳單"
+                report_type="qweb-html"
+                name="alldo_acme_iot.alldo_acme_iot_accountmove_report"
+                file="alldo_acme_iot.alldo_acme_iot_accountmove_report"
+                />
+
+
+    </data>
+</odoo>

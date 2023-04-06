@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_res_partner_form_ext" model="ir.ui.view">
+            <field name="name">res.partner.form.ext</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <page name="sales_purchases" position="after">
+                    <page string="Additional Info" name="additional_info">
+                        <group string="Additional Info" name="additional_info">
+                            <field name="related_user_id"/>
+                            <field name="customer_category_id"/>
+                            <field name="comp_create_date"/>
+                            <field name="paidup_capital"/>
+                            <field name="payment"/>
+                            <field name="payment_days" attrs="{'readonly':1}" force_save="1"/>
+<!--                            <field name="checkout_date"/>-->
+                            <field name="pay_date"/>
+                            <field name="credit_limit" attrs="{'readonly':1}" force_save="1"/>
+
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</odoo>

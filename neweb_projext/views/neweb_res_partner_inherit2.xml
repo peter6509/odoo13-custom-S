@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="neweb_res_partner_inherit2" model="ir.ui.view">
+            <field name="name">neweb.res.partner.inherit2</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='industry_id']" position="after">
+                    <field name="customer"/>
+                    <field name="supplier"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+<!--                <xpath expr="//field[@name='payment_days']" position="replace">-->
+
+<!--                </xpath>-->
+
+            </field>
+        </record>
+    </data>
+</odoo>

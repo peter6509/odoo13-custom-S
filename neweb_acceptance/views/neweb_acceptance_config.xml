@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_neweb_acceptance_config_tree" model="ir.ui.view">
+            <field name="name">view.neweb.acceptance.config.tree</field>
+            <field name="model">neweb_acceptance.config</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom" string="參數">
+                    <field name="config_key" width="20%%"/>
+                    <field name="config_value" width="80%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_neweb_acceptance_config_view" model="ir.actions.act_window">
+            <field name="name">模組參數設定</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_acceptance.config</field>
+            <field name="view_mode">tree</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_acceptance.view_neweb_acceptance_config_tree')}),]"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

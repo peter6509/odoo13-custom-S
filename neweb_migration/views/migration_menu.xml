@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="neweb_migration_root" name="資料庫昇級"
+                  web_icon="neweb_migration,static/description/migration.png"
+                  groups="base.group_system"
+                  sequence="99"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="neweb_migration_categ1"
+                  name="基礎配置"
+                  groups="base.group_system"
+                  parent="neweb_migration_root"
+                  sequence="10"/>
+        <!-- This Menu Item must have a parent and an action -->
+<!--        <menuitem id="neweb_migration_action1" name="昇級數據" parent="neweb_migration_categ1"-->
+<!--                  action="neweb_migration_config_action" sequence="10"/>-->
+        <menuitem id="neweb_migration_action2"
+                  name="指派工程師轉檔"
+                  parent="neweb_migration_categ1"
+                  groups="base.group_system"
+                  action="migration_contractline_action"
+                  sequence="10"/>
+
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <!-- This Menu Item Must have a parent -->
+<!--        <menuitem id="neweb_migration_categ2" name="(1)基礎模組昇級"-->
+<!--                  parent="neweb_migration_root" sequence="20"/>-->
+<!--        &lt;!&ndash; This Menu Item must have a parent and an action &ndash;&gt;-->
+<!--        <menuitem id="neweb_migration_base1" name="基礎模組移轉(1)" parent="neweb_migration_categ2"-->
+<!--                  action="migration_base1_wizard_action" sequence="10"/>-->
+<!--         <menuitem id="neweb_migration_base2" name="基礎模組移轉(2)" parent="neweb_migration_categ2"-->
+<!--                  action="migration_base2_wizard_action" sequence="20"/>-->
+<!--          <menuitem id="neweb_migration_base3" name="基礎模組移轉(3)" parent="neweb_migration_categ2"-->
+<!--                  action="migration_base3_wizard_action" sequence="30"/>-->
+<!--         <menuitem id="neweb_migration_base4" name="基礎模組移轉(4)" parent="neweb_migration_categ2"-->
+<!--                  action="migration_base4_wizard_action" sequence="40"/>-->
+
+<!--        <menuitem id="neweb_migration_categ3" name="(2)專案模組昇級"-->
+<!--                  parent="neweb_migration_root" sequence="30"/>-->
+<!--        <menuitem id="neweb_migration_project1" name="(1).project1" parent="neweb_migration_categ3"-->
+<!--                  action="migration_project1_wizard_action" sequence="10"/>-->
+<!--        <menuitem id="neweb_migration_project2" name="(2).project2" parent="neweb_migration_categ3"-->
+<!--                  action="migration_project2_wizard_action" sequence="20"/>-->
+<!--        <menuitem id="neweb_migration_project3" name="(3).project3" parent="neweb_migration_categ3"-->
+<!--                  action="migration_project3_wizard_action" sequence="30"/>-->
+    </data>
+</odoo>

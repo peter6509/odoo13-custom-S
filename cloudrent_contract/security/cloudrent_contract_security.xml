@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="security_cloudrent_categ1" model="ir.module.category">
+           <field name="name">CloudRent租戶合約管理權限表</field>
+           <field name="sequence" eval="10"/>
+       </record>
+        <record id="contract_cloudrent_user" model="res.groups">
+            <field name="name">一般使用者</field>
+            <field name="category_id" ref="security_cloudrent_categ1"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="contract_cloudrent_ass" model="res.groups">
+            <field name="name">助理人員</field>
+            <field name="category_id" ref="security_cloudrent_categ1"/>
+            <field name="implied_ids" eval="[(4, ref('contract_cloudrent_user'))]"/>
+        </record>
+         <record id="contract_cloudrent_manager" model="res.groups">
+            <field name="name">管理人員</field>
+            <field name="category_id" ref="security_cloudrent_categ1"/>
+            <field name="implied_ids" eval="[(4, ref('contract_cloudrent_ass'))]"/>
+        </record>
+    </data>
+</odoo>

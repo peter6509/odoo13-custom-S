@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_auto_gen_bom_wizard" model="ir.ui.view">
+             <field name="name">views.auto.gen.bom.wizard</field>
+             <field name="model">alldo_ipla_iot.genbom_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>自動生成產品BOM記錄</h1>
+                         <group>
+                             <field name="passcode"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="auto_gen_bom" string="生成產品BOM" class="oe_highlight"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="auto_gen_bom_wizard_action" model="ir.actions.act_window">
+             <field name="name"></field>
+             <field name="res_model">alldo_ipla_iot.genbom_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

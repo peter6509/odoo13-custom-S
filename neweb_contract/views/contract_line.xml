@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--<record model="ir.ui.view" id="contract_maintenance_target_popup_tree">-->
+            <!--<field name="name">neweb_contract.maintenance_target.popup.tree</field>-->
+            <!--<field name="model">neweb_contract.contract.line</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<tree string="Maintenance Target">-->
+                    <!--<field name="prod"/>-->
+                    <!--<field name="machine_serial_no"/>-->
+                    <!--&lt;!&ndash;<button string="test123" name="validate" type="object" class="btn-primary"/>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<button string="Cancel" class="btn-default" special="cancel"/>&ndash;&gt;-->
+                <!--</tree>-->
+            <!--</field>-->
+        <!--</record>-->
+
+        <record model="ir.ui.view" id="contract_maintenance_target_tree">
+            <field name="name">neweb_contract.maintenance_target.tree</field>
+            <field name="model">neweb_contract.contract.line</field>
+            <field name="arch" type="xml">
+                <tree string="Maintenance Target">
+                    <field name="contract_id"/>
+                    <field name="prod_modeltype" string="機種/機型-料號"/>
+                    <field name="machine_serial_no" string="序號" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contract_maintenance_target_form">
+            <field name="name">neweb_contract.maintenance_target.form</field>
+            <field name="model">neweb_contract.contract.line</field>
+            <field name="arch" type="xml">
+                <form string="Maintenance Target">
+                    <sheet>
+                        <group>
+                            <field name="prod_set" string="產品組別"/>
+                            <field name="prod_brand" string="品牌"/>
+                            <field name="prod_modeltype" string="機種-機型/料號"/>
+                            <field name="prod_modeltype1" string="機型名稱"/>
+                            <field name="related_user" invisible="1"/>
+                            <field name="machine_serial_no" string="序號" attrs="{'required': True}"/>
+                            <field name="maintenance_category" readonly="1"/>
+                            <field name="memo" string="說明"/>
+                            <field name="contract_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+<!--        <record model="ir.ui.view" id="contract_maintenance_target_search">-->
+<!--            <field name="name">neweb_contract.maintenance_target.search</field>-->
+<!--            <field name="model">neweb_contract.contract.line</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search>-->
+<!--                    <field name="prod_modeltype"/>-->
+<!--                    <field name="machine_serial_no"/>-->
+<!--                    <field name="memo"/>-->
+<!--                    <separator/>-->
+<!--                    <group expand="0" string="Group By">-->
+<!--                        <filter name="default_filter" string="By Product &amp; Machine" context="{'group_by':['prod','machine_serial_no']}"/>-->
+<!--                        <separator/>-->
+<!--                        <filter domain="[('prod.maintenance_category_id','=', None)]" string="Maintenance Category is empty" help="Maintenance Category is empty"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record model="ir.actions.act_window" id="action_list_contract_maintenance_target">
+            <field name="name">Maintenance Target</field>
+            <field name="res_model">neweb_contract.contract.line</field>
+            <field name="domain">[('prod.is_maintenance_target', '=', True)]</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        /
+
+        <!--<menuitem id="menu_contract_contract_line"-->
+                  <!--parent="neweb_base.menu_contract_configuration"-->
+                  <!--name="維護設備"-->
+                  <!--sequence="66"-->
+                  <!--groups="group_contract_assistance,group_contract_officer,group_contract_sales,group_contract_admin"-->
+                  <!--action="action_list_contract_maintenance_target"/>-->
+    </data>
+</odoo>

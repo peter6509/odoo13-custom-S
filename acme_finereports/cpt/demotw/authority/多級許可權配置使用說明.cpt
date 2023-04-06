@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20170720" releaseVersion="10.0.0">
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,1981200,723900,838200,723900,723900,723900,723900,723900,3200400,723900,723900,723900,723900,2514600,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[190500,2019300,2743200,647700,2743200,2286000,2743200,2705100,1943100,2743200,2743200,1714500,13220700,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="1" cs="13" s="0">
+<O>
+<![CDATA[多級權限配置使用說明]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="3" s="1">
+<O>
+<![CDATA[概念：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="3" cs="11" s="2">
+<O>
+<![CDATA[多級權限分配是指多部門共用系統、各個部門有其自己的管理員，並可以給其部門員工分配權限，即實現多級管理員層層分配。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="4" rs="2" s="3">
+<O>
+<![CDATA[說明：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="4" cs="11" s="2">
+<O>
+<![CDATA[FineReport內置資料決策系統中，配置了一套使用者角色，其中，技術支援部門部長作為次級管理員，管理員將參數查詢和填報錄入目錄以及管]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="5" cs="11" s="2">
+<O>
+<![CDATA[理系統中的行動平台，定時調度和(權限管理)的授權權限分配給技術支援部長角色，使該使用者可以對技術支援部門下的所有使用者分配其所擁有的權限。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="7" cs="8" s="4">
+<O>
+<![CDATA[註：下面的所有使用者登入系統的密碼均為123456，詳細的配置過程請檢視幫助文件]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="7" s="5">
+<O>
+<![CDATA[分級權限控制]]></O>
+<PrivilegeControl/>
+<NameJavaScriptGroup>
+<NameJavaScript name="網頁連結1">
+<JavaScript class="com.fr.js.WebHyperlink">
+<JavaScript class="com.fr.js.WebHyperlink">
+<Parameters/>
+<TargetFrame>
+<![CDATA[_blank]]></TargetFrame>
+<Features width="600" height="400"/>
+<URL>
+<![CDATA[https://help.finereport.com/doc-view-711.html?&_=1571801424545]]></URL>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand/>
+</C>
+<C c="5" r="9" cs="4" s="6">
+<O>
+<![CDATA[登出系統，用技術支援部長Alice的帳號登入系統，點擊管理系統>使用者管理，給2個下級角色分配權限]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="10" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="11" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="12" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="12" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="12" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="12" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="12" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="12" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="12" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="12" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="13" cs="4" rs="2" s="6">
+<O>
+<![CDATA[登出系統，用技術支援總調度Jack登入系統，可檢視其所擁有的權限]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="13" cs="4" rs="2" s="6">
+<O>
+<![CDATA[登出系統，用技術支援一線技術支援Anna登入系統，可檢視其所擁有的權限]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting>
+<PaperSize width="72000000" height="72000000"/>
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+<Background name="ColorBackground" color="-1"/>
+</ReportSettings>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0" useParamsTemplate="false"/>
+<PWTitle>
+<![CDATA[參數]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="微軟雅黑" style="0" size="160" foreground="-1"/>
+<Background name="ColorBackground" color="-13860896"/>
+<Border>
+<Bottom style="2"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="微軟雅黑" style="1" size="96"/>
+<Background name="ColorBackground" color="-4466185"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="微軟雅黑" style="0" size="80" foreground="-13421773"/>
+<Background name="ColorBackground" color="-854279"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="微軟雅黑" style="1" size="96"/>
+<Background name="ColorBackground" color="-4466185"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="微軟雅黑" style="0" size="72" foreground="-13860896"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72" foreground="-16776961" underline="1"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="微軟雅黑" style="1" size="88" foreground="-1"/>
+<Background name="ColorBackground" color="-13860896"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="1" color="-13860896"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Dialog" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="1" color="-13860896"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-13860896"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="Dialog" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1" color="-13860896"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="KAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateIdAttMark class="com.fr.base.iofile.attr.TemplateIdAttrMark">
+<TemplateIdAttMark TemplateId="b9ec5da5-2d72-4b4e-baab-19caa708ef3a"/>
+</TemplateIdAttMark>
+</WorkBook>

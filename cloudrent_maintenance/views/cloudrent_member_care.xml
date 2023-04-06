@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_care_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.care.tree</field>
+            <field name="model">cloudrent.member_care</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="care_date"/>
+                    <field name="care_man"/>
+                    <field name="house_id"/>
+                    <field name="member_id"/>
+                    <field name="care_text"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_care_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.care.form</field>
+            <field name="model">cloudrent.member_care</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="care_date"/>
+                                <field name="care_man"/>
+                                <field name="house_id"/>
+                                <field name="member_id"/>
+                                <field name="care_text"/>
+                            </group>
+                            <group>
+                                <field name="care_img1" widget="image"/>
+                                <field name="care_img2" widget="image"/>
+                                <field name="care_img3" widget="image"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_cloudrent_care_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.care.search</field>
+           <field name="model">cloudrent.member_care</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="care_date1" string="關鍵字" filter_domain="['|','|',('care_date1', 'ilike',self),('member_id.member_name','ilike',self),('care_text','ilike',self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_care_view" model="ir.actions.act_window">
+            <field name="name">租戶安排訪視記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.member_care</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_maintenance.view_cloudrent_care_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_maintenance.view_cloudrent_care_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_care_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

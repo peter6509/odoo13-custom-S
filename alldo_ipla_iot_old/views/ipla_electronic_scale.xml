@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ipla_electronic_scale_tree" model="ir.ui.view">
+            <field name="name">ipla.electronic.scale.tree</field>
+            <field name="model">alldo_ipla_iot.electronic_scale</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="scale_type"/>
+                    <field name="product_no"/>
+                    <field name="need_lotno"/>
+                    <field name="lot_no"/>
+                    <field name="scale_weight"/>
+                    <field name="uom_id"/>
+                    <field name="scale_owner"/>
+                    <field name="picking_no"/>
+                    <field name="scale_datetime"/>
+                    <field name="is_posting"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ipla_electronic_scale_form" model="ir.ui.view">
+            <field name="name">ipla.electronic.scale.form</field>
+            <field name="model">alldo_ipla_iot.electronic_scale</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="scale_type"/>
+                            <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="need_lotno"/>
+                            <field name="lot_no" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="scale_weight"/>
+                            <field name="uom_id" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="scale_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="picking_no" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="is_posting" attrs="{'readonly':1}"/>
+                            <field name="scale_datetime"/>
+                             <button type="object" name="run_scale_move" string="熔爐投料" class="oe_highlight"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ipla_electronic_scale_search" model="ir.ui.view">
+           <field name="name">ipla.electronic.scale.search</field>
+           <field name="model">alldo_ipla_iot.electronic_scale</field>
+            <field name="arch" type="xml">
+                <search string="">
+                  <field name="product_no" string="關鍵字" filter_domain="['|',('product_no.default_code','ilike',self),('lot_no.lot_id.name','ilike',self)]"/>
+                  <filter domain="[('is_posting','in',['1','3'])]" string="未過帳" name="uncomplete"/>
+                  <filter domain="[('is_posting','=','2')]" string="已過帳" name="complete"/>
+            </search>
+           </field>
+        </record>
+        <record id="iplaiot_electronic_scale_action" model="ir.actions.act_window">
+            <field name="name">電子秤過磅數據</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_ipla_iot.electronic_scale</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

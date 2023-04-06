@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_prod_price_analysis_wizard" model="ir.ui.view">
+             <field name="name">views.prod.price.analysis.wizard</field>
+             <field name="model">neweb.prod_price_analysys_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>業務第一次報價與採購最後報價差異</h1>
+                     <group>
+                       <field name="start_date"/>
+                       <field name="end_date"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_price_analysis" string="執行" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_price_analysis_wizard_action" model="ir.actions.act_window">
+             <field name="name">業務價格與採購價格差異</field>
+             <field name="res_model">neweb.prod_price_analysys_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+        <menuitem id="menu_price_analysis_action"
+                  name="業務價格與採購價格差異"
+                  parent="menu_neweb_purchase_categ"
+                  action="menu_price_analysis_wizard_action"
+                  sequence="200"/>
+
+    </data>
+</odoo>

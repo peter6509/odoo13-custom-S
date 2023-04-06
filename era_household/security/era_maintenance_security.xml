@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <record id="era_maintenance_security_rule1" model="ir.rule">
+             <field name="name">era.maintenance.security.rule1</field>
+             <field ref="era_household.model_era_household_maintenance" name="model_id"/>
+             <field name="groups" eval="[(4, ref('era_household.group_era_manager'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="era_maintenance_security_rule2" model="ir.rule">
+             <field name="name">era.maintenance.security.rule2</field>
+             <field ref="era_household.model_era_household_maintenance" name="model_id"/>
+             <field name="groups" eval="[(4, ref('era_household.group_era_ass'))]"/>
+             <field name="global" eval="1"/>
+         </record>
+         <record id="era_maintenance_security_rule3" model="ir.rule">
+           <field name="name">era.maintenance.security.rule3</field>
+           <field ref="era_household.model_era_household_maintenance" name="model_id"/>
+           <field name="domain_force">[('main_user_id', '=', user.id)]</field>
+           <field name="groups" eval="[(4,ref('era_household.group_era_user'))]"/>
+        </record>
+    </data>
+</odoo>

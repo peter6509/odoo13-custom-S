@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_credit_wizard_form" model="ir.ui.view">
+            <field name="name">view.inherit.credit.wizard.form</field>
+            <field name="model">base.custom_credit_wizard</field>
+            <field name="inherit_id" ref="neweb_base.views_custom_credit_wizard"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='payment_days']" position="after">
+                    <field name="open_account_day1"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

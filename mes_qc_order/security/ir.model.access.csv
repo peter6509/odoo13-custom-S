@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mes_fqc_order,access_mes_fqc_order,model_mes_fqc_order,base.group_user,1,1,1,1
+access_mes_fqc_barcodeline,access_mes_fqc_barcodeline,model_mes_fqc_barcodeline,base.group_user,1,1,1,1
+access_mes_fqc_picline,access_mes_fqc_picline,model_mes_fqc_picline,base.group_user,1,1,1,1

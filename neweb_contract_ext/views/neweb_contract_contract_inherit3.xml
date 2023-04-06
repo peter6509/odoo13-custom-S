@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="neweb_contract_contract_form_inherit4" model="ir.ui.view">
+           <field name="name">neweb.contract.contract.form.inherit4</field>
+           <field name="model">neweb_contract.contract</field>
+           <field name="inherit_id" ref="neweb_contract.contract_form"/>
+           <field name="arch" type="xml">
+
+               <!--<xpath expr="/form/sheet/notebook/page/field[@name='contract_line_ids']/tree/field[@name='sequence']" position="after">-->
+                   <!--<field name="conline_item" attrs="{'readonly':1}"/>-->
+                   <!--&lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+               <!--</xpath>-->
+               <xpath expr="//field[@name='routine_maintenance_new']" position="after">
+                   <field name="satisfaction_person" domain="['|',('parent_id','=',end_customer),('parent_id','=',customer_name)]" widget="many2many_tags"/>
+               </xpath>
+               <xpath expr="//field[@name='contact_person']" position="replace">
+                   <field name="contact_person" domain="['|',('parent_id','=',end_customer),('parent_id','=',customer_name)]" />
+               </xpath>
+
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

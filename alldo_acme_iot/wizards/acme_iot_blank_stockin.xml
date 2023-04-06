@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="blank_stockin_wizard_form_view" model="ir.ui.view">
+            <field name="name">blank.stockin.wizard.form</field>
+            <field name="model">alldo_acme_iot.blank_stockin_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="product_no" options="{'no_create':true,'no_create_edit':true}"
+                            domain="[('categ_id','=',6)]"/>
+                        <field name="blank_num"  />
+                        <field name="stockin_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                    </group>
+                    <footer>
+                        <button string="回收料入庫" name="run_blank_stockin" type="object" class="oe_highlight"/>
+                        <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="blank_stockin_wizard_action" model="ir.actions.act_window">
+            <field name="name">回收料入庫精靈</field>
+            <field name="res_model">alldo_acme_iot.blank_stockin_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="routing_inspection_report_view_tree" model="ir.ui.view">
+        <field name="name">routing.inspection.report.view.tree</field>
+        <field name="model">routing.inspection.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="pcr_id"/>
+                <field name="material_quality"/>
+                <field name="product_qty"/>
+                <field name="size"/>
+                <field name="product_id"/>
+                <field name="person_id"/>
+                <field name="date"/>
+                <field name="qc_state"/>
+                <field name="unqualified_remarks"/>
+                <field name="results"/>
+                <field name="duty_routing"/>
+                <field name="discover_routing"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="routing_inspection_report_view_search" model="ir.ui.view">
+        <field name="name">routing.inspection.report.view.search</field>
+        <field name="model">routing.inspection.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="material_quality"/>
+                <field name="pcr_id"/>
+<!--                <group>-->
+<!--                    <filter name="group_by_product" string="产品" context="{'group_by':'product_id'}"/>-->
+<!--                    <filter name="group_by_partner" string="领料单号" context="{'group_by':'picking_id'}"/>-->
+<!--                </group>-->
+            </search>
+        </field>
+    </record>
+
+</odoo>

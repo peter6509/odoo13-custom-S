@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <data noupdate="1">
+
+            <record id="alldo_purchase_1" model="product.template">
+               <field name="name">採購商品</field>
+               <field name="categ_id">1</field>
+               <field name="uom_id">1</field>
+               <field name="uom_po_id">1</field>
+               <field name="type">consu</field>
+               <field name="purchase_ok">True</field>
+               <field name="sale_ok">False</field>
+               <field name="purchase_method">receive</field>
+               <field name="uom_id">1</field>
+               <field name="uom_po_id">1</field>
+            </record>
+            <record id="alldo_sale_2" model="product.template">
+               <field name="name">銷售商品</field>
+               <field name="categ_id">1</field>
+               <field name="uom_id">1</field>
+               <field name="uom_po_id">1</field>
+               <field name="type">consu</field>
+               <field name="purchase_ok">False</field>
+               <field name="sale_ok">True</field>
+               <field name="purchase_method">receive</field>
+                <field name="uom_id">1</field>
+               <field name="uom_po_id">1</field>
+            </record>
+
+        </data>
+
+</odoo>

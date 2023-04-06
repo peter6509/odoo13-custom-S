@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_memberout_wizard" model="ir.ui.view">
+             <field name="name">views.memberout.wizard</field>
+             <field name="model">era_household.member_out_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>ERA租戶退租精靈</h1>
+                         <group>
+                             <field name="project_no" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                             <field name="house_id" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                             <field name="member_id" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+                             <field name="old_archive"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_member_out" string="退租" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="era_memberout_wizard_action" model="ir.actions.act_window">
+             <field name="name">ERA租戶退租精靈</field>
+             <field name="res_model">era_household.member_out_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_line_send_message_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.line.send.message.tree</field>
+            <field name="model">cloudrent.send_line_message</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="send_date"/>
+                    <field name="send_message_type"/>
+                    <field name="project_no"/>
+                    <field name="member_id"/>
+                    <field name="send_status"/>
+                    <field name="message_text"/>
+                    <field name="bill_message"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_line_send_message_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.line.send.message.form</field>
+            <field name="model">cloudrent.send_line_message</field>
+            <field name="arch" type="xml">
+                <form string="">
+                     <div>
+                        <widget name="web_ribbon" title="未發送" bg_color="bg-danger" attrs="{'invisible': [('send_status','=',True)]}"/>
+                        <widget name="web_ribbon" title="已發送" attrs="{'invisible':[('send_status','=',False)]}"/>
+                    </div>
+                    <sheet>
+                        <group>
+                            <field name="send_date"/>
+                            <field name="send_message_type"/>
+                            <field name="project_no"/>
+                            <field name="member_id"/>
+                            <field name="send_status"/>
+                            <field name="message_text"/>
+                            <field name="bill_message"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_cloudrent_line_send_message_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.line.send.message.search</field>
+           <field name="model">cloudrent.send_line_message</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="member_id" string="關鍵字" filter_domain="['|','|',('message_text','ilike',self),('member_id.member_no', 'ilike', self),('member_id.member_name','ilike',self)]"/>
+                    <filter string="訊息通吿" domain="[('send_message_type','=','1')]" name="send_message_type1"/>
+                    <filter string="帳單通知" domain="[('send_message_type','=','2')]" name="send_message_type2"/>
+                    <filter string="逾期催繳" domain="[('send_message_type','=','3')]" name="send_message_type3"/>
+                </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_line_send_message_view" model="ir.actions.act_window">
+            <field name="name">cloudrent發送公告通知執行表</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.send_line_message</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_line_bot.view_cloudrent_line_send_message_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_line_bot.view_cloudrent_line_send_message_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_line_send_message_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

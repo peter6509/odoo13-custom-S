@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_applyfor_escrow4_tree" model="ir.ui.view">
+            <field name="name">view.applyfor.escrow4.tree</field>
+            <field name="model">cloudrent.applyfor_escrow4</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="lessee_no" domain="[('escrow_type','=','2')]"/>
+                    <field name="escrow_no"/>
+                    <field name="applyfor_filename" invisible="1"/>
+                    <field name="applyfor_attach" filename="applyfor_filename" widget="binary"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_applyfor_escrow4_search" model="ir.ui.view">
+           <field name="name">view.applyfor.escrow4.search</field>
+           <field name="model">cloudrent.applyfor_escrow4</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="lessee_no" string="房客姓名" filter_domain="[('lessee_no.escrow_man', 'ilike', self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_applyfor_escrow4_view" model="ir.actions.act_window">
+            <field name="name">民眾(房客)承租住宅申請書(代管)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.applyfor_escrow4</field>
+            <field name="view_mode">tree</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_applyfor_escrow4_tree')}),]"/>
+            <field name="search_view_id" ref="view_applyfor_escrow4_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

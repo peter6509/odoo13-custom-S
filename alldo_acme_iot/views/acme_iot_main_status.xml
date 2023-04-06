@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_maintenance_status_tree" model="ir.ui.view">
+           <field name="name">view.maintenance.status.tree</field>
+           <field name="model">maintenance.equipment_status</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="sequence" widget="handle"/>
+                   <field name="status_code"/>
+                   <field name="status_name"/>
+                   <field name="status_type"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_maintenance_status_form" model="ir.ui.view">
+           <field name="name">view.maintenance.status.form</field>
+           <field name="model">maintenance.equipment_status</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <field name="status_code"/>
+                           <field name="status_name"/>
+                            <field name="status_type"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="view_maintenance_status_action" model="ir.actions.act_window">
+           <field name="name">機台異常類別配置</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">maintenance.equipment_status</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+
+    </data>
+</odoo>

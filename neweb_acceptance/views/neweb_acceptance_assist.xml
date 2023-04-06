@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_neweb_acceptance_assist_tree" model="ir.ui.view">
+            <field name="name">view.neweb.acceptance.assist.tree</field>
+            <field name="model">neweb_acceptance.assist</field>
+            <field name="arch" type="xml">
+                <tree string="" editable="bottom">
+                    <field name="sale_assist" width="20%%"/>
+                    <field name="assist_email" attrs="{'readonly':1}" force_save="1" width="50%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_neweb_acceptance_assist_view" model="ir.actions.act_window">
+            <field name="name">業助帳務通知名單</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_acceptance.assist</field>
+            <field name="view_mode">tree</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_acceptance.view_neweb_acceptance_assist_tree')})]"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

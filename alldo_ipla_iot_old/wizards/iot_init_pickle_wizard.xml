@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="alldo_iot_init_pickle_wizard_form" model="ir.ui.view">
+            <field name="name">alldo.iot.init.pickle.wizard.form</field>
+            <field name="model">alldo_ipla_iot.iot_init_pickle_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+
+                    <group>
+                        <group>
+                            <field name="iot_server" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="equipment_ids" widget="many2many_tags" options="{'no_create':true,'no_create_edit':true}"/>
+                        </group>
+                        <group>
+                            <field name="passcode" />
+
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="派送連線資訊到選擇端點" name="run_iot_init_pickle" type="object" class="oe_hiiplaliiplat"/>
+                        <button string="派送連線資訊到全部端點" name="run_all_iot_init_pickle" type="object" class="oe_hiiplaliiplat"/>
+                        <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="alldo_iot_init_pickle_wizard_action" model="ir.actions.act_window">
+            <field name="name">連線資訊派送</field>
+            <field name="res_model">alldo_ipla_iot.iot_init_pickle_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</odoo>

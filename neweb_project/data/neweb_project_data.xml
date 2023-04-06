@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <data noupdate="1">
+            <record id="neweb_contacttype_1" model="neweb.contacttype">
+                <field name="name">簽約客戶聯絡人</field>
+            </record>
+            <record id="neweb_contacttype_2" model="neweb.contacttype">
+                <field name="name">送貨收件人</field>
+            </record>
+            <record id="neweb_contacttype_3" model="neweb.contacttype">
+                <field name="name">發票收件人</field>
+            </record>
+            <record id="neweb_contacttype_4" model="neweb.contacttype">
+                <field name="name">簽約客戶主管</field>
+            </record>
+            <record id="neweb_contacttype_5" model="neweb.contacttype">
+                <field name="name">簽約客戶業務聯絡人</field>
+            </record>
+            <record id="neweb_contacttype_6" model="neweb.contacttype">
+                <field name="name">簽約客戶採購聯絡人</field>
+            </record>
+            <record id="neweb_contacttype_7" model="neweb.contacttype">
+                <field name="name">簽約客戶技術聯絡人</field>
+            </record>
+            <record id="neweb_contacttype_8" model="neweb.contacttype">
+                <field name="name">簽約客戶會計聯絡人</field>
+            </record>
+            <record id="neweb_contacttype_9" model="neweb.contacttype">
+                <field name="name">終端客戶業務聯絡人</field>
+            </record>
+            <record id="neweb_contacttype_10" model="neweb.contacttype">
+                <field name="name">終端客戶技術聯絡人</field>
+            </record>
+            <record id="neweb_prodset_1" model="neweb.prodset">
+                <field name="name">Unix System</field>
+            </record>
+            <record id="neweb_prodset_2" model="neweb.prodset">
+                <field name="name">Power Linux</field>
+            </record>
+            <record id="neweb_prodset_3" model="neweb.prodset">
+                <field name="name">PC Server</field>
+            </record>
+            <record id="neweb_prodset_4" model="neweb.prodset">
+                <field name="name">Hyper-converged</field>
+            </record>
+            <record id="neweb_prodset_5" model="neweb.prodset">
+                <field name="name">Storage</field>
+            </record>
+            <record id="neweb_prodset_6" model="neweb.prodset">
+                <field name="name">Tape Drive/Library</field>
+            </record>
+            <record id="neweb_prodset_7" model="neweb.prodset">
+                <field name="name">PC / NB / PAD</field>
+            </record>
+            <record id="neweb_prodset_8" model="neweb.prodset">
+                <field name="name">MES</field>
+            </record>
+            <record id="neweb_prodset_9" model="neweb.prodset">
+                <field name="name">Other (Cable, Tape, Projector...)</field>
+            </record>
+            <record id="neweb_prodset_10" model="neweb.prodset">
+                <field name="name">Security</field>
+            </record>
+            <record id="neweb_prodset_11" model="neweb.prodset">
+                <field name="name">Networking</field>
+            </record>
+            <record id="neweb_prodset_12" model="neweb.prodset">
+                <field name="name">Backup S/W</field>
+            </record>
+            <record id="neweb_prodset_13" model="neweb.prodset">
+                <field name="name">Virtualization S/W</field>
+            </record>
+            <record id="neweb_prodset_14" model="neweb.prodset">
+                <field name="name">Other S/W</field>
+            </record>
+            <record id="neweb_prodset_15" model="neweb.prodset">
+                <field name="name">Service (Technical support, Move, Insurance…)</field>
+            </record>
+            <record id="neweb_prodbrand_1" model="neweb.prodbrand">
+                <field name="name">IBM</field>
+            </record>
+            <record id="neweb_prodbrand_2" model="neweb.prodbrand">
+                <field name="name">HPE</field>
+            </record>
+            <record id="neweb_prodbrand_3" model="neweb.prodbrand">
+                <field name="name">Lenovo</field>
+            </record>
+            <record id="neweb_prodbrand_4" model="neweb.prodbrand">
+                <field name="name">Dell</field>
+            </record>
+            <record id="neweb_prodbrand_5" model="neweb.prodbrand">
+                <field name="name">Fujitsu</field>
+            </record>
+            <record id="neweb_prodbrand_6" model="neweb.prodbrand">
+                <field name="name">Cisco</field>
+            </record>
+            <record id="neweb_prodbrand_7" model="neweb.prodbrand">
+                <field name="name">Nutanix</field>
+            </record>
+            <record id="neweb_prodbrand_8" model="neweb.prodbrand">
+                <field name="name">NetApp</field>
+            </record>
+            <record id="neweb_prodbrand_9" model="neweb.prodbrand">
+                <field name="name">EMC</field>
+            </record>
+            <record id="neweb_prodbrand_10" model="neweb.prodbrand">
+                <field name="name">Fortinet</field>
+            </record>
+            <record id="neweb_prodbrand_11" model="neweb.prodbrand">
+                <field name="name">Juniper</field>
+            </record>
+            <record id="neweb_prodbrand_12" model="neweb.prodbrand">
+                <field name="name">F5</field>
+            </record>
+            <record id="neweb_prodbrand_13" model="neweb.prodbrand">
+                <field name="name">VMware</field>
+            </record>
+            <record id="neweb_prodbrand_14" model="neweb.prodbrand">
+                <field name="name">Microsoft</field>
+            </record>
+            <record id="neweb_prodbrand_15" model="neweb.prodbrand">
+                <field name="name">Acrserve</field>
+            </record>
+            <record id="neweb_prodbrand_16" model="neweb.prodbrand">
+                <field name="name">Veeam</field>
+            </record>
+            <record id="neweb_prodbrand_17" model="neweb.prodbrand">
+                <field name="name">Symantec</field>
+            </record>
+            <record id="neweb_prodbrand_18" model="neweb.prodbrand">
+                <field name="name">Apple</field>
+            </record>
+            <record id="neweb_prodbrand_19" model="neweb.prodbrand">
+                <field name="name">Acer</field>
+            </record>
+            <record id="neweb_prodbrand_20" model="neweb.prodbrand">
+                <field name="name">ASUS</field>
+            </record>
+            <record id="neweb_prodbrand_21" model="neweb.prodbrand">
+                <field name="name">HP</field>
+            </record>
+            <record id="neweb_projmaintype_1" model="neweb.projmaintype">
+                <field name="name">備份回複演練</field>
+            </record>
+            <record id="neweb_projmaintype_2" model="neweb.projmaintype">
+                <field name="name">系統監控軟體</field>
+            </record>
+            <record id="neweb_projmaintype_3" model="neweb.projmaintype">
+                <field name="name">教育訓練</field>
+            </record>
+            <record id="neweb_projbranch_1" model="neweb.projbranch">
+                <field name="name">台北</field>
+                <field name="prefixcode">T</field>
+            </record>
+            <record id="neweb_projbranch_2" model="neweb.projbranch">
+                <field name="name">高雄</field>
+                <field name="prefixcode">K</field>
+            </record>
+            <record id="neweb_projbranch_3" model="neweb.projbranch">
+                <field name="name">新竹</field>
+                <field name="prefixcode">H</field>
+            </record>
+            <record id="neweb_projbranch_4" model="neweb.projbranch">
+                <field name="name">台中</field>
+                <field name="prefixcode">C</field>
+            </record>
+
+            <record id="neweb_engmaintype_1" model="neweb.engmaintype">
+                <field name="name">需於公司內組裝</field>
+            </record>
+            <record id="neweb_engmaintype_2" model="neweb.engmaintype">
+                <field name="name">需至客戶端安裝</field>
+            </record>
+            <record id="neweb_costtype_1" model="neweb.costtype">
+                <field name="name">銷貨</field>
+                <field name="costtype_sequence">1</field>
+            </record>
+            <record id="neweb_costtype_2" model="neweb.costtype">
+                <field name="name">專案</field>
+                 <field name="costtype_sequence">2</field>
+            </record>
+            <record id="neweb_costtype_3" model="neweb.costtype">
+                <field name="name">建置</field>
+                 <field name="costtype_sequence">3</field>
+            </record>
+            <record id="neweb_costtype_4" model="neweb.costtype">
+                <field name="name">維護</field>
+                 <field name="costtype_sequence">4</field>
+            </record>
+            <record id="neweb_costtype_5" model="neweb.costtype">
+                <field name="name">維護人力</field>
+                 <field name="costtype_sequence">5</field>
+            </record>
+            <record id="neweb_costtype_6" model="neweb.costtype">
+                <field name="name">利息</field>
+                 <field name="costtype_sequence">6</field>
+            </record>
+            <record id="neweb_costtype_7" model="neweb.costtype">
+                <field name="name">租賃</field>
+                <field name="costtype_sequence">7</field>
+            </record>
+            <record id="neweb_costtype_8" model="neweb.costtype">
+                <field name="name">其他</field>
+                <field name="costtype_sequence">8</field>
+            </record>
+            <record id="neweb_buscate_1" model="neweb.buscate">
+                <field name="name">電子資訊</field>
+            </record>
+            <record id="neweb_buscate_2" model="neweb.buscate">
+                <field name="name">傳統製造</field>
+            </record>
+            <record id="neweb_buscate_3" model="neweb.buscate">
+                <field name="name">批發零售</field>
+            </record>
+            <record id="neweb_buscate_4" model="neweb.buscate">
+                <field name="name">金融保險</field>
+            </record>
+            <record id="neweb_buscate_5" model="neweb.buscate">
+                <field name="name">文教服務</field>
+            </record>
+            <record id="neweb_buscate_6" model="neweb.buscate">
+                <field name="name">大眾傳播</field>
+            </record>
+            <record id="neweb_buscate_7" model="neweb.buscate">
+                <field name="name">旅遊休閒</field>
+            </record>
+             <record id="neweb_buscate_8" model="neweb.buscate">
+                <field name="name">法律會計</field>
+            </record>
+             <record id="neweb_buscate_9" model="neweb.buscate">
+                <field name="name">一般服務</field>
+            </record>
+             <record id="neweb_buscate_10" model="neweb.buscate">
+                <field name="name">物流倉儲</field>
+            </record>
+            <record id="neweb_buscate_11" model="neweb.buscate">
+                <field name="name">營造土木</field>
+            </record>
+             <record id="neweb_buscate_12" model="neweb.buscate">
+                <field name="name">醫療環保</field>
+            </record>
+             <record id="neweb_buscate_13" model="neweb.buscate">
+                <field name="name">政治社福</field>
+            </record>
+            <record id="neweb_buscate_14" model="neweb.buscate">
+                <field name="name">農林漁牧</field>
+            </record>
+             <record id="neweb_buscate_15" model="neweb.buscate">
+                <field name="name">礦石開採</field>
+            </record>
+             <record id="neweb_buscate_16" model="neweb.buscate">
+                <field name="name">國營公教</field>
+            </record>
+             <record id="neweb_buscate_17" model="neweb.buscate">
+                <field name="name">一般中小企業</field>
+            </record>
+            <record id="neweb_buscate_18" model="neweb.buscate">
+                <field name="name">經銷商</field>
+            </record>
+             <record id="neweb_buscate_19" model="neweb.buscate">
+                <field name="name">代理商</field>
+            </record>
+             <record id="neweb_buscate_20" model="neweb.buscate">
+                <field name="name">其他</field>
+            </record>
+            <record id="neweb_product_purchase_1" model="product.template">
+               <field name="name">採購商品</field>
+               <field name="categ_id">1</field>
+               <field name="uom_id">1</field>
+               <field name="uom_po_id">1</field>
+               <field name="type">service</field>
+               <field name="purchase_ok">True</field>
+               <field name="sale_ok">False</field>
+               <field name="purchase_method">receive</field>
+               <field name="uom_id">1</field>
+               <field name="uom_po_id">1</field>
+            </record>
+            <record id="neweb_product_sale_2" model="product.template">
+               <field name="name">銷售商品</field>
+               <field name="categ_id">1</field>
+               <field name="uom_id">1</field>
+               <field name="uom_po_id">1</field>
+               <field name="type">service</field>
+               <field name="purchase_ok">False</field>
+               <field name="sale_ok">True</field>
+               <field name="purchase_method">receive</field>
+                <field name="uom_id">1</field>
+               <field name="uom_po_id">1</field>
+            </record>
+            <record id="neweb_transationtype_1" model="neweb.transationtype">
+                <field name="name">政府</field>
+            </record>
+             <record id="neweb_transationtype_2" model="neweb.transationtype">
+                <field name="name">買賣</field>
+            </record>
+             <record id="neweb_transationtype_3" model="neweb.transationtype">
+                <field name="name">原廠保固</field>
+            </record>
+             <record id="neweb_transationtype_4" model="neweb.transationtype">
+                <field name="name">藍新人力</field>
+            </record>
+             <record id="neweb_transationtype_5" model="neweb.transationtype">
+                <field name="name">藍新保固</field>
+            </record>
+             <record id="neweb_transationtype_6" model="neweb.transationtype">
+                <field name="name">建置</field>
+            </record>
+             <record id="neweb_transationtype_7" model="neweb.transationtype">
+                <field name="name">維護新約</field>
+            </record>
+             <record id="neweb_transationtype_8" model="neweb.transationtype">
+                <field name="name">維護續約</field>
+            </record>
+             <record id="neweb_transationtype_9" model="neweb.transationtype">
+                <field name="name">租賃</field>
+            </record>
+             <record id="neweb_transationtype_10" model="neweb.transationtype">
+                <field name="name">專案</field>
+            </record>
+             <record id="neweb_transationtype_11" model="neweb.transationtype">
+                <field name="name">專案合作</field>
+            </record>
+             <!--<record id="neweb_transationtype_12" model="neweb.transationtype">-->
+                <!--<field name="name">其他</field>-->
+            <!--</record>-->
+            <record id="neweb_assservicetype_1" model="neweb.ass_service_type">
+                <field name="name">Solution</field>
+            </record>
+            <record id="neweb_assservicetype_2" model="neweb.ass_service_type">
+                <field name="name">R6</field>
+            </record>
+            <record id="neweb_assservicetype_3" model="neweb.ass_service_type">
+                <field name="name">NT</field>
+            </record>
+            <record id="neweb_assservicetype_4" model="neweb.ass_service_type">
+                <field name="name">Networking</field>
+            </record>
+            <record id="neweb_assservicetype_5" model="neweb.ass_service_type">
+                <field name="name">Storage</field>
+            </record>
+            <record id="neweb_assservicemode_1" model="neweb.ass_service_mode">
+                <field name="name">專案</field>
+            </record>
+             <record id="neweb_assservicemode_2" model="neweb.ass_service_mode">
+                <field name="name">新裝機</field>
+            </record>
+             <record id="neweb_assservicemode_3" model="neweb.ass_service_mode">
+                <field name="name">MES</field>
+            </record>
+            <record id="neweb_assservicemode_4" model="neweb.ass_service_mode">
+                <field name="name">叫修</field>
+            </record>
+            <record id="neweb_assservicemode_5" model="neweb.ass_service_mode">
+                <field name="name">POC</field>
+            </record>
+        </data>
+
+</odoo>

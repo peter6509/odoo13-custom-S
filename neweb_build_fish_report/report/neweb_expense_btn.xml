@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_expense_btn_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.expense.btn.form.inherit</field>
+            <field name="model">neweb_sale_analysis.expense_report</field>
+            <field name="inherit_id" ref="neweb_sale_analysis.neweb_expense_report_view_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button type="object" string="一般費用申請預覽" name="action_print_expense" class="oe_highlight"/>
+                </header>
+            </field>
+        </record>
+
+    </data>
+</odoo>

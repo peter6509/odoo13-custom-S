@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <report id="action_report_neweb_purchase_taiwan"
+                model="purchase.order"
+                string="國內採購單NEW"
+                report_type="controller"
+                print_report_name="'國內採購單_%s_%s.pdf' % (object.name,object.partner_id.name)"
+                name="neweb_purchase_taiwan_report"/>
+        <record id="action_report_neweb_purchase_taiwan" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_purchase_taiwan_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+         <report id="action_report_neweb_purchase_english"
+                model="purchase.order"
+                string="國外採購單NEW"
+                report_type="controller"
+                print_report_name="'國外採購單_%s_%s.pdf' % (object.name,object.partner_id.name)"
+                name="neweb_purchase_english_report"/>
+        <record id="action_report_neweb_purchase_english" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_purchase_english_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+    </data>
+</odoo>

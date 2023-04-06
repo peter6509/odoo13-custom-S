@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ghiot_ngreturn_select_form" model="ir.ui.view">
+            <field name="name">ghiot.ngreturn.select.form</field>
+            <field name="model">alldo_gh_iot.ngreturn_select</field>
+            <field name="arch" type="xml">
+              <form string="">
+                  <sheet>
+                      <group>
+                          <button name="run_gen_ngreturn" type="object" string="NG退料單印表" class="oe_highlight"/>
+                      </group>
+                   <notebook>
+                        <page string="NG退料單明細" name="ngreturn_Line">
+                            <field name="select_line" widget="section_and_note_one2many" mode="tree">
+                              <tree string="">
+                                <button type="object" name="run_selectyn" string="點選" class="oe_highlight"/>
+                                <field name="selectyn"/>
+                                <field name="name"/>
+                                <field name="cus_name"/>
+                                <field name="product_no"/>
+                                <field name="qc_date"/>
+                                <field name="material_ng_num"/>
+                                <field name="processing_ng_num"/>
+                                <field name="loss_num"/>
+                                <field name="report_no"/>
+                              </tree>
+                            </field>
+                        </page>
+                   </notebook>
+                    </sheet>
+              </form>
+            </field>
+        </record>
+        <record id="ghiot_ngreturn_select_action" model="ir.actions.act_window">
+            <field name="name">NG退料單勾選精靈</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.ngreturn_select</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

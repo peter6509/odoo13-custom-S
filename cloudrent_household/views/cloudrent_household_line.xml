@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="cloudrent_household_house_line_tree" model="ir.ui.view">
+           <field name="name">cloudrent.household.house.line.tree</field>
+           <field name="model">cloudrent.household_house_line</field>
+           <field name="arch" type="xml">
+               <tree string="" create="false">
+                   <field name="house_no"/>
+                   <field name="house_level"/>
+                   <field name="member_id"/>
+                   <field name="in_used"/>
+                   <field name="start_rental"/>
+                   <field name="landlord_owner"/>
+                   <field name="agent_owner"/>
+               </tree>
+           </field>
+       </record>
+       <record id="cloudrent_household_house_line_form" model="ir.ui.view">
+           <field name="name">cloudrent.household.house.line.form</field>
+           <field name="model">cloudrent.household_house_line</field>
+           <field name="arch" type="xml">
+               <form string="">
+<!--                    <div>-->
+<!--                       <widget name="web_ribbon" title="未繳費" bg_color="bg-danger" attrs="{'invisible': [('is_payment','=',True)]}"/>-->
+<!--                        <widget name="web_ribbon" title="已付費" attrs="{'invisible':[('is_payment','=',False)]}"/>-->
+<!--                    </div>-->
+                   <sheet>
+                       <group>
+                           <group>
+                               <field name="house_no"/>
+                               <field name="house_level"/>
+                               <field name="member_id" options="{'no_create':true,'no_create_edit':true}"/>
+                               <field name="user_id"/>
+                               <field name="in_used"/>
+                               <field name="start_rental"/>
+                               <field name="landlord_owner" domain="[('member_type','=','2')]"/>
+                               <field name="agent_owner" domain="[('member_type','=','1')]"/>
+                           </group>
+                           <group>
+                               <field name="repair_grant_amount"/>
+                               <field name="repair_payment_amount"/>
+                           </group>
+                       </group>
+                       <notebook>
+                             <page string="租房設備配置" name="Equipment LINE">
+                                <field name="equip_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="租房設備配置" editable="bottom">
+                                    <field name="equip_categ" width="10%%"/>
+                                    <field name="equip_no" width="10%%"/>
+                                     <field name="equip_qty" width="8%%"/>
+                                    <field name="equip_status" width="10%%"/>
+                                    <field name="equip_image" widget="image" class="oe_left oe_avatar"/>
+                                 </tree>
+                                </field>
+                            </page>
+                          <page string="修繕補助申請記錄" name="Repair Grant Line">
+                                <field name="repair_grant_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="修繕補助申請記錄" editable="bottom">
+                                    <field name="grant_no" width="10%%"/>
+                                    <field name="grant_start" width="10%%"/>
+                                     <field name="grant_end" width="10%%"/>
+                                    <field name="grant_amount" width="10%%"/>
+                                    <field name="grant_alert" width="10%%"/>
+                                    <field name="grant_active" width="8%%"/>
+                                 </tree>
+                                </field>
+                            </page>
+
+                            <page string="修繕核銷記錄明細" name="PRE-PAID LINE">
+                                <field name="repair_fee_payment_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="修繕核銷記錄明細" editable="bottom">
+                                    <field name="payment_id" invisible="1"/>
+                                    <field name="repair_no" width="10%%"/>
+                                    <field name="payment_date" width="10%%"/>
+                                    <field name="supplier" width="10%%" domain="[('member_type','=','4')]"/>
+                                    <field name="maintenance_id" width="10%%"/>
+                                    <field name="maintenance_memo" width="10%%"/>
+                                    <field name="payment_amount" width="10%%"/>
+                                    <field name="invoice_no" width="10%%"/>
+                                 </tree>
+                                </field>
+                            </page>
+                       </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+        <record id="cloudrent_household_house_line_action" model="ir.actions.act_window">
+            <field name="name">住房資訊管理</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.household_house_line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

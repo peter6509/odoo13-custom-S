@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="alldo_ipla_iot_wkorder_report1">
+            <t t-call="cfprint.html_container">
+                <h1 class="col-12 text-center">台灣瀧澤 生產工單</h1>
+                <h3 class="col-12 text-center">正在列印輸出中，請稍候...</h3>
+<script type="text/javascript">
+var cfprint_addr = "127.0.0.1";   //打印服务器监听地址
+var _delay_close = -1 ;          //打印完成后关闭窗口的延时时长(毫秒), -1则表示不关闭
+
+/**定义主表结构**/
+var _tableOrder = {
+    "Name": "WKOrder",
+    "Cols":[
+        { "type": "str", "size": 50, "name": "料號", "required": false },
+        { "type": "str", "size": 10, "name": "訂單數", "required": false },
+        { "type": "str", "size": 10, "name": "毛胚數", "required": false },
+        { "type": "str", "size": 20, "name": "出貨日", "required": false },
+        { "type": "str", "size": 20, "name": "進貨日", "required": false },
+        { "type": "str", "size": 20, "name": "wkname1", "required": false },
+        { "type": "str", "size": 20, "name": "wkname2", "required": false },
+        { "type": "str", "size": 20, "name": "wkname3", "required": false },
+        { "type": "str", "size": 20, "name": "wkname4", "required": false },
+        { "type": "str", "size": 20, "name": "wkname5", "required": false },
+        { "type": "str", "size": 20, "name": "wkname6", "required": false },
+        { "type": "str", "size": 20, "name": "wkname7", "required": false },
+        { "type": "str", "size": 20, "name": "wkname8", "required": false },
+    ],
+    "Data":[ ]
+};
+
+<t t-foreach="docs" t-as="o">
+/*增加主表记录*/
+_tableOrder.Data.push({
+    "料號":"<t t-if="o['productno']" t-esc="o['productno']"/>",
+    "訂單數":"<t t-if="o['ordernum']" t-esc="o['ordernum']"/>",
+    "毛胚數":"<t t-if="o['blank_num']" t-esc="o['blank_num']"/>",
+    "出貨日":"<t t-if="o['shippingdate']" t-esc="o['shippingdate']"/>",
+    "進貨日":"<t t-if="o['blankinputdate']" t-esc="o['blankinputdate']"/>",
+    "wkname1":"<t t-if="o['wkname1']" t-esc="o['wkname1']"/>",
+    "wkname2":"<t t-if="o['wkname2']" t-esc="o['wkname2']"/>",
+    "wkname3":"<t t-if="o['wkname3']" t-esc="o['wkname3']"/>",
+    "wkname4":"<t t-if="o['wkname4']" t-esc="o['wkname4']"/>",
+    "wkname5":"<t t-if="o['wkname5']" t-esc="o['wkname5']"/>",
+    "wkname6":"<t t-if="o['wkname6']" t-esc="o['wkname6']"/>",
+    "wkname7":"<t t-if="o['wkname7']" t-esc="o['wkname7']"/>",
+    "wkname8":"<t t-if="o['wkname8']" t-esc="o['wkname8']"/>",
+
+});
+</t>
+var _data = {"template": "base64:<t t-esc="get_cf_template(user.env,'alldo_ipla_iot_wkorder_report1')"/>", "ver": 4, "Copies": 1, "Duplex": 0, "Preview": 1, "Tables":[]};
+_data["Tables"].push(_tableOrder);
+var _reportData = JSON.stringify(_data);  //转成json字符串
+
+console.log(_reportData);
+//生成数据之后，在cfprint_ext.js中会自动调用进行打印
+</script>
+            </t>
+        </template>
+    </data>
+</odoo>

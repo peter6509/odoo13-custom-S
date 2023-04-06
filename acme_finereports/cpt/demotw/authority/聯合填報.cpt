@@ -1,0 +1,1383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20170720" releaseVersion="10.0.0">
+<TableDataMap>
+<TableData name="luoding" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemoTW]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM Rluoding]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+<TableData name="luomu" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemoTW]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM Rluomu]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+<TableData name="shangzhou" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemoTW]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM Rshangzhou]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+<TableData name="shoulun" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemoTW]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM Rshoulun]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+<TableData name="wolun" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemoTW]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM Rwolun]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+<TableData name="dianquan" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[FRDemoTW]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT * FROM Rdianquan]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<ServerPrinter/>
+<WebWriteContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.button.write.Submit">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Utils-Submit')}]]></Text>
+<IconName>
+<![CDATA[submit]]></IconName>
+<Verify failVerifySubmit="false" value="true"/>
+<Sheet onlySubmitSelect="false"/>
+</Widget>
+<Widget class="com.fr.report.web.button.write.Verify">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Verify-Data_Verify')}]]></Text>
+<IconName>
+<![CDATA[verify]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.FlashPrint">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Utils-Print[Client]A')}]]></Text>
+<IconName>
+<![CDATA[flashprint]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.Print">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Print')}]]></Text>
+<IconName>
+<![CDATA[print]]></IconName>
+<PrintButtons/>
+</Widget>
+<Widget class="com.fr.report.web.button.Export">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Export')}]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true" html="true"/>
+</Widget>
+<Widget class="com.fr.report.web.button.Email">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Email')}]]></Text>
+<IconName>
+<![CDATA[email]]></IconName>
+<EmailButton customConsignee="true" consigneeByDepartment="false" consigneeByRole="false"/>
+</Widget>
+<Widget class="com.fr.report.web.button.write.AppendColumnRow">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Add')}${i18n('Record')}]]></Text>
+<IconName>
+<![CDATA[appendcolumn]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.write.ShowCellValue">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<widgetValue/>
+<LabelAttr verticalcenter="true" textalign="0" autoline="false"/>
+<FRFont name="SimSun" style="0" size="72"/>
+<border style="0" color="-723724"/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<EditRowColor setColor="false"/>
+<WebWrite SheetPosition="3"/>
+<RptLocation isShowAtLeft="true"/>
+<UnloadCheck/>
+<ShowWidgets/>
+<OtherAttr autoStash="false"/>
+</WebWriteContent>
+</ReportWebAttr>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,1143000,990600,1028700,1143000,1066800,990600,1066800,723900,723900,1028700,723900,838200,762000,723900,723900,762000,762000,2019300,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1714500,4800600,3314700,3086100,3429000,2743200,3390900,2743200,4381500,1181100,4305300,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="1" s="0">
+<O>
+<![CDATA[零件名稱]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="1" cs="2" s="0">
+<O>
+<![CDATA[生產部門計畫生產數]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="1" cs="2" s="0">
+<O>
+<![CDATA[生產部門實際生產數]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="1" cs="2" s="0">
+<O>
+<![CDATA[質量檢測部門檢測合格數]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="1" s="0">
+<O>
+<![CDATA[合格率]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="1" cs="2" s="0">
+<O>
+<![CDATA[計畫完成]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2" s="1">
+<O>
+<![CDATA[上軸]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2" cs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="shangzhou" columnName="計畫數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.js.JavaScriptImpl">
+<Parameters>
+<Parameter>
+<Attributes name="user"/>
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=$fr_authority]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+<Content>
+<![CDATA[if(user='SUPERROLR'&&user.length>0)
+{
+	FR.Msg.alert("警告","不能用管理員帳號填報！請看使用說明");
+	this.setValue("");
+	}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetName name="plan1"/>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="4" r="2" cs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="shangzhou" columnName="生產數"/>
+<Complex/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var value=contentPane.getWidgetByName("plan1").getValue();
+if(this.getValue()>value)
+{
+	FR.Msg.alert("警告","實際完成數不能大於計畫數，請重新輸入！");
+	this.setValue("");
+	}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="6" r="2" cs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="shangzhou" columnName="合格數"/>
+<Complex/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="8" r="2" s="3">
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=G3 / E3]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="2" cs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="shangzhou" columnName="完成"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+</PrivilegeControl>
+</WidgetAttr>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="1" value="完成"/>
+<Dict key="0" value="未完成"/>
+</CustomDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="1" r="3" s="4">
+<O>
+<![CDATA[螺釘]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="3" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="luoding" columnName="計劃數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="plan2"/>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="4" r="3" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="luoding" columnName="完成數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var value=contentPane.getWidgetByName("plan2").getValue();
+if(this.getValue()>value)
+{
+	FR.Msg.alert("警告","實際完成數不能大於計畫數，請重新輸入！");
+	this.setValue("");
+	}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="6" r="3" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="luoding" columnName="合格數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="8" r="3" s="6">
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=G4 / E4]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="3" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="luoding" columnName="完成"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+</PrivilegeControl>
+</WidgetAttr>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="1" value="完成"/>
+<Dict key="0" value="未完成"/>
+</CustomDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="1" r="4" s="0">
+<O>
+<![CDATA[螺母]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="4" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="luomu" columnName="計劃數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="plan3"/>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="4" r="4" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="luomu" columnName="生產數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var value=contentPane.getWidgetByName("plan3").getValue();
+if(this.getValue()>value)
+{
+	FR.Msg.alert("警告","實際完成數不能大於計畫數，請重新輸入！");
+	this.setValue("");
+	}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="6" r="4" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="luomu" columnName="合格數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="8" r="4" s="8">
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=G5 / E5]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="4" cs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="luomu" columnName="完成"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+</PrivilegeControl>
+</WidgetAttr>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="1" value="完成"/>
+<Dict key="0" value="未完成"/>
+</CustomDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="1" r="5" s="0">
+<O>
+<![CDATA[手輪]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="5" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="shoulun" columnName="計劃數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="plan4"/>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="4" r="5" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="shoulun" columnName="完成數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var value=contentPane.getWidgetByName("plan4").getValue();
+if(this.getValue()>value)
+{
+	FR.Msg.alert("警告","實際完成數不能大於計畫數，請重新輸入！");
+	this.setValue("");
+	}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="6" r="5" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="shoulun" columnName="合格數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="8" r="5" s="6">
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=G6 / E6]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="5" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="shoulun" columnName="完成"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+</PrivilegeControl>
+</WidgetAttr>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="1" value="完成"/>
+<Dict key="0" value="未完成"/>
+</CustomDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="1" r="6" s="0">
+<O>
+<![CDATA[墊圈]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="6" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="dianquan" columnName="計劃數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="plan5"/>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="4" r="6" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="dianquan" columnName="完成數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var value=contentPane.getWidgetByName("plan5").getValue();
+if(this.getValue()>value)
+{
+	FR.Msg.alert("警告","實際完成數不能大於計畫數，請重新輸入！");
+	this.setValue("");
+	}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="6" r="6" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="dianquan" columnName="合格數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="8" r="6" s="8">
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=G7 / E7]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="6" cs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="dianquan" columnName="完成"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+</PrivilegeControl>
+</WidgetAttr>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="1" value="完成"/>
+<Dict key="0" value="未完成"/>
+</CustomDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="1" r="7" s="0">
+<O>
+<![CDATA[蝸輪]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="7" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="wolun" columnName="計劃數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetName name="plan6"/>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="4" r="7" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="wolun" columnName="完成數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<Listener event="stopedit">
+<JavaScript class="com.fr.js.JavaScriptImpl">
+<Parameters/>
+<Content>
+<![CDATA[var value=contentPane.getWidgetByName("plan6").getValue();
+if(this.getValue()>value)
+{
+	FR.Msg.alert("警告","實際完成數不能大於計畫數，請重新輸入！");
+	this.setValue("");
+	}]]></Content>
+</JavaScript>
+</Listener>
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="6" r="7" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="wolun" columnName="合格數"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.TextEditor">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援部長"/>
+</PrivilegeControl>
+</WidgetAttr>
+<TextAttr/>
+<Reg class="com.fr.form.ui.reg.NoneReg"/>
+<widgetValue/>
+<MobileScanCodeAttr scanCode="true"/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="8" r="7" s="6">
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=G8 / E8]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="7" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="wolun" columnName="完成"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Widget class="com.fr.form.ui.RadioGroup">
+<WidgetAttr description="">
+<PrivilegeControl>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援總調度"/>
+<PrivilegeUnusableRole privilegeUnusableRole="技術支援一線技術支援"/>
+</PrivilegeControl>
+</WidgetAttr>
+<Dictionary class="com.fr.data.impl.CustomDictionary">
+<CustomDictAttr>
+<Dict key="1" value="完成"/>
+<Dict key="0" value="未完成"/>
+</CustomDictAttr>
+</Dictionary>
+<widgetValue/>
+</Widget>
+<Expand dir="0"/>
+</C>
+<C c="1" r="10" s="9">
+<O>
+<![CDATA[使用說明：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="10" cs="7" s="10">
+<O>
+<![CDATA[填報報表中，可透過權限編輯實現不同使用者可編輯不同按鈕，實現聯合填報。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="11" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="11" cs="7" s="12">
+<O>
+<![CDATA[FineReport內置資料決策系統中，配置了一套使用者角色，分為三個部門，開發、人力資源和技術支援，]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="12" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="12" cs="7" s="12">
+<O>
+<![CDATA[其中技術支援部門有3個職務，部長，總調度和一線技術支援。為了方便起見，這裡將技術支援部門一線]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="13" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="13" cs="7" s="12">
+<O>
+<![CDATA[技術支援看做生產部門人員，輸入所有零件計畫生產數和實際生產數，將總調度看做質檢部門人員，輸入]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="14" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="14" cs="7" s="14">
+<O>
+<![CDATA[零件檢測合格數，部長作為審核人員，根據合格率審核該零件計畫是否完成。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="16" cs="2" rs="3" s="15">
+<O>
+<![CDATA[技術支援一線技術支援Anna或Cherry登入系統，點擊權限使用>聯合填報，輸入生產部門計畫生產數和實際生產數]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="16" cs="2" rs="3" s="15">
+<O>
+<![CDATA[總調度Jack登入系統，點擊權限使用>聯合填報，輸入質監部門檢測合格數]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="16" cs="3" rs="3" s="15">
+<O>
+<![CDATA[部長Alice登入系統，點擊權限使用>聯合填報，根據合格率確定計畫是否完成，合格率大於80%即表明計畫完成]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="18" s="16">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="18" s="16">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting>
+<PaperSize width="40608000" height="42768000"/>
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+<Background name="ColorBackground" color="-1"/>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<ReportWriteAttr>
+<SubmitVisitor class="com.fr.report.write.BuiltInSQLSubmiter">
+<Name>
+<![CDATA[內置SQL1]]></Name>
+<Attributes dsName="FRDemoTW"/>
+<DMLConfig class="com.fr.write.config.IntelliDMLConfig">
+<Table schema="" name="Rshangzhou"/>
+<ColumnConfig name="計畫數" isKey="false" skipUnmodified="false">
+<ColumnRow column="2" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="生產數" isKey="false" skipUnmodified="false">
+<ColumnRow column="4" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="合格數" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="完成" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="2"/>
+</ColumnConfig>
+<ColumnConfig name="ID" isKey="true" skipUnmodified="false">
+<O t="I">
+<![CDATA[1]]></O>
+</ColumnConfig>
+<Condition class="com.fr.data.condition.ListCondition"/>
+</DMLConfig>
+</SubmitVisitor>
+<SubmitVisitor class="com.fr.report.write.BuiltInSQLSubmiter">
+<Name>
+<![CDATA[內置SQL2]]></Name>
+<Attributes dsName="FRDemoTW"/>
+<DMLConfig class="com.fr.write.config.IntelliDMLConfig">
+<Table schema="" name="Rluoding"/>
+<ColumnConfig name="ID" isKey="true" skipUnmodified="false">
+<O t="I">
+<![CDATA[1]]></O>
+</ColumnConfig>
+<ColumnConfig name="計畫數" isKey="false" skipUnmodified="false">
+<ColumnRow column="2" row="3"/>
+</ColumnConfig>
+<ColumnConfig name="完成數" isKey="false" skipUnmodified="false">
+<ColumnRow column="4" row="3"/>
+</ColumnConfig>
+<ColumnConfig name="合格數" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="3"/>
+</ColumnConfig>
+<ColumnConfig name="完成" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="3"/>
+</ColumnConfig>
+<Condition class="com.fr.data.condition.ListCondition"/>
+</DMLConfig>
+</SubmitVisitor>
+<SubmitVisitor class="com.fr.report.write.BuiltInSQLSubmiter">
+<Name>
+<![CDATA[內置SQL3]]></Name>
+<Attributes dsName="FRDemoTW"/>
+<DMLConfig class="com.fr.write.config.IntelliDMLConfig">
+<Table schema="" name="Rluomu"/>
+<ColumnConfig name="ID" isKey="true" skipUnmodified="false">
+<O t="I">
+<![CDATA[1]]></O>
+</ColumnConfig>
+<ColumnConfig name="計畫數" isKey="false" skipUnmodified="false">
+<ColumnRow column="2" row="4"/>
+</ColumnConfig>
+<ColumnConfig name="生產數" isKey="false" skipUnmodified="false">
+<ColumnRow column="4" row="4"/>
+</ColumnConfig>
+<ColumnConfig name="合格數" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="4"/>
+</ColumnConfig>
+<ColumnConfig name="完成" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="4"/>
+</ColumnConfig>
+<Condition class="com.fr.data.condition.ListCondition"/>
+</DMLConfig>
+</SubmitVisitor>
+<SubmitVisitor class="com.fr.report.write.BuiltInSQLSubmiter">
+<Name>
+<![CDATA[內置SQL4]]></Name>
+<Attributes dsName="FRDemoTW"/>
+<DMLConfig class="com.fr.write.config.IntelliDMLConfig">
+<Table schema="" name="Rshoulun"/>
+<ColumnConfig name="ID" isKey="true" skipUnmodified="false">
+<O t="I">
+<![CDATA[1]]></O>
+</ColumnConfig>
+<ColumnConfig name="計畫數" isKey="false" skipUnmodified="false">
+<ColumnRow column="2" row="5"/>
+</ColumnConfig>
+<ColumnConfig name="完成數" isKey="false" skipUnmodified="false">
+<ColumnRow column="4" row="5"/>
+</ColumnConfig>
+<ColumnConfig name="合格數" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="5"/>
+</ColumnConfig>
+<ColumnConfig name="完成" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="5"/>
+</ColumnConfig>
+<Condition class="com.fr.data.condition.ListCondition"/>
+</DMLConfig>
+</SubmitVisitor>
+<SubmitVisitor class="com.fr.report.write.BuiltInSQLSubmiter">
+<Name>
+<![CDATA[內置SQL5]]></Name>
+<Attributes dsName="FRDemoTW"/>
+<DMLConfig class="com.fr.write.config.IntelliDMLConfig">
+<Table schema="" name="Rdianquan"/>
+<ColumnConfig name="ID" isKey="true" skipUnmodified="false">
+<O t="I">
+<![CDATA[1]]></O>
+</ColumnConfig>
+<ColumnConfig name="計畫數" isKey="false" skipUnmodified="false">
+<ColumnRow column="2" row="6"/>
+</ColumnConfig>
+<ColumnConfig name="完成數" isKey="false" skipUnmodified="false">
+<ColumnRow column="4" row="6"/>
+</ColumnConfig>
+<ColumnConfig name="合格數" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="6"/>
+</ColumnConfig>
+<ColumnConfig name="完成" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="6"/>
+</ColumnConfig>
+<Condition class="com.fr.data.condition.ListCondition"/>
+</DMLConfig>
+</SubmitVisitor>
+<SubmitVisitor class="com.fr.report.write.BuiltInSQLSubmiter">
+<Name>
+<![CDATA[內置SQL6]]></Name>
+<Attributes dsName="FRDemoTW"/>
+<DMLConfig class="com.fr.write.config.IntelliDMLConfig">
+<Table schema="" name="Rwolun"/>
+<ColumnConfig name="ID" isKey="true" skipUnmodified="false">
+<O t="I">
+<![CDATA[1]]></O>
+</ColumnConfig>
+<ColumnConfig name="計畫數" isKey="false" skipUnmodified="false">
+<ColumnRow column="2" row="7"/>
+</ColumnConfig>
+<ColumnConfig name="完成數" isKey="false" skipUnmodified="false">
+<ColumnRow column="4" row="7"/>
+</ColumnConfig>
+<ColumnConfig name="合格數" isKey="false" skipUnmodified="false">
+<ColumnRow column="6" row="7"/>
+</ColumnConfig>
+<ColumnConfig name="完成" isKey="false" skipUnmodified="false">
+<ColumnRow column="9" row="7"/>
+</ColumnConfig>
+<Condition class="com.fr.data.condition.ListCondition"/>
+</DMLConfig>
+</SubmitVisitor>
+</ReportWriteAttr>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="false" windowPosition="1" align="0" useParamsTemplate="false"/>
+<PWTitle>
+<![CDATA[參數]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[#0.00]]></Format>
+<FRFont name="微軟雅黑" style="1" size="72" foreground="-13421773"/>
+<Background name="ColorBackground" color="-3679502"/>
+<Border>
+<Top style="1" color="-1"/>
+<Bottom style="1" color="-1"/>
+<Left style="1" color="-1"/>
+<Right style="1" color="-1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[#0.00]]></Format>
+<FRFont name="微軟雅黑" style="1" size="72" foreground="-13421773"/>
+<Background name="ColorBackground" color="-3679502"/>
+<Border>
+<Bottom style="1" color="-1"/>
+<Left style="1" color="-1"/>
+<Right style="1" color="-1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="微軟雅黑" style="0" size="64" foreground="-13421773"/>
+<Background name="ColorBackground" color="-526345"/>
+<Border>
+<Bottom style="1" color="-1"/>
+<Left style="1" color="-1"/>
+<Right style="1" color="-1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[#0.00%]]></Format>
+<FRFont name="微軟雅黑" style="0" size="64" foreground="-13421773"/>
+<Background name="ColorBackground" color="-526345"/>
+<Border>
+<Bottom style="1" color="-1"/>
+<Left style="1" color="-1"/>
+<Right style="1" color="-1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[#0.00]]></Format>
+<FRFont name="微軟雅黑" style="1" size="72" foreground="-13421773"/>
+<Background name="ColorBackground" color="-3679502"/>
+<Border>
+<Left style="1" color="-1"/>
+<Right style="1" color="-1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="微軟雅黑" style="0" size="64" foreground="-13421773"/>
+<Background name="ColorBackground" color="-656933"/>
+<Border>
+<Top style="1" color="-1"/>
+<Bottom style="1" color="-1"/>
+<Left style="1" color="-1"/>
+<Right style="1" color="-1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[#0.00%]]></Format>
+<FRFont name="微軟雅黑" style="0" size="64" foreground="-13421773"/>
+<Background name="ColorBackground" color="-656933"/>
+<Border>
+<Top style="1" color="-1"/>
+<Bottom style="1" color="-1"/>
+<Left style="1" color="-1"/>
+<Right style="1" color="-1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="微軟雅黑" style="0" size="64" foreground="-13421773"/>
+<Background name="ColorBackground" color="-526345"/>
+<Border>
+<Top style="1" color="-1"/>
+<Bottom style="1" color="-1"/>
+<Left style="1" color="-1"/>
+<Right style="1" color="-1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[#0.00%]]></Format>
+<FRFont name="微軟雅黑" style="0" size="64" foreground="-13421773"/>
+<Background name="ColorBackground" color="-526345"/>
+<Border>
+<Top style="1" color="-1"/>
+<Bottom style="1" color="-1"/>
+<Left style="1" color="-1"/>
+<Right style="1" color="-1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1" paddingLeft="0">
+<FRFont name="微軟雅黑" style="1" size="96" foreground="-8835538"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="14" color="-13408513"/>
+<Left style="14" color="-13408513"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="微軟雅黑" style="0" size="80" foreground="-13421773"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="14" color="-13408513"/>
+<Right style="14" color="-13408513"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="14" color="-13408513"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="微軟雅黑" style="0" size="80" foreground="-13421773"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="14" color="-13408513"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="14" color="-13408513"/>
+<Left style="14" color="-13408513"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="微軟雅黑" style="0" size="80" foreground="-13421773"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="14" color="-13408513"/>
+<Right style="14" color="-13408513"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="微軟雅黑" style="1" size="88" foreground="-16484470"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2" color="-11566995"/>
+<Bottom style="2" color="-11566995"/>
+<Left style="2" color="-11566995"/>
+<Right style="2" color="-11566995"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2" color="-13382452"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="KAA"/>
+<PreviewType PreviewType="1"/>
+<TemplateIdAttMark class="com.fr.base.iofile.attr.TemplateIdAttrMark">
+<TemplateIdAttMark TemplateId="f0083d64-8850-4f5a-b012-14146af6b101"/>
+</TemplateIdAttMark>
+</WorkBook>

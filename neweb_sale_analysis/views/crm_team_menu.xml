@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <menuitem id="menu_neweb_crmteam_action"
+                  name="銷售團隊配置"
+                  parent="neweb_project.menu_neweb_sale_categ"
+                  action="sales_team.sales_team_config_action"
+                  groups="neweb_project.neweb_cs30_dir"
+                  sequence="30"/>
+    </data>
+</odoo>

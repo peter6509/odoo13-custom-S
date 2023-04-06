@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_agent_grant_fee_wizard" model="ir.ui.view">
+             <field name="name">views.agent.grant.fee.wizard</field>
+             <field name="model">cloudrent.agent_grant_fee</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>業者服務-補助費用申請書產生精靈</h1>
+                     <group>
+                       <field name="grant_year"/>
+                       <field name="grant_month"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_agent_grant_fee" string="產生" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_agent_grant_fee_wizard_action" model="ir.actions.act_window">
+             <field name="name">補助費用申請書列印</field>
+             <field name="res_model">cloudrent.agent_grant_fee</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="py3o_neweb_project_inherit_form" model="ir.ui.view">
+            <field name="name">py3o.neweb.project.inherit.form</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_project.neweb_project_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='sales_member']" position="after">
+                    <field name="cshippingtype" attrs="{'invisible':1}"/>
+                    <field name="cstampdutytype" attrs="{'invisible':1}"/>
+                    <field name="chavecontract" attrs="{'invisible':1}"/>
+                    <field name="csetuptype" attrs="{'invisible':1}"/>
+                    <field name="cengassign" attrs="{'invisible':1}"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="goto_project_wizard" model="ir.ui.view">
+             <field name="name">goto.project.wizard</field>
+             <field name="model">neweb.gotoproject</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>成本分析快速導向</h1>
+                         <group>
+                             <field name="project_no"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_gotoproject" string="導向" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="goto_project_action" model="ir.actions.act_window">
+             <field name="name">goto project</field>
+             <field name="res_model">neweb.gotoproject</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+
+    </data>
+</odoo>

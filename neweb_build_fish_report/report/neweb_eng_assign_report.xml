@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <report id="action_report_neweb_eng_assign"
+                model="neweb.proj_eng_assign"
+                string="裝機暨派工單NEW"
+                report_type="controller"
+                print_report_name="'裝機暨派工單_%s.pdf' % object.assign_no"
+                name="neweb_eng_assign_report"/>
+        <record id="action_report_neweb_eng_assign" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_eng_assign_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+    </data>
+</odoo>

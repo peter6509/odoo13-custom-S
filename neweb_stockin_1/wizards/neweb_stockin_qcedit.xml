@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_stockinqcedit_tree" model="ir.ui.view">
+            <field name="name">neweb_stockingedit_tree</field>
+            <field name="model">neweb.stockinline_qc</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <!--<button name="qc_ok" type="object" string="允收"/>-->
+                    <field name="origin" attrs="{'readonly':'1'}"/>
+                    <field name="stockin_machinetype" attrs="{'readonly':'1'}"/>
+                    <field name="stockin_modeltype" attrs="{'readonly':'1'}"/>
+                    <field name="stockin_prodno" attrs="{'readonly':'1'}"/>
+                    <field name="stockin_spec" attrs="{'readonly':'1'}"/>
+                    <field name="stockin_serial"/>
+                    <field name="stockin_num" attrs="{'readonly':'1'}"/>
+                    <field name="stockin_qcnum" />
+                    <field name="stockin_check" />
+                    <field name="stockin_desc" />
+                    <field name="stockin_checkdo"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_stockinqcedit_form" model="ir.ui.view">
+            <field name="name">neweb_stockinqcedit_form</field>
+            <field name="model">neweb.stockinline_qc</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="origin" attrs="{'readonly':'1'}"/>
+                                <field name="stockin_machinetype" attrs="{'readonly':'1'}"/>
+                                <field name="stockin_modeltype" attrs="{'readonly':'1'}"/>
+                                <field name="stockin_prodno" attrs="{'readonly':'1'}"/>
+                                <field name="stockin_spec" attrs="{'readonly':'1'}"/>
+
+                            </group>
+                            <group>
+
+                                <field name="stockin_num" attrs="{'readonly':'1'}"/>
+                                <field name="stockin_qcnum" />
+                                <!--<field name="stockin_check" />-->
+                                 <field name="stockin_serial" attrs="{'readonly':'1'}"/>
+                                <field name="stockin_desc" />
+                                <field name="stockin_checkdo" attrs="{'readonly':'1'}"/>
+                                 <button name="qc_check" type="object" string="檢驗確認"  class="oe_highlight oe_edit_only"
+                                  context="{'qc_op_id': context.get('active_id')}" attrs="{'invisible':[('stockin_checkdo','=','1')]}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_stockinqcedit_action" model="ir.actions.act_window">
+            <field name="name">neweb_stockinqcedit_action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.stockinline_qc</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

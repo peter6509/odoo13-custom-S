@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Inherit Form View to Modify it -->
+       <record id="neweb_sale_inherit5" model="ir.ui.view">
+           <field name="name">neweb.sale.inherit5</field>
+           <field name="model">sale.order</field>
+           <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
+           <field name="arch" type="xml">
+                 <xpath expr="//group[@name='sale_shipping']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+               <xpath expr="//group[@name='sale_pay']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+               <xpath expr="//group[@name='technical']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+           </field>
+       </record>
+
+    </data>
+</odoo>

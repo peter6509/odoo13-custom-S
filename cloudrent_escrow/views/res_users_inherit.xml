@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_res_users_form" model="ir.ui.view">
+            <field name="name">view.inherit.res.users.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//notebook" position="inside">
+                    <!-- Add your fields or attributes here -->
+                    <page string="雲房配置資料">
+                        <label for="escrow_no" string="所屬代管業者"/>
+                        <field name="escrow_no"/>
+                    </page>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

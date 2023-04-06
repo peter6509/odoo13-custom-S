@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_mixmes_root" name="混合型產線MES" sequence="100"/>
+        <menuitem id="menu_mixmes_config_categ" name="基礎配置" parent="menu_mixmes_root" sequence="300"/>
+        <menuitem id="menu_mixmes_qc_config_view" name="QC基礎配置" parent="menu_mixmes_config_categ" action="action_mixmes_qc_config_view" sequence="10"/>
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_acceptance_export_wizard1" model="ir.ui.view">
+             <field name="name">views.acceptance.export.wizard1</field>
+             <field name="model">neweb_acceptance.export_wizard1</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>客戶專案出貨狀態(歷程)匯出精靈</h1>
+                     <group>
+
+                       <field name="proj_sale"/>
+                       <field name="project_no" widget="many2many_tags"/>
+                       <field name="start_ym"  placeholder="yyyy-mm" style="color:#898687"/>
+                       <field name="end_ym"  placeholder="yyyy-mm" style="color:#898687"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_acceptance_export1" string="匯出" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_acceptance_wizard_action1" model="ir.actions.act_window">
+             <field name="name">客戶專案出貨狀態(歷程)匯出精靈</field>
+             <field name="res_model">neweb_acceptance.export_wizard1</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

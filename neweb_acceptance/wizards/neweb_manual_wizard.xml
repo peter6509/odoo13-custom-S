@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_neweb_manual_wizard" model="ir.ui.view">
+             <field name="name">views.neweb.manual.wizard</field>
+             <field name="model">neweb_acceptance.manual_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>手動產生專案貨品狀態清單</h1>
+                     <group>
+                       <field name="passcode"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_manual_work" string="產生清單" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_neweb_manual_wizard_action" model="ir.actions.act_window">
+             <field name="name">手動產生專案貨品狀態清單</field>
+             <field name="res_model">neweb_acceptance.manual_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

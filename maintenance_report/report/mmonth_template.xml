@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="mmonth_report">
+            <t t-call="report.html_container">
+                <div class="header">
+                    <div class="row">
+                        <div class='col-xs-3'/>
+                        <div class="col-xs-6">
+                            <h2 style="text-align:center;">設備維修統計月報表</h2>
+                        </div>
+
+                        <div class="col-xs-push-5 pull-right">
+                            <ul class="list-inline">
+                                <li>
+                                    <span style="font-size:16px;">頁數:</span>
+                                </li>
+                                <li>
+                                    <span style="font-size:16px;" class="page"/>
+                                </li>
+                                <li>
+                                    <span style="font-size:16px;">/</span>
+                                </li>
+                                <li>
+                                    <span style="font-size:16px;" class="topage"/>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-xs-3'>
+                            <p>
+                                年度:
+                                <span t-esc='mreportyear'/>
+                                <br/>
+                                月份:
+                                <span t-esc='mreportmonth'/>
+                                <br/>
+                                製表日期:
+                                <span t-esc='datetime.date.today()'/>
+                            </p>
+
+                            <!--<div class="col-xs-push-3 pull-right">-->
+                            <!--<ul class="list-inline">-->
+                            <!--<li>-->
+                            <!--<span style="font-size:16px;">製表日期:</span>-->
+                            <!--</li>-->
+                            <!--<li t-esc="datetime.date.today()"/>-->
+                            <!--</ul>-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="page" style="font-size:15px">
+                    <table class="table table-condensed">
+                        <!--<table border="2">-->
+                        <thead>
+                            <tr style="font-size:16px">
+                                <th style='text-align:left;'>部門</th>
+                                <th style='text-align:left;'>機台</th>
+                                <th style='text-align:right;'>故障</th>
+                                <th style='text-align:right;'>待料</th>
+                                <th style='text-align:right;'>維修</th>
+                                <th style='text-align:left;'>申請時間</th>
+                                <th style='text-align:left;'>完工時間</th>
+                                <th style='text-align:left;'>故障原因</th>
+                                <th style='text-align:left;'>維修內容</th>
+                                <th style='text-align:left;'>維修人員</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="maintenance" t-as="maintenance">
+                                <td sytle='text-aligh:left;'>
+                                    <span t-esc="maintenance['department']"/>
+                                </td>
+                                <td style='text-align:left;'>
+                                    <span t-esc="maintenance['equipment']"/>
+                                </td>
+                                <td style='text-align:right;'>
+                                    <span t-esc="maintenance['brokentime']"/>
+                                </td>
+                                <td style='text-align:right;'>
+                                    <span t-esc="maintenance['waittime']"/>
+                                </td>
+                                <td style='text-align:right;'>
+                                    <span t-esc="maintenance['maintenancetime']"/>
+                                </td>
+                                <td style='text-align:left;'>
+                                    <span t-esc="maintenance['request_date']"/>
+                                </td>
+                                <td style='text-align:left;'>
+                                    <span t-esc="maintenance['repaired_date']"/>
+                                </td>
+                                <td style='text-align:left;'>
+                                    <span t-esc="maintenance['faulttext']"/>
+                                </td>
+                                <td style='text-align:left;'>
+                                    <span t-esc="maintenance['maintenance_content']"/>
+                                </td>
+                                <td style='text-align:left;'>
+                                    <span t-esc="maintenance['technician']"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <table class="table table-condensed">
+                                <tr>
+                                    <th>
+                                        <strong style="font-size:16px;"></strong>
+                                    </th>
+                                    <th>
+                                        <strong style="font-size:16px;">部長:</strong>
+                                    </th>
+                                    <th>
+                                        <strong style="font-size:16px;">組長:</strong>
+                                    </th>
+                                    <th>
+                                        <strong style="font-size:16px;">製表人：</strong>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </t>
+        </template>
+    </data>
+</odoo>

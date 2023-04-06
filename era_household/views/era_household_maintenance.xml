@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="era_household_maintenance_tree" model="ir.ui.view">
+            <field name="name">era.household.maintenance.tree</field>
+            <field name="model">era.household_maintenance</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="main_house_id"/>
+                    <field name="main_require_date"/>
+                    <field name="main_memo"/>
+                    <field name="main_rating"/>
+                    <field name="repair_date"/>
+                    <field name="complete_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <record id="era_household_maintenance_form" model="ir.ui.view">
+            <field name="name">era.household.maintenance.form</field>
+            <field name="model">era.household_maintenance</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <div>
+                       <widget name="web_ribbon" title="待處理" bg_color="bg-danger" attrs="{'invisible': [('state','in',['2','3'])]}"/>
+                        <widget name="web_ribbon" title="處理中" attrs="{'invisible':[('state','in',['1','3'])]}"/>
+                        <widget name="web_ribbon" title="已完成" attrs="{'invisible':[('state','in',['1','2'])]}"/>
+                    </div>
+                    <sheet>
+                        <group>
+                            <group>
+
+                                <field name="main_house_id"/>
+                                <field name="main_require_date"/>
+                                <field name="main_memo"/>
+                                <field name="main_user_id" attrs="{'invisible':1}"/>
+                                <field name="main_rating" widget='radio' options="{'horizontal': true}"/>
+                            </group>
+                            <group>
+                                <field name="repair_memo" attrs="{'readonly':1}"/>
+                                <field name="repair_date" attrs="{'readonly':1}"/>
+                                <field name="complete_memo" attrs="{'readonly':1}"/>
+                                <field name="complete_date" attrs="{'readonly':1}"/>
+                                <field name="main_doc" widget="binary" filename="doc_file_name" attrs="{'readonly':1}"/>
+                                <field name="doc_file_name" attrs="{'invisible':1}"/>
+                                <field name="state" attrs="{'readonly':1}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="era_household_maintenance_search" model="ir.ui.view">
+           <field name="name">era.household.maintenance.search</field>
+           <field name="model">era.household_maintenance</field>
+            <field name="arch" type="xml">
+                <search string="">
+                  <field name="main_house_id" string="關鍵字" filter_domain="['|','|',('main_memo','ilike',self),('repair_memo', 'ilike',self ),('complete_memo','ilike',self)]"/>
+                  <filter domain="[('state','in',['1','2'])]" string="未完成" name="uncomplete"/>
+                  <filter domain="[('state','=','3')]" string="已完成" name="complete"/>
+                </search>
+           </field>
+        </record>
+        <record id="era_household_maintenance_action" model="ir.actions.act_window">
+            <field name="name">租房住戶報修記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">era.household_maintenance</field>
+            <field name="view_mode">tree,form</field>
+             <field name="search_view_id" ref="era_household_maintenance_search"></field>
+            <field name="context">{ 'search_default_uncomplete': 1, }</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

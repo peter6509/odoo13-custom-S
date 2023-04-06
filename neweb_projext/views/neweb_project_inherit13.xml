@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+<!--        <record id="view_inherit131_neweb_project_form" model="ir.ui.view">-->
+<!--            <field name="name">view.inherit131.neweb.project.form</field>-->
+<!--            <field name="model">sale.order</field>-->
+<!--            <field name="inherit_id" ref="neweb_project.neweb_sale_inherit_form"/>-->
+<!--            <field name="arch" type="xml">-->
+
+                <!-- position: after|before|replace|attributes|inside -->
+<!--                <xpath expr="//notebook/page/group/field[@name='display_line']/tree/field[@name='sitem_profitrate']" position="after">-->
+<!--                    <field name="dept_id" invisible="1"/>-->
+<!--                    <field name="cost_dept" invisible="1"/>-->
+<!--                    &lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+<!--                </xpath>-->
+
+<!--            </field>-->
+<!--        </record>-->
+         <record id="view_inherit132_neweb_project_form" model="ir.ui.view">
+            <field name="name">view.inherit132.neweb.project.form</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_project.neweb_project_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//sheet/group/field[@name='saleitem_line']/tree/field[@name='cost_type']" position="replace"></xpath>
+                <xpath expr="//sheet/group/field[@name='saleitem_line']/tree/field[@name='purchase_no']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="dept_id" invisible="1"/>
+                    <field name="cost_type"/>
+                    <field name="cost_dept"/>
+                    <button name="selectyn" string="不匯進銷存" type="object" class="oe_highlight"/>
+                    <field name="not_chiout"/>
+                </xpath>
+
+                 <xpath expr="//sheet/group/field[@name='saleitem_line']/tree/field[@name='saleitem_item']" position="before">
+                     <field name="line_item" string="序" attrs="{'readonly':1}"/>
+                 </xpath>
+                <xpath expr="//sheet/group/field[@name='saleitem_line']/tree/field[@name='prod_revenue']" position="after">
+                    <field name="prod_revenuetot" attrs="{'readonly':1}"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

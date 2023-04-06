@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Sequences for neweb_repair.repair -->
+        <record id="seq_neweb_repair_repair" model="ir.sequence">
+            <field name="name">Repair No</field>
+            <field name="code">neweb_repair.repair</field>
+            <field name="prefix">CAL</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

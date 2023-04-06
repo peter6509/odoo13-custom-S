@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="mail_neweb_invoice_paymentdate" model="mail.template">
+            <field name="name">發票開立後通知客戶</field>
+            <field name="model_id" ref="model_neweb_invoice_invoice_sendmail"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_paymentdate_email(object.invoice_contact1)}</field>
+            <field name="subject">藍新資訊 for ${object.project_no.cus_name.name} 發票已開立通知</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="False"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+            <p>
+    親愛的客戶您好，
+</p>
+
+<p>
+藍新公司已開立如下方資訊的發票，請您確認是否已經收到，若您還未收到或對發票資訊有任何疑慮，歡迎您向負責的業務詢問。
+</p>
+
+<table style="border-collapse: collapse">
+    <tr>
+        <td colspan="2" style="border-style:solid; border-width:1px">客戶名稱</td>
+        <td colspan="5" style="border-style:solid; border-width:1px">${object.partner_id.name or ''}</td>
+        <td style="border-style:solid; border-width:1px">藍新統編</td>
+        <td colspan="2" style="border-style:solid; border-width:1px">24540267</td>
+    </tr>
+    <tr>
+        <td style="border-style:solid; border-width:1px">
+            專案類型
+        </td>
+        <td colspan="2" style="border-style:solid; border-width:1px">
+            發票日期
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            發票號碼
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            含稅金額
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            付款日期
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            客戶採購單號/案號
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            藍新專案/合約編號
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            業務
+        </td>
+    </tr>
+    <tr>
+        <td style="border-style:solid; border-width:1px">
+            ${object.project_no.transation_desc or ''}
+        </td>
+        <td colspan="2" style="border-style:solid; border-width:1px">
+            ${object.invoice_date or ''}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            ${object.invoice_no or ''}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            ${object.invoice_tax_amount1 or ''}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            ${object.invoice_paymentdate or ''}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            ${object.pi_projectname or ''}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            ${object.project_contract or ''}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            ${object.project_no.proj_sale.name or ''}
+        </td>
+    </tr>
+</table>
+
+<p><small>
+※若您收到並已處理此筆發票作業，請您忽略此郵件，造成您的困擾，敬請見諒。
+</small></p>
+
+]]></field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="cloudrent_household_root" name="CloudRent租戶管理系統" sequence="10"
+         web_icon="cloudrent_household,static/description/icon.png"/>
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="cloudrent_household_categ" name="租戶管理主檔" parent="cloudrent_household_root" sequence="50"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_household_house_action" name="專案主檔" parent="cloudrent_household_categ" action="cloudrent_household_house_action" sequence="10"
+           groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager"/>
+        <menuitem id="menu_household_house_line_action" name="住房管理主檔" parent="cloudrent_household_categ" action="cloudrent_household_house_line_action" sequence="20"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_household_member_action" name="租戶資料主檔" parent="cloudrent_household_categ" action="cloudrent_household_member_action" sequence="30"/>
+        <menuitem id="menu_household_memberout_action" name="租戶退租作業" parent="cloudrent_household_categ"
+                  groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager"
+                  action="cloudrent_memberout_wizard_action" sequence="35"/>
+        <menuitem id="menu_household_memberin_action" name="租戶入租作業" parent="cloudrent_household_categ"
+                  groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager"
+                  action="cloudrent_memberin_wizard_action" sequence="40"/>
+
+<!--        <menuitem id="menu_conn_mysql_action" name="MYSQL連線測試" parent="cloudrent_household_categ" action="conn_mysql_wizard_action" sequence="40"-->
+<!--          groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager"/>-->
+<!--        <menuitem id="menu_line_send_action" name="LINE傳送測試" parent="cloudrent_household_categ" action="action_line_send_notify_messages" sequence="50"-->
+<!--         groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager"/>-->
+
+<!--        <menuitem id="cloudrent_household_categ1" name="住戶電錶數據" parent="cloudrent_household_root" sequence="100"-->
+<!--         groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager"/>-->
+<!--        &lt;!&ndash; This Menu Item must have a parent and an action &ndash;&gt;-->
+<!--        <menuitem id="menu_household_config_action" name="對帳參數" parent="cloudrent_household_categ1" action="cloudrent_household_config_action" sequence="10"-->
+<!--         groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager" />-->
+
+<!--        <menuitem id="menu_cloudrent_emeterhub_action" name="電錶數據資訊" parent="cloudrent_household_categ1" action="cloudrent_emeterhub_action" sequence="20"-->
+<!--        groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager" />-->
+
+
+
+<!--        <menuitem id="menu_household_bill_his_action" name="住戶歷史用電數據" parent="cloudrent_household_categ1" action="cloudrent_household_bill_line_his_action" sequence="20"-->
+<!--        groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager" />-->
+
+        <menuitem id="cloudrent_household_categ2" name="住戶管理費用" parent="cloudrent_household_root" sequence="150" groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager"/>
+        <!-- This Menu Item must have a parent and an action -->
+<!--        <menuitem id="menu_mon_amount_report_wizard_action" name="cloudrent租戶(月)對帳單產生精靈" parent="cloudrent_household_categ2" action="cloudrent_month_report_wizard_action" sequence="5"/>-->
+        <!-- This Menu Item must have a parent and an action -->
+<!--        <menuitem id="menu_previous_balance_wizard_action" name="租戶合約啟始電錶度數及押金設定" parent="cloudrent_household_categ2" action="cloudrent_contract_wizard_action" sequence="7"/>-->
+
+        <menuitem id="menu_household_payment_action" name="租戶繳費核銷作業" parent="cloudrent_household_categ2" action="cloudrent_member_payment_action" sequence="10"/>
+<!--        <menuitem id="menu_household_payment_wizard_action" name="cloudrent租戶繳費登記精靈" parent="cloudrent_household_categ2" action="household_payment_wizard_action" sequence="10"/>-->
+<!--        <menuitem id="menu_emeter_mixsearch_wizard_action" name="租戶用電統計查詢精靈" parent="cloudrent_household_categ2" action="emeter_mixsearch_wizard_action" sequence="20"/>-->
+<!--        <menuitem id="menu_emeter_mixsearch_wizard_action" name="案場用電統計查詢精靈" parent="cloudrent_household_categ2" action="cloudrent_escaletot_wizard_action" sequence="25"/>-->
+
+        <menuitem id="menu_member_line_wizard_action" name="LINE 通知帳務產生精靈" parent="cloudrent_household_categ2" action="views_member_line_wizard_action" sequence="30"/>
+        <menuitem id="menu_excel_download_action" name="對帳單EXCEL暫存區" parent="cloudrent_household_categ2" action="cloudrent_excel_download_action" sequence="50"/>
+
+
+
+        <menuitem id="cloudrent_household_categ3" name="住房設施報修" parent="cloudrent_household_root" sequence="160" />
+        <!-- This Menu Item must have a parent and an action -->
+<!--        <menuitem id="menu_cloudrent_household_maintenance_action" name="租戶設施報修" parent="cloudrent_household_categ3" action="cloudrent_household_maintenance_action" sequence="10"/>-->
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_maintenance_report_wizard_action" name="租戶設施報修印表精靈" parent="cloudrent_household_categ3" action="maintenance_report_wizard_action" sequence="20"/>
+        <menuitem id="menu_cloudrent_equip_part_view" name="租房設備說明主檔" parent="cloudrent_household_categ3" action="action_cloudrent_equip_part_view" sequence="30"/>
+        <menuitem id="menu_cloudrent__repair_grant_view" name="修繕補助建立精靈" parent="cloudrent_household_categ3" action="menu_cloudrent_grant_wizard_action" sequence="40"/>
+
+    </data>
+</odoo>

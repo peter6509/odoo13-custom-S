@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="jhiot_purchase_order_document">
+        <t t-call="web.external_layout">
+            <!--<t t-set="o" t-as="o"/>-->
+            <div class="page">
+                <div class="oe_structure"/>
+                <h4>精宏  TEL:(03)475-7712 &amp;nbsp;&amp;nbsp; FAX:(03)475-7701</h4>
+                <h3> @@ &amp;nbsp; (採購單) &amp;nbsp;@@</h3>
+                <h4>
+                    供應商: <span t-field="o.partner_id.name"/>&amp;nbsp;
+                    TEL:<span t-field="o.partner_id.phone"/>
+                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;
+                    製表日期：
+                   <span t-esc="context_timestamp(datetime.datetime.now())" t-options='{"widget": "date"}'/>
+                </h4>
+                <h4>
+                <table  style="border:8px #FF0000 groove;" cellpadding="10" border='0'>
+                    <tr><td>
+                        預定交期：</td>
+                        <td><t t-if="o.date_planned"><span t-field="o.date_planned" t-options='{"widget": "date"}'/></t>
+                        </td>
+                    </tr>
+                </table>
+                </h4>
+                <br/>
+                 <h4>採購品項明細</h4>
+                <table  class="table table-condensed" style="border: 2px solid Darkblue;border-collapse: collapse;">
+                    <thead>
+                        <tr style="background:#DCDCDC">
+                        <th name="th_start_date" class="text-left"  style="font-size:12px; width: 20%"><strong>料號</strong></th>
+                        <th name="th_end_date"  class="text-left"  style="font-size:12px ; width: 15%"><strong>材質</strong></th>
+                        <th name="th_emeter" class="text-left" style="font-size:12px;  width: 20%"><strong>規格</strong></th>
+                        <th name="th_end_scale" class="text-right" style="font-size:12px; width: 5%"><strong>數量</strong></th>
+                        <th name="th_start_scale" class="text-left" style="font-size:12px; width: 5%"><strong>單位</strong></th>
+                        <th name="th_prod_delivery" class="text-left" style="font-size:12px; width: 15%"><strong>指送</strong></th>
+                        <th name="th_price_uit" class="text-left" style="font-size:12px; width: 15%"><strong>單價</strong></th>
+                        <th name="th_prod_desc" class="text-left" style="font-size:12px; width: 20%"><strong>說明</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="o.order_line" t-as="order_line">
+                            <tr>
+                                <td class="text-left">
+                                <span t-field="order_line.product_id" style="font-size:12px"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="order_line.prod_material" style="font-size:12px"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="order_line.prod_spec" style="font-size:12px"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="order_line.product_qty" style="font-size:12px"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="order_line.product_uom.name" style="font-size:12px"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="order_line.prod_deliver" style="font-size:11px"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="order_line.price_unit" style="font-size:11px"/>
+                                </td>
+                                <td class="text-left">
+                                    <span t-field="order_line.prod_desc" style="font-size:12px"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+                <br/>
+
+                <div class="oe_structure"/>
+            </div>
+        </t>
+    </template>
+    <template id="alldo_gh_iot.report_jhiot_purchase_order">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="alldo_gh_iot.jhiot_purchase_order_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

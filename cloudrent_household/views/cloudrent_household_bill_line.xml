@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cloudrent_household_bill_line_tree" model="ir.ui.view">
+            <field name="name">cloudrent.household.bill.line.tree</field>
+            <field name="model">cloudrent.household_bill_line</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="house_no"/>
+                    <field name="emeter_id"/>
+                    <field name="bill_ym"/>
+                    <field name="bill_start_date"/>
+                    <field name="bill_end_date"/>
+                    <field name="emeter_start_scale"/>
+                    <field name="emeter_end_scale"/>
+                    <field name="emeter_current_scale"/>
+                    <field name="emeter_used_scale"/>
+                    <field name="emeter_price_unit"/>
+                    <field name="emeter_amount"/>
+                </tree>
+            </field>
+        </record>
+        <record id="cloudrent_household_bill_line_form" model="ir.ui.view">
+            <field name="name">cloudrent.household.bill.line.form</field>
+            <field name="model">cloudrent.household_bill_line</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="house_no"/>
+                            <field name="emeter_id"/>
+                            <field name="bill_ym"/>
+                            <field name="bill_start_date"/>
+                            <field name="bill_end_date"/>
+                            <field name="emeter_start_scale"/>
+                            <field name="emeter_end_scale"/>
+                            <field name="emeter_current_scale"/>
+                            <field name="emeter_used_scale"/>
+                            <field name="emeter_price_unit"/>
+                            <field name="emeter_amount"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="cloudrent_household_bill_line_action" model="ir.actions.act_window">
+            <field name="name">電錶數據</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.household_bill_line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

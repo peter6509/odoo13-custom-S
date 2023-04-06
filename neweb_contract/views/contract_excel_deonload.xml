@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_contract_excel_download_view_tree" model="ir.ui.view">
+           <field name="name">neweb.contract.excel.download.view.tree</field>
+           <field name="model">neweb_contract.custom_excel_download</field>
+           <field name="arch" type="xml">
+               <tree import="false" create="false">
+                    <field name="create_uid" string="創建人"/>
+                    <field name="xls_file" widget="binary" string="下載" filename="xls_file_name"/>
+                    <field name="xls_file_name" string="檔案內容"/>
+                </tree>
+           </field>
+       </record>
+       <record id="neweb_contract_excel_download_view_form" model="ir.ui.view">
+           <field name="name">neweb.contract.excel.download.view.form</field>
+           <field name="model">neweb_contract.custom_excel_download</field>
+           <field name="arch" type="xml">
+               <form>
+                <sheet>
+                  <group>
+                     <field name="create_uid" string="創建人"/>
+                     <field name="xls_file" widget="binary" string="下載" filename="xls_file_name"/>
+                     <field name="xls_file_name" string="檔案內容"/>
+                  </group>
+                </sheet>
+               </form>
+           </field>
+       </record> 
+       <record id="neweb_contract_excel_action" model="ir.actions.act_window">
+           <field name="name">簽約客戶Excel Download</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">neweb_contract.custom_excel_download</field>
+           <field name="view_mode">tree,form</field>
+
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK --> 
+             </p>
+           </field>
+       </record> 
+       <menuitem id="menu_contract_custom_categ" name="合約客戶資料匯出" sequence="200"
+           parent="neweb_base.menu_contract"/>
+        <menuitem id="menu_contract_custom_action" name="" sequence="50"
+                  parent="menu_contract_custom_categ"
+                  groups="base.group_user"
+                  action="neweb_contract_excel_action"/>
+    </data>
+</odoo>

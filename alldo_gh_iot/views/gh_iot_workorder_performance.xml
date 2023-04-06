@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ghiot_workorder_performance_tree" model="ir.ui.view">
+            <field name="name">ghiot.workorder.performance.tree</field>
+            <field name="model">alldo_gh_iot.workorder_performance_list1</field>
+            <field name="arch" type="xml">
+                <tree string="" create="false">
+                    <field name="wkorder_id"/>
+<!--                    <field name="iot_date"/>-->
+                    <field name="iot_start1"/>
+                    <field name="iot_end1"/>
+                    <field name="product_no"/>
+                    <field name="eng_type"/>
+                    <field name="iot_node"/>
+                    <field name="iot_owner"/>
+                    <field name="total_amount_num"/>
+<!--                    <field name="material_ng_num"/>-->
+<!--                    <field name="processing_ng_num"/>-->
+                    <field name="std_num"/>
+                    <field name="performance_rate"/>
+                    <field name="iot_duration"/>
+                    <field name="product_num"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_workorder_performance_action" model="ir.actions.act_window">
+            <field name="name"></field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.workorder_performance_list1</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,288 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* neweb_purchase
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-07 07:04+0000\n"
+"PO-Revision-Date: 2017-09-07 07:04+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: neweb_purchase
+#: model:ir.ui.view,arch_db:neweb_purchase.neweb_projpur_import_wizard
+#: model:ir.ui.view,arch_db:neweb_purchase.neweb_unpurchase_item_wizard
+msgid "Cancel"
+msgstr "取消"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_backup_type_create_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_parts_type_create_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_create_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_projimport_wizard_create_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_purchasestoreproc_create_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_create_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_item_create_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_requiregencode_create_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_unpurchase_item_create_uid
+msgid "Created by"
+msgstr "創建人"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_backup_type_create_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_parts_type_create_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_create_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_projimport_wizard_create_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_purchasestoreproc_create_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_create_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_item_create_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_requiregencode_create_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_unpurchase_item_create_date
+msgid "Created on"
+msgstr "創建時間"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_backup_type_display_name
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_parts_type_display_name
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_display_name
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_projimport_wizard_display_name
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_purchasestoreproc_display_name
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_display_name
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_item_display_name
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_requiregencode_display_name
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_unpurchase_item_display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_backup_type_id
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_parts_type_id
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_id
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_projimport_wizard_id
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_purchasestoreproc_id
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_id
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_item_id
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_requiregencode_id
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_unpurchase_item_id
+msgid "ID"
+msgstr "ID"
+
+#. module: neweb_purchase
+#. openerp-web
+#: code:addons/neweb_purchase/static/src/xml/neweb_qweb.xml:6
+#, python-format
+msgid "IMPORT DATA"
+msgstr "IMPORT DATA"
+
+#. module: neweb_purchase
+#: model:ir.ui.view,arch_db:neweb_purchase.neweb_purchase_order_inherit_form
+#: model:ir.ui.view,arch_db:neweb_purchase.neweb_require_purchase_form
+msgid "ITEM LIST"
+msgstr "ITEM LIST"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_backup_type___last_update
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_parts_type___last_update
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list___last_update
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_projimport_wizard___last_update
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_purchasestoreproc___last_update
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase___last_update
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_item___last_update
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_requiregencode___last_update
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_unpurchase_item___last_update
+msgid "Last Modified on"
+msgstr "最後修改日"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_backup_type_write_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_parts_type_write_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_write_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_projimport_wizard_write_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_purchasestoreproc_write_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_item_write_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_write_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_requiregencode_write_uid
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_unpurchase_item_write_uid
+msgid "Last Updated by"
+msgstr "最後更新人"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_backup_type_write_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_parts_type_write_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_write_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_projimport_wizard_write_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_purchasestoreproc_write_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_item_write_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_write_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_requiregencode_write_date
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_unpurchase_item_write_date
+msgid "Last Updated on"
+msgstr "最後更新時間"
+
+#. module: neweb_purchase
+#: selection:neweb.require_purchase,asset_type:0
+msgid "MA備機"
+msgstr "MA備機"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_asset_machine_type
+#: model:ir.ui.view,arch_db:neweb_purchase.neweb_require_purchase_form
+msgid "MA備機類別"
+msgstr "MA備機類別"
+
+#. module: neweb_purchase
+#: selection:neweb.require_purchase,expense_type:0
+msgid "MA零件"
+msgstr "MA零件"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_expense_machine_type
+#: model:ir.ui.view,arch_db:neweb_purchase.neweb_require_purchase_form
+msgid "MA零件類別"
+msgstr "MA零件類別"
+
+#. module: neweb_purchase
+#: model:ir.ui.menu,name:neweb_purchase.menu_neweb_purchase_categ
+msgid "PURCHASEDATA"
+msgstr "採購"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_pitem_id
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_require_purchase_item_pitem_id
+msgid "Pitem id"
+msgstr "Pitem id"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_pitem_stockin_complete
+msgid "Pitem stockin complete"
+msgstr "Pitem stockin complete"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_pitem_sum
+msgid "Pitem sum"
+msgstr "Pitem sum"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_purchase_order
+msgid "Purchase Order"
+msgstr "採購訂單"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr "採購訂單行"
+
+#. module: neweb_purchase
+#: model:ir.ui.menu,name:neweb_purchase.menu_newebpurchase_action
+msgid "Purchase Orders"
+msgstr "採購訂單"
+
+#. module: neweb_purchase
+#: model:ir.ui.menu,name:neweb_purchase.menu_neweb_puchase_categ
+msgid "REQUIRE PURCHASE"
+msgstr "申購作業"
+
+#. module: neweb_purchase
+#: model:ir.ui.menu,name:neweb_purchase.menu_neweb_rfq_action
+msgid "Requests for Quotation"
+msgstr "詢價單"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_purchase_order_taxes_id
+msgid "Taxes"
+msgstr "稅"
+
+#. module: neweb_purchase
+#: model:ir.ui.menu,name:neweb_purchase.menu_newebpartner_action
+msgid "Vendors"
+msgstr "供應商"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_neweb_ma_backup_type
+msgid "neweb.ma_backup_type"
+msgstr "neweb.ma_backup_type"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_neweb_ma_parts_type
+msgid "neweb.ma_parts_type"
+msgstr "neweb.ma_parts_type"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_neweb_pitem_list
+msgid "neweb.pitem_list"
+msgstr "neweb.pitem_list"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_neweb_projimport_wizard
+msgid "neweb.projimport_wizard"
+msgstr "neweb.projimport_wizard"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_neweb_purchasestoreproc
+msgid "neweb.purchasestoreproc"
+msgstr "neweb.purchasestoreproc"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_neweb_require_purchase
+msgid "neweb.require_purchase"
+msgstr "neweb.require_purchase"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_neweb_require_purchase_item
+msgid "neweb.require_purchase_item"
+msgstr "neweb.require_purchase_item"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_neweb_requiregencode
+msgid "neweb.requiregencode"
+msgstr "neweb.requiregencode"
+
+#. module: neweb_purchase
+#: model:ir.model,name:neweb_purchase.model_neweb_unpurchase_item
+msgid "neweb.unpurchase_item"
+msgstr "neweb.unpurchase_item"
+
+#. module: neweb_purchase
+#: model:ir.actions.act_window,name:neweb_purchase.neweb_require_mabackup_action
+#: model:ir.ui.menu,name:neweb_purchase.menu_require_mabackup_action
+msgid "neweb_require_mabackup_action"
+msgstr "MA備機類別設置"
+
+#. module: neweb_purchase
+#: model:ir.actions.act_window,name:neweb_purchase.neweb_require_maparts_action
+#: model:ir.ui.menu,name:neweb_purchase.menu_require_maparts_action
+msgid "neweb_require_maparts_action"
+msgstr "MA零件類別設置"
+
+#. module: neweb_purchase
+#: model:ir.actions.act_window,name:neweb_purchase.neweb_require_purchase_action
+#: model:ir.ui.menu,name:neweb_purchase.menu_neweb_purchase_action
+msgid "neweb_require_purchase_action"
+msgstr "申購單"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_pitem_origin_id
+msgid "來源ID"
+msgstr "來源ID"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_pitem_list_pitem_origin_type
+msgid "來源別 'R'申購, 'P'專案"
+msgstr "來源別 'R'申購, 'P'專案"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_parts_type_name
+msgid "費用類 MA 零件"
+msgstr "費用類 MA 零件"
+
+#. module: neweb_purchase
+#: model:ir.model.fields,field_description:neweb_purchase.field_neweb_ma_backup_type_name
+msgid "資產類 MA 備機"
+msgstr "資產類 MA 備機"
+

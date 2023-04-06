@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_quit_equip_part_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.quit.equip.part.form</field>
+            <field name="model">cloudrent.quit_equip_part</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="equip_id" attrs="{'readonly':1}" force_save="1"/>
+                                <field name="equip_categ"/>
+                                <field name="equip_no"/>
+                                <field name="equip_qty" attrs="{'readonly':1}" force_save="1"/>
+                                <field name="equip_qty1"/>
+                                <field name="equip_status" attrs="{'readonly':1}" force_save="1"/>
+                                <field name="equip_status1"/>
+                            </group>
+                            <group>
+                                <group>
+                                    <field name="equip_image1" widget="image" options="{'size': [100, 100]}" attrs="{'readonly':1}" force_save="1"/>
+                                    <field name="equip_image2" widget="image" options="{'size': [100, 100]}" attrs="{'readonly':1}" force_save="1"/>
+                                    <field name="equip_image3" widget="image" options="{'size': [100, 100]}" attrs="{'readonly':1}" force_save="1"/>
+                                </group>
+                                <group>
+                                    <field name="quit_image1" widget="image" options="{'size': [100, 100]}"/>
+                                    <field name="quit_image2" widget="image" options="{'size': [100, 100]}"/>
+                                    <field name="quit_image3" widget="image" options="{'size': [100, 100]}"/>
+                                </group>
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

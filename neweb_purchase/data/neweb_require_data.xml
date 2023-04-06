@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="neweb_mabackuptype_1" model="neweb.ma_backup_type">
+              <field name="name">R6</field>
+        </record>
+         <record id="neweb_mabackuptype_2" model="neweb.ma_backup_type">
+              <field name="name">NT</field>
+        </record>
+         <record id="neweb_mabackuptype_3" model="neweb.ma_backup_type">
+              <field name="name">網路</field>
+        </record>
+         <record id="neweb_mabackuptype_4" model="neweb.ma_backup_type">
+              <field name="name">儲存</field>
+        </record>
+         <record id="neweb_mapartstype_1" model="neweb.ma_parts_type">
+              <field name="name">R6</field>
+        </record>
+         <record id="neweb_mapartstype_2" model="neweb.ma_parts_type">
+              <field name="name">NT</field>
+        </record>
+         <record id="neweb_mapartstype_3" model="neweb.ma_parts_type">
+              <field name="name">網路</field>
+        </record>
+         <record id="neweb_mapartstype_4" model="neweb.ma_parts_type">
+              <field name="name">儲存</field>
+        </record>
+        <record id="neweb_mapartstype_5" model="neweb.ma_parts_type">
+              <field name="name">其他</field>
+        </record>
+    </data>
+</odoo>

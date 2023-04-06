@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_neweb_stockprod_action"
+                  name=""
+                  parent="neweb_project.menu_neweb_stockmove_categ"
+                  action="stock.product_template_action_product"
+                  sequence="40"/>
+        <menuitem id="menu_neweb_pickingtreeall_action"
+                  name=""
+                  parent="neweb_project.menu_neweb_stockmove_categ"
+                  action="stock.action_picking_tree_all"
+                  sequence="50"/>
+<!--        <menuitem id="menu_neweb_stockhis_action"-->
+<!--                  name=""-->
+<!--                  parent="neweb_project.menu_neweb_stockmove_categ"-->
+<!--                  action="stock_account.action_wizard_stock_valuation_history"-->
+<!--                  sequence="60"/>-->
+<!--        <menuitem id="menu_neweb_stock_quantsact_action"-->
+<!--                  name=""-->
+<!--                  parent="neweb_project.menu_neweb_stockmove_categ"-->
+<!--                  action="stock.quantsact"-->
+<!--                  sequence="70"/>-->
+    </data>
+</odoo>

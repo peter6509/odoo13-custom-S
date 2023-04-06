@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_timesheet_calendar_tree" model="ir.ui.view">
+            <field name="name">view.timesheet.calendar.tree</field>
+            <field name="model">neweb_emp_timesheet.timesheet_calendar_line</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="timesheet_name"/>
+                     <field name="emp_id"/>
+                    <field name="timesheet_start_date"/>
+                    <field name="timesheet_end_date"/>
+                    <field name="duration"/>
+                    <field name="timesheet_worktype"/>
+                    <field name="timesheet_origin"/>
+                    <field name="timesheet_custom"/>
+                    <field name="sale_id"/>
+                    <field name="timesheet_desc"/>
+                    <field name="is_complete" invisible="True"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="view_timesheet_calendar_form" model="ir.ui.view">
+            <field name="name">view.timesheet.calendar.form</field>
+            <field name="model">neweb_emp_timesheet.timesheet_calendar_line</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="emp_id" force_save="1" invisible="1" />
+                            <field name="timesheet_name"/>
+                            <field name="timesheet_start_date"/>
+                            <field name="timesheet_end_date"/>
+                            <field name="timesheet_worktype"/>
+                            <field name="timesheet_origin"/>
+                            <field name="timesheet_custom" domain="[('is_company','=',True)]"/>
+                            <field name="sale_id"/>
+                            <field name="timesheet_desc"/>
+                            <field name="is_complete" invisible="True"/>
+
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_timesheet_calendar_search" model="ir.ui.view">
+           <field name="name">view.timesheet.calendar.search</field>
+           <field name="model">neweb_emp_timesheet.timesheet_calendar_line</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="emp_id" string="關鍵字" filter_domain="['|','|','|','|','|',('timesheet_desc','ilike',self),('timesheet_origin','ilike',self),('timesheet_custom.name','ilike',self),('emp_id.name','ilike',self),('emp_id.department_id.name', 'ilike',self),('sale_id.name','ilike',self)]"/>
+              <field name="timesheet_desc" string="工時說明" filter_domain="[('timesheet_desc','ilike',self)]"/>
+              <field name="timesheet_origin" string="單據號碼" filter_domain="[('timesheet_origin','ilike',self)]"/>
+              <field name="timesheet_custom" string="客戶" filter_domain="[('timesheet_custom.name','ilike',self)]"/>
+              <field name="emp_id" string="人員" filter_domain="[('emp_id.name','ilike',self)]"/>
+              <field name="emp_id" string="部門" filter_domain="[('emp_id.department_id.name','ilike',self)]"/>
+              <field name="sale_id" string="業務" filter_domain="[('sale_id.name','ilike',self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="calendar_timesheet_calendar_task" model="ir.ui.view">
+          <field name="name">calendar.timesheet.calendar.task</field>
+          <field name="model">neweb_emp_timesheet.timesheet_calendar_line</field>
+          <field name="arch" type="xml">
+               <calendar  string="ts_calendar" date_start="timesheet_start_date" date_stop="timesheet_end_date" date_delay="timesheet_duration"  mode="month" color="emp_id"
+                          event_open_popup="%(neweb_emp_timesheet.view_timesheet_calendar_form)d" quick_add="False">
+                  <field name="timesheet_name"/>
+               </calendar>
+          </field>
+        </record>
+        <record id="action_calendar_timesheet_task_view" model="ir.actions.act_window">
+            <field name="name">工時行事曆</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_emp_timesheet.timesheet_calendar_line</field>
+            <field name="view_mode">calendar,tree,form</field>
+<!--            <field name="domain">[('emp_id','=',False)]</field>-->
+            <field name="context">{ 'default_allday': False }</field>
+
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+         <record id="action_timesheet_calendar_list" model="ir.actions.act_window">
+            <field name="name">TimeSheet</field>
+            <field name="res_model">neweb_emp_timesheet.timesheet_calendar_line</field>
+              <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

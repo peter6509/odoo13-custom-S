@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_wkorder_select_item_form" model="ir.ui.view">
+            <field name="name">view.wkorder.select.item.form</field>
+            <field name="model">alldo_acme_iot.wkorder_selectitem</field>
+            <field name="arch" type="xml">
+                <form string="" create="false" create_edit="false" edit="false">
+                    <header>
+                        <button type="object" name="run_all_select" string="全部勾選" class="oe_highlight"/>
+                        <button type="object" name="run_all_unselect" string="全部取消" class="oe_highlight"/>
+                        <button type="object" name="print_wkorder" string="列印勾選工單" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                       <field
+                            name="report_line" widget="section_and_note_one2many" mode="tree" create="false">
+                           <tree
+                                string="工單勾選列印記錄" create="false" create_edit="false">
+                               <button type="object" name="selectyn" string="點選"
+                                       context="{'itemid': context.get('active_id')}"
+                                       class="oe_highlight"/>
+                               <field name="select_yn"/>
+                                <field name="name" />
+                                <field name="cus_name" options="{'no_open': True,'no_create':true,'no_create_edit':true}" />
+                                <field name="product_no" options="{'no_open': True,'no_create':true,'no_create_edit':true}"/>
+                                <field name="eng_type" />
+                                <field name="cnc_prog"/>
+                                <field name="po_no"/>
+                                <field name="order_num"/>
+                                <field name="blank_num"/>
+                                <field name="shipping_date"/>
+                           </tree>
+                       </field>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="action_wkorder_select_item_view" model="ir.actions.act_window">
+            <field name="name">工單列印勾選清單</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_acme_iot.wkorder_selectitem</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

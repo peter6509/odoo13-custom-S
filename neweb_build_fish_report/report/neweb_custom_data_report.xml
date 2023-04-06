@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="action_report_neweb_custome_data"
+                model="neweb.project"
+                string="專案客戶基本資料NEW"
+                report_type="controller"
+                print_report_name="'專案客戶基本資料_%s.pdf' % (object.name)"
+                name="neweb_custom_data_report"/>
+         <record id="action_report_neweb_custome_data" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_custom_data_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+
+
+    </data>
+</odoo>

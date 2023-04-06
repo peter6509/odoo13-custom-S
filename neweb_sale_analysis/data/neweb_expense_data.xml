@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="expenseitem1" model="neweb_sale_analysis.expenseitem">
+            <field name="name">計程車資</field>
+         </record>
+          <record id="expenseitem2" model="neweb_sale_analysis.expenseitem">
+            <field name="name">交通費</field>
+         </record>
+         <record id="expenseitem3" model="neweb_sale_analysis.expenseitem">
+            <field name="name">油資</field>
+         </record>
+          <record id="expenseitem4" model="neweb_sale_analysis.expenseitem">
+            <field name="name">交際餐費</field>
+         </record>
+         <record id="expenseitem5" model="neweb_sale_analysis.expenseitem">
+            <field name="name">餐費:會議/加班/回覆演練</field>
+         </record>
+          <record id="expenseitem6" model="neweb_sale_analysis.expenseitem">
+            <field name="name">教育訓練</field>
+         </record>
+         <record id="expenseitem7" model="neweb_sale_analysis.expenseitem">
+            <field name="name">其他雜支</field>
+         </record>
+         <record id="expenseevent1" model="neweb_sale_analysis.expenseevent">
+            <field name="name">定檢</field>
+         </record>
+        <record id="expenseevent2" model="neweb_sale_analysis.expenseevent">
+            <field name="name">報修</field>
+         </record>
+        <record id="expenseevent3" model="neweb_sale_analysis.expenseevent">
+            <field name="name">專案</field>
+         </record>
+        <record id="expenseevent4" model="neweb_sale_analysis.expenseevent">
+            <field name="name">例行拜訪</field>
+         </record>
+        <record id="expenseevent5" model="neweb_sale_analysis.expenseevent">
+            <field name="name">維繫關係</field>
+         </record>
+        <record id="expenseevent6" model="neweb_sale_analysis.expenseevent">
+            <field name="name">開會</field>
+         </record>
+        <record id="expenseevent7" model="neweb_sale_analysis.expenseevent">
+            <field name="name">議價</field>
+         </record>
+        <record id="expenseevent8" model="neweb_sale_analysis.expenseevent">
+            <field name="name">投標</field>
+         </record>
+        <record id="expenseevent9" model="neweb_sale_analysis.expenseevent">
+            <field name="name">教育訓練</field>
+         </record>
+        <record id="expenseevent10" model="neweb_sale_analysis.expenseevent">
+            <field name="name">其他</field>
+         </record>
+        <record id="expensedoc1" model="neweb_sale_analysis.expensedoc">
+            <field name="name">定檢單</field>
+         </record>
+         <record id="expensedoc2" model="neweb_sale_analysis.expensedoc">
+            <field name="name">服務記錄單</field>
+         </record>
+         <record id="expensedoc3" model="neweb_sale_analysis.expensedoc">
+            <field name="name">申購單/教育訓練申請單</field>
+         </record>
+         <record id="expensedoc4" model="neweb_sale_analysis.expensedoc">
+            <field name="name">出差申請單</field>
+         </record>
+         <record id="expensedoc5" model="neweb_sale_analysis.expensedoc">
+            <field name="name">其他</field>
+         </record>
+    </data>
+</odoo>

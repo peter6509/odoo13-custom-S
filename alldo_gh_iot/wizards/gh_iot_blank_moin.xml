@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="blank_moin_wizard_form_view" model="ir.ui.view">
+            <field name="name">blank.moin.wizard.form</field>
+            <field name="model">alldo_gh_iot.blank_moin_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                         <h1>毛胚進料/委外供料精靈</h1>
+                        <group>
+                            <group>
+                                <field name="cus_name" options="{'no_create':true,'no_create_edit':true}"
+                                    domain="[('is_company','=',True)]"/>
+<!--                                  <field name="blank_no" options="{'no_create':true,'no_create_edit':true}"-->
+<!--                                    domain="[('product_tmpl_id.is_blank','=',True)]"/>-->
+                                <field name="blank_no" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="blank_num"/>
+                                <field name="is_outsourcing"/>
+                                <field name="partner_id" attrs="{'invisible':[('is_outsourcing','=',False)]}" domain="[('is_company','=',True)]" options="{'no_create':true,'no_create_edit':true}" />
+                                <field name="outsourcing_num" attrs="{'invisible':[('is_outsourcing','=',False)]}"/>
+                            </group>
+                            <group>
+
+                                <field name="stockin_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="blank_onhand" attrs="{'readonly':1}"/>
+                                <field name="blank_num1"/>
+                                <field name="blankin_date"/>
+                                <field name="outsourcing_num1"/>
+                                <field name="blankout_date"/>
+
+                            </group>
+                       </group>
+                    </sheet>
+
+                    <footer>
+                        <button string="毛胚進料/委外供料" name="run_blank_stockin" type="object" class="oe_highlight"/>
+                        <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="blank_moin_wizard_action" model="ir.actions.act_window">
+            <field name="name">毛胚進料/委外供料精靈</field>
+            <field name="res_model">alldo_gh_iot.blank_moin_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="acme_iot_shipping_report_tree" model="ir.ui.view">
+            <field name="name">acme.iot.shipping.report.tree</field>
+            <field name="model">alldo_acme_iot.stockpicking_report</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="report_date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="acme_iot_shipping_report_form" model="ir.ui.view">
+            <field name="name">acme.iot.shipping.report.form</field>
+            <field name="model">alldo_acme_iot.stockpicking_report</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="partner_id"/>
+                            <field name="report_date"/>
+                            <field name="report_memo"/>
+                        </group>
+                         <notebook>
+                                <page string="出貨清單" name="shipping Line">
+                                    <field
+                                        name="report_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                    >
+                                   <tree string="出貨清單" editable="False">
+                                      <field name="item" string="項次" />
+                                      <field name="prod_no" string="產品"/>
+                                      <field name="prod_num" string="數量" />
+                                      <field name="prod_uom" string="單位"/>
+                                      <field name="prod_price" string="單價" />
+                                      <field name="line_memo" string="MEMO"/>
+
+                                    </tree>
+                                    </field>
+                                </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="acme_iot_shipping_report_action" model="ir.actions.act_window">
+            <field name="name">出貨單列印</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_acme_iot.stockpicking_report</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

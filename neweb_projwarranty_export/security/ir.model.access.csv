@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_projwarranty_download_user","access.projwarranty.download.user","neweb_projwarranty_export.model_neweb_projwarranty_excel_download","base.group_user","True","False","False","False"
+"access_projwarranty_download_vp","access.projwarranty.download.vp","neweb_projwarranty_export.model_neweb_projwarranty_excel_download","neweb_project.neweb_cs20_vp","True","True","True","True"
+"access_projwarranty_download_gm","access.projwarranty.download.gm","neweb_projwarranty_export.model_neweb_projwarranty_excel_download","neweb_project.neweb_cs10_gm","True","True","True","True"
+"access_projwarranty_download_dir","access.projwarranty.download.dir","neweb_projwarranty_export.model_neweb_projwarranty_excel_download","neweb_project.neweb_cs30_dir","True","True","True","True"
+"access_projwarranty_download_pur","access.projwarranty.download.pur","neweb_projwarranty_export.model_neweb_projwarranty_excel_download","neweb_project.neweb_pur10_user","True","True","True","False"
+"access_projwarranty_download_assi","access.projwarranty.download.assi","neweb_projwarranty_export.model_neweb_projwarranty_excel_download","neweb_project.neweb_pur20_assi","True","True","True","False"
+"access_projwarrantyinfo_user","access.projwarrantyinfo.user","neweb_projwarranty_export.model_neweb_projwarrantyinfo_export","base.group_user","True","True","True","True"

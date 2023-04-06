@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_purchase_last10_tree" model="ir.ui.view">
+            <field name="name">view.purchase.last10.tree</field>
+            <field name="model">alldo_gh_iot.purchase_last10_list</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="date_order"/>
+                    <field name="partner_id"/>
+                    <field name="product_id"/>
+                    <field name="prod_material"/>
+                    <field name="prod_spec"/>
+                    <field name="product_qty"/>
+                    <field name="qty_received"/>
+                    <field name="price_unit"/>
+                    <field name="last_date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_purchase_last100_view" model="ir.actions.act_window">
+            <field name="name">最近採購單價清單</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.purchase_last10_list</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('alldo_gh_iot.view_purchase_last10_tree')})]"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

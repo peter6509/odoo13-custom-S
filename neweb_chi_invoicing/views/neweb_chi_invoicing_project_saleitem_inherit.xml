@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit_project_saleitemline_form" model="ir.ui.view">
+           <field name="name">view.inherit.project.saleitemline.form</field>
+           <field name="model">neweb.project</field>
+           <field name="inherit_id" ref="neweb_project.neweb_project_form"/>
+           <field name="arch" type="xml">
+
+                <xpath expr="//sheet/group/field[@name='saleitem_line']/tree/field[@name='prod_set']" position="after">
+                    <field name="chi_product_no" attrs="{'readonly':1}"/>
+                </xpath>
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="main_request_form_inherit" model="ir.ui.view">
+            <field name="name">Main Request Form Inherit</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="j_mrp_maintenance.maintenance_request_view_form_inherit_j_mrp"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button name="go_backward" type="object" string="往上一階段" attrs="{'invisible':[('stage_sequence','=',0)]}" class="oe_highlight" groups="maintenance_report.group_mreport_user"
+                        context="{'own_main_id': context.get('active_id')}"/>
+                    <button name="go_forward" type="object" string="往下一階段" attrs="{'invisible':[('stage_sequence','=',4)]}" class="oe_highlight" groups="maintenance_report.group_mreport_user"
+                        context="{'own_main_id': context.get('active_id')}"/>
+                </header>
+
+                <xpath expr="//field[@name='shift_team']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="keyin_wait_time"/>
+                </xpath>
+                <xpath expr="//notebook/page/group/group/field[@name='wait_time']" position="replace">
+                    <!--<field name="keyin_wait_time"/>-->
+                </xpath>
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="main_request_tree_inherit" model="ir.ui.view">
+            <field name="name">main.request.tree.inherit</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='stage_id']" position="after">
+                    <field name="department_id"/>
+                    <field name="equipment_id"/>
+                    <field name="request_date"/>
+                    <field name="fault_cause_ids"/>
+                    <field name="pending_time" attrs="{'invisible':[('pending_time','=',0.0)]}"/>
+                    <!-- Add new fields here -->
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

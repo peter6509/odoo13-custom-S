@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="neweb_purchase_inherit1_tree" model="ir.ui.view">
+           <field name="name">neweb.purchase.inherit1.tree</field>
+           <field name="model">purchase.order</field>
+           <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='partner_id']" position="after">
+                   <field name="pay_term"/>
+                   <!-- Add new fields here -->
+               </xpath>
+               <xpath expr="//field[@name='date_order']" position="replace">
+                   <field name="date_order1"/>
+<!--                   <field name="purchase_reciver"/>-->
+                   <!-- Add new fields here -->
+               </xpath>
+
+           </field>
+       </record>
+
+    </data>
+</odoo>

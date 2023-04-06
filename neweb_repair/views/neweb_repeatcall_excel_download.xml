@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="view_repeatcall_download_tree" model="ir.ui.view">
+           <field name="name">view.repeatcall.download.tree</field>
+           <field name="model">neweb_repair.repeatcall_excel_download</field>
+           <field name="arch" type="xml">
+               <tree string="" create="false" edit="false" import="false">
+                   <field name="xls_file" filename="xls_file_name"  widget="binary"/>
+                   <field name="xls_file_name" invisible="1"/>
+                   <field name="create_uid" string="創建人"/>
+                   <field name="create_date" string="創建時間"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_repeatcall_downalod_form" model="ir.ui.view">
+           <field name="name">view.repeatcall.download.form</field>
+           <field name="model">neweb_repair.repeatcall_excel_download</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <field name="xls_file" filename="xls_file_name"  widget="binary"/>
+                           <field name="xls_file_name" invisible="1"/>
+                           <field name="create_uid" string="創建人"/>
+                            <field name="create_date" string="創建時間"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+        <record id="action_repeatcalldownload_view" model="ir.actions.act_window">
+            <field name="name">REPEAT CALL 下載暫存區</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_repair.repeatcall_excel_download</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+<!--        要修改-->
+<!--         <menuitem name="" action="action_repeatcalldownload_view"-->
+<!--                  id="menu_neweb_repair_repearcall_download"-->
+<!--                  parent="neweb_repair.menu_neweb_repair_report_all"-->
+<!--                  sequence="40"-->
+<!--                  groups="base.group_user"/>-->
+
+    </data>
+</odoo>

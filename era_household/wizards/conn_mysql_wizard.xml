@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="views_conn_mysql_wizard" model="ir.ui.view">
+            <field name="name">views.conn.mysql.wizard</field>
+            <field name="model">era_household.conn_mysql_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>MySQL Connection TEST</h1>
+                        <group>
+                            <field name="passcode"/>
+<!--                            <field name="conn_status"/>-->
+                        </group>
+
+                    </sheet>
+                    <footer>
+                        <button type="object" name="conn_mysql" string="連線測試" class="oe_highlight"/>
+                        <button special="cancel" string="放棄"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="conn_mysql_wizard_action" model="ir.actions.act_window">
+             <field name="name">MySQL Connection TEST</field>
+             <field name="res_model">era_household.conn_mysql_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

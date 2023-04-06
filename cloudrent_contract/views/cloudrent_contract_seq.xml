@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_contract_seq_tree" model="ir.ui.view">
+            <field name="name">view.contract.seq.tree</field>
+            <field name="model">cloudrent.contract_seq</field>
+            <field name="arch" type="xml">
+                <tree string="" editable="bottom">
+                    <field name="name"/>
+                    <field name="seq"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_contract_seq_view" model="ir.actions.act_window">
+            <field name="name">合約流水編號</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.contract_seq</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

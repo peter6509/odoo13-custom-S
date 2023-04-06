@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="mrp_ecr_reason_tree_view_tree" model="ir.ui.view">
+           <field name="name">mrp.ecr.reason.tree.view</field>
+           <field name="model">mrp.ecr.reason</field>
+           <field name="arch" type="xml">
+               <tree string="ECR 設計變更原因種類定義"  editable="bottom">
+                   <field name="name"/>
+               </tree>
+           </field>
+       </record>
+
+        <record id="mrp_ecr_reason_view_form" model="ir.ui.view">
+            <field name="name">mrp.ecr.reason.view.form</field>
+            <field name="model">mrp.ecr.reason</field>
+            <field name="arch" type="xml">
+                <form string="ECR 設計變更原因種類定義">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="mrp_ecr_reason_action" model="ir.actions.act_window">
+            <field name="name">ECR 設計變更種類</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.ecr.reason</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="mrp_ecr_reason_categ" name="ECR 設計變更原因定義" action="mrp_ecr_reason_action" parent="mrp_plm.menu_mrp_plm_configuration" sequence="15"/>
+
+    </data>
+</odoo>

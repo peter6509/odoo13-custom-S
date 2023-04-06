@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_cloudrent_member_form" model="ir.ui.view">
+            <field name="name">view.inherit.cloudrent.member.form</field>
+            <field name="model">cloudrent.household_member</field>
+            <field name="inherit_id" ref="cloudrent_household.cloudrent_household_member_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//notebook" position="inside">
+                     <page string="租戶合約明細記錄" name="member rent line Data" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}">
+                       <field name="contract_line" widget="section_and_note_one2many" mode="tree">
+                         <tree string="租戶合約明細記錄" create="false" edit="false" delete="false" >
+                                <field name="contract_id" width="15%%"/>
+                                <field name="start_rental" width="15%%"/>
+                                <field name="end_rental" width="15%%"/>
+                                <field name="contract_status" width="15%%"/>
+                                <field name="create_date" string="建檔時間" width="15%%"/>
+                         </tree>
+                       </field>
+                     </page>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

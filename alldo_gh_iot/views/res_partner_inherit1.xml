@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="views_partner_inherit1" model="ir.ui.view">
+            <field name="name">views.partner.inherit1</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='industry_id']" position="after">
+                    <field name="blank_loc" />
+                    <field name="semi_loc" />
+                    <field name="prod_loc" />
+                    <field name="sales1"/>
+                    <field name="sales2"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

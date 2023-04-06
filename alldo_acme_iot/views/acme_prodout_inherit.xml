@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="acme_prodout_form_inherit" model="ir.ui.view">
+            <field name="name">acme.prodout.form.inherit</field>
+            <field name="model">alldo_acme_iot.prodout</field>
+            <field name="inherit_id" ref="alldo_acme_iot.acme_prodout_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//notebook/page/field[@name='prodout_line']/tree/field[@name='prodout_desc']" position="after">
+                    <field name="date_due"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

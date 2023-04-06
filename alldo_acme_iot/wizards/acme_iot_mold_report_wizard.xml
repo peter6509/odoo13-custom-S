@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_mold_iot_report_wizard" model="ir.ui.view">
+             <field name="name">views.mold.iot.report.wizard</field>
+             <field name="model">alldo_acme_iot.mold_report_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>模具條碼列印</h1>
+                         <group>
+                             <field name="report_type"/>
+                             <field name="mold_ids" widget="many2many_tags" options="{'no_create':true,'no_create_edit':true}"
+                              domain="[('active','=',True)]"  attrs="{'invisible':[('report_type','=','2')]}"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_mold_report" string="條碼列印" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="acme_mold_iot_report_wizard_action" model="ir.actions.act_window">
+             <field name="name">模具條碼列印精靈</field>
+             <field name="res_model">alldo_acme_iot.mold_report_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

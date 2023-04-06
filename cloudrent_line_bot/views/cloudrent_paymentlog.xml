@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_cloudrent_paymentlog_tree" model="ir.ui.view">
+           <field name="name">view.cloudrent.paymentlog.tree</field>
+           <field name="model">cloudrent.paymentlog</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="line_id"/>
+                   <field name="member_id"/>
+                   <field name="member_type"/>
+                   <field name="date"/>
+                   <field name="content_text"/>
+                   <field name="status"/>
+<!--                   <field name="content_img"/>-->
+               </tree>
+           </field>
+       </record>
+        <record id="view_cloudrent_paymentlog_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.paymentlog.form</field>
+            <field name="model">cloudrent.paymentlog</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <div>
+                        <widget name="web_ribbon" title="未讀" bg_color="bg-danger" attrs="{'invisible': ['|',('status','=','2'),('status','=','3')]}"/>
+                         <widget name="web_ribbon" title="已讀" bg_color="bg-primary" attrs="{'invisible':['|',('status','=','1'),('status','=','3')]}"/>
+                         <widget name="web_ribbon" title="已處理" bg_color="bg-success" attrs="{'invisible': ['|',('status','=','1'),('status','=','2')]}"/>
+                    </div>
+                    <sheet>
+                        <group>
+                            <field name="line_id" attrs="{'readonly':1}"/>
+                            <field name="member_id" attrs="{'readonly':1}"/>
+                            <field name="member_type" attrs="{'readonly':1}"/>
+                            <field name="date" attrs="{'readonly':1}"/>
+                            <filed name="content_text" attrs="{'readonly':1}"/>
+                            <field name="content_img" widget="image" options='{"size": [360, 360]}'/>
+                            <field name="status" widget="radio"/>
+<!--                            <field name="content_img" widget="image" class="oe_left oe_avatar" type="base64"-->
+<!--                                   options='{"preview_image": "image_medium", "size": [360, 360]}'/>-->
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_cloudrent_paymentlog_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.paymentlog.search</field>
+           <field name="model">cloudrent.paymentlog</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="line_id" string="關鍵字" filter_domain="['|','|',('member_id.member_name','ilike',self),('member_id.member_no', 'ilike',self ),('content_text','ilike',self)]"/>
+                <filter string="物業" domain="[('member_type','=','1')]" name="membertype1"/>
+                <filter string="房東" domain="[('member_type','=','2')]" name="membertype2"/>
+                <filter string="房客" domain="[('member_type','=','3')]" name="membertype3"/>
+                <filter string="廠商" domain="[('member_type','=','4')]" name="membertype4"/>
+                <filter string="未讀" domain="[('status','=','1')]" name="status1"/>
+                <filter string="已讀" domain="[('status','=','2')]" name="status2"/>
+                <filter string="已處理" domain="[('status','=','3')]" name="status3"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_paymentlog_view" model="ir.actions.act_window">
+            <field name="name">房租繳交LINE訊息</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.paymentlog</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('view_cloudrent_paymentlog_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('view_cloudrent_paymentlog_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_paymentlog_search"/>
+            <field name="context">{'search_default_status1':1}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

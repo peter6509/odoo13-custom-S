@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="gh_iot_open_workorder_wizard_form_view" model="ir.ui.view">
+            <field name="name">gh.iot.open.workorder.wizard.form</field>
+            <field name="model">alldo_gh_iot.open_workorder_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <h1>自動開立各工程別工單精靈</h1>
+                    <group>
+                        <group>
+                            <field name="po_no" domain="[('id','=', context.get('po_wkorder_id'))]"
+                                   options="{'no_create':true,'no_create_edit':true}"
+                                   attrs="{'invisible':1}"/>
+                            <field name="po_no1" options="{'no_create':true,'no_create_edit':true}"
+                                   domain="[('open_wkorder','=',False)]"
+                                   widget="many2many_tags"/>
+                            <field name="cus_name" options="{'no_create':true,'no_create_edit':true}"
+                                   domain="[('is_company','=',True)]"/>
+                            <field name="prod_id" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="blank_no" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="open_shipping" attrs="{'invisible':1}"/>
+                            <field name="wk_type" attrs="{'invisible':1}"/>
+                            <field name="not_close" attrs="{'invisible':[('wk_type','=','1')]}"/>
+                            <field name="in_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="stockin_date"/>
+                            <field name="shipping_date"/>
+                        </group>
+                        <group>
+
+                            <field name="product_num" />
+                            <field name="wkorder_num"/>
+                            <field name="blank_num"/>
+                            <field name="blank_type"/>
+                            <field name="is_out_blank" attrs="{'invisible':1}"/>
+                            <field name="supplier_no"  attrs="{'invisible':[('is_out_blank','=',False)]}"/>
+                            <field name="supplier_num" attrs="{'invisible':[('is_out_blank','=',False)]}"/>
+                            <field name="blank_onhand1" attrs="{'readonly':1}"/>
+                             <field name="prod_onhand" attrs="{'readonly':1}"/>
+                            <field name="blank_onhand3" attrs="{'readonly':1,'invisible':[('wk_type','=','1')]}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="開立工單" name="run_open_workorder" type="object" class="oe_highlight"/>
+                        <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="gh_iot_open_workorder_wizard_action" model="ir.actions.act_window">
+            <field name="name">工單開立精靈</field>
+            <field name="res_model">alldo_gh_iot.open_workorder_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="proj_inv_wizard_form" model="ir.ui.view">
+            <field name="name">proj.inv.wizard.form</field>
+            <field name="model">neweb_invoice.projinv_wizard</field>
+            <field name="arch" type="xml">
+                <form string="成本分析彙總精靈">
+                    <sheet>
+                        <h1>成本分析彙總精靈</h1>
+                        <group>
+                            <field name="project_no"/>
+                            <field name="project_ids" widget="many2many_tags" options="{'no_create_edit':True,'no_create':True}"/>
+                            <field name="start_date" />
+                            <field name="end_date"/>
+                            <field name="excel_desc"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="gen_projinvdata" string="彙總統計" class="oe_highlight"/>
+                        <button special="cancel" string="離開"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="proj_inv_wizard_action" model="ir.actions.act_window">
+                     <field name="name">成本分析彙整精靈</field>
+                     <field name="res_model">neweb_invoice.projinv_wizard</field>
+                     <field name="view_mode">form</field>
+                     <field name="target">new</field>
+                 </record>
+
+        <menuitem id="menu_proj_inv_wizard_action" name="" sequence="90"
+                  parent="menu_neweb_project_invoice_view_categ"
+                  groups="neweb_project.neweb_cs50_assi,neweb_project.neweb_sa50_assi"
+                  action="proj_inv_wizard_action"/>
+
+    </data>
+</odoo>

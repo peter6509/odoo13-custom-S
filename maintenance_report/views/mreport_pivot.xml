@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="maintenance_report.pivot_view" model="ir.ui.view">
+            <field name="name">maintenance.report.pivot</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_request_view_pivot"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='stage_id']" position="after">
+                    <!--<field name="fault_cause_ids.name" type="col"/>-->
+                    <!--<field name="maintenance_content_ids.id.name[0]"/>-->
+                    <!--<field name="part_line_ids.id.name[0]"/>-->
+                    <field name="request_date" type="col"/>
+                    <field name="repaired_date" type="col"/>
+                    <field name="broken_date" type="col"/>
+
+                </xpath>
+            </field>
+        </record>
+        <record id="maintenance_report.product_tree_view" model="ir.ui.view">
+            <field name="name">maintenance.report.product.tree</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.view_stock_product_template_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="description_purchase"/>
+                    <!-- Add new fields here -->
+                </xpath>
+                <xpath expr="//field[@name='list_price']" position="replace">
+                </xpath>
+
+                <xpath expr="//field[@name='standard_price']" position="replace">
+                    <!--<field name="seller_ids" widget="many2many_list"/>-->
+                </xpath>
+                <xpath expr="//field[@name='categ_id']" position="replace">
+                    <!--<field name="uom_id" options="{'no_open': True, 'no_create': True}" groups="product.group_uom"/>-->
+                </xpath>
+                <xpath expr="//field[@name='uom_id']" position="replace">
+                    <field name="disp_supp_name"/>
+                    <field name="list_price"/>
+                    <field name="uom_id" options="{'no_open': True, 'no_create': True}"/>
+                    <field name="maker_name"/>
+                    <field name="depart_use"/>
+                </xpath>
+                <xpath expr="//field[@name='type']" position="replace">
+                    <!--<field name="maker_name"/>-->
+                </xpath>
+
+                <xpath expr="//field[@name='qty_available']" position="replace">
+                    <field name="stocklocation"/>
+                    <field name="qty_available" style="text-align:left;"/>
+                    <field name="safe_qty" class="oe_left"/>
+                    <field name="low_qty" class="oe_left"/>
+                </xpath>
+
+                <xpath expr="/tree/field[@name='virtual_available']" position="replace">
+                    <field name="virtual_available" invisible="1"/>
+                </xpath>
+                <tree position="attributes">
+                    <attribute name="colors">red:low_qty &lt; 0</attribute>
+                </tree>
+
+
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="maintenance_report.product_form_view" model="ir.ui.view">
+            <field name="name">maintenance_report.product_form_view</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+
+                <!--<xpath expr="//field[@name='description_purchase']" position="replace">-->
+                <!--&lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+                <!--</xpath>-->
+                <xpath expr="//field[@name='default_code']" position="replace">
+
+                </xpath>
+                <xpath expr="//field[@name='route_ids']" position="after">
+                    <field name="default_code"/>
+                    <field name="description_purchase"/>
+                    <field name="uom_id" options="{'no_open': True, 'no_create': True}"/>
+                </xpath>
+
+            </field>
+        </record>
+        <record id="prod_search_view_inherit" model="ir.ui.view">
+            <field name="name">prod_search_view_inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="stock.product_template_search_form_view_stock"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <filter name="LOWQTY" string="低於安全存量" domain="[('low_qty','&lt;',0)]"/>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="replace">
+                    <field name="name"
+                           filter_domain="['|','|','|',('default_code','ilike',self),('name','ilike',self),('description_purchase','ilike',self),('barcode','ilike',self)]"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="maintenance_report.calendar_view" model="ir.ui.view">
+            <field name="name">maintenance.calendar.view</field>
+            <field name="model">maintenance.request</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_calendar"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="equipment_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <template id="assets_backend" name="maintenance_report assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/maintenance_report/static/src/css/base.css"/>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

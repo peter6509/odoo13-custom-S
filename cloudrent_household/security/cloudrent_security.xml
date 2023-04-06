@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="security_cloudrent_categ" model="ir.module.category">
+           <field name="name">cloudrent租戶管理系統權限表</field>
+           <field name="sequence" eval="1"/>
+       </record>
+        <record id="group_cloudrent_user" model="res.groups">
+            <field name="name">一般使用者</field>
+            <field name="category_id" ref="security_cloudrent_categ"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="group_cloudrent_ass" model="res.groups">
+            <field name="name">助理人員</field>
+            <field name="category_id" ref="security_cloudrent_categ"/>
+            <field name="implied_ids" eval="[(4, ref('group_cloudrent_user'))]"/>
+        </record>
+         <record id="group_cloudrent_manager" model="res.groups">
+            <field name="name">管理人員</field>
+            <field name="category_id" ref="security_cloudrent_categ"/>
+            <field name="implied_ids" eval="[(4, ref('group_cloudrent_ass'))]"/>
+        </record>
+         <record id="group_cloudrent_landlord" model="res.groups">
+            <field name="name">房東</field>
+            <field name="category_id" ref="security_cloudrent_categ"/>
+            <field name="implied_ids" eval="[(4, ref('group_cloudrent_user'))]"/>
+        </record>
+        <record id="group_cloudrent_agent" model="res.groups">
+            <field name="name">代管業務</field>
+            <field name="category_id" ref="security_cloudrent_categ"/>
+            <field name="implied_ids" eval="[(4, ref('group_cloudrent_user'))]"/>
+        </record>
+    </data>
+</odoo>

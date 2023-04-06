@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+            <record id="reminder_email_approve_details" model="mail.template">
+          <field name="name">ECO待生效郵件通知</field>
+          <field name="email_from"><![CDATA[${object.email}]]></field>
+          <field name="subject">${object.name} ECO 待生效提醒通知</field>
+          <field name="email_to">${object.user_id.login}</field>
+<!--          <field name="email_cc">${object.course_id.cc_in_mail}</field>-->
+          <field name="lang">${object.lang}</field>
+          <field name="model_id" ref="plm_eco.model_mrp_eco"/>
+          <field name="auto_delete" eval="False"/>
+		  <field name="body_html">
+	         <![CDATA[
+				<div style="font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: rgb(255, 255, 255); ">
+				    <p>Dear ${object.user_id.name},</p>
+				    <p>
+				     此張ECO 單據 ${object.name} 預計將在 ${object.effectivity_date.date()} 當天生效.
+				     請盡速上系統將此單據轉為 生效發行狀態。
+					</p>
+					</br>
+
+					<p></br>${user.name}</p>
+				</div>
+            	]]>
+		</field>
+	</record>
+
+    </data>
+</odoo>

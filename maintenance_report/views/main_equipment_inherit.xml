@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="main_equipment_tree_inherit" model="ir.ui.view">
+            <field name="name">main_equipment_tree_inherit</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='owner_user_id']" position="replace">
+                    <!-- Add new fields here -->
+                </xpath>
+                <xpath expr="//field[@name='assign_date']" position="replace">
+                    <!-- Add new fields here -->
+                </xpath>
+                <xpath expr="//field[@name='serial_no']" position="replace">
+                    <!-- Add new fields here -->
+                </xpath>
+                <xpath expr="//field[@name='technician_user_id']" position="replace">
+                    <!-- Add new fields here -->
+                </xpath>
+                <xpath expr="//field[@name='category_id']" position="replace">
+                    <!-- Add new fields here -->
+                </xpath>
+                <xpath expr="//field[@name='partner_id']" position="replace">
+                    <!-- Add new fields here -->
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="name_desc"/>
+                    <field name="department_id"/>
+                    <field name="partner_id" string="供應商"/>
+                    <field name="model" string="機型"/>
+                    <field name="serial_no" string="序號"/>
+                    <field name="cost" string="購價"/>
+                    <field name="brand"/>
+                    <field name="in_date"/>
+                    <!-- Add new fields here -->
+                </xpath>
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="main_equipment_form_inherit" model="ir.ui.view">
+            <field name="name">main_equipment_form_inherit</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='owner_user_id']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="name_desc"/>
+                    <field name="brand"/>
+                </xpath>
+                <xpath expr="//field[@name='assign_date']" position="replace">
+                    <!-- Add new fields here -->
+                    <field name="in_date"/>
+                </xpath>
+                <xpath expr="//field[@name='maintenance_team_id']" position="replace">
+                    <!-- Add new fields here -->
+                </xpath>
+                <xpath expr="//field[@name='category_id']" position="replace">
+                    <!-- Add new fields here -->
+                </xpath>
+                <xpath expr="//field[@name='model']" position="replace">
+                    <field name="model" string="機型"/>
+                </xpath>
+                <xpath expr="//field[@name='serial_no']" position="replace">
+                    <field name="serial_no" string="序號"/>
+                </xpath>
+                <xpath expr="//field[@name='cost']" position="replace">
+                    <field name="cost" string="購價"/>
+                </xpath>
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+
+
+    </data>
+</odoo>

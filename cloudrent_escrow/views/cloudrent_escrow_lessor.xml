@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_escrow_lessor_tree" model="ir.ui.view">
+            <field name="name">view.escrow.lessor.tree</field>
+            <field name="model">cloudrent.escrow_member</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="escrow_agent" width="8%%"/>
+                    <field name="escrow_man" width="8%%"/>
+                    <field name="escrow_pid" width="8%%"/>
+                    <field name="escrow_type" width="8%%"/>
+                    <field name="line_user_id" width="10%%"/>
+                    <field name="fin_instno" width="6%%"/>
+                    <field name="fin_branch" width="6%%"/>
+                    <field name="fin_account" width="6%%"/>
+                    <field name="member_sex" width="5%%"/>
+                    <field name="member_phone1" width="6%%"/>
+                    <field name="member_phone2" width="6%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_escrow_lessor_form" model="ir.ui.view">
+            <field name="name">view.escrow.lessor.form</field>
+            <field name="model">cloudrent.escrow_member</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                 <field name="escrow_agent"/>
+                                 <field name="escrow_man"/>
+                                 <field name="escrow_pid"/>
+                                 <field name="escrow_type" attrs="{'readonly':1}" save_forced="1"/>
+                                 <field name="line_user_id" attrs="{'readonly':1}" save_forced="1"/>
+                                 <field name="fin_instno"/>
+                            </group>
+                            <group>
+                                 <field name="fin_branch"/>
+                                 <field name="fin_account"/>
+                                 <field name="member_sex"/>
+                                 <field name="member_phone1"/>
+                                 <field name="member_phone2"/>
+                                 <field name="member_memo"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_escrow_lessor_search" model="ir.ui.view">
+           <field name="name">view.escrow.lessor.search</field>
+           <field name="model">cloudrent.escrow_member</field>
+            <field name="arch" type="xml">
+                <search string="">
+                   <field name="escrow_man" string="人員姓名" filter_domain="[('escrow_man', 'ilike', self)]"/>
+                   <field name="escrow_pid" string="身份證號" filter_domain="[('escrow_pid', 'ilike', self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_escrow_lessor_view" model="ir.actions.act_window">
+            <field name="name">(出租人/房東)基本資料</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.escrow_member</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_escrow_lessor_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_escrow_lessor_form')}),]"/>
+            <field name="search_view_id" ref="view_escrow_lessor_search"/>
+            <field name="domain">[('escrow_type', '=', '1')]</field>
+            <field name="context">{'default_escrow_type':'1'}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

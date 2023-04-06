@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit_acme_hr_employee_form" model="ir.ui.view">
+           <field name="name">view.inherit.acme.hr.employee.form</field>
+           <field name="model">hr.employee</field>
+           <field name="inherit_id" ref="hr.view_employee_form"/>
+           <field name="arch" type="xml">
+
+               <!-- position: after|before|replace|attributes|inside -->
+               <xpath expr="//field[@name='name']" position="after">
+<!--                   <label for="emp_code"/>-->
+                   <field name="emp_code" placeholder="員工編號(條碼)"/>
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+               <xpath expr="//field[@name='user_id']" position="after">
+                   <field name="duty_type" string="出勤狀態" attrs="{'readonly':1}"/>
+                   <field name="duty_datetime" string="最後刷卡時間" attrs="{'readonly':1}"/>
+               </xpath>
+               <xpath expr="//field[@name='category_ids']" position="replace"/>
+               <xpath expr="//field[@name='job_title']" position="replace"/>
+               <xpath expr="//field[@name='job_id']" position="replace">
+                   <field name="job_id" string="工作職務"/>
+               </xpath>
+               <xpath expr="//field[@name='parent_id']" position="replace">
+                   <field name="parent_id" string="上級主管"/>
+               </xpath>
+               <xpath expr="//notebook" position="inside">
+                   <page string="人員上下班記錄" name="Attendance_Line" >
+                    <field name="attendance_line" widget="one2many" >
+                        <tree editable="bottom">
+                          <field name="attendance_date"/>
+                          <field name="attendance_type"/>
+                        </tree>
+                    </field>
+                </page>
+               </xpath>
+           </field>
+       </record>
+
+    </data>
+</odoo>

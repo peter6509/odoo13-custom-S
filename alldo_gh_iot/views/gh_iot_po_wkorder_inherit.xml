@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_po_wkorder_inherit" model="ir.ui.view">
+            <field name="name">view.po.wkorder.inherit</field>
+            <field name="model">alldo_gh_iot.po_wkorder</field>
+            <field name="inherit_id" ref="alldo_gh_iot.view_gh_iot_po_wkorder_form"/>
+            <field name="arch" type="xml">
+<!--                <xpath expr="//field[@name='open_wkorder']" position="after">-->
+<!--                    <field name="wk_id" attrs="{'invisible':[('open_wkorder','=',False)],'readonly':1}"/>-->
+<!--                    &lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+<!--                </xpath>-->
+<!--                <xpath expr="//field[@name='booking_blank']" position="after">-->
+<!--&lt;!&ndash;                    <field name="stockin_blank" attrs="{'readonly':1}"/>&ndash;&gt;-->
+<!--                    <field name="po_id" attrs="{'invisible':[('booking_blank','=',False)],'readonly':1}"/>-->
+<!--                </xpath>-->
+            </field>
+        </record>
+    </data>
+</odoo>

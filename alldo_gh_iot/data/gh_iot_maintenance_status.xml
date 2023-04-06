@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="alldo_gh_iot_main_status_997" model="maintenance.equipment_status">
+           <field name="status_code">CNC997</field>
+           <field name="status_name">開始換線</field>
+            <field name="status_type">2</field>
+        </record>
+        <record id="alldo_gh_iot_main_status_1" model="maintenance.equipment_status">
+           <field name="status_code">CNC001</field>
+           <field name="status_name">斷刀故障</field>
+            <field name="status_type">1</field>
+        </record>
+        <record id="alldo_gh_iot_main_status_3" model="maintenance.equipment_status">
+           <field name="status_code">CNC003</field>
+           <field name="status_name">機械故障</field>
+            <field name="status_type">1</field>
+        </record>
+        <record id="alldo_gh_iot_main_status_999" model="maintenance.equipment_status">
+           <field name="status_code">CNC999</field>
+           <field name="status_name">恢復上線</field>
+            <field name="status_type">3</field>
+        </record>
+    </data>
+</odoo>

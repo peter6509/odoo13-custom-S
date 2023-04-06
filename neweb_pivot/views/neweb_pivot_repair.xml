@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+          <!--Maintenance Category and product-->
+        <!--<record id="neweb_pivot_repair_report_search" model="ir.ui.view">-->
+            <!--<field name="name">neweb.pivot.repair.report.search</field>-->
+            <!--<field name="model">neweb_pivot.repair_report</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<search string="Repair Pivot Analysis">-->
+                    <!--&lt;!&ndash;<field name="date"/>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<field name="month"/>&ndash;&gt;-->
+                    <!--<filter string="Q1" name="Q1" domain="[('month','in', [1,2,3])]"/>-->
+                    <!--<filter string="Q2" name="Q2" domain="[('month','in', [4,5,6])]"/>-->
+                    <!--<filter string="Q3" name="Q3" domain="[('month','in', [7,8,9])]"/>-->
+                    <!--<filter string="Q4" name="Q4" domain="[('month','in', [10,11,12])]"/>-->
+                    <!--<separator/>-->
+                    <!--<filter string="H1" name="H1" domain="[('month','in', [1,2,3,4,5,6])]"/>-->
+                    <!--<filter string="H2" name="H2" domain="[('month','in', [7,8,9,10,11,12])]"/>-->
+
+                <!--</search>-->
+            <!--</field>-->
+        <!--</record>-->
+         <record id="neweb_pivot_repair_report_pivot" model="ir.ui.view">
+            <field name="name">neweb.pivot.repair.report</field>
+            <field name="model">neweb_pivot.repair_report</field>
+            <field name="arch" type="xml">
+                <pivot string="Repair Pivot Analysis" disable_linking="True">
+                    <field name="repair_datetime" interval="quarter" type="col"/>
+                    <field name="repair_dept" type="row"/>
+                    <field name="repair_ae" type="row"/>
+                    <field name="device_amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="neweb_pivot_repair_report_graph" model="ir.ui.view">
+            <field name="name">neweb.pivot.repair.report.graph</field>
+            <field name="model">neweb_pivot.repair_report</field>
+            <field name="arch" type="xml">
+                <graph string="Repair Analysis">
+                    <field name="repair_dept" type="row"/>
+                    <field name="repair_datetime" interval="quarter" type="col"/>
+                    <field name="device_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+         <record id="neweb_pivot_repair_report_search1" model="ir.ui.view">
+           <field name="name">neweb.pivot.repair.report.search1</field>
+           <field name="model">neweb_pivot.repair_report</field>
+            <field name="arch" type="xml">
+                <search string="">
+                   <field name="repair_dept" string="維護部門" filter_domain="[('repair_dept.name','ilike',self)]"/>
+                   <field name="repair_ae" string="維護工程師" filter_domain="[('repair_ae.name','ilike',self)]"/>
+                   <field name="repair_customer" string="終端客戶" filter_domain="[('repair_customer.name','ilike',self)]"/>
+                   <field name="repair_parts" string="維修料件" filter_domain="[('repair_parts','ilike',self)]"/>
+                   <field name="repair_modeltype" string="機種/機型" filter_domain="[('repair_modeltype','ilike',self)]"/>
+                   <field name="repair_serialno" string="序號" filter_domain="[('repair_serialno','ilike',self)]"/>
+                </search>
+           </field>
+        </record>
+        <record id="neweb_pivot_repair_action" model="ir.actions.act_window">
+            <field name="name">報修樞鈕分析</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_pivot.repair_report</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">pivot,graph</field>
+             <field name="view_id"></field>
+            <!--<field name="search_view_id" ref="neweb_pivot_repair_report_search"/>-->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_neweb_pivot_repair_action" name="" parent="neweb_pivot_categ2" action="neweb_pivot_repair_action" sequence="10"
+            groups="base.group_user"/>
+    </data>
+</odoo>

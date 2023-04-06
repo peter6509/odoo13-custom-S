@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="neweb_acceptance_download_rule1" model="ir.rule">
+             <field name="name">neweb.acceptance.download.rule1</field>
+             <field ref="neweb_acceptance.model_neweb_acceptance_excel_download" name="model_id"/>
+             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+             <field name="domain_force">[('create_uid','=',user.id)]</field>
+         </record>
+
+    </data>
+</odoo>

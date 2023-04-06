@@ -1,0 +1,35 @@
+# -*- coding: utf-8 -*-
+# Author : Peter Wu
+
+{
+    'name': u"<15>.NEWEB 驗收前貨品狀態控管",
+    'version': '1.0',
+    'summary': "NEWEB 驗收前貨品狀態控管",
+    'sequence': 17,
+    'description': """NEWEB 驗收前貨品狀態控管.... """,
+    'author': "ALLDO Technology,Peter Wu",
+    'category': 'invoice',
+    'depends': ['neweb_project','neweb_invoice'],
+    'data': ['data/neweb_acceptance_emailtemplate.xml',
+             # 'data/neweb_acceptance_config.xml',
+             'security/ir.model.access.csv',
+             'security/neweb_acceptance_security.xml',
+             'security/neweb_acceptance_security1.xml',
+             'views/neweb_acceptance.xml',
+             'views/neweb_acceptance_child.xml',
+             'views/neweb_acceptance_download.xml',
+             'wizards/neweb_acceptance_export_wizard.xml',
+             'wizards/neweb_acceptance_export_wizard1.xml',
+             'views/neweb_acceptance_config.xml',
+             'views/neweb_acceptance_email.xml',
+             'wizards/neweb_manual_wizard.xml',
+             'wizards/neweb_acceptance_alert_wizard.xml',
+             'wizards/neweb_uncomplete_invoice.xml',
+             'views/neweb_acceptance_assist.xml',
+             'views/neweb_invoice.inherit.xml',
+             'views/neweb_acceptance_menu.xml',
+    ],
+    'installable': True,
+    'application': True,
+
+}

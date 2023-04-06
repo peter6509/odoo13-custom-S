@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <!-- Inherit Form View to Modify it -->
+      <record id="py3o_neweb_repair_inherit" model="ir.ui.view">
+          <field name="name">py3o.neweb.repair.inherit</field>
+          <field name="model">neweb_repair.repair</field>
+          <field name="inherit_id" ref="neweb_repair.repair_form"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//field[@name='repair_datetime']" position="after">
+                  <field name="crepairparts" attrs="{'invisible':1}"/>
+                  <field name="cworkdate" attrs="{'invisible':1}"/>
+                  <field name="cworklog" attrs="{'invisible':1}"/>
+                  <!-- Add your fields or attributes here -->
+              </xpath>
+
+          </field>
+      </record>
+    </data>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit_sale_import_wizard" model="ir.ui.view">
+           <field name="name">view.inherit.sale.import.wizard</field>
+           <field name="model">neweb.saleorder_import_wizard</field>
+           <field name="inherit_id" ref="neweb_project.neweb_sale_import_form_wizard"/>
+           <field name="arch" type="xml">
+
+               <!-- position: after|before|replace|attributes|inside -->
+               <xpath expr="//button[@name='sale_action_import']" position="before">
+                   <button type="object" name="sale_action_check" string="資料匯前驗証" class="oe_highlight"/>
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

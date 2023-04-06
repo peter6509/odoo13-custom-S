@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            string="ERA租戶費用對帳單"
+            id="action_report_era_bill"
+            model="era.household_house_line"
+            report_type="qweb-pdf"
+            name="era_household.report_era_bill"
+            file="era_household.report_era_bill"
+            print_report_name="('ERA租戶管理費用房號:%s對帳單' % (object.house_no))"
+        />
+        <report id="action_era_mmonth_report"
+                model="era.household_house_line"
+                string="ERA租戶管理費用對帳單"
+                report_type="qweb-pdf"
+                name="era_household.mmonth_report"
+                file="era_household.mmonth_report"
+                print_report_name="
+                ('ERA租戶管理費用對帳單')"
+                menu="False"/>
+
+         <report id="action_era_maintenance_report"
+                model="era.household_maintenance"
+                string="ERA租戶設施報修報表"
+                report_type="qweb-pdf"
+                name="era_household.maintenance_report"
+                file="era_household.maintenance_report"
+                print_report_name="('ERA租戶設施報修報表')"
+                menu="False"/>
+    </data>
+</odoo>

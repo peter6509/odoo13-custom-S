@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <report id="action_report_neweb_expense"
+                model="neweb_sale_analysis.expense_report"
+                string="一般費用申報單NEW"
+                report_type="controller"
+                print_report_name="'一般費用申報單_%s.pdf' % (object.name)"
+                name="neweb_expense_report"/>
+         <record id="action_report_neweb_expense" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_expense_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+    </data>
+</odoo>

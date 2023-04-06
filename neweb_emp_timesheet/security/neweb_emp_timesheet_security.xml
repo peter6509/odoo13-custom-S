@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="neweb_emp_timesheet_group" model="ir.module.category">
+           <field name="name">NEWEB 工時系統權限</field>
+           <field name="sequence" eval="360"/>
+       </record>
+
+          <record id="neweb_timesheet_cost_user" model="res.groups">
+            <field name="name">可異動工時成本</field>
+            <field name="category_id" ref="neweb_emp_timesheet_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="neweb_timesheet_manager" model="res.groups">
+            <field name="name">工時系統管理員</field>
+            <field name="category_id" ref="neweb_emp_timesheet_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+    </data>
+</odoo>

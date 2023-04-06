@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ipla_mrp_production_tree_inherit" model="ir.ui.view">
+            <field name="name">ipla.mrp.production.tree.inherit</field>
+            <field name="model">mrp.production</field>
+            <field name="inherit_id" ref="mrp.mrp_production_tree_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='state']" position="after">
+                    <button name="run_archive" string="結案歸檔" type="object" class="oe_highlight" attrs="{'invisible':[('state','!=','done')]}"/>
+                    <!-- Add new fields here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

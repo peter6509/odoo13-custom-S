@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_contract_is_closed_rule" model="ir.rule">
+           <field name="name">neweb_contract_is_closed_rule</field>
+           <field ref="neweb_contract.model_neweb_contract_contract" name="model_id"/>
+           <field name="domain_force">[('is_closed', '=',True )]</field>
+           <field name="perm_write" eval="0"/>
+           <field name="perm_create" eval="0"/>
+           <field name="perm_read" eval="1"/>
+           <field name="perm_unlink" eval="0"/>
+           <!-- You can attach this rule to a specific group, Or make it Global -->
+           <!--<field name="groups" eval="[(4, ref('group_id'))]"/>-->
+           <field name="global" eval="1"/>
+       </record>
+    </data>
+</odoo>

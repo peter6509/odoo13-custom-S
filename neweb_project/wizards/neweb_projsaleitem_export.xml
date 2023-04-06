@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_projsaleitem_export_tree" model="ir.ui.view">
+           <field name="name">neweb_projsaleitem_export_tree</field>
+           <field name="model">neweb.projsaleitem_export</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <!--<field name="seqid"/>-->
+                   <field name="prodset"/>
+                   <field name="saleitem_item"/>
+                   <field name="prodbrand"/>
+                   <field name="prodmodeltype"/>
+                   <field name="prodserial"/>
+                   <field name="maintenance_term"/>
+                   <field name="proddesc"/>
+                   <field name="prodnum"/>
+                   <field name="dis_price"/>
+                   <field name="prod_price"/>
+                   <field name="supplier"/>
+                   <field name="costtype"/>
+                   <field name="cost_dept"/>
+               </tree>
+           </field>
+       </record>
+       <record id="neweb_projsaleitem_export_action" model="ir.actions.act_window">
+           <field name="name">neweb_projsaleitem_export_action</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">neweb.projsaleitem_export</field>
+           <field name="view_mode">tree</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="equipment_request_rule_man_user_team" model="ir.rule">
+            <field name="name">man of maintenance requests TEAM</field>
+            <field name="model_id" ref="maintenance.model_maintenance_request"/>
+            <field name="domain_force">['|','|',('technician_user_id', '=', False),('technician_user_id', '=',
+                user.id),('main_team_id','=',user.main_team_id)]
+            </field>
+            <field name="groups" eval="[(4, ref('j_mrp_maintenance.group_maintenance_man'))]"/>
+        </record>
+    </data>
+</odoo>

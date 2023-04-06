@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_send_line_categ" name="LINE訊息管理" parent="cloudrent_household.cloudrent_household_root" sequence="300"/>
+        <menuitem id="menu_line_bot_setting"
+                  name="LINE bot設定"
+                  parent="menu_send_line_categ"
+                  action="line_setting_action" sequence="5"
+                  groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager" />
+
+        <menuitem id="menu_send_line_action1" name="LINE訊息發佈" parent="menu_send_line_categ" action="menu_send_message_wizard_action" sequence="10"/>
+        <menuitem id="menu_send_line_action2" name="LINE訊息發佈排程" parent="menu_send_line_categ" action="action_cloudrent_line_send_message_view" sequence="20"/>
+        <menuitem id="menu_excel_download_action" name="繳費LINE訊息總表" parent="cloudrent_household.cloudrent_household_categ2"
+                  action="cloudrent_household_member_history_action" sequence="60"/>
+        <menuitem id="menu_cloudrent_linelog_view" name="一般LINE訊息" parent="menu_send_line_categ" action="action_cloudrent_linelog_view" sequence="70"/>
+        <menuitem id="menu_cloudrent_paymentlog_view" name="房租繳交LINE訊息" parent="menu_send_line_categ" action="action_cloudrent_paymentlog_view" sequence="80"/>
+        <menuitem id="menu_cloudrent_maintenancelog_view" name="維護修繕LINE訊息" parent="menu_send_line_categ" action="action_cloudrent_maintenancelog_view" sequence="90"/>
+    </data>
+</odoo>

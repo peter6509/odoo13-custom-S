@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_quit_lease_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.quit.lease.tree</field>
+            <field name="model">cloudrent.quit_lease</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="escrow_no" width="5%%" optional="hide"/>
+                    <field name="match_no" width="8%%" optional="show"/>
+                    <field name="member_no" width="5%%" optional="show"/>
+                    <field name="lessor_no" width="5%%" optional="show"/>
+                    <field name="lessor_cell" width="5%%" optional="show"/>
+                    <field name="lessee_no" width="5%%" optional="show"/>
+                    <field name="lessee_cell" width="5%%" optional="show"/>
+                    <field name="is_notice1" width="5%%" optional="show"/>
+                    <field name="notice1_date" width="5%%" optional="hide"/>
+                    <field name="is_notice2" width="5%%" optional="show"/>
+                    <field name="notice2_date" width="5%%" optional="hide"/>
+                    <field name="is_notice3" width="5%%" optional="show"/>
+                    <field name="notice3_date" width="5%%" optional="hide"/>
+                    <field name="is_notice4" width="5%%" optional="show"/>
+                    <field name="notice4_date" width="5%%" optional="hide"/>
+                    <field name="quit_date" width="5%%" optional="show"/>
+                    <field name="quit_type" width="10%%" optional="show"/>
+                    <field name="memo" width="10%%" optional="hide"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_quit_lease_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.quit.lease.form</field>
+            <field name="model">cloudrent.quit_lease</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="escrow_no" attrs="{'readonly':1}" force_save="1"/>
+                                <field name="match_no" options="{'no_create_edit':True,'no_create':True}"/>
+                                <field name="member_no" domain="[('escrow_type','=','3')]" options="{'no_create_edit':True,'no_create':True}"/>
+                                <field name="lessor_no" options="{'no_create_edit':True,'no_create':True}"/>
+                                <field name="lessor_cell"/>
+                                <field name="lessee_no" options="{'no_create_edit':True,'no_create':True}"/>
+                                <field name="lessee_cell"/>
+                                <field name="quit_date"/>
+                            </group>
+                            <group>
+                                <field name="is_notice1"/>
+                                <field name="notice1_date"/>
+                                <field name="is_notice2"/>
+                                <field name="notice2_date"/>
+                                <field name="is_notice3"/>
+                                <field name="notice3_date"/>
+                                <field name="is_notice4"/>
+                                <field name="notice4_date"/>
+                                <field name="quit_type"/>
+                                <field name="memo"/>
+                            </group>
+                        </group>
+                        <h1>傢俱設備點交清單</h1>
+                          <field name="equip_part_line" nolabel="1">
+                              <tree editable="false" string="Student Info" widget="one2many">
+                                  <field name="equip_categ" width="4%%" force_save="1"/>
+                                  <field name="equip_no" width="5%%" attrs="{'readonly':1}" force_save="1"/>
+                                  <field name="equip_qty" width="3%%" attrs="{'readonly':1}" force_save="1"/>
+                                  <field name="equip_qty1" width="3%%"/>
+                                  <field name="equip_status" width="8%%" attrs="{'readonly':1}" force_save="1"/>
+                                  <field name="equip_status1" width="8%%"/>
+                                  <field name="equip_image1" widget="image" options="{'size': [100, 100]}" width="5%%"/>
+                                  <field name="equip_image2" widget="image" options="{'size': [100, 100]}" width="5%%"/>
+                                  <field name="equip_image3" widget="image" options="{'size': [100, 100]}" width="5%%"/>
+                                  <field name="quit_image1" widget="image" options="{'size': [100, 100]}" width="5%%"/>
+                                  <field name="quit_image2" widget="image" options="{'size': [100, 100]}" width="5%%"/>
+                                  <field name="quit_image3" widget="image" options="{'size': [100, 100]}" width="5%%"/>
+                              </tree>
+                           </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_cloudrent_quit_lease_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.quit.lease.search</field>
+           <field name="model">cloudrent.quit_lease</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="match_no" string="媒合編號" filter_domain="[('match_no.match_no', 'ilike', self)]"/>
+                <field name="lessor_no" string="出租人" filter_domain="[('lessor_no.escrow_man', 'ilike', self)]"/>
+                <field name="lessee_no" string="承租人" filter_domain="[('lessee_no.escrow_man', 'ilike', self)]"/>
+                <filter string="租賃期滿契約終止" domain="[('quit_type','=','1')]" name="quittype1"/>
+                <filter string="租賃住宅未合於居住使用，並有修繕之必要，經承租人(包租業)催告仍不於期限內修繕" domain="[('quit_type','=','2')]" name="quittype2"/>
+                <filter string="租賃住宅因不可歸責承租人(包租業)之事由致一部滅失，且其存餘部分不能達租賃之目的" domain="[('quit_type','=','3')]" name="quittype3"/>
+                <filter string="承租人因疾病、意外產生有長期療養之需要" domain="[('quit_type','=','4')]" name="quittype4"/>
+                <filter string="因第三人就租賃住宅主張其權利，致承租人不能為約定之居住使用" domain="[('quit_type','=','5')]" name="quittype5"/>
+                <filter string="原出租人為重新建築而必須收回" domain="[('quit_type','=','6')]" name="quittype6"/>
+                <filter string="承租人遲付租金之總額達二個月之金額，經相當期限催告，仍不為支付" domain="[('quit_type','=','7')]" name="quittype7"/>
+                <filter string="承租人積欠管理費或其他應負擔之費用達相當二個月之租金額，經相當期限催告，仍不為支付" domain="[('quit_type','=','8')]" name="quittype8"/>
+                <filter string="承租人違法使用、存放有爆炸性或易燃性物品，經勸告仍繼續為之" domain="[('quit_type','=','9')]" name="quittype9"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_quit_lease_view" model="ir.actions.act_window">
+            <field name="name">退租點交記錄明細</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.quit_lease</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_quit_lease_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_cloudrent_quit_lease_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_quit_lease_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

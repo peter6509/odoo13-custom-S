@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_migration_config_tree" model="ir.ui.view">
+            <field name="name">neweb.migration.config.tree</field>
+            <field name="model">neweb_migration.config</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="SOURCE_IP"/>
+                    <field name="DB_NAME"/>
+                    <field name="USER_NAME"/>
+                    <field name="PASSWORD"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_migration_config_form" model="ir.ui.view">
+            <field name="name">neweb.migration.config.form</field>
+            <field name="model">neweb_migration.config</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="SOURCE_IP"/>
+                            <field name="DB_NAME"/>
+                            <field name="USER_NAME"/>
+                            <field name="PASSWORD"/>
+                        </group>
+
+                    <notebook>
+                         <page string="昇級資料明細" name="migration Line">
+                          <field name="migration_line" widget="section_and_note_one2many" mode="tree">
+                              <tree string="昇級資料明細" editable="bottom">
+                                    <field name="seq_id"/>
+                                    <field name="migration_model"/>
+                                    <field name="migration_table"/>
+                                    <field name="source_record"/>
+                                    <field name="target_record"/>
+                              </tree>
+                          </field>
+                         </page>
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_migration_config_action" model="ir.actions.act_window">
+            <field name="name">資料庫昇級</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_migration.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

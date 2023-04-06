@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="neweb_project_inherit8_form" model="ir.ui.view">
+           <field name="name">neweb.project.inherit8.form</field>
+           <field name="model">sale.order</field>
+           <field name="inherit_id" ref="sale.view_order_form"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='client_order_ref']" position="after">
+                   <field name="credit_limit" attrs="{'readonly':1}"/>
+                   <field name="credit_rulelist" attrs="{'readonly':1}"/>
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+                <header>
+                   <button name="del_saleorder" type="object" string="報價單刪除" context="{'saleid': context.get('active_id')}"
+                            class="oe_highlight"   groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa10_gm" attrs="{'invisible':[('state','!=','draft')]}"/>
+               </header>
+
+           </field>
+       </record>
+        <!-- Inherit Form View to Modify it -->
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="era_landlord_root" name="ERA房東管理系統" sequence="50"
+                  groups="era_household.group_era_ass,era_household.group_era_manager,era_household_ext.group_era_landlord,era_household_ext.group_era_agent"
+                 web_icon="era_household_ext,static/description/icon.png"/>
+
+        <menuitem id="menu_landlord_categ1" name="ERA房東資訊"
+                  groups="era_household.group_era_ass,era_household.group_era_manager,era_household_ext.group_era_landlord,era_household_ext.group_era_agent"
+                  parent="era_landlord_root" sequence="10"/>
+
+        <menuitem id="menu_landlord_view1" name="ERA房東資訊主檔"
+                  parent="menu_landlord_categ1"
+                  groups="era_household.group_era_ass,era_household.group_era_manager,era_household_ext.group_era_landlord,era_household_ext.group_era_agent"
+                  action="era_household_landlord_action" sequence="10"/>
+    </data>
+</odoo>

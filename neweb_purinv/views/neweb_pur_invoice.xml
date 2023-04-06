@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_purinv_invoice_view_tree" model="ir.ui.view">
+           <field name="name">neweb.purinv.invoice.view.tree</field>
+           <field name="model">neweb_purinv.invoice</field>
+           <field name="arch" type="xml">
+               <tree import="false">
+                   <field name="name"/>
+                   <field name="invoice_memo"/>
+                   <field name="invoice_total"/>
+                   <field name="create_uid" string="申請人"/>
+               </tree>
+           </field>
+       </record>
+       <record id="neweb_purinv_invoice_view_form" model="ir.ui.view">
+           <field name="name">neweb.purinv.invoice.view.form</field>
+           <field name="model">neweb_purinv.invoice</field>
+           <field name="arch" type="xml">
+               <header>
+
+               </header>
+               <form>
+                <sheet>
+                     <div class="oe_title">
+                       <h1>
+                          <field name="name" readonly="1"/>
+                       </h1>
+                     </div>
+                  <group>
+                      <group>
+                            <button name="re_index_item" type="object" string="項次重編號" class="oe_highlight"/>
+                            <button name="%(purinv_wizard_action)d" type="action" string="選取採購單" class="oe_highlight oe_edit_only"
+                              groups="neweb_project.neweb_cs30_dir,neweb_project.neweb_pur20_assi" context="{'invoiceopen_id': context.get('active_id') }"/>
+                            <button name="regen_invdate" type="object" string="付款日計算" class="oe_highlight"/>
+                      </group>
+                      <group>
+                          <field name="invoice_memo"/>
+                          <field name="invoice_total"/>
+                      </group>
+                      <field name="invoice_line" nolabel="1" >
+                            <tree  widget="one2many" editable="bottom">
+                                <!--<field name="sequence" widget="handle"/>-->
+                                <field name="invline_item"/>
+                                <field name="inv_prodspec"/>
+                                <field name="cus_partner"/>
+                                <field name="purchase_no"/>
+                                <field name="pitem_origin_no"/>
+                                <field name="invoice_date"/>
+                                <field name="invoice_no"/>
+                                <field name="inv_paymentterm"/>
+                                <field name="invoice_partner"/>
+                                <field name="currency_id"/>
+                                <field name="invoice_sum"/>
+                                <field name="payment_yn"/>
+                                <field name="invline_memo"/>
+                            </tree>
+                      </field>
+
+                  </group>
+                </sheet>
+               </form>
+           </field>
+       </record>
+        <record id="neweb_purinv_invoice_search" model="ir.ui.view">
+           <field name="name">neweb.purinv.invoice.search</field>
+           <field name="model">neweb_purinv.invoice</field>
+            <field name="arch" type="xml">
+                <search string="">
+                    <field name="name" filter_domain="['|','|','|','|','|',('name','ilike',self),('invoice_line.invoice_no','ilike',self),('invoice_line.invoice_partner.name','ilike',self),('invoice_line.purchase_no.name','ilike',self),('invoice_line.pitem_origin_no','ilike',self),('invoice_line.invoice_date','ilike',self)]"/>
+            </search>
+           </field>
+        </record>
+       <record id="neweb_purinv_invoice_action" model="ir.actions.act_window">
+           <field name="name">請款申請記錄</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">neweb_purinv.invoice</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+
+<!--         <menuitem id="menu_purinv_wizard_categ" name="請款申請作業" sequence="60"-->
+<!--            parent="neweb_project.menu_neweb_project_root"/>-->
+         <menuitem id="menu_purinv_wizard_categ" name="請款申請作業" sequence="60"
+            parent="neweb_purchase.menu_neweb_tool_root"/>
+        <menuitem id="menu_purinv_invoice_action" name="" sequence="20"
+                  parent="menu_purinv_wizard_categ"
+                  action="neweb_purinv_invoice_action"/>
+    </data>
+</odoo>

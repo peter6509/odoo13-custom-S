@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mail_template_repair_draft_ae1" model="mail.template">
+            <field name="name">Repair-draft_ae</field>
+            <field name="model_id" ref="model_neweb_repair_repair"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">alice.fu@newebinfo.com.tw</field>
+            <field name="subject">報修單[${object.repair_datetime}]${object.customer_id.name}-退回(處理完成)</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<p></p><pre style="font-family:Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;" wrap=""><font style="font-size: 12px;"> 報修日期 : ${object.repair_datetime}</font>
+<font style="font-size: 12px;"> 報修單號 : ${object.name}</font>
+<font style="font-size: 12px;"> 報修類別 : ${object.repair_type}</font>
+<font style="font-size: 12px;"> 簽約客戶名稱 : ${object.customer_id.name}</font>
+<font style="font-size: 12px;"> 維護客戶名稱 : ${object.end_customer.name}</font>
+<font style="font-size: 12px;"> 報修人/電話 : ${object.contact_tel}</font>
+<font style="font-size: 12px;"> 設備連絡人/電話 : ${object.device_tel}</font>
+<font style="font-size: 12px;"> 指派工程師 : ${object.ae_id.name}</font>
+<font style="font-size: 12px;"> 業務 : ${(object.sales.name or ' ')|safe}</font>
+<font style="font-size: 12px;">報修說明：</font>
+    % for line in object.repair_lines:
+        <ul>
+            <li><font style="font-size: 12px;">報修項目: ${(line.machine_serial_no1 or line.problem_desc)|safe}</font></li>
+            <li><font style="font-size: 12px;">SLA: ${(line.repair_sla.display_name or ' '|safe}<font></li>
+            <li><font style="font-size: 12px;">問題描述: ${line.problem_desc}<font></li>
+        </ul>
+    % endfor
+</pre><p></p>
+            ]]>
+            </field>
+        </record>
+
+        <record id="mail_template_repair_ae_process1" model="mail.template">
+            <field name="name">Repair_ae_process</field>
+            <field name="model_id" ref="model_neweb_repair_repair"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_emails()},alice.fu@newebinfo.com.tw</field>
+            <field name="subject">報修單[${object.repair_datetime}]${object.customer_id.name}-維修中</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<p></p><pre style="font-family:Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;" wrap=""><font style="font-size: 12px;"> 報修日期 : ${object.repair_datetime}</font>
+<font style="font-size: 12px;"> 報修單號 : ${object.name}</font>
+<font style="font-size: 12px;"> 報修類別 : ${object.repair_type}</font>
+<font style="font-size: 12px;"> 簽約客戶名稱 : ${object.customer_id.name}</font>
+<font style="font-size: 12px;"> 維護客戶名稱 : ${object.end_customer.name}</font>
+<font style="font-size: 12px;"> 報修人/電話 : ${object.contact_tel}</font>
+<font style="font-size: 12px;"> 設備連絡人/電話 : ${object.device_tel}</font>
+<font style="font-size: 12px;"> 指派工程師 : ${object.ae_id.name}</font>
+<font style="font-size: 12px;"> 業務 : ${(object.sales.name or ' ')|safe}</font>
+<font style="font-size: 12px;">報修說明：</font>
+    % for line in object.repair_lines:
+        <ul>
+            <li><font style="font-size: 12px;">報修項目: ${(line.machine_serial_no1 or line.problem_desc)|safe}</font></li>
+            <li><font style="font-size: 12px;">SLA: ${(line.repair_sla.display_name or ' ')|safe}</font></li>
+            <li><font style="font-size: 12px;">問題描述: ${line.problem_desc}</font></li>
+        </ul>
+    % endfor
+</pre><p></p>
+            ]]>
+            </field>
+        </record>
+
+
+
+<!--        <record id="repair_send_draft_ae_email" model="ir.actions.server">-->
+<!--            <field name="name">Send draft_ae email</field>-->
+<!--            <field name="model_id" ref="model_neweb_repair_repair"/>-->
+<!--            <field name="state">email</field>-->
+<!--            <field name="type">ir.actions.server</field>-->
+<!--            <field name="condition">False</field>-->
+<!--            <field name="template_id" ref="mail_template_repair_draft_ae1"/>-->
+<!--             &lt;!&ndash;<field name="template_id" ref=""/>&ndash;&gt;-->
+<!--            &lt;!&ndash;<field name="template_id" ref=""/>&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="repair_ae_process_email" model="ir.actions.server">-->
+<!--            <field name="name">Send ae processing email</field>-->
+<!--            <field name="model_id" ref="model_neweb_repair_repair"/>-->
+<!--            <field name="state">email</field>-->
+<!--            <field name="type">ir.actions.server</field>-->
+<!--            <field name="condition">True</field>-->
+<!--            <field name="template_id" ref="mail_template_repair_ae_process1"/>-->
+<!--        </record>-->
+
+
+
+        <record id="mail_template_repair_ae_manager1" model="mail.template">
+            <field name="name">Repair_ae_manager</field>
+            <field name="model_id" ref="model_neweb_repair_repair"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_emails()},alice.fu@newebinfo.com.tw,irene.cheng@newebinfo.com.tw</field>
+            <field name="subject">報修單[${object.repair_datetime}]${object.customer_id.name}-工程師結案</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<p></p><pre style="font-family:Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;" wrap=""><font style="font-size: 12px;"> 報修日期 : ${object.repair_datetime}</font>
+<font style="font-size: 12px;"> 報修單號 : ${object.name}</font>
+<font style="font-size: 12px;"> 報修類別 : ${object.repair_type}</font>
+<font style="font-size: 12px;"> 簽約客戶名稱 : ${object.customer_id.name}</font>
+<font style="font-size: 12px;"> 維護客戶名稱 : ${object.end_customer.name}</font>
+<font style="font-size: 12px;"> 報修人/電話 : ${object.contact_tel}</font>
+<font style="font-size: 12px;"> 設備連絡人/電話 : ${object.device_tel}</font>
+<font style="font-size: 12px;"> 指派工程師 : ${object.ae_id.name}</font>
+<font style="font-size: 12px;"> 工程師結案日期 : ${object.ae_complete_datetime}</font>
+<font style="font-size: 12px;">報修說明：</font>
+    % for line in object.repair_lines:
+        <ul>
+            <li><font style="font-size: 12px;">報修項目: ${(line.machine_serial_no1 or line.problem_desc)|safe}</font></li>
+            <li><font style="font-size: 12px;">SLA: ${(line.repair_sla.display_name or ' ')|safe}</font></li>
+            <li><font style="font-size: 12px;">問題描述: ${line.problem_desc}</font></li>
+        </ul>
+    % endfor
+<font style="font-size: 12px;">處理說明：</font>
+    % for line in object.repair_work_logs:
+        <ul>
+            <li><font style="font-size: 12px;">建立者: ${line.create_uid.partner_id.name}</font></li>
+            <li><font style="font-size: 12px;">日期: ${line.work_date}</font></li>
+            <li><font style="font-size: 12px;">處理狀況: ${line.work_log}</font></li>
+        </ul>
+    % endfor
+</pre><p></p>
+            ]]>
+            </field>
+        </record>
+
+
+
+
+<!--        <record id="repair_send_ae_manager_email" model="ir.actions.server">-->
+<!--            <field name="name">Send ae_manager email</field>-->
+<!--            <field name="model_id" ref="model_neweb_repair_repair"/>-->
+<!--            <field name="state">email</field>-->
+<!--            <field name="type">ir.actions.server</field>-->
+<!--            <field name="condition">True</field>-->
+<!--            <field name="template_id" ref="mail_template_repair_ae_manager1"/>-->
+<!--        </record>-->
+
+        <record id="mail_template_repair_reject1" model="mail.template">
+            <field name="name">Repair - reject 範本</field>
+            <field name="model_id" ref="model_neweb_repair_repair"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_emails()},alice.fu@newebinfo.com.tw</field>
+            <field name="subject">報修單[${object.repair_datetime}]${object.customer_id.name}-主管退回</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<p></p><pre style="font-family:Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;" wrap=""><font style="font-size: 12px;"> 報修日期 : ${object.repair_datetime}</font>
+<font style="font-size: 12px;"> 報修單號 : ${object.name}</font>
+<font style="font-size: 12px;"> 報修類別 : ${object.repair_type}</font>
+<font style="font-size: 12px;"> 簽約客戶名稱 : ${object.customer_id.name}</font>
+<font style="font-size: 12px;"> 維護客戶名稱 : ${object.end_customer.name}</font>
+<font style="font-size: 12px;"> 報修人/電話 : ${object.contact_tel}</font>
+<font style="font-size: 12px;"> 設備連絡人/電話 : ${object.device_tel}</font>
+<font style="font-size: 12px;"> 指派工程師 : ${object.ae_id.name}</font>
+<font style="font-size: 12px;"> 業務 : ${(object.sales.name or ' ')|safe}</font>
+<font style="font-size: 12px;">報修說明：</font>
+    % for line in object.repair_lines:
+        <ul>
+            <li><font style="font-size: 12px;">報修項目: ${(line.machine_serial_no1 or line.problem_desc)|safe}</font></li>
+            <li><font style="font-size: 12px;">SLA: ${(line.repair_sla.display_name or ' ')|safe}</font></li>
+            <li><font style="font-size: 12px;">問題描述: ${line.problem_desc}</font></li>
+        </ul>
+    % endfor
+</pre><p></p>
+            ]]>
+            </field>
+        </record>
+<!--        <record id="repair_send_reject_email" model="ir.actions.server">-->
+<!--            <field name="name">Send reject email</field>-->
+<!--            <field name="model_id" ref="model_neweb_repair_repair"/>-->
+<!--            <field name="state">email</field>-->
+<!--            <field name="type">ir.actions.server</field>-->
+<!--            <field name="condition">True</field>-->
+<!--            &lt;!&ndash;<field name="template_id" ref="mail_template_repair_reject1"/>&ndash;&gt;-->
+<!--            <field name="template_id" ref=""/>-->
+<!--        </record>-->
+
+
+        <record id="mail_template_repair_done1" model="mail.template">
+            <field name="name">Repair-done</field>
+            <field name="model_id" ref="model_neweb_repair_repair"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_emails()},alice.fu@newebinfo.com.tw</field>
+            <field name="subject">報修單[${object.repair_datetime}]${object.customer_id.name}-Care Call</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<p></p><pre style="font-family:Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;" wrap=""><font style="font-size: 12px;"> 報修日期 : ${object.repair_datetime}</font>
+<font style="font-size: 12px;"> 報修單號 : ${object.name}</font>
+<font style="font-size: 12px;"> 報修類別 : ${object.repair_type}</font>
+<font style="font-size: 12px;"> 簽約客戶名稱 : ${object.customer_id.name}</font>
+<font style="font-size: 12px;"> 維護客戶名稱 : ${object.end_customer.name}</font>
+<font style="font-size: 12px;"> 報修人/電話 : ${object.contact_tel}</font>
+<font style="font-size: 12px;"> 設備連絡人/電話 : ${object.device_tel}</font>
+<font style="font-size: 12px;"> 指派工程師 : ${object.ae_id.name}</font>
+<font style="font-size: 12px;"> 工程師結案日期 : ${object.ae_complete_datetime}</font>
+<font style="font-size: 12px;">報修說明：</font>
+    % for line in object.repair_lines:
+        <ul>
+            <li><font style="font-size: 12px;">報修項目: ${(line.machine_serial_no1 or line.problem_desc)|safe}</font></li>
+            <li><font style="font-size: 12px;">SLA: ${(line.repair_sla.display_name or ' ')|safe}</font></li>
+            <li><font style="font-size: 12px;">問題描述: ${line.problem_desc}</font></li>
+        </ul>
+    % endfor
+<font style="font-size: 12px;">處理說明：</font>
+    % for line in object.repair_work_logs:
+        <ul>
+            <li><font style="font-size: 12px;">建立者: ${line.create_uid.partner_id.name}</font></li>
+            <li><font style="font-size: 12px;">日期: ${line.work_date}</font></li>
+            <li><font style="font-size: 12px;">處理狀況: ${line.work_log}</font></li>
+        </ul>
+    % endfor
+<font style="font-size: 12px;">Care-Call 結案說明：</font>
+    % for line in object.repair_care_call_logs:
+        <ul>
+            <li><font style="font-size: 12px;">建立者: ${line.create_uid.partner_id.name}</font></li>
+            <li><font style="font-size: 12px;">日期: ${line.care_call_date}</font></li>
+            <li><font style="font-size: 12px;">處理狀況: ${line.care_call_log}</font></li>
+        </ul>
+    % endfor
+</pre><p></p>
+            ]]>
+            </field>
+        </record>
+
+
+
+
+<!--        <record id="repair_send_done_email" model="ir.actions.server">-->
+<!--            <field name="name">Send done email</field>-->
+<!--            <field name="model_id" ref="model_neweb_repair_repair"/>-->
+<!--            <field name="state">email</field>-->
+<!--            <field name="type">ir.actions.server</field>-->
+<!--            <field name="condition">True</field>-->
+<!--            <field name="template_id" ref="mail_template_repair_done1"/>-->
+<!--            &lt;!&ndash;<field name="template_id" ref=""/>&ndash;&gt;-->
+<!--        </record>-->
+
+        <record id="mail_template_repair_waiting1" model="mail.template">
+            <field name="name">Repair - waiting</field>
+            <field name="model_id" ref="model_neweb_repair_repair"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_emails()},alice.fu@newebinfo.com.tw</field>
+            <field name="subject">報修單[${object.repair_datetime}]${object.customer_id.name}-待料中</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<p></p><pre style="font-family:Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;" wrap=""><font style="font-size: 12px;"> 報修日期 : ${object.repair_datetime}</font>
+<font style="font-size: 12px;"> 報修單號 : ${object.name}</font>
+<font style="font-size: 12px;"> 報修類別 : ${object.repair_type}</font>
+<font style="font-size: 12px;"> 簽約客戶名稱 : ${object.customer_id.name}</font>
+<font style="font-size: 12px;"> 維護客戶名稱 : ${object.end_customer.name}</font>
+<font style="font-size: 12px;"> 報修人/電話 : ${object.contact_tel}</font>
+<font style="font-size: 12px;"> 設備連絡人/電話 : ${object.device_tel}</font>
+<font style="font-size: 12px;"> 指派工程師 : ${object.ae_id.name}</font>
+<font style="font-size: 12px;"> 業務 : ${(object.sales.name or ' ')|safe}</font>
+<font style="font-size: 12px;">報修說明：</font>
+    % for line in object.repair_lines:
+            <li><font style="font-size: 12px;">報修項目: ${(line.machine_serial_no1 or line.problem_desc)|safe}</font></li>
+            <li><font style="font-size: 12px;">SLA: ${(line.repair_sla.display_name or ' ')|safe}</font></li>
+            <li><font style="font-size: 12px;">問題描述: ${line.problem_desc}</font></li>
+        </ul>
+    % endfor
+
+</pre><p></p>
+            ]]>
+            </field>
+        </record>
+<!--        <record id="repair_send_waiting_email" model="ir.actions.server">-->
+<!--            <field name="name">Send waiting email</field>-->
+<!--            <field name="model_id" ref="model_neweb_repair_repair"/>-->
+<!--            <field name="state">email</field>-->
+<!--            <field name="type">ir.actions.server</field>-->
+<!--            <field name="condition">True</field>-->
+<!--            &lt;!&ndash;<field name="template_id" ref="mail_template_repair_waiting1"/>&ndash;&gt;-->
+<!--             <field name="template_id" ref=""/>-->
+<!--        </record>-->
+
+        <record id="mail_template_repair_sla_warn" model="mail.template">
+            <field name="name">Repair-SLA_Warn_template</field>
+            <field name="model_id" ref="model_neweb_repair_repair"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_emails()},alice.fu@newebinfo.com.tw</field>
+            <field name="subject">SLA Warn</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<p></p><pre style="font-family:Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;" wrap=""><font style="font-size: 12px;"> 報修日期 : ${object.repair_datetime}</font>
+<font style="font-size: 12px;"> 報修單號 : ${object.name}</font>
+<font style="font-size: 12px;"> 報修類別 : ${object.repair_type}</font>
+<font style="font-size: 12px;"> 簽約客戶名稱 : ${object.customer_id.name}</font>
+<font style="font-size: 12px;"> 維護客戶名稱 : ${object.end_customer.name}</font>
+<font style="font-size: 12px;"> 報修人/電話 : ${object.contact_tel}</font>
+<font style="font-size: 12px;"> 設備連絡人/電話 : ${object.device_tel}</font>
+<font style="font-size: 12px;"> 指派工程師 : ${object.ae_id.name}</font>
+<font style="font-size: 12px;"> 業務 : ${(object.sales.name or ' ')|safe}</font>
+<font style="font-size: 12px;">報修說明：</font>
+    % for line in object.repair_lines:
+        <ul>
+            <li><font style="font-size: 12px;">報修項目: ${(line.machine_serial_no1 or line.problem_desc)|safe}</font></li>
+            <li><font style="font-size: 12px;">SLA: ${(line.repair_sla.display_name or ' ')|safe}</font></li>
+            <li><font style="font-size: 12px;">問題描述: ${line.problem_desc}</font></li>
+        </ul>
+    % endfor
+</pre><p></p>
+            ]]>
+            </field>
+        </record>
+
+    </data>
+</odoo>

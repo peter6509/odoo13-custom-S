@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_contract_search_inherit" model="ir.ui.view">
+            <field name="name">neweb.contract.search.inherit</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="inherit_id" ref="neweb_contract.contract_search"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//search/field[@name='name']" position="replace">
+                    <field name="name" string="關鍵字" filter_domain="['|','|','|','|','|',('project_no','ilike',self),('name','ilike',self),('customer_name.name','ilike',self),('end_customer.name','ilike',self),('contract_line_ids.prod_modeltype','ilike',self),('contract_line_ids.machine_serial_no','ilike',self)]"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

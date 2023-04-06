@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="fqc_order_check_list_inherit" model="ir.ui.view">
+            <field name="name">mes_assembly.mes.fqc.order.form</field>
+            <field name="model">mes.fqc.order</field>
+            <field name="inherit_id" ref="mes_assembly.mes_fqc_order_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook" position="inside">
+                    <page string="FQC 質檢檢驗項目規格說明">
+                        <field name="check_list_ids" widget="section_and_note_one2many" mode="tree">
+                            <tree string="FQC 質檢檢驗項目規格說明" editable="bottom">
+                                <field name="sequence" widget="handle"/>
+                                <field name="check_item" options="{'no_create': True, 'no_create_edit':True}"/>
+                                <field name="check_item_doc" options="{'no_create': True, 'no_create_edit':True}"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

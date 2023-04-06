@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="py3o_sale_order_form_inherit" model="ir.ui.view">
+            <field name="name">py3o.sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="neweb_projext.neweb_project_inherit8_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='payment_term_new']" position="after">
+                    <field name="copenaccountday" attrs="{'invisible':1}"/>
+                    <field name="cdeliveryterm" attrs="{'invisible':1}"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

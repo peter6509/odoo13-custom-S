@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="customer_category_tree">
+            <field name="name">neweb_base.customer_category.tree</field>
+            <field name="model">neweb_base.customer_category</field>
+            <field name="arch" type="xml">
+                <tree string="Customer Categories">
+                    <field name="name"/>
+                    <field name="disabled"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="customer_category_form">
+            <field name="name">neweb_base.customer_category.form</field>
+            <field name="model">neweb_base.customer_category</field>
+            <field name="arch" type="xml">
+                <form string="Customer Category">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="name"/>
+                            <field name="disabled"/>
+                            <field name="memo"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="customer_category_search">
+            <field name="name">neweb_base.customer_category.search</field>
+            <field name="model">neweb_base.customer_category</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="disabled"/>
+                    <field name="memo"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_customer_category">
+            <field name="name">Customer Category</field>
+            <field name="res_model">neweb_base.customer_category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_customer_category" parent="base.menu_sale_config" name="Customer Category" sequence="66"
+                  action="action_list_customer_category"/>
+    </data>
+</odoo>

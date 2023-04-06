@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_purchase_select_form" model="ir.ui.view">
+            <field name="name">neweb.purchase.select.form</field>
+            <field name="model">neweb_chi_invoicing.purchase_select</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="select_owner" attrs="{'readonly':1}"/>
+                        </group>
+                        <group>
+                            <button type="object" name="select_alltrue" string="全選" class="oe_highlight"/>
+                            <button type="object" name="select_allfalse" string="全不選" class="oe_highlight"/>
+                        </group>
+                        <field name="purchase_line" nolabel="1" >
+                            <tree  widget="one2many">
+                                <button name="selectyn" string="選" type="object" class="oe_highlight"/>
+                                <field name="chi_select"/>
+                                <field name="purchase_no"/>
+                                <field name="pitem_machine_type"/>
+                                <field name="pitem_model_type"/>
+                                <field name="pitem_spec"/>
+                                <field name="pitem_num"/>
+                                <field name="pitem_price"/>
+                            </tree>
+                      </field>
+<!--                        <button special="cancel" string="離開"/>-->
+                        <button type="object" name="return_purinv" string="完成離開" class="oe_highlight"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="neweb_purchase_select_action" model="ir.actions.act_window">
+            <field name="name">PURCHASE SELECT</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_chi_invoicing.purchase_select</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

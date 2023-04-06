@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="era_emeterhub_1" model="era.emeterhub_status">
+            <field name="pi_id">DJART_2F</field>
+            <field name="ip_address">192.168.100.52</field>
+        </record>
+        <record id="era_emeterhub_2" model="era.emeterhub_status">
+            <field name="pi_id">DJART_3F</field>
+            <field name="ip_address">192.168.100.53</field>
+        </record>
+        <record id="era_emeterhub_3" model="era.emeterhub_status">
+            <field name="pi_id">DJART_5F</field>
+            <field name="ip_address">192.168.100.55</field>
+        </record>
+        <record id="era_emeterhub_4" model="era.emeterhub_status">
+            <field name="pi_id">DJART_6F</field>
+            <field name="ip_address">192.168.100.56</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="neweb_sale_inherit6_form" model="ir.ui.view">
+            <field name="name">neweb.sale.inherit6.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="neweb_project.neweb_sale_inherit_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='display_line']/tree/field[@name='newebmaindate']" position="after">
+                   <field name="cost_dept"/>
+                   <field name="cost_type"/>
+               </xpath>
+<!--                <xpath expr="//field[@name='pricelist_id']" position="after">-->
+<!--                    <field name="project_no" attrs="{'readonly':1}" options="{'no_create':true,'no_create_edit':true}"/>-->
+<!--                </xpath>-->
+
+            </field>
+        </record>
+    </data>
+</odoo>

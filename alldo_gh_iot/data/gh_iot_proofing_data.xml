@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="seq_gh_iot_proofing" model="ir.sequence">
+            <field name="name">IOT Proofing</field>
+            <field name="code">alldo_gh_iot.proofing</field>
+            <field name="prefix">PF%(y)s%(month)s%(day)s</field>
+            <field name="padding">2</field>
+        </record>
+    </data>
+</odoo>

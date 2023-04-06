@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_todo_calendar_tree" model="ir.ui.view">
+            <field name="name">view.todo.calendar.tree</field>
+            <field name="model">neweb_emp_timesheet.todo_calendar</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="emp_id"/>
+                    <field name="todo_datetime"/>
+                    <field name="dept_id"/>
+                    <field name="contract_no"/>
+                    <field name="cus_id"/>
+                    <field name="contract_no"/>
+                    <field name="ins_start_datetime"/>
+                    <field name="ins_end_datetime"/>
+                    <field name="ins_duration"/>
+                    <field name="todo_origin"/>
+                    <field name="todo_completed"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_todo_calendar_form" model="ir.ui.view">
+            <field name="name">view.todo.calendar.form</field>
+            <field name="model">neweb_emp_timesheet.todo_calendar</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="emp_id" attrs="{'readonly':1}"/>
+                            <field name="todo_datetime" attrs="{'readonly':1}"/>
+                            <field name="dept_id" attrs="{'readonly':1}"/>
+                            <field name="cus_id" attrs="{'readonly':1}"/>
+                            <field name="assign_cus" attrs="{'invisible':[('cus_id','!=',False)]}"/>
+                            <field name="todo_origin" attrs="{'readonly':1}"/>
+                            <field name="todo_sequence" attrs="{'invisible':1}"/>
+                            <field name="repair_no" attrs="{'invisible':[('todo_origin','!=','2')]}"/>
+                            <field name="contract_no" attrs="{'invisible':[('todo_origin','!=','1')],'readonly':1}"/>
+                            <field name="assign_no" attrs="{'invisible':[('todo_origin','not in',('3','4'))]}"/>
+                            <field name="ins_start_datetime" attrs="{'invisible':[('todo_origin','!=','1')]}"/>
+                            <field name="ins_end_datetime" attrs="{'invisible':[('todo_origin','!=','1')]}"/>
+                            <field name="ins_memo" attrs="{'invisible':[('todo_origin','!=','1')]}"/>
+                            <field name="todo_completed"/>
+                        </group>
+                        <group>
+                            <group>
+                                 <button type="object" name="response_button" string="1.工程師回應" class="oe_highlight"
+                             attrs="{'invisible':[('todo_origin','!=','2')]}"/>
+                                 <field name="ae_response_datetime" attrs="{'invisible':[('todo_origin','!=','2')]}" nolabel="1"/>
+                            </group>
+                            <group>
+                                  <button type="object" name="onsite_button" string="2.工程師到場" class="oe_highlight"
+                             attrs="{'invisible':[('todo_origin','!=','2')]}"/>
+
+                                <field name="ae_on_site_datetime" attrs="{'invisible':[('todo_origin','!=','2')]}"
+                                nolabel="1"/>
+                            </group>
+                            <group>
+                                 <button type="object" name="complete_button" string="3.工程師完工" class="oe_highlight"
+                             attrs="{'invisible':[('todo_origin','!=','2')]}"/>
+                                <field name="ae_complete_datetime" attrs="{'invisible':[('todo_origin','!=','2')]}"
+                                nolabel="1"/>
+                            </group>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+         <record id="view_todo_calendar_search" model="ir.ui.view">
+           <field name="name">view.todo.calendar.search</field>
+           <field name="model">neweb_emp_timesheet.todo_calendar</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="emp_id" string="關鍵字" filter_domain="['|','|','|',('contract_no.name','ilike',self),('emp_id.name','ilike',self),('emp_id.department_id.name', 'ilike',self),('cus_id.name','ilike',self)]"/>
+              <field name="emp_id" string="人員" filter_domain="[('emp_id.name','ilike',self)]"/>
+              <field name="emp_id" string="部門" filter_domain="[('emp_id.department_id.name','ilike',self)]"/>
+              <field name="cus_id" string="客戶" filter_domain="[('cus_id.name','ilike',self)]"/>
+
+            </search>
+           </field>
+        </record>
+
+        <record id="calendar_todo_calendar_task" model="ir.ui.view">
+          <field name="name">calendar.todo.calendar.task</field>
+          <field name="model">neweb_emp_timesheet.todo_calendar</field>
+<!--           <field name="context">{'default_all_day':False}</field>-->
+          <field name="arch" type="xml">
+              <calendar string="Todo" date_start="todo_datetime" event_open_popup="true" mode="month" color="todo_completed">
+                         <field name="todo_name"/>
+             </calendar>
+          </field>
+      </record>
+
+        <record id="action_todo_calendar_view" model="ir.actions.act_window">
+            <field name="name">待辦工作行事曆</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_emp_timesheet.todo_calendar</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                
+              </p><p>
+                 
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

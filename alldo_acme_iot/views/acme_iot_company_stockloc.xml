@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="acme_iot_company_loc_tree" model="ir.ui.view">
+            <field name="name">acme.iot.company.loc.tree</field>
+            <field name="model">alldo_acme_iot.company_stockloc</field>
+            <field name="arch" type="xml">
+                <tree string="" >
+                    <field name="material_loc"/>
+                    <field name="prod_loc"/>
+                    <field name="blank_loc"/>
+                    <field name="mo_loc"/>
+                    <field name="scrap_loc"/>
+                    <field name="trans_loc"/>
+                    <field name="furnace_loc"/>
+                    <field name="uncomplete_loc"/>
+                </tree>
+            </field>
+        </record>
+        <record id="acme_iot_company_loc_form" model="ir.ui.view">
+            <field name="name">acme.iot.company.loc.form</field>
+            <field name="model">alldo_acme_iot.company_stockloc</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                             <field name="material_loc" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="prod_loc" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="blank_loc" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="mo_loc" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="scrap_loc" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="trans_loc" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="furnace_loc" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="balance_loc" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="furnace_prod_id" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="uncomplete_loc" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="m_categ" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="r_categ" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="pack_categ" options="{'no_create':true,'no_create_edit':true}" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="acme_iot_company_loc_action" model="ir.actions.act_window">
+            <field name="name">公司倉庫設定配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_acme_iot.company_stockloc</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

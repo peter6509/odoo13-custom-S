@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--<menuitem id="menu_km" parent="neweb_base.menu_repair_configuration" name="KM" sequence="66"/>-->
+
+        <!-- Problem -->
+        <record model="ir.ui.view" id="qa_tree">
+            <field name="name">neweb_base.qa.tree</field>
+            <field name="model">neweb_base.problem</field>
+            <field name="arch" type="xml">
+                <tree string="Problem Handling">
+                    <field name="name" string="Problem"/>
+                    <field name="disabled"/>
+                    <field name="memo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qa_form">
+            <field name="name">neweb_base.qa.form</field>
+            <field name="model">neweb_base.problem</field>
+            <field name="arch" type="xml">
+                <form string="Problem Handling">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Problem Name"/>
+                                <field name="maintenance_category_id" string="Maintenance Category"/>
+                                <field name="problem_category"/>
+                                <field name="event_log"/>
+                            </group>
+                            <group>
+                                <field name="disabled"/>
+                                <field name="problem_solution" widget="many2many_tags"/>
+                                <field name="err_code"/>
+                                <field name="err_log"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                            <field name="memo"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qa_search">
+            <field name="name">neweb_base.qa.search</field>
+            <field name="model">neweb_base.problem</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="disabled"/>
+                    <field name="memo"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_qa">
+            <field name="name">Problem Handling</field>
+            <field name="res_model">neweb_base.problem</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<menuitem id="menu_qa" parent="neweb_base.menu_km" name="Problem Handling" sequence="66"-->
+                  <!--action="action_list_qa"/>-->
+
+
+        <!-- Problem Representation -->
+        <!--<record model="ir.ui.view" id="qa_representation_tree">-->
+            <!--<field name="name">neweb_base.qa_representation.tree</field>-->
+            <!--<field name="model">neweb_base.problem_representation</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<tree string="Problem Representation">-->
+                    <!--<field name="name" string="Problem Representation"/>-->
+                    <!--<field name="disabled"/>-->
+                    <!--<field name="memo"/>-->
+                <!--</tree>-->
+            <!--</field>-->
+        <!--</record>-->
+
+        <!--<record model="ir.ui.view" id="qa_representation_form">-->
+            <!--<field name="name">neweb_base.qa_representation.form</field>-->
+            <!--<field name="model">neweb_base.problem_representation</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<form string="Problem Representation">-->
+                    <!--<sheet>-->
+                        <!--<group>-->
+                            <!--<field name="problem_id"/>-->
+                            <!--<field name="name" string="Problem Representation"/>-->
+                            <!--<field name="disabled"/>-->
+                            <!--<field name="memo"/>-->
+                        <!--</group>-->
+                    <!--</sheet>-->
+                <!--</form>-->
+            <!--</field>-->
+        <!--</record>-->
+
+        <!--<record model="ir.ui.view" id="qa_representation_search">-->
+            <!--<field name="name">neweb_base.qa_representation.search</field>-->
+            <!--<field name="model">neweb_base.problem_representation</field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<search>-->
+                    <!--<field name="problem_id"/>-->
+                    <!--<field name="name"/>-->
+                    <!--<field name="disabled"/>-->
+                    <!--<field name="memo"/>-->
+                <!--</search>-->
+            <!--</field>-->
+        <!--</record>-->
+
+        <!--<record model="ir.actions.act_window" id="action_list_qa_representation">-->
+            <!--<field name="name">Problem Representation</field>-->
+            <!--<field name="res_model">neweb_base.problem_representation</field>-->
+            <!--<field name="view_mode">tree,form</field>-->
+        <!--</record>-->
+
+        <!--<menuitem id="menu_qa_representation" parent="neweb_base.menu_km" name="Problem Representation" sequence="67"-->
+                  <!--action="action_list_qa_representation"/>-->
+
+
+        <!-- Problem Solution -->
+        <record model="ir.ui.view" id="qa_solution_tree">
+            <field name="name">neweb_base.qa_solution.tree</field>
+            <field name="model">neweb_base.problem_solution</field>
+            <field name="arch" type="xml">
+                <tree string="Problem Solution">
+                    <field name="name" string="Problem Solution"/>
+                    <field name="disabled"/>
+                    <field name="memo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qa_solution_form">
+            <field name="name">neweb_base.qa_solution.form</field>
+            <field name="model">neweb_base.problem_solution</field>
+            <field name="arch" type="xml">
+                <form string="Problem Solution">
+                    <sheet>
+                        <group>
+                            <field name="problem_id"/>
+                            <field name="name" string="Problem Solution"/>
+                            <field name="disabled"/>
+                            <field name="memo"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qa_solution_search">
+            <field name="name">neweb_base.qa_solution.search</field>
+            <field name="model">neweb_base.problem_solution</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="disabled"/>
+                    <field name="memo"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_qa_solution">
+            <field name="name">Problem Solution</field>
+            <field name="res_model">neweb_base.problem_solution</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<menuitem id="menu_qa_solution" parent="neweb_base.menu_km" name="Problem Solution" sequence="68"-->
+                  <!--action="action_list_qa_solution"/>-->
+
+
+    </data>
+</odoo>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_applyfor_escrow1_tree" model="ir.ui.view">
+            <field name="name">view.applyfor.escrow1.tree</field>
+            <field name="model">cloudrent.applyfor_escrow1</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="build_no"/>
+                    <field name="lessor_no" domain="[('escrow_type','=','1')]"/>
+                    <field name="escrow_no"/>
+                    <field name="applyfor_filename" invisible="1"/>
+                    <field name="applyfor_attach" filename="applyfor_filename" widget="binary"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_applyfor_escrow1_search" model="ir.ui.view">
+           <field name="name">view.applyfor.escrow1.search</field>
+           <field name="model">cloudrent.applyfor_escrow1</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="build_no" string="物件編號" filter_domain="[('build_no.object_no', 'ilike', self)]"/>
+                <field name="lessor_no" string="房東姓名" filter_domain="[('lessor_no.escrow_man', 'ilike', self)]"/>
+                <field name="build_no" string="建物門牌" filter_domain="[('build_no.house_number', 'ilike', self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_applyfor_escrow1_view" model="ir.actions.act_window">
+            <field name="name">出租人出租住宅申請書(代管)</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.applyfor_escrow1</field>
+            <field name="view_mode">tree</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_applyfor_escrow1_tree')}),]"/>
+            <field name="search_view_id" ref="view_applyfor_escrow1_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                
+              </p><p>
+                 
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

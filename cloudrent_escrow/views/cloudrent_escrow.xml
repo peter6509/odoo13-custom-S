@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_escrow_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.escrow.tree</field>
+            <field name="model">cloudrent.escrow</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="guild_no"/>
+                    <field name="bus_no"/>
+                    <field name="bus_name"/>
+                    <field name="bus_boss"/>
+                    <field name="bus_management"/>
+                    <field name="real_estat_agent"/>
+                    <field name="bus_address"/>
+                    <field name="bus_phone"/>
+                    <field name="bus_memo"/>
+                    <field name="license_no"/>
+                    <field name="register_no"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_escrow_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.escrow.form</field>
+            <field name="model">cloudrent.escrow</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="guild_no"/>
+                            <field name="bus_no"/>
+                            <field name="bus_name"/>
+                            <field name="bus_boss"/>
+                            <field name="bus_management" domain="[('escrow_type','=','3')]" options="{'no_create_edit':True,'no_create':True}"/>
+                            <field name="real_estat_agent" domain="[('escrow_type','=','4')]" options="{'no_create_edit':True,'no_create':True}"/>
+                            <field name="bus_vat"/>
+                            <field name="bus_address"/>
+                            <field name="bus_phone"/>
+                            <field name="bus_memo"/>
+                            <field name="license_no"/>
+                            <field name="register_no"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_cloudrent_escrow_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.escrow.search</field>
+           <field name="model">cloudrent.escrow</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="bus_name" string="關鍵字" filter_domain="['|','|','|','|',('license_no','ilike',self),('register_no','ilike',self),('bus_no','ilike',self),('guild_no','ilike',self),('bus_name', 'ilike', self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_escrow_view" model="ir.actions.act_window">
+            <field name="name">雲房代管業者主檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.escrow</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_escrow_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_cloudrent_escrow_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_escrow_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_score_user","access.score.user" ,"openacademy.model_openacademy_score","base.group_user","True"   ,"True","True","True"
+"access_student_user","access.student.user","openacademy.model_openacademy_student","base.group_user","True","True","True","True"
+"access_studentclass_user","access.studentclass.user","openacademy.model_openacademy_studentclass","base.group_user","True","True","True","True"
+"access_teacher_user","access.teacher.user","openacademy.model_openacademy_teacher","base.group_user","True" ,"True","True","True"
+"access_student_download_user","access.student.download.user","openacademy.model_openacademy_excel_download","base.group_user","True","True","True" ,"True"
+
+"access_openacademy_course_stud","access.openacademy.course.stud","openacademy.model_openacademy_course","openacademy.group_openacademy_1","True","","",""
+"access_openacademy_course_teach","access.openacademy.course.teach","openacademy.model_openacademy_course","openacademy.group_openacademy_2","True","True","True",""
+"access_openacademy_course_man","access.openacademy.course.man","openacademy.model_openacademy_course","openacademy.group_openacademy_3","True","True","True","True"

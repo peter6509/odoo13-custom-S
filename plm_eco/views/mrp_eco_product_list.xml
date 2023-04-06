@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mrp_eco_product_list_view_tree" model="ir.ui.view">
+            <field name="name">mrp.eco.product.list.view.tree</field>
+            <field name="model">mrp.eco.product.list</field>
+            <field name="arch" type="xml">
+                <tree string="相關機種列表清單">
+                    <field name="id" invisible="1"/>
+                    <field name="bom_id" string="相關機種物料清單"/>
+                    <field name="product_id" invisible="1"/>
+                    <field name="categ_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="mrp_eco_product_list_view_form" model="ir.ui.view">
+            <field name="name">mrp.eco.product.list.view.form</field>
+            <field name="model">mrp.eco.product.list</field>
+            <field name="arch" type="xml">
+                <form string="相關機種資訊">
+                    <sheet>
+                        <group>
+                            <field name="id" invisible="1"/>
+                            <field name="bom_id"/>
+                            <field name="product_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="mrp_eco_product_list_origin_view_tree" model="ir.ui.view">
+            <field name="name">mrp.eco.product.list.origin.view.tree</field>
+            <field name="model">mrp.eco.product.list.origin</field>
+            <field name="arch" type="xml">
+                <tree string="原始相關機種列表清單">
+                    <field name="id" invisible="1"/>
+                    <field name="bom_id" string="原始相關機種物料清單"/>
+                    <field name="product_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="mrp_eco_product_list_origin_view_form" model="ir.ui.view">
+            <field name="name">mrp.eco.product.list.origin.view.form</field>
+            <field name="model">mrp.eco.product.list.origin</field>
+            <field name="arch" type="xml">
+                <form string="原始相關相關機種資訊">
+                    <sheet>
+                        <group>
+                            <field name="id" invisible="1"/>
+                            <field name="bom_id"/>
+                            <field name="product_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

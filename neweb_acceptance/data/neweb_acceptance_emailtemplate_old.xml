@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="email_template_neweb_acceptance" model="mail.template">
+            <field name="name">專案出貨每月回報狀態通知Email</field>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="subject">業務專案出貨每月回報狀態通知 Email</field>
+            <field name="email_to">${object.get_acceptance_email(object.proj_sale)}</field>
+            <field name="model_id" ref="model_neweb_acceptance_email"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">zh_TW</field>
+            <field name="body_html"><![CDATA[
+<h4><p>業務部的同事${object.proj_sale.name},你好！</p>
+<p>
+     <strong>
+         專案出貨每月回報狀態通知信，請儘快回報目前貨品的狀態，以便後續存貨追蹤作業 !;
+     </strong>
+</p>
+    <br/><br/>
+% if object.email_line:
+   <p>待回報貨品狀態清單如下：</p>
+   <br/>
+    % for line in object.email_line:
+      <ul>
+          <li>成本分析單號: ${line.project_no.name}</li>
+          <li>出貨單號: ${line.stockout_no if line.stockout_no else ' '}</li>
+          <li>客戶名稱: ${line.cus_name.comp_sname}</li>
+          <li>預計驗收日: ${line.acceptanced_date1}</li>
+          <li>收貨日期: ${line.stockin_date if line.stockin_date else ' '}</li>
+          <li>出貨日期: ${line.stockout_date if line.stockout_date else ' '}</li>
+          <li>之前狀態: ${line.projsaleitem_status if line.projsaleitem_status else ' '}</li>
+          <br/>
+      </ul>
+    % endfor
+% endif
+<a href=${object.url_address}> 業務登入Odoo系統回報狀態 </a>
+</h4>
+
+<p style="color:#eeeeee;">
+% if object.write_uid and object.write_uid.signature:
+    ${object.write_uid.signature | safe}
+% endif
+</p>
+]]></field>
+        </record>
+    </data>
+</odoo>

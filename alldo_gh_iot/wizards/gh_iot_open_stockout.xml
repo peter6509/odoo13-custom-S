@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_open_stockout_wizard" model="ir.ui.view">
+             <field name="name">views.open.stockout.wizard</field>
+             <field name="model">alldo_gh_iot.open_stockout_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>工單對應出貨單重置精靈</h1>
+                         <group>
+                             <field name="cus_name" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="prod_id" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="wkorder_id" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="product_num"/>
+                             <field name="shipping_date"/>
+                             <field name="ship_num"/>
+                             <field name="in_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_open_stockout" string="出貨單重置" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="open_stockout_wizard_action" model="ir.actions.act_window">
+             <field name="name">工單對應出貨單重置精靈</field>
+             <field name="res_model">alldo_gh_iot.open_stockout_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_sitem_modeltype1_tree" model="ir.ui.view">
+            <field name="name">view.sitem.modeltype1.tree</field>
+            <field name="model">neweb.sitem_modeltype1</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_sitem_modeltype1_form" model="ir.ui.view">
+            <field name="name">view.sitem.modeltype1.form</field>
+            <field name="model">neweb.sitem_modeltype1</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_sitem_modeltype1_view" model="ir.actions.act_window">
+            <field name="name">機型名稱配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.sitem_modeltype1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_project.view_sitem_modeltype1_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('neweb_project.view_sitem_modeltype1_form')}),]"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_sitemmodeltype1_config_action"
+                  name=""
+                  parent="neweb_proj_config"
+                  action="action_sitem_modeltype1_view"
+                  groups="neweb_sys_man"
+                  sequence="300"/>
+    </data>
+</odoo>

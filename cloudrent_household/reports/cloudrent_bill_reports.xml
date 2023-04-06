@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            string="cloudrent租戶費用對帳單"
+            id="action_report_cloudrent_bill"
+            model="cloudrent.household_house_line"
+            report_type="qweb-pdf"
+            name="cloudrent_household.report_cloudrent_bill"
+            file="cloudrent_household.report_cloudrent_bill"
+            print_report_name="('cloudrent租戶管理費用房號:%s對帳單' % (object.house_no))"
+        />
+        <report id="action_cloudrent_mmonth_report"
+                model="cloudrent.household_house_line"
+                string="cloudrent租戶管理費用對帳單"
+                report_type="qweb-pdf"
+                name="cloudrent_household.mmonth_report"
+                file="cloudrent_household.mmonth_report"
+                print_report_name="
+                ('cloudrent租戶管理費用對帳單')"
+                menu="False"/>
+
+         <report id="action_cloudrent_maintenance_report"
+                model="cloudrent.household_maintenance"
+                string="cloudrent租戶設施報修報表"
+                report_type="qweb-pdf"
+                name="cloudrent_household.maintenance_report"
+                file="cloudrent_household.maintenance_report"
+                print_report_name="('cloudrent租戶設施報修報表')"
+                menu="False"/>
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_neweb_purchase_categ" name="PURCHASEDATA"
+                  parent="neweb_project.menu_neweb_project_root"
+                  groups="purchase.group_purchase_user"
+                  sequence="70" />
+        <menuitem id="menu_newebpartner_action"
+                  name=""
+                  parent="menu_neweb_purchase_categ"
+                  action="base.action_partner_supplier_form"
+                  groups="purchase.group_purchase_user"
+                  sequence="10"/>
+        <menuitem id="menu_neweb_rfq_action"
+                  name=""
+                  parent="menu_neweb_purchase_categ"
+                  action="purchase.purchase_rfq"
+                  groups="purchase.group_purchase_user"
+                  sequence="20"/>
+        <menuitem id="menu_newebpurchase_action"
+                  name=""
+                  parent="menu_neweb_purchase_categ"
+                  action="purchase.purchase_form_action"
+                  groups="purchase.group_purchase_user"
+                  sequence="30"/>
+        <menuitem id="menu_newebpurchase_manager_action"
+                  name=""
+                  parent="menu_neweb_purchase_categ"
+                  action="neweb_purchase_manager_action"
+                  groups="purchase.group_purchase_user"
+                  sequence="40"/>
+    </data>
+</odoo>

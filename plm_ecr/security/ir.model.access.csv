@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mrp_ecr_order_user,mrp.ecr.order,model_mrp_ecr_order,mrp_plm.group_plm_user,1,1,1,0
+access_mrp_ecr_order_manager,mrp.ecr.order,model_mrp_ecr_order,mrp_plm.group_plm_manager,1,1,1,1
+access_mrp_ecr_reason_user,mrp.ecr.reason,model_mrp_ecr_reason,mrp_plm.group_plm_user,1,0,0,0
+access_mrp_ecr_reason_engineer,mrp.ecr.reason,model_mrp_ecr_reason,plm_eco.group_plm_eco_engineer,1,1,1,1
+access_mrp_ecr_reason_manager,mrp.ecr.reason,model_mrp_ecr_reason,mrp_plm.group_plm_manager,1,1,1,1

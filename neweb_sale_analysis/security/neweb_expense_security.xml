@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="neweb_expense_rule1" model="ir.rule">
+            <field name="name">neweb.expense.rule1</field>
+            <field ref="neweb_sale_analysis.model_neweb_sale_analysis_expense_report" name="model_id"/>
+             <field name="groups" eval="[(6,0, [ref('neweb_project.neweb_fn10_gm'),ref('neweb_project.neweb_fn20_mgr'),ref('neweb_project.neweb_fn30_user'),
+                                              ref('neweb_project.neweb_fn40_assi'),ref('neweb_project.neweb_mg50_assi'),ref('neweb_project.neweb_sa10_gm'),ref('neweb_project.neweb_sa20_vp'),
+                                              ref('neweb_project.neweb_sa30_ass'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa50_assi'),
+                                              ref('neweb_project.neweb_cs20_vp'),ref('neweb_project.neweb_cs30_dir'),ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_cs50_assi'),
+                                              ref('neweb_project.neweb_pur10_user'),ref('neweb_project.neweb_pur20_assi'),ref('neweb_project.neweb_en10_gm'),ref('neweb_project.neweb_en20_vp'),
+                                              ref('neweb_project.neweb_en30_ass'),ref('neweb_project.neweb_en40_mgt'),ref('neweb_project.neweb_en50_stockm'),ref('neweb_project.neweb_en60_stock'),
+                                              ref('neweb_project.neweb_en70_user'),ref('neweb_project.neweb_en80_assi'),ref('neweb_project.neweb_on10_gm'),ref('neweb_project.neweb_on20_vp'),ref('neweb_project.neweb_on30_mgt'),
+                                              ref('neweb_project.neweb_on40_pm'),ref('neweb_project.neweb_on50_user')])]"/>
+            <field name="domain_force">['|','|','|','|','|','|',('flow_man5.id','=',user.employee_ids.id),('emp_no.id','=',False),('emp_no.id','=',user.employee_ids.id),('flow_man1.id','=',user.employee_ids.id),('flow_man2.id','=',user.employee_ids.id),('flow_man3.id','=',user.employee_ids.id),('flow_man4.id','=',user.employee_ids.id)]</field>
+        </record>
+         <record id="neweb_expense_rule2" model="ir.rule">
+            <field name="name">neweb.expense.rule2</field>
+            <field ref="neweb_sale_analysis.model_neweb_sale_analysis_expense_report" name="model_id"/>
+             <field name="groups" eval="[(6,0, [ref('neweb_project.neweb_cs10_gm'),ref('base.group_system')])]"/>
+             <field name="global" eval="1"/>
+        </record>
+
+    </data>
+</odoo>

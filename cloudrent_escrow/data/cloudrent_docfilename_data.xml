@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cloudrent_doc_filename_1" model="cloudrent.doc_filename">
+            <field name="name">社會住宅代租代管委託租賃契約書</field>
+            <field name="doc_type">1</field>
+            <field name="contract_type">1</field>
+            <field name="doc_filename">sh_escrow_rent_contract.docx</field>
+        </record>
+        <record id="cloudrent_doc_filename_2" model="cloudrent.doc_filename">
+            <field name="name">社會住宅代租代管委託管理契約書</field>
+            <field name="doc_type">1</field>
+            <field name="contract_type">1</field>
+            <field name="doc_filename">sh_escrow_manage_contract.docx</field>
+        </record>
+        <record id="cloudrent_doc_filename_3" model="cloudrent.doc_filename">
+            <field name="name">社會住宅租賃契約書</field>
+            <field name="doc_type">1</field>
+            <field name="contract_type">1</field>
+            <field name="doc_filename">sh_rent_contract.docx</field>
+        </record>
+        <record id="cloudrent_doc_filename_4" model="cloudrent.doc_filename">
+            <field name="name">社會住宅轉租契約書</field>
+            <field name="doc_type">1</field>
+            <field name="contract_type">1</field>
+            <field name="doc_filename">sh_sublessor_contract.docx</field>
+        </record>
+        <record id="cloudrent_doc_filename_5" model="cloudrent.doc_filename">
+            <field name="name">社會住宅包租契約書</field>
+            <field name="doc_type">1</field>
+            <field name="contract_type">1</field>
+            <field name="doc_filename">sh_guarantee_contract.docx</field>
+        </record>
+        <record id="cloudrent_doc_filename_6" model="cloudrent.doc_filename">
+            <field name="name">屋況及租屋安全檢核表</field>
+            <field name="doc_type">2</field>
+            <field name="contract_type">2</field>
+            <field name="doc_filename">situation_sitecheck.docx</field>
+        </record>
+        <record id="cloudrent_doc_filename_7" model="cloudrent.doc_filename">
+            <field name="name">出租人出租住宅申請書(代管)</field>
+            <field name="doc_type">2</field>
+            <field name="contract_type">2</field>
+            <field name="doc_filename">lessor_escrow_applyfor.docx</field>
+        </record>
+        <record id="cloudrent_doc_filename_8" model="cloudrent.doc_filename">
+            <field name="name">出租人出租住宅申請書(包租)</field>
+            <field name="doc_type">2</field>
+            <field name="contract_type">2</field>
+            <field name="doc_filename">lessor_guarantee_applyfor.docx</field>
+        </record>
+        <record id="cloudrent_doc_filename_9" model="cloudrent.doc_filename">
+            <field name="name">民眾(房客)承租住宅申請書(代管)</field>
+            <field name="doc_type">3</field>
+            <field name="contract_type">2</field>
+            <field name="doc_filename">lessee_escrow_applyfor.docx</field>
+        </record>
+        <record id="cloudrent_doc_filename_10" model="cloudrent.doc_filename">
+            <field name="name">民眾(房客)承租住宅申請書(包租)</field>
+            <field name="doc_type">3</field>
+            <field name="contract_type">2</field>
+            <field name="doc_filename">lessee_guarantee_applyfor.docx</field>
+        </record>
+        <record id="cloudrent_doc_filename_11" model="cloudrent.doc_filename">
+            <field name="name">出租人補助費用清單</field>
+            <field name="doc_type">2</field>
+            <field name="contract_type">3</field>
+            <field name="doc_filename">lessor_grant_fee.xlsx</field>
+        </record>
+        <record id="cloudrent_doc_filename_12" model="cloudrent.doc_filename">
+            <field name="name">承租人補助費用清單</field>
+            <field name="doc_type">3</field>
+            <field name="contract_type">3</field>
+            <field name="doc_filename">lessee_grant_fee.xlsx</field>
+        </record>
+        <record id="cloudrent_doc_filename_13" model="cloudrent.doc_filename">
+            <field name="name">業者補助費用申請書</field>
+            <field name="doc_type">1</field>
+            <field name="contract_type">3</field>
+            <field name="doc_filename"></field>
+        </record>
+        <record id="cloudrent_doc_filename_14" model="cloudrent.doc_filename">
+            <field name="name">業者補助費用清冊</field>
+            <field name="doc_type">1</field>
+            <field name="contract_type">3</field>
+            <field name="doc_filename">agent_grant_fee.xlsx</field>
+        </record>
+        <record id="cloudrent_doc_filename_15" model="cloudrent.doc_filename">
+            <field name="name">業者關懷訪視月報</field>
+            <field name="doc_type">1</field>
+            <field name="contract_type">3</field>
+            <field name="doc_filename">agent_visit_service.xlsx</field>
+        </record>
+        <record id="cloudrent_doc_filename_16" model="cloudrent.doc_filename">
+            <field name="name">房屋租賃契約終止清冊</field>
+            <field name="doc_type">3</field>
+            <field name="contract_type">3</field>
+            <field name="doc_filename">contract_termination.xlsx</field>
+        </record>
+        <record id="cloudrent_doc_filename_17" model="cloudrent.doc_filename">
+            <field name="name">媒合週報</field>
+            <field name="doc_type">1</field>
+            <field name="contract_type">4</field>
+            <field name="doc_filename">contract_match.xlsx</field>
+        </record>
+    </data>
+</odoo>

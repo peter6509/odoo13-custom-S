@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_base_sla_inherit" model="ir.ui.view">
+           <field name="name">neweb.base.sla.inherit</field>
+           <field name="model">neweb_base.sla</field>
+           <field name="inherit_id" ref="neweb_base.neweb_base_sla_form"/>
+           <field name="arch" type="xml">
+                <field name="name" position="attributes">
+                   <attribute name="attrs">{'readonly': 1}</attribute>
+               </field>
+               <xpath expr="//field[@name='maintenance_time']" position="after">
+                   <field name="backup_equipment"/>
+               </xpath>
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

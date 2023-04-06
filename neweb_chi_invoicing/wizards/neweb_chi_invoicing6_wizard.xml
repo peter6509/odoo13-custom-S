@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="neweb_chi_invoicing6_form_wizard" model="ir.ui.view">
+         <field name="name">neweb.chi.invoicing6.form.wizard</field>
+         <field name="model">neweb_chi_invoicing.chiinvoicing6_wizard</field>
+         <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                      <h1>(維護案)成本分析整批匯出精靈</h1>
+                     <group>
+                        <field name="con_start_date" />
+                        <field name="con_end_date" />
+                         <field name="export_user" attrs="{'readonly':1}"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="getunchiexportmainproj" string="生成待匯出列表"
+                             context="{'neweb_export_type':'S1'}" class="oe_highlight"/>
+                     <button special="cancel" string="放棄離開"/>
+                 </footer>
+             </form>
+         </field>
+     </record>
+      <record id="neweb_chi_invoicing6_view_action" model="ir.actions.act_window">
+          <field name="name">(維護案)資訊整批匯出精靈</field>
+          <field name="res_model">neweb_chi_invoicing.chiinvoicing6_wizard</field>
+          <field name="view_mode">form</field>
+          <field name="target">new</field>
+      </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="sale_order_form_inherit4" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit4</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="neweb_project.neweb_sale_inherit_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='call_service_response']" position="after">
+                    <field name="call_service_response1"/>
+                </xpath>
+                <xpath expr="//field[@name='call_service_response']" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_draft']" position="after">
+                    <button name="cancel_done" type="object" string="取消鎖定" context="{'saleorderid': context.get('active_id')}" attrs="{'invisible':[('state','!=','done')]}"
+                            class="oe_highlight oe_edit_only"   groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa10_gm"/>
+                </xpath>
+                <xpath expr="//field[@name='date_order']" position="replace">
+                    <field name="date_order1"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="cloudrent_contract_root" name="CloudRent租戶合約管理" sequence="20"
+                  groups="contract_cloudrent_manager,contract_cloudrent_ass,contract_cloudrent_user"
+                  web_icon="cloudrent_contract,static/description/icon.png"/>
+
+
+        <menuitem id="menu_contract_categ1" name="租戶合約"
+                  groups="contract_cloudrent_manager,contract_cloudrent_ass,contract_cloudrent_user"
+                  parent="cloudrent_contract_root" sequence="10"/>
+        <menuitem id="menu_contract_categ2" name="房東合約" parent="cloudrent_contract_root"
+                  groups="contract_cloudrent_manager,contract_cloudrent_ass,contract_cloudrent_user"
+                   sequence="20"/>
+        <menuitem id="menu_contract_categ3" name="基礎配置" parent="cloudrent_contract_root"
+                  groups="contract_cloudrent_manager,contract_cloudrent_ass,contract_cloudrent_user"
+                  sequence="30"/>
+
+        <menuitem id="menu_contract_view11" name="租戶合約資訊" parent="menu_contract_categ1"
+                  groups="contract_cloudrent_manager,contract_cloudrent_ass,contract_cloudrent_user"
+                  action="action_contract_view" sequence="10"/>
+
+        <menuitem id="menu_contract_view12" name="租戶合約建檔精靈" parent="menu_contract_categ1"
+                  groups="contract_cloudrent_manager,contract_cloudrent_ass,contract_cloudrent_user"
+                  action="menu_cloudrent_new_contract_wizard_action" sequence="20"/>
+
+        <menuitem id="menu_contract_view13" name="解約返還押金核銷精靈" parent="menu_contract_categ1"
+                  groups="contract_cloudrent_manager,contract_cloudrent_ass,contract_cloudrent_user"
+                  action="menu_cloudrent_contract_close_wizard_action" sequence="30"/>
+
+        <menuitem id="menu_landlord_contract_view1" name="房東合約資訊" parent="menu_contract_categ2"
+                  groups="contract_cloudrent_manager,contract_cloudrent_ass,contract_cloudrent_user"
+                  action="action_landlord_contract_view" sequence="10"/>
+
+        <menuitem id="menu_landlord_contract_view2" name="房東合約建檔精靈" parent="menu_contract_categ2"
+                  groups="contract_cloudrent_manager,contract_cloudrent_ass,contract_cloudrent_user"
+                  action="menu_cloudrent_landlord_contract_wizard_action" sequence="20"/>
+
+
+
+        <menuitem id="menu_contract_seq_view" name="合約序號" parent="menu_contract_categ3"
+                  groups="contract_cloudrent_manager"
+                  action="action_contract_seq_view" sequence="10"/>
+        <menuitem id="menu_contract_actiondone_view" name="租戶入住退租自動排程" parent="menu_contract_categ3"
+                  groups="contract_cloudrent_manager"
+                  action="action_cloudrent_contract_actiondone_view" sequence="20"/>
+
+
+
+        <!-- This Menu Item Must have a parent -->
+    </data>
+</odoo>

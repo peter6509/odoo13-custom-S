@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_qcsendmail_wizard_form" model="ir.ui.view">
+            <field name="name">neweb.qcsendmail.wizard.form</field>
+            <field name="model">neweb.qcsendmail_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>檢驗完成通知訊息精靈選單</h1>
+                        <group>
+                            <field name="origin" />
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="qc_sendmail" string="檢驗完成通知" class="oe_highlight"/>
+                        <button special="cancel" string="放棄"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+     <record id="neweb_qcsendmail_wizard_form_action" model="ir.actions.act_window">
+         <field name="name"></field>
+         <field name="res_model">neweb.qcsendmail_wizard</field>
+         <field name="view_mode">form</field>
+         <field name="target">new</field>
+     </record>
+
+    <menuitem id="menu_neweb_qcsendmail_action"
+              name="QC_SENDMAIL"
+              parent="neweb_project.menu_neweb_stockmove_categ"
+              action="neweb_qcsendmail_wizard_form_action"
+              sequence="25"/>
+</odoo>

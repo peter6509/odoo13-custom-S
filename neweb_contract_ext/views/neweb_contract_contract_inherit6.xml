@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_contract_contract_tree_inherit" model="ir.ui.view">
+           <field name="name">neweb.contract.contract.tree.inherit</field>
+           <field name="model">neweb_contract.contract</field>
+           <field name="inherit_id" ref="neweb_contract.contract_tree"/>
+           <field name="arch" type="xml">
+               <xpath expr="//field[@name='warranty_end_date']" position="replace">
+                   <field name="project_no"/>
+               </xpath>
+
+
+               <xpath expr="//field[@name='sla']" position="replace">
+                   <field name="cus_project"/>
+                   <field name="ae1_name"/>
+                   <field name="ae1_dept"/>
+                   <field name="routine_maintenance_new"/>
+                   <!-- Add new fields here -->
+               </xpath>
+
+           </field>
+       </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="neweb_contract_contract_form_inherit6" model="ir.ui.view">
+            <field name="name">neweb.contract.contract.form.inherit6</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="inherit_id" ref="neweb_contract_ext.view_inherit5_contract_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='weekly_maintain_day']" position="attributes">
+                    <attribute name="attrs">{'invisible':1}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='weekly_maintain_day']" position="after">
+                    <field name="cus_project" attrs="{'readonly':1}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_purchase_order_inherit_search" model="ir.ui.view">
+          <field name="name">neweb.purchase.order.search.filter</field>
+          <field name="model">purchase.order</field>
+          <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+          <field name="arch" type="xml">
+              <filter name="my_purchases" position="before">
+                <field name="name" string="Order" filter_domain="['|', '|', '|',('name', 'ilike', self), ('partner_ref', 'ilike', self), ('partner_id', 'child_of', self),('pidno','ilike',self)]"/>
+              </filter>
+
+<!--            <xpath expr="//search" position="inside">-->
+
+<!--            </xpath>-->
+          </field>
+        </record>
+    </data>
+</odoo>

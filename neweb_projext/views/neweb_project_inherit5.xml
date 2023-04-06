@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <!-- Inherit Form View to Modify it -->
+        <record id="neweb_assign_inherit1_form" model="ir.ui.view">
+            <field name="name">neweb.assign.inherit1.form</field>
+            <field name="model">neweb.proj_eng_assign</field>
+            <field name="inherit_id" ref="neweb_project.neweb_proj_assign1_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='service_name']" position="before">
+                    <field name="assign_man_subject"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

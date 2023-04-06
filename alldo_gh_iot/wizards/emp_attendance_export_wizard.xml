@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_emp_attendnace_export_wizard" model="ir.ui.view">
+             <field name="name">views.emp.attendance.export.wizard</field>
+             <field name="model">alldo_gh_iot.emp_attendance_export_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>人員出勤記錄匯出精靈</h1>
+                         <group>
+                             <field name="emp_no" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="attendance_start"/>
+                             <field name="attendance_end"/>
+                             <field name="run_desc"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_attendance_export" string="出勤記錄匯出EXCEL" class="oe_highlight"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="emp_attendnace_export_wizard_action" model="ir.actions.act_window">
+             <field name="name">人員出勤記錄匯出精靈</field>
+             <field name="res_model">alldo_gh_iot.emp_attendance_export_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

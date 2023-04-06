@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_ipla_iot_maintenance_inherit1" model="ir.ui.view">
+           <field name="name">view.ipla.iot.maintenance.inherit1</field>
+           <field name="model">maintenance.equipment</field>
+           <field name="inherit_id" ref="view_inherit_ipla_maintenance_form"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//notebook" position="inside">
+                   <!-- Add your fields or attributes here -->
+                   <page string="機台停機發生數據" name="OutOffOrder_Line" >
+                    <field name="outofforder_line" widget="one2many" nolabel="1">
+                        <tree >
+                             <field name="status_id" attrs="{'readonly':1}"/>
+                             <field name="iot_workorder" options="{'no_create':true,'no_create_edit':true}" />
+                             <field name="start_datetime" attrs="{'readonly':1}"/>
+                             <field name="end_datetime" attrs="{'readonly':1}"/>
+                             <field name="outoff_duration"/>
+                             <field name="outoff_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                        </tree>
+                    </field>
+                </page>
+               </xpath>
+
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

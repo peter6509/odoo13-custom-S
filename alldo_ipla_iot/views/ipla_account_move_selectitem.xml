@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ipla_account_move_selectitem_tree" model="ir.ui.view">
+            <field name="name">ipla.account.move.selectitem.tree</field>
+            <field name="model">alldo_ipla_iot.accountmove_selectitem</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="partner_id"/>
+                            <field name="name"/>
+                            <field name="taiwan_receipt"/>
+                            <field name="contract_man"/>
+                            <field name="amount_untax_total"/>
+                            <field name="amount_tax"/>
+                            <field name="amount_tax_total"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ipla_account_move_selectitem_form" model="ir.ui.view">
+            <field name="name">ipla.account.move.selectitem.form</field>
+            <field name="model">alldo_ipla_iot.accountmove_selectitem</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button type="object" name="run_accountmove_line" string="產生對帳單" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                         <group>
+                            <field name="partner_id"/>
+                            <field name="name"/>
+                            <field name="taiwan_receipt"/>
+                            <field name="contract_man"/>
+                         </group>
+                         <group>
+                            <field name="amount_untax_total"/>
+                            <field name="amount_tax"/>
+                            <field name="amount_tax_total"/>
+                             <field name="amount_balance"/>
+                            <field name="total_real_amount"/>
+                        </group>
+                        <notebook>
+                            <page string="銷項明細">
+                                 <field name="account_move_line" widget="section_and_note_one2many" mode="tree">
+                                       <tree string="">
+                                        <button type="object" name="run_selectyn" string="點選" class="oe_highlight"/>
+                                        <field name="selectyn"/>
+                                        <field name="account_date"/>
+                                        <field name="sales_no"/>
+                                        <field name="prod_no"/>
+                                        <field name="prod_desc"/>
+                                        <field name="prod_num"/>
+                                        <field name="uom_id"/>
+                                        <field name="prod_price"/>
+                                        <field name="amount_untax_num"/>
+                                        <field name="amount_tax_num"/>
+                                      </tree>
+                               </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ipla_account_move_selectitem_action" model="ir.actions.act_window">
+            <field name="name">INVOICE對帳選單</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_ipla_iot.accountmove_selectitem</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

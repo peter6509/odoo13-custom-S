@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_fqc_barcode_line_user","access.fqc.barcode.line.user","mes_qc_order.model_mes_fqc_barcode_line","base.group_user","True","True","True","True"
+"access_fqc_pic_line_user","access.fqc.pic.line.user","mes_qc_order.model_mes_fqc_pic_line","base.group_user","True","True","True","True"
+"access_base_group_user","access.base.group.user","mes_qc_order.model_mes_fqc_order","base.group_user","True","True","True","True"

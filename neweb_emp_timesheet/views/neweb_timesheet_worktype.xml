@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_timesheet_worktype_tree" model="ir.ui.view">
+            <field name="name">view.timesheet.worktype.tree</field>
+            <field name="model">neweb_emp_timesheet.timesheet_worktype</field>
+            <field name="arch" type="xml">
+                <tree string="工時形態" import="false">
+<!--                    <field name="sequence" widget="handle"/>-->
+                    <field name="worktype_code"/>
+                    <field name="worktype_link"/>
+                    <field name="worktype_desc"/>
+                     <field name="worktype_categ"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_timesheet_worktype_form" model="ir.ui.view">
+            <field name="name">view.timesheet.worktype.form</field>
+            <field name="model">neweb_emp_timesheet.timesheet_worktype</field>
+            <field name="arch" type="xml">
+                <form string="工時形態">
+                    <sheet>
+                        <group>
+                            <field name="worktype_code"/>
+                            <field name="worktype_link" widget="radio"  options="{'horizontal': true}"/>
+                            <field name="worktype_desc"/>
+                            <field name="worktype_categ"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="action_timesheet_worktype_view" model="ir.actions.act_window">
+            <field name="name">工時形態配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_emp_timesheet.timesheet_worktype</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

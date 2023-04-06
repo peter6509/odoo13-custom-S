@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="cloudrent_equippart_1" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">電視</field>
+        </record>
+        <record id="cloudrent_equippart_2" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">冷氣</field>
+        </record>
+         <record id="cloudrent_equippart_3" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">冰箱</field>
+        </record>
+         <record id="cloudrent_equippart_4" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">烤箱</field>
+        </record>
+         <record id="cloudrent_equippart_5" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">熱水器</field>
+        </record>
+         <record id="cloudrent_equippart_6" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">洗衣機</field>
+        </record>
+         <record id="cloudrent_equippart_7" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">微波爐</field>
+        </record>
+         <record id="cloudrent_equippart_8" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">烘碗機</field>
+        </record>
+         <record id="cloudrent_equippart_9" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">瓦斯爐</field>
+        </record>
+         <record id="cloudrent_equippart_10" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">電磁爐</field>
+        </record>
+         <record id="cloudrent_equippart_11" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">電陶爐</field>
+        </record>
+         <record id="cloudrent_equippart_12" model="cloudrent.equip_part">
+            <field name="equip_categ">1</field>
+            <field name="name">暖風機</field>
+        </record>
+         <record id="cloudrent_equippart_13" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">鞋櫃</field>
+        </record>
+        <record id="cloudrent_equippart_14" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">餐桌</field>
+        </record>
+        <record id="cloudrent_equippart_15" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">餐桌椅</field>
+        </record>
+        <record id="cloudrent_equippart_16" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">書桌</field>
+        </record>
+        <record id="cloudrent_equippart_17" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">書桌椅</field>
+        </record>
+        <record id="cloudrent_equippart_18" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">電視櫃</field>
+        </record>
+        <record id="cloudrent_equippart_19" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">床架</field>
+        </record>
+        <record id="cloudrent_equippart_20" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">床墊</field>
+        </record>
+        <record id="cloudrent_equippart_21" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">床頭櫃</field>
+        </record>
+        <record id="cloudrent_equippart_22" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">衣櫃</field>
+        </record>
+        <record id="cloudrent_equippart_23" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">書櫃</field>
+        </record>
+        <record id="cloudrent_equippart_24" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">五斗櫃</field>
+        </record>
+        <record id="cloudrent_equippart_25" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">置物櫃</field>
+        </record>
+        <record id="cloudrent_equippart_26" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">梳妝台</field>
+        </record>
+        <record id="cloudrent_equippart_27" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">沙發</field>
+        </record>
+        <record id="cloudrent_equippart_28" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">茶几</field>
+        </record>
+        <record id="cloudrent_equippart_29" model="cloudrent.equip_part">
+            <field name="equip_categ">2</field>
+            <field name="name">窗簾</field>
+        </record>
+        <record id="cloudrent_equippart_30" model="cloudrent.equip_part">
+            <field name="equip_categ">3</field>
+            <field name="name">鑰匙</field>
+        </record>
+        <record id="cloudrent_equippart_31" model="cloudrent.equip_part">
+            <field name="equip_categ">3</field>
+            <field name="name">感應卡</field>
+        </record>
+        <record id="cloudrent_equippart_32" model="cloudrent.equip_part">
+            <field name="equip_categ">3</field>
+            <field name="name">搖控器</field>
+        </record>
+        <record id="cloudrent_equippart_33" model="cloudrent.equip_part">
+            <field name="equip_categ">3</field>
+            <field name="name">磁扣</field>
+        </record>
+        <record id="cloudrent_equippart_34" model="cloudrent.equip_part">
+            <field name="equip_categ">4</field>
+            <field name="name">其他</field>
+        </record>
+    </data>
+</odoo>

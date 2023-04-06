@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_cloudrent_docfilename_tree" model="ir.ui.view">
+           <field name="name">view.cloudrent.docfilename.tree</field>
+           <field name="model">cloudrent.doc_filename</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="name"/>
+                   <field name="name1"/>
+                   <field name="contract_type"/>
+                   <field name="contract_version"/>
+<!--                   <field name="doc_type"/>-->
+                   <field name="doc_filename"/>
+                   <field name="doc_filename1" invisible="1"/>
+                   <field name="doc_filename2" invisible="1"/>
+                   <field name="doc_binfile" widget="binary" filename="doc_filename1"/>
+                   <field name="doc_binfile1" widget="binary" filename="doc_filename2"/>
+                   <field name="doc_active"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_cloudrent_docfilename_form" model="ir.ui.view">
+           <field name="name">view.cloudrent.docfilename.form</field>
+           <field name="model">cloudrent.doc_filename</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                           <field name="name1"/>
+                           <field name="contract_version" options="{'no_create_edit':True,'no_create':True}"/>
+                           <field name="contract_type"/>
+<!--                           <field name="doc_type"/>-->
+                           <field name="doc_filename"/>
+                           <field name="doc_filename1" attrs="{'invisible':1}"/>
+                           <field name="doc_binfile" widget="binary" filename="doc_filename1" options="{'accepted_file_extensions': '.docx'}"/>
+                           <field name="doc_filename2" attrs="{'invisible':1}"/>
+                           <field name="doc_binfile1" widget="binary" filename="doc_filename2" options="{'accepted_file_extensions': '.docx'}"/>
+                           <field name="doc_active"/>
+                       </group>
+                   </sheet>
+
+               </form>
+           </field>
+       </record>
+        <record id="view_cloudrent_docfilename_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.docfilename.search</field>
+           <field name="model">cloudrent.doc_filename</field>
+            <field name="arch" type="xml">
+            <search string="">
+                <field name="name1" string="名稱" filter_domain="[('name1.name', 'ilike',self)]"/>
+                <group expand="0" string="Group By">
+                    <filter name="contract_version" string="版本期數" icon="terp-partner" context="{'group_by':'contract_version'}"/>
+                </group>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_docfilename_view" model="ir.actions.act_window">
+            <field name="name">合約書名稱檔名</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.doc_filename</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_cloudrent_docfilename_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_cloudrent_docfilename_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_docfilename_search"/>
+            <field name="context">{'search_default_contract_version':1}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

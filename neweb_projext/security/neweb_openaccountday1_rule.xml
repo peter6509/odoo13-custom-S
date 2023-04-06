@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="neweb_project_openaccount_day1_form" model="ir.ui.view">
+            <field name="name">neweb.project.openaccount.day1.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="neweb_projext.view_inherit_so_openaccday_form" />
+            <field name="groups_id" eval="[(6, 0, [ref('neweb_project.neweb_sa50_assi')])]" />
+            <field name="arch" type="xml">
+                <field name="open_account_day1" position="attributes">
+                   <attribute name="readonly">0</attribute>
+                </field>
+            </field>
+        </record>
+         <record id="neweb_project_openaccount_day1_form1" model="ir.ui.view">
+            <field name="name">neweb.project.openaccount.day1.form1</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="neweb_projext.view_inherit_so_openaccday_form" />
+            <field name="groups_id" eval="[(6, 0, [ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass'),ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_cs30_dir'),ref('neweb_project.neweb_en70_user'),ref('neweb_project.neweb_en40_mgt'),ref('neweb_project.neweb_en30_ass')])]" />
+            <field name="arch" type="xml">
+                <field name="open_account_day1" position="attributes">
+                   <attribute name="readonly">1</attribute>
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

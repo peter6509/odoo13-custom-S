@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_powkorder_list_wizard" model="ir.ui.view">
+             <field name="name">views.powkorder.list.wizard</field>
+             <field name="model">alldo_gh_iot.powkorder_list_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>料號訂單狀態查詢</h1>
+                         <group>
+                             <field name="product_no" options="{'no_create':true,'no_create_edit':true}"
+                               domain="[('is_blank','=',False)]"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_powkorder_list" string="查詢" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="powkorder_list_wizard_action" model="ir.actions.act_window">
+             <field name="name">料號訂單狀態查詢</field>
+             <field name="res_model">alldo_gh_iot.powkorder_list_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

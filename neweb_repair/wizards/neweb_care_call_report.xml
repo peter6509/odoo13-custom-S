@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_care_call_wizard" model="ir.ui.view">
+             <field name="name">views.care.call.wizard</field>
+             <field name="model">neweb_repair.care_call_report_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>依Care Call日期區間查詢精靈</h1>
+                         <group>
+                             <field name="care_start_date"/>
+                             <field name="care_end_date"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_care_call_list" string="查詢" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="care_call_wizard_action" model="ir.actions.act_window">
+             <field name="name">依Care Call日期區間查詢精靈</field>
+             <field name="res_model">neweb_repair.care_call_report_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+        <menuitem id="menu_care_call_action"
+                  name="依Care Call日期區間查詢精靈"
+                  parent="neweb_base.menu_repair"
+                  action="care_call_wizard_action"
+                  sequence="310"/>
+
+    </data>
+</odoo>

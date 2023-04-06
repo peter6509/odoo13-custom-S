@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="lessor_applyfor_escrow1" model="ir.attachment">
+            <field name="name">report_lessor_applyfor_escrow1</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="cloudrent_escrow/report/lessor_applyfor_escrow1.odt"/>
+        </record>
+        <record id="lessor_applyfor_escrow2" model="ir.attachment">
+            <field name="name">report_lessor_applyfor_escrow2</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="cloudrent_escrow/report/lessor_applyfor_escrow2.odt"/>
+        </record>
+        <record id="lessee_applyfor_escrow1" model="ir.attachment">
+            <field name="name">report_lessee_applyfor_escrow1</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="cloudrent_escrow/report/lessee_applyfor_escrow1.odt"/>
+        </record>
+        <record id="lessee_applyfor_escrow2" model="ir.attachment">
+            <field name="name">report_lessee_applyfor_escrow2</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="cloudrent_escrow/report/lessee_applyfor_escrow2.odt"/>
+        </record>
+        <record id="build_situation_sitecheck" model="ir.attachment">
+            <field name="name">report_build_situation_sitecheck</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="cloudrent_escrow/report/build_situation_sitecheck.odt"/>
+        </record>
+        <record id="report_agent_applyfor_report" model="ir.attachment">
+            <field name="name">report_agent_applyfor_report</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="cloudrent_escrow/report/agent_applyfor_grant_fee.odt"/>
+        </record>
+    </data>
+</odoo>

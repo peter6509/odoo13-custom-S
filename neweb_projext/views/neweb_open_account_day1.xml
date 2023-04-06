@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_open_account_day1_tree" model="ir.ui.view">
+            <field name="name">view.open.account.day1.tree</field>
+            <field name="model">neweb.open_account_day1</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" width="25%%"/>
+                    <field name="day_seq" width="10%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_open_account_day1_form" model="ir.ui.view">
+            <field name="name">view.open.account.day1.form</field>
+            <field name="model">neweb.open_account_day1</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="day_seq"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_open_account_day1_view" model="ir.actions.act_window">
+            <field name="name">付款天數主檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.open_account_day1</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_projext.view_open_account_day1_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('neweb_projext.view_open_account_day1_form')}),]"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_open_account_day1_action" name="" sequence="255"
+                  parent="neweb_project.neweb_proj_config"
+                  groups="neweb_project.neweb_sys_man"
+                  action="action_open_account_day1_view"/>
+    </data>
+</odoo>

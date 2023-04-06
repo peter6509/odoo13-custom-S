@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_ghiot_workorder_inherit" model="ir.ui.view">
+            <field name="name">view.ghiot.workorder.inherit</field>
+            <field name="model">alldo_gh_iot.workorder</field>
+            <field name="inherit_id" ref="alldo_gh_iot.view_gh_iot_workorder_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='po_no1']" position="replace">
+                    <field name="po_no2" widget="many2many_tags"
+                           domain="[('wk_id','=',False)]"
+                           options="{'no_create':true,'no_create_edit':true}"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <xpath expr="//field[@name='eng_type']" position="after">
+                    <field name="is_engmode" attrs="{'invisible':1}"/>
+                    <field name="eng_mode" attrs="{'invisible':[('is_engmode','=',False)]}"/>
+                </xpath>
+                <xpath expr="//field[@name='product_no']" position="before">
+                    <field name="is_proofing"/>
+                    <field name="proofing_num" attrs="{'invisible':[('is_proofing','=',False)]}"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

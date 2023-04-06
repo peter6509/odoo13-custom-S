@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_acmeiot_dbclear_wizard" model="ir.ui.view">
+             <field name="name">views.acmeiot.dbclear.wizard</field>
+             <field name="model">alldo_acme_iot.dbclear_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>測試資料清除作業</h1>
+                         <group>
+                             <field name="passcode"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_db_clear" string="執行清除" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+          <record id="alldo_acmeiot_dbclear_wizard_action" model="ir.actions.act_window">
+              <field name="name">測試資料清除作業</field>
+              <field name="res_model">alldo_acme_iot.dbclear_wizard</field>
+              <field name="view_mode">form</field>
+              <field name="target">new</field>
+          </record>
+    </data>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="neweb_stockout_inherit2_form" model="ir.ui.view">
+           <field name="name">neweb.stockout.inherit2.form</field>
+           <field name="model">stock.picking</field>
+           <field name="inherit_id" ref="neweb_stockin.neweb_stockpicking_inherit_form1"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='neweb_email']" position="after">
+                   <!-- Add your fields or attributes here -->
+                   <field name="neweb_outmemo" attrs="{'invisible':[('stockin_picktype','!=','outgoing')]}" />
+               </xpath>
+               <xpath expr="//field[@name='last_send_mail']" position="after">
+                   <field name="stockin_email" widget="many2many_tags" attrs="{'invisible':[('stockin_picktype','!=','incoming')]}"/>
+               </xpath>
+
+
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

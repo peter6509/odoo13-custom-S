@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="crmteam_sale_analysis_view_tree" model="ir.ui.view">
+            <field name="name">crmteam.sale.analysis.view.tree</field>
+            <field name="model">neweb_sale_analysis.team_targetgp</field>
+            <field name="arch" type="xml">
+                <tree import="false">
+                    <field name="team_id"/>
+                    <field name="team_target_year" />
+                    <field name="team_target_year_gp"/>
+                    <field name="team_target_q1_gp"/>
+                    <field name="team_target_q2_gp"/>
+                    <field name="team_target_q3_gp"/>
+                    <field name="team_target_q4_gp"/>
+                </tree>
+            </field>
+        </record>
+        <record id="crmteam_sale_analysis_view_form" model="ir.ui.view">
+            <field name="name">crmteam.sale.analysis.view.form</field>
+            <field name="model">neweb_sale_analysis.team_targetgp</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="saleanalysis_excel" type="object" string="產出EXCEL" class="oe_highlight"  context="{'saleanalysis_id': context.get('active_id') }"/>
+                    </header>
+                <sheet>
+                      <h1>業務團隊目標GP</h1>
+                        <field name="is_generation" attrs="{'invisible':1}"/>
+                    <group>
+                    <group>
+                      <group>
+                          <field name="team_id" colspan="1"/>
+                      </group>
+                      <group>
+                          <field name="team_target_year" colspan="1" placeholder="請輸入西元年" style="color:#898687"/>
+                      </group>
+                    </group>
+                    <group>
+                      <group>
+                          <field name="team_target_year_gp" colspan="1"/>
+                      </group>
+                      <group>
+                          <field name="team_total_year_gp" colspan="1" attrs="{'readonly':1}"/>
+                      </group>
+                    </group>
+                    </group>
+                     <h1>業務團隊(季)目標GP</h1>
+                    <group>
+                        <group>
+                            <group>
+                                <field name="team_target_q1_gp" colspan="1"/>
+                                <field name="team_target_q1_magp" colspan="1"/>
+                                <field name="team_target_q1_sigp" colspan="1"/>
+                            </group>
+                            <group>
+                                <field name="team_target_q2_gp" colspan="1"/>
+                                 <field name="team_target_q2_magp" colspan="1"/>
+                                <field name="team_target_q2_sigp" colspan="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="team_target_q3_gp" colspan="1"/>
+                                 <field name="team_target_q3_magp" colspan="1"/>
+                                <field name="team_target_q3_sigp" colspan="1"/>
+                            </group>
+                            <group>
+                                 <field name="team_target_q4_gp" colspan="1"/>
+                                 <field name="team_target_q4_magp" colspan="1"/>
+                                <field name="team_target_q4_sigp" colspan="1"/>
+                            </group>
+                        </group>
+                    </group>
+                     <button name="crmteam_genline" type="object" string="產生團隊業務明細資訊" context="{'teamid': context.get('active_id') }"
+                               attrs="{'invisible':[('is_generation','=',True)]}" class="oe_highlight oe_edit_only" />
+                </sheet>
+
+                <sheet>
+                     <h1>業務團隊(季)實際GP</h1>
+                    <group>
+                        <group>
+                            <group>
+                                <field name="team_total_q1_gp" colspan="1" attrs="{'readonly':1}"/>
+                                 <field name="team_total_q1_magp" colspan="1" attrs="{'readonly':1}"/>
+                                 <field name="team_total_q1_magp1" colspan="1" attrs="{'readonly':1}"/>
+                                 <field name="team_total_q1_magp2" colspan="1" attrs="{'readonly':1}"/>
+                                 <field name="team_total_q1_sigp" colspan="1" attrs="{'readonly':1}"/>
+                            </group>
+                            <group>
+                                <field name="team_total_q2_gp" colspan="1" attrs="{'readonly':1}"/>
+                                <field name="team_total_q2_magp" colspan="1" attrs="{'readonly':1}"/>
+                                <field name="team_total_q2_magp1" colspan="1" attrs="{'readonly':1}"/>
+                                <field name="team_total_q2_magp2" colspan="1" attrs="{'readonly':1}"/>
+                                 <field name="team_total_q2_sigp" colspan="1" attrs="{'readonly':1}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                 <field name="team_total_q3_gp" colspan="1" attrs="{'readonly':1}"/>
+                                <field name="team_total_q3_magp" colspan="1" attrs="{'readonly':1}"/>
+                                <field name="team_total_q3_magp1" colspan="1" attrs="{'readonly':1}"/>
+                                <field name="team_total_q3_magp2" colspan="1" attrs="{'readonly':1}"/>
+                                 <field name="team_total_q3_sigp" colspan="1" attrs="{'readonly':1}"/>
+                            </group>
+                            <group>
+                                 <field name="team_total_q4_gp" colspan="1" attrs="{'readonly':1}"/>
+                                <field name="team_total_q4_magp" colspan="1" attrs="{'readonly':1}"/>
+                                <field name="team_total_q4_magp1" colspan="1" attrs="{'readonly':1}"/>
+                                <field name="team_total_q4_magp2" colspan="1" attrs="{'readonly':1}"/>
+                                 <field name="team_total_q4_sigp" colspan="1" attrs="{'readonly':1}"/>
+                            </group>
+                        </group>
+                    </group>
+                </sheet>
+
+                     <sheet>
+                         <h1>團隊業務個別目標GP</h1>
+
+                           <notebook>
+                          <page string="目標設定">
+                               <field name="team_lines1_ids" nolabel="1">
+                                 <tree editable="bottom" string="TEAM LIST" widget="one2many" create="false" delete="false">
+                                     <field name="sales_id" string="業務人員" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                     <field name="teammember_target_year_gp" string="個人年度目標GP"/>
+                                     <field name="teammember_target_q1_magp" string="個人Q1目標MA GP"/>
+                                     <field name="teammember_target_q1_sigp" string="個人Q1目標SI GP"/>
+                                     <field name="teammember_target_q2_magp" string="個人Q2目標MA GP"/>
+                                     <field name="teammember_target_q2_sigp" string="個人Q2目標SI GP"/>
+                                     <field name="teammember_target_q3_magp" string="個人Q3目標MA GP"/>
+                                     <field name="teammember_target_q3_sigp" string="個人Q3目標SI GP"/>
+                                     <field name="teammember_target_q4_magp" string="個人Q4目標MA GP"/>
+                                     <field name="teammember_target_q4_sigp" string="個人Q4目標SI GP"/>
+
+                                 </tree>
+                              </field>
+                          </page>
+                           <page string="實際收益">
+                               <field name="team_lines_ids" nolabel="1">
+                                 <tree editable="bottom" string="TEAM LIST" widget="one2many" create="false" delete="false">
+                                     <field name="sales_id" string="業務人員" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                     <field name="teammember_total_year_gp" string="個人年度GP"/>
+                                     <field name="teammember_total_q1_magp" string="個人Q1實際MA GP"/>
+                                     <field name="teammember_total_q1_sigp" string="個人Q1實際SI GP"/>
+                                     <field name="teammember_total_q2_magp" string="個人Q2實際MA GP"/>
+                                      <field name="teammember_total_q2_sigp" string="個人Q2實際SI GP"/>
+                                     <field name="teammember_total_q3_magp" string="個人Q3實際MA GP"/>
+                                     <field name="teammember_total_q3_sigp" string="個人Q3實際SI GP"/>
+                                     <field name="teammember_total_q4_magp" string="個人Q4實際MA GP"/>
+                                     <field name="teammember_total_q4_sigp" string="個人Q4實際SI GP"/>
+
+                                 </tree>
+                              </field>
+                          </page>
+                      </notebook>
+                     </sheet>
+
+                     <sheet>
+                          <h1>業務(季)業績表</h1>
+                        <!--<HR colors="#0000ff" size="8"/>-->
+                         <group>
+                               <field name="saleq_lines_ids" nolabel="1">
+                                     <tree editable="bottom" string="TEAM LIST" widget="one2many" create="false" delete="false">
+                                         <field name="sales_id" string="業務人員" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                         <field name="sale_quarter" widget="radio" options="{'horizontal':true}"/>
+                                         <field name="si_revenue" string="SI"/>
+                                         <field name="si_profit" string="SI毛利"/>
+                                         <field name="si_profitrate" string="SI毛利率%"/>
+                                         <field name="service_revenue" string="Service"/>
+                                         <field name="service_profit" string="Service毛利"/>
+                                         <field name="service_profitrate" string="Service毛利率%"/>
+                                         <field name="oldma_revenue" string="MA舊約收入"/>
+                                         <field name="oldma_cost" string="MA舊約成本"/>
+                                         <field name="oldma_profit" string="MA舊約毛利"/>
+                                         <field name="newma_revenue" string="MA新約收入"/>
+                                         <field name="newma_cost" string="MA新約成本"/>
+                                         <field name="newma_profit" string="MA新約毛利"/>
+
+                                     </tree>
+                               </field>
+                         </group>
+                     </sheet>
+                     <sheet>
+                          <h1>業務(月)業績表</h1>
+                        <!--<HR colors="#0000ff" size="8"/>-->
+                         <group>
+                              <field name="salem_lines_ids" nolabel="1">
+                                     <tree editable="bottom" string="TEAM LIST" widget="one2many" create="false" delete="false">
+                                         <field name="sales_id" string="業務人員" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                         <field name="sale_month" widget="radio" options="{'horizontal':true}"/>
+                                         <field name="si_revenue" string="SI"/>
+                                         <field name="si_profit" string="SI毛利"/>
+                                         <field name="si_profitrate" string="SI毛利率%"/>
+                                         <field name="service_revenue" string="Service"/>
+                                         <field name="service_profit" string="Service毛利"/>
+                                         <field name="service_profitrate" string="Service毛利率%"/>
+                                         <field name="oldma_revenue" string="MA舊約收入"/>
+                                         <field name="oldma_cost" string="MA舊約成本"/>
+                                         <field name="oldma_profit" string="MA舊約毛利"/>
+                                         <field name="newma_revenue" string="MA新約收入"/>
+                                         <field name="newma_cost" string="MA新約成本"/>
+                                         <field name="newma_profit" string="MA新約毛利"/>
+                                     </tree>
+                              </field>
+                         </group>
+                     </sheet>
+                    <sheet>
+                        <h1>業務業績明細</h1>
+                        <!--<HR colors="#0000ff" size="8"/>-->
+                        <group>
+                             <field name="salel_lines_ids" nolabel="1">
+                                 <tree editable="bottom" string="TEAM LIST" widget="one2many" create="false" delete="false">
+                                     <field name="project_no" string="專案編號"/>
+                                     <field name="sales_id" string="業務人員" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                     <field name="cus_name" string="客戶名稱"/>
+                                     <field name="prod_name" string="產品"/>
+                                     <field name="monthday" string="發票開立日/簽約日"/>
+                                     <field name="si_revenue" string="SI"/>
+                                     <field name="si_profit" string="SI毛利"/>
+                                     <field name="si_profitrate" string="SI毛利率%"/>
+                                     <field name="service_revenue" string="Service"/>
+                                     <field name="service_profit" string="Service毛利"/>
+                                     <field name="service_profitrate" string="Service毛利率%"/>
+                                     <field name="oldma_revenue" string="MA舊約收入"/>
+                                     <field name="oldma_cost" string="MA舊約成本"/>
+                                     <field name="oldma_profit" string="MA舊約毛利"/>
+                                     <field name="newma_revenue" string="MA新約收入"/>
+                                     <field name="newma_cost" string="MA新約成本"/>
+                                     <field name="newma_profit" string="MA新約毛利"/>
+                                 </tree>
+                             </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="crmteam_sale_analysis_action" model="ir.actions.act_window">
+            <field name="name">業務團隊業績表</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_sale_analysis.team_targetgp</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_crmteam_sale_analysis_action" name="" sequence="60"
+                  parent="neweb_project.menu_neweb_sale_categ"
+                  groups="neweb_project.neweb_cs30_dir"
+                  action="crmteam_sale_analysis_action"/>
+    </data>
+</odoo>

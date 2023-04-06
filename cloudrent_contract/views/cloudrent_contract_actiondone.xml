@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_contract_actiondone_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.contract.actiondone.tree</field>
+            <field name="model">cloudrent.contract_action_done</field>
+            <field name="arch" type="xml">
+                <tree string="" create="false">
+                    <field name="action_date" width="15%%"/>
+                    <field name="action_type" width="15%%"/>
+                    <field name="contract_id" width="15%%"/>
+                    <field name="member_id" width="15%%"/>
+                    <field name="action_status" width="15%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_cloudrent_contract_actiondone_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.contract.actiondone.form</field>
+            <field name="model">cloudrent.contract_action_done</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="action_date"/>
+                            <field name="action_type"/>
+                            <field name="contract_id"/>
+                            <field name="member_id"/>
+                            <field name="action_status"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_cloudrent_contract_actiondone_view" model="ir.actions.act_window">
+            <field name="name">CONTRACT CRON JOB</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.contract_action_done</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

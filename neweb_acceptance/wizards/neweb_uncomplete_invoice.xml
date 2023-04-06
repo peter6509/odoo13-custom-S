@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_uncomplete_invoice_wizard" model="ir.ui.view">
+             <field name="name">views.uncomplete.invoice.wizard</field>
+             <field name="model">neweb_acceptance.uncomplete_invoice_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>專案未完成驗收清單匯出精靈</h1>
+                     <group>
+                       <field name="sales"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_uncomplete_invoice" string="匯出" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+         <record id="menu_uncomplete_invoice_wizard_action" model="ir.actions.act_window">
+              <field name="name">專案未驗收清單匯出精靈</field>
+              <field name="res_model">neweb_acceptance.uncomplete_invoice_wizard</field>
+              <field name="view_mode">form</field>
+              <field name="target">new</field>
+          </record>
+    </data>
+</odoo>

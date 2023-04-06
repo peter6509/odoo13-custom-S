@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="op_program1" model="neweb_sale_analysis.op_program">
+            <field name="name">費用報支作業</field>
+            <field name="op_name">EXP</field>
+         </record>
+        <record id="op_program2" model="neweb_sale_analysis.op_program">
+            <field name="name">出差申請作業</field>
+            <field name="op_name">TRAVEL</field>
+         </record>
+    </data>
+</odoo>

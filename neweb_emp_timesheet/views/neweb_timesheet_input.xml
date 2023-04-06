@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_timesheet_input_tree" model="ir.ui.view">
+           <field name="name">view.timesheet.input.tree</field>
+           <field name="model">neweb_emp_timesheet.timesheet_calendar</field>
+           <field name="arch" type="xml">
+               <tree string="工時申報作業" import="false">
+                   <field name="timesheet_yearmonth"/>
+                   <field name="emp_id"/>
+                   <field name="is_closed"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_timesheet_input_form" model="ir.ui.view">
+           <field name="name">view.timesheet.input.form</field>
+           <field name="model">neweb_emp_timesheet.timesheet_calendar</field>
+           <field name="arch" type="xml">
+               <form string="工時申報作業">
+                   <sheet>
+                       <h1>工時申報作業</h1>
+                        <HR colors="#0000ff" size="10"/>
+                       <group>
+                           <field name="timesheet_yearmonth" placeholder="YYYY-MM"/>
+                           <field name="emp_id"/>
+                       </group>
+                        <notebook>
+                            <page string="當月工時申報記錄">
+                                <group>
+                                    <field name="line_ids" nolabel="1">
+                                        <tree editable="bottom" string="Custom Info" widget="one2many" colors="red:is_complete=='ng';green:is_complete=='ok'">
+                                            <!--<field name="sequence" widget="handle"/>-->
+                                            <field name="nitem" attrs="{'readonly':1}"/>
+                                            <field name="timesheet_start_date"/>
+                                            <field name="timesheet_end_date"/>
+                                            <field name="timesheet_worktype"/>
+                                            <field name="timesheet_origin"/>
+                                            <field name="timesheet_custom" context="{'shortname':True}" dpmain="[('is_company','=',True)]"/>
+                                            <field name="sale_id"/>
+                                            <field name="timesheet_desc"/>
+                                            <field name="is_complete" invisible="True"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </page>
+                        </notebook>
+                   </sheet>
+
+               </form>
+           </field>
+       </record>
+        <record id="view_timesheet_input_search" model="ir.ui.view">
+           <field name="name">view.timesheet.input.search</field>
+           <field name="model">neweb_emp_timesheet.timesheet_calendar</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <!--<field name="name"/>-->
+                <field name="emp_id" filter_domain="[('emp_id.name_related','ilike',self)]"/>
+                <field name="timesheet_yearmonth" filter_domain="[('timesheet_yearmonth','ilike',self)]"/>
+            </search>
+           </field>
+        </record>
+
+
+        <record id="action_timesheet_input_view" model="ir.actions.act_window">
+            <field name="name">工時申報作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_emp_timesheet.timesheet_calendar</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

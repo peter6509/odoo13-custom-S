@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_applyfor_grantee_tree" model="ir.ui.view">
+            <field name="name">view.applyfor.grantee.tree</field>
+            <field name="model">cloudrent.applyfor_grantfee</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="escrow_no"/>
+                    <field name="applyfor_year"/>
+                    <field name="applyfor_month"/>
+                    <field name="applyfor_period"/>
+                    <field name="notarial_fee"/>
+                    <field name="develop_fee"/>
+                    <field name="guarantee_fee"/>
+                    <field name="match_fee"/>
+                    <field name="escrow_fee"/>
+                    <field name="applyfor_total"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_applyfor_grantee_form" model="ir.ui.view">
+            <field name="name">view.applyfor.grantee.form</field>
+            <field name="model">cloudrent.applyfor_grantfee</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                        <button type="object" name="refresh_data" string="數據重整" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="escrow_no"/>
+                            <field name="applyfor_year"/>
+                            <field name="applyfor_month"/>
+                            <field name="applyfor_period"/>
+                            <field name="notarial_fee"/>
+                            <field name="develop_fee"/>
+                            <field name="guarantee_fee"/>
+                            <field name="match_fee"/>
+                            <field name="escrow_fee"/>
+                            <field name="applyfor_total"/>
+                            <field name="vat"/>
+                            <field name="bus_boss"/>
+                            <field name="bus_addr"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_applyfor_grantee_search" model="ir.ui.view">
+           <field name="name">view.applyfor.grantee.search</field>
+           <field name="model">cloudrent.applyfor_grantfee</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="applyfor_year" string="民國年" filter_domain="[('applyfor_year','=',self)]"/>
+                <field name="applyfor_month" string="月" filter_domain="[('applyfor_month','=',self)]"/>
+                <field name="escrow_no" string="業者" filter_domain="[('escrow_no.bus_name','ilike',self)]"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_applyfor_grantee_view" model="ir.actions.act_window">
+            <field name="name">補助費用申請書</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.applyfor_grantfee</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_escrow.view_applyfor_grantee_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_escrow.view_applyfor_grantee_form')}),]"/>
+            <field name="search_view_id" ref="view_applyfor_grantee_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

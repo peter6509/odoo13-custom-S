@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="payment_item_1" model="cloudrent.payment_item">
+            <field name="name">房屋租金</field>
+            <field name="pay_code">01</field>
+        </record>
+        <record id="payment_item_2" model="cloudrent.payment_item">
+            <field name="name">房屋管理費</field>
+            <field name="pay_code">02</field>
+        </record>
+        <record id="payment_item_3" model="cloudrent.payment_item">
+            <field name="name">汽車位租金</field>
+            <field name="pay_code">03</field>
+        </record>
+        <record id="payment_item_4" model="cloudrent.payment_item">
+            <field name="name">機車位租金</field>
+            <field name="pay_code">04</field>
+        </record>
+        <record id="payment_item_5" model="cloudrent.payment_item">
+            <field name="name">電費</field>
+            <field name="pay_code">05</field>
+        </record>
+        <record id="payment_item_6" model="cloudrent.payment_item">
+            <field name="name">水費</field>
+            <field name="pay_code">06</field>
+        </record>
+        <record id="payment_item_7" model="cloudrent.payment_item">
+            <field name="name">一般違約金</field>
+            <field name="pay_code">07</field>
+        </record>
+        <record id="payment_item_8" model="cloudrent.payment_item">
+            <field name="name">損壞違約金</field>
+            <field name="pay_code">08</field>
+        </record>
+        <record id="payment_item_9" model="cloudrent.payment_item">
+            <field name="name">提前解約違約金</field>
+            <field name="pay_code">09</field>
+        </record>
+        <record id="payment_item_10" model="cloudrent.payment_item">
+            <field name="name">租房押金</field>
+            <field name="pay_code">10</field>
+        </record>
+        <record id="payment_item_11" model="cloudrent.payment_item">
+            <field name="name">其他費用</field>
+            <field name="pay_code">11</field>
+        </record>
+    </data>
+</odoo>

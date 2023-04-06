@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_acceptance_download_tree" model="ir.ui.view">
+            <field name="name">neweb.acceptance.download.tree</field>
+            <field name="model">neweb_acceptance.excel_download</field>
+            <field name="arch" type="xml">
+                 <tree string="" create="false" edit="false" import="false">
+                    <field name="xls_file" filename="xls_file_name" widget="binary"/>
+                    <field name="xls_file_name" invisible="1"/>
+                    <field name="create_uid"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_acceptance_download_form" model="ir.ui.view">
+            <field name="name">neweb.acceptance.download.form</field>
+            <field name="model">neweb_acceptance.excel_download</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="xls_file" filename="xls_file_name" widget="binary"/>
+                            <field name="xls_file_name" invisible="1"/>
+                            <field name="create_uid"/>
+                            <field name="create_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_acceptance_download_action" model="ir.actions.act_window">
+            <field name="name">貨品出貨狀態匯出資料夾</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_acceptance.excel_download</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_acceptance.neweb_acceptance_download_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('neweb_acceptance.neweb_acceptance_download_form')}),]"/>
+<!--            <field name="search_view_id" ref="view_process_control_return_search"/>-->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

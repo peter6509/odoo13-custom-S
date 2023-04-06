@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_neweb_prod_price_tree" model="ir.ui.view">
+            <field name="name">view.neweb.prod.price.tree</field>
+            <field name="model">neweb.prod_price_list</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="proj_no" width="10%%"/>
+                    <field name="prod_set" width="7%%"/>
+                    <field name="prod_modeltype" width="10%%"/>
+<!--                    <field name="prod_modeltype1" width="10%%"/>-->
+<!--                    <field name="prod_serial"/>-->
+<!--                    <field name="prod_no"/>-->
+                    <field name="prod_desc" width="10%%"/>
+                    <field name="prod_num" width="5%%"/>
+                    <field name="prod_origin_price" width="7%%"/>
+                    <field name="prod_price" width="7%%"/>
+                    <field name="prod_dif" width="7%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_neweb_prod_price_search" model="ir.ui.view">
+           <field name="name">view.neweb.prod.price.search</field>
+           <field name="model">neweb.prod_price_list</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="proj_no" string="關鍵字" filter_domain="['|','|','|',('proj_no.name', 'ilike', self),('prod_modeltype','ilike',self),('prod_no','ilike',self),('prod_desc','ilike',self)]"/>
+<!--                <filter string="" domain="[('','=','')]" name=""/>-->
+            </search>
+           </field>
+        </record>
+        <record id="action_neweb_prod_price_view" model="ir.actions.act_window">
+            <field name="name">業務價格與採購價格差異</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.prod_price_list</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_purchase.view_neweb_prod_price_tree')}),]"/>
+            <field name="search_view_id" ref="view_neweb_prod_price_search"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

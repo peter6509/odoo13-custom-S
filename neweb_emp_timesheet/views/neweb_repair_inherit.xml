@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="neweb_repair_repair_form_inherit5" model="ir.ui.view">
+           <field name="name">neweb.repair.repair.form.inherit5</field>
+           <field name="model">neweb_repair.repair</field>
+           <field name="inherit_id" ref="neweb_repair.repair_form"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='repair_type']" position="replace">
+                   <field name="repair_type" ref="custom_fields.repair_type" string="報修類型"/>
+<!--                   <field name="repair_type"/>-->
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

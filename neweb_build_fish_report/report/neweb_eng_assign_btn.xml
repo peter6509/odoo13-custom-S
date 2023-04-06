@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_eng_assign_btn_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.eng_assign.btn.form.inherit</field>
+            <field name="model">neweb.proj_eng_assign</field>
+            <field name="inherit_id" ref="neweb_project.neweb_proj_assign_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button type="object" string="裝機暨派工單預覽" name="action_print_eng_assign" class="oe_highlight"/>
+                </header>
+            </field>
+        </record>
+
+    </data>
+</odoo>

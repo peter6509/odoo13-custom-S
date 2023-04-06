@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="neweb_chi_invoicing_group" model="ir.module.category">
+           <field name="name">NEWEB 進銷存資料匯出</field>
+           <field name="sequence" eval="370"/>
+         </record>
+          <record id="neweb_chi_invoicing_user" model="res.groups">
+            <field name="name">可匯出資料</field>
+            <field name="category_id" ref="neweb_chi_invoicing_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+          </record>
+    </data>
+</odoo>

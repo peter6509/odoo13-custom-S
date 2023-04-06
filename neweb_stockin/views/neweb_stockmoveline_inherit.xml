@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="neweb_stockmoveline_form_inherit" model="ir.ui.view">
+            <field name="name">neweb.stockmoveline.form.inherit</field>
+            <field name="model">stock.move.line</field>
+            <field name="inherit_id" ref="stock.view_move_line_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="origin1" string="來源單據"/>
+
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <xpath expr="//field[@name='location_dest_id']" position="after">
+                    <field name="mv_partner_id"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

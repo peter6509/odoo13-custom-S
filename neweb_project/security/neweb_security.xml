@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+       <record id="neweb_sys_group" model="ir.module.category">
+           <field name="name">NEWEB 系統管理</field>
+           <field name="sequence" eval="250"/>
+       </record>
+       <record id="neweb_sys_man" model="res.groups">
+           <field name="name">系統管理者</field>
+           <field name="category_id" ref="neweb_sys_group"/>
+           <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+       </record>
+
+       <record id="neweb_mg_group" model="ir.module.category">
+           <field name="name">NEWEB 總管理處</field>
+           <field name="sequence" eval="310"/>
+       </record>
+
+       <record id="neweb_fn10_gm" model="res.groups">
+            <field name="name">1.總經理</field>
+            <field name="category_id" ref="neweb_mg_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="neweb_fn20_mgr" model="res.groups">
+            <field name="name">2.財務長(二線主管)</field>
+            <field name="category_id" ref="neweb_mg_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="neweb_fn30_user" model="res.groups">
+            <field name="name">3.財會人員</field>
+            <field name="category_id" ref="neweb_mg_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="neweb_fn40_assi" model="res.groups">
+            <field name="name">4.財會助理</field>
+            <field name="category_id" ref="neweb_mg_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="neweb_mg50_assi" model="res.groups">
+            <field name="name">5.人事助理</field>
+            <field name="category_id" ref="neweb_mg_group"/>
+            <field name="implied_ids" eval="[(4, ref('hr.group_hr_user'))]"/>
+        </record>
+
+        <record id="neweb_mg60_assi" model="res.groups">
+            <field name="name">6.總務助理</field>
+            <field name="category_id" ref="neweb_mg_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="neweb_sa_group" model="ir.module.category">
+            <field name="name">NEWEB 業務/行銷</field>
+            <field name="sequence" eval="320"/>
+        </record>
+         <record id="neweb_sa10_gm" model="res.groups">
+            <field name="name">1.總經理</field>
+            <field name="category_id" ref="neweb_sa_group"/>
+            <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+        </record>
+         <record id="neweb_sa20_vp" model="res.groups">
+            <field name="name">2.副總經理</field>
+            <field name="category_id" ref="neweb_sa_group"/>
+            <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+        </record>
+        <record id="neweb_sa30_ass" model="res.groups">
+            <field name="name">3.協理(二線主管)</field>
+            <field name="category_id" ref="neweb_sa_group"/>
+            <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+        </record>
+        <record id="neweb_sa40_user" model="res.groups">
+            <field name="name">4.業務人員</field>
+            <field name="category_id" ref="neweb_sa_group"/>
+            <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_salesman'))]"/>
+        </record>
+        <record id="neweb_sa50_assi" model="res.groups">
+            <field name="name">5.業務助理</field>
+            <field name="category_id" ref="neweb_sa_group"/>
+            <field name="implied_ids" eval="[(4, ref('sales_team.group_sale_manager'))]"/>
+        </record>
+
+
+        <record id="neweb_cs_group" model="ir.module.category">
+            <field name="name">NEWEB 行政/客服</field>
+            <field name="sequence" eval="330"/>
+        </record>
+          <record id="neweb_cs10_gm" model="res.groups">
+            <field name="name">1.總經理</field>
+            <field name="category_id" ref="neweb_cs_group"/>
+            <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+        </record>
+         <record id="neweb_cs20_vp" model="res.groups">
+            <field name="name">2.副總經理</field>
+            <field name="category_id" ref="neweb_cs_group"/>
+            <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+        </record>
+         <record id="neweb_cs30_dir" model="res.groups">
+            <field name="name">3.主任(一線主管)</field>
+            <field name="category_id" ref="neweb_cs_group"/>
+            <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+        </record>
+         <record id="neweb_cs40_user" model="res.groups">
+            <field name="name">6.客服人員</field>
+            <field name="category_id" ref="neweb_cs_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="neweb_cs50_assi" model="res.groups">
+            <field name="name">7.客服助理</field>
+            <field name="category_id" ref="neweb_cs_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="neweb_pur10_user" model="res.groups">
+            <field name="name">4.採購人員</field>
+            <field name="category_id" ref="neweb_cs_group"/>
+            <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+        </record>
+        <record id="neweb_pur20_assi" model="res.groups">
+            <field name="name">5.採購助理</field>
+            <field name="category_id" ref="neweb_cs_group"/>
+            <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+        </record>
+
+
+
+        <record id="neweb_en_group" model="ir.module.category">
+            <field name="name">NEWEB 工程部</field>
+            <field name="sequence" eval="340"/>
+        </record>
+         <record id="neweb_en10_gm" model="res.groups">
+            <field name="name">1.總經理</field>
+            <field name="category_id" ref="neweb_en_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+         <record id="neweb_en20_vp" model="res.groups">
+            <field name="name">2.副總經理</field>
+            <field name="category_id" ref="neweb_en_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+         <record id="neweb_en30_ass" model="res.groups">
+            <field name="name">3.協理(二線主管)</field>
+            <field name="category_id" ref="neweb_en_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+        <record id="neweb_en40_mgt" model="res.groups">
+            <field name="name">4.經理(一線主管)</field>
+            <field name="category_id" ref="neweb_en_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+         <record id="neweb_en50_stockm" model="res.groups">
+            <field name="name">7.大倉管</field>
+            <field name="category_id" ref="neweb_en_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_manager'))]"/>
+        </record>
+        <record id="neweb_en60_stock" model="res.groups">
+            <field name="name">8.小倉管</field>
+            <field name="category_id" ref="neweb_en_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_manager'))]"/>
+        </record>
+         <record id="neweb_en70_user" model="res.groups">
+            <field name="name">5.工程師</field>
+            <field name="category_id" ref="neweb_en_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+         <record id="neweb_en80_assi" model="res.groups">
+            <field name="name">6.工程師助理</field>
+            <field name="category_id" ref="neweb_en_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+
+
+        <record id="neweb_on_group" model="ir.module.category">
+            <field name="name">NEWEB 駐點</field>
+            <field name="sequence" eval="350"/>
+        </record>
+        <record id="neweb_on10_gm" model="res.groups">
+            <field name="name">1.總經理</field>
+            <field name="category_id" ref="neweb_on_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+          <record id="neweb_on20_vp" model="res.groups">
+            <field name="name">2.副總經理</field>
+            <field name="category_id" ref="neweb_on_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+         <record id="neweb_on30_mgt" model="res.groups">
+            <field name="name">3.主管(二線主管)</field>
+            <field name="category_id" ref="neweb_on_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+         <record id="neweb_on40_pm" model="res.groups">
+            <field name="name">4.專案經理(一線主管)</field>
+            <field name="category_id" ref="neweb_on_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+        <record id="neweb_on50_user" model="res.groups">
+            <field name="name">5.工程師</field>
+            <field name="category_id" ref="neweb_on_group"/>
+            <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+        </record>
+
+        <!--<record id="neweb_all_group" model="ir.module.category">-->
+           <!--<field name="name">NEWEB 總經理</field>-->
+           <!--<field name="sequence" eval="300"/>-->
+       <!--</record>-->
+       <!--<record id="neweb_all_gm" model="res.groups">-->
+           <!--<field name="name">總經理</field>-->
+           <!--<field name="category_id" ref="neweb_all_group"/>-->
+           <!--<field name="implied_ids" eval="[(4, [ref('neweb_fn_mgr'),ref('neweb_sa_vp'),ref('neweb_cs_vp'),ref('neweb_en_vp'),ref('neweb_on_vp')])]"/>-->
+       <!--</record>-->
+
+    </data>
+</odoo>

@@ -1,0 +1,17 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_purinv_invoice_user,access.purinv.invoice.user,neweb_purinv.model_neweb_purinv_invoice,base.group_user,1,0,0,0
+access_purinv_invoice_assi,access.purinv.invoice.assi,neweb_purinv.model_neweb_purinv_invoice,neweb_project.neweb_pur20_assi,1,1,1,1
+access_purinv_invoice_dir,accdess.purinv.invoice.dir,neweb_purinv.model_neweb_purinv_invoice,neweb_project.neweb_cs30_dir,1,1,1,1
+access_purinv_invoiceline_user,access.purinv.invoiceline.user,neweb_purinv.model_neweb_purinv_invoiceline,base.group_user,1,0,0,0
+access_purinv_invoiceline_dir,access.purinv.invoiceline.dir,neweb_purinv.model_neweb_purinv_invoiceline,neweb_project.neweb_cs30_dir,1,1,1,1
+access_purinv_invoiceline_assi,access.purinv.invoiceline.assi,neweb_purinv.model_neweb_purinv_invoiceline,neweb_project.neweb_pur20_assi,1,1,1,1
+
+access_purinv_invoice_fn30user,accdess.purinv.invoice.dir,neweb_purinv.model_neweb_purinv_invoice,neweb_project.neweb_fn30_user,1,1,1,1
+access_purinv_invoiceline_fn30user,access.purinv.invoiceline.assi,neweb_purinv.model_neweb_purinv_invoiceline,neweb_project.neweb_fn30_user,1,1,1,1
+access_purinv_invoice_mgr,accdess.purinv.invoice.dir,neweb_purinv.model_neweb_purinv_invoice,neweb_project.neweb_fn20_mgr,1,1,1,1
+access_purinv_invoiceline_mgr,access.purinv.invoiceline.assi,neweb_purinv.model_neweb_purinv_invoiceline,neweb_project.neweb_fn20_mgr,1,1,1,1
+access_purinv_invoice_fn40assi,accdess.purinv.invoice.dir,neweb_purinv.model_neweb_purinv_invoice,neweb_project.neweb_fn40_assi,1,1,1,1
+access_purinv_invoiceline_mgr,access.purinv.invoiceline.assi,neweb_purinv.model_neweb_purinv_invoiceline,neweb_project.neweb_fn40_assi,1,1,1,1
+access_purinv_invoice_ma50assi,accdess.purinv.invoice.dir,neweb_purinv.model_neweb_purinv_invoice,neweb_project.neweb_mg50_assi,1,1,1,1
+access_purinv_invoiceline_ma50assi,access.purinv.invoiceline.assi,neweb_purinv.model_neweb_purinv_invoiceline,neweb_project.neweb_mg50_assi,1,1,1,1
+"access_purinv_invoiceline_manager","access.purinv.invoiceline.manager","neweb_purinv.model_neweb_purinv_invoiceline","neweb_project.neweb_fn20_mgr","True","True","True","True"

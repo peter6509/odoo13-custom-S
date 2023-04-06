@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="email_template_stockin_check1" model="mail.template">
+            <field name="name">進貨檢驗通知Email</field>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="subject">${object.name} 進貨檢驗通知 Email</field>
+            <field name="email_to">${object.get_stockin_email(object.id)}</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="lang">zh_TW</field>
+            <field name="body_html"><![CDATA[
+<h4><p>工程部的同事${object.stockin_checkman.name},你好！</p>
+<p>
+因採購單號 ${object.origin} /成本分析編號 ${object.stockout_proj_no}/ 進貨單號 ${object.name}收貨，需清點及檢測;
+     請安排清點檢驗，不勝感谢!</strong>
+</p>
+
+    <br/><br/>
+% if object.stockin_line:
+   <p>收貨清單如下：</p>
+   <br/>
+    % for line in object.stockin_line:
+          <ul>
+              <li>機種-機型/料號: ${line.stockin_modeltype}</li>
+              <li>規格: ${line.stockin_spec}</li>
+              <li>收貨數量: ${line.stockin_num}</li>
+              <li>備註: ${line.stockin_desc}</li>
+              <li>來源單據: ${line.po_no}</li>
+              <br/>
+          </ul>
+
+    % endfor
+
+% endif
+
+<p>如果有任何問题，請及時與我聯繫！</p>
+<p>谢谢！！</p></h4>
+
+<p style="color:#eeeeee;">
+% if object.write_uid and object.write_uid.signature:
+    ${object.write_uid.signature | safe}
+% endif
+</p>
+]]></field>
+        </record>
+
+        <!---->
+        <!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<odoo>-->
+    <!--<data>-->
+         <!--<record id="pr_level1_approve" model="mail.template">-->
+            <!--<field name="name">PR request signing</field>-->
+            <!--<field name="model_id" ref="model_purchase_pr_order"/>-->
+            <!--<field name="email_from">odoo@xingmobility.com</field>-->
+            <!--<field name="email_to">${object.get_level1_manager_email(object.id)}</field>-->
+            <!--<field name="subject">${object.pr_owner.name} PR_NO:${object.name} request to be approved</field>-->
+            <!--&lt;!&ndash;<field name="lang">zh_TW</field>&ndash;&gt;-->
+            <!--<field name="auto_delete" eval="True"/>-->
+            <!--<field name="user_signature" eval="True"/>-->
+            <!--<field name="body_html"><![CDATA[-->
+            <!--<p>Dear-->
+<!--% if object.level1_manager :-->
+    <!--${object.level1_manager.name}-->
+<!--% else :-->
+    <!--<p>Manager,</p>-->
+<!--% endif-->
+<!--Here is, PR Owner :<strong>${object.pr_owner.name}-->
+<!--Analytic Account : ${object.account_analytic_id.name}-->
+<!--PR No:${object.name} Request</strong>-->
+<!--Please kindly sign this PR.-->
+
+<!--<a href=${object.url_address}> Approve Button</a>-->
+
+<!--<p>Best regards,</p>-->
+<!--<p style="color:#888888;">-->
+<!--% if object.create_uid and object.create_uid.signature:-->
+    <!--${object.create_uid.signature | safe}-->
+<!--% endif-->
+<!--</p>-->
+
+<!--]]></field>-->
+        <!--</record>-->
+
+
+
+    </data>
+</odoo>

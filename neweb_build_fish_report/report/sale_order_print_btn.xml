@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <record id="sale_order_btn_form_inherit" model="ir.ui.view">
+            <field name="name">py3o.sale.order.btn.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="neweb_projext.neweb_project_inherit8_form"/>
+            <field name="arch" type="xml">
+                <header>
+                    <button type="object" string="共契報價單預覽" name="action_print_gov_sale" class="oe_highlight"/>
+                    <button type="object" string="銷售報價單預覽" name="action_print_sale" class="oe_highlight"/>
+                    <button type="object" string="維護報價單預覽" name="action_print_sale_main" class="oe_highlight"/>
+                </header>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+          <record id="neweb_eng_assign_rule1" model="ir.rule">
+           <field name="name">neweb.eng.assign.rule1</field>
+           <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+<!--           <field name="domain_force">[('assign_mans','=',user.login)]</field>-->
+           <field name="groups" eval="[(4,ref('neweb_project.neweb_en70_user'))]"/>
+           <field name="global" eval="1"/>
+          </record>
+
+          <record id="neweb_eng_assign_rule1_1" model="ir.rule">
+           <field name="name">neweb.eng.assign.rule1_1</field>
+           <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+<!--           <field name="domain_force">[('assign_mans','=',user.login)]</field>-->
+           <field name="groups" eval="[(4,ref('neweb_project.neweb_on50_user'))]"/>
+           <field name="global" eval="1"/>
+          </record>
+
+           <record id="neweb_eng_assign_rule2" model="ir.rule">
+            <field name="name">neweb.eng.assign.rule2</field>
+            <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+<!--            <field name="domain_force">[('assign_man.employee_ids.department_id.id', 'in', [x.id for x in user.employee_ids.department_id])]</field>-->
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_en30_ass'))]"/>
+            <field name="global" eval="1"/>
+           </record>
+           <record id="neweb_eng_assign_rule2_1" model="ir.rule">
+            <field name="name">neweb.eng.assign.rule2_1</field>
+            <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+<!--            <field name="domain_force">[('assign_man.employee_ids.department_id.id', 'in', [x.id for x in user.employee_ids.department_id])]</field>-->
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_en40_mgt'))]"/>
+            <field name="global" eval="1"/>
+           </record>
+           <record id="neweb_eng_assign_rule2_2" model="ir.rule">
+            <field name="name">neweb.eng.assign.rule2_2</field>
+            <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+<!--            <field name="domain_force">[('assign_man.employee_ids.department_id.id', 'in', [x.id for x in user.employee_ids.department_id])]</field>-->
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_en80_assi'))]"/>
+            <field name="global" eval="1"/>
+           </record>
+           <record id="neweb_eng_assign_rule2_3" model="ir.rule">
+            <field name="name">neweb.eng.assign.rule2_3</field>
+            <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+<!--            <field name="domain_force">[('assign_man.employee_ids.department_id.id', 'in', [x.id for x in user.employee_ids.department_id])]</field>-->
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_on30_mgt'))]"/>
+            <field name="global" eval="1"/>
+           </record>
+           <record id="neweb_eng_assign_rule2_4" model="ir.rule">
+            <field name="name">neweb.eng.assign.rule2_4</field>
+            <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+<!--            <field name="domain_force">[('assign_man.employee_ids.department_id.id', 'in', [x.id for x in user.employee_ids.department_id])]</field>-->
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_on40_pm'))]"/>
+            <field name="global" eval="1"/>
+           </record>
+
+           <record id="neweb_eng_assign_rule3" model="ir.rule">
+            <field name="name">neweb.eng.assign.rule3</field>
+            <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+            <field name="groups" eval="[(4,ref('neweb_project.neweb_sa50_assi'))]"/>
+            <field name="global" eval="1"/>
+           </record>
+<!--           <record id="neweb_eng_assign_rule3_1" model="ir.rule">-->
+<!--            <field name="name">neweb.eng.assign.rule3_1</field>-->
+<!--            <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>-->
+<!--            <field name="domain_force">[('proj_sale.id', '=', user.employee_ids.id)]</field>-->
+<!--            <field name="groups" eval="[(4, ref('neweb_project.neweb_sa40_user'))]"/>-->
+<!--           </record>-->
+           <record id="neweb_eng_assign_rule3_1" model="ir.rule">
+             <field name="name">neweb.eng.assign.rule3_1</field>
+             <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_sa40_user'))]"/>
+             <field name="global" eval="1"/>
+<!--             <field name="domain_force">['|','|','|','|',('proj_cus_name.salesp1','=',user.id),('proj_cus_name.salesp2','=',user.id),('proj_cus_name.salesp3','=',user.id),('proj_cus_name.salesp4','=',user.id),('proj_cus_name.salesp5','=',user.id)]</field>-->
+           </record>
+           <record id="neweb_eng_assign_rule3_2" model="ir.rule">
+            <field name="name">neweb.eng.assign.rule3_2</field>
+            <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+            <field name="groups" eval="[(4,ref('neweb_project.neweb_sa30_ass'))]"/>
+            <field name="global" eval="1"/>
+           </record>
+            <record id="neweb_eng_assign_rule3_3" model="ir.rule">
+            <field name="name">neweb.eng.assign.rule3_3</field>
+            <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_sa20_vp'))]"/>
+            <field name="global" eval="1"/>
+           </record>
+           <record id="neweb_eng_assign_rule3_4" model="ir.rule">
+            <field name="name">neweb.eng.assign.rule3_4</field>
+            <field ref="neweb_project.model_neweb_proj_eng_assign" name="model_id"/>
+            <field name="groups" eval="[(4, ref('neweb_project.neweb_sa10_gm'))]"/>
+            <field name="global" eval="1"/>
+           </record>
+
+    </data>
+</odoo>

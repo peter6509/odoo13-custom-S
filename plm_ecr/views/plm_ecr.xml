@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mrp_ecr_order_view_tree" model="ir.ui.view">
+            <field name="name">mrp_ecr_order_view_tree</field>
+            <field name="model">mrp.ecr.order</field>
+            <field name="arch" type="xml">
+                <tree string="設計變更申請處理單(ECR)">
+                    <field name="name"/>
+                    <field name="product_tmpl_id"/>
+                    <field name="ecr_date"/>
+                    <field name="department_id"/>
+                    <field name="employee_id"/>
+                    <field name="approve_user"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="mrp_ecr_order_view_form" model="ir.ui.view">
+            <field name="name">mrp_ecr_order_view_form</field>
+            <field name="model">mrp.ecr.order</field>
+            <field name="arch" type="xml">
+                <form string="設計變更申請處理單(ECR)">
+                    <header>
+                        <button string="申請" name="button_confirmed" states="draft" type="object"
+                                class="oe_highlight"/>
+                        <button string="拒絕申請" name="button_reject" states="confirmed" type="object"
+                                groups="plm_eco.group_plm_eco_approve_manager"
+                                class="oe_highlight" attrs="{'invisible': [('state', 'in', ('draft', 'done'))]}"/>
+                        <button string="同意申請" name="button_done" states="confirmed" type="object"
+                                groups="plm_eco.group_plm_eco_approve_manager"
+                                class="oe_highlight" attrs="{'invisible': [('state', 'not in', ('confirmed'))]}"/>
+                        <button string="發送結案狀況通知" name="reminder_email_ecr_details" type="object"
+                                groups="plm_eco.group_plm_eco_approve_manager" class="oe_highlight"
+                                attrs="{'invisible': [('state', 'not in', ('confirmed', 'done'))]}"/>
+                        <button string="發送相關單位郵件" name="reminder_email_ecr_member_details" type="object"
+                                groups="plm_eco.group_plm_eco_approve_manager" class="oe_highlight"
+                                attrs="{'invisible': [('state', 'not in', ('confirmed', 'done'))]}"/>
+                        <button string="生成 ECO 關聯單據" name="generate_eco_order" states="done" type="object"
+                                class="oe_highlight" attrs="{'invisible': [('state', 'not in', ('done'))]}"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <span class="o_form_label" attrs="{'invisible': [('state','not in',('draft'))]}">
+                                <h1>設計變更申請處理單～單號</h1>
+                            </span>
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="department_id"/>
+                                <field name="employee_id"/>
+                                <field name="company_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="ecr_date"/>
+                                <field name="member_ids" widget="many2many_tags" string="相關部門"
+                                       attrs="{'invisible':[('state', 'not in', ('confirmed','done', 'reject'))]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="product_tmpl_id"/>
+                            <!--                            <field name="ecr_line_ids" string="產品選擇">-->
+                            <!--                                <tree editable="bottom">-->
+                            <!--                                    <field name="id" invisible="1"/>-->
+                            <!--                                    <field name="order_id" invisible="1"/>-->
+                            <!--                                    <field name="sequence" widget="handle"/>-->
+                            <!--                                    <field name="product_tmp_id"/>-->
+                            <!--                                </tree>-->
+                            <!--                            </field>-->
+                        </group>
+                        <group string="1. 設計變更原因：">
+                            <field name="reason_ids" widget="many2many_checkboxes" string="選擇原因"/>
+                            <field name="reason_desc" string="原因說明："/>
+                        </group>
+                        <group string=" 2. 變更內容及說明：">
+                            <field name="reason_change_desc" string="說明："/>
+                        </group>
+                        <group string="3. 相關單位會簽及意見填寫："
+                               attrs="{'invisible':[('state', 'not in', ('confirmed','done', 'reject'))]}">
+                            <group>
+                                <field name="sale_employee" string="業務部" style="width: 80%"/>
+                                <field name="sale_reason_desc" string="業務意見"/>
+                            </group>
+                            <group>
+                                <field name="manager_employee" string="管理處" style="width: 80%"/>
+                                <field name="manager_reason_desc" string="管理意見"/>
+                            </group>
+                            <group>
+                                <field name="purchase_employee" string="採購" style="width: 80%"/>
+                                <field name="purchase_reason_desc" string="採購意見"/>
+                            </group>
+                            <group>
+                                <field name="manage_employee" string="生管" style="width: 80%"/>
+                                <field name="manage_reason_desc" string="生管意見"/>
+                            </group>
+                            <group>
+                                <field name="wms_employee" string="倉庫" style="width: 80%"/>
+                                <field name="wms_reason_desc" string="倉庫意見"/>
+                            </group>
+                            <group>
+                                <field name="qc_employee" string="品保部" style="width: 80%"/>
+                                <field name="qc_reason_desc" string="品保意見"/>
+                            </group>
+                            <group>
+                                <field name="assembly_employee" string="組裝處" style="width: 80%"/>
+                                <field name="assembly_reason_desc" string="組裝意見"/>
+                            </group>
+                            <group>
+                                <field name="manufacture_employee" string="製造處" style="width: 80%"/>
+                                <field name="manufacture_reason_desc" string="製造意見"/>
+                            </group>
+
+                        </group>
+                        <group string="4. 成本差異：">
+                            <field name="cost_diff" string="說明："/>
+                        </group>
+                        <group string="5. 變更與否確認："
+                               attrs="{'invisible':[('state', 'not in', ('confirmed','done', 'reject'))]}">
+                            <field name="change_agree" widget="radio"/>
+                            <field name="mrp_eco_id" attrs="{'invisible': [('change_agree', '=', 'B')]}"/>
+                            <field name="approve_user"
+                                   attrs="{'invisible': [('change_agree', '=', 'B')], 'required': [('change_agree', '=', 'A')]}"/>
+                            <field name="approve_employee_id" invisible="1"/>
+                            <field name="change_agree_desc" attrs="{'invisible': [('change_agree', '=', 'A')]}"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="mrp_ecr_order_view_action" model="ir.actions.act_window">
+            <field name="name">設計變更申請處理單</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.ecr.order</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="mrp_ecr_order_categ" name="設計變更申請處理單 (ECR)" action="mrp_ecr_order_view_action"
+                  parent="mrp_plm.menu_mrp_plm_root" sequence="6"/>
+    </data>
+</odoo>

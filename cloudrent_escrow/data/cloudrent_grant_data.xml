@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cloudrent_grant_item_1" model="cloudrent.grant_item">
+            <field name="grant_code">M1</field>
+            <field name="grant_name">居家安全保險費</field>
+        </record>
+        <record id="cloudrent_grant_item_2" model="cloudrent.grant_item">
+            <field name="grant_code">M2</field>
+            <field name="grant_name">公證費</field>
+        </record>
+        <record id="cloudrent_grant_item_3" model="cloudrent.grant_item">
+            <field name="grant_code">M3</field>
+            <field name="grant_name">住宅出租修繕費費</field>
+        </record>
+        <record id="cloudrent_grant_item_4" model="cloudrent.grant_item">
+            <field name="grant_code">M4</field>
+            <field name="grant_name">租金補助</field>
+        </record>
+        <record id="cloudrent_grant_item_5" model="cloudrent.grant_item">
+            <field name="grant_code">M5</field>
+            <field name="grant_name">開發費</field>
+        </record>
+        <record id="cloudrent_grant_item_6" model="cloudrent.grant_item">
+            <field name="grant_code">M6</field>
+            <field name="grant_name">包管費</field>
+        </record>
+        <record id="cloudrent_grant_item_7" model="cloudrent.grant_item">
+            <field name="grant_code">M7</field>
+            <field name="grant_name">媒合費</field>
+        </record>
+        <record id="cloudrent_grant_item_8" model="cloudrent.grant_item">
+            <field name="grant_code">M8</field>
+            <field name="grant_name">代管費</field>
+        </record>
+    </data>
+</odoo>

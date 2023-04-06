@@ -1,0 +1,759 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* neweb_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-07 07:03+0000\n"
+"PO-Revision-Date: 2017-09-07 07:03+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_saleitem_select_active_select
+msgid "Active select"
+msgstr "Active select"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projanalysis_analysis_id
+msgid "Analysis id"
+msgstr "Analysis id"
+
+#. module: neweb_project
+#: model:ir.ui.view,arch_db:neweb_project.neweb_assign_wizard_form
+#: model:ir.ui.view,arch_db:neweb_project.neweb_engassignwork_wizard_form
+#: model:ir.ui.view,arch_db:neweb_project.neweb_engcomplete_form_wizard
+#: model:ir.ui.view,arch_db:neweb_project.neweb_saletoproj_form_wizard
+msgid "Cancel"
+msgstr "取消"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcontact_contact_id
+msgid "Contact id"
+msgstr "Contact id"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_mode_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_type_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_buscate_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_contacttype_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_costtype_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_eng_assign_wizard_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engassignwork_wizard_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engcomplete_wizard_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engmaintype_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodbrand_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodset_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_eng_assign_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_item_select_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_saleitem_select_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_select_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projanalysis_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projbranch_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcontact_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcustom_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_project_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projectstoreproc_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projgencode_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projmaintype_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projsaleitem_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projwizard_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleitem_import_wizard_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salenocheck_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleorder_import_wizard_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salestoreproc_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saletoproj_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_attach_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_desc_item_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_prod_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_sitem_list_create_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_transationtype_create_uid
+msgid "Created by"
+msgstr "創建人"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_mode_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_type_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_buscate_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_contacttype_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_costtype_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_eng_assign_wizard_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engassignwork_wizard_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engcomplete_wizard_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engmaintype_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodbrand_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodset_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_eng_assign_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_item_select_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_saleitem_select_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_select_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projanalysis_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projbranch_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcontact_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcustom_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_project_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projectstoreproc_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projgencode_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projmaintype_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projsaleitem_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projwizard_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleitem_import_wizard_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salenocheck_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleorder_import_wizard_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salestoreproc_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saletoproj_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_attach_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_desc_item_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_prod_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_sitem_list_create_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_transationtype_create_date
+msgid "Created on"
+msgstr "創建時間"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcustom_cus_id
+msgid "Cus id"
+msgstr "Cus id"
+
+#. module: neweb_project
+#: model:ir.ui.view,arch_db:neweb_project.neweb_project_form
+msgid "Custom Info"
+msgstr "客戶資訊"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_salepartner_action
+msgid "Customers"
+msgstr "客戶"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_mode_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_type_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_buscate_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_contacttype_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_costtype_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_eng_assign_wizard_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engassignwork_wizard_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engcomplete_wizard_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engmaintype_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodbrand_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodset_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_eng_assign_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_item_select_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_saleitem_select_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_select_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projanalysis_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projbranch_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcontact_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcustom_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_project_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projectstoreproc_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projgencode_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projmaintype_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projsaleitem_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projwizard_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleitem_import_wizard_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salenocheck_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleorder_import_wizard_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salestoreproc_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saletoproj_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_attach_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_desc_item_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_prod_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_sitem_list_display_name
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_transationtype_display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: neweb_project
+#: model:ir.ui.view,arch_db:neweb_project.neweb_assign_wizard_form
+msgid "ENG SETUP AND ASSIGN"
+msgstr "工程裝機及派工"
+
+#. module: neweb_project
+#: model:ir.ui.view,arch_db:neweb_project.neweb_import_form_wizard
+#: model:ir.ui.view,arch_db:neweb_project.neweb_sale_import_form_wizard
+msgid "EXCEL FILE IMPORT"
+msgstr "EXCEL檔匯入"
+
+#. module: neweb_project
+#: model:ir.ui.view,arch_db:neweb_project.neweb_sale_inherit_form
+msgid "EXCEL匯入"
+msgstr "EXCEL匯入"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcontact_contact_email
+#: model:ir.ui.view,arch_db:neweb_project.neweb_project_form
+msgid "Email"
+msgstr "Email"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_mode_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_type_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_buscate_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_contacttype_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_costtype_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_eng_assign_wizard_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engassignwork_wizard_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engcomplete_wizard_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engmaintype_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodbrand_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodset_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_eng_assign_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_item_select_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_saleitem_select_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_select_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projanalysis_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projbranch_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcontact_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcustom_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_project_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projectstoreproc_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projgencode_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projmaintype_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projsaleitem_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projwizard_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleitem_import_wizard_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salenocheck_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleorder_import_wizard_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salestoreproc_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saletoproj_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_attach_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_desc_item_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_prod_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_sitem_list_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_transationtype_id
+msgid "ID"
+msgstr "ID"
+
+#. module: neweb_project
+#: model:ir.ui.view,arch_db:neweb_project.neweb_proj_assign_form
+#: model:ir.ui.view,arch_db:neweb_project.neweb_project_form
+#: model:ir.ui.view,arch_db:neweb_project.neweb_sale_inherit_form
+msgid "ITEM LIST"
+msgstr "ITEM LIST"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_stockmove_action
+msgid "Inventory"
+msgstr "庫存"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_mode___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_type___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_buscate___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_contacttype___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_costtype___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_eng_assign_wizard___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engassignwork_wizard___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engcomplete_wizard___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engmaintype___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodbrand___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodset___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_eng_assign___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_item_select___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_saleitem_select___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_select___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projanalysis___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projbranch___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcontact___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcustom___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_project___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projectstoreproc___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projgencode___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projmaintype___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projsaleitem___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projwizard___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleitem_import_wizard___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salenocheck___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleorder_import_wizard___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salestoreproc___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saletoproj___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_attach___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_desc_item___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_prod___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_sitem_list___last_update
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_transationtype___last_update
+msgid "Last Modified on"
+msgstr "最後修改日"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_mode_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_type_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_buscate_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_contacttype_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_costtype_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_eng_assign_wizard_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engassignwork_wizard_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engcomplete_wizard_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engmaintype_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodbrand_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodset_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_eng_assign_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_item_select_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_saleitem_select_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_select_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projanalysis_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projbranch_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcontact_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcustom_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_project_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projectstoreproc_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projgencode_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projmaintype_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projsaleitem_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projwizard_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleitem_import_wizard_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salenocheck_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleorder_import_wizard_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salestoreproc_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saletoproj_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_attach_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_desc_item_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_prod_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_sitem_list_write_uid
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_transationtype_write_uid
+msgid "Last Updated by"
+msgstr "最後更新人"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_mode_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_ass_service_type_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_buscate_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_contacttype_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_costtype_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_eng_assign_wizard_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engassignwork_wizard_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engcomplete_wizard_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_engmaintype_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodbrand_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_prodset_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_eng_assign_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_item_select_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_saleitem_select_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_select_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projanalysis_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projbranch_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcontact_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projcustom_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_project_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projectstoreproc_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projgencode_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projmaintype_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projsaleitem_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projwizard_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleitem_import_wizard_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salenocheck_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleorder_import_wizard_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_salestoreproc_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saletoproj_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_attach_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_desc_item_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_prod_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_sitem_list_write_date
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_transationtype_write_date
+msgid "Last Updated on"
+msgstr "最後更新時間"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.neweb_proj_config
+msgid "PROJECT CONFIG"
+msgstr "基礎配置"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_res_partner
+msgid "Partner"
+msgstr "合作夥伴"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_project_root
+msgid "Project"
+msgstr "成本分析"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_project_categ
+msgid "Project maintenance"
+msgstr "成本分析維護"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_quotation_action
+msgid "Quotations"
+msgstr "報價單"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_sale_categ
+msgid "SALEDATA"
+msgstr "銷售"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_stockmove_categ
+msgid "STOCK MOVE"
+msgstr "倉庫作業"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_saleitem_select_saleitem_id
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_projsaleitem_saleitem_id
+msgid "Saleitem id"
+msgstr "Saleitem id"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_proj_select_saleitem_line
+msgid "Saleitem line"
+msgstr "Saleitem line"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_sale_order
+msgid "Sales Order"
+msgstr "銷售訂單"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_saleorder_action
+msgid "Sales Orders"
+msgstr "銷售訂單"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_proj_assign_categ
+msgid "Setup and Assign"
+msgstr "裝機＆派工"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_setup_prod_setup_id
+msgid "Setup id"
+msgstr "Setup id"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_sitem_list_sitem_id
+msgid "Sitem id"
+msgstr "Sitem id"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_sitem_list_sitem_stockout_complete
+msgid "Sitem stockout complete"
+msgstr "Sitem stockout complete"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_project_taxes_id
+#: model:ir.model.fields,field_description:neweb_project.field_sale_order_taxes_id
+msgid "Taxes"
+msgstr "稅"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_res_users
+msgid "Users"
+msgstr "用戶"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.action_neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_project_action
+msgid "action_neweb_project"
+msgstr "成本分析維護"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_assign_wizard_action
+msgid "menu_neweb_assign_wizard_action"
+msgstr "新建派工作業"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_engassignwork_wizard_action
+msgid "menu_neweb_engassignwork_wizard_action"
+msgstr "派工單指派工程師"
+
+#. module: neweb_project
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_engcomplete_wizard_action
+msgid "menu_neweb_engcomplete_wizard_action"
+msgstr "派工單完工作業"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_ass_service_mode
+msgid "neweb.ass_service_mode"
+msgstr "neweb.ass_service_mode"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_ass_service_type
+msgid "neweb.ass_service_type"
+msgstr "neweb.ass_service_type"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_buscate
+msgid "neweb.buscate"
+msgstr "neweb.buscate"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_contacttype
+msgid "neweb.contacttype"
+msgstr "neweb.contacttype"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_costtype
+msgid "neweb.costtype"
+msgstr "neweb.costtype"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_eng_assign_wizard
+msgid "neweb.eng_assign_wizard"
+msgstr "neweb.eng_assign_wizard"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_engassignwork_wizard
+msgid "neweb.engassignwork_wizard"
+msgstr "neweb.engassignwork_wizard"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_engcomplete_wizard
+msgid "neweb.engcomplete_wizard"
+msgstr "neweb.engcomplete_wizard"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_engmaintype
+msgid "neweb.engmaintype"
+msgstr "neweb.engmaintype"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_prodbrand
+msgid "neweb.prodbrand"
+msgstr "neweb.prodbrand"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_prodset
+msgid "neweb.prodset"
+msgstr "neweb.prodset"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_proj_eng_assign
+msgid "neweb.proj_eng_assign"
+msgstr "neweb.proj_eng_assign"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_proj_item_select
+msgid "neweb.proj_item_select"
+msgstr "neweb.proj_item_select"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_proj_saleitem_select
+msgid "neweb.proj_saleitem_select"
+msgstr "neweb.proj_saleitem_select"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_proj_select
+msgid "neweb.proj_select"
+msgstr "neweb.proj_select"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_projanalysis
+msgid "neweb.projanalysis"
+msgstr "neweb.projanalysis"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_projbranch
+msgid "neweb.projbranch"
+msgstr "neweb.projbranch"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_projcontact
+msgid "neweb.projcontact"
+msgstr "neweb.projcontact"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_projcustom
+msgid "neweb.projcustom"
+msgstr "neweb.projcustom"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_project
+msgid "neweb.project"
+msgstr "neweb.project"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_projectstoreproc
+msgid "neweb.projectstoreproc"
+msgstr "neweb.projectstoreproc"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_projgencode
+msgid "neweb.projgencode"
+msgstr "neweb.projgencode"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_projmaintype
+msgid "neweb.projmaintype"
+msgstr "neweb.projmaintype"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_projsaleitem
+msgid "neweb.projsaleitem"
+msgstr "neweb.projsaleitem"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_projwizard
+msgid "neweb.projwizard"
+msgstr "neweb.projwizard"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_saleitem_import_wizard
+msgid "neweb.saleitem_import_wizard"
+msgstr "neweb.saleitem_import_wizard"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_salenocheck
+msgid "neweb.salenocheck"
+msgstr "neweb.salenocheck"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_saleorder_import_wizard
+msgid "neweb.saleorder_import_wizard"
+msgstr "neweb.saleorder_import_wizard"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_salestoreproc
+msgid "neweb.salestoreproc"
+msgstr "neweb.salestoreproc"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_saletoproj
+msgid "neweb.saletoproj"
+msgstr "neweb.saletoproj"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_setup_attach
+msgid "neweb.setup_attach"
+msgstr "neweb.setup_attach"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_setup_desc_item
+msgid "neweb.setup_desc_item"
+msgstr "neweb.setup_desc_item"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_setup_prod
+msgid "neweb.setup_prod"
+msgstr "neweb.setup_prod"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_sitem_list
+msgid "neweb.sitem_list"
+msgstr "neweb.sitem_list"
+
+#. module: neweb_project
+#: model:ir.model,name:neweb_project.model_neweb_transationtype
+msgid "neweb.transationtype"
+msgstr "neweb.transationtype"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_assservicemode_config_action
+#: model:ir.ui.menu,name:neweb_project.menu_assservicemode_config_action
+msgid "neweb_assservicemode_config_action"
+msgstr "專案派工服務名稱設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_assservicetype_config_action
+#: model:ir.ui.menu,name:neweb_project.menu_assservicetype_config_action
+msgid "neweb_assservicetype_config_action"
+msgstr "專案派工服務類別設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_buscate_action
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_buscate_action
+msgid "neweb_buscate_action"
+msgstr "客戶行業別設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_contacttype_action
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_contacttype_action
+msgid "neweb_contacttype_action"
+msgstr "連絡人員別設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_costtype_action
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_costtype_action
+msgid "neweb_costtype_action"
+msgstr "成本分類設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_engmaintype_action
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_engmaintype_action
+msgid "neweb_engmaintype_action"
+msgstr "維護方式設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_import_action_wizard
+msgid "neweb_import_action_wizard"
+msgstr "專案進貨及採購明細資料匯入精靈"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_prodbrand_action
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_prodbrand_action
+msgid "neweb_prodbrand_action"
+msgstr "品牌分類設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_prodset_action
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_prodset_action
+msgid "neweb_prodset_action"
+msgstr "產品組別設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_proj_assign_action
+#: model:ir.ui.menu,name:neweb_project.menu_proj_assign_action
+msgid "neweb_proj_assign_action"
+msgstr "裝機派工維護"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_projbranch_action
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_projbranch_action
+msgid "neweb_projbranch_action"
+msgstr "專案區域設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_projgencode_action
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_projgencode_action
+msgid "neweb_projgencode_action"
+msgstr "專案流水號設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_projmaintype_action
+#: model:ir.ui.menu,name:neweb_project.menu_neweb_projmaintype_action
+msgid "neweb_projmaintype_action"
+msgstr "維護說明設置"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_sale_import_action
+msgid "neweb_sale_import_action"
+msgstr "銷售資料匯入作業"
+
+#. module: neweb_project
+#: model:ir.actions.act_window,name:neweb_project.neweb_transationtype_config_action
+#: model:ir.ui.menu,name:neweb_project.menu_transationtype_config_action
+msgid "neweb_transationtype_config_action"
+msgstr "專案交易類別設置"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleitem_import_wizard_excel_file
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleorder_import_wizard_excel_file
+msgid "上傳EXCEL檔案"
+msgstr "上傳EXCEL檔案"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleorder_import_wizard_start_row
+msgid "啟始ROW"
+msgstr "啟始ROW"
+
+#. module: neweb_project
+#: model:ir.model.fields,field_description:neweb_project.field_neweb_saleorder_import_wizard_end_row
+msgid "結止ROW"
+msgstr "結止ROW"
+
+#. module: neweb_project
+#: model:ir.ui.view,arch_db:neweb_project.neweb_import_form_wizard
+msgid "進貨＆採購明細CSV匯入"
+msgstr "進貨＆採購明細CSV匯入"
+
+#. module: neweb_project
+#: model:ir.ui.view,arch_db:neweb_project.neweb_sale_import_form_wizard
+msgid "銷單明細CSV匯入"
+msgstr "銷單明細CSV匯入"
+

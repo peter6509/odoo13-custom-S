@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_stock_change_tree" model="ir.ui.view">
+            <field name="name">view.stock.change.tree</field>
+            <field name="model">alldo_gh_iot.stock_change</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="change_date"/>
+                    <field name="change_owner"/>
+                    <field name="change_memo"/>
+                    <field name="is_change"/>
+                    <button name="run_stock_change_archive" string="結案歸檔" type="object" class="oe_highlight" attrs="{'invisible':[('is_change','=',False)]}"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_stock_change_form" model="ir.ui.view">
+            <field name="name">view.stock.change.form</field>
+            <field name="model">alldo_gh_iot.stock_change</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <div>
+                        <widget name="web_ribbon" title="未過帳" bg_color="bg-danger" attrs="{'invisible': [('is_change','=',True)]}"/>
+                        <widget name="web_ribbon" title="已過帳" attrs="{'invisible':[('is_change','=',False)]}"/>
+                    </div>
+                    <sheet>
+                        <group>
+                            <field name="change_date"/>
+                            <field name="change_owner"/>
+                            <field name="change_memo"/>
+                            <field name="is_change" attrs="{'readonly':1}"/>
+                            <field name="change_count" attrs="{'invisible':1}"/>
+                            <button name="run_stock_change" string="轉換過帳" type="object" class="oe_highlight" attrs="{'invisible':['|',('is_change','=',True),('change_count','=',0)]}"/>
+                        </group>
+                          <notebook>
+                            <page string="轉換明細" name="Change Line">
+                                <field name="change_line" widget="section_and_note_one2many" mode="tree">
+                                   <tree string="轉換明細記錄" editable="bottom">
+                                       <field name="origin_prod"/>
+                                       <field name="origin_loc" domain="[('active','=',True),('usage','=','internal')]"/>
+                                       <field name="complete_prod"/>
+                                       <field name="complete_loc" domain="[('active','=',True),('usage','=','internal')]"/>
+                                       <field name="trans_num"/>
+                                       <field name="trans1_picking" attrs="{'readonly':1}"/>
+                                       <field name="trans2_picking" attrs="{'readonly':1}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                       </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_stock_change_view" model="ir.actions.act_window">
+            <field name="name">產品轉換調撥作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.stock_change</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

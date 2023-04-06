@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_ipla_iot_outsuborder_tree" model="ir.ui.view">
+            <field name="name">view.ipla.iot.outsuborder.tree</field>
+            <field name="model">alldo_ipla_iot.outsuborder</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="product_no"/>
+                    <field name="eng_type"/>
+                    <field name="so_no"/>
+                    <field name="so_pi"/>
+                    <field name="cus_name"/>
+                    <field name="order_num"/>
+                    <field name="prod_num"/>
+                    <field name="blank_good_num"/>
+                    <field name="blank_ng_num"/>
+<!--                    <field name="shipping_date"/>-->
+<!--                    <field name="blank_input_date"/>-->
+                    <field name="outsuborder_memo"/>
+                    <field name="state"/>
+                    <button name="run_archive" string="結案歸檔" type="object" class="oe_highlight" attrs="{'invisible':[('state','!=','3')]}"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_ipla_iot_outsuborder_form" model="ir.ui.view">
+            <field name="name">view.ipla_iot_outsuborder.form</field>
+            <field name="model">alldo_ipla_iot.outsuborder</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                     <button name="complete_outsuborder" type="object"
+                            string="完工結案" class="oe_highlight"
+                            context="{'outsuborder_id': context.get('active_id')}"
+                            attrs="{'invisible':[('state','in',['3','4'])]}"
+                           />
+                       <field name="state" widget="statusbar"/>
+
+                    </header>
+                    <sheet>
+                         <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                            </div>
+                        <group>
+                            <group>
+                                <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+
+                                <field name="so_no" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="so_pi" attrs="{'readonly':1}"/>
+                                <field name="purchase_no" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="cus_name" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="order_num"/>
+                            </group>
+                            <group>
+                                <field name="eng_type"/>
+                                <field name="blank_num"/>
+                                <field name="prod_num"/>
+                                <field name="outsuborder_memo"/>
+                            </group>
+
+                        </group>
+                         <notebook>
+
+                             <page string="委外加工給料記錄" name="OUT PROD LINE">
+                                <field name="prodout_line" widget="section_and_note_one2many" mode="tree" >
+                               <tree string="委外加工給料記錄" editable="bottom">
+                                    <field name="prodout_datetime"/>
+                                    <field name="product_no" string="產品" options="{'no_create':true,'no_create_edit':true}"/>
+                                    <field name="out_good_num" string="轉入良品數"/>
+<!--                                    <field name="out_ng_num" string="轉入NG數"/>-->
+                                    <field name="out_loc" string="轉入來源"/>
+                                    <field name="out_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                                </tree>
+                                </field>
+                            </page>
+                            <page string="委外加工完工轉出記錄" name="IN PROD LINE">
+                            <field name="prodin_line" widget="section_and_note_one2many" mode="tree" >
+                           <tree string="委外加工完工轉出記錄" editable="bottom">
+                                <field name="prodin_datetime"/>
+                                <field name="product_no" string="產品" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="in_good_num" string="轉出良品數"/>
+                                <field name="in_ng_num" string="轉出NG數"/>
+                                <field name="in_loc" string="轉出目的"/>
+                                <field name="in_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="image_filename" invisible="1"/>
+                                <field widget="binary" height="64" name="image" filename="image_filename" string="文件夾檔" />
+                            </tree>
+                            </field>
+                            </page>
+                             <page string="委外加工籠框進出數" name="IN_OUT FRAME LINE">
+                               <group>
+                                    <group>
+                                   <field name="out_plastic_frame1"/>
+                                   <field name="out_plastic_frame2"/>
+                                   <field name="out_pallet"/>
+                                   </group>
+                                   <group>
+                                    <field name="in_plastic_frame1"/>
+                                    <field name="in_plastic_frame2"/>
+                                    <field name="in_pallet"/>
+                               </group>
+                               </group>
+                            </page>
+                         </notebook>
+                    </sheet>
+
+                </form>
+
+            </field>
+        </record>
+
+        <record id="view_iplaiot_outsuborder_search" model="ir.ui.view">
+           <field name="name">view.ipla.iot.outsuborder.search</field>
+           <field name="model">alldo_ipla_iot.outsuborder</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="so_pi" string="關鍵字" filter_domain="['|','|',('cus_name.name','ilike',self),('product_no.default_code','ilike',self),('so_pi', 'ilike',self )]"/>
+               <filter domain="[('state','in',['1','2'])]" string="未完工" name="uncomplete"/>
+              <filter domain="[('state','=','3')]" string="已完工" name="complete"/>
+            </search>
+           </field>
+        </record>
+         <record id="view_alldo_ipla_iot_outsuborder_calendar" model="ir.ui.view">
+            <field name="name">view.alldo.ipla.iot.outsuborder.calendar</field>
+            <field name="model">alldo_ipla_iot.outsuborder</field>
+            <field name="arch" type="xml">
+                <calendar string="outsuborder List" date_start="prod_date" color="state" hide_time="true" event_limit="5">
+                    <field name="outsuborder_name"/>
+                </calendar>
+            </field>
+        </record>
+        <record id="action_ipla_iot_outsuborder_view" model="ir.actions.act_window">
+            <field name="name">委外加工工單作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_ipla_iot.outsuborder</field>
+            <field name="view_mode">tree,form,calendar</field>
+             <field name="search_view_id" ref="view_iplaiot_outsuborder_search"></field>
+            <field name="context">{ 'search_default_uncomplete': 1, }</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

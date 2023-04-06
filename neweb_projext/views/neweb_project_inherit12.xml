@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit12_neweb_project_form" model="ir.ui.view">
+            <field name="name">view.inherit12.neweb.project.form</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_project.neweb_project_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="/form/sheet/notebook/page/group/field[@name='proj_cus_ids']/tree/field[@name='cus_address']" position="before">
+                    <!-- Add your fields or attributes here -->
+                    <field name="cus_select" context="{'show_address1':True}" />
+                </xpath>
+
+
+            </field>
+        </record>
+    </data>
+</odoo>

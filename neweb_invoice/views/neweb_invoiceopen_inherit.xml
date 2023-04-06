@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_invoiceopen_form_inherit" model="ir.ui.view">
+           <field name="name">neweb.invoiceopen.form.inherit</field>
+           <field name="model">neweb_invoice.invoiceopen</field>
+           <field name="inherit_id" ref="neweb_invoice.neweb_invoice_view_form"/>
+           <field name="arch" type="xml">
+
+                <!--<xpath expr="//notebook/page[1]" position="after">-->
+                <!--<page string="開立記錄" name="Invoiceopen Line" colspan="4">-->
+                    <!--<group>-->
+                        <!--<field name="invoice_list_ids" nolabel="1" context="{'inv_id': context.get('active_id')}">-->
+                            <!--<tree editable="bottom" string="ITEM LIST" widget="one2many">-->
+                                <!--<field name="inv_item" attrs="{'readonly':1}"/>-->
+                                <!--<field name="inv_date"/>-->
+                                <!--<field name="inv_no"/>-->
+                                <!--<field name="inv_amount"/>-->
+                                <!--<field name="inv_open"/>-->
+                                <!--&lt;!&ndash;<field name="inv_totalamount"/>&ndash;&gt;-->
+                                <!--<field name="inv_memo"/>-->
+                            <!--</tree>-->
+                        <!--</field>-->
+                    <!--</group>-->
+                <!--</page>-->
+                <!--</xpath>-->
+           <xpath expr="//field[@name='open_amount_total']" position="before">
+               <field name="open_complete_total" string="累計開立金額(含税)"/>
+           </xpath>
+           <xpath expr="//field[@name='other_memo']" position="after">
+               <field name="invoice_paymentdate"/>
+           </xpath>
+
+           </field>
+       </record>
+    </data>
+</odoo>

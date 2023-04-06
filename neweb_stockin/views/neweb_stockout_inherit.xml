@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_stockout_form_inherit" model="ir.ui.view">
+           <field name="name">neweb.stockout.form.inherit</field>
+           <field name="model">stock.picking</field>
+           <field name="inherit_id" ref="stock.vpicktree"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='origin']" position="after">
+
+                   <field name="stockout_proj_no"/>
+
+               </xpath>
+
+
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

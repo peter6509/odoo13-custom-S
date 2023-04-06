@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <report id="action_report_neweb_stockin"
+                model="stock.picking"
+                string="點收簽收單NEW"
+                report_type="controller"
+                print_report_name="'點收簽收單_%s.pdf' % (object.name)"
+                name="neweb_stockin_report"/>
+        <record id="action_report_neweb_stockin" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_stockin_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+    </data>
+</odoo>

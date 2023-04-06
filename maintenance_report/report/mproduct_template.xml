@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="mproduct_report">
+            <t t-call="report.html_container">
+                <div class="header">
+                    <div class="row">
+                        <div class='col-xs-3'/>
+                        <div class="col-xs-6">
+                            <h2 style="text-align:center;">設備維修零組件一覽表</h2>
+                        </div>
+
+                        <div class="col-xs-push-5 pull-right">
+                            <ul class="list-inline">
+                                <li>
+                                    <span style="font-size:16px;">頁數:</span>
+                                </li>
+                                <li>
+                                    <span style="font-size:16px;" class="page"/>
+                                </li>
+                                <li>
+                                    <span style="font-size:16px;">/</span>
+                                </li>
+                                <li>
+                                    <span style="font-size:16px;" class="topage"/>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class="col-xs-push-5 pull-right">
+                            <ul class="list-inline">
+                                <li>
+                                    <span style="font-size:16px;">製表日期:</span>
+                                </li>
+                                <li t-esc="datetime.date.today()"/>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="page" style="font-size:15px">
+                    <table class="table table-condensed">
+                        <!--<table border="2">-->
+                        <thead>
+                            <tr style="font-size:16px">
+                                <th style='text-align:left;'>料號</th>
+                                <th style='text-align:left;'>零組件名稱</th>
+                                <th style='text-align:left;'>規格說明</th>
+                                <th style='text-align:left;'>倉庫</th>
+                                <th style='text-align:left;'>庫存</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="mproduction" t-as="mproduction">
+                                <td sytle='text-aligh:left;'>
+                                    <span t-esc="mproduction['default_code']"/>
+                                </td>
+                                <td style='text-align:left;'>
+                                    <span t-esc="mproduction['name']"/>
+                                </td>
+                                <td style='text-align:left;'>
+                                    <span t-esc="mproduction['description_purchase']"/>
+                                </td>
+                                <td style='text-align:left;'>
+                                    <span t-esc="mproduction['location']"/>
+                                </td>
+                                <td style='text-align:left;'>
+                                    <span t-esc="mproduction['qty']"/>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="footer">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <table class="table table-condensed">
+                                <tr>
+                                    <th>
+                                        <strong style="font-size:16px;"></strong>
+                                    </th>
+                                    <th>
+                                        <strong style="font-size:16px;">主管:</strong>
+                                    </th>
+                                    <th>
+                                        <strong style="font-size:16px;">班長:</strong>
+                                    </th>
+                                    <th>
+                                        <strong style="font-size:16px;">製表人：</strong>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </t>
+        </template>
+    </data>
+</odoo>

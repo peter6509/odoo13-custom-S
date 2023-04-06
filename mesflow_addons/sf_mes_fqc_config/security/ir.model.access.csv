@@ -1,0 +1,9 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+fqc_product_check_item_QC,fqc.product.check.item,model_fqc_product_check_item,mes_assembly.sop_sec_group1,1,1,1,0
+fqc_product_check_doc_QC,fqc_product_check_doc,model_fqc_product_check_doc,mes_assembly.sop_sec_group1,1,1,1,0
+fqc_setup_check_list_Qc,fqc_setup_check_list,model_fqc_setup_check_list,mes_assembly.sop_sec_group1,1,1,1,0
+fqc_product_check_item_admin,fqc_setup_check_list,model_fqc_setup_check_list,mes_assembly.sop_sec_group4,1,1,1,1
+fqc_product_check_doc_admin,fqc_product_check_doc,model_fqc_product_check_doc,mes_assembly.sop_sec_group4,1,1,1,1
+fqc_setup_check_list_admin,fqc_setup_check_list,model_fqc_setup_check_list,mes_assembly.sop_sec_group4,1,1,1,1
+mes_fqc_check_list_QC,mes_fqc_check_list,model_mes_fqc_check_list,mes_assembly.sop_sec_group1,1,1,1,0
+mes_fqc_check_list_admin,mes_fqc_check_list,model_mes_fqc_check_list,mes_assembly.sop_sec_group4,1,1,1,1

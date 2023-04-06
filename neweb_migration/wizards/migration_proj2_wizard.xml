@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_migration_project2_wizard" model="ir.ui.view">
+             <field name="name">views.migration.project2.wizard</field>
+             <field name="model">neweb_migration.project2_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>PROJECT Migration Task</h1>
+                         <h3>(12).neweb_transationtype/(13).neweb_contacttype</h3>
+                         <h3>(14).neweb_prodbrand/(15).neweb_proj_select</h3>
+                         <h3>(19).neweb_prodset/(20).neweb_projmaintype</h3>
+                         <h3>(21).neweb_engmaintype</h3>
+                         <group>
+                             <field name="passcode"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="project12_migration" string="(12).transationtype" class="oe_highlight"/>
+                         <button type="object" name="project13_migration" string="(13).contacttype" class="oe_highlight"/>
+                         <button type="object" name="project14_migration" string="(14).prodbrand" class="oe_highlight"/>
+                         <button type="object" name="project15_migration" string="(15).proj_select" class="oe_highlight"/>
+                         <button type="object" name="project19_migration" string="(19).prodset" class="oe_highlight"/>
+                         <button type="object" name="project20_migration" string="(20).projmaintype" class="oe_highlight"/>
+                         <button type="object" name="project21_migration" string="(21).engmaintype" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="migration_project2_wizard_action" model="ir.actions.act_window">
+             <field name="name">PROJECT Migration</field>
+             <field name="res_model">neweb_migration.project2_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

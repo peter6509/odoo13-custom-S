@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_todo_change_eng_wizard" model="ir.ui.view">
+             <field name="name">views.todo.change.eng.wizard</field>
+             <field name="model">neweb_emp_timesheet.change_emp</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>待辦行事曆工程師變更作業</h1>
+                         <group>
+                             <field name="old_emp_id"/>
+                             <field name="new_emp_id"/>
+                             <field name="contract_ids" widget="many2many_tags" options="{'no_create_edit':True,'no_create':True,'no_open':True}" />
+                             <field name="todo_start_date"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_change_emp" string="行事曆變更" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+          <record id="action_todo_change_timesheet" model="ir.actions.act_window">
+              <field name="name">合約維護工程師變更作業</field>
+              <field name="res_model">neweb_emp_timesheet.change_emp</field>
+              <field name="view_mode">form</field>
+              <field name="target">new</field>
+          </record>
+
+    </data>
+</odoo>

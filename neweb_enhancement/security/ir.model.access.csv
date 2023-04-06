@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_security_category_user","access.security.category.user","neweb_enhancement.model_neweb_enhancement_security_category","base.group_user","True","True","True","True"
+"access_security_download_user","access.security.download.user","neweb_enhancement.model_neweb_enhancement_security_download","base.group_user","True","True","True","True"
+"access_security_export_wizard_user","access.security.export.wizard.user","neweb_enhancement.model_neweb_enhancement_security_export_wizard","base.group_user","True","True","True","True"
+"access_security_group_user","access.security.group.user","neweb_enhancement.model_neweb_enhancement_security_group","base.group_user","True","True","True","True"
+"access_sale_purchase_account_user","access.sale.purchase.account.user","neweb_enhancement.model_neweb_enhancement_sale_purchase_account","base.group_user","True","True","True","True"

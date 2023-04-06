@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="iot_mo_start_wizard_form_view" model="ir.ui.view">
+            <field name="name">iot.mo.start.wizard.form</field>
+            <field name="model">alldo_ipla_iot.iot_mo_start_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="equipment_id" string="機台"
+                                   options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="emp_no" string="操作員"
+                                   options="{'no_create':true,'no_create_edit':true}"/>
+                        </group>
+                        <group>
+                            <field name="wkorder_id" string="工單"
+                                   doamin="[('state','not in',['4','5'])]"
+                                   options="{'no_create':true,'no_create_edit':true}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="工單開工" name="run_start_mo" type="object" class="oe_hiiplaliiplat"/>
+                        <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="iot_mo_start_wizard_action" model="ir.actions.act_window">
+            <field name="name">工單主控開工精靈</field>
+            <field name="res_model">alldo_ipla_iot.iot_mo_start_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</odoo>

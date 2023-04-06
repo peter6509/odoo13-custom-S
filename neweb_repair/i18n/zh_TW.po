@@ -1,0 +1,1130 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* neweb_repair
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-31 14:03+0000\n"
+"PO-Revision-Date: 2017-10-31 14:03+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: neweb_repair
+#: model:mail.template,body_html:neweb_repair.mail_template_repair_ae_manager
+#: model:mail.template,body_html:neweb_repair.mail_template_repair_done
+#: model:mail.template,body_html:neweb_repair.mail_template_repair_draft_ae
+#: model:mail.template,body_html:neweb_repair.mail_template_repair_reject
+#: model:mail.template,body_html:neweb_repair.mail_template_repair_waiting
+msgid "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"                </p>\n"
+"            \n"
+"            "
+msgstr "\n"
+"            	<p>\n"
+"                    Dears,\n"
+"                </p>\n"
+"            \n"
+"            "
+
+#. module: neweb_repair
+#: model:mail.template,body_html:neweb_repair.mail_template_repair_sla_warn
+msgid "\n"
+"<p></p><pre style=\"font-family:Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;\" wrap=\"\"><font style=\"font-size: 14px;\"> 報修日期 : ${format_tz(object.repair_datetime, tz=user.tz, format='%Y/%m/%d')}</font>\n"
+"<font style=\"font-size: 14px;\"> 報修單號 : ${object.name}</font>\n"
+"<font style=\"font-size: 14px;\"> 簽約客戶名稱 : ${object.customer_id.name}</font>\n"
+"<font style=\"font-size: 14px;\"> 維護客戶名稱 : ${object.contact_user.parent_id.name}/${object.contact_user.name}</font>\n"
+"<font style=\"font-size: 14px;\"> 指派工程師 : ${object.ae_id.name}</font>\n"
+"<font style=\"font-size: 14px;\"> 業務 : ${object.customer_id.user_id.name}</font>\n"
+"\n"
+"<div style=\"display:table;border:1px solid #000;\">\n"
+"    <div style=\"display:table-header-group;\">\n"
+"        <div style=\"display:table-row;\">\n"
+"            <div style=\"display:table-cell;width:20%;border:1px solid #000;\">報修項目</div>\n"
+"            <div style=\"display:table-cell;width:20%;border:1px solid #000;\">SLA</div>\n"
+"            <div style=\"display:table-cell;border:1px solid #000;\">問題描述</div>\n"
+"        </div>\n"
+"    </div>\n"
+"    <div style=\"display:table-row-group;\">\n"
+"        % for line in object.repair_lines:\n"
+"        <div style=\"display:table-row;\">\n"
+"            <div style=\"display:table-cell;width:20%;border:1px solid #000;\">${line.contract_line.display_name}</div>\n"
+"            <div style=\"display:table-cell;width:20%;border:1px solid #000;\">${line.repair_sla.display_name}</div>\n"
+"            <div style=\"display:table-cell;border:1px solid #000;\">${line.problem_desc}</div>\n"
+"        </div>\n"
+"        % endfor\n"
+"    </div>\n"
+"</div>\n"
+"\n"
+"</pre><p></p>\n"
+"            \n"
+"            "
+msgstr "\n"
+"<p></p><pre style=\"font-family:Menlo, Monaco, Consolas, &quot;Courier New&quot;, monospace;\" wrap=\"\"><font style=\"font-size: 14px;\"> 報修日期 : ${format_tz(object.repair_datetime, tz=user.tz, format='%Y/%m/%d')}</font>\n"
+"<font style=\"font-size: 14px;\"> 報修單號 : ${object.name}</font>\n"
+"<font style=\"font-size: 14px;\"> 簽約客戶名稱 : ${object.customer_id.name}</font>\n"
+"<font style=\"font-size: 14px;\"> 維護客戶名稱 : ${object.contact_user.parent_id.name}/${object.contact_user.name}</font>\n"
+"<font style=\"font-size: 14px;\"> 指派工程師 : ${object.ae_id.name}</font>\n"
+"<font style=\"font-size: 14px;\"> 業務 : ${object.customer_id.user_id.name}</font>\n"
+"\n"
+"<div style=\"display:table;border:1px solid #000;\">\n"
+"    <div style=\"display:table-header-group;\">\n"
+"        <div style=\"display:table-row;\">\n"
+"            <div style=\"display:table-cell;width:20%;border:1px solid #000;\">報修項目</div>\n"
+"            <div style=\"display:table-cell;width:20%;border:1px solid #000;\">SLA</div>\n"
+"            <div style=\"display:table-cell;border:1px solid #000;\">問題描述</div>\n"
+"        </div>\n"
+"    </div>\n"
+"    <div style=\"display:table-row-group;\">\n"
+"        % for line in object.repair_lines:\n"
+"        <div style=\"display:table-row;\">\n"
+"            <div style=\"display:table-cell;width:20%;border:1px solid #000;\">${line.contract_line.display_name}</div>\n"
+"            <div style=\"display:table-cell;width:20%;border:1px solid #000;\">${line.repair_sla.display_name}</div>\n"
+"            <div style=\"display:table-cell;border:1px solid #000;\">${line.problem_desc}</div>\n"
+"        </div>\n"
+"        % endfor\n"
+"    </div>\n"
+"</div>\n"
+"\n"
+"</pre><p></p>\n"
+"            \n"
+"            "
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_contract_contract_repair_count
+msgid "# Repair"
+msgstr "# 報修"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_maintenance_category_report_device_amount
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_report_device_amount
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_problem_report_device_amount
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_brand_report_device_amount
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_model_report_device_amount
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_serial_report_device_amount
+msgid "# of Device"
+msgstr "設備數"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:536
+#, python-format
+msgid "%s inventory shortage. available: %d"
+msgstr "%s 庫存量不足。目前可用量： %d"
+
+#. module: neweb_repair
+#: model:ir.actions.server,body_html:neweb_repair.repair_send_ae_manager_email
+#: model:ir.actions.server,body_html:neweb_repair.repair_send_done_email
+#: model:ir.actions.server,body_html:neweb_repair.repair_send_draft_ae_email
+#: model:ir.actions.server,body_html:neweb_repair.repair_send_reject_email
+#: model:ir.actions.server,body_html:neweb_repair.repair_send_waiting_email
+msgid "<p>\n"
+"                    Dears,\n"
+"                </p>\n"
+"            \n"
+"            "
+msgstr "<p>\n"
+"                    Dears,\n"
+"                </p>\n"
+"            \n"
+"            "
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_report_document
+msgid "<span style=\"font-family:Arial\">◎</span>\n"
+"                    請問您對工程師約訪及服務態度感到\n"
+"                    <span style=\"font-family:Arial\">▢</span>很滿意<span style=\"font-family:Arial\">▢</span>滿意<span style=\"font-family:Arial\">▢</span>普通<span style=\"font-family:Arial\">▢</span>不滿意<span style=\"font-family:Arial\">▢</span>很不滿意，\n"
+"                    <span style=\"font-family:Arial\">__________________\n"
+"                    </span>"
+msgstr "<span style=\"font-family:Arial\">◎</span>\n"
+"                    請問您對工程師約訪及服務態度感到\n"
+"                    <span style=\"font-family:Arial\">▢</span>很滿意<span style=\"font-family:Arial\">▢</span>滿意<span style=\"font-family:Arial\">▢</span>普通<span style=\"font-family:Arial\">▢</span>不滿意<span style=\"font-family:Arial\">▢</span>很不滿意，\n"
+"                    <span style=\"font-family:Arial\">__________________\n"
+"                    </span>"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_report_document
+msgid "<span style=\"font-family:Helvetica;font-size:16pt;\">◎</span>\n"
+"                    請問您對此次定期維修工作感到\n"
+"                    <span style=\"font-family:Arial\">▢</span>很滿意<span style=\"font-family:Arial\">▢</span>滿意<span style=\"font-family:Arial\">▢</span>普通<span style=\"font-family:Arial\">▢</span>不滿意<span style=\"font-family:Arial\">▢</span>很不滿意，\n"
+"                    <span style=\"font-family:Arial\">_____________________</span>"
+msgstr "<span style=\"font-family:Helvetica;font-size:16pt;\">◎</span>\n"
+"                    請問您對此次定期維修工作感到\n"
+"                    <span style=\"font-family:Arial\">▢</span>很滿意<span style=\"font-family:Arial\">▢</span>滿意<span style=\"font-family:Arial\">▢</span>普通<span style=\"font-family:Arial\">▢</span>不滿意<span style=\"font-family:Arial\">▢</span>很不滿意，\n"
+"                    <span style=\"font-family:Arial\">_____________________</span>"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_report_document
+msgid "<span>\n"
+"                        客戶簽名：\n"
+"                        <span style=\"font-family:Arial\">______________</span>\n"
+"                    </span>\n"
+"                    <span style=\"margin:0 8pt 0 8pt\">\n"
+"                        系統工程師簽名：\n"
+"                        <span style=\"font-family:Arial\">______________</span>\n"
+"                    </span>\n"
+"                    <span>\n"
+"                        出貨人：\n"
+"                        <span style=\"font-family:Arial\">______________</span>\n"
+"                    </span>"
+msgstr "<span>\n"
+"                        客戶簽名：\n"
+"                        <span style=\"font-family:Arial\">______________</span>\n"
+"                    </span>\n"
+"                    <span style=\"margin:0 8pt 0 8pt\">\n"
+"                        系統工程師簽名：\n"
+"                        <span style=\"font-family:Arial\">______________</span>\n"
+"                    </span>\n"
+"                    <span>\n"
+"                        出貨人：\n"
+"                        <span style=\"font-family:Arial\">______________</span>\n"
+"                    </span>"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_report_document
+msgid "<span>**您的滿意就是我們最大的服務宗旨，若有任何問題及意見，請撥0800-228-822免付費客服電話，我們有專人為您服務**\n"
+"                    </span>"
+msgstr "<span>**您的滿意就是我們最大的服務宗旨，若有任何問題及意見，請撥0800-228-822免付費客服電話，我們有專人為您服務**\n"
+"                    </span>"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_work_document
+msgid "<span>SLA：</span>"
+msgstr "<span>SLA：</span>"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_complete_time_report_ae
+#: model:res.groups,name:neweb_repair.group_repair_ae
+msgid "AE"
+msgstr "工程師"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_ae_complete_datetime
+msgid "AE Complete Time"
+msgstr "工程師完修時間"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "AE Information"
+msgstr "報修處理資訊"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_ae_on_site_datetime
+msgid "AE On-Site Time"
+msgstr "工程師到場時間"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:66
+#: selection:neweb_repair.repair,state:0
+#, python-format
+msgid "AE Processing"
+msgstr "工程師處理中"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_ae_response_datetime
+msgid "AE Response Time"
+msgstr "工程師回應時間"
+
+#. module: neweb_repair
+#: model:res.groups,name:neweb_repair.group_repair_admin
+msgid "Administrator"
+msgstr "管理者"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_customer_id
+msgid "Apply Customer"
+msgstr "報修客戶"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_contact_user
+msgid "Apply User"
+msgstr "報修人員"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Approval"
+msgstr "簽核"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_asset_num
+msgid "Asset Number"
+msgstr "資產編號"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_ae_id
+msgid "Assigned AE"
+msgstr "指派工程師"
+
+#. module: neweb_repair
+#: model:res.groups,name:neweb_repair.group_repair_assistance
+msgid "Assistant"
+msgstr "助理"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_complete_time_report_avg_complete_time
+msgid "Avg. Complete Time(Hours)"
+msgstr "平均結案時間(小時)"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_brand_report_prod_brand
+msgid "Brand"
+msgstr "品牌"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:69
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+#: selection:neweb_repair.repair,state:0
+#, python-format
+msgid "Cancel"
+msgstr "取消"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log_care_call_date
+msgid "Care Call Date"
+msgstr "日期 "
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log_care_call_log
+msgid "Care Call Log"
+msgstr "Care Call 處理說明 "
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_repair_care_call_logs
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Care Call Logs"
+msgstr "Care Call記錄"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Check Part Available"
+msgstr "檢查零件可用量"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Close"
+msgstr "結束"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:72
+#: selection:neweb_repair.repair,state:0
+#, python-format
+msgid "Closed"
+msgstr "結案"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire_code
+msgid "Code"
+msgstr "代碼"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_neweb_repair_complete_time_report
+msgid "Complete Time"
+msgstr "結案時間"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_repair_configuration
+msgid "Configuration"
+msgstr "配置"
+
+#. module: neweb_repair
+#: model:ir.model,name:neweb_repair.model_neweb_contract_contract
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_contract_id
+msgid "Contract"
+msgstr "合約"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_create_date
+msgid "Create Date"
+msgstr "建立日期"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_create_user
+msgid "Create User"
+msgstr "填單人"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_question_create_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire_create_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log_create_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_create_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_create_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_create_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire_create_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log_create_uid
+msgid "Created by"
+msgstr "創建人"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_question_create_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire_create_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log_create_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_create_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_create_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire_create_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log_create_date
+msgid "Created on"
+msgstr "創建時間"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_customer_category_id
+msgid "Customer category id"
+msgstr "客戶類別"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_device_location
+msgid "Device Location"
+msgstr "設備所在地址"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_question_disabled
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire_disabled
+msgid "Disabled"
+msgstr "停用"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_question_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_complete_time_report_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_maintenance_category_report_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_report_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_problem_report_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_brand_report_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_model_report_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_serial_report_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_report_display_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log_display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:68
+#: selection:neweb_repair.repair,state:0
+#, python-format
+msgid "Done"
+msgstr "完成"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:64
+#: selection:neweb_repair.repair,state:0
+#, python-format
+msgid "Draft"
+msgstr "草稿"
+
+#. module: neweb_repair
+#: model:ir.module.category,description:neweb_repair.module_category_neweb_repair
+msgid "Helps you handle your Repair needs."
+msgstr "協助你處理你的報修需求。"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_question_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_complete_time_report_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_maintenance_category_report_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_report_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_problem_report_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_brand_report_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_model_report_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_serial_report_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_report_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log_id
+msgid "ID"
+msgstr "ID"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_ip_address
+msgid "IP Address"
+msgstr "IP 位址"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_km
+msgid "KM"
+msgstr "知識管理"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_question___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_complete_time_report___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_maintenance_category_report___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_report___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_problem_report___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_brand_report___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_model_report___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_serial_report___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_report___last_update
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log___last_update
+msgid "Last Modified on"
+msgstr "最後修改日"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_question_write_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire_write_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log_write_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_write_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_write_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire_write_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log_write_uid
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_write_uid
+msgid "Last Updated by"
+msgstr "最後更新人"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_question_write_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire_write_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log_write_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_write_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_write_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire_write_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log_write_date
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_write_date
+msgid "Last Updated on"
+msgstr "最後更新時間"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_contract_line
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_name
+msgid "Machine Serial No"
+msgstr "機器序號"
+
+#. module: neweb_repair
+#: selection:neweb_repair.repair,repair_type:0
+msgid "Maintenance"
+msgstr "維護"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_maintenance_category
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_maintenance_category
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_maintenance_category_report_maintenance_category
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_report_maintenance_category
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_problem_report_maintenance_category
+#: model:ir.ui.menu,name:neweb_repair.menu_neweb_repair_maintenance_category_report
+msgid "Maintenance Category"
+msgstr "維護類別"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Maintenance Targets"
+msgstr "維護設備"
+
+#. module: neweb_repair
+#: model:res.groups,name:neweb_repair.group_repair_mgr
+msgid "Manager"
+msgstr "經理"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_model_report_prod_model
+msgid "Model"
+msgstr "模型"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_name
+msgid "Name"
+msgstr "名字"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:568
+#: selection:neweb_repair.repair_questionnaire,rating:0
+#, python-format
+msgid "Neither Satisfied Nor Dissatisfied"
+msgstr "尚可"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Notes"
+msgstr "備註"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_num_of_repair_lines
+msgid "Num of repair lines"
+msgstr "報修細項數"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:71
+#: selection:neweb_repair.repair,state:0
+#, python-format
+msgid "Open"
+msgstr "開啟"
+
+#. module: neweb_repair
+#: selection:neweb_repair.repair,repair_type:0
+msgid "Others"
+msgstr "其它"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_neweb_repair_part_report
+msgid "Part"
+msgstr "零件"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_report_part_no
+msgid "Part No"
+msgstr "零件料號"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_ready
+msgid "Part Ready"
+msgstr "零件備妥"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_part_maintenance_category_id
+msgid "Part maintenance category id"
+msgstr "Part maintenance category id"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_prod
+msgid "Parts"
+msgstr "零件"
+
+#. module: neweb_repair
+#: selection:neweb_repair.repair,repair_type:0
+msgid "Per Call"
+msgstr "Per Call"
+
+#. module: neweb_repair
+#: model:ir.actions.report.xml,name:neweb_repair.repair_print_report
+msgid "Print Repairs"
+msgstr "維修工作紀錄及出貨單"
+
+#. module: neweb_repair
+#: model:ir.actions.report.xml,name:neweb_repair.repair_work_report
+msgid "Print Repairs Report"
+msgstr "Print Repairs Report"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_problem_report_problem
+#: model:ir.ui.menu,name:neweb_repair.menu_neweb_repair_problem_report
+msgid "Problem"
+msgstr "問題"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_problem_desc
+msgid "Problem Description"
+msgstr "問題描述"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_qa
+msgid "Problem Handling"
+msgstr "問題處理"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_problem
+msgid "Problem Judgment"
+msgstr "Problem Judgment"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_qa_solution
+msgid "Problem Solution"
+msgstr "解決方法"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_maintenance_category_report_prod
+msgid "Product"
+msgstr "產品"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_neweb_repair_product_brand_report
+msgid "Product Brand Analysis"
+msgstr "品牌統計"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_neweb_repair_product_model_report
+msgid "Product Model Analysis"
+msgstr "機型統計"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_neweb_repair_product_serial_report
+msgid "Product Serial Analysis"
+msgstr "機種統計"
+
+#. module: neweb_repair
+#: model:ir.model,name:neweb_repair.model_neweb_repair_question
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_question_name
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire_question_id
+#: model:ir.ui.view,arch_db:neweb_repair.repair_questionnaire_form
+msgid "Question"
+msgstr "問題"
+
+#. module: neweb_repair
+#: sql_constraint:neweb_repair.question:0
+msgid "Question must be unique!!"
+msgstr "問題不可重覆!!"
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,name:neweb_repair.action_list_repair_questionnaire
+#: model:ir.model,name:neweb_repair.model_neweb_repair_questionnaire
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+#: model:ir.ui.view,arch_db:neweb_repair.repair_questionnaire_form
+msgid "Questionnaire"
+msgstr "問卷"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_question_questionnaire_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire_name
+msgid "Questionnaire Category"
+msgstr "問卷類別"
+
+#. module: neweb_repair
+#: sql_constraint:neweb_repair.questionnaire:0
+msgid "Questionnaire Name must be unique!!"
+msgstr "問卷名稱不可重覆!!"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_repair_questionnaire
+#: model:ir.ui.view,arch_db:neweb_repair.repair_questionnaire_tree
+msgid "Questionnaires"
+msgstr "問卷"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_questionnaire_question_ids
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+#: model:ir.ui.view,arch_db:neweb_repair.repair_questionnaire_form
+msgid "Questions"
+msgstr "問題"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire_rating
+msgid "Rating"
+msgstr "評級"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:70
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+#: selection:neweb_repair.repair,state:0
+#, python-format
+msgid "Reject"
+msgstr "退回"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Reject(Done)"
+msgstr "退回(完成)"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_related_parts
+msgid "Related Parts"
+msgstr "相關零件"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_memo
+msgid "Remark"
+msgstr "備註"
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,name:neweb_repair.action_list_repair
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log_repair_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_repair_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire_repair_id
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log_repair_id
+#: model:ir.module.category,name:neweb_repair.module_category_neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_repair
+#: model:ir.ui.view,arch_db:neweb_repair.neweb_contract_contract_form_ext
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+#: model:ir.ui.view,arch_db:neweb_repair.repair_tree
+#: model:ir.ui.view,arch_db:neweb_repair.view_repair_graph
+#: model:ir.ui.view,arch_db:neweb_repair.view_repair_pivot
+msgid "Repair"
+msgstr "報修"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_complete_time_report_graph
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_complete_time_report_pivot
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_complete_time_report_search
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_maintenance_category_report_graph
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_maintenance_category_report_pivot
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_maintenance_category_report_search
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_part_report_graph
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_part_report_pivot
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_part_report_search
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_problem_report_graph
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_problem_report_pivot
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_problem_report_search
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_product_brand_report_graph
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_product_brand_report_pivot
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_product_brand_report_search
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_product_model_report_graph
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_product_model_report_pivot
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_product_model_report_search
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_product_serial_report_graph
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_product_serial_report_pivot
+#: model:ir.ui.view,arch_db:neweb_repair.view_neweb_repair_product_serial_report_search
+msgid "Repair Analysis"
+msgstr "報修分析"
+
+#. module: neweb_repair
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_care_call_log
+msgid "Repair Care Call Log"
+msgstr "Care Call記錄 "
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,name:neweb_repair.action_neweb_repair_complete_time_report
+msgid "Repair Complete Time Analysis"
+msgstr "報修結案時間分析"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_complete_time_report_repair_datetime
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_maintenance_category_report_repair_datetime
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_report_repair_datetime
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_problem_report_repair_datetime
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_brand_report_repair_datetime
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_model_report_repair_datetime
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_serial_report_repair_datetime
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_repair_datetime
+msgid "Repair Datetime"
+msgstr "報修時間"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_search
+msgid "Repair Done"
+msgstr "已結案"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_search
+msgid "Repair In-progress"
+msgstr "未結案"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_repair_line_id
+msgid "Repair Line"
+msgstr "報修細項"
+
+#. module: neweb_repair
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_line
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_repair_lines
+msgid "Repair Lines"
+msgstr "報修細項"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_name
+msgid "Repair No"
+msgstr "報修編號"
+
+#. module: neweb_repair
+#: sql_constraint:neweb_repair.repair:0
+msgid "Repair Number must be unique!!"
+msgstr "報修編號不可重覆!!"
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,name:neweb_repair.action_neweb_repair_part_report
+msgid "Repair Part Analysis"
+msgstr "報修零件分析"
+
+#. module: neweb_repair
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_part
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_repair_parts
+msgid "Repair Parts"
+msgstr "零件料號"
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,name:neweb_repair.action_neweb_repair_problem_report
+msgid "Repair Problem Analysis"
+msgstr "報修問題分析"
+
+#. module: neweb_repair
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_questionnaire
+msgid "Repair Questionnaire"
+msgstr "報修問卷調查"
+
+#. module: neweb_repair
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_complete_time_report
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_maintenance_category_report
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_part_report
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_problem_report
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_product_brand_report
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_product_model_report
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_product_serial_report
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_report
+msgid "Repair Statistics"
+msgstr "報修統計"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_repair_type
+msgid "Repair Type"
+msgstr "報修種類"
+
+#. module: neweb_repair
+#: model:ir.model,name:neweb_repair.model_neweb_repair_repair_work_log
+msgid "Repair Work Log"
+msgstr "維修處理記錄"
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,name:neweb_repair.action_neweb_repair_maintenance_category_report
+msgid "Repair maintenance_category Analysis"
+msgstr "報修維護類別分析"
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,name:neweb_repair.action_neweb_repair_product_brand_report
+msgid "Repair product_brand Analysis"
+msgstr "品牌統計"
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,name:neweb_repair.action_neweb_repair_product_model_report
+msgid "Repair product_model Analysis"
+msgstr "機型統計"
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,name:neweb_repair.action_neweb_repair_product_serial_report
+msgid "Repair product_serial Analysis"
+msgstr "機種統計"
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,name:neweb_repair.action_contract_repair_list
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_contract_contract_repair_ids
+msgid "Repairs"
+msgstr "報修"
+
+#. module: neweb_repair
+#: model:ir.ui.menu,name:neweb_repair.menu_neweb_repair_report_all
+msgid "Reports"
+msgstr "報告"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_required_parts_qty
+msgid "Required Parts Quantity"
+msgstr "維修需要數量"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Resolve"
+msgstr "處理完成"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_ae_is_sla_delay
+msgid "SLA Delay"
+msgstr "SLA是否逾時"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_sla_delay_warn
+msgid "SLA Delay Warning"
+msgstr "SLA 逾期通知"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_repair_sla
+msgid "SLA Name"
+msgstr "SLA 名稱"
+
+#. module: neweb_repair
+#: model:mail.template,subject:neweb_repair.mail_template_repair_sla_warn
+msgid "SLA Warn"
+msgstr "SLA 示警"
+
+#. module: neweb_repair
+#: model:res.groups,name:neweb_repair.group_repair_sales
+msgid "Sales"
+msgstr "銷售"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_survey_ids
+msgid "Satisfaction Survey"
+msgstr "滿意度調查"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Send"
+msgstr "傳送"
+
+#. module: neweb_repair
+#: model:ir.actions.server,name:neweb_repair.repair_send_ae_manager_email
+msgid "Send ae_manager email"
+msgstr "寄送工程師主管審核郵件"
+
+#. module: neweb_repair
+#: model:ir.actions.server,name:neweb_repair.repair_send_done_email
+msgid "Send done email"
+msgstr "寄送完成郵件"
+
+#. module: neweb_repair
+#: model:ir.actions.server,name:neweb_repair.repair_send_draft_ae_email
+msgid "Send draft_ae email"
+msgstr "寄送草稿/工程師郵件"
+
+#. module: neweb_repair
+#: model:ir.actions.server,name:neweb_repair.repair_send_reject_email
+msgid "Send reject email"
+msgstr "寄送拒絕郵件"
+
+#. module: neweb_repair
+#: model:ir.actions.server,name:neweb_repair.repair_send_waiting_email
+msgid "Send waiting email"
+msgstr "寄送待料中郵件"
+
+#. module: neweb_repair
+#: model:ir.model.fields,help:neweb_repair.field_neweb_repair_repair_line_sequence
+msgid "Sequence for the handle."
+msgstr "Sequence for the handle."
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_product_serial_report_prod_serial
+msgid "Serial"
+msgstr "Serial"
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Set to Draft"
+msgstr "設為草稿"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:567
+#: selection:neweb_repair.repair_questionnaire,rating:0
+#, python-format
+msgid "Somewhat Dissatisfied"
+msgstr "不滿意"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:569
+#: selection:neweb_repair.repair_questionnaire,rating:0
+#, python-format
+msgid "Somewhat Satisfied"
+msgstr "滿意"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_care_call_log_state
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_state
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_state
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_questionnaire_state
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_state
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log_state
+msgid "Status"
+msgstr "狀態"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_survey_remark
+msgid "Survey Remark"
+msgstr "問卷備註 "
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_contact_tel
+msgid "Tel"
+msgstr "電話"
+
+#. module: neweb_repair
+#: model:ir.actions.act_window,help:neweb_repair.action_neweb_repair_complete_time_report
+#: model:ir.actions.act_window,help:neweb_repair.action_neweb_repair_maintenance_category_report
+#: model:ir.actions.act_window,help:neweb_repair.action_neweb_repair_part_report
+#: model:ir.actions.act_window,help:neweb_repair.action_neweb_repair_problem_report
+#: model:ir.actions.act_window,help:neweb_repair.action_neweb_repair_product_brand_report
+#: model:ir.actions.act_window,help:neweb_repair.action_neweb_repair_product_model_report
+#: model:ir.actions.act_window,help:neweb_repair.action_neweb_repair_product_serial_report
+msgid "This report performs analysis on your Repair"
+msgstr "此報表用來分析你的報修"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_ae_total_ma_time
+msgid "Total Time"
+msgstr "修護合計時間"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_part_used_parts_qty
+msgid "Used Parts Quantity"
+msgstr "實際維修數量"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:566
+#: selection:neweb_repair.repair_questionnaire,rating:0
+#, python-format
+msgid "Very Dissatisfied"
+msgstr "很不滿意"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:570
+#: selection:neweb_repair.repair_questionnaire,rating:0
+#, python-format
+msgid "Very Satisfied"
+msgstr "很滿意"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:65
+#: selection:neweb_repair.repair,state:0
+#, python-format
+msgid "Waiting"
+msgstr "等待中"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:67
+#: selection:neweb_repair.repair,state:0
+#, python-format
+msgid "Waiting for AE Manager Approval"
+msgstr "等待工程師主管審核"
+
+#. module: neweb_repair
+#: selection:neweb_repair.repair,repair_type:0
+msgid "Warranty"
+msgstr "保固"
+
+#. module: neweb_repair
+#: selection:neweb_repair.repair,repair_type:0
+msgid "Warranty + Maintenance"
+msgstr "保固 + 維護"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log_work_date
+msgid "Work Date"
+msgstr "處理日期"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_work_log_work_log
+msgid "Work Log"
+msgstr "處理記錄"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_repair_work_logs
+#: model:ir.ui.view,arch_db:neweb_repair.repair_form
+msgid "Work Logs"
+msgstr "處理記錄"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:303
+#, python-format
+msgid "You cannot resolve case that missing following data. \n"
+" Problem. \n"
+" AE Response Time. \n"
+" AE On-Site Time. \n"
+" AE Complete Time. \n"
+" Work Logs."
+msgstr "You cannot resolve case that missing following data. \n"
+" Problem. \n"
+" AE Response Time. \n"
+" AE On-Site Time. \n"
+" AE Complete Time. \n"
+" Work Logs."
+
+#. module: neweb_repair
+#: model:ir.ui.view,arch_db:neweb_repair.repair_search
+msgid "problem_desc"
+msgstr "problem_desc"
+
+#. module: neweb_repair
+#: model:ir.model.fields,field_description:neweb_repair.field_neweb_repair_repair_line_sequence
+msgid "sequence"
+msgstr "sequence"
+
+#. module: neweb_repair
+#: code:addons/neweb_repair/models/repair.py:536
+#, python-format
+msgid "warning"
+msgstr "警告"
+
+msgid "OutSourcing"
+msgstr "維運"
+
+

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="contract_form_is_locked_security" model="ir.ui.view">
+            <field name="name">neweb_contract.contract.form.islocked.security</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="inherit_id" ref="neweb_contract_form_inherit"/>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_cs30_dir'),ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_cs50_assi')])]"/>
+            <field name="arch" type="xml">
+                <field name="is_locked" position="attributes">
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                </field>
+                  <field name="is_sales_contract" position="attributes">
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                  </field>
+                  <field name="is_rental_contract" position="attributes">
+                   <attribute name="attrs">{'readonly': 0}</attribute>
+                  </field>
+                  <field name="is_maintenance_contract" position="attributes">
+                    <attribute name="attrs">{'readonly': 0}</attribute>
+                  </field>
+                  <!--<field name="is_outsourcing_service" position="attributes">-->
+                    <!--<attribute name="attrs">{'readonly': 0}</attribute>-->
+                  <!--</field>-->
+                  <field name="contract_no" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                 <field name="ae1" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                 <field name="main_cost" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                 <field name="main_manpower_cost" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="is_sales_contract" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="is_rental_contract" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="is_maintenance_contract" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="is_outsourcing_service" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="customer_name" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="project_no" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="sla" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False)]}</attribute>
+                </field>
+                <field name="weekly_maintain_day" position="attributes">
+                    <attribute name="attrs">{'readonly':1}</attribute>
+                </field>
+                <field name="daily_maintain_hour_start" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False),('is_warranty_contract','=',False)]}</attribute>
+                </field>
+                <field name="daily_maintain_hour_end" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False),('is_warranty_contract','=',False)]}</attribute>
+                </field>
+                <field name="end_customer" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="clinch_date" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="sales_dept" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="sales" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="ae1" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="deployment" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('is_sales_contract','=',False), ('is_rental_contract','=',False)]}</attribute>
+                </field>
+                <field name="project" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('is_sales_contract','=',False), ('is_rental_contract','=',False)]}</attribute>
+                </field>
+                <field name="site_check" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False),('is_warranty_contract','=',False)]}</attribute>
+                </field>
+                <field name="site_check_upload" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False),('is_warranty_contract','=',False)]}</attribute>
+                </field>
+                <field name="contract_line_ids" position="attributes">
+                    <attribute name="attrs">{'readonly':0}</attribute>
+                </field>
+                <!--<field name="prod" position="attributes">-->
+                    <!--<attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>-->
+                <!--</field>-->
+                <!--<field name="prod_sla" position="attributes">-->
+                    <!--<attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>-->
+                <!--</field>-->
+                <!--<field name="maintain_partner" position="attributes">-->
+                    <!--<attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>-->
+                <!--</field>-->
+                <!--<field name="memo" position="attributes">-->
+                    <!--<attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>-->
+                <!--</field>-->
+                <!--<field name="special_warn" position="attributes">-->
+                    <!--<attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>-->
+                <!--</field>-->
+                <field name="warranty_start_date" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="warranty_end_date" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="warranty_warn" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="warranty_warn_days" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('warranty_warn','=',False)]}</attribute>
+                </field>
+                <field name="warranty_warn_users" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('warranty_warn','=',False)]}</attribute>
+                </field>
+                <field name="maintenance_start_date" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False),('is_warranty_contract','=',False)]}</attribute>
+                </field>
+                <field name="maintenance_end_date" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False),('is_warranty_contract','=',False)]}</attribute>
+                </field>
+                <field name="contact_person" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="maintenance_warn" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="maintenance_warn_days" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('maintenance_warn','=',False)]}</attribute>
+                </field>
+                <field name="maintenance_warn_users" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)], 'invisible':[('maintenance_warn','=',False)]}</attribute>
+                </field>
+                <field name="need_recovery_rehearsal" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="inspection_method" position="attributes">
+                    <attribute name="attrs">{'readonly':1}</attribute>
+                </field>
+                <field name="inspection_warn" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="inspection_warn_days" position="attributes">
+                    <attribute name="attrs">{'required':[('inspection_warn', '=', True)], 'readonly':[('is_locked','=',True)], 'invisible':[('inspection_warn','=',False)]}</attribute>
+                </field>
+                <field name="inspection_warn_users" position="attributes">
+                    <attribute name="attrs">{'required':[('inspection_warn', '=', True)], 'readonly':[('is_locked','=',True)], 'invisible':[('inspection_warn','=',False)]}</attribute>
+                </field>
+                <field name="value_added_service_ids" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="penalties" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+                <field name="contract_memo" position="attributes">
+                    <attribute name="attrs">{'readonly':[('is_locked','=',True)]}</attribute>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

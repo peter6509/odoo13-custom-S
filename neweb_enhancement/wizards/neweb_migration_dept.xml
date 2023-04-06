@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+     <record id="neweb_migration_dept_form_wizard" model="ir.ui.view">
+         <field name="name">neweb.migration.dept.form.wizard</field>
+         <field name="model">neweb_enhancement.migration_dept_wizard</field>
+         <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                      <h1>DEMO 轉入 DEPT/EMP</h1>
+                     <group>
+                        <field name="sourceip"/>
+                        <field name="dbname"/>
+                        <field name="dbuser"/>
+                        <field name="dbpasswd"/>
+                        <field name="passcode"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_connect_status" string="連線測試" class="oe_highlight"/>
+                     <button type="object" name="run_dept_migration" string="資料移轉" class="oe_highlight"/>
+                     <button special="cancel" string="放棄離開"/>
+                 </footer>
+             </form>
+         </field>
+     </record>
+      <record id="neweb_migration_dept_view_action" model="ir.actions.act_window">
+                  <field name="name">DEMO DEPT MIGRATION</field>
+                  <field name="res_model">neweb_enhancement.migration_dept_wizard</field>
+                  <field name="view_mode">form</field>
+                  <field name="target">new</field>
+              </record>
+
+      <menuitem id="menu_migration_dept_view_action" name="" sequence="60"
+                          parent="base.menu_administration"
+                          groups="base.group_system"
+                          action="neweb_migration_dept_view_action"/>
+
+    </data>
+</odoo>

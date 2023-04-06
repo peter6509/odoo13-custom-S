@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="group_era_landlord" model="res.groups">
+            <field name="name">房東</field>
+            <field name="category_id" ref="era_household.security_era_categ"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="group_era_agent" model="res.groups">
+            <field name="name">代管業務</field>
+            <field name="category_id" ref="era_household.security_era_categ"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,222 @@
+<odoo>
+    <data>
+        <!--菜单动作 实例 begin-->
+        <!--<record id="action_0001" model="ir.actions.client">-->
+            <!--<field name="name">特种制环产品明细表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+            <!--<field name="tag">tag.0001</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+        <!--</record>-->
+        <record id="action_0001" model="ir.actions.client">
+            <field name="name">ACME 複合式報表</field><!--这里是打开后显示在浏览器标题上-->
+            <field name="tag">tag.0001</field> <!--这里的tag在JS文件中引用-->
+        </record>
+<!--        <record id="action_30010" model="ir.actions.client">-->
+<!--            <field name="name">工序产品明细表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30010</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30011" model="ir.actions.client">-->
+<!--            <field name="name">工序产品明细表2</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30011</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30012" model="ir.actions.client">-->
+<!--            <field name="name">工序产品明细表3</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30012</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30013" model="ir.actions.client">-->
+<!--            <field name="name">工序产品明细表4</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30013</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30014" model="ir.actions.client">-->
+<!--            <field name="name">工序产品明细表5</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30014</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_30020" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30020</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30021" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板_通用拉丝车间</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30021</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30022" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板_包装车间</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30022</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30023" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板_挤压车间</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30023</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30024" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板_熔炼车间</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30024</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30025" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板_特种制环车间</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30025</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30026" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板_特种拉丝车间</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30026</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30027" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板_矫直车间</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30027</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30028" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板_综合组</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30028</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30029" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板_薄带车间</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30029</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_300201" model="ir.actions.client">-->
+<!--            <field name="name">开机情况看板_通用制环车间</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.300201</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+
+<!--        <record id="action_30030" model="ir.actions.client">-->
+<!--            <field name="name">数采终端状态表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30030</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_30040" model="ir.actions.client">-->
+<!--            <field name="name">生产汇报记录查询</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30040</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_300402" model="ir.actions.client">-->
+<!--            <field name="name">生产汇报记录查询2</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.300402</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_300500" model="ir.actions.client">-->
+<!--            <field name="name">工序产量汇总表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.300500</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_300501" model="ir.actions.client">-->
+<!--            <field name="name">拉丝工序产量汇总表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.300501</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_300600" model="ir.actions.client">-->
+<!--            <field name="name">工序产量汇总简表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.300600</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30070" model="ir.actions.client">-->
+<!--            <field name="name">品质报表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30070</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30080" model="ir.actions.client">-->
+<!--            <field name="name">炉号成品率报表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30080</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_30090" model="ir.actions.client">-->
+<!--            <field name="name">生产汇总表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30090</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_30090a" model="ir.actions.client">-->
+<!--            <field name="name">生产汇总表a</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30090a</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="zimo_action_huaguang_report_30100" model="ir.actions.client">-->
+<!--            <field name="name">在制品汇总表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30100</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="zimo_action_huaguang_report_30101" model="ir.actions.client">-->
+<!--            <field name="name">在制品库存表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30101</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="zimo_action_huaguang_report_30102" model="ir.actions.client">-->
+<!--            <field name="name">在制品库存表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30102</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="zimo_action_huaguang_report_30103" model="ir.actions.client">-->
+<!--            <field name="name">在制品库存表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30103</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="zimo_action_huaguang_report_30110" model="ir.actions.client">-->
+<!--            <field name="name">在制品明细报表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30110</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="zimo_action_huaguang_report_30120" model="ir.actions.client">-->
+<!--            <field name="name">生产单汇总表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30120</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="zimo_action_huaguang_report_30120a" model="ir.actions.client">-->
+<!--            <field name="name">30120a生产单汇总表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30120a</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="zimo_action_huaguang_report_30130" model="ir.actions.client">-->
+<!--            <field name="name">并包报表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30130</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_0003" model="ir.actions.client">-->
+<!--            <field name="name">在制品列表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.0003</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_0004" model="ir.actions.client">-->
+<!--            <field name="name">设备稼动率</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.0004</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_0005" model="ir.actions.client">-->
+<!--            <field name="name">制环工序成材率</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.0005</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_0006" model="ir.actions.client">-->
+<!--            <field name="name">产能对比表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.0006</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+
+
+<!--        <record id="action_0008" model="ir.actions.client">-->
+<!--            <field name="name">炉号开工记录查询</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.0008</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_0009" model="ir.actions.client">-->
+<!--            <field name="name">炉号开工记录3203查询</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.0009</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="zimo_action_huaguang_report_30140" model="ir.actions.client">-->
+<!--            <field name="name">炉号开工记录30140</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.30140</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--        <record id="action_0010" model="ir.actions.client">-->
+<!--            <field name="name">工序加工状态表</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.0010</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+<!--        <record id="action_00102" model="ir.actions.client">-->
+<!--            <field name="name">工序加工状态表2</field>&lt;!&ndash;这里是打开后显示在浏览器标题上&ndash;&gt;-->
+<!--            <field name="tag">tag.00102</field> &lt;!&ndash;这里的tag在JS文件中引用&ndash;&gt;-->
+<!--        </record>-->
+
+<!--    </data>-->
+
+<!--    <data>-->
+<!--        <record id="zimo_action_zimo_wizard_mrp_pcrl" model="ir.actions.act_window">-->
+<!--            <field name="name">生产单明细</field>-->
+<!--            <field name="res_model">zimo.wizard.mrp.pcrl</field>-->
+<!--            <field name="view_mode">form</field>-->
+<!--            <field name="view_id" ref="zimo_wizard_mrp_pcrl" />-->
+<!--            <field name="target">new</field>-->
+<!--        </record>-->
+    </data>
+</odoo>

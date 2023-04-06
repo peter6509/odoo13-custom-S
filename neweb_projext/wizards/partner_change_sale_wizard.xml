@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="views_partner_change_sale_wizard" model="ir.ui.view">
+              <field name="name">views.partner.change.sale.wizard</field>
+              <field name="model">neweb.change_sale_wizard</field>
+              <field name="arch" type="xml">
+                  <form string="">
+                      <sheet>
+                          <h1>原業務所屬客戶移交給原業務之主管</h1>
+                          <group>
+                              <field name="old_sale_id"  options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                              <field name="old_parent_id"  options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                          </group>
+
+                      </sheet>
+                      <footer>
+                          <button type="object" name="run_change_sale" string="移交客戶執行" class="oe_highlight"/>
+                          <button special="cancel" string="放棄離開"/>
+                      </footer>
+                  </form>
+              </field>
+          </record>
+          <record id="partner_change_sale_wizard_action" model="ir.actions.act_window">
+              <field name="name">業務所屬客戶移交</field>
+              <field name="res_model">neweb.change_sale_wizard</field>
+              <field name="view_mode">form</field>
+              <field name="target">new</field>
+          </record>
+
+        <menuitem id="menu_partner_chabge_sale_action"
+                  name=""
+                  parent="neweb_project.neweb_proj_config"
+                  action="partner_change_sale_wizard_action"
+                  groups="neweb_project.neweb_sys_man"
+                  sequence="210"/>
+    </data>
+</odoo>

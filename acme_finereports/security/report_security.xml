@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record model="ir.module.category" id="module_zimo_report">
+            <field name="name">报表管理</field>
+        </record>
+
+        <record model="res.groups" id="group_report_user">
+            <field name="name">用户</field>
+            <field name="category_id" ref="module_zimo_report"/>
+        </record>
+
+        <record model="res.groups" id="group_report_manager">
+            <field name="name">管理员</field>
+            <field name="implied_ids" eval="[(4, ref('group_report_user'))]"/>
+            <field name="category_id" ref="module_zimo_report"/>
+        </record>
+
+
+        <!--例子rule：-->
+        <!--规则写法1：[(1, '=', 1)]代表可以查看所有单据-->
+        <!--规则写法2：['|', '|', ('company_id', '=', False), ('company_id','child_of',[user.company_id.id]),('company_id','in',[c.id for c in user.company_ids])] 当前与子类都可查看-->
+        <!--规则写法3： [('person.user_id','=',user.id)] 当前登陆人员才允许查看的条件  -->
+
+        <!--<record id="rule_1a" model="ir.rule">-->
+            <!--<field name="name">测试规则</field>-->
+            <!--<field name="model_id" ref="model_hr_employee"/>   &lt;!&ndash; 规则对应的模块 &ndash;&gt;-->
+            <!--&lt;!&ndash;<field name="domain_force">[(1, '=', 1)]</field>&ndash;&gt;-->
+            <!--<field name="perm_create" eval="False"/>-->
+            <!--<field name="perm_read" eval="False"/>-->
+            <!--<field name="perm_write" eval="False"/>-->
+            <!--<field name="perm_unlink" eval="False"/>-->
+            <!--<field name="active" eval="False"/>-->
+            <!--<field name="domain_force">['|', '|', ('company_id', '=', False),-->
+                <!--('company_id','child_of',[user.company_id.id]),('company_id','in',[c.id for c in user.company_ids])]-->
+            <!--</field>-->
+            <!--<field name="groups" eval="[(4,ref('base.group_user'))]"/>    &lt;!&ndash; 包含哪些组&ndash;&gt;-->
+        <!--</record>-->
+
+
+    </data>
+</odoo>

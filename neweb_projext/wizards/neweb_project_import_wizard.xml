@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit_project_import_form" model="ir.ui.view">
+           <field name="name">view.inherit.project.import.form</field>
+           <field name="model">neweb.saleitem_import_wizard</field>
+           <field name="inherit_id" ref="neweb_project.neweb_import_form_wizard"/>
+           <field name="arch" type="xml">
+
+               <!-- position: after|before|replace|attributes|inside -->
+               <xpath expr="//button[@name='action_import']" position="before">
+                   <button type="object" name="check_import" string="匯入EXCEL前驗證" class="oe_highlight"/>
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

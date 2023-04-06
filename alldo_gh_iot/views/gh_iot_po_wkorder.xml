@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+       <record id="view_gh_iot_po_wkorder_tree" model="ir.ui.view">
+           <field name="name">view.gh.iot.po.wkorder.tree</field>
+           <field name="model">alldo_gh_iot.po_wkorder</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="po_no"/>
+                   <field name="cus_name"/>
+                   <field name="product_no"/>
+                   <field name="order_date"/>
+                   <field name="shipping_date"/>
+                   <field name="change_shipping_date" string="改交期"/>
+                   <field name="po_location"/>
+                   <field name="po_num" string="訂單數"/>
+                   <field name="shipping_num" string="出貨數"/>
+                   <field name="state" invisible="1"/>
+                   <field name="response_shipping_date1" string="狀態"/>
+                   <field name="open_wkorder"/>
+                   <field name="open_wkorder1"/>
+                   <field name="booking_blank"/>
+<!--                   <field name="booking_blank1"/>-->
+                   <field name="stockin_blank"/>
+<!--                   <field name="stockin_blank1"/>-->
+                   <field name="after_wkorder"/>
+                   <field name="after_wkorder1" string="完"/>
+                   <field name="custom_system"/>
+                   <button type="object" name="run_archive" string="訂單歸檔" attrs="{'invisible':[('state','in',['1','2','4'])]}" class="oe_highlight"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_gh_iot_po_wkorder_form" model="ir.ui.view">
+           <field name="name">view.gh.iot.po.wkorder.form</field>
+           <field name="model">alldo_gh_iot.po_wkorder</field>
+           <field name="arch" type="xml">
+               <form string="">
+                    <header>
+                     <button name="%(gh_iot_open_workorder_wizard_action)d"  type="action" string="開立工單" class="oe_highlight oe_edit_only" attrs="{'invisible':[('is_open','=',True)]}"
+                         context="{'po_wkorder_id': context.get('active_id') }"/>
+                     <button name="complete_powkorder" type="object"
+                            string="訂單結案" class="oe_highlight oe_edit_only"
+                            context="{'powkorder_id': context.get('active_id')}"
+                            attrs="{'invisible': [('state', 'in', ['1','3','4'])]}"/>
+<!--                     <button name="%(gh_booking_release_wizard_action)d" type="action"-->
+<!--                            string="倉庫鎖定解除" class="oe_highlight oe_edit_only"-->
+<!--                            context="{'powkorder_id': context.get('active_id')}"-->
+<!--                            attrs="{'invisible': [('po_lock', '=', False)]}"/>-->
+                     <field name="state" widget="statusbar"/>
+                    </header>
+                   <sheet>
+                       <group>
+                           <group>
+                           <field name="po_no"/>
+                           <field name="cus_name" options="{'no_create':true,'no_create_edit':true}" domain="[('is_company','=',True)]"/>
+                           <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+                           <field name="custom_system"/>
+                           <field name="open_wkorder" string="工"/>
+                           <field name="open_wkorder1" string="代"/>
+                           <field name="booking_blank" string="訂"/>
+<!--                           <field name="booking_blank1" string="訂1"/>-->
+                           <field name="stockin_blank" string="進"/>
+<!--                           <field name="stockin_blank1" string="進1"/>-->
+                           <field name="after_wkorder" string="後"/>
+                           <field name="after_wkorder1" string="完"/>
+                           <field name="po_id" options="{'no_create':true,'no_create_edit':true}" attrs="{'readonly':1}"/>
+<!--                           <field name="booking_blank" attrs="{'readonly':1}"/>-->
+                           <field name="booking_blank_num" attrs="{'readonly':1}"/>
+<!--                           <field name="stockin_blank" attrs="{'readonly':1}"/>-->
+                           <field name="stockin_blank_num" attrs="{'readonly':1}"/>
+                           <field name="order_memo"/>
+                       </group>
+                       <group>
+                            <field name="order_date"/>
+                           <field name="shipping_date"/>
+                           <field name="change_shipping_date"/>
+                           <field name="response_shipping_date1" string="狀態"/>
+                           <field name="po_num"/>
+                           <field name="po_location"/>
+                           <field name="po_lock" attrs="{'invisible':1}"/>
+                           <field name="po_memo"/>
+                           <field name="is_closed" attrs="{'invisible':1}"/>
+                           <field name="is_open" attrs="{'invisible':1}"/>
+                           <field name="stock_num" attrs="{'invisible':1}"/>
+                           <field name="shipping_num"/>
+                           <field name="booking_num" attrs="{'invisible':1}"/>
+                           <field name="release_num" attrs="{'invisible':1}"/>
+
+                       </group>
+
+                       </group>
+
+
+                       <notebook>
+                                <page string="生產工單" name="PO Line">
+                                    <field
+                                        name="po_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree" attrs="{'readonly':1}"
+                                    >
+                                   <tree string="產品工單記錄" editable="bottom">
+                                      <field name="wkorder_id" string="工單" options="{'no_create':true,'no_create_edit':true}" />
+                                      <field name="eng_type" />
+                                      <field name="eng_order" />
+                                      <field name="eng_seq"/>
+                                      <field name="complete_num"/>
+                                      <field name="ng_num"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                                <page string="庫存鎖定記錄" name="Booking Line" attrs="{'invisible':[('po_lock','=',False)]}">
+                                    <field
+                                        name="booking_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree" attrs="{'readonly':1}"
+                                    >
+                                   <tree string="庫存鎖定記錄" editable="bottom">
+                                       <field name="booking_date"/>
+<!--                                       <field name="booking_release"/>-->
+                                       <field name="booking_desc"/>
+                                       <field name="booking_num"/>
+                                       <field name="booking_type"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                                <page string="庫存鎖定解除記錄" name="Booking release Line" attrs="{'invisible':[('po_lock','=',False)]}">
+                                    <field
+                                        name="release_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree" attrs="{'readonly':1}"
+                                    >
+                                   <tree string="庫存鎖定解除記錄" editable="bottom">
+
+                                       <field name="release_date"/>
+                                       <field name="release_num"/>
+                                       <field name="release_owner"/>
+                                       <field name="release_desc"/>
+                                       <field name="release_p_picking"/>
+<!--                                       <field name="release_b_picking"/>-->
+                                    </tree>
+                                    </field>
+                                </page>
+                                <page string="完工入庫明細記錄" name="Stock Line">
+                                    <field
+                                        name="stock_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree" attrs="{'readonly':1}"
+                                    >
+                                   <tree string="完工入庫明細記錄" editable="bottom">
+                                       <field name="picking_date"/>
+                                       <field name="location_id"/>
+                                       <field name="dest_location_id"/>
+                                       <field name="picking_num"/>
+                                       <field name="picking_id"/>
+<!--                                       <field name="picking_type_id"/>-->
+                                    </tree>
+                                    </field>
+                                </page>
+                                <page string="出貨明細記錄" name="Picking Line">
+                                    <field
+                                        name="picking_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree" attrs="{'readonly':1}"
+                                    >
+                                   <tree string="出貨明細記錄" editable="bottom">
+                                       <field name="picking_date"/>
+                                       <field name="picking_num"/>
+                                       <field name="picking_id"/>
+                                       <field name="picking_type_id"/>
+                                       <field name="origin"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                       </notebook>
+                   </sheet>
+
+               </form>
+           </field>
+       </record>
+         <record id="view_gh_iot_po_wkorder_search" model="ir.ui.view">
+           <field name="name">view.gh.iot.po.wkorder.search</field>
+           <field name="model">alldo_gh_iot.po_wkorder</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="po_no" string="關鍵字" filter_domain="['|','|','|',('product_no.default_code','ilike',self),('po_no', 'ilike',self),('cus_name.name','ilike',self),('po_id.partner_id.name','ilike',self)]"/>
+              <filter domain="[('state','in',['1','2'])]" string="未完工" name="uncomplete"/>
+              <filter domain="[('state','=','3')]" string="已完工" name="complete"/>
+              <filter domain="[('cus_name','=',35),('state','in',['1','2'])]" string="瀧澤未完工" name="custom11"/>
+              <filter domain="[('cus_name','=',35),('state','=',3)]" string="瀧澤已完工" name="custom12"/>
+              <filter domain="[('cus_name','=',34),('state','in',['1','2'])]" string="達翌未完工" name="custom21"/>
+              <filter domain="[('cus_name','=',34),('state','=',3)]" string="達翌已完工" name="custom22"/>
+              <filter domain="[('cus_name','=',33),('state','in',['1','2'])]" string="正璽未完工" name="custom31"/>
+              <filter domain="[('cus_name','=',33),('state','=',3)]" string="正璽已完工" name="custom32"/>
+              <filter name="group_cus_name" string="客戶群組" icon="terp-partner" context="{'group_by':'cus_name'}"/>
+            </search>
+           </field>
+        </record>
+       <record id="action_gh_iot_po_wkorder_view" model="ir.actions.act_window">
+           <field name="name">客戶訂單作業</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">alldo_gh_iot.po_wkorder</field>
+           <field name="view_mode">tree,form</field>
+             <field name="search_view_id" ref="view_gh_iot_po_wkorder_search"></field>
+           <field name="context">{'search_default_uncomplete':0,'search_default_group_cus_name':1}</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+
+             </p><p>
+
+             </p>
+           </field>
+       </record>
+    </data>
+</odoo>

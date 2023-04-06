@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_acme_iot_server_tree" model="ir.ui.view">
+           <field name="name">view.acme.iot.server.tree</field>
+           <field name="model">alldo_acme_iot.server_info</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="iot_server_name"/>
+                   <field name="iot_server_ip"/>
+                   <field name="iot_db_name"/>
+                   <field name="iot_db_username"/>
+                   <field name="iot_db_passwd"/>
+                   <field name="server_path"/>
+                   <field name="client_path"/>
+               </tree>
+           </field>
+       </record> 
+       <record id="view_acme_iot_server_form" model="ir.ui.view">
+           <field name="name">view.acme.iot.server.form</field>
+           <field name="model">alldo_acme_iot.server_info</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <field name="iot_server_name"/>
+                           <field name="iot_server_ip"/>
+                           <field name="iot_db_name"/>
+                           <field name="iot_db_username"/>
+                           <field name="iot_db_passwd"/>
+                            <field name="server_path"/>
+                           <field name="client_path"/>
+                       </group>
+                   </sheet>
+
+               </form>
+           </field>
+       </record> 
+       <record id="action_acme_iot_server_view" model="ir.actions.act_window">
+           <field name="name">IOT資料庫連線資訊</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">alldo_acme_iot.server_info</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               
+             </p><p>
+                
+             </p>
+           </field>
+       </record>
+    </data>
+</odoo>

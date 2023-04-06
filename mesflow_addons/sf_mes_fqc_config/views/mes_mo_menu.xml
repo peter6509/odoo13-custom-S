@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <menuitem id="fqc_setup_check_list_categ" name="MES 檢驗項目名稱" parent="mes_assembly.mes_assembly_categ4" action="fqc_product_check_item_action" sequence="10"/>
+        <menuitem id="fqc_setup_check_doc_categ" name="MES 檢驗規格說明" parent="mes_assembly.mes_assembly_categ4" action="fqc_setup_check_doc_action" sequence="15"/>
+    </data>
+</odoo>

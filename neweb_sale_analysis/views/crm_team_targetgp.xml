@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="crmteam_targetgp_view_tree" model="ir.ui.view">
+            <field name="name">crmteam_targetgp.view.tree</field>
+            <field name="model">neweb_sale_analysis.team_targetgp</field>
+            <field name="arch" type="xml">
+                <tree import="false">
+                    <field name="team_id"/>
+                    <field name="team_target_year" />
+                    <field name="team_target_year_gp"/>
+                    <field name="team_target_q1_gp"/>
+                    <!--<field name="team_target_q1_magp"/>-->
+                    <!--<field name="team_target_q1_sigp"/>-->
+                    <field name="team_target_q2_gp"/>
+                    <!--<field name="team_target_q2_magp"/>-->
+                    <!--<field name="team_target_q2_sigp"/>-->
+                    <field name="team_target_q3_gp"/>
+                    <field name="team_target_q4_gp"/>
+                </tree>
+            </field>
+        </record>
+        <record id="crmteam_targetgp_view_form" model="ir.ui.view">
+            <field name="name">crmteam.targetgp.view.form</field>
+            <field name="model">neweb_sale_analysis.team_targetgp</field>
+            <field name="arch" type="xml">
+                <form>
+                 <sheet>
+                      <h1>業務團隊目標設定</h1>
+                      <HR colors="#0000ff" size="10"/>
+                      <group>
+                          <field name="team_id" colspan="1"/>
+                         <field name="team_target_q1_gp" colspan="1"/>
+                         <field name="team_total_q1_gp" colspan="1" attrs="{'readonly':1}"/>
+                          <field name="team_target_q1_magp" colspan="1"/>
+                          <field name="team_target_q1_sigp" colspan="1"/>
+                       </group>
+                       <group>
+                           <field name="team_target_year" colspan="1" placeholder="請輸入西元年" style="color:#898687"/>
+                          <field name="team_target_q2_gp" colspan="1"/>
+                          <field name="team_total_q2_gp" colspan="1" attrs="{'readonly':1}"/>
+                           <field name="team_target_q2_magp" colspan="1"/>
+                          <field name="team_target_q2_sigp" colspan="1"/>
+
+                       </group>
+                       <group>
+                          <field name="team_target_year_gp" colspan="1"/>
+                           <field name="team_target_q3_gp" colspan="1"/>
+                          <field name="team_total_q3_gp" colspan="1" attrs="{'readonly':1}"/>
+                           <field name="team_target_q3_magp" colspan="1"/>
+                          <field name="team_target_q3_sigp" colspan="1"/>
+
+                       </group>
+                       <group>
+                          <field name="team_total_year_gp" colspan="1" attrs="{'readonly':1}"/>
+                            <field name="team_target_q4_gp" colspan="1"/>
+                          <field name="team_total_q4_gp" colspan="1" attrs="{'readonly':1}"/>
+                            <field name="team_target_q4_magp" colspan="1"/>
+                          <field name="team_target_q4_sigp" colspan="1"/>
+                       </group>
+
+                      <notebook>
+                          <page string="目標設定">
+                               <field name="team_lines1_ids" nolabel="1">
+                                 <tree editable="bottom" string="TEAM LIST" widget="one2many" create="false" delete="false">
+                                     <field name="sales_id" string="業務人員" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                     <field name="teammember_target_year_gp" string="個人年度目標GP"/>
+                                     <field name="teammember_target_q1_magp" string="個人Q1目標MA GP"/>
+                                     <field name="teammember_target_q1_sigp" string="個人Q1目標SI GP"/>
+                                     <field name="teammember_target_q2_magp" string="個人Q2目標MA GP"/>
+                                     <field name="teammember_target_q2_sigp" string="個人Q2目標SI GP"/>
+                                     <field name="teammember_target_q3_magp" string="個人Q3目標MA GP"/>
+                                     <field name="teammember_target_q3_sigp" string="個人Q3目標SI GP"/>
+                                     <field name="teammember_target_q4_magp" string="個人Q4目標MA GP"/>
+                                     <field name="teammember_target_q4_sigp" string="個人Q4目標SI GP"/>
+
+                                 </tree>
+                              </field>
+                          </page>
+                           <page string="實際收益">
+                               <field name="team_lines_ids" nolabel="1">
+                                 <tree editable="bottom" string="TEAM LIST1" widget="one2many" create="false" delete="false">
+                                     <field name="sales_id" string="業務人員" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                     <field name="teammember_total_year_gp" string="個人年度GP"/>
+                                     <field name="teammember_total_q1_magp" string="個人Q1實際MA GP"/>
+                                     <field name="teammember_total_q1_sigp" string="個人Q1實際SI GP"/>
+                                     <field name="teammember_total_q2_magp" string="個人Q2實際MA GP"/>
+                                      <field name="teammember_total_q2_sigp" string="個人Q2實際SI GP"/>
+                                     <field name="teammember_total_q3_magp" string="個人Q3實際MA GP"/>
+                                     <field name="teammember_total_q3_sigp" string="個人Q3實際SI GP"/>
+                                     <field name="teammember_total_q4_magp" string="個人Q4實際MA GP"/>
+                                     <field name="teammember_total_q4_sigp" string="個人Q4實際SI GP"/>
+
+                                 </tree>
+                              </field>
+                          </page>
+                      </notebook>
+
+                 </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="crmteam_targetgp_action" model="ir.actions.act_window">
+            <field name="name">業務團隊業績配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_sale_analysis.team_targetgp</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_crmteam_targetgp_action" name="" sequence="40"
+                  parent="neweb_project.menu_neweb_sale_categ"
+                  groups="neweb_project.neweb_cs30_dir"
+                  action="crmteam_targetgp_action"/>
+    </data>
+</odoo>

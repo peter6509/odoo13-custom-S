@@ -1,0 +1,483 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* maintenance_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-04 13:12+0000\n"
+"PO-Revision-Date: 2017-09-04 13:12+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.super_main_mod_wizard
+msgid "CHANGE DATA"
+msgstr "CHANGE DATA"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.m_search_wizard
+#: model:ir.ui.view,arch_db:maintenance_report.mainhis_wizard
+#: model:ir.ui.view,arch_db:maintenance_report.mmonth_pivot
+#: model:ir.ui.view,arch_db:maintenance_report.mmonth_wizard
+#: model:ir.ui.view,arch_db:maintenance_report.mproduct_wizard
+#: model:ir.ui.view,arch_db:maintenance_report.mreport_wizard
+#: model:ir.ui.view,arch_db:maintenance_report.super_main_mod_wizard
+msgid "Cancel"
+msgstr "取消"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard_create_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_main_team_group_create_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_his_pivot_create_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_month_pivot_create_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_supermod_create_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_pivot_create_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_wizard_create_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard_create_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard_create_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_create_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_my_createview_create_uid
+msgid "Created by"
+msgstr "創建人"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard_create_date
+#: model:ir.model.fields,field_description:maintenance_report.field_main_team_group_create_date
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_his_pivot_create_date
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_month_pivot_create_date
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_supermod_create_date
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_pivot_create_date
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_wizard_create_date
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard_create_date
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard_create_date
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_create_date
+#: model:ir.model.fields,field_description:maintenance_report.field_my_createview_create_date
+msgid "Created on"
+msgstr "創建時間"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard_defaultcode
+msgid "Defaultcode"
+msgstr "內部編號"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard_department_id
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_pivot_department_id
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_wizard_department_id
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard_department_id
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_department_id
+msgid "Department"
+msgstr "部門"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_product_product_disp_supp_name
+#: model:ir.model.fields,field_description:maintenance_report.field_product_template_disp_supp_name
+msgid "Disp supp name"
+msgstr "供應商"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_main_team_group_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_his_pivot_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_month_pivot_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_supermod_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_pivot_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_wizard_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_my_createview_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_report_maintenance_report_mmonth_report_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_report_maintenance_report_mproduct_report_display_name
+#: model:ir.model.fields,field_description:maintenance_report.field_report_maintenance_report_mreport_request_display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard_end_date
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard_end_date
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_end_date
+msgid "End date"
+msgstr "結束日期"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_maintenance_equipment
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard_equipment_id
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard_equipment_id
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_equipment_id
+msgid "Equipment"
+msgstr "設備"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_request_faultcauseids
+msgid "Faultcauseids"
+msgstr "故障原因"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard_id
+#: model:ir.model.fields,field_description:maintenance_report.field_main_team_group_id
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_his_pivot_id
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_month_pivot_id
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_supermod_id
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_pivot_id
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_wizard_id
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard_id
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard_id
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_id
+#: model:ir.model.fields,field_description:maintenance_report.field_my_createview_id
+#: model:ir.model.fields,field_description:maintenance_report.field_report_maintenance_report_mmonth_report_id
+#: model:ir.model.fields,field_description:maintenance_report.field_report_maintenance_report_mproduct_report_id
+#: model:ir.model.fields,field_description:maintenance_report.field_report_maintenance_report_mreport_request_id
+msgid "ID"
+msgstr "ID"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_main_team_group___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_his_pivot___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_month_pivot___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_supermod___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_pivot___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_wizard___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_my_createview___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_report_maintenance_report_mmonth_report___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_report_maintenance_report_mproduct_report___last_update
+#: model:ir.model.fields,field_description:maintenance_report.field_report_maintenance_report_mreport_request___last_update
+msgid "Last Modified on"
+msgstr "最後修改日"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard_write_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_main_team_group_write_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_his_pivot_write_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_month_pivot_write_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_supermod_write_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_pivot_write_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_wizard_write_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard_write_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard_write_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_write_uid
+#: model:ir.model.fields,field_description:maintenance_report.field_my_createview_write_uid
+msgid "Last Updated by"
+msgstr "最後更新人"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard_write_date
+#: model:ir.model.fields,field_description:maintenance_report.field_main_team_group_write_date
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_his_pivot_write_date
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_month_pivot_write_date
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_supermod_write_date
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_pivot_write_date
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_wizard_write_date
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard_write_date
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard_write_date
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_write_date
+#: model:ir.model.fields,field_description:maintenance_report.field_my_createview_write_date
+msgid "Last Updated on"
+msgstr "最後更新時間"
+
+#. module: maintenance_report
+#: model:ir.actions.report.xml,name:maintenance_report.action_mmonth_report
+msgid "MAINTENANCE MONTH REPORT"
+msgstr "維修履歷統計月報"
+
+#. module: maintenance_report
+#: model:ir.actions.report.xml,name:maintenance_report.action_mreport_request
+msgid "MAINTENANCE REQUEST"
+msgstr "維修請求"
+
+#. module: maintenance_report
+#: model:ir.ui.menu,name:maintenance_report.menu_mainhis_wizard
+msgid "MENU_MAIN_HIS_Wizard"
+msgstr "維修履歷EXCEL匯出作業"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.mainhis_wizard
+msgid "MHIS Print"
+msgstr "履歷EXCEL匯出"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.mmonth_pivot
+msgid "MMonth EXCEL export"
+msgstr "維修月報匯出EXCEL"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.mmonth_wizard
+msgid "MMonth Print"
+msgstr "月報列印"
+
+#. module: maintenance_report
+#: model:ir.ui.menu,name:maintenance_report.menu_mproduct_wizard
+msgid "MProduct_Wizard"
+msgstr "設備維修零組件印表精靈"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.mproduct_wizard
+msgid "MProdust Print"
+msgstr "庫存報表列印"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.mreport_wizard
+msgid "MSmart Print"
+msgstr "維修履歷表列印"
+
+#. module: maintenance_report
+#: model:ir.ui.menu,name:maintenance_report.menu_mmonth_pivot
+msgid "M_M_P_Pivot"
+msgstr "統計月報EXCEL匯出作業"
+
+#. module: maintenance_report
+#: model:ir.ui.menu,name:maintenance_report.menu_mmonth_wizard
+msgid "M_M_P_Wizard"
+msgstr "維修履歷統計月報"
+
+#. module: maintenance_report
+#: model:ir.ui.menu,name:maintenance_report.menu_mreport_wizard
+msgid "M_S_P_Wizard"
+msgstr "維修履歷複合式報表"
+
+#. module: maintenance_report
+#: model:ir.ui.menu,name:maintenance_report.menu_msearch_wizard
+msgid "M_S_Wizard"
+msgstr "維修記錄複合式查詢"
+
+#. module: maintenance_report
+#: model:ir.ui.menu,name:maintenance_report.main_team_group_menu_action
+msgid "Main Group"
+msgstr "維修團隊分組"
+
+#. module: maintenance_report
+#: model:ir.actions.act_window,name:maintenance_report.action_super_main_mod
+msgid "Mainb Request Mod"
+msgstr "高級管理者維修記錄調整精靈"
+
+#. module: maintenance_report
+#: model:ir.module.category,description:maintenance_report.mreport_user
+msgid "Maintenance Request Report"
+msgstr "維修記錄報表"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_maintenance_request
+msgid "Maintenance Requests"
+msgstr "維護申請"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.m_search_wizard
+msgid "Maintenance smart search"
+msgstr "維修記錄複合式查詢"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_product_product_maker_name
+#: model:ir.model.fields,field_description:maintenance_report.field_product_template_maker_name
+msgid "Maker name"
+msgstr "製造商"
+
+#. module: maintenance_report
+#: model:ir.actions.report.xml,name:maintenance_report.action_mproduct_report
+msgid "PRODUCT QTY REPORT"
+msgstr "維修零組件庫存報表"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_part_id
+msgid "Parts"
+msgstr "維修零件"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard_prodname
+msgid "Prodname"
+msgstr "零組件名稱"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_product_template
+msgid "Product Template"
+msgstr "產品模板"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard_qtystatus
+msgid "Qtystatus"
+msgstr "查詢條件"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_mproduct_wizard_qtyvalue
+msgid "Qtyvalue"
+msgstr "庫存量"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_pivot_report_month
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_wizard_report_month
+msgid "Report month"
+msgstr "報表月份"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_pivot_report_year
+#: model:ir.model.fields,field_description:maintenance_report.field_mmonth_wizard_report_year
+msgid "Report year"
+msgstr "報表年度"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.super_main_mod_wizard
+msgid "SUPER MAIN MOD"
+msgstr "高級管理者維修調整作業"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_product_product_safe_qty
+#: model:ir.model.fields,field_description:maintenance_report.field_product_template_safe_qty
+msgid "Safe qty"
+msgstr "安全存量"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_maintenance_month_pivot_sequence_id
+msgid "Sequence id"
+msgstr "序"
+
+#. module: maintenance_report
+#: model:ir.model.fields,field_description:maintenance_report.field_main_his_pivot_wizard_start_date
+#: model:ir.model.fields,field_description:maintenance_report.field_mreport_wizard_start_date
+#: model:ir.model.fields,field_description:maintenance_report.field_msearch_wizard_start_date
+msgid "Start date"
+msgstr "開始日期"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_res_users
+msgid "Users"
+msgstr "用戶"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_main_his_pivot_wizard
+msgid "main_his_pivot.wizard"
+msgstr "main_his_pivot.wizard"
+
+#. module: maintenance_report
+#: model:ir.actions.act_window,name:maintenance_report.main_his_pivot_action
+msgid "main_his_pivot_action"
+msgstr "main_his_pivot_action"
+
+#. module: maintenance_report
+#: model:ir.actions.act_window,name:maintenance_report.main_month_pivot_action
+msgid "main_month_pivot_action"
+msgstr "維修履歷月報統計匯出"
+
+#. module: maintenance_report
+#: model:ir.ui.menu,name:maintenance_report.menu_main_request_super_mod
+msgid "main_request_super_mod"
+msgstr "設備維修記錄調整作業"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_main_team_group
+msgid "main_team.group"
+msgstr "維修團對分組"
+
+#. module: maintenance_report
+#: model:ir.actions.act_window,name:maintenance_report.main_team_group_action
+msgid "main_team_group_action"
+msgstr "維修團成員對分組"
+
+#. module: maintenance_report
+#: model:ir.actions.act_window,name:maintenance_report.action_mainhis_wizard
+msgid "mainhis wizard"
+msgstr "維修履歷匯出精靈"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_maintenance_supermod
+msgid "maintenance.supermod"
+msgstr "maintenance.supermod"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_maintenance_his_pivot
+msgid "maintenance_his.pivot"
+msgstr "maintenance_his.pivot"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_maintenance_month_pivot
+msgid "maintenance_month.pivot"
+msgstr "維修月統計分析"
+
+#. module: maintenance_report
+#: model:ir.actions.act_window,name:maintenance_report.action_mmonth_pivot
+msgid "mmonth pivot"
+msgstr "月報匯出分析"
+
+#. module: maintenance_report
+#: model:ir.actions.act_window,name:maintenance_report.action_mmonth_wizard
+msgid "mmonth wizard"
+msgstr "統計月報精靈"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_mmonth_pivot
+msgid "mmonth.pivot"
+msgstr "月統計分析"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_mmonth_wizard
+msgid "mmonth.wizard"
+msgstr "統計月報精靈"
+
+#. module: maintenance_report
+#: model:ir.actions.act_window,name:maintenance_report.action_mproduct_wizard
+msgid "mproduct wizard"
+msgstr "設備維修零組件印表精靈"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_mproduct_wizard
+msgid "mproduct.wizard"
+msgstr "設備維修零組件印表精靈"
+
+#. module: maintenance_report
+#: model:ir.actions.act_window,name:maintenance_report.action_mreport_wizard
+msgid "mreport wizard"
+msgstr "維修履歷複合式印表"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_mreport_wizard
+msgid "mreport.wizard"
+msgstr "維修履歷複合式印表"
+
+#. module: maintenance_report
+#: model:ir.actions.act_window,name:maintenance_report.action_msearch_wizard
+msgid "msearch wizard"
+msgstr "維修記錄複合式查詢"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_msearch_wizard
+msgid "msearch.wizard"
+msgstr "維修記錄複合式查詢"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_my_createview
+msgid "my.createview"
+msgstr "my.createview"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_report_maintenance_report_mmonth_report
+msgid "report.maintenance_report.mmonth_report"
+msgstr "維修履歷統計月報表"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_report_maintenance_report_mproduct_report
+msgid "report.maintenance_report.mproduct_report"
+msgstr "設備維修零組件一覽表"
+
+#. module: maintenance_report
+#: model:ir.model,name:maintenance_report.model_report_maintenance_report_mreport_request
+msgid "report.maintenance_report.mreport_request"
+msgstr "維修履歷複合式報表"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.mainhis_wizard
+msgid "設備維修履歷EXCEL匯出作業"
+msgstr "設備維修履歷EXCEL匯出作業"
+
+#. module: maintenance_report
+#: model:ir.ui.view,arch_db:maintenance_report.mmonth_pivot
+msgid "設備維修統計月報表EXCEL匯出"
+msgstr "設備維修統計月報表EXCEL匯出"
+

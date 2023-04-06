@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_neweb_projwarranty_wizard" model="ir.ui.view">
+             <field name="name">views.neweb.projwarranty.wizard</field>
+             <field name="model">neweb.projwarranty_export_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>專案成本分析匯出保固資訊精靈</h1>
+                         <group>
+                             <field name="proj_ids" widget="many2many_tags" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                             <field name="proj_desc"/>
+                             <field name="run_desc"/>
+                             <field name="run_owner" attrs="{'readonly':1}"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_projwarranty_export" string="執行匯出" class="oe_highlight"/>
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+        <record id="views_neweb_projwarranty_action" model="ir.actions.act_window">
+                 <field name="name">專案匯出保固資訊精靈</field>
+                 <field name="type">ir.actions.act_window</field>
+                 <field name="res_model">neweb.projwarranty_export_wizard</field>
+<!--                 <field name="view_type">form</field>-->
+                 <field name="view_mode">form</field>
+                 <field name="view_id" ref=""/>
+                 <field name="target">new</field>
+             </record>
+    </data>
+</odoo>

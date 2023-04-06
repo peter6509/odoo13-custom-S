@@ -1,0 +1,555 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* neweb_base
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 9.0c\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-04 16:51+0000\n"
+"PO-Revision-Date: 2016-06-04 16:51+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: neweb_base
+#: model:ir.ui.view,arch_db:neweb_base.view_employee_form_ext
+#: model:ir.ui.view,arch_db:neweb_base.view_res_partner_form_ext
+msgid "Additional Info"
+msgstr "附加資訊"
+
+#. module: neweb_base
+#: model:res.groups,name:neweb_base.group_neweb_base_admin
+msgid "Administrator"
+msgstr "管理者"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_product_product_brand
+#: model:ir.model.fields,field_description:neweb_base.field_product_template_brand
+msgid "Brand"
+msgstr "品牌"
+
+#. module: neweb_base
+#: selection:res.partner,payment:0
+msgid "Cash"
+msgstr "現金"
+
+#. module: neweb_base
+#: selection:res.partner,payment:0
+msgid "Check"
+msgstr "支票"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_res_partner_checkout_date
+msgid "Checkout Date"
+msgstr "結帳日"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_res_partner_comp_create_date
+msgid "Company Create Date"
+msgstr "公司建立日期"
+
+#. module: neweb_base
+#: model:ir.ui.menu,name:neweb_base.menu_contract_configuration
+msgid "Configuration"
+msgstr "設定"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_value_added_service_content
+msgid "Content"
+msgstr "內容"
+
+#. module: neweb_base
+#: model:ir.ui.menu,name:neweb_base.menu_contract
+msgid "Contract"
+msgstr "合約"
+
+#. module: neweb_base
+#: model:res.groups,name:neweb_base.group_contract_read
+msgid "Contract Base Read"
+msgstr "Contract Base Read"
+
+#. module: neweb_base
+#: model:res.groups,name:neweb_base.group_contract_write
+msgid "Contract Base Write"
+msgstr "Contract Base Write"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_customer_category_create_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_create_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_item_create_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_create_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution_create_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link_create_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_type_create_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_create_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_value_added_service_create_uid
+msgid "Created by"
+msgstr "建立者"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_customer_category_create_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_create_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_item_create_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_create_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution_create_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link_create_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_type_create_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_create_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_value_added_service_create_date
+msgid "Created on"
+msgstr "建立於"
+
+#. module: neweb_base
+#: model:ir.ui.view,arch_db:neweb_base.customer_category_tree
+msgid "Customer Categories"
+msgstr "客戶類別"
+
+#. module: neweb_base
+#: model:ir.actions.act_window,name:neweb_base.action_list_customer_category
+#: model:ir.model,name:neweb_base.model_neweb_base_customer_category
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_customer_category_name
+#: model:ir.model.fields,field_description:neweb_base.field_res_partner_customer_category_id
+#: model:ir.ui.menu,name:neweb_base.menu_customer_category
+#: model:ir.ui.view,arch_db:neweb_base.customer_category_form
+msgid "Customer Category"
+msgstr "客戶類別"
+
+#. module: neweb_base
+#: sql_constraint:neweb_base.customer_category:0
+msgid "Customer Category must be unique!!"
+msgstr "客戶類別不可重覆!"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_customer_category_disabled
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_disabled
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_disabled
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution_disabled
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_disabled
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_value_added_service_disabled
+msgid "Disabled"
+msgstr "停用"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_customer_category_display_name
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_display_name
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_item_display_name
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_display_name
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution_display_name
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link_display_name
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_type_display_name
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_display_name
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_value_added_service_display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_hr_employee_educational_level
+msgid "Educational Level"
+msgstr "教育程度"
+
+#. module: neweb_base
+#: model:ir.model,name:neweb_base.model_hr_employee
+msgid "Employee"
+msgstr "員工"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_hr_employee_employee_num
+msgid "Employee No."
+msgstr "員工編號"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_err_code
+msgid "Error Code"
+msgstr "Error Code"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_err_log
+msgid "Error Log"
+msgstr "Error Log"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_event_log
+msgid "Event Log"
+msgstr "Event Log"
+
+#. module: neweb_base
+#: selection:neweb_base.maintenance_category,product_attr:0
+msgid "Hardware"
+msgstr "硬體"
+
+#. module: neweb_base
+#: model:ir.module.category,description:neweb_base.module_category_neweb_base
+msgid "Helps you handle your Base needs."
+msgstr "Helps you handle your Base needs."
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_customer_category_id
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_id
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_item_id
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_id
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution_id
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link_id
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_type_id
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_id
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_value_added_service_id
+msgid "ID"
+msgstr "編號"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_product_product_is_maintenance_target
+#: model:ir.model.fields,field_description:neweb_base.field_product_template_is_maintenance_target
+msgid "Is Maintenance Target"
+msgstr "維護設備"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_customer_category___last_update
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category___last_update
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_item___last_update
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem___last_update
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution___last_update
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link___last_update
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_type___last_update
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla___last_update
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_value_added_service___last_update
+msgid "Last Modified on"
+msgstr "最後修改於"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_customer_category_write_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_write_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_item_write_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution_write_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_write_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link_write_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_type_write_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_write_uid
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_value_added_service_write_uid
+msgid "Last Updated by"
+msgstr "最後更新："
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_customer_category_write_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_write_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_item_write_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution_write_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_write_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link_write_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_type_write_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_write_date
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_value_added_service_write_date
+msgid "Last Updated on"
+msgstr "最後更新於"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_product_product_model
+#: model:ir.model.fields,field_description:neweb_base.field_product_template_model
+msgid "Machine Model"
+msgstr "機型"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_product_product_serial
+#: model:ir.model.fields,field_description:neweb_base.field_product_template_serial
+msgid "Machine Serial"
+msgstr "機種"
+
+#. module: neweb_base
+#: model:ir.ui.view,arch_db:neweb_base.view_product_form_ext
+msgid "Maintenance"
+msgstr "維護"
+
+#. module: neweb_base
+#: model:ir.actions.act_window,name:neweb_base.action_list_maintenance_category
+#: model:ir.model,name:neweb_base.model_neweb_base_maintenance_category
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_name
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_item_maintenance_category_id
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_maintenance_category_id
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_type_maintenance_category_id
+#: model:ir.model.fields,field_description:neweb_base.field_product_product_maintenance_category_id
+#: model:ir.model.fields,field_description:neweb_base.field_product_template_maintenance_category_id
+#: model:ir.ui.menu,name:neweb_base.menu_maintenance_category
+#: model:ir.ui.view,arch_db:neweb_base.maintenance_category_form
+#: model:ir.ui.view,arch_db:neweb_base.maintenance_category_tree
+#: model:ir.ui.view,arch_db:neweb_base.qa_form
+msgid "Maintenance Category"
+msgstr "維護類別"
+
+#. module: neweb_base
+#: sql_constraint:neweb_base.maintenance_category:0
+msgid "Maintenance Category must be unique!!"
+msgstr "維護類別不可重覆!"
+
+#. module: neweb_base
+#: model:ir.model,name:neweb_base.model_neweb_base_maintenance_item
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_maintenance_item_ids
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_item_name
+#: model:ir.ui.view,arch_db:neweb_base.maintenance_category_form
+msgid "Maintenance Item"
+msgstr "維護項目"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_maintenance_time
+msgid "Maintenance Time"
+msgstr "完修時間"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_value_added_service_name
+msgid "Name"
+msgstr "名稱"
+
+#. module: neweb_base
+#: model:ir.module.category,name:neweb_base.module_category_neweb_base
+msgid "Neweb Base"
+msgstr "Neweb Base"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_onsite_time
+msgid "On Site Time"
+msgstr "到場時間"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_res_partner_paidup_capital
+msgid "Paid-up Capital"
+msgstr "資本額"
+
+#. module: neweb_base
+#: model:ir.model,name:neweb_base.model_res_partner
+msgid "Partner"
+msgstr "夥伴"
+
+#. module: neweb_base
+#: model:ir.ui.view,arch_db:neweb_base.view_product_form_ext
+msgid "Parts"
+msgstr "零件"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_res_partner_pay_date
+msgid "Pay Date"
+msgstr "付款日期"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_res_partner_payment
+msgid "Payment"
+msgstr "付款"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_res_partner_payment_days
+msgid "Payment Days"
+msgstr "付款天數"
+
+#. module: neweb_base
+#: model:ir.model,name:neweb_base.model_neweb_base_problem
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution_problem_id
+#: model:ir.ui.view,arch_db:neweb_base.qa_tree
+msgid "Problem"
+msgstr "問題"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_problem_category
+msgid "Problem Category"
+msgstr "問題類別"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_description
+msgid "Problem Description"
+msgstr "問題描述"
+
+#. module: neweb_base
+#: model:ir.actions.act_window,name:neweb_base.action_list_qa
+#: model:ir.ui.view,arch_db:neweb_base.qa_form
+#: model:ir.ui.view,arch_db:neweb_base.qa_tree
+msgid "Problem Handling"
+msgstr "問題處理"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_name
+#: model:ir.ui.view,arch_db:neweb_base.qa_form
+msgid "Problem Name"
+msgstr "問題名稱"
+
+#. module: neweb_base
+#: sql_constraint:neweb_base.problem:0
+msgid "Problem Name + Maintenance Category must be unique!!"
+msgstr "問題名稱 + 維護類別不可重覆!!"
+
+#. module: neweb_base
+#: model:ir.actions.act_window,name:neweb_base.action_list_qa_solution
+#: model:ir.model,name:neweb_base.model_neweb_base_problem_solution
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_problem_solution
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution_name
+#: model:ir.ui.view,arch_db:neweb_base.qa_solution_form
+#: model:ir.ui.view,arch_db:neweb_base.qa_solution_tree
+msgid "Problem Solution"
+msgstr "解決方法"
+
+#. module: neweb_base
+#: sql_constraint:neweb_base.problem_solution:0
+msgid "Problem Solution must be unique!!"
+msgstr "解決方法不可重覆!"
+
+#. module: neweb_base
+#: model:ir.model,name:neweb_base.model_product_product
+msgid "Product"
+msgstr "產品"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_product_attr
+msgid "Product Attribute"
+msgstr "產品屬性"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link_prod
+msgid "Product Child"
+msgstr "產品零件"
+
+#. module: neweb_base
+#: model:ir.model,name:neweb_base.model_neweb_base_product_link
+msgid "Product Links"
+msgstr "Product Links"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link_prod_tmp_id
+msgid "Product Parent"
+msgstr "Product Parent"
+
+#. module: neweb_base
+#: model:ir.model,name:neweb_base.model_product_template
+msgid "Product Template"
+msgstr "產品範本"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_product_type_ids
+msgid "Product Type"
+msgstr "機器型號"
+
+#. module: neweb_base
+#: model:ir.model,name:neweb_base.model_neweb_base_product_type
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_type_name
+#: model:ir.ui.view,arch_db:neweb_base.maintenance_category_form
+msgid "Product Type Number"
+msgstr "產品型號"
+
+#. module: neweb_base
+#: model:ir.ui.view,arch_db:neweb_base.product_link_form
+#: model:ir.ui.view,arch_db:neweb_base.product_link_tree
+msgid "Product_Part_Link"
+msgstr "Product_Part_Link"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_product_product_prod_ids
+#: model:ir.model.fields,field_description:neweb_base.field_product_template_prod_ids
+msgid "Products"
+msgstr "產品"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link_quantity
+msgid "Quantity"
+msgstr "數量"
+
+#. module: neweb_base
+#: model:ir.ui.menu,name:neweb_base.menu_regular_inspection
+msgid "Regular Inspection"
+msgstr "定檢"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_res_partner_related_user_id
+msgid "Related User"
+msgstr "相關使用者"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_customer_category_memo
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_maintenance_category_memo
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_memo
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_problem_solution_memo
+msgid "Remark"
+msgstr "備註"
+
+#. module: neweb_base
+#: model:ir.ui.menu,name:neweb_base.menu_repair
+msgid "Repair"
+msgstr "機房設備報修"
+
+#. module: neweb_base
+#: model:res.groups,name:neweb_base.group_repair_read
+msgid "Repair Base Read"
+msgstr "Repair Base Read"
+
+#. module: neweb_base
+#: model:res.groups,name:neweb_base.group_repair_write
+msgid "Repair Base Write"
+msgstr "Repair Base Write"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_hr_employee_residnet_ship
+msgid "Resident Ship"
+msgstr "戶籍地址"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_response_time
+msgid "Response Time"
+msgstr "回應時間"
+
+#. module: neweb_base
+#: model:ir.actions.act_window,name:neweb_base.action_list_sla
+#: model:ir.model,name:neweb_base.model_neweb_base_sla
+#: model:ir.ui.view,arch_db:neweb_base.sla_form
+#: model:ir.ui.view,arch_db:neweb_base.sla_tree
+msgid "SLA"
+msgstr "SLA"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_sla_name
+msgid "SLA Name"
+msgstr "SLA 名稱"
+
+#. module: neweb_base
+#: sql_constraint:neweb_base.sla:0
+msgid "SLA Name must be unique!!"
+msgstr "SLA名稱不可重覆!"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_product_product_serial_num
+#: model:ir.model.fields,field_description:neweb_base.field_product_template_serial_num
+msgid "Serial Number"
+msgstr "序號"
+
+#. module: neweb_base
+#: selection:neweb_base.maintenance_category,product_attr:0
+msgid "Software"
+msgstr "軟體"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_product_product_specification
+#: model:ir.model.fields,field_description:neweb_base.field_product_template_specification
+msgid "Specification"
+msgstr "規格說明"
+
+#. module: neweb_base
+#: selection:res.partner,payment:0
+msgid "Telegraphic Transfer"
+msgstr "電匯"
+
+#. module: neweb_base
+#: code:addons/neweb_base/models/maintenance_target.py:43
+#: code:addons/neweb_base/models/maintenance_target.py:51
+#, python-format
+msgid "The Product must be Maintenance target."
+msgstr "選擇的產品必須是維護設備。"
+
+#. module: neweb_base
+#: model:ir.actions.act_window,name:neweb_base.action_list_value_added_service
+#: model:ir.model,name:neweb_base.model_neweb_base_value_added_service
+#: model:ir.ui.menu,name:neweb_base.menu_value_added_service
+#: model:ir.ui.view,arch_db:neweb_base.value_added_service_form
+#: model:ir.ui.view,arch_db:neweb_base.value_added_service_tree
+msgid "Value-Added Service"
+msgstr "加值服務"
+
+#. module: neweb_base
+#: model:ir.model.fields,field_description:neweb_base.field_neweb_base_product_link_name
+msgid "parts"
+msgstr "零件"
+

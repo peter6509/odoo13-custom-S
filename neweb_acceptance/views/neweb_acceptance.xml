@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_neweb_acceptance_tree" model="ir.ui.view">
+            <field name="name">view.neweb.acceptance.tree</field>
+            <field name="model">neweb.acceptance</field>
+            <field name="arch" type="xml">
+                <tree string="">
+<!--                    <button type="object" string="明細" name="run_acceptance_child"-->
+<!--                            context="{'acceptance_id':active_id}" class="oe_highlight" />-->
+                    <field name="keyin_date" width="8%%"/>
+                    <field name="purchase_no" width="10%%"/>
+                    <field name="stockout_no1"  width="10%%"/>
+                    <field name="supplier" width="8%%"/>
+                    <field name="project_no" width="8%%"/>
+<!--                    <field name="acceptance_status" width="10%%"/>-->
+<!--                    <field name="proj_sale"/>-->
+                    <field name="cus_name" width="8%%"/>
+                    <field name="cus_project" width="8%%"/>
+                    <field name="prod_no" width="5%%"/>
+                    <field name="prod_modeltype" width="15%%"/>
+                    <field name="prod_desc" width="15%%"/>
+                    <field name="prod_num" width="5%%"/>
+                    <field name="projsaleitem_status" width="15%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_neweb_acceptance_form" model="ir.ui.view">
+            <field name="name">view.neweb.acceptance.form</field>
+            <field name="model">neweb.acceptance</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                 <field name="keyin_date" attrs="{'readonly':1}"/>
+                                 <field name="purchase_no" attrs="{'readonly':1}"/>
+                                 <field name="stockout_no"  attrs="{'readonly':1}"/>
+                                 <field name="supplier" attrs="{'readonly':1}"/>
+                                 <field name="project_no" attrs="{'readonly':1}"/>
+                                 <field name="proj_sale" attrs="{'readonly':1}"/>
+                                 <field name="cus_name" attrs="{'readonly':1}"/>
+                            </group>
+                            <group>
+                                <field name="cus_project" attrs="{'readonly':1}"/>
+                                <field name="prod_no" attrs="{'readonly':1}"/>
+                                <field name="prod_modeltype" attrs="{'readonly':1}"/>
+                                <field name="prod_desc" attrs="{'readonly':1}"/>
+                                <field name="prod_num" attrs="{'readonly':1}"/>
+                                <field name="projsaleitem_status"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="出貨明細">
+                              <field name="acceptance_line" nolabel="1">
+                                  <tree  string="Student Info" widget="one2many">
+                                        <field name="keyin_date" width="8%%" attrs="{'readonly':1}"/>
+                                        <field name="purchase_no" width="10%%" attrs="{'readonly':1}"/>
+                                        <field name="stockout_no1"  width="10%%" attrs="{'readonly':1}"/>
+                                        <field name="supplier" width="8%%" attrs="{'readonly':1}"/>
+                                        <field name="project_no" width="8%%" attrs="{'readonly':1}"/>
+                                        <field name="cus_name" width="8%%" attrs="{'readonly':1}"/>
+                                        <field name="cus_project" width="8%%" attrs="{'readonly':1}"/>
+                                        <field name="prod_modeltype" width="15%%" attrs="{'readonly':1}"/>
+                                        <field name="prod_desc" width="15%%" attrs="{'readonly':1}"/>
+                                        <field name="prod_num" width="5%%" attrs="{'readonly':1}"/>
+                                        <field name="projsaleitem_status" width="15%%" attrs="{'readonly':1}"/>
+                                  </tree>
+                               </field>
+                        </page>
+                        </notebook>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_neweb_acceptance_search" model="ir.ui.view">
+           <field name="name">view.neweb.acceptance.search</field>
+           <field name="model">neweb.acceptance</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="project_no" string="關鍵字" filter_domain="['|',('proj_sale.name','ilike',self),('project_no.name', 'ilike',self )]"/>
+                <filter string="未驗收" domain="[('acceptance_status','=','1')]" name="acceptance1"/>
+                <filter string="已驗收" domain="[('acceptance_status','=','2')]" name="acceptance2"/>
+                <filter string="貨在公司待貨齊" domain="[('acceptance_status','=','1'),('projsaleitem_status','=','1')]"  name="status1"/>
+                <filter string="貨在公司待出貨" domain="[('acceptance_status','=','1'),('projsaleitem_status','=','2')]"  name="status2"/>
+                <filter string="貨在公司測試安裝中" domain="[('acceptance_status','=','1'),('projsaleitem_status','=','3')]"  name="status3"/>
+                <filter string="貨在客戶端待貨齊" domain="[('acceptance_status','=','1'),('projsaleitem_status','=','4')]"  name="status4"/>
+                <filter string="貨在客戶端待裝機" domain="[('acceptance_status','=','1'),('projsaleitem_status','=','5')]"  name="status5"/>
+                <filter string="貨在客戶端裝機中" domain="[('acceptance_status','=','1'),('projsaleitem_status','=','6')]"  name="status6"/>
+                <filter string="貨在客戶端待驗收" domain="[('acceptance_status','=','1'),('projsaleitem_status','=','7')]"  name="status7"/>
+                <filter string="貨在客戶端驗收中" domain="[('acceptance_status','=','1'),('projsaleitem_status','=','8')]"  name="status8"/>
+                <filter name="group_proj_sale" string="業務" icon="terp-partner" context="{'group_by':'proj_sale'}"/>
+                <filter name="group_proj_no" string="專案編號" icon="terp-partner" context="{'group_by':'project_no'}"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_neweb_acceptance_view" model="ir.actions.act_window">
+            <field name="name">專案驗收狀態控管</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.acceptance</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_acceptance.view_neweb_acceptance_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('neweb_acceptance.view_neweb_acceptance_form')})]"/>
+            <field name="search_view_id" ref="view_neweb_acceptance_search"/>
+            <field name="context">{'search_default_acceptance1':1,'search_default_group_proj_sale':1,'search_default_group_proj_no':2,'isacc':True}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

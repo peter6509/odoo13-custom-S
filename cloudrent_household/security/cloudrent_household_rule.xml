@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+<!--房東權限rule-->
+<!--         <record id="cloudrent_household_landlord_rule1" model="ir.rule">-->
+<!--           <field name="name">cloudrent.household.landlord.rule1</field>-->
+<!--           <field ref="cloudrent_household.model_cloudrent_household_landlord" name="model_id"/>-->
+<!--           <field name="domain_force">['|','|','|','|','|','|',('landlord_user1.id','=',user.id),('landlord_user2.id','=',user.id),('manager_user1.id','=',user.id),('manager_user2.id','=',user.id),('manager_user3.id','=',user.id),('user_id','=',user.id),('user_id','=',False)]</field>-->
+<!--           <field name="groups" eval="[(6,0, [ref('cloudrent_household.group_cloudrent_agent'),ref('cloudrent_household.group_cloudrent_landlord')])]"/>-->
+<!--         </record>-->
+<!--         <record id="cloudrent_household_landlord_rule2" model="ir.rule">-->
+<!--           <field name="name">cloudrent.household.landlord.rule3</field>-->
+<!--           <field ref="cloudrent_household.model_cloudrent_household_landlord" name="model_id"/>-->
+<!--           <field name="global" eval="1"/>-->
+<!--           <field name="groups" eval="[(6,0, [ref('cloudrent_household.group_cloudrent_manager'),ref('cloudrent_household.group_cloudrent_ass')])]"/>-->
+<!--          </record>-->
+<!--    案場權限rule    -->
+         <record id="cloudrent_household_house_rule1" model="ir.rule">
+           <field name="name">cloudrent.household.house.rule1</field>
+           <field ref="cloudrent_household.model_cloudrent_household_house" name="model_id"/>
+           <field name="domain_force">['|','|','|','|',('landlord_user1.id','=',user.id),('landlord_user2.id','=',user.id),('manager_user1.id','=',user.id),('manager_user2.id','=',user.id),('manager_user3.id','=',user.id)]</field>
+           <field name="groups" eval="[(6,0, [ref('cloudrent_household.group_cloudrent_agent'),ref('cloudrent_household.group_cloudrent_landlord')])]"/>
+         </record>
+        <record id="cloudrent_household_house_rule2" model="ir.rule">
+           <field name="name">cloudrent.household.house.rule2</field>
+           <field ref="cloudrent_household.model_cloudrent_household_house" name="model_id"/>
+           <field name="global" eval="1"/>
+           <field name="groups" eval="[(6,0, [ref('cloudrent_household.group_cloudrent_manager'),ref('cloudrent_household.group_cloudrent_ass')])]"/>
+         </record>
+<!--        案場租房權限rule-->
+         <record id="cloudrent_household_house_line_rule1" model="ir.rule">
+           <field name="name">cloudrent.household.house.line.rule1</field>
+           <field ref="cloudrent_household.model_cloudrent_household_house_line" name="model_id"/>
+           <field name="domain_force">['|','|','|','|',('landlord_user1','=',user.id),('landlord_user2','=',user.id),('manager_user1','=',user.id),('manager_user2','=',user.id),('manager_user3','=',user.id)]</field>
+           <field name="groups" eval="[(6,0, [ref('cloudrent_household.group_cloudrent_agent'),ref('cloudrent_household.group_cloudrent_landlord')])]"/>
+         </record>
+        <record id="cloudrent_household_house_line_rule2" model="ir.rule">
+           <field name="name">cloudrent.household.house.line.rule2</field>
+           <field ref="cloudrent_household.model_cloudrent_household_house_line" name="model_id"/>
+           <field name="global" eval="1"/>
+           <field name="groups" eval="[(6,0, [ref('cloudrent_household.group_cloudrent_manager'),ref('cloudrent_household.group_cloudrent_ass')])]"/>
+         </record>
+<!--        租戶權限rule-->
+        <record id="cloudrent_household_member_rule1" model="ir.rule">
+           <field name="name">cloudrent.household.member.rule1</field>
+           <field ref="cloudrent_household.model_cloudrent_household_member" name="model_id"/>
+           <field name="domain_force">['|','|','|','|',('landlord_user1','=',user.id),('landlord_user2','=',user.id),('manager_user1','=',user.id),('manager_user2','=',user.id),('manager_user3','=',user.id)]</field>
+           <field name="groups" eval="[(6,0, [ref('cloudrent_household.group_cloudrent_agent'),ref('cloudrent_household.group_cloudrent_landlord')])]"/>
+         </record>
+        <record id="cloudrent_household_member_rule2" model="ir.rule">
+           <field name="name">cloudrent.household.member.rule2</field>
+           <field ref="cloudrent_household.model_cloudrent_household_member" name="model_id"/>
+           <field name="global" eval="1"/>
+           <field name="groups" eval="[(6,0, [ref('cloudrent_household.group_cloudrent_manager'),ref('cloudrent_household.group_cloudrent_ass')])]"/>
+         </record>
+    </data>
+</odoo>

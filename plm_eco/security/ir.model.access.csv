@@ -1,0 +1,20 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mrp_eco_product_list_user,mrp.eco.product.list,model_mrp_eco_product_list,mrp_plm.group_plm_user,1,1,1,1
+access_mrp_eco_product_list_origin_user,mrp.eco.product.list.origin,model_mrp_eco_product_list_origin,mrp_plm.group_plm_user,1,1,1,0
+access_mrp_eco_product_list_origin_manager,mrp.eco.product.list.origin,model_mrp_eco_product_list_origin,plm_eco.group_plm_eco_approve_manager,1,1,1,0
+access_mrp_eco_reason_manager,mrp.eco.reason,model_mrp_eco_reason,mrp_plm.group_plm_manager,1,1,1,0
+access_mrp_eco_reason_user,mrp.eco.reason,model_mrp_eco_reason,mrp_plm.group_plm_user,1,0,0,0
+access_model_mrp_eco_approval_template_engineer,mrp.eco.approval.template,mrp_plm.model_mrp_eco_approval_template,plm_eco.group_plm_eco_engineer,1,0,0,0
+access_model_mrp_eco_approval_engineer,mrp.eco.approval,mrp_plm.model_mrp_eco_approval,plm_eco.group_plm_eco_engineer,1,1,1,1
+access_model_mrp_eco_stage_engineer,mrp.eco.stage,mrp_plm.model_mrp_eco_stage,plm_eco.group_plm_eco_engineer,1,0,0,0
+access_model_mrp_eco_bom_change_engineer,mrp.eco.bom.line,mrp_plm.model_mrp_eco_bom_change,plm_eco.group_plm_eco_engineer,1,1,1,1
+access_model_mrp_eco_routing_change_engineer,mrp.eco.routing.line,mrp_plm.model_mrp_eco_routing_change,plm_eco.group_plm_eco_engineer,1,1,1,1
+access_model_mrp_eco_bom_change_admin,mrp.eco.bom.line,mrp_plm.model_mrp_eco_bom_change,mrp_plm.group_plm_manager,1,1,1,1
+access_model_mrp_eco_routing_change_admin,mrp.eco.routing.line,mrp_plm.model_mrp_eco_routing_change,mrp_plm.group_plm_manager,1,1,1,1
+access_mrp_eco_tag_engineer,mrp.eco.tag,mrp_plm.model_mrp_eco_tag,plm_eco.group_plm_eco_engineer,1,1,1,1
+access_mrp_eco_type_engineer,mrp.eco.type,mrp_plm.model_mrp_eco_type,plm_eco.group_plm_eco_engineer,1,0,0,0
+access_mrp_eco_manager_admin,mrp.eco,mrp_plm.model_mrp_eco,mrp_plm.group_plm_manager,1,1,1,1
+access_mrp_eco_engineer,mrp.eco,mrp_plm.model_mrp_eco,plm_eco.group_plm_eco_engineer,1,1,1,1
+access_product_template_plm_manager,product.template plm_manager,product.model_product_template,plm_eco.group_plm_eco_engineer,1,1,0,0
+access_mrp_bom_from_eco_engineer,mrp.bom engineer,mrp.model_mrp_bom,plm_eco.group_plm_eco_engineer,1,1,1,1
+access_mrp_bom_line_from_eco_engineer,mrp.bom.line engineer,mrp.model_mrp_bom_line,plm_eco.group_plm_eco_engineer,1,1,1,1

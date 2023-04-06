@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+     <record model="ir.actions.act_url" id="finereport_equip_status_url">
+       <field name="name">生產機台情況版</field>
+       <field name="url">http://192.168.10.135:8080/webroot/decision/view/report?viewlet=acme_equip_status.cpt</field>
+       <field name="target">new</field>
+     </record>
+       <record model="ir.actions.act_url" id="finereport_dashboard_url">
+       <field name="name">即時生產情況板</field>
+       <field name="url">http://192.168.10.135:8080/webroot/decision/view/report?viewlet=acme_cnc_dashboard.frm</field>
+       <field name="target">new</field>
+     </record>
+     <record model="ir.actions.act_url" id="finereport_cnc_performance_url">
+       <field name="name">人員-產品生產效能查詢分析</field>
+       <field name="url">http://192.168.10.135:8080/webroot/decision/v10/entry/access/647263fd-4cf9-4262-97e0-b5f9415cfd35?preview=true</field>
+       <field name="target">new</field>
+     </record>
+      <record model="ir.actions.act_url" id="finereport_shipping_kpi_url">
+       <field name="name">產品交貨達成率KPI分析</field>
+       <field name="url">http://192.168.10.135:8080/webroot/decision/v10/entry/access/2ea3a6b1-9b76-4add-a95d-2d8f5fd53116?preview=true</field>
+       <field name="target">new</field>
+     </record>
+
+      <record model="ir.actions.act_url" id="finereport_prod_kpi_url">
+       <field name="name">產品產能達成率KPI分析</field>
+       <field name="url">http://192.168.10.135:8080/webroot/decision/v10/entry/access/0d0780a6-07bc-45cb-a59c-3d6006be79cb?preview=true</field>
+       <field name="target">new</field>
+     </record>
+
+        <record model="ir.actions.act_url" id="finereport_qc_kpi_url">
+       <field name="name">產品良率達成KPI分析</field>
+       <field name="url">http://192.168.10.135:8080/webroot/decision/v10/entry/access/dd508f4c-54fc-4cd1-8baa-f1e82067ad8a?preview=true</field>
+       <field name="target">new</field>
+     </record>
+
+
+
+
+     <menuitem id="menu_finbereport_view"
+               name="生產數據樞紐分析"
+               parent="alldo_acme_iot.menu_iot_root"
+               sequence="900"/>
+        <menuitem id="menu_finereport_dashboard_view"
+              name="即時生產情況板"
+              parent="menu_finbereport_view"
+              action="finereport_dashboard_url"
+              sequence="5"/>
+        <menuitem id="menu_finereport_equip1_view"
+              name="生產機台情況版"
+              parent="menu_finbereport_view"
+              action="finereport_equip_status_url"
+              sequence="10"/>
+        <menuitem id="menu_finereport_cnc_performance_view"
+              name="人員-產品生產效能查詢分析"
+              parent="menu_finbereport_view"
+              action="finereport_cnc_performance_url"
+              sequence="20"/>
+        <menuitem id="menu_finereport_shipping_kpi_view"
+              name="產品交貨達成率KPI分析"
+              parent="menu_finbereport_view"
+              action="action_last10_shipping_kpi_wizard"
+              sequence="30"/>
+        <menuitem id="menu_finereport_prod_kpi_view"
+              name="產品產能達成率KPI分析"
+              parent="menu_finbereport_view"
+              action="action_last10_prod_kpi_wizard"
+              sequence="40"/>
+        <menuitem id="menu_finereport_qc_kpi_view"
+              name="產品良率達成KPI分析"
+              parent="menu_finbereport_view"
+              action="action_last10_qc_kpi_wizard"
+              sequence="50"/>
+    </data>
+</odoo>

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_ipla_iot_workorder_tree" model="ir.ui.view">
+            <field name="name">view.ipla.iot.workorder.tree</field>
+            <field name="model">alldo_ipla_iot.workorder</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                    <field name="product_no"/>
+                    <field name="eng_type"/>
+                    <field name="so_pi"/>
+
+                    <field name="cus_name"/>
+                    <field name="order_num"/>
+<!--                    <field name="blank_num"/>-->
+                    <field name="shipping_date"/>
+                    <field name="blank_input_date"/>
+                    <field name="workorder_memo"/>
+                    <field name="state"/>
+                    <button name="run_archive" string="結案歸檔" type="object" class="oe_highlight" attrs="{'invisible':[('state','!=','4')]}"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_ipla_iot_workorder_form" model="ir.ui.view">
+            <field name="name">view.ipla_iot_workorder.form</field>
+            <field name="model">alldo_ipla_iot.workorder</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <header>
+                     <button name="complete_workorder" type="object"
+                            string="完工結案" class="oe_highlight"
+                            context="{'workorder_id': context.get('active_id')}"
+                            attrs="{'invisible': [('state', '!=', '3')]}"/>
+                       <field name="state" widget="statusbar"/>
+
+                    </header>
+                    <sheet>
+                         <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                            </div>
+                        <group>
+
+<!--                            <field name="name"/>-->
+                            <group>
+                                <field name="product_no" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="eng_type"/>
+                                <field name="so_pi"/>
+                                <field name="so_no" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="cus_name" options="{'no_create':true,'no_create_edit':true}"/>
+                                <field name="order_num"/>
+<!--                                <field name="blank_num"/>-->
+                            </group>
+                            <group>
+
+                                <field name="shipping_date"/>
+                                <field name="prodin_num" attrs="{'readonly':1}"/>
+                                <field name="shipping_num" attrs="{'readonly':1}"/>
+<!--                                <field name="blank_input_date"/>-->
+                                <field name="workorder_memo"/>
+                                <field name="have_mold" attrs="{'invisible':1}"/>
+                                <field name="mold_no" attrs="{'invisible':[('have_mold','=',False)]}"
+                                  options="{'no_create':true,'no_create_edit':true}" />
+                            </group>
+
+                        </group>
+                         <notebook>
+                                <page string="產品質檢記錄" name="QC Line">
+                                    <field
+                                        name="qc_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                    >
+                                   <tree
+                                        string="產品質檢記錄"
+                                        editable="bottom"
+                                    >
+                                        <field name="qc_date" />
+                                        <field name="iot_node" string="機台" options="{'no_create':true,'no_create_edit':true}"
+                                           domain="[('category_id','=',2)]"/>
+                                       <field name="total_amount_num" attrs="{'readonly':1}"/>
+                                       <field name="processing_ng_num"/>
+                                        <field name="qc_good_num"/>
+                                        <field name="complete_date"/>
+                                        <field name="line_memo"/>
+<!--                                        <field name="report_no" attrs="{'invisible':1}"/>-->
+                                        <field name="iot_owner1" options="{'no_open':1}"/>
+                                        <field name="product_no" invisible="1"/>
+                                        <field name="cus_name" invisible="1"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                                <page string="產品履歷記錄" name="IOT PROD LINE">
+                                    <field name="iot_line" widget="section_and_note_one2many" mode="tree" >
+                                   <tree string="產品履歷記錄" create="false" editable="false">
+                                        <field name="iot_date" attrs="{'readonly':1}"/>
+                                        <field name="iot_node" string="機台" attrs="{'readonly':1}" options="{'no_create':true,'no_create_edit':true}"
+                                           domain="[('category_id','=',2)]"/>
+                                        <field name="iot_owner" attrs="{'readonly':1}"/>
+                                        <field name="iot_owner1" attrs="{'readonly':1}"/>
+                                        <field name="iot_num" attrs="{'readonly':1}"/>
+                                        <field name="iot_duration" attrs="{'readonly':1}"/>
+                                    </tree>
+                                    </field>
+                                </page>
+
+                                <page string="切割加工記錄" name="IN PROD LINE">
+                                    <field name="prodout_line" widget="section_and_note_one2many" mode="tree" >
+                                   <tree string="切割加工記錄" >
+                                        <field name="prodout_datetime"/>
+                                        <field name="product_no" string="產品" options="{'no_create':true,'no_create_edit':true}"/>
+                                        <field name="is_cutting"/>
+                                        <field name="out_good_num"/>
+                                        <field name="out_ng_num"/>
+                                        <field name="out_memo"/>
+                                        <field name="out_owner" options="{'no_open': True,'no_create':true,'no_create_edit':true}"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                                 <page string="產線換模記錄" name="REPLACE LINE">
+                                    <field name="replace_line" widget="section_and_note_one2many" mode="tree" >
+                                   <tree string="產線換線記錄" >
+                                        <field name="replace_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                                        <field name="equipment_id"  options="{'no_create':true,'no_create_edit':true}"
+                                           domain="[('category_id','=',2)]"/>
+                                        <field name="replace_type"/>
+                                        <field name="replace_start_datetime"/>
+                                        <field name="replace_end_datetime"/>
+                                        <field name="replace_duration"/>
+                                    </tree>
+                                    </field>
+                                </page>
+                         </notebook>
+                    </sheet>
+
+                </form>
+
+            </field>
+        </record>
+
+        <record id="view_iplaiot_wkorder_search" model="ir.ui.view">
+           <field name="name">view.ipla.iot.wkorder.search</field>
+           <field name="model">alldo_ipla_iot.workorder</field>
+            <field name="arch" type="xml">
+                <search string="">
+              <field name="so_pi" string="關鍵字" filter_domain="['|','|',('cus_name.name','ilike',self),('so_pi','ilike',self),('product_no.default_code', 'ilike',self )]"/>
+              <filter domain="[('state','in',['1','2','3'])]" string="未完工" name="uncomplete"/>
+              <filter domain="[('state','=','4')]" string="已完工" name="complete"/>
+            </search>
+           </field>
+        </record>
+         <record id="view_alldo_ipla_iot_workorder_calendar" model="ir.ui.view">
+            <field name="name">view.alldo.ipla.iot.workorder.calendar</field>
+            <field name="model">alldo_ipla_iot.workorder</field>
+            <field name="arch" type="xml">
+                <calendar string="Workorder List" date_start="prod_date" color="state" hide_time="true" event_limit="5">
+                    <field name="workorder_name"/>
+                </calendar>
+            </field>
+        </record>
+        <record id="action_ipla_iot_workorder_view" model="ir.actions.act_window">
+            <field name="name">工單作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_ipla_iot.workorder</field>
+            <field name="view_mode">tree,form,calendar</field>
+             <field name="search_view_id" ref="view_iplaiot_wkorder_search"></field>
+            <field name="context">{ 'search_default_uncomplete': 1, }</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

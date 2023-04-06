@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="res_partner_rule2" model="ir.rule">
+             <field name="name">res.partner.rule2</field>
+             <field ref="base.model_res_partner" name="model_id"/>
+             <field name="groups" eval="[(4, ref('neweb_project.neweb_sa40_user'))]"/>
+             <field name="domain_force">['|','|','|','|','|',('salesp1','=',False),('salesp1','=',user.id),('salesp2','=',user.id),('salesp3','=',user.id),('salesp4','=',user.id),('salesp5','=',user.id)]</field>
+         </record>
+<!--        <record id="res_partner_rule3" model="ir.rule">-->
+<!--             <field name="name">res.partner.rule3</field>-->
+<!--             <field ref="base.model_res_partner" name="model_id"/>-->
+<!--             <field name="groups" eval="[(4, ref('base.group_user'))]"/>-->
+<!--             <field name="global" eval="1"/>-->
+<!--         </record>-->
+    </data>
+</odoo>

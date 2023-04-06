@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_cloudrent_maintenance_tree" model="ir.ui.view">
+            <field name="name">view.cloudrent.maintenance.tree</field>
+            <field name="model">cloudrent.household_maintenance</field>
+            <field name="arch" type="xml">
+                <tree string="" create="false">
+                    <field name="name"/>
+                    <field name="house_id"/>
+                    <field name="member_id"/>
+                    <field name="require_date"/>
+                    <field name="quotation_amount"/>
+                    <field name="invoice_amount"/>
+                    <field name="flow_owner"/>
+                    <field name="flow_man1"/>
+                    <field name="flow_man2"/>
+                    <field name="inquiry_date"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_cloudrent_maintenance_form" model="ir.ui.view">
+            <field name="name">view.cloudrent.maintenance.form</field>
+            <field name="model">cloudrent.household_maintenance</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="house_id"/>
+                                <field name="member_id"/>
+                                <field name="require_date"/>
+                                <field name="quotation_amount"/>
+                                <field name="invoice_amount"/>
+                            </group>
+                            <group>
+<!--                                <field name="member_type" attrs="{'invisible':1}"/>-->
+                                <field name="flow_owner"/>
+                                <field name="flow_man1" domain="[('member_type','=','5')]"/>
+                                <field name="flow_man2" domain="[('member_type','=','2')]"/>
+                                <field name="inquiry_date"/>
+                                <field name="state"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook>
+                        <page string="報修設備">
+                          <field name="maintenance_line" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="equip_id"/>
+                                  <field name="maintenance_memo"/>
+                                  <field name="equip_num"/>
+                                  <field name="equip_img" widget="image"/>
+                                  <field name="equip_attach" widget="many2many2_binary"/>
+                              </tree>
+                           </field>
+                        </page>
+                        <page string="預約現場檢查">
+                          <field name="visit_line" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="visit_date"/>
+                                  <field name="visit_man" domain="[('member_type','=','5')]"/>
+                                  <field name="visit_desc"/>
+                                  <field name="visit_img" widget="image"/>
+                                  <field name="visit_attach" widget="many2many_binary"/>
+                              </tree>
+                           </field>
+                        </page>
+                        <page string="修繕廠商報價">
+                              <field name="quotation_line" nolabel="1">
+                                  <tree editable="bottom" string="Student Info" widget="one2many">
+                                      <field name="quo_item"/>
+                                      <field name="quo_partner" domain="[('member_type','=','4')]"/>
+                                      <field name="quo_desc"/>
+                                      <field name="quo_qty"/>
+                                      <field name="quo_price"/>
+                                      <field name="quo_untax_amount"/>
+                                      <field name="quo_tax"/>
+<!--                                      <field name="quo_amount_tot"/>-->
+<!--                                      <field name="quo_attachment" widget="many2many_tags"/>-->
+                                  </tree>
+                               </field>
+                        </page>
+                        <page>
+                              <field name="assign_line" nolabel="1">
+                                  <tree editable="bottom" string="Student Info" widget="one2many">
+                                      <field name="assign_item" width="5%%"/>
+                                      <field name="assign_date" width="6%%"/>
+                                      <field name="assign_desc" width="10%%"/>
+                                      <field name="assign_partner" width="7%%" dimain="[('member_type','=','4')]"/>
+                                      <field name="equip_id" width="5%%"/>
+                                      <field name="assign_bpic" widget="image"/>
+                                      <field name="assign_ppic" widget="image"/>
+                                      <field name="assign_cpic" widget="image"/>
+                                      <field name="assign_attachment" widget="many2many_binary"/>
+                                      <field name="assign_status" width="5%%"/>
+                                      <field name="invoice_no" width="5%%"/>
+                                      <field name="inv_untax_amount" width="5%%"/>
+                                      <field name="inv_tax" width="5%%"/>
+<!--                                      <field name="inv_amount_tot" width="5%%"/>-->
+                                  </tree>
+                               </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="view_cloudrent_maintenance_search" model="ir.ui.view">
+           <field name="name">view.cloudrent.maintenance.search</field>
+           <field name="model">cloudrent.household_maintenance</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="name" string="關鍵字" filter_domain="['|',('name','ilike',self),('house_id.house_no','ilike',self)]"/>
+                <filter string="新單" domain="[('state','=','1')]" name="state1"/>
+                <filter string="預約檢查" domain="[('state','=','2')]" name="state2"/>
+                <filter string="房東同意" domain="[('state','=','3')]" name="state3"/>
+                <filter string="廠商報價" domain="[('state','=','4')]" name="state4"/>
+                <filter string="房東確認報價" domain="[('state','=','5')]" name="state5"/>
+                <filter string="修繕派工" domain="[('state','=','6')]" name="state6"/>
+                <filter string="完工" domain="[('state','=','7')]" name="state7"/>
+                <filter string="滿意度調查" domain="[('state','=','8')]" name="state8"/>
+                <filter string="發票已核銷" domain="[('state','=','9')]" name="state9"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_cloudrent_maintenance_view" model="ir.actions.act_window">
+            <field name="name">租房修繕記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.household_maintenance</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_maintenance.view_cloudrent_maintenance_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_maintenance.view_cloudrent_maintenance_form')}),]"/>
+            <field name="search_view_id" ref="view_cloudrent_maintenance_search"/>
+            <field name="context">{'search_default_state1':1}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

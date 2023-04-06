@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_ghiot_cus_stocklist_tree" model="ir.ui.view">
+            <field name="name">view.ghiot.cus.stocklist.tree</field>
+            <field name="model">alldo_gh_iot.cus_stocklist</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="cus_no"/>
+                    <field name="prod_no"/>
+                    <field name="stock_loc"/>
+                    <field name="stock_num"/>
+                    <field name="rack_loc"/>
+                    <field name="last_update"/>
+                    <field name="memo"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_ghiot_cus_stocklist_view" model="ir.actions.act_window">
+            <field name="name">客戶別庫存表</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.cus_stocklist</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('alldo_gh_iot.view_ghiot_cus_stocklist_tree')}),]"/>
+<!--            <field name="search_view_id" ref="view_process_control_return_search"/>-->
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

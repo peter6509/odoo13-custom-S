@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="action_report_neweb_repair_print"
+                model="neweb_repair.repair"
+                string="維修工作記錄及出貨單NEW"
+                report_type="controller"
+                print_report_name="'維修工作記錄及出貨單_%s.pdf' % (object.name)"
+                name="neweb_repair_print_report"/>
+         <record id="action_report_neweb_repair_print" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_repair_print_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+
+        <report id="action_report_neweb_repair_work"
+                model="neweb_repair.repair"
+                string="維修報表NEW"
+                report_type="controller"
+                print_report_name="'維修報表_%s.pdf' % (object.name)"
+                name="neweb_repair_work_report"/>
+         <record id="action_report_neweb_repair_work" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_repair_work_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--成本分析 MENU-->
+        <record id="neweb_project.menu_neweb_project_categ" model="ir.ui.menu">
+          <field name="name">Project maintenance</field>
+          <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass'),
+          ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_sa10_gm')]),]"/>
+        </record>
+        <record id="neweb_project.menu_neweb_project_action" model="ir.ui.menu">
+           <field name="name">project maintenance action</field>
+          <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass'),
+          ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_sa10_gm')]),]"/>
+        </record>
+        <!--PROJMAINTYPE 配置-->
+        <record id="menu_neweb_projmaintype_action" model="ir.ui.menu">
+            <field name="name">Project projmaintype Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+        <record id="menu_transationtype_config_action" model="ir.ui.menu">
+            <field name="name">Project transationtype Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+        <record id="menu_neweb_projbranch_action" model="ir.ui.menu">
+            <field name="name">Project projbranch Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+         <record id="neweb_project_config" model="ir.ui.menu">
+            <field name="name">Project Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+         <record id="menu_neweb_prodset_action" model="ir.ui.menu">
+            <field name="name">Project set Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+         <record id="menu_neweb_prodbrand_action" model="ir.ui.menu">
+            <field name="name">Project prodbrand Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_sa30_ass'),ref('neweb_project.neweb_sa20_vp')]),]"/>
+        </record>
+         <record id="menu_neweb_projgencode_action" model="ir.ui.menu">
+            <field name="name">Project projgencode Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+          <record id="menu_neweb_engmaintype_action" model="ir.ui.menu">
+            <field name="name">engmaintype Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+         <record id="menu_neweb_costtype_action" model="ir.ui.menu">
+            <field name="name">Project costtype Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+         <record id="menu_neweb_contacttype_action" model="ir.ui.menu">
+            <field name="name">Project contacttype Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+         <record id="menu_neweb_buscate_action" model="ir.ui.menu">
+            <field name="name">Project buscate Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+         <record id="menu_assservicetype_config_action" model="ir.ui.menu">
+            <field name="name">Project assservicetype Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+         <record id="menu_assservicemode_config_action" model="ir.ui.menu">
+            <field name="name">Project assservicemode Config</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sys_man')]),]"/>
+        </record>
+
+        <!--SALE Quotation-->
+         <record id="menu_neweb_sale_categ" model="ir.ui.menu">
+            <field name="name">SALEDATA</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass'),
+            ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_sa10_gm')]),]"/>
+        </record>
+         <record id="menu_neweb_salepartner_action" model="ir.ui.menu">
+            <field name="name">salepartner</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass'),
+            ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_sa10_gm')]),]"/>
+        </record>
+         <record id="menu_neweb_quotation_action" model="ir.ui.menu">
+            <field name="name">sale quotation</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass'),
+            ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_sa10_gm')]),]"/>
+        </record>
+        <record id="menu_neweb_proj_wizard" model="ir.ui.menu">
+            <field name="name">New Proj Wizard</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass'),
+            ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_sa10_gm')]),]"/>
+        </record>
+
+        <!--engineer Assign派工-->
+         <record id="menu_proj_assign_categ" model="ir.ui.menu">
+            <field name="name">Setup And Assign</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass'),
+            ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_sa10_gm'),ref('neweb_project.neweb_en80_assi'),ref('neweb_project.neweb_en70_user'),
+            ref('neweb_project.neweb_en40_mgt'),ref('neweb_project.neweb_en30_ass'),ref('neweb_project.neweb_en20_vp'),ref('neweb_project.neweb_en10_gm')]),]"/>
+        </record>
+        <record id="menu_proj_assign_action" model="ir.ui.menu">
+            <field name="name">Assign Action</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass'),
+            ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_sa10_gm'),ref('neweb_project.neweb_en80_assi'),ref('neweb_project.neweb_en70_user'),
+            ref('neweb_project.neweb_en40_mgt'),ref('neweb_project.neweb_en30_ass'),ref('neweb_project.neweb_en20_vp'),ref('neweb_project.neweb_en10_gm')]),]"/>
+        </record>
+        <record id="menu_neweb_engassignwork_wizard_action" model="ir.ui.menu">
+            <field name="name">Eng Assign Work</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en40_mgt'),ref('neweb_project.neweb_en30_ass'),ref('neweb_project.neweb_en20_vp'),ref('neweb_project.neweb_en10_gm')]),]"/>
+        </record>
+        <record id="menu_neweb_engcomplete_wizard_action" model="ir.ui.menu">
+            <field name="name">Setup And Assign</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en40_mgt'),ref('neweb_project.neweb_en30_ass'),ref('neweb_project.neweb_en20_vp'),ref('neweb_project.neweb_en10_gm')]),]"/>
+        </record>
+
+
+
+        <!--非專案派工 wizard-->
+        <record id="menu_neweb_assign_wizard_action" model="ir.ui.menu">
+            <field name="name">Assign Wizard</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa30_ass'),ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_sa10_gm')]),]"/>
+        </record>
+
+
+        <!--倉庫-->
+         <record id="menu_neweb_stockmove_action" model="ir.ui.menu">
+            <field name="name">stockmove</field>
+            <field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en60_stock'),ref('neweb_project.neweb_en50_stockm')]),]"/>
+        </record>
+    </data>
+</odoo>

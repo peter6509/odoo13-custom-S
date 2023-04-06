@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="neweb_worktype_1" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">1</field>
+                <field name="worktype_code">10</field>
+                <field name="worktype_link">1</field>
+                <field name="worktype_desc">per-call</field>
+         </record>
+        <record id="neweb_worktype_2" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">2</field>
+                <field name="worktype_code">11</field>
+                <field name="worktype_link">1</field>
+                <field name="worktype_desc">硬體建置</field>
+         </record>
+        <record id="neweb_worktype_3" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">3</field>
+                <field name="worktype_code">12</field>
+                <field name="worktype_link">1</field>
+                <field name="worktype_desc">軟體建置</field>
+         </record>
+        <record id="neweb_worktype_4" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">4</field>
+                <field name="worktype_code">13</field>
+                <field name="worktype_link">1</field>
+                <field name="worktype_desc">諮詢服務</field>
+         </record>
+        <record id="neweb_worktype_5" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">5</field>
+                <field name="worktype_code">14</field>
+                <field name="worktype_link">1</field>
+                <field name="worktype_desc">測試服務</field>
+         </record>
+        <record id="neweb_worktype_6" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">6</field>
+                <field name="worktype_code">15</field>
+                <field name="worktype_link">1</field>
+                <field name="worktype_desc">會議討論</field>
+         </record>
+        <record id="neweb_worktype_7" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">7</field>
+                <field name="worktype_code">16</field>
+                <field name="worktype_link">1</field>
+                <field name="worktype_desc">教育訓練</field>
+         </record>
+        <record id="neweb_worktype_8" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">8</field>
+                <field name="worktype_code">17</field>
+                <field name="worktype_link">1</field>
+                <field name="worktype_desc">文件製作</field>
+         </record>
+        <record id="neweb_worktype_9" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">9</field>
+                <field name="worktype_code">18</field>
+                <field name="worktype_link">1</field>
+                <field name="worktype_desc">支援原廠保固服務</field>
+         </record>
+        <record id="neweb_worktype_10" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">10</field>
+                <field name="worktype_code">19</field>
+                <field name="worktype_link">1</field>
+                <field name="worktype_desc">其他</field>
+         </record>
+        <record id="neweb_worktype_11" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">11</field>
+                <field name="worktype_code">20</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">定期維護(維護)</field>
+         </record>
+        <record id="neweb_worktype_12" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">12</field>
+                <field name="worktype_code">21</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">硬體處理(維護)</field>
+         </record>
+        <record id="neweb_worktype_13" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">13</field>
+                <field name="worktype_code">22</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">軟體處理(維護)</field>
+         </record>
+        <record id="neweb_worktype_14" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">14</field>
+                <field name="worktype_code">23</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">諮詢服務(維護)</field>
+         </record>
+        <record id="neweb_worktype_15" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">15</field>
+                <field name="worktype_code">24</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">測試服務(維護)</field>
+         </record>
+        <record id="neweb_worktype_16" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">16</field>
+                <field name="worktype_code">25</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">會議討論(維護)</field>
+         </record>
+        <record id="neweb_worktype_17" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">17</field>
+                <field name="worktype_code">26</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">教育訓練(維護)</field>
+         </record>
+         <record id="neweb_worktype_18" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">18</field>
+                <field name="worktype_code">27</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">文件製作(維護)</field>
+         </record>
+         <record id="neweb_worktype_19" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">19</field>
+                <field name="worktype_code">28</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">回復演練(維護)</field>
+         </record>
+         <record id="neweb_worktype_20" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">20</field>
+                <field name="worktype_code">29</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">其他(維護)</field>
+         </record>
+         <record id="neweb_worktype_21" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">21</field>
+                <field name="worktype_code">30</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">定期維護(維運)</field>
+         </record>
+        <record id="neweb_worktype_22" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">22</field>
+                <field name="worktype_code">31</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">硬體處理(維運)</field>
+         </record>
+        <record id="neweb_worktype_23" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">23</field>
+                <field name="worktype_code">32</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">軟體處理(維運)</field>
+         </record>
+        <record id="neweb_worktype_24" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">24</field>
+                <field name="worktype_code">33</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">諮詢服物(維運)</field>
+         </record>
+        <record id="neweb_worktype_25" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">25</field>
+                <field name="worktype_code">34</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">測試服務(維運)</field>
+         </record>
+        <record id="neweb_worktype_26" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">26</field>
+                <field name="worktype_code">35</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">會議討論(維運)</field>
+         </record>
+        <record id="neweb_worktype_27" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">27</field>
+                <field name="worktype_code">36</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">教育訓練(維運)</field>
+         </record>
+        <record id="neweb_worktype_28" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">28</field>
+                <field name="worktype_code">37</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">文件製作(維運)</field>
+         </record>
+        <record id="neweb_worktype_29" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">29</field>
+                <field name="worktype_code">38</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">回復演練(維運)</field>
+         </record>
+        <record id="neweb_worktype_30" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">30</field>
+                <field name="worktype_code">39</field>
+                <field name="worktype_link">2</field>
+                <field name="worktype_desc">其他(維運)</field>
+         </record>
+        <record id="neweb_worktype_31" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">31</field>
+                <field name="worktype_code">40</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">POC</field>
+         </record>
+        <record id="neweb_worktype_32" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">32</field>
+                <field name="worktype_code">41</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">非合約的人力支援</field>
+         </record>
+        <record id="neweb_worktype_33" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">33</field>
+                <field name="worktype_code">45</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">會議討論</field>
+         </record>
+        <record id="neweb_worktype_34" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">34</field>
+                <field name="worktype_code">46</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">教育訓練</field>
+         </record>
+        <record id="neweb_worktype_35" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">35</field>
+                <field name="worktype_code">47</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">文件製作</field>
+         </record>
+        <record id="neweb_worktype_36" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">36</field>
+                <field name="worktype_code">49</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">其他</field>
+         </record>
+        <record id="neweb_worktype_37" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">37</field>
+                <field name="worktype_code">50</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">出差</field>
+         </record>
+        <record id="neweb_worktype_38" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">38</field>
+                <field name="worktype_code">51</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">休假</field>
+         </record>
+        <record id="neweb_worktype_39" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">39</field>
+                <field name="worktype_code">52</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">自學</field>
+         </record>
+        <record id="neweb_worktype_40" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">40</field>
+                <field name="worktype_code">55</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">內部會議</field>
+         </record>
+        <record id="neweb_worktype_41" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">41</field>
+                <field name="worktype_code">56</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">外部教育訓練</field>
+         </record>
+        <record id="neweb_worktype_42" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">42</field>
+                <field name="worktype_code">57</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">內部教育訓練</field>
+         </record>
+        <record id="neweb_worktype_43" model="neweb_emp_timesheet.timesheet_worktype">
+                <field name="nitem">43</field>
+                <field name="worktype_code">59</field>
+                <field name="worktype_link">4</field>
+                <field name="worktype_desc">其他</field>
+         </record>
+    </data>
+</odoo>

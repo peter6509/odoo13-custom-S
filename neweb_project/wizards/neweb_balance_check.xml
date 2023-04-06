@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_neweb_balance_check_wizard" model="ir.ui.view">
+             <field name="name">views.neweb.balance.check.wizard</field>
+             <field name="model">neweb.balance_check_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>成本分析平衡試算</h1>
+                         <group>
+                             <field name="project_id" />
+                             <field name="proj_status"/>
+                             <field name="proj_status1"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button special="cancel" string="結束離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="neweb_balance_check_wizard_action" model="ir.actions.act_window">
+             <field name="name">成本分析平衡試算</field>
+             <field name="res_model">neweb.balance_check_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

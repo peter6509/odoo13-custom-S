@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_stockin_inherit_tree" model="ir.ui.view">
+           <field name="name">neweb.stockin.inherit.tree</field>
+           <field name="model">stock.picking</field>
+           <field name="inherit_id" ref="neweb_stockin.neweb_stockout_inherit2_form"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='origin']" position="after">
+                   <field name="stockin_proj_no" attrs="{'invisible':[('stockin_picktype','!=','incoming')]}"/>
+
+               </xpath>
+
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

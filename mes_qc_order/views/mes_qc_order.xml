@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mes_fqc_order_tree_view" model="ir.ui.view">
+            <field name="name">mes.fqc.order.tree</field>
+            <field name="model">mes.fqc.order</field>
+            <field name="arch" type="xml">
+                <tree string="FQC 質檢列表">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="mo_number"/>
+                    <field name="qc_prod_no"/>
+                    <field name="qc_lot_number"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="mes_fqc_order_form_view" model="ir.ui.view">
+            <field name="name">mes.fqc.order.form</field>
+            <field name="model">mes.fqc.order</field>
+            <field name="arch" type="xml">
+                <form string="FQC 質檢單據">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="True"/>
+                                <field name="date"/>
+
+                            </group>
+                            <group>
+                                <field name="mo_number"/>
+                                <field name="qc_prod_no"/>
+                                <field name="qc_lot_number"/>
+                            </group>
+                        </group>
+                        <group>
+                                <field name="cam_pic_1"/>
+                                <field name="cam_pic_2"/>
+                                <field name="cam_pic_3"/>
+                        </group>
+                        <notebook>
+                            <page string="產品質檢條碼記錄" name="QC Barcode Line">
+                                <field name="qc_barcode_ids" widget="section_and_note_one2many" mode="tree">
+                                    <tree string="產品質檢條碼記錄" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="barcode_seq" readonly="1" style="width:150px"/>
+                                        <field name="barcode_name" readonly="1"/>
+                                        <field name="barcode_context" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="產品質檢照片記錄" name="QC Picture LINE">
+                                <field name="qc_pic_ids" widget="section_and_note_one2many" mode="tree">
+                                    <tree string="產品質檢照片記錄" editable="bottom">
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="pic_seq" readonly="1" style="width:150px"/>
+                                        <field name="pic_name" readonly="1"/>
+                                        <field name="pic_context" readonly="1"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="action_mes_fqc_order_view" model="ir.actions.act_window">
+            <field name="name">FQC 質檢單據</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mes.fqc.order</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_mes_qc_categ" name="質檢作業" parent="mixmes_qc_config.menu_mixmes_root" sequence="100"/>
+        <menuitem id="menu_mes_fqc_order_view" name="FQC 質檢單據" parent="menu_mes_qc_categ" action="action_mes_fqc_order_view" sequence="10"/>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_supplierinfo_wizard" model="ir.ui.view">
+             <field name="name">view.supplierinfo.wizard</field>
+             <field name="model">alldo_gh_iot.supplierinfo_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>供應商/料件複合式查詢</h1>
+                     <group>
+                       <field name="supplier_id"/>
+                       <field name="product_id"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_supplierinfo" string="查詢" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_supplierinfo_wizard_action" model="ir.actions.act_window">
+             <field name="name">供應商/料件複合式查詢</field>
+             <field name="res_model">alldo_gh_iot.supplierinfo_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

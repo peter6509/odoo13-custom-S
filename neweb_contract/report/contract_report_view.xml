@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_neweb_contract_tx_price_report_pivot" model="ir.ui.view">
+            <field name="name">neweb_contract.contract.tx_price.report.pivot</field>
+            <field name="model">neweb_contract.contract.tx_price.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Contracts Analysis">
+                    <field name="date" type="row"/>
+                    <field name="end_customer" type="row"/>
+                    <field name="tx_price" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="view_neweb_contract_tx_price_report_graph" model="ir.ui.view">
+            <field name="name">neweb_contract.contract.tx_price.report.graph</field>
+            <field name="model">neweb_contract.contract.tx_price.report</field>
+            <field name="arch" type="xml">
+                <graph string="Contracts Analysis">
+                    <field name="date"/>
+                    <field name="tx_price" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <record id="action_neweb_contract_tx_price_report" model="ir.actions.act_window">
+            <field name="name">Contracts Analysis</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_contract.contract.tx_price.report</field>
+            <field name="view_mode">pivot,graph</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p>This report performs analysis on your Contracts<p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+<!--        <record id="view_neweb_contract_ae_report_pivot" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.ae.report.pivot</field>-->
+<!--            <field name="model">neweb_contract.contract.ae.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <pivot string="Contracts Analysis">-->
+<!--                    <field name="ae" type="row"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </pivot>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="view_neweb_contract_ae_report_graph" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.ae.report.graph</field>-->
+<!--            <field name="model">neweb_contract.contract.ae.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <graph string="Contracts Analysis">-->
+<!--                    <field name="ae"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </graph>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="action_neweb_contract_ae_report" model="ir.actions.act_window">-->
+<!--            <field name="name">Contracts Analysis</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">neweb_contract.contract.ae.report</field>-->
+<!--            <field name="view_mode">pivot,graph</field>-->
+<!--            <field name="help" type="html">-->
+<!--              <p class="oe_view_nocontent_create">-->
+<!--                &lt;!&ndash; Add Text Here &ndash;&gt;-->
+<!--              </p>This report performs analysis on your Contracts<p>-->
+<!--                &lt;!&ndash; More details about what a user can do with this object will be OK &ndash;&gt;-->
+<!--              </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+<!--        <record id="view_neweb_contract_sla_report_pivot" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.sla.report.pivot</field>-->
+<!--            <field name="model">neweb_contract.contract.sla.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <pivot string="Contracts Analysis">-->
+<!--                    <field name="sla" type="row"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </pivot>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="view_neweb_contract_sla_report_graph" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.sla.report.graph</field>-->
+<!--            <field name="model">neweb_contract.contract.sla.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <graph string="Contracts Analysis">-->
+<!--                    <field name="sla"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </graph>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="action_neweb_contract_sla_report" model="ir.actions.act_window">-->
+<!--            <field name="name">Contracts Analysis</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">neweb_contract.contract.sla.report</field>-->
+<!--            <field name="view_mode">pivot,graph</field>-->
+<!--            <field name="help" type="html">-->
+<!--              <p class="oe_view_nocontent_create">-->
+<!--                &lt;!&ndash; Add Text Here &ndash;&gt;-->
+<!--              </p>This report performs analysis on your Contracts<p>-->
+<!--                &lt;!&ndash; More details about what a user can do with this object will be OK &ndash;&gt;-->
+<!--              </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+<!--        <record id="view_neweb_contract_product_category_report_pivot" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.product_category.report.pivot</field>-->
+<!--            <field name="model">neweb_contract.contract.product_category.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <pivot string="Contracts Analysis">-->
+<!--                    <field name="prod_categ" type="row"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </pivot>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="view_neweb_contract_product_category_report_graph" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.product_category.report.graph</field>-->
+<!--            <field name="model">neweb_contract.contract.product_category.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <graph string="Contracts Analysis">-->
+<!--                    <field name="prod_categ"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </graph>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="action_neweb_contract_product_category_report" model="ir.actions.act_window">-->
+<!--            <field name="name">Contracts Analysis</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">neweb_contract.contract.product_category.report</field>-->
+<!--            <field name="view_mode">pivot,graph</field>-->
+<!--            <field name="help" type="html">-->
+<!--              <p class="oe_view_nocontent_create">-->
+<!--                &lt;!&ndash; Add Text Here &ndash;&gt;-->
+<!--              </p>This report performs analysis on your Contracts<p>-->
+<!--                &lt;!&ndash; More details about what a user can do with this object will be OK &ndash;&gt;-->
+<!--              </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+
+<!--        <menuitem name="Reports" id="menu_neweb_contract_report_all"-->
+<!--                  parent="neweb_base.menu_contract"-->
+<!--                  sequence="25"-->
+<!--                  groups="base.group_user"/>-->
+
+<!--        <menuitem name="Tx Price" action="action_neweb_contract_tx_price_report"-->
+<!--                  id="menu_neweb_contract_tx_price_report"-->
+<!--                  parent="neweb_contract.menu_neweb_contract_report_all"-->
+<!--                  sequence="31"-->
+<!--                  groups="base.group_user"/>-->
+
+<!--        <menuitem name="# of Target Device with AE"-->
+<!--                  action="action_neweb_contract_ae_report"-->
+<!--                  id="menu_neweb_contract_ae_report"-->
+<!--                  parent="neweb_contract.menu_neweb_contract_report_all"-->
+<!--                  sequence="32"-->
+<!--                  groups="base.group_user"/>-->
+
+<!--        <menuitem name="# of Target Device with SLA"-->
+<!--                  action="action_neweb_contract_sla_report"-->
+<!--                  id="menu_neweb_contract_sla_report"-->
+<!--                  parent="neweb_contract.menu_neweb_contract_report_all"-->
+<!--                  sequence="33"-->
+<!--                  groups="base.group_user"/>-->
+
+<!--        <menuitem name="# of Target Device with Product Category"-->
+<!--                  action="action_neweb_contract_product_category_report"-->
+<!--                  id="menu_neweb_contract_product_category_report"-->
+<!--                  parent="neweb_contract.menu_neweb_contract_report_all"-->
+<!--                  sequence="34"-->
+<!--                  groups="base.group_user"/>-->
+
+<!--&lt;!&ndash; Brand &ndash;&gt;-->
+
+<!--        <record id="view_neweb_contract_product_brand_report_pivot" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.product_brand.report.pivot</field>-->
+<!--            <field name="model">neweb_contract.contract.product_brand.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <pivot string="Contracts Analysis" >-->
+<!--                    <field name="prod_brand" type="row"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </pivot>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="view_neweb_contract_product_brand_report_graph" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.product_brand.report.graph</field>-->
+<!--            <field name="model">neweb_contract.contract.product_brand.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <graph string="Contracts Analysis">-->
+<!--                    <field name="prod_brand"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </graph>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="action_neweb_contract_product_brand_report" model="ir.actions.act_window">-->
+<!--            <field name="name">Contracts Analysis</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">neweb_contract.contract.product_brand.report</field>-->
+<!--            <field name="view_mode">pivot,graph</field>-->
+<!--            <field name="help" type="html">-->
+<!--              <p class="oe_view_nocontent_create">-->
+<!--                &lt;!&ndash; Add Text Here &ndash;&gt;-->
+<!--              </p>This report performs analysis on your Contracts<p>-->
+<!--                &lt;!&ndash; More details about what a user can do with this object will be OK &ndash;&gt;-->
+<!--              </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+<!--        <menuitem name="# of Target Device with Product Brand"-->
+<!--                  action="action_neweb_contract_product_brand_report"-->
+<!--                  id="menu_neweb_contract_product_brand_report"-->
+<!--                  parent="neweb_contract.menu_neweb_contract_report_all"-->
+<!--                  sequence="36"-->
+<!--                  groups="base.group_user"/>-->
+
+<!--&lt;!&ndash; Model &ndash;&gt;-->
+
+<!--        <record id="view_neweb_contract_product_model_report_pivot" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.product_model.report.pivot</field>-->
+<!--            <field name="model">neweb_contract.contract.product_model.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <pivot string="Contracts Analysis">-->
+<!--                    <field name="prod_model" type="row"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </pivot>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="view_neweb_contract_product_model_report_graph" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.product_model.report.graph</field>-->
+<!--            <field name="model">neweb_contract.contract.product_model.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <graph string="Contracts Analysis">-->
+<!--                    <field name="prod_model"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </graph>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="action_neweb_contract_product_model_report" model="ir.actions.act_window">-->
+<!--            <field name="name">Contracts Analysis</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">neweb_contract.contract.product_model.report</field>-->
+<!--            <field name="view_mode">pivot,graph</field>-->
+<!--            <field name="help" type="html">-->
+<!--              <p class="oe_view_nocontent_create">-->
+<!--                &lt;!&ndash; Add Text Here &ndash;&gt;-->
+<!--              </p>This report performs analysis on your Contracts<p>-->
+<!--                &lt;!&ndash; More details about what a user can do with this object will be OK &ndash;&gt;-->
+<!--              </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+<!--        <menuitem name="# of Target Device with Product Model"-->
+<!--                  action="action_neweb_contract_product_model_report"-->
+<!--                  id="menu_neweb_contract_product_model_report"-->
+<!--                  parent="neweb_contract.menu_neweb_contract_report_all"-->
+<!--                  sequence="36"-->
+<!--                  groups="base.group_user"/>-->
+
+<!--&lt;!&ndash; Serial &ndash;&gt;-->
+
+<!--        <record id="view_neweb_contract_product_serial_report_pivot" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.product_serial.report.pivot</field>-->
+<!--            <field name="model">neweb_contract.contract.product_serial.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <pivot string="Contracts Analysis">-->
+<!--                    <field name="prod_serial" type="row"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </pivot>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="view_neweb_contract_product_serial_report_graph" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.product_serial.report.graph</field>-->
+<!--            <field name="model">neweb_contract.contract.product_serial.report</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <graph string="Contracts Analysis">-->
+<!--                    <field name="prod_serial"/>-->
+<!--                    <field name="nbr" type="measure"/>-->
+<!--                </graph>-->
+<!--            </field>-->
+<!--        </record>-->
+<!--        <record id="action_neweb_contract_product_serial_report" model="ir.actions.act_window">-->
+<!--            <field name="name">Contracts Analysis</field>-->
+<!--            <field name="type">ir.actions.act_window</field>-->
+<!--            <field name="res_model">neweb_contract.contract.product_serial.report</field>-->
+<!--            <field name="view_mode">tree,form</field>-->
+<!--            <field name="help" type="html">-->
+<!--              <p class="oe_view_nocontent_create">-->
+<!--                &lt;!&ndash; Add Text Here &ndash;&gt;-->
+<!--              </p>This report performs analysis on your Contracts<p>-->
+<!--                &lt;!&ndash; More details about what a user can do with this object will be OK &ndash;&gt;-->
+<!--              </p>-->
+<!--            </field>-->
+<!--        </record>-->
+
+
+<!--        <menuitem name="# of Target Device with Product Serial"-->
+<!--                  action="action_neweb_contract_product_serial_report"-->
+<!--                  id="menu_neweb_contract_product_serial_report"-->
+<!--                  parent="neweb_contract.menu_neweb_contract_report_all"-->
+<!--                  sequence="36"-->
+<!--                  groups="base.group_user"/>-->
+
+    </data>
+</odoo>

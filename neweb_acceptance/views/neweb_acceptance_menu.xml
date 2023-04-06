@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <menuitem id="neweb_acceptance_root" parent="neweb_project.menu_neweb_project_root"
+                 name="專案驗收控管" sequence="150"/>
+        <menuitem id="neweb_acceptance_categ" name="驗收控管情況表"
+                  action="action_neweb_acceptance_view"
+                  parent="neweb_acceptance_root" sequence="10"/>
+        <menuitem id="neweb_acceptance_export_wizard_action" name="專案出貨狀態(目前)匯出精靈"
+                  action="menu_acceptance_wizard_action"
+                  parent="neweb_acceptance_root" sequence="20"/>
+        <menuitem id="neweb_acceptance_export_wizard_action1" name="專案出貨(所有歷程)匯出精靈"
+                  action="menu_acceptance_wizard_action1"
+                  parent="neweb_acceptance_root" sequence="23"/>
+        <menuitem id="neweb_acceptance_alert_wizard_action" name="專案驗收異常匯出精靈"
+                  action="menu_acceptance_alert_wizard_action"
+                  parent="neweb_acceptance_root" sequence="25"/>
+        <menuitem id="neweb_acceptance_download" name="貨品狀態下載暫存區"
+                  action="neweb_acceptance_download_action"
+                  parent="neweb_acceptance_root" sequence="30"/>
+        <menuitem id="menu_neweb_acceptance_mail_view" name="貨品狀態通知信"
+                  parent="neweb_acceptance_root" action="action_neweb_acceptance_email_view"
+                  sequence="90"/>
+        <menuitem id="menu_neweb_acceptancce_config_view" name="模組參數設定"
+                  parent="neweb_acceptance_root" action="action_neweb_acceptance_config_view"
+                  groups="base.group_system"
+                  sequence="100"/>
+        <menuitem id="menu_neweb_acceptancce_assist_view" name="業助帳務通知名單"
+                  parent="neweb_acceptance_root" action="action_neweb_acceptance_assist_view"
+                  groups="base.group_system"
+                  sequence="105"/>
+        <menuitem id="menu_neweb_manual_wizard_view" name="手動產生專案貨品狀態清單"
+                  parent="neweb_acceptance_root" action="menu_neweb_manual_wizard_action"
+                  groups="base.group_system"
+                  sequence="110"/>
+        <menuitem id="menu_uncomplete_invoice_wizard_view" name="專案未驗收清單匯出精靈"
+                  parent="neweb_acceptance_root" action="menu_uncomplete_invoice_wizard_action"
+                  sequence="120"/>
+
+
+
+    </data>
+</odoo>

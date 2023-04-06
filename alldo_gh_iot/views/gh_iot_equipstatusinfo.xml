@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="views_equipstatusinfo_tree" model="ir.ui.view">
+           <field name="name">views.equipstatusinfo.tree</field>
+           <field name="model">alldo_gh_iot.equipstatusinfo</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="print_num"/>
+               </tree>
+           </field>
+       </record>
+       <record id="views_equipstatusinfo_form" model="ir.ui.view">
+           <field name="name">views.equipstatusinfo.form</field>
+           <field name="model">alldo_gh_iot.equipstatusinfo</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <field name="print_num"/>
+                       </group>
+                        <notebook>
+                                <page string="設備異常條碼名條" name="emp Line">
+                                    <field
+                                        name="barcode_line"
+                                        widget="section_and_note_one2many"
+                                        mode="tree"
+                                    >
+                                   <tree string="設備異常條碼名條" editable="False">
+                                      <field name="status_code1" string="1故障碼"  />
+                                      <field name="status_name1" string="1說明" />
+                                      <field name="status_code2" string="2故障碼"  />
+                                      <field name="status_name2" string="2說明" />
+                                      <field name="status_code3" string="3故障碼"  />
+                                      <field name="status_name3" string="3說明" />
+                                      <field name="status_code4" string="4故障碼"  />
+                                      <field name="status_name4" string="4說明" />
+                                       <field name="status_code5" string="5故障碼"  />
+                                      <field name="status_name5" string="5說明" />
+                                      <field name="status_code6" string="6故障碼"  />
+                                      <field name="status_name6" string="6說明" />
+                                      <field name="status_code7" string="7故障碼"  />
+                                      <field name="status_name7" string="7說明" />
+                                      <field name="status_code8" string="8故障碼"  />
+                                      <field name="status_name8" string="8說明" />
+                                      <field name="status_code9" string="9故障碼"  />
+                                      <field name="status_name9" string="9說明" />
+                                      <field name="status_code10" string="10故障碼"  />
+                                      <field name="status_name10" string="10說明" />
+                                    </tree>
+                                    </field>
+                                </page>
+                        </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="views_equipstatusinfo_action" model="ir.actions.act_window">
+           <field name="name"></field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">alldo_gh_iot.equipstatusinfo</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+
+    </data>
+</odoo>

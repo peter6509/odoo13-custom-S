@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="outsourcing_in_wizard_form_view" model="ir.ui.view">
+            <field name="name">outsourcing.in.wizard.form</field>
+            <field name="model">alldo_ipla_iot.outsourcing_in</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+
+<!--                            <field name="suborder_id" options="{'no_open': True,'no_create':true,'no_create_edit':true}"-->
+<!--                              domain="[('state','in',['1','2'])]" attrs="{'invisible':[('partner_id','!=',False)]}"/>-->
+                             <field name="partner_id" options="{'no_create':true,'no_create_edit':true}" domain="[('is_company','=',True)]" />
+                            <field name="product_id" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="product_id1" options="{'no_create':true,'no_create_edit':true}" attrs="{'invisible':1}"/>
+                             <field name="in_good_num" />
+                            <field name="in_ng_num"/>
+                            <field name="loss_num"/>
+                            <field name="in_desc"/>
+                            <field name="in_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                        </group>
+
+                        <group>
+                            <field name="is_complete_stockin"/>
+                            <field name="mo_no" options="{'no_create':true,'no_create_edit':true}" attrs="{'invisible':[('is_complete_stockin','=',False)]}"
+                                domain="[('state','!=','4')]"/>
+                            <field name="product_no" options="{'no_create':true,'no_create_edit':true}" attrs="{'invisible':[('is_complete_stockin','=',False)],'readonly':1}"/>
+                            <field name="product_no1" options="{'no_create':true,'no_create_edit':true}" attrs="{'invisible':[('is_complete_stockin','=',False)]}"/>
+                            <field name="prod_num" attrs="{'invisible':[('is_complete_stockin','=',False)]}"/>
+                            <field name="ng_num" attrs="{'invisible':[('is_complete_stockin','=',False)]}"/>
+                            <field name="loss_num1" attrs="{'invisible':[('is_complete_stockin','=',False)]}"/>
+                            <field name="is_close" attrs="{'invisible':[('is_complete_stockin','=',False)]}"/>
+                             <field name="partner_blank_onhand1" attrs="{'readonly':1}"/>
+<!--                            <field name="partner_blank_onhand2" attrs="{'readonly':1}"/>-->
+                            <field name="wh_blank_onhand1" attrs="{'readonly':1}"/>
+<!--                            <field name="wh_blank_onhand2" attrs="{'readonly':1}"/>-->
+                        </group>
+                    </group>
+                    <footer>
+                        <button string="委外加工完工入庫" name="run_outsourcing_in" type="object" class="oe_hiiplaliiplat"/>
+                        <button string="放棄離開" class="btn btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="outsourcing_in_wizard_action" model="ir.actions.act_window">
+            <field name="name">委外加工完工移轉精靈</field>
+            <field name="res_model">alldo_ipla_iot.outsourcing_in</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

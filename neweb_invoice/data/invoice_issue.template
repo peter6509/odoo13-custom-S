@@ -1,0 +1,80 @@
+<p>
+    親愛的客戶您好，
+</p>
+
+<p>
+藍新公司已開立如下方資訊的發票，請您確認是否已經收到，若您還未收到或對發票資訊有任何疑慮，歡迎您向負責的業務詢問。
+</p>
+
+<table style="border-collapse: collapse">
+    <tr>
+        <td colspan="2" style="border-style:solid; border-width:1px">客戶名稱</td>
+        <td colspan="5" style="border-style:solid; border-width:1px">{{ client_name }}</td>
+        <td style="border-style:solid; border-width:1px">藍新統編</td>
+        <td colspan="2" style="border-style:solid; border-width:1px">24540267</td>
+    </tr>
+    <tr>
+        <td style="border-style:solid; border-width:1px">
+            專案類型
+        </td>
+        <td colspan="2" style="border-style:solid; border-width:1px">
+            發票日期
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            發票號碼
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            含稅金額
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            付款日期
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            客戶採購單號/案號
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            藍新專案/合約編號
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            業務
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            業務助理
+        </td>
+    </tr>
+    {% for project_type, invoice_date, invoice_number, price, due_date, client_serial, contract_number, agent, assistant in invoices %}
+    <tr>
+        <td style="border-style:solid; border-width:1px">
+            {{ project_type }}
+        </td>
+        <td colspan="2" style="border-style:solid; border-width:1px">
+            {{ invoice_date }}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            {{ invoice_number }}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            {{ price }}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            {{ due_date }}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            {{ client_serial }}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            {{ contract_number }}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            {{ agent }}
+        </td>
+        <td style="border-style:solid; border-width:1px">
+            {{ assistant }}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p><small>
+※若您收到並已處理此筆發票作業，請您忽略此郵件，造成您的困擾，敬請見諒。
+</small></p>

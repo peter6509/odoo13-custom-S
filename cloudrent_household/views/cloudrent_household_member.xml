@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cloudrent_household_member_tree" model="ir.ui.view">
+            <field name="name">cloudrent.household.member.tree</field>
+            <field name="model">cloudrent.household_member</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="match_no"/>
+                    <field name="landlord_no"/>
+                    <field name="member_no"/>
+                    <field name="member_name"/>
+                    <field name="loc"/>
+                    <field name="community"/>
+                    <field name="writ_addr"/>
+                    <field name="owner"/>
+                    <field name="owner_phone"/>
+                    <field name="lessee"/>
+                    <field name="lessee_phone"/>
+                    <field name="normal_rent"/>
+                    <field name="level1_rent"/>
+                    <field name="level2_rent"/>
+                    <field name="member_subsidy_level"/>
+                    <field name="subsidy"/>
+                    <field name="house_management_fee"/>
+                    <field name="parking_space_rent"/>
+                    <field name="rent_amount"/>
+                    <field name="income_date"/>
+                    <field name="start_rental"/>
+                    <field name="end_rental"/>
+                </tree>
+            </field>
+        </record>
+        <record id="cloudrent_household_member_form" model="ir.ui.view">
+            <field name="name">cloudrent.household.member.form</field>
+            <field name="model">cloudrent.household_member</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="member_type"/>
+                                <field name="match_no" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="landlord_no" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="member_no"/>
+                                <field name="member_name"/>
+                                <field name="member_pid"/>
+                                <field name="member_email"/>
+
+                                <field name="loc" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="community" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="writ_addr" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="owner" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="owner_phone" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="lessee" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="lessee_phone" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="contact" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="house_id" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="has_rent_line" attrs="{'invisible':1}"/>
+
+                                <field name="member_position" attrs="{'invisible':1}"/>
+                                <button type="object" string="展開租戶房租應繳記錄"
+                                        attrs="{'invisible':['|',('has_rent_line','=',True),('member_type','in',('1','2','4'))]}"
+                                        class="oe_highlight" name="run_account_payment" />
+                                <button type="object" string="刪除租戶房租應繳記錄"
+                                        attrs="{'invisible':['|',('has_rent_line','=',False),('member_type','in',('1','2','4'))]}"
+                                        groups="base.group_no_one"
+                                        class="oe_highlight" name="del_member_account" />
+
+
+                            </group>
+                            <group>
+                                  <field name="member_subsidy_level" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="normal_rent" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="level1_rent" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="level2_rent" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="house_management_fee" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="parking_space_rent" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="subsidy" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="rent_amount" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="household_reg" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="memo"/>
+                                  <field name="income_date" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="start_rental" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <field name="end_rental" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                 <field name="type" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                <field name="pattern" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                 <field name="user_id" groups="base.group_no_one"/>
+                                <field name="contract_id" attrs="{'invisible':[('member_type','in',['1','2','4','5'])]}"/>
+                                  <button type="object" string="租戶房租從新計算"
+                                        attrs="{'invisible':[('has_rent_line','=',False)]}"
+                                        class="oe_highlight" name="recall_account_payment"/>
+                           </group>
+                        </group>
+                        <notebook>
+                            <page string="租戶繳費資訊" name="Contract Data" attrs="{'invisible':[('member_type','in',('1','2','4'))]}">
+                                <group>
+                                     <field name="income_date"/>
+                                    <field name="start_rental"/>
+                                    <field name="end_rental"/>
+                                    <field name="normal_rent"/>
+<!--                                    <field name="member_subsidy_level"/>-->
+                                    <field name="level1_rent" attrs="{'invisible':[('member_subsidy_level','in',['2','3'])]}"/>
+                                    <field name="level2_rent" attrs="{'invisible':[('member_subsidy_level','in',['1','3'])]}"/>
+                                    <field name="subsidy"/>
+                                    <field name="rent_amount"/>
+                                    <field name="member_account_balance"/>
+                                    <field name="member_payment_tot"/>
+                                </group>
+                            </page>
+                             <page string="月房租明細記錄" name="member rent line Data" attrs="{'invisible':[('member_type','in',('1','2','4'))]}">
+                                 <field name="member_rent_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="月房租明細記錄" create="false" edit="false" delete="false" >
+                                    <field name="member_payment_ids" widget="many2many_tags"/>
+                                    <field name="account_active"/>
+                                    <field name="account_ym" />
+                                    <field name="house_rental_fee"/>
+                                    <field name="house_management_fee"/>
+                                    <field name="parking_space_rent"/>
+                                    <field name="account_tot"/>
+                                    <field name="house_rental_pay"/>
+                                    <field name="house_management_pay"/>
+                                    <field name="parking_space_pay"/>
+                                    <field name="payment_tot"/>
+                                 </tree>
+                                </field>
+                             </page>
+                             <page string="房租繳款記錄" name="member payment line Data" attrs="{'invisible':[('member_type','in',('1','2','4'))]}">
+                                  <field name="member_payment_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="房租繳款記錄" create="false" edit="false" delete="false" >
+                                     <field name="name"/>
+                                     <field name="account_date"/>
+                                     <field name="payment_ap_now"/>
+                                     <field name="user_id"/>
+                                     <button name="button_action" type="object" string="核銷記錄" class="oe_highlight"/>
+                                 </tree>
+                                </field>
+                             </page>
+                            <page string="租戶綁定LINE記錄" name="member line account">
+                                 <field name="line_user_ids" widget="section_and_note_one2many" mode="tree">
+                                     <tree string="租戶綁定LINE記錄" editable="bottom">
+                                        <field name="member_pid"/>
+                                        <field name="member_name"/>
+                                        <field name="line_user_id" />
+                                        <field name="send_acc_bill"/>
+                                        <field name="send_announcement"/>
+                                        <field name="send_bus_adv"/>
+                                     </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_household_member_search" model="ir.ui.view">
+           <field name="name">view.household.member.search</field>
+           <field name="model">cloudrent.household_member</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="member_name" string="關鍵字" filter_domain="['|',('member_no','ilike',self),('member_name','ilike',self)]"/>
+                <filter string="物業" domain="[('member_type','=','1')]" name="member1"/>
+                <filter string="房東" domain="[('member_type','=','2')]" name="member2"/>
+                <filter string="房客" domain="[('member_type','=','3')]" name="member3"/>
+                <filter string="供應商" domain="[('member_type','=','4')]" name="member4"/>
+                <filter string="管理師" domain="[('member_type','=','5')]" name="member5"/>
+            </search>
+           </field>
+        </record>
+        <record id="cloudrent_household_member_action" model="ir.actions.act_window">
+            <field name="name">住戶資訊主檔</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.household_member</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('cloudrent_household.cloudrent_household_member_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('cloudrent_household.cloudrent_household_member_form')}),]"/>
+            <field name="search_view_id" ref="view_household_member_search"/>
+            <field name="context">{'search_default_member3':1}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

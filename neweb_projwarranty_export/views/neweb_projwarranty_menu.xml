@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- This Menu Item must have a parent and an action -->
+
+        <menuitem id="menu_neweb_projwarranty_categ"
+                  name="專案產出保固資訊"
+                  parent="neweb_project.menu_neweb_project_root"
+                  groups="neweb_project.neweb_cs30_dir,neweb_project.neweb_cs20_vp,neweb_project.neweb_cs10_gm,neweb_project.neweb_cs40_user,neweb_project.neweb_cs50_assi"
+                  sequence="200"/>
+        <menuitem id="menu_neweb_projwarranty_action"
+                  name=""
+                  parent="menu_neweb_projwarranty_categ"
+                  action="views_neweb_projwarranty_action"
+                  sequence="10"/>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_neweb_projwarranty_download_action"
+                  name=""
+                  parent="menu_neweb_projwarranty_categ"
+                  action="action_neweb_projwarranty_download_view"
+                  sequence="20"/>
+    </data>
+</odoo>

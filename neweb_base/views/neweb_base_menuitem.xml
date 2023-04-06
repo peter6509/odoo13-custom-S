@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem name="合約管理" id="menu_contract"
+                  web_icon="neweb_contract,static/description/contract.png"
+                  sequence="10"/>
+        <menuitem name="報修維護管理" id="menu_repair"
+                  web_icon="neweb_repair,static/description/repair.png"
+                  sequence="11"/>
+        <menuitem name="Regular Inspection" id="menu_regular_inspection" sequence="12"/>
+
+        <menuitem id="menu_contract_configuration" name="Configuration" parent="menu_contract" sequence="99"/>
+        <menuitem id="menu_repair_configuration" name="Configuration" parent="menu_repair" sequence="99"/>
+        <!--<menuitem id="menu_regular_inspection_configuration" name="Configuration" parent="menu_regular_inspection" sequence="99"/>-->
+    </data>
+</odoo>
+

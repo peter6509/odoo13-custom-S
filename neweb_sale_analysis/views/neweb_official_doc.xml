@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_official_doc_view_tree" model="ir.ui.view">
+            <field name="name">neweb.offocial.doc.view.tree</field>
+            <field name="model">neweb_sale_analysis.official_doc</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="send_owner"/>
+                    <field name="receiver_owner"/>
+                    <field name="receiver_address"/>
+                    <field name="doc_subject"/>
+                    <field name="doc_urgent"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_official_doc_view_form" model="ir.ui.view">
+            <field name="name">neweb.official.doc.view.form</field>
+            <field name="model">neweb_sale_analysis.official_doc</field>
+            <field name="arch" type="xml">
+                <header>
+                </header>
+                <form>
+                 <sheet>
+                       <div class="oe_title">
+                          <h1>
+                              <field name="name" readonly="1"/>
+                           </h1>
+                     </div>
+                   <group>
+                      <group>
+                          <field name="send_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                          <field name="send_name"/>
+                          <field name="send_address"/>
+                          <field name="send_phone"/>
+                          <field name="send_phoneext"/>
+                          <field name="send_fax"/>
+                          <field name="send_email"/>
+                      </group>
+                      <group>
+                          <field name="receiver_owner"/>
+                          <field name="receiver_address"/>
+                          <field name="receiver_zip"/>
+                          <field name="doc_date"/>
+                          <field name="doc_urgent"/>
+                          <field name="doc_security"/>
+                          <field name="doc_attach"/>
+
+                      </group>
+                       <field name="doc_subject"/>
+                       <field name="doc_memo"/>
+                       <field name="doc_set1"/>
+                       <field name="doc_set2"/>
+                   </group>
+                 </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="neweb_official_doc_action" model="ir.actions.act_window">
+            <field name="name">公文列印作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_sale_analysis.official_doc</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_official_doc_categ" name="公文列印" sequence="400"
+            parent="neweb_project.menu_neweb_project_root"/>
+        <menuitem id="menu_official_doc_action" name="" sequence="10"
+                  parent="menu_official_doc_categ"
+                  action="neweb_official_doc_action"/>
+    </data>
+</odoo>

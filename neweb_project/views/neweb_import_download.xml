@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_import_download_tree" model="ir.ui.view">
+           <field name="name">neweb.import.download.tree</field>
+           <field name="model">neweb.import_excel_download</field>
+           <field name="arch" type="xml">
+               <tree import="false">
+                   <field name="xls_file" filename="xls_file_name" string="EXCEL樣版檔" widget="binary"/>
+                   <field name="xls_file_name" invisible="1"/>
+                   <field name="xls_file_memo"/>
+                   <field name="create_uid" string="創建人"/>
+                   <field name="create_date" string="建檔日期"/>
+               </tree>
+           </field>
+       </record>
+        <record id="neweb_import_download_form" model="ir.ui.view">
+            <field name="name">neweb.import.download.form</field>
+            <field name="model">neweb.import_excel_download</field>
+            <field name="arch" type="xml">
+                <form>
+                 <sheet>
+                   <group>
+                      <field name="xls_file" filename="xls_file_name" string="EXCEL樣版檔" widget="binary"/>
+                      <field name="xls_file_memo" string="檔案說明"/>
+                      <!--<field name="create_uid" string="創建人"/>-->
+                   </group>
+                 </sheet>
+                </form>
+            </field>
+            </record>
+            <record id="neweb_import_download_action" model="ir.actions.act_window">
+                <field name="name">銷售EXCEL匯入樣版</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">neweb.import_excel_download</field>
+                <field name="view_mode">tree,form</field>
+                <field name="help" type="html">
+                  <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                  </p><p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                  </p>
+                </field>
+            </record>
+            <menuitem id="menu_download_excel_categ" name="EXCEL樣版下載" sequence="450"
+                      groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi"
+                  parent="neweb_project.menu_neweb_project_root"/>
+            <menuitem id="menu_download_excel_action" name="" sequence="10"
+                      groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi"
+                  parent="menu_download_excel_categ"
+                  action="neweb_import_download_action"/>
+    </data>
+</odoo>

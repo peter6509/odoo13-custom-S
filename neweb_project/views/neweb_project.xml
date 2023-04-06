@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_project_tree" model="ir.ui.view">
+            <field name="name">neweb_project_tree</field>
+            <field name="model">neweb.project</field>
+            <field name="arch" type="xml">
+                <tree create="false" string=""  decoration-info="state=='2'" decoration-success="state=='5'" decoration-it="state=='6'" decoration-danger="state=='1'">
+                    <field name="name"/>
+                    <field name="cus_name"/>
+                    <field name="cus_project"/>
+                    <field name="proj_sale"/>
+                    <field name="create_date" string="建檔日期"/>
+                    <field name="state"/>
+                    <field name="sales_member" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <record id="neweb_project_form" model="ir.ui.view">
+            <field name="name">neweb_project_form</field>
+            <field name="model">neweb.project</field>
+            <field name="arch" type="xml">
+                <form string="" duplicate="false">
+                    <header>
+                        <button name="neweb_eng_assign_form" type="object" string="裝機及派工作業" class="oe_highlight"  context="{'proj_op_id': context.get('active_id'),'proj_eng_action':'1' }"
+                                groups="neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_sa30_ass,neweb_porject.neweb_sa20_vp,neweb_project.neweb_sa10_gm"
+                                attrs="{'invisible':[('setup_date','=',False)]}"/>
+                        <!--<button name="neweb_migration" type="object" string="複製DB" class="oe_highlight oe_edit_only" />-->
+
+                        <!--<field name="state" widget="statusbar"/>-->
+                    </header>
+                    <div>
+
+                       <widget name="web_ribbon" title="NG" bg_color="bg-danger" attrs="{'invisible': [('proj_status','=','Balance'),('proj_status1','=','Balance')]}"/>
+                        <widget name="web_ribbon" title="Balance" attrs="{'invisible':['|',('proj_status','!=','Balance'),('proj_status1','!=','Balance')]}"/>
+                    </div>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="is_signed" attrs="{'invisible':1}"/>
+                                <field name="is_sales" invisible="1"/>
+                                <field name="cus_name" />
+                                <field name="main_cus_name" />
+                                <field name="proj_sale" />
+                                <field name="cus_project" />
+                                <field name="cus_order" />
+                                <field name="setup_date" />
+                                <field name="shipping_date"/>
+                                <field name="sale_no" attrs="{'readonly':1}"/>
+                                <field name="have_contract"/>
+                                <field name="opentrender" attrs="{'invisible':1}"/>
+                                <field name="maintenanceyn" attrs="{'invisible':1}"/>
+                                <field name="warrantyyn" attrs="{'invisible':1}"/>
+                                <field name="projectyn" attrs="{'invisible':1}"/>
+                                <field name="sales_member" attrs="{'invisible':1}"/>
+                            </group>
+                            <group>
+                                <field name="proj_status1"/>
+                                <field name="proj_status"/>
+                                <field name="name" />
+                                <field name="create_date" string="建檔日期" attrs="{'readonly':1}"/>
+                                <field name="group_name" />
+                                <field name="sno" />
+                                <field name="transation_type" widget="many2many_tags" />
+                                <field name="parent_projno"  attrs="{'invisible':[('parent_projno','=',False)],'readonly':1}"/>
+                            </group>
+                        </group>
+                    </sheet>
+                        <sheet>
+                            <h1>專案客戶資訊</h1>
+<!--                            <HR  size="10"/>-->
+                            <notebook>
+                                <page string="專案客戶地址">
+                                    <group>
+                                      <field name="proj_cus_ids" widget="section_and_note_one2many" mode="tree" nolabel="1">
+                                       <tree string="Custom Info" editable="bottom">
+                                            <field name="cus_type" string="類別"/>
+                                            <field name="cus_address" string="地址"/>
+                                            <field name="cus_phone" string="電話"/>
+                                            <field name="cus_fax" string="傳真"/>
+                                            <field name="cus_memo" string="備註"/>
+                                        </tree>
+                                      </field>
+                                    </group>
+                                  </page>
+                                <page string="專案客戶連絡人">
+                                    <group>
+                                        <field name="proj_contact_ids" widget="section_and_note_one2many" mode="tree" nolabel="1">
+                                            <tree editable="bottom" string="Custom Info">
+                                                <field name="create_uid" invisible="1"/>
+                                                <field name="contact_type" string="人員別"/>
+                                                <field name="contact_name" string="姓名" />
+                                                <field name="contact_function" string="職稱"/>
+                                                <field name="contact_phone" string="電話"/>
+                                                <field name="contact_mobile" string="手機"/>
+                                                <field name="contact_email" string="Email"/>
+                                                <field name="contact_fax" string="傳真"/>
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </page>
+                                <page string="專案資訊">
+                                    <group>
+                                        <group>
+                                            <field name="proj_pay_type" widget="radio" options="{'horizontal':true}"/>
+                                            <field name="proj_pay" />
+                                            <field name="acc_close_day" />
+                                            <field name="acc_close_day1" />
+                                            <field name="pay_term"  invisible="1"/>
+                                            <field name="payto_date" />
+                                            <field name="other_date" />
+                                            <field name="acc_receivable" widget="radio" options="{'horizontal':true}"/>
+                                            <field name="post_date"
+                                                   attrs="{'invisible': [('acc_receivable','in',['1','3','4'])]}"/>
+                                            <field name="post_term"
+                                                   attrs="{'invisible': [('acc_receivable','in',['1','3','4'])]}"/>
+                                            <field name="post_envelop"
+                                                   attrs="{'invisible': [('acc_receivable','in',['1','3','4'])]}"/>
+                                            <field name="tt_date"
+                                                   attrs="{'invisible': [('acc_receivable','in',['1','2','4'])]}"/>
+                                            <field name="self_receive_date"
+                                                   attrs="{'invisible': [('acc_receivable','in',['1','2','3'])]}"/>
+                                            <field name="self_rece_stamp"
+                                                   attrs="{'invisible': [('acc_receivable','in',['1','2','3'])]}"/>
+                                        </group>
+                                    </group>
+                                </page>
+                            </notebook>
+                        </sheet>
+                        <sheet>
+                            <h1>專案成本分析</h1>
+<!--                            <HR colors="#0000ff" size="10"/>-->
+                            <group >
+                                <field name="analysis_line" widget="section_and_note_one2many" mode="tree" nolabel="1">
+                                    <tree editable="bottom" string="ITEM LIST">
+                                        <field name="analysis_costtype" string="類別" />
+                                        <field name="analysis_revenue" string="收入金額"/>
+                                        <field name="analysis_cost" string="成本金額" force_save="1" attrs="{'readonly':1}"/>
+                                        <field name="analysis_profit" string="毛利金額" force_save="1" attrs="{'readonly':1}"/>
+                                        <field name="analysis_profitrate" string="毛利率" force_save="1" attrs="{'readonly':1}"/>
+                                    </tree>
+                                </field>
+                            </group>
+                             <group>
+                                <group>
+                                    <group>
+                                        <field name="total_analysis_revenue" string="總收入" force_save="1"/>
+                                        <field name="total_analysis_cost" string="總成本" force_save="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="total_analysis_profit" string="毛利" force_save="1"/>
+                                        <field name="total_analysis_profitrate" string="毛利率" force_save="1"/>
+                                    </group>
+                                </group>
+                            </group>
+                        </sheet>
+                         <sheet>
+                       <h1>建置成本歸屬</h1>
+<!--                        <HR colors="#0000ff" size="10"/>-->
+                        <field name="setupcost_ids" widget="section_and_note_one2many" mode="tree" nolabel="1">
+                            <tree editable="bottom" string="Setup Cost Info">
+                                <field name="name" string="類別/組別"/>
+                                <field name="r6_revenue" string="  R6   "/>
+                                <field name="r6_percent" string="R6百分比"/>
+                                <field name="nt_revenue" string="  NT  "/>
+                                <field name="nt_percent" string="NT百分比"/>
+                                <field name="networking_revenue" string="Networking"/>
+                                <field name="networking_percent" string="Networking百分比"/>
+                                <field name="pm_revenue" string="  PS  "/>
+                                <field name="pm_percent" string="PS百分比"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                   <sheet>
+                       <h1>維護成本歸屬</h1>
+<!--                        <HR colors="#0000ff" size="10"/>-->
+                        <field name="maincost_ids" widget="section_and_note_one2many" mode="tree" nolabel="1">
+                            <tree editable="bottom" string="Setup Cost Info" >
+                                <field name="name" string="類別/組別"/>
+                                <field name="r6_revenue" string="   R6  "/>
+                                <field name="r6_percent" string="R6百分比"/>
+                                <field name="nt_revenue" string="   NT  "/>
+                                <field name="nt_percent" string="NT百分比"/>
+                                <field name="networking_revenue" string="Networking"/>
+                                <field name="networking_percent" string="Networking百分比"/>
+                                <field name="support_revenue" string="Support"/>
+                                <field name="support_percent" string="Support百分比"/>
+                            </tree>
+                        </field>
+                    </sheet>
+
+
+                        <sheet>
+                            <h1>專案進貨＆採購明細</h1>
+<!--                            <HR size="10"/>-->
+                             <button name="%(neweb_import_action_wizard)d" type="action" string="銷售項目EXCEL檔案匯入"
+                            class="oe_highlight oe_edit_only" context="{'proj_op_id1': context.get('active_id')}" groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa10_gm"/>
+                             <button name="get_projsaleitem_export" type="object" string="銷售項目匯出EXCEL檔"
+                            class="oe_highlight" context="{'proj_op_id':context.get('active_id')}" groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa10_gm"/>
+                             <button name="proj_recal" type="object" string="成本分析計算"
+                            class="oe_highlight oe_edit_only" context="{'proj_op_id': context.get('active_id') }" groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa10_gm"/>
+                            <button name="proj_delete" type="object" string="明細資料清除"
+                            class="oe_highlight oe_edit_only" context="{'proj_op_id': context.get('active_id') }" groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa10_gm"/>
+                            <button name="regen_costdeptdata" type="object" string="成本歸戶重新計算"
+                            class="oe_highlight oe_edit_only" context="{'proj_op_id': context.get('active_id') }" groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa10_gm"/>
+                            <button name="%(neweb_balance_check_wizard_action)d" type="action" string="成本平衡試算"
+                            class="oe_highlight oe_edit_only" context="{'proj_op_id': context.get('active_id') }" groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa10_gm"/>
+
+                            <group>
+                                <field name="saleitem_line" widget="section_and_note_one2many" limit="500" mode="tree" nolabel="1">
+                                    <tree editable="bottom" string="ITEM LIST">
+                                        <field name="saleitem_item" string="項次"/>
+                                        <field name="prod_set" string="產品組別"/>
+                                        <field name="prod_brand" string="品牌"/>
+                                        <field name="prod_modeltype" string="機種-機型/料號"/>
+                                        <field name="prod_modeltype1" string="機型名稱"/>
+                                        <field name="prod_serial" string="序號"/>
+                                        <!--<field name="prod_no" string="料號"/>-->
+                                        <field name="prod_desc" string="規格說明" />
+                                        <field name="prod_num" string="數量"/>
+                                        <field name="prod_revenue" string="銷價"/>
+                                        <field name="prod_price" string="成本"/>
+                                        <field name="prod_subtot" string="成本小計" attrs="{'readonly':1}"/>
+                                        <!--<field name="prod_revenue" string="銷價"/>-->
+                                        <field name="supplier" string="報價廠商" />
+                                        <field name="cost_type" string="成本類型"/>
+                                        <field name="paymark_date" string="請款日"/>
+                                        <field name="origin_start_date"/>
+                                        <field name="origin_end_date"/>
+                                        <!--<field name="origin_warranty" string="原廠保固月數"/>-->
+                                        <field name="neweb_start_date"/>
+                                        <field name="neweb_end_date"/>
+                                        <!--<field name="neweb_warranty" string="NEWEB保固月數"/>-->
+                                        <field name="purchase_no" string="採購單號" attrs="{'readonly':1}"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group>
+                                <group>
+                                    <group>
+                                        <field name="total_saleitem" string="合計(未稅)" attrs="{'readonly':1}" force_save="1"/>
+                                    </group>
+                                    <group>
+                                        <b><field name = "taxes_id" nolabel="1" force_save="1"/></b>
+                                        <field name="total_saleitem_tax" nolabel="1"  attrs="{'readonly':1}" force_save="1"/>
+                                    </group>
+                                </group>
+                                <group>
+                                    <group>
+                                        <field name="total_saleitem_amount" string="總計(含稅)" attrs="{'readonly':1}" force_save="1"/>
+                                    </group>
+                                </group>
+                            </group>
+
+                        </sheet>
+                        <sheet>
+                            <h1>專案說明</h1>
+                            <group>
+                                <group>
+                                    <field name="decision_date" string="決標日(專案起始日)" />
+                                    <field name="proj_step" string="專案驗收階段"/>
+                                    <field name="proj_paytype" string="專案付款說明"/>
+                                    <field name="warranty_start_date" string="保固啟始日"/>
+                                    <field name="origin_warranty_desc" string="原廠保固說明"/>
+                                    <field name="neweb_warranty_desc" string="藍新保固說明"/>
+                                </group>
+                                <group>
+                                    <field name="send_letter_date" string="預計發函日"/>
+                                    <field name="proj_complete_days" string="專案完工日數"/>
+                                    <field name="proj_other_desc" string="專案其他說明"/>
+                                    <field name="warranty_end_date" string="保固終止日"/>
+                                    <field name="other_warranty_desc" string="其他保固說明"/>
+                                    <field name="neweb_manpower_desc" string="藍新人力說明"/>
+                                </group>
+                            </group>
+                        </sheet>
+                        <sheet>
+                             <h1>維護案說明</h1>
+                            <group>
+                                <group>
+                                    <field name="proj_main_type" string="維護案說明" widget="many2many_tags"/>
+                                    <field name="main_start_date" string="維護啟始日"/>
+                                    <field name="main_end_date" string="維護截止日"/>
+                                </group>
+                                <group>
+                                     <field name="old_contact_revenue" string="舊約收入"/>
+                                     <field name="old_contact_cost" string="舊約成本"/>
+                                    <field name="main_other" string="其他說明"/>
+                                </group>
+                            </group>
+                        </sheet>
+
+<!--                        <sheet>-->
+<!--                             <h1>政府專案說明</h1>-->
+<!--                            <group>-->
+<!--                                <group>-->
+<!--                                    -->
+<!--                                    <field name="acceptance_step" string="專案驗收階段"/>-->
+<!--                                    <field name="complete_days" string="專案完工日數"/>-->
+<!--                                    -->
+<!--                                </group>-->
+<!--                                <group>-->
+<!--                                   <field name="acceptance_date" string="預計驗收日" />-->
+<!--                                   &lt;!&ndash;<field name="neweb_warranty_desc" string="藍新保固說明"/>&ndash;&gt;-->
+<!--                                   <field name="acceptance_other_desc" string="其他說明"  />-->
+<!--                                   &lt;!&ndash;<field name="opentrender" attrs="{'invisible':'1'}"/>&ndash;&gt;-->
+<!--                                </group>-->
+<!--                            </group>-->
+<!--                        </sheet>-->
+<!--                          <sheet>-->
+<!--                             <h1>專案驗收說明</h1>-->
+<!--&lt;!&ndash;                            <HR size="10"/>&ndash;&gt;-->
+<!--                            <group>-->
+<!--                                <group>-->
+<!--                                    -->
+<!--                                    -->
+<!--                                    <field name="proj_acceptance_date" string="預計驗收日"/>-->
+<!--                                </group>-->
+<!--                                <group>-->
+<!--                                   -->
+<!--                                   -->
+<!--                                </group>-->
+<!--                            </group>-->
+<!--                        </sheet>-->
+
+                        <sheet>
+                            <h1>裝機及派工說明</h1>
+<!--                            <HR size="10"/>-->
+                            <group>
+                                <group>
+                                    <field name="setup_type" string="工程師內部組裝"/>
+                                    <field name="eng_assign" string="工程師派工" />
+                                </group>
+                                <group>
+                                    <field name="setup_description" string="裝機說明"/>
+                                </group>
+                            </group>
+
+                            <h1>送貨說明</h1>
+<!--                            <HR size="10"/>-->
+                            <group>
+                                <group>
+                                    <field name="ship_type" string="送貨說明" />
+                                </group>
+                                <group>
+                                    <field name="ship_description" string="說明"/>
+                                </group>
+                            </group>
+
+                            <h1>開立發票說明</h1>
+<!--                            <HR size="10"/>-->
+                            <group>
+                                <!--<group>-->
+                                    <field name="invoice_type" string="開立發票說明" />
+                                <!--</group>-->
+                                <!--<group>-->
+                                    <field name="invoice_description" string="說明"/>
+                                <!--</group>-->
+                            </group>
+                        </sheet>
+
+<!--                    <div class="oe_chatter">-->
+<!--                         <field name="message_follower_ids" widget="mail_followers"/>-->
+<!--                         <field name="message_ids" widget="mail_thread"/>-->
+<!--                    </div>-->
+                </form>
+
+            </field>
+        </record>
+        <record id="neweb_project_search_filter" model="ir.ui.view">
+            <field name="name">neweb_project_search_filter</field>
+            <field name="model">neweb.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"
+                           filter_domain="['|','|',('name','ilike',self),(u'cus_name.name','ilike',self),(u'main_cus_name.name','ilike',self)]" />
+                    <field name="proj_sale" string="業務員" filter_domain="[('proj_sale.name','ilike',self)]"/>
+                    <field name="cus_name" string="客戶名稱" filter_domain="[('cus_name.name','ilike',self)]"/>
+                    <field name="cus_project" string="標案名稱" filter_domain="[('cus_project','ilike',self)]"/>
+                    <field name="sale_no" string="銷售單號" filter_domain="[('sale_no','ilike',self)]"/>
+                     <filter name="state1" string="合約期中" domain="[('state','=','6')]"/>
+                     <filter name="state2" string="尚未結案" domain="[('state','in',['1','2','3','4'])]"/>
+                     <filter name="state3" string="合約過期" domain="[('state','=','7')]"/>
+                     <filter name="copyproject" string="複製的專案" domain="[('parent_projno','not in', False)]"/>
+                </search>
+            </field>
+        </record>
+
+
+        <record id="action_neweb_project" model="ir.actions.act_window">
+            <field name="name">action_neweb_project</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                </p>
+            </field>
+        </record>
+
+        <!--<record id="neweb_project_action_owner_data" model="ir.actions.server">-->
+           <!--<field name="name">My Owner Action</field>-->
+           <!--<field name="model_id" ref="neweb_project.model_neweb_project"/>-->
+           <!--<field name="state">code</field>-->
+           <!--<field name="code">action=self.owner_project_data</field>-->
+           <!--<field name="condition" eval="True"/>-->
+        <!--</record>-->
+
+
+
+        <menuitem id="menu_neweb_project_root"
+                  name="Project"
+                  web_icon="neweb_project,static/description/project.png"
+                  groups="base.group_user"
+                  sequence="20"/>
+        <menuitem id="menu_neweb_project_categ"
+                  name="Project maintenance"
+                  parent="menu_neweb_project_root"
+                  groups="neweb_sa10_gm,neweb_sa20_vp,neweb_sa30_ass,neweb_sa40_user,neweb_sa50_assi"
+                  sequence="10"/>
+        <menuitem id="menu_neweb_project_action"
+                  name=""
+                  parent="menu_neweb_project_categ"
+                  action="action_neweb_project"
+                  sequence="10"/>
+    </data>
+</odoo>

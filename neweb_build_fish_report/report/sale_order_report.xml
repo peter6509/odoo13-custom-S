@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report id="action_report_gov_sale_order"
+                model="sale.order"
+                string="共契組別報價單NEW"
+                report_type="controller"
+                print_report_name="'共契_%s_%s.pdf' % (object.name,object.partner_id.name)"
+                name="neweb_gov_sale_order"/>
+        <record id="action_report_gov_sale_order" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_gov_sale_order"/>
+            <field name="output_file">pdf</field>
+        </record>
+
+        <report id="action_report_sale_order"
+                model="sale.order"
+                string="銷售報價單NEW"
+                report_type="controller"
+                print_report_name="'銷售_%s_%s.pdf' % (object.name,object.partner_id.name)"
+                name="neweb_sale_order"/>
+        <record id="action_report_sale_order" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_sale_order"/>
+            <field name="output_file">pdf</field>
+        </record>
+
+        <report id="action_report_sale_main"
+                model="sale.order"
+                string="維護報價單NEW"
+                report_type="controller"
+                print_report_name="'維護_%s_%s.pdf' % (object.name,object.partner_id.name)"
+                name="neweb_sale_main"/>
+        <record id="action_report_sale_main" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_sale_main"/>
+            <field name="output_file">pdf</field>
+        </record>
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!--Email template -->
+        <record id="email_template_assign_message" model="mail.template">
+            <field name="name">專案派工通知Email</field>
+            <field name="email_from">
+                ${(object.write_uid.email and '%s &lt;%s&gt;' % (object.write_uid.name, object.write_uid.email) or '')|safe}
+            </field>
+            <field name="subject">專案: ${object.assign_no} 派工單通知訊息</field>
+            <!--<field name="partner_to">${object.stockin_checkman.id}</field>-->
+            <field name="email_to">${object.get_assignemail_ids(object.assign_man)}</field>
+            <field name="model_id" ref="neweb_project.model_neweb_proj_eng_assign"/>
+            <field name="auto_delete" eval="True"/>
+            <!--<field name="report_template" ref="report_sale_order"/>-->
+            <!--<field name="report_name">${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}</field>-->
+            <field name="lang">${object.write_uid.partner_id.lang}</field>
+            <field name="body_html"><![CDATA[
+<h1><p>工程部的同事 :${object.get_assignname_ids(object.assign_man)}  您好！</p>
+<p>
+   請參照專案派工內容;進行安排安裝施工作業程序，不勝感谢!</strong>
+</p>
+
+    <br/><br/>
+   <p>專案派工資訊如下：
+   <ul>
+    %if object.proj_no.name:
+       <li>專案號碼 :${object.proj_no.name}</li>
+    % endif
+    <li>派工單號 :${object.assign_no}</li>
+    <li>預定裝機日: ${object.setup_date}</li>
+    <li>專案業務員: ${object.proj_sale.name}</li>
+    <li>專案客戶 : ${object.proj_cus_name.name}</li>
+    <li>客戶地址 : ${object.setup_address}</li>
+    <li>裝機連絡人: ${object.setup_contact.name}</li>
+    <li>連絡人電話: ${object.setup_contact_phone}</li>
+    <li>連絡人行動: ${object.setup_contact_mobile}</li>
+   </ul>
+
+   </p>
+
+<p>如果有任何問题，請及時與我聯繫！</p>
+<p>谢谢！！</p>
+</h1>
+<p style="color:#eeeeee;">
+% if object.write_uid and object.write_uid.signature:
+    ${object.write_uid.signature | safe}
+% endif
+</p>
+]]></field>
+        </record>
+
+    </data>
+</odoo>

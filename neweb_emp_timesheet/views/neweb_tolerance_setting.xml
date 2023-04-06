@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_timesheet_tolerance_setting_tree" model="ir.ui.view">
+            <field name="name">view.timesheet.tolerance.setting.tree</field>
+            <field name="model">neweb_emp_timesheet.tolerance_setting</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="tolerance_time"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_timesheet_tolerance_setting_form" model="ir.ui.view">
+            <field name="name">view.timesheet.tolerance.setting.form</field>
+            <field name="model">neweb_emp_timesheet.tolerance_setting</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="tolerance_time"/>
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="action_timesheet_tolerance_setting_view" model="ir.actions.act_window">
+            <field name="name">(日)工時彈性容忍值配置</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_emp_timesheet.tolerance_setting</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

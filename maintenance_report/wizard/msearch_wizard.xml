@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="m_search_wizard" model="ir.ui.view">
+            <field name="name">msearch wizard</field>
+            <field name="model">msearch.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>設備維修履歷查詢作業</h1>
+                        <group>
+                            <field name="department_id" options="{'no_quick_create':True,'no_create_edit':True}"/>
+                            <field name="equipment_id" options="{'no_quick_create':True,'no_create_edit':True}"/>
+                            <!--<field name="equipment_id" domain="[('department_id', '=',department_id)]" options="{'no_quick_create':True,'no_create_edit':True}"/>-->
+                            <field name="start_date" widget="date"/>
+                            <field name="end_date" widget="date"/>
+                            <field name="part_id" options="{'no_quick_create':True,'no_create_edit':True}"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="main_smart_search" string="Maintenance smart search"
+                                class="btn-primary"/>
+                        <button special="cancel" string="Cancel" class="btn-default"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_msearch_wizard" name="msearch wizard" res_model="msearch.wizard"
+                    view_mode="form" target="new"/>
+        <menuitem id="menu_msearch_wizard" name="M_S_Wizard" parent="maintenance.menu_m_reports"
+                  action="action_msearch_wizard" sequence="20"/>
+    </data>
+</odoo>

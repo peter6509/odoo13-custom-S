@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="gh_iot_bells_tree" model="ir.ui.view">
+           <field name="name">gh.iot.bells.tree</field>
+           <field name="model">alldo_gh_iot.bells_set</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="name"/>
+                   <field name="bells_ip"/>
+               </tree>
+           </field>
+       </record>
+       <record id="gh_iot_bells_form" model="ir.ui.view">
+           <field name="name">gh.iot.bells.form</field>
+           <field name="model">alldo_gh_iot.bells_set</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <header>
+                       <button name="run_reset_bells" string="啟始鈴聲設定" type="object" class="oe_highlight oe_edit_only"/>
+                       <button name="run_sync_mp3" string="IOT MP3執行同步" type="object" class="oe_highlight oe_edit_only"/>
+                   </header>
+                   <sheet>
+                       <group>
+                           <field name="name"/>
+                           <field name="bells_ip"/>
+                       </group>
+                       <notebook>
+                            <page string="MP3鈴聲設定" name="bells_Line">
+                                <field name="bells_line" widget="section_and_note_one2many" mode="tree">
+                                  <tree string="" editable="bottom">
+                                    <field name="bells_time"/>
+                                    <field name="bells_file" widget="binary" filename="bells_file_name"/>
+                                    <field name="bells_file_name" invisible="1"/>
+                                    <field name="next_run_bells"/>
+                                    <button name="manual_test" type="object" string="鐘聲測試" class="oe_highlight"/>
+                                  </tree>
+                                </field>
+                            </page>
+                       </notebook>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+       <record id="gh_iot_bells_action" model="ir.actions.act_window">
+           <field name="name">MP3鐘聲設定</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">alldo_gh_iot.bells_set</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+    </data>
+</odoo>

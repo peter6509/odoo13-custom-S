@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_project_search_view" model="ir.ui.view">
+            <field name="name">neweb.project.search.view</field>
+            <field name="model">neweb.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"
+                           filter_domain="['|','|',('name','ilike',self),('cus_name.name','ilike',self),('main_cus_name.name','ilike',self)]"/>
+                     <field name="proj_sale" string="業務員" filter_domain="[('proj_sale.name','ilike',self)]"/>
+                    <field name="cus_name" string="客戶名稱" filter_domain="[('cus_name.name','ilike',self)]"/>
+                    <field name="cus_project" string="標案名稱" filter_domain="[('cus_project','ilike',self)]"/>
+                    <field name="sale_no" string="銷售單號" filter_domain="[('sale_no','ilike',self)]"/>
+                </search>
+            </field>
+        </record>
+    </data>
+</odoo>

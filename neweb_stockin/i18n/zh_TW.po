@@ -1,0 +1,549 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* neweb_stockin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-25 03:05+0000\n"
+"PO-Revision-Date: 2017-10-25 03:05+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: neweb_stockin
+#: model:mail.template,body_html:neweb_stockin.email_template_stockinqc_message
+msgid "\n"
+"<h2>\n"
+"<p><strong>\n"
+"採購單號 ${object.origin} / 進貨單號 ${object.name}進貨檢驗狀況:\n"
+"    </strong>\n"
+"</p>\n"
+"\n"
+"    <br/><br/>\n"
+"% if object.stockin_line:\n"
+"   <p>檢驗清單如下：</p>\n"
+"   <br/>\n"
+"    % for line in object.stockin_line:\n"
+"      % if not line.stockin_qcsendemail :\n"
+"          <ul>\n"
+"              <li>機種-機型/料號: ${line.stockin_modeltype}</li>\n"
+"              <li>規格: ${line.stockin_spec}</li>\n"
+"              <li>收貨數量:${line.stockin_num1}</li>\n"
+"              <li>允收數量:${line.stockin_num}</li>\n"
+"          </ul>\n"
+"      %endif\n"
+"    % endfor\n"
+"\n"
+"% endif\n"
+"\n"
+"<p>如果有任何問题，請及時與我聯繫！</p>\n"
+"<p>谢谢！！</p></h2>\n"
+"\n"
+"<p style=\"color:#eeeeee;\">\n"
+"% if object.write_uid and object.write_uid.signature:\n"
+"    ${object.write_uid.signature | safe}\n"
+"% endif\n"
+"</p>\n"
+""
+msgstr "\n"
+"<h2>\n"
+"<p><strong>\n"
+"採購單號 ${object.origin} / 進貨單號 ${object.name}進貨檢驗狀況:\n"
+"    </strong>\n"
+"</p>\n"
+"\n"
+"    <br/><br/>\n"
+"% if object.stockin_line:\n"
+"   <p>檢驗清單如下：</p>\n"
+"   <br/>\n"
+"    % for line in object.stockin_line:\n"
+"      % if not line.stockin_qcsendemail :\n"
+"          <ul>\n"
+"              <li>機種-機型/料號: ${line.stockin_modeltype}</li>\n"
+"              <li>規格: ${line.stockin_spec}</li>\n"
+"              <li>收貨數量:${line.stockin_num1}</li>\n"
+"              <li>允收數量:${line.stockin_num}</li>\n"
+"          </ul>\n"
+"      %endif\n"
+"    % endfor\n"
+"\n"
+"% endif\n"
+"\n"
+"<p>如果有任何問题，請及時與我聯繫！</p>\n"
+"<p>谢谢！！</p></h2>\n"
+"\n"
+"<p style=\"color:#eeeeee;\">\n"
+"% if object.write_uid and object.write_uid.signature:\n"
+"    ${object.write_uid.signature | safe}\n"
+"% endif\n"
+"</p>\n"
+""
+
+#. module: neweb_stockin
+#: model:mail.template,body_html:neweb_stockin.email_template_stockin_check
+msgid "\n"
+"<h2><p>工程部的同事${object.stockin_checkman.name},你好！</p>\n"
+"<p>\n"
+"因採購單號 ${object.origin} / 進貨單號 ${object.name}收貨，需清點及檢測;\n"
+"     請安排清點檢驗，不勝感谢!</strong>\n"
+"</p>\n"
+"\n"
+"    <br/><br/>\n"
+"% if object.stockin_line:\n"
+"   <p>收貨清單如下：</p>\n"
+"   <br/>\n"
+"    % for line in object.stockin_line:\n"
+"      % if not line.stockin_sendemail :\n"
+"          <ul>\n"
+"              <li>機種-機型/料號: ${line.stockin_modeltype}</li>\n"
+"              <li>規格: ${line.stockin_spec}</li>\n"
+"              <li>收貨數量: ${line.stockin_num}</li>\n"
+"          </ul>\n"
+"      %endif\n"
+"    % endfor\n"
+"\n"
+"% endif\n"
+"\n"
+"<p>如果有任何問题，請及時與我聯繫！</p>\n"
+"<p>谢谢！！</p></h2>\n"
+"\n"
+"<p style=\"color:#eeeeee;\">\n"
+"% if object.write_uid and object.write_uid.signature:\n"
+"    ${object.write_uid.signature | safe}\n"
+"% endif\n"
+"</p>\n"
+""
+msgstr "\n"
+"<h2><p>工程部的同事${object.stockin_checkman.name},你好！</p>\n"
+"<p>\n"
+"因採購單號 ${object.origin} / 進貨單號 ${object.name}收貨，需清點及檢測;\n"
+"     請安排清點檢驗，不勝感谢!</strong>\n"
+"</p>\n"
+"\n"
+"    <br/><br/>\n"
+"% if object.stockin_line:\n"
+"   <p>收貨清單如下：</p>\n"
+"   <br/>\n"
+"    % for line in object.stockin_line:\n"
+"      % if not line.stockin_sendemail :\n"
+"          <ul>\n"
+"              <li>機種-機型/料號: ${line.stockin_modeltype}</li>\n"
+"              <li>規格: ${line.stockin_spec}</li>\n"
+"              <li>收貨數量: ${line.stockin_num}</li>\n"
+"          </ul>\n"
+"      %endif\n"
+"    % endfor\n"
+"\n"
+"% endif\n"
+"\n"
+"<p>如果有任何問题，請及時與我聯繫！</p>\n"
+"<p>谢谢！！</p></h2>\n"
+"\n"
+"<p style=\"color:#eeeeee;\">\n"
+"% if object.write_uid and object.write_uid.signature:\n"
+"    ${object.write_uid.signature | safe}\n"
+"% endif\n"
+"</p>\n"
+""
+
+#. module: neweb_stockin
+#: model:mail.template,subject:neweb_stockin.email_template_stockinqc_message
+msgid "${object.origin} 採購進貨檢測完成\n"
+"                檢驗工程師:${object.write_uid.name}\n"
+"            "
+msgstr "${object.origin} 採購進貨檢測完成\n"
+"                檢驗工程師:${object.write_uid.name}\n"
+"            "
+
+#. module: neweb_stockin
+#: model:mail.template,subject:neweb_stockin.email_template_stockin_check
+msgid "${object.origin} 採購進貨需檢測\n"
+"                檢驗工程師:${object.stockin_checkman.name}\n"
+"            "
+msgstr "${object.origin} 採購進貨需檢測\n"
+"                檢驗工程師:${object.stockin_checkman.name}\n"
+"            "
+
+#. module: neweb_stockin
+#: model:ir.ui.view,arch_db:neweb_stockin.neweb_stockds_selectable_from_wizard
+#: model:ir.ui.view,arch_db:neweb_stockin.neweb_stockinqc_wizard_form
+msgid "Cancel"
+msgstr "取消"
+
+#. module: neweb_stockin
+#. openerp-web
+#: code:addons/neweb_stockin/static/src/xml/widget_view.xml:9
+#, python-format
+msgid "Confirm Selection"
+msgstr "Confirm Selection"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectable_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectableline_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectable_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectableline_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_qcsendmail_wizard_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectable_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectableline_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_qc_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qc_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qcout_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinstoreproc_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockout_list_create_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockship_list_create_uid
+msgid "Created by"
+msgstr "創建人"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectable_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectableline_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectable_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectableline_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_qcsendmail_wizard_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectable_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectableline_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_qc_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qc_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qcout_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinstoreproc_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockout_list_create_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockship_list_create_date
+msgid "Created on"
+msgstr "創建時間"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectable_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectableline_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectable_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectableline_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_qcsendmail_wizard_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectable_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectableline_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_qc_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qc_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qcout_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinstoreproc_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockout_list_display_name
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockship_list_display_name
+msgid "Display Name"
+msgstr "顯示名稱"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectableline_ds_id
+msgid "Ds id"
+msgstr "Ds id"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectable_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectableline_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectable_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectableline_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_qcsendmail_wizard_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectable_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectableline_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_qc_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qc_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qcout_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinstoreproc_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockout_list_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockship_list_id
+msgid "ID"
+msgstr "ID"
+
+#. module: neweb_stockin
+#: model:ir.ui.view,arch_db:neweb_stockin.neweb_stock_picking_inherit_form
+msgid "ITEM LIST"
+msgstr "ITEM LIST"
+
+#. module: neweb_stockin
+#: model:ir.ui.menu,name:neweb_stockin.menu_neweb_stock_quantsact_action
+msgid "Inventory Valuation"
+msgstr "庫存計價"
+
+#. module: neweb_stockin
+#: model:ir.ui.menu,name:neweb_stockin.menu_neweb_stockhis_action
+msgid "Inventory at Date"
+msgstr "某日庫存"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectable___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectableline___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectable___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectableline___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_qcsendmail_wizard___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectable___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectableline___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_qc___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qc___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qcout___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinstoreproc___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockout_list___last_update
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockship_list___last_update
+msgid "Last Modified on"
+msgstr "最後修改日"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectable_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectableline_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectable_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectableline_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_qcsendmail_wizard_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectable_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectableline_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_qc_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qc_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qcout_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinstoreproc_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockout_list_write_uid
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockship_list_write_uid
+msgid "Last Updated by"
+msgstr "最後更新人"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectable_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectableline_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectable_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectableline_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_qcsendmail_wizard_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectable_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectableline_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_qc_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qc_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qcout_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinstoreproc_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockout_list_write_date
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockship_list_write_date
+msgid "Last Updated on"
+msgstr "最後更新時間"
+
+#. module: neweb_stockin
+#: selection:neweb.stockin_list,stockin_check:0
+#: selection:neweb.stockinline_qc,stockin_check:0
+msgid "NG"
+msgstr "NG"
+
+#. module: neweb_stockin
+#: selection:neweb.stockin_list,stockin_check:0
+msgid "NO"
+msgstr "NO"
+
+#. module: neweb_stockin
+#: selection:neweb.stockin_list,stockin_check:0
+#: selection:neweb.stockinline_qc,stockin_check:0
+msgid "OK"
+msgstr "OK"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_dsselectableline_origin_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectableline_origin_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectableline_origin_id
+msgid "Origin id"
+msgstr "Origin id"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list_stockin_sequence_id
+msgid "Pitem ID"
+msgstr "Pitem ID"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_purselectableline_pitem_id
+msgid "Pitem id"
+msgstr "Pitem id"
+
+#. module: neweb_stockin
+#: model:ir.ui.menu,name:neweb_stockin.menu_neweb_stockprod_action
+msgid "Products"
+msgstr "產品"
+
+#. module: neweb_stockin
+#: model:ir.ui.menu,name:neweb_stockin.menu_neweb_qcsendmail_action
+msgid "QC_SENDMAIL"
+msgstr "檢驗完成通知訊息"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qc_sequence_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qcout_sequence_id
+msgid "Sequence id"
+msgstr "Sequence id"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockout_list_stockout_sequence_id
+msgid "Sitem ID"
+msgstr "Sitem ID"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_saleselectableline_sitem_id
+msgid "Sitem id"
+msgstr "Sitem id"
+
+#. module: neweb_stockin
+#: model:ir.ui.menu,name:neweb_stockin.menu_neweb_pickingtreeall_action
+msgid "Stock Operations"
+msgstr "所有調撥"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_stock_picking_stockin_checkyn
+msgid "Stockin checkyn"
+msgstr "Stockin checkyn"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list_stockin_id
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockinline_qc_stockin_id
+msgid "Stockin id"
+msgstr "Stockin id"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_stock_picking_stockin_pickname
+msgid "Stockin pickname"
+msgstr "Stockin pickname"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_stock_picking_stockin_picktype
+msgid "Stockin picktype"
+msgstr "Stockin picktype"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list_stockin_qcsendemail
+msgid "Stockin qcsendemail"
+msgstr "Stockin qcsendemail"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockin_list_stockin_sendemail
+msgid "Stockin sendemail"
+msgstr "Stockin sendemail"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockout_list_stockout_id
+msgid "Stockout id"
+msgstr "Stockout id"
+
+#. module: neweb_stockin
+#: model:ir.model.fields,field_description:neweb_stockin.field_neweb_stockship_list_stockship_id
+msgid "Stockship id"
+msgstr "Stockship id"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_stock_picking
+msgid "Transfer"
+msgstr "調撥"
+
+#. module: neweb_stockin
+#. openerp-web
+#: code:addons/neweb_stockin/static/src/js/widgets.js:30
+#, python-format
+msgid "You must choose at least one record."
+msgstr "You must choose at least one record."
+
+#. module: neweb_stockin
+#: selection:stock.picking,stockin_qc_status:0
+msgid "[Non QC]"
+msgstr "[Non QC]"
+
+#. module: neweb_stockin
+#: selection:stock.picking,stockin_qc_status:0
+msgid "[QC Completed]"
+msgstr "[QC Completed]"
+
+#. module: neweb_stockin
+#: selection:stock.picking,stockin_qc_status:0
+msgid "[QC Waiting]"
+msgstr "[QC Waiting]"
+
+#. module: neweb_stockin
+#: model:ir.ui.menu,name:neweb_stockin.menu_neweb_stockinqc_wizard_action
+msgid "menu_neweb_stockinqc_wizard_action"
+msgstr "收貨檢驗作業"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_dsselectable
+msgid "neweb.dsselectable"
+msgstr "neweb.dsselectable"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_dsselectableline
+msgid "neweb.dsselectableline"
+msgstr "neweb.dsselectableline"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_purselectable
+msgid "neweb.purselectable"
+msgstr "neweb.purselectable"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_purselectableline
+msgid "neweb.purselectableline"
+msgstr "neweb.purselectableline"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_qcsendmail_wizard
+msgid "neweb.qcsendmail_wizard"
+msgstr "neweb.qcsendmail_wizard"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_saleselectable
+msgid "neweb.saleselectable"
+msgstr "neweb.saleselectable"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_saleselectableline
+msgid "neweb.saleselectableline"
+msgstr "neweb.saleselectableline"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_stockin_list
+msgid "neweb.stockin_list"
+msgstr "neweb.stockin_list"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_stockin_qc
+msgid "neweb.stockin_qc"
+msgstr "neweb.stockin_qc"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_stockinline_qc
+msgid "neweb.stockinline_qc"
+msgstr "neweb.stockinline_qc"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_stockinline_qcout
+msgid "neweb.stockinline_qcout"
+msgstr "neweb.stockinline_qcout"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_stockinstoreproc
+msgid "neweb.stockinstoreproc"
+msgstr "neweb.stockinstoreproc"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_stockout_list
+msgid "neweb.stockout_list"
+msgstr "neweb.stockout_list"
+
+#. module: neweb_stockin
+#: model:ir.model,name:neweb_stockin.model_neweb_stockship_list
+msgid "neweb.stockship_list"
+msgstr "neweb.stockship_list"
+
+#. module: neweb_stockin
+#: model:ir.actions.act_window,name:neweb_stockin.neweb_stockin_qcout_action
+#: model:ir.ui.menu,name:neweb_stockin.menu_neweb_stockin_qcout_action
+msgid "neweb_stockin_qcout_action"
+msgstr "檢驗拒收清單"
+
+#. module: neweb_stockin
+#: model:ir.actions.act_window,name:neweb_stockin.neweb_stockinqcedit_action
+msgid "neweb_stockinqcedit_action"
+msgstr "收貨檢驗作業"
+

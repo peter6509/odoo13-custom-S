@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="views_cloudrent_grant_wizard" model="ir.ui.view">
+            <field name="name">views.cloudrent.grant.wizard</field>
+            <field name="model">cloudrent.repair_grant_wizard</field>
+            <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <h1>雲房修繕補助建立精靈</h1>
+                    <group>
+                      <field name="house_id"/>
+                      <field name="grant_start"/>
+                      <field name="grant_end"/>
+                      <field name="grant_alert"/>
+                      <field name="grant_amount"/>
+                      <field name="setup_man" attrs="{'readonly':1}" force_save="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button type="object" name="run_repair_grant" string="修繕補助建立" class="oe_highlight"/>
+                    <button special="cancel" string="放棄"/>
+                </footer>
+            </form>
+            </field>
+        </record>
+        <record id="menu_cloudrent_grant_wizard_action" model="ir.actions.act_window">
+             <field name="name">修繕補助建立精靈</field>
+             <field name="res_model">cloudrent.repair_grant_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

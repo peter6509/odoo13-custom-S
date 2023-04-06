@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="acme_iot_workorder_tree_inherit" model="ir.ui.view">
+            <field name="name">acme.iot.workorder.tree.inherit</field>
+            <field name="model">alldo_acme_iot.workorder</field>
+            <field name="inherit_id" ref="alldo_acme_iot.view_acme_iot_workorder_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='order_num']" position="after">
+                    <field name="iot_num"/>
+                    <!-- Add new fields here -->
+                </xpath>
+
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+        <record id="acme_iot_workorder_form_inherit" model="ir.ui.view">
+            <field name="name">acme.iot.workorder.form.inherit</field>
+            <field name="model">alldo_acme_iot.workorder</field>
+            <field name="inherit_id" ref="alldo_acme_iot.view_acme_iot_workorder_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='order_num']" position="after">
+                    <field name="iot_num"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

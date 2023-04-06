@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_project_py3o_report" model="ir.actions.report">
+            <field name="name">成本分析(py3o)</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">neweb.project</field>
+            <field name="report_name">neweb_project</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">pdf</field>
+            <field name="module">neweb_py3o_report</field>
+            <field name="py3o_template_fallback">reports/neweb_project.odt</field>
+            <field name="print_report_name">'成本分析_'+object.name +'_'+ object.cus_name.name + '.pdf'</field>
+            <field name="binding_model_id" ref="neweb_project.model_neweb_project"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="neweb_sale_order_py3o_report" model="ir.actions.report">
+            <field name="name">銷售報價單(py3o)</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">sale.order</field>
+            <field name="report_name">neweb_sale_order_report</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">pdf</field>
+            <field name="module">neweb_py3o_report</field>
+            <field name="py3o_template_fallback">reports/neweb_sale_order_report.odt</field>
+            <field name="print_report_name">'銷售報價單_'+object.name +'_'+ object.partner_id.name + '.pdf'</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="neweb_sale_main_py3o_report" model="ir.actions.report">
+            <field name="name">維護報價單(py3o)</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">sale.order</field>
+            <field name="report_name">neweb_sale_main_report</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">pdf</field>
+            <field name="module">neweb_py3o_report</field>
+            <field name="py3o_template_fallback">reports/neweb_sale_main_report.odt</field>
+            <field name="print_report_name">'維護報價單_'+ object.name +'_'+ object.partner_id.name + '.pdf'</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="neweb_gov_order_py3o_report" model="ir.actions.report">
+            <field name="name">共契報價單(py3o)</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">sale.order</field>
+            <field name="report_name">neweb_gov_order_report</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">pdf</field>
+            <field name="module">neweb_py3o_report</field>
+            <field name="py3o_template_fallback">reports/neweb_gov_order_report.odt</field>
+            <field name="print_report_name">'共契報價單_'+ object.name +'_'+ object.partner_id.name + '.pdf'</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="neweb_require_purchase_py3o_report" model="ir.actions.report">
+            <field name="name">申購單(py3o)</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">neweb.require_purchase</field>
+            <field name="report_name">neweb_require_purchase</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">pdf</field>
+            <field name="module">neweb_py3o_report</field>
+            <field name="py3o_template_fallback">reports/neweb_require_purchase.odt</field>
+            <field name="print_report_name">'申購單_' + object.name + '_' + object.emp_name.name + '.pdf'</field>
+            <field name="binding_model_id" ref="neweb_purchase.model_neweb_require_purchase"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="neweb_expense_report_py3o_report" model="ir.actions.report">
+            <field name="name">費用申報單(py3o)</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">neweb_sale_analysis.expense_report</field>
+            <field name="report_name">neweb_expense_report</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">pdf</field>
+            <field name="module">neweb_py3o_report</field>
+            <field name="py3o_template_fallback">reports/neweb_expense_report.odt</field>
+            <field name="print_report_name">'費用申報單_' + object.name + '_' + object.emp_no.name + '.pdf'</field>
+            <field name="binding_model_id" ref="neweb_sale_analysis.model_neweb_sale_analysis_expense_report"/>
+            <field name="binding_type">report</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="neweb_travel_report_py3o_report" model="ir.actions.report">
+            <field name="name">出差申請單(py3o)</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">neweb_sale_analysis.travel_report</field>
+            <field name="report_name">neweb_travel_report</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">pdf</field>
+            <field name="module">neweb_py3o_report</field>
+            <field name="py3o_template_fallback">reports/neweb_travel_report.odt</field>
+            <field name="print_report_name">'出差申請單_' + object.name + '_' + object.user_id.name + '.pdf'</field>
+            <field name="binding_model_id" ref="neweb_sale_analysis.model_neweb_sale_analysis_travel_report"/>
+            <field name="binding_type">report</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="neweb_repair_print_py3o_report" model="ir.actions.report">
+            <field name="name">維修工作記錄及出貨單(py3o)</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="report_name">neweb_repair_print_report</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">pdf</field>
+            <field name="module">neweb_py3o_report</field>
+            <field name="py3o_template_fallback">reports/neweb_repair_print_report.odt</field>
+            <field name="print_report_name">'維修工作記錄單_' + object.name + '.pdf'</field>
+            <field name="binding_model_id" ref="neweb_repair.model_neweb_repair_repair"/>
+            <field name="binding_type">report</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="neweb_repair_work_py3o_report" model="ir.actions.report">
+            <field name="name">維修報表(py3o)</field>
+            <field name="type">ir.actions.report</field>
+            <field name="model">neweb_repair.repair</field>
+            <field name="report_name">neweb_repair_work_report</field>
+            <field name="report_type">py3o</field>
+            <field name="py3o_filetype">pdf</field>
+            <field name="module">neweb_py3o_report</field>
+            <field name="py3o_template_fallback">reports/neweb_repair_work_report.odt</field>
+            <field name="print_report_name">'維修報表_' + object.name + '.pdf'</field>
+            <field name="binding_model_id" ref="neweb_repair.model_neweb_repair_repair"/>
+            <field name="binding_type">report</field>
+            <field name="groups_id" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    </data>
+</odoo>

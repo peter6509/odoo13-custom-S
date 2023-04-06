@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="cloudrent_crm_stage_1" model="crm.stage">
+            <field name="name">場勘</field>
+            <field name="sequence">10</field>
+            <field name="is_won">false</field>
+            <field name="fold">false</field>
+        </record>
+        <record id="cloudrent_crm_stage_2" model="crm.stage">
+            <field name="name">申請書</field>
+            <field name="sequence">20</field>
+            <field name="is_won">false</field>
+            <field name="fold">false</field>
+        </record>
+        <record id="cloudrent_crm_stage_3" model="crm.stage">
+            <field name="name">招租</field>
+            <field name="sequence">30</field>
+            <field name="is_won">false</field>
+            <field name="fold">false</field>
+        </record>
+        <record id="cloudrent_crm_stage_4" model="crm.stage">
+            <field name="name">帶看</field>
+            <field name="sequence">40</field>
+            <field name="is_won">false</field>
+            <field name="fold">false</field>
+        </record>
+        <record id="cloudrent_crm_stage_5" model="crm.stage">
+            <field name="name">收訂</field>
+            <field name="sequence">50</field>
+            <field name="is_won">false</field>
+            <field name="fold">false</field>
+        </record>
+        <record id="cloudrent_crm_stage_6" model="crm.stage">
+            <field name="name">預簽</field>
+            <field name="sequence">60</field>
+            <field name="is_won">false</field>
+            <field name="fold">false</field>
+        </record>
+        <record id="cloudrent_crm_stage_7" model="crm.stage">
+            <field name="name">簽約</field>
+            <field name="sequence">70</field>
+            <field name="is_won">true</field>
+            <field name="fold">false</field>
+        </record>
+        <record id="cloudrent_crm_stage_999" model="crm.stage">
+            <field name="name">取消</field>
+            <field name="sequence">999</field>
+            <field name="is_won">false</field>
+            <field name="fold">true</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="view_neweb_cost_dept_tree" model="ir.ui.view">
+           <field name="name">view.neweb.cost.dept.tree</field>
+           <field name="model">neweb.cost_dept</field>
+           <field name="arch" type="xml">
+               <tree string="">
+                   <field name="name"/>
+                   <field name="active"/>
+               </tree>
+           </field>
+       </record>
+       <record id="view_neweb_cost_dept_form" model="ir.ui.view">
+           <field name="name">view.neweb_cost_dept.form</field>
+           <field name="model">neweb.cost_dept</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+<!--                           <field name="sequence" widget="handle"/>-->
+                           <field name="name"/>
+                           <field name="active"/>
+                       </group>
+                   </sheet>
+
+               </form>
+           </field>
+       </record>
+       <record id="action_neweb_cost_dept_view" model="ir.actions.act_window">
+           <field name="name">成本部門配置</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">neweb.cost_dept</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+
+             </p><p>
+
+             </p>
+           </field>
+       </record>
+        <menuitem id="menu_neweb_cost_dept_action" name="" sequence="180"
+                  parent="neweb_project.neweb_proj_config"
+                  groups="neweb_project.neweb_sys_man"
+                  action="action_neweb_cost_dept_view"/>
+    </data>
+</odoo>

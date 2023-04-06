@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="repair_report_document">
+            <div class="page">
+                <t t-call="biznavi.page_style"/>
+                <div class="header">
+                    <div class="row">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="text-align:center;vertical-align:middle;width:25%" rowspan="2">
+                                    <img src="/neweb_repair/static/src/img/logo.png" style="max-width: 140pt;"/>
+                                </td>
+                                <td style="text-align:center;border-bottom:1pt solid;vertical-align:bottom;height:50pt;">
+                                    <p style="margin:0;color:#000;font-size:28pt;font-weight: bold;">
+                                        <span>維 修 工 作 紀 錄 及 出 貨 單</span>
+                                    </p>
+                                </td>
+                                <td style="width:25%" rowspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td style="height:30pt;">
+                                    <p style="text-align: center;margin: 0;color: #000;font-size:28pt;font-weight: bold;vertical-align: middle;height:50pt;">
+                                        <span>藍 新 資 訊 股 份 有 限 公 司</span>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+<t t-foreach="docs" t-as="o">
+
+                <table style="width: 100%">
+                    <tr>
+                        <td style="padding: 1pt; border-style: solid;border-width: 1pt;border-color: #000;">
+                            <table cellpadding="0" cellspacing="0" style="width: 100%;margin-left: 0pt;border-collapse: collapse;margin-right: auto">
+                                <tbody>
+                                    <tr style="height:30pt">
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>客戶名稱</span>
+                                            </p>
+                                        </td>
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>業務</span>
+                                            </p>
+                                        </td>
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>指派工程師</span>
+                                            </p>
+                                        </td>
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>維修編號</span>
+                                            </p>
+                                        </td>
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>報修日期</span>
+                                            </p>
+                                        </td>
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>問題狀況描述</span>
+                                            </p>
+                                        </td>
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>目前處理狀況描述</span>
+                                            </p>
+                                        </td>
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>備註</span>
+                                            </p>
+                                        </td>
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>表單狀態</span>
+                                            </p>
+                                        </td>
+                                 </tr>
+                                 <tr>
+                                        <td colspan="1" rowspan="1"
+                                            style="border-right-style: solid;padding: 0 5.4pt 0 5.4pt;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 50%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: middle;font-size:16pt;" t-esc="o.customer_id.name"/>
+                                            </p>
+                                        </td >
+                                        <td colspan="1" rowspan="1"
+                                            style="border-right-style: solid;padding: 0 5.4pt 0 5.4pt;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 50%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: middle;font-size:16pt;" t-esc="o.customer_id.name"/>
+                                            </p>
+                                        </td >
+                                        <td colspan="1" rowspan="1"
+                                            style="border-right-style: solid;padding: 0 5.4pt 0 5.4pt;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 50%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: middle;font-size:16pt;" t-esc="o.customer_id.name"/>
+                                            </p>
+                                        </td >
+                                        <td colspan="1" rowspan="1"
+                                            style="border-right-style: solid;padding: 0 5.4pt 0 5.4pt;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width:30%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: middle;font-size:16pt;" t-esc="o.name"/>
+                                            </p>
+                                        </td >
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width:10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>聯 絡 人</span>
+                                            </p>
+                                        </td >
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width:10%;border-top-color: #000;border-bottom-style: solid">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="padding: 1pt; border-style: solid;border-width: 1pt;border-color: #000;">
+                            <table cellpadding="0" cellspacing="0" style="width: 100%;margin-left: 0;border-collapse: collapse;margin-right: 1pt">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="1" style="vertical-align: top;">
+                                            <table cellpadding="0" cellspacing="0" style="border-width: 0 1pt 0 1pt; border-style:solid;border-color:#000;border-collapse: collapse;width:100%;">
+                                                <tr style="height:25pt;">
+                                                    <td colspan="3" rowspan="1"
+                                                        style="text-align: center;border-style: solid;padding: 0;border-color: #000;border-width: 0 1pt 1pt 0;vertical-align: middle;">
+                                                        <p style="margin: 0;color: #000;font-size:16pt;">
+                                                            <span style="color: #000;font-weight: bold;text-decoration: none;vertical-align: middle;font-size:16pt;">
+                                                                維修資訊
+                                                            </span>
+                                                        </p>
+                                                    </td>
+                                                    <td colspan="4" rowspan="1"
+                                                        style="text-align: center;border-style: solid;padding: 0 5.4pt 0 5.4pt;border-color: #000;border-width: 0 1pt 1pt 1pt;vertical-align: middle;">
+                                                        <p style="margin: 0;color: #000;font-size:16pt;">
+                                                            <span style="color: #000;font-weight: bold;text-decoration: none;vertical-align: baseline;font-size:16pt;">
+                                                                更換零件資訊
+                                                            </span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr style="height:25pt;">
+                                                    <td colspan="1" rowspan="1"
+                                                        style="text-align:center;border-style: solid;padding:0;border-color: #000;border-width: 0 1pt 0 0;vertical-align: middle;width: 7%;">
+                                                        <p style="margin: 0;color: #000;font-size:16pt;">
+                                                            <span style="color: #000;text-decoration: none;vertical-align: middle;font-size:16pt;">
+                                                                廠牌
+                                                            </span>
+                                                        </p>
+                                                    </td>
+                                                    <td colspan="1" rowspan="1"
+                                                        style="text-align:center;border-style: solid;padding:0;border-color: #000;border-width: 0 1pt 0 1pt;vertical-align: middle;width: 15%;">
+                                                        <p style="margin: 0;color: #000;font-size:16pt;">
+                                                            <span style="color: #000;text-decoration: none;vertical-align: baseline;font-size:16pt;">
+                                                                機種/機型
+                                                            </span>
+                                                        </p>
+                                                    </td>
+                                                    <td colspan="1" rowspan="1"
+                                                        style="text-align:center;border-style: solid;padding:0;border-color: #000;border-width: 0 1pt 0 1pt;vertical-align: middle;width: 15%;">
+                                                        <p style="margin: 0;color: #000;font-size:16pt;">
+                                                            <span style="color: #000;text-decoration: none;vertical-align: baseline;font-size:16pt;">
+                                                                機器序號
+                                                            </span>
+                                                        </p>
+                                                    </td>
+                                                    <td colspan="1" rowspan="1"
+                                                        style="text-align:center;border-style: solid;padding:0;border-color: #000;border-width: 0 1pt 0 1pt;vertical-align: middle;width: 15%;">
+                                                        <p style="margin: 0;color: #000;font-size:16pt;">
+                                                            <span style="color: #000;text-decoration: none;vertical-align: baseline;font-size:16pt;">
+                                                                料號
+                                                            </span>
+                                                        </p>
+                                                    </td>
+                                                    <td colspan="1" rowspan="1"
+                                                        style="text-align:center;border-style: solid;padding:0;border-color: #000;border-width: 0 1pt 0 1pt;vertical-align: middle;">
+                                                        <p style="margin: 0;color: #000;font-size:16pt;">
+                                                            <span style="color: #000;text-decoration: none;vertical-align: baseline;font-size:16pt;">
+                                                                規格說明
+                                                            </span>
+                                                        </p>
+                                                    </td>
+                                                    <td colspan="1" rowspan="1"
+                                                        style="text-align:center;border-style: solid;padding:0;border-color: #000;border-width: 0 1pt 0 1pt;vertical-align: middle;width: 7%;">
+                                                        <p style="margin: 0;color: #000;font-size:16pt;">
+                                                            <span style="color: #000;text-decoration: none;vertical-align: baseline;font-size:16pt;">
+                                                                數量
+                                                            </span>
+                                                        </p>
+                                                    </td>
+                                                    <td colspan="1" rowspan="1"
+                                                        style="text-align:center;border-style: solid;padding:0;border-color: #000;border-width: 0 1pt 0 1pt;vertical-align: middle;width: 7%;">
+                                                        <p style="margin: 0;color: #000;font-size:16pt;">
+                                                            <span style="color: #000;text-decoration: none;vertical-align: baseline;font-size:16pt;">
+                                                                備註
+                                                            </span>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <t t-set="lc" t-value="0"/>
+                                                <t t-foreach="o.repair_lines" t-as="l">
+                                                    <t t-set="n" t-value="len(l.repair_parts) if len(l.repair_parts) &gt; 0 else 1"/>
+                                                    <t t-set="lc" t-value="lc + n"/>
+                                                    <t t-set="p" t-value="l.repair_parts[0] if len(l.repair_parts) &gt; 0 else False"/>
+                                                    <tr style="height:25pt;">
+                                                        <td colspan="1" t-att-rowspan="n"
+                                                            style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;" t-esc="l.contract_line.prod.brand"/>
+                                                            </p>
+                                                        </td>
+                                                        <td colspan="1" t-att-rowspan="n"
+                                                            style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;"
+                                                                      t-esc="'%s %s' % (l.contract_line.prod.serial if l.contract_line.prod.serial else '',l.contract_line.prod.model if l.contract_line.prod.model else '')"/>
+                                                            </p>
+                                                        </td>
+                                                        <td colspan="1" t-att-rowspan="n"
+                                                            style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;" t-esc="l.contract_line.machine_serial_no"/>
+                                                            </p>
+                                                        </td>
+                                                        <td colspan="1" rowspan="1"
+                                                            style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;" t-esc="p.prod.serial_num if p else ''"/>
+                                                            </p>
+                                                        </td>
+                                                        <td colspan="1" rowspan="1"
+                                                            style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;" t-esc="p.prod.specification if p else ''"/>
+                                                            </p>
+                                                        </td>
+                                                        <td colspan="1" rowspan="1"
+                                                            style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;" t-esc="p.required_parts_qty if p else ''"/>
+                                                            </p>
+                                                        </td>
+                                                        <td colspan="1" rowspan="1"
+                                                            style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;"/>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <t t-foreach="l.repair_parts" t-as="p">
+                                                        <tr style="height:25pt;" t-if="p_index &gt; 0">
+                                                            <td colspan="1" rowspan="1"
+                                                                style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                                <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                    <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;" t-esc="p.prod.default_code"/>
+                                                                </p>
+                                                            </td>
+                                                            <td colspan="1" rowspan="1"
+                                                                style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                                <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                    <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;" t-esc="p.prod.specification"/>
+                                                                </p>
+                                                            </td>
+                                                            <td colspan="1" rowspan="1"
+                                                                style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                                <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                    <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;" t-esc="p.required_parts_qty"/>
+                                                                </p>
+                                                            </td>
+                                                            <td colspan="1" rowspan="1"
+                                                                style="text-align: center;padding: 0;border-style: solid;border-color: #000;border-width: 1pt 1pt 1pt 0;vertical-align: middle;">
+                                                                <p style="margin: 0;color: #000;font-size:16pt;">
+                                                                    <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: baseline;font-size:16pt;"/>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </t>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                                        </td >
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width:5%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>電話</span>
+                                            </p>
+                                        </td >
+                                        <td colspan="1" rowspan="1"
+                                            style="border-right-style: solid;padding: 0 5.4pt 0 5.4pt;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width:20%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;">
+                                                <span style="color: #000;font-weight: normal;text-decoration: none;vertical-align: middle;font-size:16pt;" t-esc="o.contact_tel"/>
+                                            </p>
+                                        </td >
+                                        <td colspan="1" rowspan="1"
+                                            style="text-align: center;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>修日期</span>
+                                            </p>
+                                        </td >
+                                 </tr>
+
+                                 <tr>
+                                       <td colspan="9" rowspan="1" style="text-align: left;border-right-style: solid;padding: 0;border-bottom-color: #000;border-top-width: 1pt;border-right-width: 1pt;border-left-color: #000;vertical-align: middle;border-right-color: #000;border-left-width: 1pt;border-top-style: solid;border-left-style: solid;border-bottom-width: 1pt;width: 10%;border-top-color: #000;border-bottom-style: solid">
+                                            <p style="margin: 0;color: #000;font-size:16pt;font-weight: bold;">
+                                                <span>SLA：</span>
+                                            </p>
+                                        </td>
+                                 </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+</t>
+                <br/>
+
+                <p style="padding-top: 20pt;padding-bottom: 0;line-height: 1;margin: 0;color: #000;font-size: 18pt;">
+                    <span>
+                        客戶簽名：
+                        <span style="font-family:Arial">______________</span>
+                    </span>
+                    <span style="margin:0 8pt 0 8pt">
+                        系統工程師簽名：
+                        <span style="font-family:Arial">______________</span>
+                    </span>
+                    <span>
+                        出貨人：
+                        <span style="font-family:Arial">______________</span>
+                    </span>
+                </p>
+                <div class="footer">
+                    <p style="padding-top: 15pt;padding-bottom: 0;line-height: 1;text-align: right;margin: 0;color: #999;font-size: 11pt;">
+                        <span>第一聯:會計部留存(白)
+                            第二聯：工程部留存(綠)
+                            第三聯：客戶留存(黃)
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </template>
+
+        <template id="repair_print_report_main">
+            <t t-call="report.html_container">
+                    <t t-call="neweb_repair.repair_report_document"/>
+            </t>
+        </template>
+    </data>
+</openerp>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="mail_neweb_project_wkf_approve" model="mail.template">
+            <field name="name">專案成本分析簽核通過</field>
+            <field name="model_id" ref="model_neweb_project"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_approve_emails()}</field>
+            <field name="subject">${object.name}專案成本分析簽核通過通知信</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<h2>
+     專案成本分析單號: ${object.name} 簽核通過通知信
+</h2>
+<h3>
+<ul>
+   <li>成本分析單號 :${object.name}</li>
+   <li>成本分析業務 :${object.proj_sale.name}</li>
+</ul>
+</h3>
+<h2>
+
+</h2>
+]]></field>
+        </record>
+
+    </data>
+</odoo>

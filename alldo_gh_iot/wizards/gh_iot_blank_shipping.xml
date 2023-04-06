@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_blank_shipping_wizard" model="ir.ui.view">
+             <field name="name">views.blank.shipping.wizard</field>
+             <field name="model">alldo_gh_iot.blank_shipping_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>毛胚入總庫並出貨精靈</h1>
+                         <group>
+<!--                             <field name="blank_no" options="{'no_create':true,'no_create_edit':true}"-->
+<!--                                    domain="[('product_tmpl_id.is_blank','=',True)]"/>-->
+                             <field name="blank_no" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="shipping_num"/>
+                             <field name="partner_id" options="{'no_create':true,'no_create_edit':true}"
+                                 domain="[('is_company','=',True)]"/>
+                             <field name="shipping_owner" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="blank_onhand" attrs="{'readonly':1}"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_blank_shipping" string="毛胚出貨" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="blank_shipping_wizard_action" model="ir.actions.act_window">
+             <field name="name">毛胚入總庫並出貨精靈</field>
+             <field name="res_model">alldo_gh_iot.blank_shipping_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

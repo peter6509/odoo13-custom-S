@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_employee_form_ext" model="ir.ui.view">
+            <field name="name">hr.employee.form.ext</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="(//group)[4]" position="after">
+                    <group string="Additional Info">
+                        <field name="residnet_ship"/>
+                        <field name="educational_level"/>
+                    </group>
+                </xpath>
+                <field name="department_id" position="before">
+                    <field name="employee_num"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>

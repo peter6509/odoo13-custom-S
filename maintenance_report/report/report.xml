@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- string:是報表在菜單上的文字。 -->
+        <!-- name:要寫template的xmlid，8版本不能省略模塊名。9待實驗。 -->
+        <!--設備維修履歷報表-->
+        <report id="action_mreport_request"
+                model="maintenance.request"
+                string="MAINTENANCE REQUEST"
+                report_type="qweb-pdf"
+                name="maintenance_report.mreport_request"
+                file="maintenance_report.mreport_request"
+                menu="False"/>
+
+
+        <!--設備維修月統計報表-->
+        <report id="action_mmonth_report"
+                model="maintenance.request"
+                string="MAINTENANCE MONTH REPORT"
+                report_type="qweb-pdf"
+                name="maintenance_report.mmonth_report"
+                file="maintenance_report.mmonth_report"
+                menu="False"/>
+
+        <report id="action_mproduct_report"
+                model="dana.prod"
+                string="PRODUCT QTY REPORT"
+                report_type="qweb-pdf"
+                name="maintenance_report.mproduct_report"
+                file="maintenance_report.mproduct_report"
+                menu="False"/>
+
+    </data>
+</odoo>

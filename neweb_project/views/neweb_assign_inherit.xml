@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--<record id="neweb_assign_inherit_form" model="ir.ui.view">-->
+            <!--<field name="name">neweb_assign_inherit_form</field>-->
+            <!--<field name="model">neweb.proj_eng_assign</field>-->
+            <!--<field name="inherit_id" ref="neweb_project.neweb_proj_assign_form"/>-->
+            <!--<field name="groups_id" eval="[(6,0,[ref('neweb_en70_user'),ref('neweb_en80_assi'),ref('neweb_cs40_user'),-->
+            <!--ref('neweb_cs50_assi'),ref('neweb_en50_stockm'),ref('neweb_en60_stock'),ref('neweb_pur10_user'),ref('neweb_pur20_assi'),-->
+            <!--ref('neweb_fn30_user'),ref('neweb_fn40_assi'),ref('neweb_on50_user'),ref('newen_on40_pm')])]"/>-->
+
+            <!--<field name="arch" type="xml">-->
+                <!--<field name="setup_address" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+               <!--<field name="service_name" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+               <!--<field name="service_type" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+               <!--<field name="setup_desc" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+               <!--<field name="setup_other_desc" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+               <!--<field name="setup_other_attach" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+               <!--<field name="assign_man_num" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+               <!--<field name="assign_man_day" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+               <!--<field name="assign_man_hour" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+               <!--<field name="assign_man_desc" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+                <!--<field name="require_date" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+                <!--<field name="setup_date" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+                <!--<field name="setup_contact" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+                 <!--<field name="setup_contact_phone" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+                 <!--<field name="setup_contact_mobile" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+                 <!--<field name="setup_attach" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+                  <!--<field name="assign_man" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+
+            <!--</field>-->
+        <!--</record>-->
+
+          <!--<record id="neweb_assign_inherit_form1" model="ir.ui.view">-->
+            <!--<field name="name">neweb_assign_inherit_form1</field>-->
+            <!--<field name="model">neweb.proj_eng_assign</field>-->
+            <!--<field name="inherit_id" ref="neweb_project.neweb_proj_assign_form"/>-->
+            <!--<field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_sa40_user'),ref('neweb_project.neweb_sa50_assi'),-->
+            <!--ref('neweb_project.neweb_fn30_user'),ref('neweb_project.neweb_fn40_assi'),ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_cs50_assi'),-->
+            <!--ref('neweb_project.neweb_pur10_user'),ref('neweb_project.neweb_pur20_assi')])]"/>-->
+            <!--<field name="arch" type="xml">-->
+
+                <!--<field name="eng_attach" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+                  <!--<field name="assign_man" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '1'}</attribute>-->
+               <!--</field>-->
+            <!--</field>-->
+        <!--</record>-->
+          <!--<record id="neweb_assign_inherit_form2" model="ir.ui.view">-->
+            <!--<field name="name">neweb_assign_inherit_form2</field>-->
+            <!--<field name="model">neweb.proj_eng_assign</field>-->
+            <!--<field name="inherit_id" ref="neweb_project.neweb_proj_assign_form"/>-->
+            <!--<field name="groups_id" eval="[(6,0,[ref('neweb_project.neweb_en40_mgt'),ref('neweb_project.neweb_en30_ass'),ref('neweb_project.neweb_en20_vp'),ref('neweb_project.neweb_en10_gm')])]"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<field name="assign_man" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly': '0'}</attribute>-->
+               <!--</field>-->
+
+            <!--</field>-->
+        <!--</record>-->
+        <record id="neweb_assign_inherit_form2" model="ir.ui.view">
+            <field name="name">neweb.assign.inherit.form3</field>
+            <field name="model">neweb.proj_eng_assign</field>
+            <field name="inherit_id" ref="neweb_project.neweb_proj_assign_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='setup_desc']" position="after">
+                    <field name="borrow_need"/>
+                </xpath>
+                <xpath expr="//field[@name='assign_man_num']" position="before">
+                    <field name="assign_man_date"/>
+                </xpath>
+                <xpath expr="//field[@name='eng_man_desc']" position="before">
+                    <field name="completed_date"/>
+                </xpath>
+                <xpath expr="//field[@name='service_name']" position="before">
+                    <field name="assign_man_subject"/>
+                </xpath>
+                <xpath expr="//field[@name='setup_attach']" position="before">
+                    <group>
+                        <group>
+                          <field name="is_attach1"/>
+
+                          <field name="is_attach2"/>
+                        </group>
+                    </group>
+                    <group>
+                       <field name="is_attach3"/>
+                    </group>
+                    <group>
+                        <field name="is_setup1" attrs="{'invisible':True}"/>
+                        <field name="is_setup2" attrs="{'invisible':True}"/>
+                    </group>
+                </xpath>
+                <xpath expr="//field[@name='service_type']" position="replace">
+                    <field name="service_type1" widget="many2many_tags"/>
+                    <field name="servicetypename" attrs="{'invisible':1}"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

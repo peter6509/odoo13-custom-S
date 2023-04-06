@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_invoiceopen_inherit1" model="ir.ui.view">
+            <field name="name">neweb.invoiceopen.inherit1</field>
+            <field name="model">neweb_invoice.invoiceopen</field>
+            <field name="inherit_id" ref="neweb_invoice.neweb_invoice_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_contact']" position="after">
+                    <field name="cus_name" attrs="{'invisible':1}"/>
+                    <field name="main_cus_name" attrs="{'invisible':1}"/>
+                </xpath>
+                <xpath expr="//field[@name='invoice_contact']" position="replace">
+                    <field name="invoice_contact1" domain="['|',('parent_id','=',cus_name),('parent_id','=',main_cus_name)]"
+                    options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                </xpath>
+                <xpath expr="//field[@name='contract_main_end']" position="after">
+                    <field name="cus_order"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

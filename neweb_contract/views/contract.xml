@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="contract_tree">
+            <field name="name">neweb_contract.contract.tree</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="arch" type="xml">
+                <tree string="Contract" >
+                    <field name="name"/>
+                    <!--<field name="project_no"/>-->
+                    <!--<field name="is_sales_contract"/>-->
+                    <!--<field name="is_rental_contract"/>-->
+                    <!--<field name="is_maintenance_contract"/>-->
+                    <field name="warranty_end_date"/>
+                    <field name="maintenance_end_date"/>
+                    <field name="customer_name"/>
+                    <field name="end_customer"/>
+                    <field name="sla"/>
+                    <field name="sales" string="業務"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contract_form">
+            <field name="name">neweb_contract.contract.form</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="arch" type="xml">
+                <form string="Contract">
+                    <header>
+
+                        <!--<button name="relate_maintenance_target" type="object" string="Relate Maintenance Target" class="oe_highlight"/>-->
+                        <button name="contract_validate" states="contract_draft" string="Validate Contract" class="oe_highlight" groups="neweb_project.neweb_cs50_assi,neweb_project.neweb_cs40_user,neweb_project.neweb_cs30_dir"/>
+                        <!--<button name="contract_open" states="contract_draft" string="Send" class="oe_highlight" groups="neweb_project.neweb_cs50_assi,neweb_project.neweb_cs40_user,neweb_project.neweb_cs30_dir"/>-->
+                        <!--<button name="contract_done" states="contract_approv8" string="Finish" class="oe_highlight" groups="neweb_contract.group_contract_assistance"/>-->
+                        <!--<button name="contract_approval1" states="contract_approv1" string='Approval' class="oe_highlight" groups="neweb_contract.group_contract_officer"/>-->
+                        <!--<button name="contract_approval2" states="contract_approv2" string='Approval' class="oe_highlight" groups="neweb_contract.group_contract_sales"/>-->
+                        <!--<button name="contract_approval3" states="contract_approv3" string='Approval' class="oe_highlight" groups="neweb_contract.group_contract_marketing"/>-->
+                        <!--<button name="contract_approval4" states="contract_approv4" string='Approval' class="oe_highlight" groups="neweb_contract.group_contract_sales_am"/>-->
+                        <!--<button name="contract_approval5" string='Approval' class="oe_highlight" groups="neweb_contract.group_contract_sales_vp" attrs="{'invisible': ['|', ('state', '!=', 'contract_approv5'), '&amp;', ('deployment', '=', False), '&amp;', ('is_outsourcing_service', '=', False), ('is_maintenance_contract', '=', False)]}"/>-->
+                        <!--<button name="contract_approval57" string='Approval' class="oe_highlight" groups="neweb_contract.group_contract_sales_vp" attrs="{'invisible': ['|', ('state', '!=', 'contract_approv5'), '|', ('deployment', '=', True), '|', ('is_outsourcing_service', '=', True), ('is_maintenance_contract', '=', True)]}"/>-->
+                        <!--<button name="contract_approval6" states="contract_approv6" string='Approval' groups="neweb_contract.group_contract_service_vp" class="oe_highlight"/>-->
+                        <!--<button name="contract_approval7" states="contract_approv7" string='Approval' groups="neweb_contract.group_contract_gm" class="oe_highlight"/>-->
+                        <!--<button name="contract_reject" groups="neweb_contract.group_contract_officer,neweb_contract.group_contract_sales,neweb_contract.group_contract_marketing,neweb_contract.group_contract_marketing,neweb_contract.group_contract_sales_am,neweb_contract.group_contract_sales_vp,neweb_contract.group_contract_service_vp,neweb_contract.group_contract_gm"-->
+                                <!--states="contract_approv1,contract_approv2,contract_approv3,contract_approv4,contract_approv5,contract_approv6,contract_approv7"-->
+                                <!--string="Reject Contract"/>-->
+                        <field name="state" widget="statusbar" statusbar_visible="contract_draft, contract_done"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <label class="oe_edit_only" for="name"/>
+                            <h1><field name="name" attrs="{'readonly':1}"/></h1>
+                            <field name="is_sales_contract" attrs="{'readonly':1}"/>
+                            <label for="is_sales_contract" string="買賣合約"/>
+                            <field name="is_rental_contract" attrs="{'readonly':1}"/>
+                            <label for="is_rental_contract" string="租賃合約"/>
+                            <field name="is_maintenance_contract" attrs="{'readonly':1}"/>
+                            <label for="is_maintenance_contract" string="維護合約"/>
+                            <field name="is_outsourcing_service" attrs="{'readonly':1}"/>
+                            <label for="is_outsourcing_service" string="維運合約"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="customer_name" domain="[('customer','=',True)]" string="合約客戶"
+                                               context="{'search_default_customer':1, 'show_address': 1}"
+                                               />
+                                <field name="project_no" attrs="{'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False)]}" string="專案編號"/>
+                                <field name="tx_price" attrs="{'readonly':1,'invisible': 1}"/>
+                                <field name="sla" attrs="{'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False)]}"
+                                       context="{'contract_id':context.get('active_id')}" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                <field name="weekly_maintain_day" attrs="{'readonly':1}" string="週維護時間"/>
+                                <field name="daily_maintain_hour_start" string="每日維護開始時間"/>
+                                <field name="daily_maintain_hour_end" string="每日維護截止時間"/>
+                                <field name="is_locked" attrs="{'readonly':1}" string="合約鎖定"/>
+                                <field name="is_warranty_contract" attrs="{'invisible':1}"/>
+                                <!--<field name="is_locked" groups="base.user_root"/>-->
+                            </group>
+                            <group>
+                                <field name="end_customer" string="終端客戶"
+                                               domain="['&amp;',('customer','=',True),('is_company','=',True)]"
+                                               context="{'search_default_customer':1, 'show_address': 1}"/>
+                                <field name="clinch_date" attrs="{'required':['|', ('state','=','contract_done'), ('state','=','contract_approve')]}" string="成交日期"/>
+                                <field name="sales_dept" attrs="{'readonly':1}" string="銷售部門"/>
+                                <field name="sales" string="業務代表"/>
+                                <field name="ae_dept" attrs="{'readonly':1,'invisible':1}"/>
+                                <field name="ae" attrs="{'readonly':1}" string="維護工程師"/>
+                                <field name="deployment" attrs="{'invisible':[('is_sales_contract','=',False), ('is_rental_contract','=',False)]}"/>
+                                <field name="project" attrs="{'invisible':[('is_sales_contract','=',False), ('is_rental_contract','=',False)]}"/>
+                                <field name="site_check" attrs="{'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False)]}"/>
+                                <field name="site_check_upload" attrs="{'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False)]}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <!--<page string="Contract Lines Detail">-->
+                                <!--<field name="contract_line_detail"/>-->
+                            <!--</page>-->
+                            <page string="合約明細項目">
+                                <!--<field name="contract_line_ids" mode="tree" attrs="{'invisible':[('is_maintenance_contract','=',True)], 'readonly':1}" widget="one2many_list">-->
+                                <!--<field name="contract_line_ids" mode="tree" attrs="{'readonly':0}" widget="one2many_list">-->
+                                    <!--<form string="Contract Line">-->
+                                        <!--<group>-->
+                                            <!--<field name="prod" attrs="{'readonly':1}"/>-->
+                                            <!--<field name="machine_serial_no" attrs="{'readonly':[('is_maintenance_target','=',False)]}"/>-->
+                                            <!--<field name="prod_sla" attrs="{'readonly':1}"/>-->
+                                            <!--<field name="contract_start_date"/>-->
+                                            <!--<field name="contract_end_date"/>-->
+                                            <!--<field name="maintain_partner" attrs="{'readonly':1}"/>-->
+                                            <!--<field name="memo" attrs="{'readonly':1}"/>-->
+                                            <!--<field name="special_warn" invisible="1"/>-->
+                                            <!--<field name="special_warn_date" attrs="{'required':[('special_warn', '=', True)], 'invisible':[('special_warn','=',False)]}"/>-->
+                                            <!--<field name="special_warn_days"-->
+                                                   <!--attrs="{'required':[('special_warn', '=', True)], 'invisible':[('special_warn','=',False)]}"/>-->
+                                            <!--<field name="special_warn_users" widget="many2many_tags"-->
+                                               <!--attrs="{'required':[('special_warn', '=', True)], 'invisible':[('special_warn','=',False)]}"/>-->
+                                            <!--<field name="is_maintenance_target" invisible="1"/>-->
+                                            <!--<field name="x_locked" invisible="1"/>-->
+                                        <!--</group>-->
+                                    <!--</form>-->
+
+                                    <field name="contract_line_ids" limit="1000" widget="one2many_selectable" mode="tree" nolabel="1">
+                                    <tree string="合約明細項目" editable="bottom"  >
+                                        <field name="sequence" widget="handle"/>
+                                        <field name="prod_set" string="產品組別"/>
+                                        <field name="prod_brand" string="品牌"/>
+                                        <field name="prod_modeltype" string="機種-機型/料號"/>
+                                        <field name="prod_modeltype1" string="機型名稱"/>
+                                        <field name="machine_serial_no" string="序號" />
+                                        <field name="memo" string="說明"/>
+                                        <field name="machine_loc"/>
+                                        <field name="rack_loc"/>
+                                        <field name="main_service_rule_newl" options="{'no_create_edit':True,'no_create':True}"/>
+                                        <field name="prod_sla" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                                        <field name="routine_maintenance_newl" options="{'no_create_edit':True,'no_create':True}"/>
+                                        <field name="account_eng" options="{'no_create_edit':True,'no_create':True}"/>
+                                        <field name="warranty_duedate"/>
+                                        <field name="contract_start_date"/>
+                                        <field name="contract_end_date"/>
+                                        <field name="maintain_partner"/>
+                                        <field name="prod_line_os"/>
+                                        <field name="os_has_contract"/>
+                                        <field name="prod_line_firmware" invisible="1"/>
+                                        <field name="prod_line_db" invisible="1"/>
+                                        <field name="db_has_contract" invisible="1"/>
+                                        <field name="special_warn" invisible="1"/>
+                                        <field name="is_maintenance_target" invisible="1"/>
+                                        <field name="x_locked" invisible="1"/>
+                                    </tree>
+                                </field>
+
+                            </page>
+                            <page string="保固說明"
+                                  attrs="{'invisible':[('is_sales_contract','=',False), ('is_rental_contract','=',False)]}">
+                                <group>
+                                    <group>
+                                        <field name="warranty_start_date" attrs="{'required':[('warranty_warn', '=', True)], 'readonly':0}"/>
+                                        <field name="warranty_end_date" attrs="{'required':[('warranty_warn', '=', True)], 'readonly':0}"/>
+                                    </group>
+                                    <group>
+                                        <field name="warranty_warn" attrs="{'readonly':0}"/>
+                                        <field name="warranty_warn_days"
+                                               attrs="{'required':[('warranty_warn', '=', True)], 'readonly':1, 'invisible':[('warranty_warn','=',False)]}"/>
+                                        <field name="warranty_warn_users" widget="many2many_tags"
+                                               attrs="{'required':[('warranty_warn', '=', True)], 'readonly':1, 'invisible':[('warranty_warn','=',False)]}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="維護內容說明" attrs="{'invisible':[('is_maintenance_contract','=',False),('is_outsourcing_service','=',False),('is_warranty_contract','=',False)]}">
+                                <group>
+                                    <group>
+                                        <field name="maintenance_start_date"
+                                               attrs="{'readonly':0, 'required':[('is_maintenance_contract','=',True)]}"/>
+                                        <field name="maintenance_end_date"
+                                               attrs="{'readonly':0, 'required':[('is_maintenance_contract','=',True)]}"/>
+                                        <field name="contact_person"
+                                               domain="['&amp;',('customer','=',True),('is_company','=',False)]"
+                                               context="{'search_default_customer':1, 'show_address': 1}"
+                                               options='{"always_reload": True}' attrs="{'readonly':1}"/>
+                                        <field name="maintenance_warn" attrs="{'readonly':1}"/>
+                                        <field name="maintenance_warn_days"
+                                               attrs="{'required':[('maintenance_warn', '=', True)], 'readonly':1, 'invisible':[('maintenance_warn','=',False)]}"/>
+                                        <field name="maintenance_warn_users" widget="many2many_tags"
+                                               attrs="{'required':[('maintenance_warn', '=', True)], 'readonly':1, 'invisible':[('maintenance_warn','=',False)]}"/>
+                                        <field name="need_recovery_rehearsal" attrs="{'readonly':1}"/>
+                                        <field name="recovery_rehearsal_datetime" attrs="{'readonly':1, 'invisible':[('need_recovery_rehearsal','=',False)]}"/>
+                                        <field name="recovery_rehearsal_status" attrs="{'readonly':1, 'invisible':[('need_recovery_rehearsal','=',False)]}"/>
+                                    </group>
+                                    <group>
+                                        <field name="inspection_method" attrs="{'required':[('inspection_warn', '=', True)], 'readonly':1,'invisible':1}"/>
+                                        <field name="inspection_date" attrs="{'invisible':1}"/>
+                                        <field name="inspection_warn" attrs="{'readonly':1}"/>
+                                        <field name="inspection_warn_days"
+                                               attrs="{'required':[('inspection_warn', '=', True)], 'readonly':1, 'invisible':[('inspection_warn','=',False)]}"/>
+                                        <field name="inspection_warn_users" widget="many2many_tags"
+                                               attrs="{'required':[('inspection_warn', '=', True)], 'readonly':1, 'invisible':[('inspection_warn','=',False)]}"/>
+                                    </group>
+                                    <group>
+                                        <label for="recovery_rehearsal_description" string="回復演練說明"/>
+                                        <field name="recovery_rehearsal_description" attrs="{'readonly':1, 'invisible':[('need_recovery_rehearsal','=',False)]}"/>
+                                         <label for="value_added_service_ids" string="加值服務"/>
+                                        <field name="value_added_service_ids" widget="many2many_tags" attrs="{'readonly':1}"/>
+                                        <label for="penalties" string="罰則"/>
+                                        <field name="penalties" attrs="{'readonly':1}"/>
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="備註">
+                                <field name="contract_memo" attrs="{'readonly':1}"/>
+                            </page>
+                            <page string="工程維護細項明細">
+                                <field name="contract_line_ids1" limit="1000" widget="one2many_selectable" mode="tree" nolabel="1">
+                                    <tree string="工程維護細項明細" editable="bottom"  >
+                                        <field name="prod_set" string="產品組別" attrs="{'readonly':1}"/>
+                                        <field name="prod_brand" string="品牌" attrs="{'readonly':1}"/>
+                                        <field name="prod_modeltype" string="機種-機型/料號" attrs="{'readonly':1}"/>
+                                        <field name="prod_modeltype1" string="機型名稱" attrs="{'readonly':1}"/>
+                                        <field name="machine_serial_no" string="序號" attrs="{'readonly':1}"/>
+                                        <field name="rack_loc"/>
+                                        <field name="warranty_duedate"/>
+                                        <field name="server_name"/>
+                                        <field name="machine_used_desc"/>
+                                        <field name="prod_line_os"/>
+                                        <field name="hd_no"/>
+                                        <field name="hd_num"/>
+                                        <field name="cpu_no"/>
+                                        <field name="cpu_num"/>
+                                        <field name="ram_no"/>
+                                        <field name="ram_num"/>
+                                        <field name="expand_card_no"/>
+                                        <field name="expand_card_num"/>
+                                        <field name="power_no"/>
+                                        <field name="power_num"/>
+                                        <field name="expand_module"/>
+                                        <field name="machine_other"/>
+                                        <field name="contract_line_id" attrs="{'invisible':1}"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="contract_search">
+            <field name="name">neweb_contract.contract.search</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="關鍵字" filter_domain="['|','|','|','|','|',('project_no','ilike',self),('name','ilike',self),('customer_name.name','ilike',self),('end_customer.name','ilike',self),('contract_line_ids.prod_modeltype','ilike',self),('contract_line_ids.machine_serial_no','ilike',self)]"/>
+                    <filter name="sales_contract_filter" domain="[('is_sales_contract','=',True)]" string="買賣合約" />
+                    <filter name="rental_contract_filter" domain="[('is_rental_contract','=',True)]" string="租賃合約" />
+                    <filter name="maintenance_contract_filter" domain="[('is_maintenance_contract','=',True)]" string="維護合約"/>
+                    <filter name="outsourcing_contract_filter" domain="[('is_outsourcing_service','=',True)]" string="維運合約"/>
+                    <filter name="warranty_contract_filter" domain="[('is_warranty_contract','=',True)]" string="保固支援合約"/>
+                </search>
+            </field>
+        </record>
+
+<!--        <record id="contract_search_dept_security" model="ir.ui.view">-->
+<!--            <field name="name">neweb_contract.contract.search.security</field>-->
+<!--            <field name="model">neweb_contract.contract</field>-->
+<!--            <field name="inherit_id" ref="neweb_contract.contract_search"/>-->
+<!--            <field name="groups_id" eval="[(6,0, [ref('neweb_contract.group_contract_sales')])]"/>-->
+<!--             <field name="arch" type="xml">-->
+
+<!--            </field>-->
+<!--        </record>-->
+
+        <record model="ir.ui.view" id="view_contract_graph">
+            <field name="name">neweb_contract.contract.graph</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="arch" type="xml">
+                <graph string="Contract">
+                    <field name="clinch_date"/>
+                    <field name="tx_price" type="measure"/>
+                    <field name="num_of_contract_lines" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_contract_pivot">
+            <field name="name">neweb_contract.contract.pivot</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="arch" type="xml">
+                <pivot string="Contract">
+                    <field name="clinch_date" type="row"/>
+                    <field name="tx_price" type="measure"/>
+                    <field name="num_of_contract_lines" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_contract">
+            <field name="name">Contract</field>
+            <field name="res_model">neweb_contract.contract</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+            <!--<field name="domain">[('sales.user_id', '=', uid)]</field>-->
+        </record>
+
+        <!--<menuitem id="menu_contract_root" name="合約" sequence="20"/>-->
+        <menuitem id="menu_contract_categ" parent="neweb_base.menu_contract" name="合約" sequence="10"
+                  action="action_list_contract"
+                  groups="base.group_user"/>
+        <!--<menuitem id="menu_contract" parent="neweb_base.menu_contract" name="Contract" sequence="10"-->
+                  <!--action="action_list_contract"-->
+                  <!--groups="group_contract_ae,group_contract_assistance,group_contract_officer,group_contract_sales,group_contract_marketing,group_contract_sales_am,group_contract_sales_vp,group_contract_service_vp,group_contract_gm,group_contract_admin"/>-->
+    </data>
+</odoo>

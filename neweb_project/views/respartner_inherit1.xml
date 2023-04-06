@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="respartner_inherit1" model="ir.ui.view">
+            <field name="name">respartner.inherit1</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='acc_close_day']" position="attributes">
+                     <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='self_receive_date']" position="before">
+                    <field name="self_receive_type" widget="radio" options="{'horizontal':true}" attrs="{'invisible':[('acc_receivable','in',['1','2','3'])]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

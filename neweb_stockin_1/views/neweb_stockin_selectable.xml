@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_stockin_selectable_from_wizard" model="ir.ui.view">
+            <field name="name">neweb_stockin_selectable_from_wizard</field>
+            <field name="model">neweb.purselectable</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>採購單進貨明細選取精靈</h1>
+                        <group>
+                             <field name="display_line" widget="many2many_checkboxes" nolabel="1"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                         <button type="object" name="trans_stockin_list" string="選擇進貨" class="oe_highlight"/>
+                        <button type="object" name="trans_stockin_all" string="全選進貨" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="neweb_stockin_selectable_form_action" model="ir.actions.act_window">
+             <field name="name"></field>
+             <field name="res_model">neweb.purselectable</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_daylast_list_wizard" model="ir.ui.view">
+             <field name="name">views.daylast.list.wizard</field>
+             <field name="model">alldo_acme_iot.daylast_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>ACME鑄造每日最後工件時間記錄精靈</h1>
+                         <group>
+                             <field name="start_date"/>
+                             <field name="end_date"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_daylast_list" string="產出EXCEL" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="daylast_list_wizard_action" model="ir.actions.act_window">
+             <field name="name">鑄造每日最後工件時間記錄精靈</field>
+             <field name="res_model">alldo_acme_iot.daylast_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

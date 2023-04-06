@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="line_notify_tw_security_groups">
+            <field name="name">Line Notify Messages</field>
+        </record>
+
+        <record model="res.groups" id="line_notify_tw_group_manager">
+            <field name="name">Line Notify Access Send</field>
+            <field name="category_id" ref="line_notify_tw.line_notify_tw_security_groups"/>
+        </record>
+
+    </data>
+</odoo>

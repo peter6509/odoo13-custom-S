@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_era_household_inherit_tree" model="ir.ui.view">
+            <field name="name">view.era.household.inherit.tree</field>
+            <field name="model">era.household_house</field>
+            <field name="inherit_id" ref="era_household.era_household_house_tree"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='project_prefixcode']" position="replace">
+                    <field name="case_code"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+        <record id="view_inherit_era_household_form" model="ir.ui.view">
+            <field name="name">view.inherit.era.household.form</field>
+            <field name="model">era.household_house</field>
+            <field name="inherit_id" ref="era_household.era_household_house_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='project_prefixcode']" position="replace">
+                    <!-- Add your fields or attributes here -->
+                    <field name="case_code"/>
+                    <field name="rent_convention" widget="image"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

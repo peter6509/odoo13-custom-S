@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <report id="action_report_neweb_project"
+                model="neweb.project"
+                string="專案成本新NEW"
+                report_type="controller"
+                print_report_name="'成本分析_%s_%s.pdf' % (object.name,object.cus_name.name)"
+                name="neweb_project_report"/>
+        <record id="action_report_neweb_project" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_project_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_emeter_mixsearch_wizard" model="ir.ui.view">
+             <field name="name">views.emeter.mixsearch.wizard</field>
+             <field name="model">cloudrent_household.emeter_mixsearch</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>租房電錶區間使用度數統計精靈</h1>
+                         <group>
+
+                             <field name="house_id" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="member_id" />
+                             <field name="start_date"/>
+                             <field name="end_date"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_emeter_mixsearch" string="統計結算" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="emeter_mixsearch_wizard_action" model="ir.actions.act_window">
+             <field name="name">租房使用度數統計精靈</field>
+             <field name="res_model">cloudrent_household.emeter_mixsearch</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+    </data>
+</odoo>

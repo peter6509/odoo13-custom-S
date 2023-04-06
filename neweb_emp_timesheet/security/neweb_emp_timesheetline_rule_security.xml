@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_wk_timesheet_rule1" model="ir.rule">
+           <field name="name">neweb.wk.timesheet.rule1</field>
+           <field ref="model_neweb_emp_timesheet_timesheet_calendar_line" name="model_id"/>
+           <field name="domain_force">['|',('emp_id','=',False),('emp_id', '=', user.employee_ids.id )]</field>
+           <field name="groups" eval="[(6,0,[ref('neweb_project.neweb_fn30_user'),ref('neweb_project.neweb_sa40_user'),
+           ref('neweb_project.neweb_pur10_user'),ref('neweb_project.neweb_pur20_assi'),ref('neweb_project.neweb_en50_stockm'),ref('neweb_project.neweb_en60_stock'),ref('neweb_project.neweb_en70_user'),ref('neweb_project.neweb_on50_user')])]"/>
+        </record>
+
+        <record id="neweb_wk_timesheet_rule2" model="ir.rule">
+            <field name="name">neweb.wk.timesheet.rule2</field>
+            <field ref="model_neweb_emp_timesheet_timesheet_calendar_line" name="model_id"/>
+            <field name="domain_force">['|','|',('emp_id','=',False),('emp_id.department_id','in', [x.department_id.id for x in user.employee_ids]),('emp_id.department_id.manager_id','=',user.employee_ids.id)]</field>
+            <field name="groups" eval="[(6,0, [ref('neweb_project.neweb_fn20_mgr'),ref('neweb_project.neweb_fn40_assi'),
+            ref('neweb_project.neweb_mg50_assi'),ref('neweb_project.neweb_sa30_ass'),ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_en40_mgt'),ref('neweb_project.neweb_en80_assi'),ref('neweb_project.neweb_on30_mgt'),ref('neweb_project.neweb_on40_pm')])]"/>
+        </record>
+         <record id="neweb_wk_timesheet_rule3" model="ir.rule">
+             <field name="name">neweb.wk.timesheet.rule3</field>
+             <field ref="model_neweb_emp_timesheet_timesheet_calendar_line" name="model_id"/>
+             <field name="groups" eval="[(6,0, [ref('neweb_project.neweb_fn10_gm'),ref('neweb_project.neweb_sa10_gm'),ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_cs10_gm'),ref('neweb_project.neweb_cs20_vp'),ref('neweb_project.neweb_en10_gm'),ref('neweb_project.neweb_en20_vp'),ref('neweb_project.neweb_en30_ass'),ref('neweb_project.neweb_on10_gm'),ref('neweb_project.neweb_on20_vp')])]"/>
+             <field name="global" eval="1"/>
+         </record>
+         <record id="neweb_wk_timesheet_rule4" model="ir.rule">
+           <field name="name">neweb.wk.timesheet.rule4</field>
+           <field ref="model_neweb_emp_timesheet_timesheet_calendar" name="model_id"/>
+           <field name="domain_force">['|',('emp_id','=',False),('emp_id', '=', user.employee_ids.id )]</field>
+           <field name="groups" eval="[(6,0,[ref('neweb_project.neweb_fn30_user'),ref('neweb_project.neweb_sa40_user'),
+           ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_pur10_user'),ref('neweb_project.neweb_pur20_assi'),ref('neweb_project.neweb_en50_stockm'),ref('neweb_project.neweb_en60_stock'),ref('neweb_project.neweb_en70_user'),ref('neweb_project.neweb_on50_user')])]"/>
+        </record>
+
+        <record id="neweb_wk_timesheet_rule5" model="ir.rule">
+            <field name="name">neweb.wk.timesheet.rule5</field>
+            <field ref="model_neweb_emp_timesheet_timesheet_calendar" name="model_id"/>
+            <field name="domain_force">['|','|',('emp_id','=',False),('emp_id.department_id','in', [x.department_id.id for x in user.employee_ids]),('emp_id.department_id.manager_id','=',user.employee_ids.id)]</field>
+            <field name="groups" eval="[(6,0, [ref('neweb_project.neweb_fn20_mgr'),ref('neweb_project.neweb_fn40_assi'),
+            ref('neweb_project.neweb_mg50_assi'),ref('neweb_project.neweb_sa30_ass'),ref('neweb_project.neweb_sa50_assi'),ref('neweb_project.neweb_en40_mgt'),ref('neweb_project.neweb_en80_assi'),ref('neweb_project.neweb_on30_mgt'),ref('neweb_project.neweb_on40_pm')])]"/>
+        </record>
+         <record id="neweb_wk_timesheet_rule6" model="ir.rule">
+             <field name="name">neweb.wk.timesheet.rule6</field>
+             <field ref="model_neweb_emp_timesheet_timesheet_calendar" name="model_id"/>
+             <field name="groups" eval="[(6,0, [ref('neweb_project.neweb_fn10_gm'),ref('neweb_project.neweb_sa10_gm'),ref('neweb_project.neweb_sa20_vp'),ref('neweb_project.neweb_cs10_gm'),ref('neweb_project.neweb_cs20_vp'),ref('neweb_project.neweb_en10_gm'),ref('neweb_project.neweb_en20_vp'),ref('neweb_project.neweb_en30_ass'),ref('neweb_project.neweb_on10_gm'),ref('neweb_project.neweb_on20_vp')])]"/>
+             <field name="global" eval="1"/>
+         </record>
+        <record id="neweb_wk_timesheet_rule7" model="ir.rule">
+             <field name="name">neweb.wk.timesheet.rule7</field>
+             <field ref="model_neweb_emp_timesheet_timesheet_calendar" name="model_id"/>
+              <field name="groups" eval="[(6,0, [ref('neweb_emp_timesheet.neweb_timesheet_manager'),ref('neweb_project.neweb_cs30_dir'),ref('neweb_project.neweb_cs40_user'),ref('neweb_project.neweb_cs50_assi')])]"/>
+             <field name="global" eval="1"/>
+         </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_saletoproj_form_wizard" model="ir.ui.view">
+            <field name="name">neweb_saletoproj_form_wizard</field>
+            <field name="model">neweb.saletoproj</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>確認銷單轉成專案成本分析精靈</h1>
+                        <group>
+                            <field name="proj_branch" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                            <!--<field name="cost_type" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>-->
+                            <field name="proj_sale" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="saletoproj_wizard" string="產生專案" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="neweb_saletoproj_wizard_action" name="確認銷單轉成專案成本分析精靈" res_model="neweb.saletoproj"
+                    view_mode="form" target="new" multi="False"/>
+
+    </data>
+</odoo>

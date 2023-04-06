@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+       <menuitem id="neweb_pivot_root" name="樞鈕分析"
+                 web_icon="neweb_pivot,static/description/pivot.png"
+                 sequence="300" groups="base.group_user"/>
+       <!-- This Menu Item Must have a parent -->
+       <menuitem id="neweb_pivot_categ1" name="成本分析數據" parent="neweb_pivot_root" sequence="10"
+         groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi"/>
+       <menuitem id="neweb_pivot_categ2" name="報修分析數據" parent="neweb_pivot_root" sequence="20" groups="base.group_user"/>
+       <!-- This Menu Item Must have a parent -->
+
+
+    </data>
+</odoo>

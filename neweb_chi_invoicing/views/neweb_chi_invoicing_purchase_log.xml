@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_export_purchase_log_tree" model="ir.ui.view">
+            <field name="name">view.export purchase.log.tree</field>
+            <field name="model">neweb_chi_invoicing.export_purchase_log</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="chi_purchase_name"/>
+                    <field name="chi_purchase_no"/>
+                    <field name="chi_income_date"/>
+                    <field name="chi_purchase_sup"/>
+                    <field name="chi_currency_type"/>
+                    <field name="chi_wh"/>
+                    <field name="proj_no"/>
+                    <field name="chi_paymentdate"/>
+                    <field name="chi_product"/>
+                    <field name="chi_purchase_num"/>
+                    <field name="chi_purchase_price"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_export_purchase_log_form" model="ir.ui.view">
+            <field name="name">view.export.purchase.log.form</field>
+            <field name="model">neweb_chi_invoicing.export_purchase_log</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="chi_purchase_name"/>
+                            <field name="chi_purchase_no"/>
+                            <field name="chi_income_date"/>
+                            <field name="chi_purchase_sup"/>
+                            <field name="chi_currency_type"/>
+                            <field name="chi_wh"/>
+                            <field name="proj_no"/>
+                            <field name="chi_paymentdate"/>
+                            <field name="chi_product"/>
+                            <field name="chi_purchase_num"/>
+                            <field name="chi_purchase_price"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_export_purchase_log_search" model="ir.ui.view">
+           <field name="name">view.export.purchase.log.search</field>
+           <field name="model">neweb_chi_invoicing.export_purchase_log</field>
+            <field name="arch" type="xml">
+                <search string="">
+                   <field name="chi_purchase_no" string="關鍵字"
+                          filter_domain="['|','|','|','|','|','|',('chi_purchase_name','ilike',self),('chi_purchase_no','ilike',self),('proj_no.name','ilike',self),('chi_purchase_sup.name','ilike',self),('chi_income_date','ilike',self),('chi_paymentdate','ilike',self),('chi_product','ilike',self)]"/>
+                </search>
+           </field>
+        </record>
+        <record id="action_export_purchase_log_view" model="ir.actions.act_window">
+            <field name="name">進項資料記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_chi_invoicing.export_purchase_log</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

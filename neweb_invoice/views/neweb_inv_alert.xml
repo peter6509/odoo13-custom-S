@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_inv_alert_tree" model="ir.ui.view">
+            <field name="name">view.inv.alert.tree</field>
+            <field name="model">neweb_invoice.reminder_alert</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="inv_year" width="%%%"/>
+                    <field name="inv_month" width="5%%"/>
+                    <field name="partner_id" width="10%%"/>
+                    <field name="invoice_contact1" width="8%%"/>
+                    <field name="is_send" width="3%%"/>
+                    <field name="cando" width="3%%"/>
+                    <field name="send_date" width="5%%"/>
+                    <field name="send_date1" width="5%%"/>
+                    <field name="sendmail_type" width="10%%"/>
+                    <field name="reminder_alert_num" width="5%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_inv_alert_form" model="ir.ui.view">
+            <field name="name">view.inv.alert.form</field>
+            <field name="model">neweb_invoice.reminder_alert</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                 <field name="inv_year"/>
+                                 <field name="inv_month"/>
+                                 <field name="partner_id"/>
+                                 <field name="invoice_contact1"/>
+                                 <field name="send_date"/>
+                            </group>
+                            <group>
+                                <field name="is_send"/>
+                                <field name="cando"/>
+                                <field name="send_date1"/>
+                                <field name="sendmail_type"/>
+                                <field name="reminder_alert_num"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <notebook>
+                        <page>
+                              <field name="ra_line" nolabel="1">
+                                  <tree editable="bottom" string="Student Info" widget="one2many">
+                                      <field name="invoice_date"/>
+                                      <field name="project_no"/>
+                                      <field name="contract_no"/>
+                                      <field name="invoice_no"/>
+                                      <field name="invoice_tax_amount"/>
+                                      <field name="invoice_paymentdate"/>
+                                      <field name="proj_sale"/>
+                                      <field name="project_contract"/>
+                                      <field name="pi_projectname"/>
+                                  </tree>
+                               </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="view_inv_alert_search" model="ir.ui.view">
+           <field name="name">view.inv.alert.search</field>
+           <field name="model">neweb_invoice.reminder_alert</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="partner_id" string="關鍵字" filter_domain="['|','|','|',('partner_id.name', 'ilike', self),('ra_line.project_no.name','ilike',self),('ra_line.contract_no.name','ilike',self),('ra_line.invoice_no','ilike',self)]"/>
+                <filter string="應收提醒" domain="[('sendmail_type','=','2')]" name="sendmail1"/>
+                <filter string="逾期警示" domain="[('sendmail_type','=','3')]" name="sendmail2"/>
+            </search>
+           </field>
+        </record>
+
+        <record id="action_inv_alert_view" model="ir.actions.act_window">
+            <field name="name">應收帳逾期警示郵件</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_invoice.reminder_alert</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_invoice.view_inv_alert_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('neweb_invoice.view_inv_alert_form')}),]"/>
+            <field name="search_view_id" ref="view_inv_alert_search"/>
+            <field name="context">{'search_default_sendmail2':1}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_neweb_invoice_alert_action" name="應收帳逾期警示郵件" sequence="150"
+                  parent="menu_neweb_project_invoice_view_categ"
+                  groups="neweb_project.neweb_cs50_assi,neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass"
+                  action="action_inv_alert_view"/>
+    </data>
+</odoo>

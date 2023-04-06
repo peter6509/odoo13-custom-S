@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit4_contract_form" model="ir.ui.view">
+           <field name="name">view.inherit4.contract.form</field>
+           <field name="model">neweb_contract.contract</field>
+           <field name="inherit_id" ref="neweb_contract.neweb_contract_form_inherit"/>
+           <field name="arch" type="xml">
+
+               <!-- position: after|before|replace|attributes|inside -->
+               <xpath expr="//button[@name='subscribe_run']" position="after">
+                    <button type="object" string="合約維護時序重置" name="subscribe_reset" class="oe_highlight oe_edit_only"
+                              attrs="{'invisible':['|','|',('subscribe_build','!=',True),('routine_maintenance_new','=',False),('inspection_method','=','none')]}"
+                               context="{'contract_id': context.get('active_id') }"/>
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+
+           </field>
+       </record>
+
+    </data>
+</odoo>

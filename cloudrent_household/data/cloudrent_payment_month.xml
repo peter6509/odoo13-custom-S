@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="payment_month_1" model="cloudrent.payment_month">
+            <field name="name">一月</field>
+            <field name="value">01</field>
+        </record>
+        <record id="payment_month_2" model="cloudrent.payment_month">
+            <field name="name">二月</field>
+            <field name="value">02</field>
+        </record>
+        <record id="payment_month_3" model="cloudrent.payment_month">
+            <field name="name">三月</field>
+            <field name="value">03</field>
+        </record>
+        <record id="payment_month_4" model="cloudrent.payment_month">
+            <field name="name">四月</field>
+            <field name="value">04</field>
+        </record>
+        <record id="payment_month_5" model="cloudrent.payment_month">
+            <field name="name">五月</field>
+            <field name="value">05</field>
+        </record>
+        <record id="payment_month_6" model="cloudrent.payment_month">
+            <field name="name">六月</field>
+            <field name="value">06</field>
+        </record>
+        <record id="payment_month_7" model="cloudrent.payment_month">
+            <field name="name">七月</field>
+            <field name="value">07</field>
+        </record>
+        <record id="payment_month_8" model="cloudrent.payment_month">
+            <field name="name">八月</field>
+            <field name="value">08</field>
+        </record>
+        <record id="payment_month_9" model="cloudrent.payment_month">
+            <field name="name">九月</field>
+            <field name="value">09</field>
+        </record>
+        <record id="payment_month_10" model="cloudrent.payment_month">
+            <field name="name">十月</field>
+            <field name="value">10</field>
+        </record>
+        <record id="payment_month_11" model="cloudrent.payment_month">
+            <field name="name">十一月</field>
+            <field name="value">11</field>
+        </record>
+        <record id="payment_month_12" model="cloudrent.payment_month">
+            <field name="name">十二月</field>
+            <field name="value">12</field>
+        </record>
+    </data>
+</odoo>

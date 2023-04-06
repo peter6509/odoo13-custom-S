@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <report id="action_report_neweb_require_purchase"
+                model="neweb.require_purchase"
+                string="申購單NEW"
+                report_type="controller"
+                print_report_name="'申購單_%s.pdf' % (object.name)"
+                name="neweb_require_purchase_report"/>
+         <record id="action_report_neweb_require_purchase" model="ir.actions.report">
+            <field name="template_id" ref="neweb_build_fish_report.neweb_require_purchase_report"/>
+            <field name="output_file">pdf</field>
+        </record>
+    </data>
+</odoo>

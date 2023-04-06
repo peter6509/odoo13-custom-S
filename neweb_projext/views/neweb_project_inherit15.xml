@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit15_neweb_project_form" model="ir.ui.view">
+            <field name="name">view.inherit15.neweb.project.form</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_projext.view_inherit132_neweb_project_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='shipping_type']" position="after">
+                    <field name="stampduty_apply"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+                <xpath expr="//field[@name='setup_date']" position="after">
+                   <field name="acceptanced_date1"/>
+                   <field name="acceptanced_date2"/>
+                   <field name="projsaleitem_status"/>
+               </xpath>
+                <xpath expr="//sheet/group/field[@name='saleitem_line']/tree/field[@name='cost_dept']" position="after">
+                    <field name="stockin_date"/>
+                    <field name="stockout_date"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

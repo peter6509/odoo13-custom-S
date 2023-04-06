@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_quant_iot_report_wizard" model="ir.ui.view">
+             <field name="name">views.quant.iot.report.wizard</field>
+             <field name="model">alldo_acme_iot.quant_report_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>批次號條碼列印</h1>
+                         <group>
+                             <field name="report_type"/>
+                             <field name="quant_ids" widget="many2many_tags" options="{'no_create':true,'no_create_edit':true}"
+                              domain="[('company_id','=',1),('lot_id','!=',False),('location_id','=',19),('quantity','>',0)]"  attrs="{'invisible':[('report_type','=','2')]}"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_quant_report" string="條碼列印" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="acme_quant_iot_report_wizard_action" model="ir.actions.act_window">
+             <field name="name">批次號條碼列印精靈</field>
+             <field name="res_model">alldo_acme_iot.quant_report_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

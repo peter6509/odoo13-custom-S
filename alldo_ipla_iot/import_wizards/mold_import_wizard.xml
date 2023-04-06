@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mold_import_form_wizard" model="ir.ui.view">
+             <field name="name">mold.import.form.wizard</field>
+             <field name="model">alldo_ipla_iot.mold_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>模具基本資料匯入精靈</h1>
+                         <group>
+                             <field name="excel_file"/>
+                             <field name="excel_sheet_num"/>
+                             <field name="start_row"/>
+                             <field name="end_row"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="mold_import" string="資料匯入" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+          <record id="mold_import_action" model="ir.actions.act_window">
+              <field name="name">模具資料EXCEL匯入</field>
+              <field name="res_model">alldo_ipla_iot.mold_wizard</field>
+              <field name="view_mode">form</field>
+              <field name="target">new</field>
+          </record>
+    </data>
+</odoo>

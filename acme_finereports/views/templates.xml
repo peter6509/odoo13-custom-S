@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+                <!--此内容表示引用js,多个例子不用重复引用，一次即可 begin-->
+        <template id="acme_backend" name="acme_reports assets" inherit_id="web.assets_backend">
+                <xpath expr="." position="inside">
+                    <script type="text/javascript" src="/acme_finereports/static/src/js/acme_reports.js"></script> <!--指定JS文件-->
+                </xpath>
+        </template>
+    </data>
+</odoo>

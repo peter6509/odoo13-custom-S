@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Maintenance Category and product-->
+        <record id="view_neweb_repair_maintenance_category_report_search" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.maintenance_category.report.search</field>
+            <field name="model">neweb_repair.repair.maintenance_category.report</field>
+            <field name="arch" type="xml">
+                <search string="Repair Analysis">
+                    <!--<field name="date"/>-->
+                    <!--<field name="month"/>-->
+                    <!--<filter string="Q1" name="Q1" domain="[('month','in', [1,2,3])]"/>-->
+                    <!--<filter string="Q2" name="Q2" domain="[('month','in', [4,5,6])]"/>-->
+                    <!--<filter string="Q3" name="Q3" domain="[('month','in', [7,8,9])]"/>-->
+                    <!--<filter string="Q4" name="Q4" domain="[('month','in', [10,11,12])]"/>-->
+                    <!--<separator/>-->
+                    <!--<filter string="H1" name="H1" domain="[('month','in', [1,2,3,4,5,6])]"/>-->
+                    <!--<filter string="H2" name="H2" domain="[('month','in', [7,8,9,10,11,12])]"/>-->
+                    <!--<group expand="1" string="Group By">-->
+                        <!--<filter string="Day" context="{'group_by':'date:day'}"/>-->
+                        <!--<filter string="Week" context="{'group_by':'date:week'}"/>-->
+                        <!--<filter string="Month" context="{'group_by':'date:month'}"/>-->
+                        <!--<filter string="Quarter" context="{'group_by':'date:quarter'}"/>-->
+                        <!--<filter string="Year" context="{'group_by':'date:year'}"/>-->
+                        <!--<separator/>-->
+                    <!--</group>-->
+                </search>
+            </field>
+        </record>
+        <record id="view_neweb_repair_maintenance_category_report_pivot" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.maintenance_category.report.pivot</field>
+            <field name="model">neweb_repair.repair.maintenance_category.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Repair Analysis" disable_linking="True">
+                    <field name="repair_datetime" type="col"/>
+                    <field name="maintenance_category"/>
+                    <field name="prod"/>
+                    <field name="device_amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="view_neweb_repair_maintenance_category_report_graph" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.maintenance_category.report.graph</field>
+            <field name="model">neweb_repair.repair.maintenance_category.report</field>
+            <field name="arch" type="xml">
+                <graph string="Repair Analysis">
+                    <!--<field name="repair_datetime"/>-->
+                    <field name="maintenance_category"/>
+                    <field name="prod"/>
+                    <field name="device_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <record id="action_neweb_repair_maintenance_category_report" model="ir.actions.act_window">
+            <field name="name">Repair maintenance_category Analysis</field>
+            <field name="res_model">neweb_repair.repair.maintenance_category.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot,graph</field>
+            <field name="view_id"></field>
+            <field name="search_view_id" ref="view_neweb_repair_maintenance_category_report_search"/>
+            <field name="help">This report performs analysis on your Repair</field>
+        </record>
+
+        <!-- Maintenance Category and Problem-->
+        <record id="view_neweb_repair_problem_report_search" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.problem.report.search</field>
+            <field name="model">neweb_repair.repair.problem.report</field>
+            <field name="arch" type="xml">
+                <search string="Repair Analysis">
+
+                </search>
+            </field>
+        </record>
+        <record id="view_neweb_repair_problem_report_pivot" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.problem.report.pivot</field>
+            <field name="model">neweb_repair.repair.problem.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Repair Analysis" disable_linking="True">
+                    <field name="repair_datetime" type="col"/>
+                    <field name="maintenance_category"/>
+                    <field name="problem"/>
+                    <field name="device_amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="view_neweb_repair_problem_report_graph" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.problem.report.graph</field>
+            <field name="model">neweb_repair.repair.problem.report</field>
+            <field name="arch" type="xml">
+                <graph string="Repair Analysis">
+                    <!--<field name="repair_datetime"/>-->
+                    <field name="maintenance_category"/>
+                    <field name="problem"/>
+                    <field name="device_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <record id="action_neweb_repair_problem_report" model="ir.actions.act_window">
+            <field name="name">Repair Problem Analysis</field>
+            <field name="res_model">neweb_repair.repair.problem.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot,graph</field>
+            <field name="view_id"></field>
+            <field name="search_view_id" ref="view_neweb_repair_problem_report_search"/>
+            <field name="help">This report performs analysis on your Repair</field>
+        </record>
+
+        <!-- Maintenance Category and Part no-->
+        <record id="view_neweb_repair_part_report_search" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.part.report.search</field>
+            <field name="model">neweb_repair.repair.part.report</field>
+            <field name="arch" type="xml">
+                <search string="Repair Analysis">
+
+                </search>
+            </field>
+        </record>
+        <record id="view_neweb_repair_part_report_pivot" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.part.report.pivot</field>
+            <field name="model">neweb_repair.repair.part.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Repair Analysis" disable_linking="True">
+                    <field name="repair_datetime" type="col"/>
+                    <field name="maintenance_category"/>
+                    <field name="part_no"/>
+                    <field name="device_amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="view_neweb_repair_part_report_graph" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.part.report.graph</field>
+            <field name="model">neweb_repair.repair.part.report</field>
+            <field name="arch" type="xml">
+                <graph string="Repair Analysis">
+                    <field name="maintenance_category"/>
+                    <field name="part_no"/>
+                    <field name="device_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <record id="action_neweb_repair_part_report" model="ir.actions.act_window">
+            <field name="name">Repair Part Analysis</field>
+            <field name="res_model">neweb_repair.repair.part.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot,graph</field>
+            <field name="view_id"></field>
+            <field name="search_view_id" ref="view_neweb_repair_part_report_search"/>
+            <field name="help">This report performs analysis on your Repair</field>
+        </record>
+
+        <!-- AE and Complete time-->
+        <record id="view_neweb_repair_complete_time_report_search" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.complete_time.report.search</field>
+            <field name="model">neweb_repair.repair.complete_time.report</field>
+            <field name="arch" type="xml">
+                <search string="Repair Analysis">
+
+                </search>
+            </field>
+        </record>
+        <record id="view_neweb_repair_complete_time_report_pivot" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.complete_time.report.pivot</field>
+            <field name="model">neweb_repair.repair.complete_time.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Repair Analysis" disable_linking="True">
+                    <field name="ae"/>
+                    <field name="avg_complete_time" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="view_neweb_repair_complete_time_report_graph" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.complete_time.report.graph</field>
+            <field name="model">neweb_repair.repair.complete_time.report</field>
+            <field name="arch" type="xml">
+                <graph string="Repair Analysis">
+                    <field name="ae"/>
+                    <field name="avg_complete_time" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <record id="action_neweb_repair_complete_time_report" model="ir.actions.act_window">
+            <field name="name">Repair Complete Time Analysis</field>
+            <field name="res_model">neweb_repair.repair.complete_time.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot,graph</field>
+            <field name="view_id"></field>
+            <field name="search_view_id" ref="view_neweb_repair_complete_time_report_search"/>
+            <field name="help">This report performs analysis on your Repair</field>
+        </record>
+
+
+        <menuitem name="Reports" id="menu_neweb_repair_report_all"
+                  parent="neweb_base.menu_repair"
+                  sequence="25"
+                  groups=""/>
+
+        <!-- 維護類別 -->
+        <menuitem name="Maintenance Category" action="action_neweb_repair_maintenance_category_report"
+                  id="menu_neweb_repair_maintenance_category_report"
+                  parent="neweb_repair.menu_neweb_repair_report_all"
+                  sequence="31"
+                  groups=""/>
+
+        <!-- 問題名稱 -->
+        <menuitem name="Problem" action="action_neweb_repair_problem_report"
+                  id="menu_neweb_repair_problem_report"
+                  parent="neweb_repair.menu_neweb_repair_report_all"
+                  sequence="32"
+                  groups=""/>
+
+        <!-- 零件料號 -->
+        <menuitem name="Part" action="action_neweb_repair_part_report"
+                  id="menu_neweb_repair_part_report"
+                  parent="neweb_repair.menu_neweb_repair_report_all"
+                  sequence="33"
+                  groups=""/>
+
+        <!-- 工程師完修時間 -->
+        <menuitem name="Complete Time" action="action_neweb_repair_complete_time_report"
+                  id="menu_neweb_repair_complete_time_report"
+                  parent="neweb_repair.menu_neweb_repair_report_all"
+                  sequence="34"
+                  groups=""/>
+
+
+        <!-- product brand-->
+        <record id="view_neweb_repair_product_brand_report_search" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.product_brand.report.search</field>
+            <field name="model">neweb_repair.repair.product_brand.report</field>
+            <field name="arch" type="xml">
+                <search string="Repair Analysis">
+                </search>
+            </field>
+        </record>
+        <record id="view_neweb_repair_product_brand_report_pivot" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.product_brand.report.pivot</field>
+            <field name="model">neweb_repair.repair.product_brand.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Repair Analysis" disable_linking="True">
+                    <field name="repair_datetime" type="col"/>
+                    <field name="prod_brand"/>
+                    <field name="device_amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="view_neweb_repair_product_brand_report_graph" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.product_brand.report.graph</field>
+            <field name="model">neweb_repair.repair.product_brand.report</field>
+            <field name="arch" type="xml">
+                <graph string="Repair Analysis">
+                    <field name="prod_brand"/>
+                    <field name="device_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <record id="action_neweb_repair_product_brand_report" model="ir.actions.act_window">
+            <field name="name">Repair product_brand Analysis</field>
+            <field name="res_model">neweb_repair.repair.product_brand.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot,graph</field>
+            <field name="view_id"></field>
+            <field name="search_view_id" ref="view_neweb_repair_product_brand_report_search"/>
+            <field name="help">This report performs analysis on your Repair</field>
+        </record>
+
+        <!-- product brand -->
+        <menuitem name="Product Brand Analysis" action="action_neweb_repair_product_brand_report"
+                  id="menu_neweb_repair_product_brand_report"
+                  parent="neweb_repair.menu_neweb_repair_report_all"
+                  sequence="35"
+                  groups=""/>
+
+        <!-- product model-->
+        <record id="view_neweb_repair_product_model_report_search" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.product_model.report.search</field>
+            <field name="model">neweb_repair.repair.product_model.report</field>
+            <field name="arch" type="xml">
+                <search string="Repair Analysis">
+                </search>
+            </field>
+        </record>
+        <record id="view_neweb_repair_product_model_report_pivot" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.product_model.report.pivot</field>
+            <field name="model">neweb_repair.repair.product_model.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Repair Analysis" disable_linking="True">
+                    <field name="repair_datetime" type="col"/>
+                    <field name="prod_model"/>
+                    <field name="device_amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="view_neweb_repair_product_model_report_graph" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.product_model.report.graph</field>
+            <field name="model">neweb_repair.repair.product_model.report</field>
+            <field name="arch" type="xml">
+                <graph string="Repair Analysis">
+                    <field name="prod_model"/>
+                    <field name="device_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <record id="action_neweb_repair_product_model_report" model="ir.actions.act_window">
+            <field name="name">Repair product_model Analysis</field>
+            <field name="res_model">neweb_repair.repair.product_model.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot,graph</field>
+            <field name="view_id"></field>
+            <field name="search_view_id" ref="view_neweb_repair_product_model_report_search"/>
+            <field name="help">This report performs analysis on your Repair</field>
+        </record>
+
+        <!-- product model -->
+        <menuitem name="Product Model Analysis" action="action_neweb_repair_product_model_report"
+                  id="menu_neweb_repair_product_model_report"
+                  parent="neweb_repair.menu_neweb_repair_report_all"
+                  sequence="36"
+                  groups=""/>
+
+        <!-- product serial-->
+        <record id="view_neweb_repair_product_serial_report_search" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.product_serial.report.search</field>
+            <field name="model">neweb_repair.repair.product_serial.report</field>
+            <field name="arch" type="xml">
+                <search string="Repair Analysis">
+                </search>
+            </field>
+        </record>
+        <record id="view_neweb_repair_product_serial_report_pivot" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.product_serial.report.pivot</field>
+            <field name="model">neweb_repair.repair.product_serial.report</field>
+            <field name="arch" type="xml">
+                <pivot string="Repair Analysis" disable_linking="True">
+                    <field name="repair_datetime" type="col"/>
+                    <field name="prod_serial"/>
+                    <field name="device_amount" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+        <record id="view_neweb_repair_product_serial_report_graph" model="ir.ui.view">
+            <field name="name">neweb_repair.repair.product_serial.report.graph</field>
+            <field name="model">neweb_repair.repair.product_serial.report</field>
+            <field name="arch" type="xml">
+                <graph string="Repair Analysis">
+                    <field name="prod_serial"/>
+                    <field name="device_amount" type="measure"/>
+                </graph>
+            </field>
+        </record>
+        <record id="action_neweb_repair_product_serial_report" model="ir.actions.act_window">
+            <field name="name">Repair product_serial Analysis</field>
+            <field name="res_model">neweb_repair.repair.product_serial.report</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">pivot,graph</field>
+            <field name="view_id"></field>
+            <field name="search_view_id" ref="view_neweb_repair_product_serial_report_search"/>
+            <field name="help">This report performs analysis on your Repair</field>
+        </record>
+
+        <!-- product serial -->
+        <menuitem name="Product Serial Analysis" action="action_neweb_repair_product_serial_report"
+                  id="menu_neweb_repair_product_serial_report"
+                  parent="neweb_repair.menu_neweb_repair_report_all"
+                  sequence="37"
+                  groups=""/>
+
+
+    </data>
+</openerp>

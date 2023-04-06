@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <!-- Inherit Form View to Modify it -->
+       <record id="neweb_project_form_inherit9" model="ir.ui.view">
+           <field name="name">neweb.project.form.inherit9</field>
+           <field name="model">neweb.project</field>
+           <field name="inherit_id" ref="neweb_project.neweb_project_form"/>
+           <field name="arch" type="xml">
+               <header>
+                   <button name="%(neweb_projext.goto_project_action)d" type="action" string="專案導向" context="{'projectid': context.get('active_id')}"
+                            class="oe_highlight"   groups="neweb_project.neweb_sa50_assi,neweb_project.neweb_sa40_user,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa10_gm"/>
+               </header>
+
+               <xpath expr="//field[@name='transation_type']" position="after">
+
+                    <field name="revenue_ratio" groups="neweb_project.neweb_cs30_dir"/>
+                   <field name="stamp_duty_type"/>
+                   <field name="stamp_duty"/>
+                    <!--&lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+                </xpath>
+
+
+           </field>
+       </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="cloudrent_emeterhub_tree" model="ir.ui.view">
+            <field name="name">cloudrent_emeterhub_tree</field>
+            <field name="model">cloudrent.emeterhub_status</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="pi_id"/>
+                    <field name="last_update"/>
+                    <field name="ip_address"/>
+                </tree>
+            </field>
+        </record>
+        <record id="cloudrent_emeterhub_form" model="ir.ui.view">
+            <field name="name">cloudrent.emeterhub.form</field>
+            <field name="model">cloudrent.emeterhub_status</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="pi_id"/>
+                            <field name="last_update" attrs="{'readonly':1}"/>
+                            <field name="ip_address"/>
+                        </group>
+                        <notebook>
+                          <page string="電錶狀態" name="EMETER Status">
+                                <field name="emeter_line" widget="section_and_note_one2many" mode="tree">
+                                 <tree string="電錶狀態">
+                                     <field name="emeter_id"/>
+                                     <field name="last_update" attrs="{'readonly':1}"/>
+                                     <field name="emeter_status" attrs="{'readonly':1}"/>
+                                     <field name="ng_count" attrs="{'readonly':1}"/>
+                                 </tree>
+                                </field>
+                            </page>
+                       </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="cloudrent_emeterhub_action" model="ir.actions.act_window">
+            <field name="name">數據收集器設定</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">cloudrent.emeterhub_status</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

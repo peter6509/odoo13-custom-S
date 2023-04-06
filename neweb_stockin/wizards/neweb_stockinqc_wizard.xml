@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_stockinqc_wizard_form" model="ir.ui.view">
+            <field name="name">neweb_stockinqc_wizard_form</field>
+            <field name="model">neweb.stockin_qc</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>進貨檢驗選單</h1>
+                        <group>
+                            <field name="origin" options="{'no_create_edit':True,'no_create':True,'no_open':True}"
+                                 domain="[('stockin_qc','=',True),('stockin_checkyn','=',False)]"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="get_qc_data" string="進貨檢測" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="neweb_stockinqc_wizard_action" model="ir.actions.act_window">
+             <field name="name"></field>
+             <field name="res_model">neweb.stockin_qc</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+        <menuitem id="menu_neweb_stockinqc_wizard_action"
+                  name=""
+                  parent="neweb_project.menu_neweb_stockmove_categ"
+                  action="neweb_stockinqc_wizard_action"
+                  sequence="20"/>
+    </data>
+</odoo>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="repair_wkf" model="workflow">
+            <field name="name">neweb_repair.repair.basic</field>
+            <field name="osv">neweb_repair.repair</field>
+            <field name="on_create">True</field>
+        </record>
+
+        <record id="repair_draft" model="workflow.activity">
+            <field name="wkf_id" ref="repair_wkf"/>
+            <field name="flow_start">True</field>
+            <field name="name">Draft</field>
+            <field name="action">write({'state':'repair_draft'})</field>
+            <field name="kind">function</field>
+        </record>
+        <record id="repair_waiting" model="workflow.activity">
+            <field name="wkf_id" ref="repair_wkf"/>
+            <field name="name">Waiting</field>
+            <field name="action">write({'state':'repair_waiting'})</field>
+            <field name="action_id" ref=""/>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="repair_AE" model="workflow.activity">
+            <field name="wkf_id" ref="repair_wkf"/>
+            <field name="name">AE Processing</field>
+            <field name="action">write({'state':'repair_AE'})</field>
+            <field name="action_id" ref="repair_ae_process_email"/>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="repair_Manager" model="workflow.activity">
+            <field name="wkf_id" ref="repair_wkf"/>
+            <field name="name">Waiting for AE Manager Approval</field>
+             <field name="action">write({'state': 'repair_done'})</field>
+            <field name="action_id" ref="repair_send_ae_manager_email"/>
+            <field name="kind">function</field>
+        </record>
+        <record id="repair_done" model="workflow.activity">
+            <field name="wkf_id" ref="repair_wkf"/>
+            <field name="name">Done</field>
+            <field name="action">write({'state': 'repair_done'})</field>
+            <field name="action_id" ref=""/>
+            <field name="kind">function</field>
+        </record>
+<!--         <record id="repair_done" model="workflow.activity">-->
+<!--            <field name="wkf_id" ref="repair_wkf"/>-->
+<!--            <field name="name">Done</field>-->
+<!--            <field name="action">action_done()</field>-->
+<!--            <field name="action_id" ref=""/>-->
+<!--            <field name="kind">function</field>-->
+<!--        </record>-->
+
+        <record id="repair_cancel" model="workflow.activity">
+            <field name="wkf_id" ref="repair_wkf"/>
+            <field name="name">Cancel</field>
+            <field name="action">write({'state':'repair_cancel'})</field>
+            <field name="action_id" ref=""/>
+            <field name="kind">function</field>
+        </record>
+
+        <record id="repair_open" model="workflow.activity">
+            <field name="wkf_id" ref="repair_wkf"/>
+            <field name="name">Open</field>
+            <field name="action">action_open()</field>
+            <field name="kind">function</field>
+        </record>
+        <record id="repair_reject" model="workflow.activity">
+            <field name="wkf_id" ref="repair_wkf"/>
+            <field name="name">Reject</field>
+            <field name="action">write({'state':'repair_reject'})</field>
+            <field name="action_id" ref=""/>
+            <field name="kind">function</field>
+        </record>
+        <record id="repair_closed" model="workflow.activity">
+            <field name="wkf_id" ref="repair_wkf"/>
+            <field name="name">Closed</field>
+            <field name="flow_stop">True</field>
+            <field name="action">write({'state':'repair_closed'})</field>
+            <field name="action_id" ref="repair_send_done_email"/>
+            <field name="kind">function</field>
+        </record>
+         <!--<record id="repair_closed" model="workflow.activity">-->
+            <!--<field name="wkf_id" ref="repair_wkf"/>-->
+            <!--<field name="name">Closed</field>-->
+            <!--<field name="flow_stop">True</field>-->
+            <!--<field name="action">action_close()</field>-->
+            <!--<field name="action_id" ref="repair_send_done_email"/>-->
+            <!--<field name="kind">function</field>-->
+        <!--</record>-->
+
+        <record id="t_draft_open" model="workflow.transition">
+            <field name="act_from" ref="repair_draft"/>
+            <field name="act_to" ref="repair_open"/>
+            <field name="signal">repair_call</field>
+        </record>
+        <record id="t_open_ae" model="workflow.transition">
+            <field name="act_from" ref="repair_open"/>
+            <field name="act_to" ref="repair_AE"/>
+            <field name="trigger_model"/>
+            <field name="trigger_expr_id"/>
+            <field name="condition">part_ready</field>
+        </record>
+        <record id="t_draft_cancel" model="workflow.transition">
+            <field name="act_from" ref="repair_draft"/>
+            <field name="act_to" ref="repair_cancel"/>
+            <field name="signal">repair_cancel</field>
+        </record>
+
+        <record id="t_draft_waiting" model="workflow.transition">
+            <field name="act_from" ref="repair_open"/>
+            <field name="act_to" ref="repair_waiting"/>
+            <field name="trigger_model"/>
+            <field name="trigger_expr_id"/>
+            <field name="condition">not part_ready</field>
+        </record>
+        <record id="t_waiting_ae" model="workflow.transition">
+            <field name="act_from" ref="repair_waiting"/>
+            <field name="act_to" ref="repair_AE"/>
+            <field name="trigger_model"/>
+            <field name="trigger_expr_id"/>
+            <field name="condition">part_ready</field>
+        </record>
+        <record id="t_ae_waiting" model="workflow.transition">
+            <field name="act_from" ref="repair_AE"/>
+            <field name="act_to" ref="repair_waiting"/>
+            <field name="trigger_model"/>
+            <field name="trigger_expr_id"/>
+            <field name="condition">not part_ready</field>
+        </record>
+
+        <record id="t_ae_manager" model="workflow.transition">
+            <field name="act_from" ref="repair_AE"/>
+            <field name="act_to" ref="repair_Manager"/>
+            <field name="signal">repair_ae_manager</field>
+        </record>
+
+        <record id="t_manager_done" model="workflow.transition">
+            <field name="act_from" ref="repair_Manager"/>
+            <field name="act_to" ref="repair_done"/>
+            <field name="signal">repair_manager_done</field>
+        </record>
+
+        <record id="t_manager_reject" model="workflow.transition">
+            <field name="act_from" ref="repair_Manager"/>
+            <field name="act_to" ref="repair_reject"/>
+            <field name="signal">repair_manager_ae</field>
+        </record>
+        <record id="t_reject_ae" model="workflow.transition">
+            <field name="act_from" ref="repair_reject"/>
+            <field name="act_to" ref="repair_AE"/>
+            <field name="trigger_model"/>
+            <field name="trigger_expr_id"/>
+            <field name="condition">True</field>
+        </record>
+
+        <record id="t_cancel_draft" model="workflow.transition">
+            <field name="act_from" ref="repair_cancel"/>
+            <field name="act_to" ref="repair_draft"/>
+            <field name="signal">repair_cancel_draft</field>
+        </record>
+
+        <record id="t_done_reject" model="workflow.transition">
+            <field name="act_from" ref="repair_done"/>
+            <field name="act_to" ref="repair_reject"/>
+            <field name="signal">repair_done_ae</field>
+        </record>
+
+        <record id="t_done_close" model="workflow.transition">
+            <field name="act_from" ref="repair_done"/>
+            <field name="act_to" ref="repair_closed"/>
+            <field name="signal">repair_close</field>
+        </record>
+
+    </data>
+</odoo>

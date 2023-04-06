@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+       <record id="view_un_export_main_proj_form" model="ir.ui.view">
+           <field name="name">view.un.export.main.proj.form</field>
+           <field name="model">neweb_chi_invoicing.un_export_main_proj</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <sheet>
+                       <group>
+                           <group>
+                               <group>
+                                    <field name="chi_export_type" attrs="{'invisible':1}"/>
+                                   <field name="export_user" attrs="{'readonly':1}"/>
+                                   <field name="export_date" attrs="{'readonly':1}"/>
+<!--                                   <field name="is_export_project_master" attrs="{'invisible':[('chi_export_type','=',False)]}"/>-->
+<!--                                   <field name="is_export_project_product" attrs="{'invisible':[('chi_export_type','=',False)]}"/>-->
+<!--                                   <field name="is_export_project_sale" attrs="{'invisible':['|',('chi_export_type','=',False),('chi_export_type','in',['P1','P2'])]}"/>-->
+<!--                                   <field name="is_export_project_purchase" attrs="{'invisible':['|',('chi_export_type','=',False),('chi_export_type','in',['S1','S2'])]}"/>-->
+                               </group>
+
+                               <group>
+                                   <group>
+                                       <button type="object" name="selectitemall" string="全選" class="oe_highlight" attrs="{'invisible':[('chi_export_type','in',['S2','P2',False])]}"/>
+                                   </group>
+                                   <group>
+                                       <button type="object" name="selectitemallno" string="全不選" class="oe_highlight" attrs="{'invisible':[('chi_export_type','in',['S2','P2',False])]}"/>
+                                   </group>
+                               </group>
+                           </group>
+
+                                <field name="export_line" nolabel="1" >
+                                    <tree  widget="one2many" create="false">
+                                        <button type="object" name="get_select" string="點選" class="oe_highlight"/>
+                                        <field name="selectyn"/>
+                                        <field name="proj_no" string="專案編號"/>
+                                        <field name="partner_id" string="客戶名稱"/>
+                                        <field name="amount_untaxed" string="未稅金額"/>
+                                        <field name="amount_tax" string="税金"/>
+                                        <field name="amount_total" string="合計金額"/>
+                                        <field name="export_memo" string="匯出說明"/>
+                                        <field name="chi_export_project" string="已匯出專案否?" attrs="{'readonly':1}"/>
+                                        <field name="chi_export_product" string="已匯出產品否?" attrs="{'readonly':1}"/>
+<!--                                        <field name="chi_export_outcome" string="已銷項匯出否?" attrs="{'readonly':1}"/>-->
+<!--                                        <field name="chi_export_income" string="已進項匯出否?" attrs="{'readonly':1}"/>-->
+<!--                                         <field name="chi_invoice_complete" string="已結案否?" attrs="{'readonly':1}"/>-->
+                                    </tree>
+                                </field>
+                        <button type="object" name="selectbtn" string="點選匯入" class="oe_highlight" attrs="{'invisible':[('chi_export_type','=',False)]}"/>
+<!--                        <button type="object" name="selectall" string="全選匯入" class="oe_highlight" attrs="{'invisible':[('chi_export_type','in',['S2','P2',False])]}"/>-->
+<!--                        <button type="object" name="noselect" string="離開"/>-->
+                       </group>
+                   </sheet>
+
+               </form>
+           </field>
+       </record>
+        <record id="action_neweb_chi_invoicing_un_export_main_proj_view" model="ir.actions.act_window">
+            <field name="name">匯出(維護案)記錄候選列表</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_chi_invoicing.un_export_main_proj</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

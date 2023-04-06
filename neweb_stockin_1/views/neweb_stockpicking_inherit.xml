@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_stock_picking_inherit_form" model="ir.ui.view">
+    <field name="name">neweb_stock_picking_inherit_form</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form"/>
+    <field name="arch" type="xml">
+          <xpath expr="//field[@name='name']" position="after">
+              <field name="stockin_qc_status" attrs="{'readonly':1,
+                  'invisible':['|','|',('stockin_picktype','!=','incoming'),('stockin_picktype','=',False),('stockin_pickname','=','DS')]}"/>
+          </xpath>
+<!--          <xpath expr="//field[@name='partner_id']" position="before">-->
+<!--              <label for="partner_id" string="客戶名稱"/>-->
+<!--          </xpath>-->
+          <xpath expr="//field[@name='partner_id']" position="after">
+             <field name="stockin_picktype" attrs="{'invisible':1}"/>
+             <field name="stockin_pickname" attrs="{'invisible':1}"/>
+              <label for="stockin_qc" string="是否需工程檢驗？" attrs="{'invisible':['|','|',('stockin_picktype','!=','incoming'),('stockin_picktype','=',False),('stockin_pickname','=','DS')]}"/>
+             <field name="stockin_qc" attrs="{'invisible':['|','|',('stockin_picktype','!=','incoming'),('stockin_picktype','=',False),('stockin_pickname','=','DS')]}"/>
+              <label for="stockin_checkman" string="檢測工程師" attrs="{'invisible':[('stockin_qc','=',False)]}"/>
+             <field name="stockin_checkman" options="{'no_create_edit':True,'no_create':True,'no_open':True}"
+                    attrs="{'invisible':[('stockin_qc','=',False)]}"/>
+             <label for="stockin_desc" string="說明" attrs="{'invisible':['|',('stockin_picktype','!=','incoming'),('stockin_picktype','=',False)]}" />
+            <field name="stockin_desc" attrs="{'invisible':['|',('stockin_picktype','!=','incoming'),('stockin_picktype','=',False)]}" />
+              <label for="stockin_type" string="出貨原因" attrs="{'invisible':['|','|',('stockin_picktype','=','outgoing'),('stockin_picktype','=','internal'),('stockin_pickname','=','DS')]}"/>
+            <field name="stockin_type" widget="radio" options="{'horizontal':true}" attrs="{'invisible':['|','|',('stockin_picktype','=','outgoing'),('stockin_picktype','=','internal'),('stockin_pickname','=','DS')]}" />
+            <label for="stockout_type" string="出貨原因" attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming')]}" />
+            <field name="stockout_type" widget="radio"  options="{'horizontal':true}" attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming')]}" />
+          </xpath >
+          <xpath expr="//field[@name='origin']" position="after">
+
+              <field name="stockout_proj_no" attrs="{'invisible':[('stockin_picktype','=','internal')]}"/>
+              <field name="last_send_mail" attrs="{'invisible':[('stockin_picktype','!=','incoming')],'readonly':1}"/>
+              <field name="stockout_customer" attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming')]}"/>
+              <field name="stockout_custel" attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming')]}"/>
+              <field name="stockout_shipaddr" attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming')]}"/>
+          </xpath>
+         <header>
+             <button name="get_stockin_selectable" type="object" string="收貨明細選單" context="{'stockin_op_id': context.get('active_id')}"
+                       class="oe_highlight oe_edit_only" attrs="{'invisible':['|',('stockin_picktype','=','outgoing'),('stockin_picktype','=','internal')]}" />
+             <button name="stockin_sendmail" type="object" string="發信件通知工程師" context="{'stockin_op_id': context.get('active_id'),'stockin_sendmail':'Y'}"
+                     class="oe_highlight" />
+             <field name="is_proj_main" attrs="{'invisible':1}"/>
+             <button name="get_stockout_selectable" type="object" string="出貨明細選單" context="{'stockout_op_id': context.get('active_id')}"
+                     class="oe_highlight oe_edit_only" attrs="{'invisible':['|','|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming'),('is_proj_main','=',False)]}" />
+             <button name="stock_copy" type="object" string="分批出貨拆單複製" context="{'stockout_op_id': context.get('active_id')}"
+                     class="oe_highlight oe_edit_only" attrs="{'invisible':['|','|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming'),('is_proj_main','=',False)]}" />
+<!--             <button name="get_stockds_selectable" type="object" string="直運明細選單" context="{'stockds_op_id': context.get('active_id')}"-->
+<!--                       class="oe_highlight oe_edit_only" attrs="{'invisible':[('stockin_pickname','=','OTHER')]}" />-->
+             <button name="return_cancel" type="object" string="取消回復" context="{'stockin_op_id': context.get('active_id')}" class="oe_highlight" attrs="{'invisible':[('state','!=','cancel')]}"/>
+             <button name="get_projsaleitem_serial" type="object" string="成本分析序號同步到出貨記錄" context="{'stockout_op_id': context.get('active_id')}"
+                      class="oe_highlight oe_edit_only" attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming')]}" />
+             <button name="del_stockship_list" type="object" string="清除出貨明細" context="{'stockout_op_id': context.get('active_id')}"
+                     class="oe_highlight oe_edit_only" attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming')]}" />
+         </header>
+        <!--<xpath expr="//button[@name='action_assign']" position="replace">-->
+
+        <!--</xpath>-->
+          <!--<xpath expr="//button[@name='action_assign']" position="replace">-->
+
+        <!--</xpath>-->
+          <!--<xpath expr="//button[@name='action_confirm']" position="replace">-->
+
+        <!--</xpath>-->
+
+<!--        原來有存在-->
+<!--        <xpath expr="//button[@name='do_new_transfer']" position="replace">-->
+<!--            <button name="do_new_transfer" string="驗証" groups="neweb_project.neweb_en60_stock,neweb_project.neweb_en50_stockm,neweb_project.neweb_cs30_dir"-->
+<!--                    attrs="{'invisible':['|',('state','=','done'),('stockin_qc_status','=','1'),('stockin_picktype','=','incoming')]}" type="object" class="oe_highlight"/>-->
+<!--        </xpath>-->
+        <!--<xpath expr="//button[@name='force_assign']" position="replace">-->
+
+        <!--</xpath>-->
+        <xpath expr="//field[@name='partner_id']" position="replace">
+            <field name="partner_id" options="{'no_create_edit':True,'no_create':True,'no_open':True}" />
+            <field name="stockin_checkyn" attrs="{'invisible':1}"/>
+        </xpath>
+        <xpath expr="//field[@name='location_id']" position="attributes">
+            <attribute name="attrs">{}</attribute>
+        </xpath>
+
+          <xpath expr="//notebook/page[1]" position="before">
+               <page string="收貨明細" name="STOCKIN DETAIL" attrs="{'invisible':['|',
+                    ('stockin_picktype','=','internal'),('stockin_picktype','=','outgoing')]}">
+                    <field name="stockin_line" widget="section_and_note_one2many" mode="tree" >
+                        <tree editable="bottom" string="ITEM LIST"  decoration-danger="stockin_num1>stockin_num">
+                            <field name="stockin_item" string="項次" width="5%%"/>
+                            <field name="stockin_modeltype" string="機種-機型/料號" width="15%%"/>
+                            <field name="stockin_spec" string="規格說明" width="15%%"/>
+                            <field name="stockin_serial" string="序號" width="8%%"/>
+                            <field name="stockin_num1" string="收貨量" width="5%%"/>
+                            <field name="qc_man" string="檢驗工程師" width="5%%"/>
+                            <field name="stockin_num" string="允收量" attrs="{'readonly':[('qc_man','!=',False)]}" width="5%%"/>
+                            <field name="stockin_desc" string="備註" width="15%%"/>
+                            <field name="create_date" string="建檔日期" attrs="{'readonly':1}" width="5%%"/>
+                            <field name="stockin_check" string="測試狀況" width="5%%"/>
+                        </tree>
+                    </field>
+                </page>
+                   <page string="出貨單明細(印出貨單用)" name="STOCKSHIP DETAIL"  attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming')]}">
+                    <field name="stockship_line" widget="section_and_note_one2many" mode="tree" >
+                        <tree editable="bottom" string="ITEM LIST">
+<!--                                    <field name="line_item" attrs="{'readonly':1}"/>-->
+                            <field name="stockship_item" string="項次" width="5%%"/>
+                            <field name="stockship_modeltype" string="機種-機型/料號" width="15%%"/>
+                            <!--<field name="stockship_prodno" string="料號"/>-->
+                            <field name="stockship_spec" string="規格說明" width="15%%"/>
+                            <field name="stockship_num" string="交貨數量" width="8%%"/>
+                            <field name="stockship_price" string="單價" width="8%%"/>
+                            <field name="prod_serial" string="序號" width="10%%"/>
+                            <field name="stockship_desc" string="備註" width="15%%"/>
+                        </tree>
+                    </field>
+                    </page>
+                <!--<page string="出貨明細" name="STOCKOUT DETAIL" colspan="4" attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming'),('stockin_pickname','=','OTHER')]}">-->
+                <page string="出貨明細(出貨帳目明細)" name="STOCKOUT DETAIL"  attrs="{'invisible':['|',('stockin_picktype','=','internal'),('stockin_picktype','=','incoming'),('stockin_pickname','=','OTHER')]}">
+                    <field name="stockout_line" widget="section_and_note_one2many" mode="tree" >
+                        <tree editable="bottom" string="ITEM LIST">
+                            <field name="line_item" attrs="{'readonly':1}" width="5%%"/>
+                            <field name="stockout_modeltype" string="機種-機型/料號" width="15%%"/>
+                            <!--<field name="stockout_prodno" string="料號"/>-->
+                            <field name="stockout_spec" string="規格說明" width="15%%"/>
+                            <field name="stockout_num" string="交貨數量" width="5%%"/>
+                            <field name="stockout_price" string="單價" width="5%%"/>
+                            <field name="stockout_desc" string="備註" width="15%%"/>
+                            <field name="create_date" string="建檔日期" attrs="{'readonly':1}" width="5%%"/>
+                        </tree>
+                    </field>
+                </page>
+          </xpath>
+    </field>
+</record>
+        
+    </data>
+</odoo>

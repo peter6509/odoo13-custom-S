@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_migration_base4_wizard" model="ir.ui.view">
+             <field name="name">views.migration.base4.wizard</field>
+             <field name="model">neweb_migration.base4_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>基礎模組移轉(4)</h1>
+                          <h3>(26).stock_warehouse_orderpoint/(27).stock_location</h3>
+                         <h3>(28).stock_location_route/(29).ir_sequence</h3>
+                         <h3>(30).stock_picking_type/(31).stock_warehouse</h3>
+                         <h3>(32).procurement_rule</h3>
+                         <group>
+                             <field name="passcode"/>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="warehouse_orderpoint" string="warehouse_orderpoint" class="oe_highlight"/>
+                         <button type="object" name="stock_location" string="stock_location" class="oe_highlight"/>
+                         <button type="object" name="stock_warehouse" string="stock_warehouse" class="oe_highlight"/>
+                         <button type="object" name="neweb_to_prod" string="PROD UPDATE" class="oe_highlight"/>
+                         <button type="object" name="setsladisabled" string="SLA UPSATE" class="oe_highlight"/>
+                         <button type="object" name="contract_newupdate_migration" string="CONTRACT UPDATE" class="oe_highlight"/>
+                         <button type="object" name="calendar_migration" string="CALENDAR UPDATE" class="oe_highlight"/>
+                         <button type="object" name="repair_carecalldate" string="REPAIR UPDATE" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="migration_base4_wizard_action" model="ir.actions.act_window">
+             <field name="name">基礎模組</field>
+             <field name="res_model">neweb_migration.base4_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

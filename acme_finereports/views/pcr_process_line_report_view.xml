@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="zimo_pcr_process_line_report_view_tree" model="ir.ui.view">
+        <field name="name">zimo.pcr.process.line.report.view.tree</field>
+        <field name="model">zimo.pcr.process.line.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="mo_name"/>
+                <field name="barcode"/>
+                <field name="product"/>
+                <field name="pcr_name"/>
+                <field name="jy_state"/>
+                <field name="jy_qty"/>
+                <field name="ls_state"/>
+                <field name="ls_qty"/>
+                <field name="cx_state"/>
+                <field name="cx_qty"/>
+                <field name="db_qty"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="zimo_pcr_process_line_report_view_search" model="ir.ui.view">
+        <field name="name">zimo.pcr.process.line.report.view.search</field>
+        <field name="model">zimo.pcr.process.line.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="mo_name"/>
+                <field name="barcode"/>
+                <field name="product"/>
+                <field name="pcr_name"/>
+                <group>
+                    <filter name="group_by_mo" string="任务单号" context="{'group_by':'mo_name'}"/>
+                    <filter name="group_by_barcode" string="编码" context="{'group_by':'barcode'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

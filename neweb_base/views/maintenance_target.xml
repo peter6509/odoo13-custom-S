@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="maintenance_target_tree">
+            <field name="name">neweb_base.maintenance_target.tree</field>
+            <field name="model">neweb_base.maintenance_target</field>
+            <field name="arch" type="xml">
+                <tree string="Maintenance Target">
+                    <field name="prod"/>
+                    <field name="machine_serial_no"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="maintenance_target_form">
+            <field name="name">neweb_base.maintenance_target.form</field>
+            <field name="model">neweb_base.maintenance_target</field>
+            <field name="arch" type="xml">
+                <form string="Maintenance Target">
+                    <sheet>
+                        <group colspan="4">
+                            <field name="prod"/>
+                            <field name="machine_serial_no"/>
+                            <field name="maintenance_category_id"/>
+                            <field name="memo"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="maintenance_target_search">
+            <field name="name">neweb_base.maintenance_target.search</field>
+            <field name="model">neweb_base.maintenance_target</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="prod"/>
+                    <field name="machine_serial_no"/>
+                    <field name="memo"/>
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_list_maintenance_target">
+            <field name="name">Maintenance Target</field>
+            <field name="res_model">neweb_base.maintenance_target</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--<menuitem id="menu_maintenance_target"-->
+                  <!--parent="neweb_base.menu_contract_configuration"-->
+                  <!--name="Maintenance Target" sequence="66"-->
+                  <!--action="action_list_maintenance_target"/>-->
+    </data>
+</odoo>

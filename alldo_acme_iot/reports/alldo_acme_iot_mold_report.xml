@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="alldo_acme_iot_mold_report">
+            <t t-call="cfprint.html_container">
+                <h1 class="col-12 text-center">模具條碼列印</h1>
+                <h3 class="col-12 text-center">正在列印輸出中，請稍候...</h3>
+<script type="text/javascript">
+var cfprint_addr = "127.0.0.1";   //打印服务器监听地址
+var _delay_close = -1 ;          //打印完成后关闭窗口的延时时长(毫秒), -1则表示不关闭
+var _tablemoldinfo = {
+    "Name": "moldinfo",
+    "Cols":[
+        { "type": "str", "size": 20, "name": "reportowner", "required": false },
+    ],
+    "Data":[ ]
+};
+
+/**定义从表结构**/
+var _tablemoldinfoLines = {
+    "Name": "moldInfoLines",
+    "Cols":[
+        { "type": "str", "size": 20, "name": "moldcode1", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode2", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode3", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode4", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode5", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode6", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode7", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode8", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode9", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode10", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode11", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode12", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode13", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode14", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode15", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode16", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode17", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode18", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode19", "required": false },
+        { "type": "str", "size": 20, "name": "moldcode20", "required": false },
+
+    ],
+    "Data":[ ]
+};
+<t t-foreach="docs" t-as="o">
+/*增加主表记录*/
+_tablemoldinfo.Data.push({
+    "reportowner":"<t t-if="o['report_owner']" t-esc="o['report_owner']"/>",
+});
+
+<t t-foreach="o['mold_line']" t-as="lines">
+/**增加从表记录**/
+_tablemoldinfoLines.Data.push(
+{
+    "moldcode1":"<t t-if="lines['mold_code1']" t-esc="lines['mold_code1']"/>",
+    "moldcode2":"<t t-if="lines['mold_code2']" t-esc="lines['mold_code2']"/>",
+    "moldcode3":"<t t-if="lines['mold_code3']" t-esc="lines['mold_code3']"/>",
+    "moldcode4":"<t t-if="lines['mold_code4']" t-esc="lines['mold_code4']"/>",
+    "moldcode5":"<t t-if="lines['mold_code5']" t-esc="lines['mold_code5']"/>",
+    "moldcode6":"<t t-if="lines['mold_code6']" t-esc="lines['mold_code6']"/>",
+    "moldcode7":"<t t-if="lines['mold_code7']" t-esc="lines['mold_code7']"/>",
+    "moldcode8":"<t t-if="lines['mold_code8']" t-esc="lines['mold_code8']"/>",
+    "moldcode9":"<t t-if="lines['mold_code9']" t-esc="lines['mold_code9']"/>",
+    "moldcode10":"<t t-if="lines['mold_code10']" t-esc="lines['mold_code10']"/>",
+    "moldcode11":"<t t-if="lines['mold_code11']" t-esc="lines['mold_code11']"/>",
+    "moldcode12":"<t t-if="lines['mold_code12']" t-esc="lines['mold_code12']"/>",
+    "moldcode13":"<t t-if="lines['mold_code13']" t-esc="lines['mold_code13']"/>",
+    "moldcode14":"<t t-if="lines['mold_code14']" t-esc="lines['mold_code14']"/>",
+    "moldcode15":"<t t-if="lines['mold_code15']" t-esc="lines['mold_code15']"/>",
+    "moldcode16":"<t t-if="lines['mold_code16']" t-esc="lines['mold_code16']"/>",
+    "moldcode17":"<t t-if="lines['mold_code17']" t-esc="lines['mold_code17']"/>",
+    "moldcode18":"<t t-if="lines['mold_code18']" t-esc="lines['mold_code18']"/>",
+    "moldcode19":"<t t-if="lines['mold_code19']" t-esc="lines['mold_code19']"/>",
+    "moldcode20":"<t t-if="lines['mold_code20']" t-esc="lines['mold_code20']"/>",
+});
+</t>
+</t>
+
+var _data = {"template": "base64:<t t-esc="get_cf_template(user.env,'alldo_acme_iot_mold_report')"/>", "ver": 4, "Copies": 1, "Duplex": 0, "Preview": 1, "Tables":[]};
+_data["Tables"].push(_tablemoldinfo);
+_data["Tables"].push(_tablemoldinfoLines);
+var _reportData = JSON.stringify(_data);  //转成json字符串
+
+console.log(_reportData);
+//生成数据之后，在cfprint_ext.js中会自动调用进行打印
+</script>
+            </t>
+        </template>
+    </data>
+</odoo>

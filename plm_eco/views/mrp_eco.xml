@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mrp_eco_change_form_view" model="ir.ui.view">
+            <field name="name">mrp.eco.change</field>
+            <field name="model">mrp.eco</field>
+            <field name="priority">20</field>
+            <field name="inherit_id" ref="mrp_plm.mrp_eco_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='stage_id']" position="attributes">
+                    <attribute name="options">{'clickable': False}</attribute>
+                </xpath>
+                <xpath expr="//form/header/button[@name='open_new_routing']" position="after">
+                    <button name="generate_eco" string="生成相關機種 ECO" type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|', ('type','=', 'routing'), ('stage_id', 'in', [1,2,4,5,6,8])]}"/>
+                    <!--                    <button name="reminder_email_eco_details" type="object" string="郵件測試"/>-->
+                </xpath>
+
+                <xpath expr="//button[@name='action_apply']" position="attributes">
+                    <attribute name="groups">plm_eco.group_plm_eco_approve_manager</attribute>
+                </xpath>
+                <xpath expr="//field[@name='name']" position="after">
+                    <h2>
+                        <label for="origin_note" string="依據來源"/>
+                    </h2>
+                    <h2>
+                        <field name="origin_note" readonly="True"/>
+                    </h2>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="before">
+                    <field name="request_date"/>
+                </xpath>
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="employee_id" invisible="1"/>
+                </xpath>
+                <!--                <xpath expr="//field[@name='tag_ids']" position="after">-->
+                <!--                    <field name="tracking_id"/>-->
+                <!--                </xpath>-->
+                <xpath expr="//field[@name='routing_id']" position="after">
+                    <button name="search_product_list" string="帶出相關機種列表" type="object" class="oe_highlight"
+                            attrs="{'invisible': ['|', ('type','=', 'routing'), ('stage_id', 'in', [3, 4])]}"/>
+                </xpath>
+                <xpath expr="//form/sheet/group" position="after">
+                    <group>
+                        <field name="reason_ids" widget="many2many_checkboxes" string="設變時機"/>
+                        <field name="reason_desc"/>
+                    </group>
+                    <group>
+                        <field name="reason_change_desc"/>
+                    </group>
+                </xpath>
+                <xpath expr="//form/sheet/notebook" position="after">
+                    <group>
+                        <field name="doc_desc"/>
+                    </group>
+                </xpath>
+                <!--                <xpath expr="//page[1]" position="attributes">-->
+                <!--                    <attribute name="invisible">1</attribute>-->
+                <!--                </xpath>-->
+                <xpath expr="//form/sheet/notebook/page[6]" position="after">
+                    <page string="相關機種清單">
+                        <field name="product_list_ids"
+                               context="{'tree_view_ref': 'mrp_eco_product_list_view_tree', 'form_view_ref': 'mrp_eco_product_list_view_form'}"/>
+                    </page>
+                    <page string="原始相關機種清單">
+                        <field name="product_list_origin_ids" groups="plm_eco.group_plm_eco_approve_manager"
+                               context="{'tree_view_ref': 'mrp_eco_product_list_origin_view_tree', 'form_view_ref': 'mrp_eco_product_list_origin_view_form'}"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="mrp_eco_change_tree_view_inherit" model="ir.ui.view">
+            <field name="name">mrp.eco.change.tree</field>
+            <field name="model">mrp.eco</field>
+            <field name="inherit_id" ref="mrp_plm.mrp_eco_view_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <!-- Add new fields here -->
+                    <field name="origin_note"/>
+                </xpath>
+                <xpath expr="//field[@name='stage_id']" position="before">
+                    <field name="origin_bom_id"/>
+                    <field name="new_bom_revision" string="升級版號"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_mrp_eco_inherit_search" model="ir.ui.view">
+            <field name="name">mrp.eco.search.expand.filter</field>
+            <field name="model">mrp.eco</field>
+            <field name="inherit_id" ref="mrp_plm.mrp_eco_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search" position="inside">
+                    <field string="依據來源" name="origin_note"/>
+                    <field string="參照單號" name="name"/>
+                </xpath>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

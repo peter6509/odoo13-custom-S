@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_cloudrent_crm_lead_form" model="ir.ui.view">
+            <field name="name">view.inherit.cloudrent.crm.lead.form</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('o_row')]" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+<!--                <xpath expr="//div[hasclass('o_pls_probability')]" position="attributes">-->
+<!--                    <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+                <xpath expr="//div[hasclass('oe_button_box')]" position="replace">
+
+                </xpath>
+                <xpath expr="//h2[@class='o_row row no-gutters d-flex']" position="replace">
+                </xpath>
+                <xpath expr="//button[@name='action_set_won_rainbowman']" position="after">
+                        <field name="stage_num" attrs="{'invisible':1}"/>
+                        <field name="is_trans_complete" attrs="{'invisible':1}"/>
+                        <button name="cloudrent_lead_cancel" string="案件取消" type="object"
+                            attrs="{'invisible':[('stage_num','in',[999])]}"/>
+                        <button name="cloudrent_lead1_action" string="場勘完成" type="object"
+                          attrs="{'invisible':[('stage_num','in',[0,20,30,40,50,60,70,999])]}"
+                             class="oe_highlight" />
+                        <button name="cloudrent_lead2_action" string="申請書完成" type="object"
+                          attrs="{'invisible':[('stage_num','in',[0,10,30,40,50,60,70,999])]}"
+                             class="oe_highlight" />
+                        <button name="cloudrent_lead3_action" string="招租完成" type="object"
+                          attrs="{'invisible':[('stage_num','in',[0,10,20,40,50,60,70,999])]}"
+                             class="oe_highlight" />
+                        <button name="cloudrent_lead4_action" string="帶看完成" type="object"
+                          attrs="{'invisible':[('stage_num','in',[0,10,20,30,50,60,70,999])]}"
+                             class="oe_highlight" />
+                       <button name="cloudrent_lead5_action" string="收訂完成" type="object"
+                          attrs="{'invisible':[('stage_num','in',[0,10,20,30,40,60,70,999])]}"
+                             class="oe_highlight" />
+                       <button name="cloudrent_lead6_action" string="預簽完成" type="object"
+                          attrs="{'invisible':[('stage_num','in',[0,10,20,30,40,50,70,999])]}"
+                             class="oe_highlight" />
+                        <button name="cloudrent_lead7_action" string="產出媒合合約" type="object"
+                          attrs="{'invisible':['|','|',('is_trans_complete','=',True),('match_no','=',False),('stage_num','in',[0,10,20,30,40,50,60,999])]}"
+                             class="oe_highlight" />
+                </xpath>
+
+                <xpath expr="//button[@name='action_set_won_rainbowman']" position="attributes">
+                     <attribute name="invisible">1</attribute>
+                </xpath>
+<!--                 <xpath expr="//button[@name='170']" position="attributes">-->
+<!--                      <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+<!--                 <xpath expr="//button[@name='171']" position="attributes">-->
+<!--                      <attribute name="invisible">1</attribute>-->
+<!--                </xpath>-->
+                 <xpath expr="//button[@name='toggle_active']" position="attributes">
+                      <attribute name="invisible">1</attribute>
+                </xpath>
+                 <xpath expr="//button[@name='action_set_lost']" position="attributes">
+                      <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='email_from']" position="before">
+                    <field name="survey_date"/>
+                    <field name="escrow_man"/>
+                    <field name="escrow_pid"/>
+                    <field name="escrow_agent"/>
+                </xpath>
+                 <xpath expr="//field[@name='partner_id']" position="replace">
+
+                </xpath>
+                <xpath expr="//group" position="replace">
+                    <field name="team_id" attrs="{'invisible':1}"/>
+                    <field name="probability" attrs="{'invisible':1}"/>
+                    <field name="type" attrs="{'invisible':1}"/>
+                </xpath>
+                <xpath expr="//notebook" position="before">
+                    <group>
+                        <group>
+                            <group>
+                                <field name="escrow_man" attrs="{'invisible':1}"/>
+<!--                                <field name="stage_num" attrs="{'invisible':1}"/>-->
+                                <field name="escrow_pid" attrs="{'invisible':1}"/>
+                                <field name="name"/>
+                                <field name="escrow_agent" attrs="{'readonly':1}" force_save="1"/>
+
+                                <field name="survey_date"/>
+                                <field name="escrow_sale" domain="[('escrow_type','=','5')]"/>
+                            </group>
+                            <group>
+                                <field name="object_no1" string="物件編號(已建檔)" attrs="{'invisible':1}"/>
+                                <button type="object" name="gen_escrow_build" string="建物基本資料產生" attrs="{'invisible':[('object_no','=',False)]}"
+                                        class="oe_highlight"/>
+                                <field name="lessee_no1" string="房客編號(已建檔)" attrs="{'invisible':1}"/>
+                                <button type="object" name="gen_escrow_lessee" string="房客基本資料產生" attrs="{'invisible':[('lessee_name','=',False)]}"
+                                        class="oe_highlight"/>
+                                <button type="object" name="gen_escrow_lessor" string="房東基本資料產生" attrs="{'invisible':[('build_lessor_name','=',False)]}"
+                                        class="oe_highlight"/>
+                            </group>
+                        </group>
+
+                    </group>
+
+                </xpath>
+                <xpath expr="//notebook/page[@name='extra']" position="replace">
+
+                </xpath>
+                <xpath expr="//notebook/page[@name='lead']" position="replace">
+
+                </xpath>
+                <xpath expr="//notebook/page[1]" position="replace">
+
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                  <page name="sitecheck" string="場勘相關資訊">
+                    <h1>建物相關資訊</h1>
+                        <group>
+                            <group>
+                                <field name="case_type"/>
+                                <field name="admin_area"/>
+                                <field name="build_sec"/>
+                                <field name="build_msec"/>
+                                <field name="build_number"/>
+                                <field name="house_number"/>
+                                <field name="place_number"/>
+                                <field name="parking_space"/>
+                                <field name="build_elevator"/>
+                                <field name="entrust_start_date"/>
+                                <field name="entrust_end_date"/>
+                            </group>
+                            <group>
+                                <field name="build_createdate"/>
+                                <field name="build_age"/>
+                                <field name="build_area"/>
+                                <field name="build_type"/>
+                                <field name="build_pattern"/>
+                                <field name="build_pet"/>
+                                <field name="build_rent_situation"/>
+                                <field name="rent_man" attrs="{'invisible':[('build_rent_situation','in',('1','2','4'))]}"/>
+                                <field name="rent_duedate" attrs="{'invisible':[('build_rent_situation','in',('1','2','4'))]}"/>
+                                <field name="rent_other_desc" attrs="{'invisible':[('build_rent_situation','in',('1','2','3'))]}"/>
+                            </group>
+                        </group>
+                            <h2>場勘租屋傢俱設備清單</h2>
+                             <field name="equip_part_line" nolabel="1">
+                                 <tree editable="bottom" string="Student Info" widget="one2many">
+                                     <field name="equip_categ" width="5%%" options="{'no_create_edit':True,'no_create':True}"/>
+                                      <field name="equip_no" width="6%%" options="{'no_create_edit':True,'no_create':True}"/>
+                                      <field name="equip_qty" width="5%%"/>
+                                      <field name="equip_status" width="15%%"/>
+                                      <field name="equip_image1" widget="image" options="{'size': [500, 500]}" width="8%%"/>
+                                      <field name="equip_image2" widget="image" options="{'size': [500, 500]}" width="8%%"/>
+                                      <field name="equip_image3" widget="image" options="{'size': [500, 500]}" width="8%%"/>
+                                 </tree>
+                              </field>
+                            <h2>場勘現場拍照照片</h2>
+                           <field name="sitecheck_pic_line" nolabel="1">
+                              <tree editable="bottom" string="現場拍照圖" widget="one2many">
+                                  <field name="sequence" width="2%%"/>
+                                  <field name="sitecheck_type" width="3%%"/>
+                                  <field name="sitecheck_desc" width="10%%"/>
+                                  <field name="sitecheck_pic" widget="image" options="{'size': [500, 500]}" width="20%%"/>
+                                  <field name="sitecheck_pic1" widget="image" options="{'size': [500, 500]}" width="20%%"/>
+                                  <field name="sitecheck_pic2" widget="image" options="{'size': [500, 500]}" width="20%%"/>
+                              </tree>
+                           </field>
+                    <h1>委託申請書</h1>
+                        <group>
+                            <group>
+                                <field name="applyfor_version" options="{'no_create_edit':True,'no_create':True}"/>
+                                <field name="gen_doc_ids" widget="many2many_tags" domain="[('contract_version','=',applyfor_version),('contract_type','=','2')]"
+                                       options="{'no_create_edit':True,'no_create':True}"/>
+                            </group>
+                            <group>
+<!--                                <field name="gen_new_contract"/>-->
+                                <button name="run_docx_replace" type="object" string="申請書" class="oe_highlight"/>
+                            </group>
+                        </group>
+                          <field name="lessor_doc_line" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="doc_date" width="6%%"/>
+                                  <field name="doc_name" width="6%%"/>
+                                  <field name="doc_file" filename="doc_filename" widget="binary" width="10%%"/>
+                                  <field name="doc_filename" invisible="1"/>
+                                  <field name="doc_file1" filename="doc_filename1" widget="binary" width="10%%"/>
+                                  <field name="doc_filename1" invisible="1"/>
+                                  <field name="create_uid" string="建檔人" attrs="{'readonly':1}" force_save="1" width="6%%"/>
+                              </tree>
+                           </field>
+                    <h1>出租人相關資訊</h1>
+                        <group>
+                            <group>
+                                <field name="build_for_rent"/>
+                                <field name="build_lessor_name"/>
+                                <field name="lessor_pid"/>
+                                <field name="lessor_fin_instno"/>
+                                <field name="lessor_fin_branch"/>
+                                <field name="lessor_fin_name"/>
+                                <field name="lessor_fin_account"/>
+                                <field name="lessor_sex"/>
+                            </group>
+                            <group>
+                                <field name="lessor_phone1"/>
+                                <field name="lessor_phone2"/>
+                                <field name="lessor_cell"/>
+                                <field name="lessor_addr1"/>
+                                <field name="lessor_addr"/>
+                                <field name="lessor_birthday"/>
+                                <field name="lessor_email"/>
+                                <field name="lessor_memo"/>
+                            </group>
+                        </group>
+                    <h1>租客帶看相關資訊</h1>
+                    <group>
+                      <field name="lessee_line" nolabel="1">
+                          <tree editable="False" string="Student Info" widget="one2many">
+                              <field name="lessee_date" width="6%%"/>
+                              <field name="lessee_name" width="8%%"/>
+                              <field name="lessee_pid" width="8%%"/>
+                              <field name="lessee_sex" width="5%%"/>
+                              <field name="lessee_age" width="5%%"/>
+                              <field name="lessee_phone1" width="6%%"/>
+<!--                              <field name="lessee_phone2" width="6%%"/>-->
+                              <field name="lessee_cell" width="6%%"/>
+                              <field name="lessee_email" width="8%%"/>
+<!--                              <field name="lessee_birthday" width="6%%"/>-->
+                              <field name="build_pattern" width="6%%"/>
+                              <field name="elevator" width="5%%"/>
+                              <field name="lessee_expected_value" width="6%%"/>
+                              <field name="lessee_expected_value1" width="6%%"/>
+                              <field name="build_area" width="5%%"/>
+                              <field name="pet" width="5%%"/>
+                              <field name="worship_god" width="5%%"/>
+                              <field name="member_number" width="5%%"/>
+                              <field name="lessee_memo" width="10%%"/>
+                              <field name="rent_success" width="5%%"/>
+                          </tree>
+<!--                          <form string="租客帶看相關資訊">-->
+<!--                    <sheet>-->
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="lessee_id" attrs="{'readonly':1}" force_save="1"/>-->
+<!--                                <field name="lessee_date"/>-->
+<!--                                <field name="lessee_name"/>-->
+<!--                                <field name="lessee_pid"/>-->
+<!--                                <field name="lessee_sex"/>-->
+<!--                                <field name="lessee_phone1"/>-->
+<!--                                <field name="lessee_phone2"/>-->
+<!--                                <field name="lessee_cell"/>-->
+<!--                                <field name="lessee_email"/>-->
+<!--                                <field name="lessee_addr1"/>-->
+<!--                                <field name="lessee_addr"/>-->
+<!--                            </group>-->
+<!--                            <group>-->
+<!--                                <field name="build_pattern"/>-->
+<!--                                <field name="elevator"/>-->
+<!--                                <field name="lessee_expected_value"/>-->
+<!--                                <field name="lessee_expected_value1"/>-->
+<!--                                <field name="build_area"/>-->
+<!--                                <field name="pet"/>-->
+<!--                                <field name="worship_god"/>-->
+<!--                                <field name="member_number"/>-->
+<!--                                <field name="lessee_memo"/>-->
+<!--                                <field name="rent_success"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                    </sheet>-->
+
+<!--                </form>-->
+                       </field>
+                    </group>
+                    <h1>收訂資訊</h1>
+                    <group>
+                          <field name="lessee_deposit_line" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="deposit_name" width="6%%"/>
+                                  <field name="deposit_date" width="7%%"/>
+                                  <field name="deposit_value" width="7%%"/>
+                                  <field name="deposit_file" filename="deposit_filename" widget="binary" width="8%%"/>
+                                  <field name="deposit_filename" invisible="1"/>
+                                  <field name="deposit_desc" width="20%%"/>
+                                  <field name="create_uid" string="建檔人" attrs="{'readonly':1}"/>
+                              </tree>
+                           </field>
+                    </group>
+                    <h1>承租人相關資訊</h1>
+                        <group>
+                            <group>
+                                <field name="lessee_name"/>
+                                <field name="lessee_pid"/>
+                                <field name="lessee_birthday"/>
+                                <field name="lessee_fin_instno"/>
+                                <field name="lessee_fin_branch"/>
+                                <field name="lessee_fin_name"/>
+                                <field name="lessee_fin_account"/>
+                            </group>
+                            <group>
+                                <field name="build_contract_rent"/>
+                                <field name="management_fee"/>
+                                <field name="parking_fee" attrs="{'invisible':[('parking_space','=',False)]}"/>
+                                <field name="deposit_value"/>
+                                <field name="lessee_type"/>
+                                <field name="lessee_addr1"/>
+                                <field name="lessee_addr"/>
+                                <field name="lessee_cell"/>
+                            </group>
+                        </group>
+                    <h1>媒合相關資訊</h1>
+                        <group>
+                           <field name="match_no" string="媒合編號"/>
+                           <field name="object_no" string="物件編號"/>
+                           <field name="lessee_no" string="房客編號"/>
+<!--                           <field name="management_man" domain="[('escrow_type','=','3')]" string="負責管理師"/>-->
+                        </group>
+                </page>
+                </xpath>
+
+                <xpath expr="//div[hasclass('oe_title')]" position="replace">
+
+                </xpath>
+
+            </field>
+        </record>
+        <!-- Inherit Form View to Modify it -->
+
+    </data>
+</odoo>

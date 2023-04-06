@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="zimo_pcr_stock_report_view_tree" model="ir.ui.view">
+        <field name="name">zimo.pcr.stock.report.view.tree</field>
+        <field name="model">zimo.pcr.stock.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="material_quality"/>
+                <field name="size"/>
+                <field name="routing"/>
+                <field name="process_qty"/>
+                <field name="inventory_qty"/>
+<!--                <field name="pcr_no"/>-->
+            </tree>
+        </field>
+    </record>
+
+    <record id="zimo_pcr_stock_report_view_pivot" model="ir.ui.view">
+        <field name="name">zimo.pcr.stock.report.pivot</field>
+        <field name="model">zimo.pcr.stock.report</field>
+        <field name="arch" type="xml">
+            <pivot string="在制品库存">
+                <field name="material_quality" type="row"/>
+                <field name="process_qty" type="measure"/>
+                <field name="inventory_qty" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="zimo_pcr_stock_report_view_search" model="ir.ui.view">
+        <field name="name">zimo.pcr.stock.report.view.search</field>
+        <field name="model">zimo.pcr.stock.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="material_quality"/>
+                <field name="size"/>
+                <group>
+                    <filter name="group_by_product" string="产品" context="{'group_by':'material_quality'}"/>
+                    <filter name="group_by_routing" string="工段" context="{'group_by':'routing'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_outsuborder_kpi_wizard" model="ir.ui.view">
+             <field name="name">views.outsuborder.kpi.wizard</field>
+             <field name="model">alldo_acme_iot.kpi_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>委外供應商 KPI 統計精靈</h1>
+                         <group>
+                             <field name="partner_id"/>
+                             <field name="start_date"/>
+                             <field name="end_date"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_cal_kpi" string="KPI統計" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="outsuborder_kpi_wizard_action" model="ir.actions.act_window">
+             <field name="name">委外供應商 KPI 統計精靈</field>
+             <field name="res_model">alldo_acme_iot.kpi_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

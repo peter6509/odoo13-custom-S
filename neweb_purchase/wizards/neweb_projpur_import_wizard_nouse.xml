@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_projpur_import_wizard" model="ir.ui.view">
+            <field name="name">neweb_projpur_import_wizard</field>
+            <field name="model">neweb.projimport_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>專案採購匯入明細清單</h1>
+                        <group>
+                           <field name="proj_no" options="{'no_create_edit':True,'no_create':True,'no_open':True}" />
+                           <field name="proj_saleitem" widget="many2many_tags" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="genprojpur_data" string="選擇匯入" class="oe_highlight"/>
+                         <button type="object" name="genprojpur_all" string="全部匯入" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="neweb_projpur_import_action" model="ir.actions.act_window">
+             <field name="name"></field>
+             <field name="res_model">neweb.projimport_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+
+    </data>
+</odoo>

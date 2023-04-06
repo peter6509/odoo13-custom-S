@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-extend="PlannerLauncher">
+        <t t-jquery="li" t-operation="replace">
+        </t>
+    </t>
+    <t t-extend="mail.ComposeMessageTopButton">
+        <t t-jquery="li" t-operation="replace">
+        </t>
+    </t>
+    <t t-extend="mail.chat.NotificationTopButton">
+        <t t-jquery="li" t-operation="replace">
+        </t>
+    </t>
+    <t t-extend="mail.chat.InboxItem">
+        <t t-jquery="li" t-operation="replace">
+        </t>
+    </t>
+    <t t-extend="mail.chat.MessagingMenu">
+        <t t-jquery="li" t-operation="replace">
+        </t>
+    </t>
+</templates>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="cloudrent_landlord_root" name="CloudRent房東管理系統" sequence="50"
+                  groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager,cloudrent_household.group_cloudrent_landlord,cloudrent_household.group_cloudrent_agent"
+                 web_icon="cloudrent_household_ext,static/description/icon.png"/>
+
+        <menuitem id="menu_landlord_categ1" name="房東資訊"
+                  groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager,cloudrent_household.group_cloudrent_landlord,cloudrent_household.group_cloudrent_agent"
+                  parent="cloudrent_landlord_root" sequence="10"/>
+
+        <menuitem id="menu_landlord_view1" name="房東資訊主檔"
+                  parent="menu_landlord_categ1"
+                  groups="cloudrent_household.group_cloudrent_ass,cloudrent_household.group_cloudrent_manager,cloudrent_household.group_cloudrent_landlord,cloudrent_household.group_cloudrent_agent"
+                  action="cloudrent_household_landlord_action" sequence="10"/>
+    </data>
+</odoo>

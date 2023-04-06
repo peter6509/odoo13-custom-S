@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_era_account_balance_wizard" model="ir.ui.view">
+             <field name="name">views.era.account.balance.wizard</field>
+             <field name="model">era.account_balance_wizard</field>
+             <field name="arch" type="xml">
+             <form string="">
+                 <sheet>
+                     <h1>租戶租金/管理費總帳表匯出EXCEL</h1>
+                     <group>
+                       <field name="project_no"/>
+                     </group>
+                 </sheet>
+                 <footer>
+                     <button type="object" name="run_account_balance" string="匯出EXCEL" class="oe_highlight"/>
+                     <button special="cancel" string="放棄"/>
+                 </footer>
+             </form>
+             </field>
+         </record>
+        <record id="menu_account_balance_wizard_action" model="ir.actions.act_window">
+             <field name="name">租金/管理費總帳表匯出EXCEL</field>
+             <field name="res_model">era.account_balance_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+         <menuitem id="menu_account_totbalance_action" name="ERA租金/管理費總帳表匯出精靈"
+                   groups="era_household.group_era_ass,era_household.group_era_manager"
+                   parent="era_household.era_household_categ2" action="menu_account_balance_wizard_action" sequence="40"/>
+    </data>
+</odoo>

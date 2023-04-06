@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_household_payment_wizard" model="ir.ui.view">
+             <field name="name">views.household.payment.wizard</field>
+             <field name="model">era.era_payment_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>租戶支付管理費用核銷精靈</h1>
+                         <group>
+                             <group>
+                                  <field name="payment_account" options="{'no_create':true,'no_create_edit':true}"/>
+                                 <field name="payment_ym" placeholder="西元年-月(2021-01)"/>
+                                 <field name="other_uncompletefee" attrs="{'invisible':1}"/>
+                                 <field name="uncomplete_fee"/>
+                                 <field name="current_fee"/>
+                                 <field name="current_total_fee"/>
+                                 <field name="payment_amount"/>
+                                 <field name="payment_date"/>
+                                 <field name="payment_desc"/>
+                             </group>
+                             <group>
+                                 <field name="emeter_scale"/>
+                                 <field name="house_rental"/>
+                                 <field name="house_management"/>
+                                 <field name="parking_space_rent"/>
+                                 <field name="parking_management"/>
+                                 <field name="lo_parking_management"/>
+                             </group>
+                         </group>
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_payment_fee" string="登記收款" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="household_payment_wizard_action" model="ir.actions.act_window">
+             <field name="name">租戶登記收款精靈</field>
+             <field name="res_model">era.era_payment_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

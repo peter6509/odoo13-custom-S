@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="maintenance_security_categ" model="ir.module.category">
+            <field name="name">維護權限</field>
+            <field name="sequence" eval="1"/>
+        </record>
+        <record id="maintenance_group1" model="res.groups">
+            <field name="name">系統管理員</field>
+            <field name="category_id" ref="maintenance_security_categ"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="maintenance_group2" model="res.groups">
+            <field name="name">維護部門主管</field>
+            <field name="category_id" ref="maintenance_security_categ"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="maintenance_group3" model="res.groups">
+            <field name="name">維護部門工程人員</field>
+            <field name="category_id" ref="maintenance_security_categ"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="maintenance_group4" model="res.groups">
+            <field name="name">生產部門主管</field>
+            <field name="category_id" ref="maintenance_security_categ"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+         <record id="maintenance_group5" model="res.groups">
+            <field name="name">生產部門作業人員</field>
+            <field name="category_id" ref="maintenance_security_categ"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    </data>
+</odoo>

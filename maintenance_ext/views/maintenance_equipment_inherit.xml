@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_maintenance_form" model="ir.ui.view">
+            <field name="name">view.inherit.maintenance.form</field>
+            <field name="model">maintenance.equipment</field>
+            <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='location']" position="after">
+                    <field name="main_type"/>
+                    <field name="enable_check_list"/>
+                    <field name="enable_check_list1"/>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="每日巡檢清單" attrs="{'invisible':[('enable_check_list','=',False)]}">
+                        <group>
+                            <group>
+                                <field name="have_list" attrs="{'invisible':1}"/>
+                                <field name="ref_equipname" attrs="{'invisible':[('have_list','=',True)]}"/>
+                            </group>
+                            <group>
+                                <button type="object" string="參考樣版檢測清單" name="copy_template_list"
+                                attrs="{'invisible':[('have_list','=',True)]}" class="oe_highlight"/>
+                            </group>
+                        </group>
+                        <group>
+                          <field name="check_list_line" widget="section_and_note_one2many" mode="tree" nolabel="1">
+                           <tree string="Check List" editable="bottom">
+                                <field name="check_item" width="40%%"/>
+                                <field name="check_active" width="7%%"/>
+                                <field name="check_value" width="7%%"/>
+                                <field name="h_value" attrs="{'readonly':[('check_value','=','1')]}"/>
+                                <field name="l_value" attrs="{'readonly':[('check_value','=','1')]}"/>
+                            </tree>
+                          </field>
+                        </group>
+                      </page>
+                    <!-- Add your fields or attributes here -->
+                     <page string="額定定期保養清單" attrs="{'invisible':[('enable_check_list1','=',False)]}">
+                         <group>
+                             <group>
+                                 <field name="have_list1" attrs="{'invisible':1}"/>
+                                 <field name="ref_equipname1" attrs="{'invisible':[('have_list1','=',True)]}"/>
+                             </group>
+                             <group>
+                                 <button type="object" string="額定定期保養清單" name="copy_template_list1"
+                                   attrs="{'invisible':[('have_list1','=',True)]}" class="oe_highlight"/>
+                             </group>
+                         </group>
+                        <group>
+                          <field name="check_list_line1" widget="section_and_note_one2many" mode="tree" nolabel="1">
+                           <tree string="Check List1" editable="bottom">
+                                <field name="check_item" width="40%%"/>
+                                <field name="check_active" width="7%%"/>
+                            </tree>
+                          </field>
+                        </group>
+                      </page>
+                </xpath>
+                <xpath expr="//field[@name='next_action_date']" position="before">
+                        <field name="equip_last_value" attrs="{'invisible':[('main_type','=','1')]}"/>
+                        <field name="equip_next_value" attrs="{'invisible':[('main_type','=','1')]}"/>
+                        <field name="equip_now_value" attrs="{'invisible':[('main_type','=','1')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='next_action_date']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('main_type','=','2')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='period']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('main_type','=','2')]}</attribute>
+                </xpath>
+                <xpath expr="//field[@name='maintenance_duration']" position="attributes">
+                    <attribute name="attrs">{'invisible':[('main_type','=','2')]}</attribute>
+                </xpath>
+                <xpath expr="//label[@for='period']" position="attributes">
+                     <attribute name="attrs">{'invisible':[('main_type','=','2')]}</attribute>
+                </xpath>
+                <xpath expr="//label[@for='maintenance_duration']" position="attributes">
+                     <attribute name="attrs">{'invisible':[('main_type','=','2')]}</attribute>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

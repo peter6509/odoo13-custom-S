@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="acme_web_login.login" inherit_id="web.login">
+        <xpath expr="//t[@t-call='web.login_layout']" position="replace">
+            <t t-raw="'&lt;!DOCTYPE html&gt;'"/>
+            <html style="overflow: hidden">
+                <head>
+                    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+                    <meta charset="utf-8"/>
+                    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+                    <title>ABC金屬工業有限公司</title>
+                    <link href="/acme_web_login/static/src/css/login-v1.css" rel="stylesheet"/>
+                    <script type="text/javascript"
+                            src="/acme_web_login/static/src/js/jquery-1.10.2.min.js"></script>
+                    <link rel="shortcut icon" href="/acme_web_login/static/src/img/favico.ico" type="image/x-icon"/>
+                </head>
+                <body>
+                    <div class="login-wrap">
+                        <div class="header">
+                            <div class="inner">
+                                <div class="logo">
+                                    <h1 class="site-title">
+<!--                                        <img src="/acme_web_login/static/src/img/logo.png"/>-->
+                                        <span class="txt-hidden">          ABC工廠生產管理系統</span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bd" style="top:20px">
+                            <div class="inner">
+                                <div class="main" id="login">
+                                    <div class="login-inner-wrapper">
+                                        <div id="new-login">
+                                            <h2>登 錄</h2>
+                                            <form class="oe_login_form" role="form" action="/web/login" method="post"
+                                                  onsubmit="this.action = this.action + location.hash">
+                                                <input type="hidden" name="csrf_token"
+                                                       t-att-value="request.csrf_token()"/>
+                                                <div class="j-phone-num phone-num input-wrapper reg-list j-reg-list">
+                                                    <span class="j-select-area select-area">
+                                                        <span class="j-select-area-num">
+                                                            <t t-esc="request.db"/>
+                                                        </span>
+                                                        <i class="select-area-icon"/>
+                                                    </span>
+                                                    <ul class="j-area-body area-body" style="display: none;">
+                                                        <t t-foreach="databases" t-as="db">
+                                                            <li class="j-area-item area-item">
+                                                                <span class="j-area-name area-name">
+                                                                    <t t-esc="db"/>
+                                                                </span>
+                                                            </li>
+                                                        </t>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="reg-list input-wrapper j-reg-list">
+                                                    <input class="reg-ipt j-ipt-phonenum ipt-username" type="text"
+                                                           name="login"
+                                                           placeholder="請輸入登入帳號" tabindex="1"/>
+                                                    <t>
+                                                        <span class="j-error-tip-wrapper error-tip-wrapper"
+                                                              t-attf-style="display: {{'inline' if error else 'none'}}">
+                                                            <i class="arrows-icon"></i>
+                                                            <span class="tip">
+                                                                <i class="error-tip-icon"></i>
+                                                                <span class="j-error-content">帳號或密碼錯誤！</span>
+                                                            </span>
+                                                        </span>
+                                                    </t>
+                                                </div>
+                                                <div class="reg-list input-wrapper j-reg-list">
+                                                    <input class="reg-ipt j-ipt-password ipt-password" type="password"
+                                                           name="password"
+                                                           placeholder="請輸入密碼" tabindex="2"/>
+                                                </div>
+
+                                                <input type="hidden" name="redirect" t-att-value="redirect"/>
+
+                                                <div class="j-btn-login btn-login">
+                                                    <span class="f-label"></span>
+                                                    <span class="loading" style="display:none;">登入中...</span>
+                                                    <button class="reg-btn login-button" type="submit" name="submit"
+                                                            tabindex="5">登　錄
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="clear: both;"></div>
+                            </div>
+                        </div>
+                        <footer>
+                            <span>Copyright © <a href="https://www.acmecasting.com.tw/zh-tw/" target="_blank">ABC金屬工業有限公司</a></span>
+                            <br><span>330桃園市桃園區成功路三段1號</span></br>
+                            <br><span>Tel:03-3351618</span></br>
+                            <br><span>hutoushanihub@gmail.com</span></br>
+                        </footer>
+                    </div>
+                    <script type="text/javascript">
+                        function trim(str){ //刪除左右兩端的空格
+                            return str.replace(/(^\s*)|(\s*$)/g, "");
+                        }
+
+                        function dbchanged(dbname) {
+                            var db = trim(dbname)
+                            document.location = "/web/login?db=" + db;
+                        }
+
+                        var imgCodeShown = false;
+                        var returnUrl = "";
+                        var XK = window.XK;
+                        if (window.top != window.self) {
+                            location.href = "/kingsoft/index.html";
+                        }
+
+                        // 彈出框
+                        var NewLogin = function () {
+                            this.init();
+                        };
+                        NewLogin.prototype = {
+                            init: function () {
+                                var me = this;
+                                me.element = $('#new-login');
+                                me.loginInnerWrapperEl = me.element.closest('.login-inner-wrapper');
+                                me.getAreaCodeStatus = false;
+                                me.imgCodeShow = false;
+                                me.enId = null; // 從註冊選擇企業登入的話，會帶來enId參數
+                                me.linkDom();
+                                me.addEvent();
+                            },
+                            linkDom: function () {
+                                var me = this;
+                                me.selectAreaEl = $('.j-select-area', me.element);
+                                me.areaBodyEl = $('.j-area-body', me.element);
+                                me.selectedAreaCodeEl = $('.j-select-area-num', me.element);
+                                me.errorTipWrapperEl = $('.j-error-tip-wrapper', me.element);
+                            },
+                            addEvent: function () {
+                                var me = this;
+                                me.element.on('focus', '.reg-ipt', $.proxy(me.inputFocusHandle, me));
+                                me.element.on('click', '.j-select-area', $.proxy(me.showAreaCode, me));
+                                me.element.on('click', '.j-area-item', $.proxy(me.selectedOneAreaCode, me));
+                                $('body').on('click', $.proxy(me.closeAreaCode, me));
+                            },
+
+                            //聚焦隱藏提示
+                            inputFocusHandle: function () {
+                                var me = this;
+
+                                me.element.find('.j-reg-list').removeClass('reg-ipt-fail');
+                                me.errorTipWrapperEl.hide();
+                                me.element.find('.error-tip-top').text(' ');
+                            },
+
+                            // 展示所有支援的區號
+                            showAreaCode: function (e) {
+                                var me = this;
+
+                                if (me.getAreaCodeStatus) {
+                                    return;
+                                }
+                                me.getAreaCodeStatus = true;
+                                e.stopPropagation();
+                                me.getAreaCodeStatus = false;
+                                me.areaBodyEl.show();
+                            },
+
+                            // 隱藏區號
+                            closeAreaCode: function (e) {
+                                var me = this;
+
+                                e.stopPropagation();
+                                me.areaBodyEl.hide();
+                            },
+
+                            // 選擇某個區號
+                            selectedOneAreaCode: function (e) {
+                                var me = this;
+
+                                e.stopPropagation();
+                                var dbname = $(e.currentTarget).find('.j-area-name').text()
+                                me.selectedAreaCodeEl.html(dbname);
+                                dbchanged(dbname)
+                                me.areaBodyEl.hide();
+                            },
+
+                            //驗證驗證碼答案
+                            verify: function () {
+                                var me = this,
+                                ans = $.trim(me.imgCodeIpt.val());
+                                me.capObj.verify(ans, function (ret_json) {
+                                    me.OnVerifyVCode(ret_json);
+                                });
+                            },
+
+                            OnVerifyVCode: function (ret_json) {
+                                var me = this;
+
+                                if (ret_json.errorCode != 0) {
+                                    $('.j-ipt-imgcode', me.element).val('');
+                                    me.capObj.refresh();
+                                    me.showError($('.j-ipt-imgcode', me.element), '圖形驗證碼錯誤');
+                                }
+                                else {
+                                    me.ticket = ret_json.ticket;
+                                    me.getPhoneCode();
+                                }
+                            },
+
+                            // 顯示錯誤
+                            showError: function ($el, msg) {
+                                var me = this;
+
+                                $el.closest('.j-reg-list').addClass('reg-ipt-fail').append(me.errorTipWrapperEl);
+                                me.errorTipWrapperEl.show().find('.j-error-content').text(msg);
+                            },
+
+                            // 獲取登入所需參數
+                            getParam: function () {
+                                var me = this,
+                                param = {};
+                                param.PhoneNumber = $.trim(me.phoneNumIpt.val());
+                                param.InternationalAreaCode = me.selectedAreaCodeEl.html();
+                                param.Password = $.trim(me.passwordIpt.val());
+                                param.PersistenceHint = me.element.find('.new-savecookie').is(':checked');
+                                param.ClientId = me.imgDate + '';
+
+                                if (me.imgCodeShow) {
+                                    param.ImgCode = $.trim(me.imgCodeIpt.val());
+                                    param.ticket = me.ticket;
+                                } else {
+                                    param.ImgCode = '';
+                                }
+
+                                return param;
+                            },
+                        };
+
+                        new NewLogin();
+                    </script>
+                </body>
+            </html>
+        </xpath>
+    </template>
+</odoo>

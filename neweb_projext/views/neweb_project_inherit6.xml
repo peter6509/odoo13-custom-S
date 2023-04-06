@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record id="neweb_proj_assign_tree_inherit" model="ir.ui.view">
+          <field name="name">neweb.proj.assign.tree.inherit</field>
+          <field name="model">neweb.proj_eng_assign</field>
+          <field name="inherit_id" ref="neweb_project.neweb_proj_assign_tree"/>
+          <field name="arch" type="xml">
+
+              <xpath expr="//field[@name='assign_no']" position="replace">
+                  <field name="assign_man_subject"/>
+              </xpath>
+<!--              <xpath expr="//field[@name='prod_brand']" position="before">-->
+<!--                  <field name="chi_product_no" string="料號"/>-->
+<!--              </xpath>-->
+          </field>
+      </record>
+    </data>
+</odoo>

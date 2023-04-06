@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_neweb_acceptance_child_tree" model="ir.ui.view">
+            <field name="name">view.neweb.acceptance.child.tree</field>
+            <field name="model">neweb.acceptance</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="keyin_date" width="8%%"/>
+                    <field name="purchase_no" width="10%%"/>
+                    <field name="stockout_no1"  width="10%%" />
+                    <field name="supplier" width="8%%"/>
+                    <field name="project_no" width="8%%"/>
+<!--                    <field name="acceptance_status" width="10%%"/>-->
+<!--                    <field name="proj_sale"/>-->
+                    <field name="cus_name" width="8%%"/>
+                    <field name="cus_project" width="8%%"/>
+<!--                    <field name="prod_no" width="5%%"/>-->
+                    <field name="prod_modeltype" width="15%%"/>
+                    <field name="prod_desc" width="15%%"/>
+                    <field name="prod_num" width="5%%"/>
+                    <field name="projsaleitem_status" width="15%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_neweb_acceptance_child_form" model="ir.ui.view">
+            <field name="name">view.neweb.acceptance.child.form</field>
+            <field name="model">neweb.acceptance</field>
+            <field name="arch" type="xml">
+                <form string="">
+<!--                    <sheet>-->
+<!--                       <field name="project_no"/>-->
+<!--                    </sheet>-->
+                    <notebook>
+                        <page>
+                            <field name="acceptance_line" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                    <field name="keyin_date" width="8%%"/>
+                                    <field name="purchase_no" width="10%%"/>
+                                    <field name="stockout_no"  width="10%%"/>
+                                    <field name="project_no" width="8%%"/>
+                                    <field name="cus_name" width="8%%"/>
+                                    <field name="cus_project" width="8%%"/>
+<!--                                    <field name="prod_no" width="5%%"/>-->
+                                    <field name="prod_modeltype" width="15%%"/>
+                                    <field name="prod_desc" width="15%%"/>
+                                    <field name="prod_num" width="5%%"/>
+                                    <field name="supplier" width="8%%"/>
+                                    <field name="acceptanced_date1" width="8%%"/>
+                                    <field name="stockin_date" width="8%%"/>
+                                    <field name="stockout_date" width="8%%"/>
+                                    <field name="acceptanced_date2" width="8%%"/>
+                                    <field name="projsaleitem_status" width="15%%"/>
+                                    <field name="accym" width="5%%"/>
+                              </tree>
+                       </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+        <record id="action_neweb_acceptance_child_view" model="ir.actions.act_window">
+            <field name="name">出貨明細記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb.acceptance</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_acceptance.view_neweb_acceptance_child_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('neweb_acceptance.view_neweb_acceptance_child_form')})]"/>
+<!--            <field name="search_view_id" ref="view_process_control_return_search"/>-->
+            <field name="context">{'isacc':True}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

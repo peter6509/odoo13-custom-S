@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_neweb_acceptance_email_tree" model="ir.ui.view">
+            <field name="name">view.neweb.acceptance.email.tree</field>
+            <field name="model">neweb_acceptance.email</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="proj_sale" width="20%%"/>
+                    <field name="send_date" width="20%%"/>
+                    <field name="send_date1" width="20%%"/>
+                    <field name="accym" width="30%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_neweb_acceptance_email_form" model="ir.ui.view">
+            <field name="name">view.neweb.acceptance.email.form</field>
+            <field name="model">neweb_acceptance.email</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="proj_sale"/>
+                            <field name="send_date"/>
+                            <field name="send_date1"/>
+                            <field name="accym"/>
+                        </group>
+                    </sheet>
+                    <notebook>
+                        <page string="明細">
+                              <field name="email_line" nolabel="1">
+                                  <tree editable="bottom" string="Student Info" widget="one2many">
+                                      <field name="project_no"/>
+                                      <field name="stockout_no"/>
+                                      <field name="cus_name"/>
+                                      <field name="acceptanced_date1"/>
+                                      <field name="projsaleitem_status"/>
+                                  </tree>
+                               </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_neweb_acceptance_email_search" model="ir.ui.view">
+           <field name="name">view.neweb.acceptance.email.search</field>
+           <field name="model">neweb_acceptance.email</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="proj_sale" string="關鍵字" filter_domain="['|',('accym','ilike',self),('proj_sale.name', 'ilike',self )]"/>
+                <filter string="已發mail" domain="[('send_date','!=',False)]" name="issend"/>
+                <filter string="未發mail" domain="[('send_date','=',False)]" name="nosend"/>
+                <filter name="group_proj_sale" string="業務群組" icon="terp-partner" context="{'group_by':'proj_sale'}"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_neweb_acceptance_email_view" model="ir.actions.act_window">
+            <field name="name">每月貨品狀態回報通知信</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_acceptance.email</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('neweb_acceptance.view_neweb_acceptance_email_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('neweb_acceptance.view_neweb_acceptance_email_form')}),]"/>
+            <field name="search_view_id" ref="view_neweb_acceptance_email_search"/>
+            <field name="context">{'search_default_group_proj_sale':1,'isacc':True}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

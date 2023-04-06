@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="mail_neweb_invoiceopen_wkf_approve" model="mail.template">
+            <field name="name">發票開立申請簽核通過</field>
+            <field name="model_id" ref="model_neweb_invoice_invoiceopen"/>
+            <field name="email_from">erp@newebinfo.com.tw</field>
+            <field name="email_to">${object.get_approve_emails()}</field>
+            <field name="subject">${object.name}發票開立申請簽核通過通知信</field>
+            <field name="lang">zh_TW</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="user_signature" eval="True"/>
+            <field name="body_html"><![CDATA[
+<h2>
+     發票開立申請單號: ${object.name} 簽核通過通知信
+</h2>
+<h3>
+<ul>
+   <li>成本分析單號 :${object.project_no}</li>
+   <li>申案名稱     :${object.project_name}</li>
+   <li>合約編號     :${object.contract_no}</li>
+   <li>發票抬頭    :${object.invoice_title}</li>
+</ul>
+</h3>
+<h2>
+
+</h2>
+]]></field>
+        </record>
+
+    </data>
+</odoo>

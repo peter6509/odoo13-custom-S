@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20170720" releaseVersion="10.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.EmbeddedTableData">
+<Parameters/>
+<DSName>
+<![CDATA[]]></DSName>
+<ColumnNames>
+<![CDATA[標題,,.,,文章]]></ColumnNames>
+<ColumnTypes>
+<![CDATA[java.lang.String,java.lang.String]]></ColumnTypes>
+<RowData ColumnTypes="java.lang.String,java.lang.String">
+<![CDATA[Ki?fJRQqS$mTXq"gJ1RDS$rKa!raH[)B0EVC:#gs7`7b@<8T"\S6`:FKq9%!0d`IJ0KUiKq`
+S=sb*DB"[!mSnEi5;ac4-,J1UN,53IVpa]A$'BfE79[7:=PA.AVR4q%E`?KiDo2H[QnoL.cEf
+:h'R>N\:!4E'C@)]A#0c\lDtdE&E)4MD;bS&dAgpEaO4sSkX@0A=k"YigN5IA$Ai+O]A'*a?(1
+;88nAEkXmRXrR*eB:`:7gB(um4hk+;)e$N)Qmu,Vc""rk-,aE!C:Wi1ucZ$=f\bsPg7_a@Tl
+%3a=8*P>kcZLnh+LYW=he(QTg<"-DCt]AA+E0^JU>Xo4Q3Tb:Xo5fJZk$@k)it9rrL\^i_-+M
+HNIg@0UdD61%:<MZqMoqT(npSVH%f5kAhY/SSWrP+k+3'c]A3deT21.3?)?n'&%*$m%fJM4*i
+B=&@JIlpM+Ou#@-AEk^"<p!?'BGX`CEN%pKkE1lc"%@<hs@R.kt$D%-=bK4n(VO7otCZJNIA
+?aKSX-.p%J)rjE6ZCZm4#6tPj^%BU]A;%/>-:#uLJ\h\EhJ#2pp/I_1:Qf\BuiUqp+emZ_Sk6
+[6(GZ3fPWEnIX8"7^Sgb7PG*\GZHWMV%pD+_<nk`B-i'PCh\ZO&_+(meYQT6Es7IM(FGpWa:
+Qg&\%QP~
+]]></RowData>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,3657600,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[2819400,5753100,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="0">
+<O>
+<![CDATA[標題]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="0" s="0">
+<O>
+<![CDATA[文章]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="1" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="標題"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="1" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="文章"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[="<div style=\"height:60px;width:150px;overflow-y:scroll;\">"+$$$+"</div>"]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0" showAsHTML="true"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting/>
+<Background name="ColorBackground" color="-1"/>
+</ReportSettings>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0" useParamsTemplate="true"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="KAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateIdAttMark class="com.fr.base.iofile.attr.TemplateIdAttrMark">
+<TemplateIdAttMark TemplateId="47d302fb-2a49-404c-be3e-6d1446f92841"/>
+</TemplateIdAttMark>
+</WorkBook>

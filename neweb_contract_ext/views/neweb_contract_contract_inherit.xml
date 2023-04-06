@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="neweb_contract_contract_form_inherit" model="ir.ui.view">
+           <field name="name">neweb.contract.contract.form.inherit</field>
+           <field name="model">neweb_contract.contract</field>
+           <field name="inherit_id" ref="neweb_contract.contract_form"/>
+           <field name="arch" type="xml">
+
+               <xpath expr="//field[@name='inspection_method']" position="after">
+                   <field name="routine_maintenance_new"/>
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+
+               <xpath expr="//field[@name='weekly_maintain_day']" position="after">
+                   <field name="main_service_rule_new"/>
+                   <!-- Add your fields or attributes here -->
+               </xpath>
+
+
+           </field>
+       </record>
+
+        <!--&lt;!&ndash; Inherit Form View to Modify it &ndash;&gt;-->
+        <!--<record id="neweb_contract_contract_form_inherit1" model="ir.ui.view">-->
+            <!--<field name="name">neweb.contract.contract.form.inherit1</field>-->
+            <!--<field name="model">neweb_contract.contract</field>-->
+            <!--<field name="inherit_id" ref="neweb_contract.neweb_contract_contract_form_inherit"/>-->
+            <!--<field name="arch" type="xml">-->
+
+                <!--<xpath expr="//field[@name='inspection_method']" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly':1}</attribute>-->
+                   <!--&lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+               <!--</xpath>-->
+                 <!--<xpath expr="//field[@name='weekly_maintain_day']" position="attributes">-->
+                   <!--<attribute name="attrs">{'readonly':1}</attribute>-->
+                   <!--&lt;!&ndash; Add your fields or attributes here &ndash;&gt;-->
+               <!--</xpath>-->
+
+            <!--</field>-->
+        <!--</record>-->
+
+
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+         <record id="neweb_cost_dept_1" model="neweb.cost_dept">
+                <field name="name">R6 維護</field>
+         </record>
+         <record id="neweb_cost_dept_2" model="neweb.cost_dept">
+                <field name="name">R6 委外</field>
+         </record>
+         <record id="neweb_cost_dept_3" model="neweb.cost_dept">
+                <field name="name">R6 MES</field>
+         </record>
+         <record id="neweb_cost_dept_4" model="neweb.cost_dept">
+                <field name="name">NT 維護</field>
+         </record>
+         <record id="neweb_cost_dept_5" model="neweb.cost_dept">
+                <field name="name">NT 委外</field>
+         </record>
+         <record id="neweb_cost_dept_6" model="neweb.cost_dept">
+                <field name="name">NT MES</field>
+         </record>
+        <record id="neweb_cost_dept_7" model="neweb.cost_dept">
+                <field name="name">NW 維護</field>
+         </record>
+         <record id="neweb_cost_dept_8" model="neweb.cost_dept">
+                <field name="name">NW 委外</field>
+         </record>
+         <record id="neweb_cost_dept_9" model="neweb.cost_dept">
+                <field name="name">NW MES</field>
+         </record>
+         <record id="neweb_cost_dept_10" model="neweb.cost_dept">
+                <field name="name">SUP 委外</field>
+         </record>
+         <record id="neweb_cost_dept_11" model="neweb.cost_dept">
+                <field name="name">SUP MES</field>
+         </record>
+         <record id="neweb_cost_dept_12" model="neweb.cost_dept">
+                <field name="name">駐點</field>
+         </record>
+    </data>
+</odoo>

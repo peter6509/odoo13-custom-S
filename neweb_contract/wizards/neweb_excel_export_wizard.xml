@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="custom_export_view_form" model="ir.ui.view">
+            <field name="name">custom.export.view.form</field>
+            <field name="model">neweb_contract.excel_export_wizard</field>
+            <field name="arch" type="xml">
+                <form string="簽約客戶聯絡人資料匯出EXCEL">
+                    <sheet>
+                         <h1>簽約客戶聯絡人資料匯出Excel條件設定</h1>
+                        <group>
+                            <field name="main_due_date"/>
+                            <field name="contract_sales" widget="many2many_tags"
+                                   options="{'no_create_edit':True,'no_create':True,'no_open':True}"
+                                   />
+                            <field name="contract_eng" widget="many2many_tags"
+                                   options="{'no_create_edit':True,'no_create':True,'no_open':True}"
+                                   />
+                            <field name="export_memo"/>
+                        </group>
+                    </sheet>
+                    <footer>
+                        <button type="object" name="gen_custom_export" string="匯出Excel" class="oe_highlight"/>
+                        <button special="cancel" string="離開"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="custom_export_action" model="ir.actions.act_window">
+                     <field name="name">客戶資料匯出精靈</field>
+                     <field name="res_model">neweb_contract.excel_export_wizard</field>
+                     <field name="view_mode">form</field>
+                     <field name="target">new</field>
+                 </record>
+
+        <menuitem id="menu_custom_export_action" name="" sequence="10"
+                  groups = "base.group_user"
+                  parent="menu_contract_custom_categ"
+                  action="custom_export_action"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_neweb_revenue_cost_analysis_user1,neweb.revenue.cost.analysis,neweb_projectcontract.model_neweb_projectcontract_revenue_cost_analysis,base.group_user,1,1,1,1
+access_neweb_revenue_analysis1,neweb.revenue.analysis,neweb_projectcontract.model_neweb_projectcontract_revenue_analysis,base.group_user,1,1,1,1
+access_neweb_cost_analysis1,neweb.cost.analysis,neweb_projectcontract.model_neweb_projectcontract_cost_analysis,base.group_user,1,1,1,1
+access_revenue_report_access,access.revenue.report.access,neweb_projectcontract.model_neweb_projectcontract_revenue_report,base.group_user,1,1,1,1
+access_projectcontract_revenue_access,access.projectcontract.revenue.access,neweb_projectcontract.model_neweb_projectcontract_revenue_analysis_report,base.group_user,1,1,1,1
+access_projectcontract_costtemp_user,access.projectcontract.costtemp.user,neweb_projectcontract.model_neweb_projectcontract_costtemp,base.group_user,1,1,1,1

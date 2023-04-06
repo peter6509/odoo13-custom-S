@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_gh_proofing_tree" model="ir.ui.view">
+            <field name="name">view.gh.proofing.tree</field>
+            <field name="model">alldo_gh_iot.proofing</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name" width="7%%"/>
+                    <field name="proofing_sdate" width="5%%"/>
+                    <field name="proofing_edate" width="5%%"/>
+                    <field name="partner_id" width="8%%"/>
+                    <field name="product_id" width="10%%"/>
+                    <field name="product_no" width="10%%"/>
+                    <field name="proofing_num" width="5%%"/>
+                    <field name="proofing_desc" width="40%%"/>
+                    <field name="proofing_man" width="10%%"/>
+                    <field name="is_order" width="5%%"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_gh_proofing_form" model="ir.ui.view">
+            <field name="name">view.gh.proofing.form</field>
+            <field name="model">alldo_gh_iot.proofing</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <group>
+                                 <field name="name"/>
+                                 <field name="proofing_sdate"/>
+                                 <field name="proofing_edate"/>
+                                 <field name="partner_id"/>
+                                 <field name="product_id"/>
+                            </group>
+                            <group>
+                                 <field name="product_no"/>
+                                 <field name="is_order"/>
+                                 <field name="proofing_num"/>
+                                 <field name="proofing_desc"/>
+                                 <field name="proofing_man"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="打樣相關文件">
+                                <field name="proofing_attach" widget="many2many_binary"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="view_gh_proofing_search" model="ir.ui.view">
+           <field name="name">view.gh.proofing.search</field>
+           <field name="model">alldo_gh_iot.proofing</field>
+            <field name="arch" type="xml">
+                <search string="">
+                <field name="name" string="關鍵字" filter_domain="['|','|','|',('partner_id.name', 'ilike', self),('product_id.default_code','ilike',self),('product_id.name','ilike',self),('proofing_desc','ilike',self)]"/>
+                <filter domain="[('is_order','=',True)]" string="有接獲訂單" name="isorder"/>
+                <filter domain="[('is_order','=',False)]" string="未接獲訂單" name="noorder"/>
+                <filter name="group_proofing1" string="客戶" icon="terp-partner" context="{'group_by':'partner_id'}"/>
+            </search>
+           </field>
+        </record>
+        <record id="action_gh_proofing_view" model="ir.actions.act_window">
+            <field name="name">客戶打樣記錄</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.proofing</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('alldo_gh_iot.view_gh_proofing_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('alldo_gh_iot.view_gh_proofing_form')}),]"/>
+            <field name="search_view_id" ref="view_gh_proofing_search"/>
+            <field name="context">{'search_default_group_proofing1':1,}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

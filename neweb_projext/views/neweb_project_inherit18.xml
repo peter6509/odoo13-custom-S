@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_pj_openaccday_form" model="ir.ui.view">
+            <field name="name">view.inherit.pj.openaccday.form</field>
+            <field name="model">neweb.project</field>
+            <field name="inherit_id" ref="neweb_project.neweb_project_inherit1"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//field[@name='open_account_day']" position="replace">
+                    <field name="open_account_day1" attrs="{'readonly':1}" force_save="1"/>
+                    <field name="open_account_day2"/>
+                    <field name="is_greaterday" attrs="{'invisible':1}"/>
+                    <field name="greater_day_desc" attrs="{'invisible':[('is_greaterday','=',False)]}"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

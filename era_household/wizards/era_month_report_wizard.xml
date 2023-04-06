@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_era_month_report_wizard" model="ir.ui.view">
+             <field name="name">views.era.month.report.wizard</field>
+             <field name="model">era_household.month_report_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>ERA租戶對帳單產生精靈</h1>
+                         <group>
+                             <field name="bill_ym"/>
+                             <field name="house_id" options="{'no_create':true,'no_create_edit':true}"/>
+                             <field name="report_type"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="era_month_print" string="對帳單列印" class="oe_highlight"/>
+                         <button special="cancel" string="放棄"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+         <record id="era_month_report_wizard_action" model="ir.actions.act_window">
+             <field name="name">ERA租戶對帳單產生精靈</field>
+             <field name="res_model">era_household.month_report_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+
+    </data>
+</odoo>

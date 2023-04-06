@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_require_purchase_tree" model="ir.ui.view">
+           <field name="name">neweb_require_purchase_tree</field>
+           <field name="model">neweb.require_purchase</field>
+           <field name="arch" type="xml">
+               <tree string="" decoration-danger="state=='1'" decoration-info="state=='2'" decoration-muted="state=='3'">
+                   <field name="name"/>
+                   <field name="emp_name"/>
+                   <field name="ext_no"/>
+                   <field name="department_no"/>
+                   <field name="require_desc"/>
+                   <field name="tot_pitem_sum"/>
+                   <field name="state" invisible="1"/>
+                   <field name="x_wkf_state" string="狀態"/>
+               </tree>
+           </field>
+       </record>
+       <record id="neweb_require_purchase_form" model="ir.ui.view">
+           <field name="name">neweb_require_purchase_form</field>
+           <field name="model">neweb.require_purchase</field>
+           <field name="arch" type="xml">
+               <form string="">
+                   <header>
+                       <field name="state" widget="statusbar" attrs="{'invisible':1}"/>
+                   </header>
+                   <sheet>
+                       <h1> <field name="name" nolabel="1" attrs="{'readonly':1}"/></h1>
+                       <group>
+                           <group>
+                                <field name="emp_name" />
+                                <field name="department_no" />
+                                <field name="pos_type" attrs="{'invisible':1}"/>
+                                <field name="asset_type"  attrs="{'readonly':[('asset_expense_categ','=','2')]}"/>
+                                <field name="expense_type" placeholder="費用類" attrs="{'readonly':[('asset_expense_categ','=','1')]}"/>
+                                <field name="asset_type1" attrs="{'invisible':1}"/>
+                                <field name="expense_type1" attrs="{'invisible':1}"/>
+                                 <field name="catalog_attach_yn"  options="{'horizontal': true}"/>
+                               <field name="require_desc" />
+                           </group>
+                           <group>
+                                <field name="ext_no" />
+                                <field name="asset_expense_categ"  string="申購類別"/>
+                               <field name="asset_machine_type" string="MA備機類別" widget="many2many_tags" attrs="{'readonly':[('asset_expense_categ','=','2')]}"/>
+                               <field name="expense_machine_type" string="MA零件類別" widget="many2many_tags" attrs="{'readonly':[('asset_expense_categ','=','1')]}"/>
+                               <field name="catalog_attach" context="{'default_res_model': 'neweb.require_purchase'}" widget="many2many_binary"/>
+                           </group>
+
+                       </group>
+<!--                       <group>-->
+<!--                           <group>-->
+<!--                               -->
+<!--                           </group>-->
+<!--                           <group>-->
+<!--                                -->
+<!--                                &lt;!&ndash;<field name="asset_desc" placeholder="說明"/>&ndash;&gt;-->
+<!--                           </group>-->
+
+<!--                       </group>-->
+<!--                       <group>-->
+<!--                           <group>-->
+<!--                              -->
+<!--                           </group>-->
+<!--                           <group>-->
+<!--                               -->
+<!--                               &lt;!&ndash;<field name="expense_desc" placeholder="說明"/>&ndash;&gt;-->
+<!--                           </group>-->
+
+<!--                       </group>-->
+<!--                       <group>-->
+<!--                           <group>-->
+<!--                             -->
+<!--                               &lt;!&ndash;<field name="pay_type" placeholder="付款方式說明"/>&ndash;&gt;-->
+<!--                           </group>-->
+<!--                           <group>-->
+<!--                               -->
+<!--                           </group>-->
+
+<!--                       </group>-->
+                       <group>
+                          <field name="require_line" widget="section_and_note_one2many" mode="tree" nolabel="1">
+                            <tree editable="bottom" string="ITEM LIST">
+                              <field name="pitem_nid" string="項次" widget="handle"/>
+                              <field name="pitem_modeltype" string="機種-機型/料號"/>
+                              <field name="prod_id" string="庫存料號"/>
+                              <field name="pitem_desc" string="規格說明"/>
+                              <field name="pitem_num" string="數量"/>
+                              <field name="pitem_price" string="單價"/>
+                              <field name="expense_custom" string="客戶名稱FOR維護備品申購" />
+                              <field name="supplier" string="廠商" />
+                              <field name="pitem_budget" string="預算"/>
+                              <field name="purchase_no" string="採購單號" attrs="{'readonly':1}"/>
+                              <field name="cpitempay" invisible="1"/>
+                              <field name="pur_memo" string="申購備註"/>
+                            </tree>
+                          </field>
+                       </group>
+                       <group>
+                          <field name="tot_pitem_sum" attrs="{'readonly':1}"/>
+                       </group>
+                   </sheet>
+               </form>
+           </field>
+       </record>
+        <record id="neweb_require_purchase_search" model="ir.ui.view">
+            <field name="name">neweb_require_purchase_search</field>
+            <field name="model">neweb.require_purchase</field>
+            <field name="arch" type="xml">
+                <search>
+                     <field name="name" filter_domain="['|','|',('name','ilike',self),('emp_name.login','ilike',self),('require_desc','ilike',self)]"/>
+                </search>
+            </field>
+        </record>
+       <record id="neweb_require_purchase_action" model="ir.actions.act_window">
+           <field name="name">neweb_require_purchase_action</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">neweb.require_purchase</field>
+           <field name="view_mode">tree,form</field>
+           <field name="help" type="html">
+             <p class="oe_view_nocontent_create">
+               <!-- Add Text Here -->
+             </p><p>
+               <!-- More details about what a user can do with this object will be OK -->
+             </p>
+           </field>
+       </record>
+        <menuitem id="menu_neweb_tool_root" name="共用系統"
+                  web_icon="neweb_purchase,static/description/workorder.png"
+                  sequence="30"/>
+       <menuitem id="menu_neweb_puchase_categ"
+                 name="REQUIRE PURCHASE"
+                 parent="menu_neweb_tool_root"
+                 groups="base.group_user"
+                 sequence="25"/>
+        <menuitem id="menu_neweb_purchase_action"
+                  name=""
+                  parent="menu_neweb_puchase_categ"
+                  action="neweb_require_purchase_action"
+                  groups="base.group_user"
+                  sequence="10"/>
+    </data>
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="neweb_timesheet_download_rule1" model="ir.rule">
+           <field name="name">neweb.todo.rule1</field>
+           <field ref="model_neweb_emp_timesheet_timesheet_download" name="model_id"/>
+           <field name="domain_force">['|',('create_uid','=',False),('create_uid', '=', user.id )]</field>
+           <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        </record>
+    </data>
+</odoo>

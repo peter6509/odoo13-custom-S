@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="views_start_scale_wizard" model="ir.ui.view">
+            <field name="name">views.start.scale.wizard</field>
+            <field name="model">era_household.start_scale_wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <h1>變更房號電錶期初度數</h1>
+                        <group>
+                            <field name="project_no" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="house_no" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="emeter_id" options="{'no_create':true,'no_create_edit':true}"/>
+                            <field name="bill_ym"/>
+                            <field name="origin_scale" attrs="{'readonly':1}"/>
+                            <field name="change_scale"/>
+                        </group>
+
+                    </sheet>
+                    <footer>
+                        <button type="object" name="run_change_scale" string="變更數據" class="oe_highlight"/>
+                        <button special="cancel" string="放棄"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+         <record id="views_start_scale_wizard_action" model="ir.actions.act_window">
+             <field name="name">變更房號電錶期初度數</field>
+             <field name="res_model">era_household.start_scale_wizard</field>
+             <field name="view_mode">form</field>
+             <field name="target">new</field>
+         </record>
+    </data>
+</odoo>

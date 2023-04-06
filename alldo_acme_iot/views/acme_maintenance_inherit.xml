@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="view_inherit_acme_maintenance_form" model="ir.ui.view">
+           <field name="name">view.inherit.acme.maintenance.form</field>
+           <field name="model">maintenance.equipment</field>
+           <field name="inherit_id" ref="maintenance.hr_equipment_view_form"/>
+           <field name="arch" type="xml">
+               <!-- position: after|before|replace|attributes|inside -->
+               <xpath expr="//notebook" position="inside">
+                 <page string="IOT數據資訊" attrs="{'invisible':[('category_id','=',3)]}">
+                        <group>
+                            <group>
+                                <field name="iot_ip"/>
+                                <field name="iot_uuid"/>
+                                <field name="iot_mac"/>
+                            </group>
+                            <group>
+                                 <field name="iot_status" attrs="{'readonly':1}"/>
+                                 <field name="mo_no" attrs="{'readonly':1}"/>
+                            </group>
+                        </group>
+                    </page>
+               </xpath>
+               <xpath expr="//notebook" position="inside">
+                  <page string="機台生產數據" name="Detail_Line" attrs="{'invisible':[('category_id','=',3)]}" >
+                    <field name="iot_data_line" widget="one2many" nolabel="1">
+                        <tree >
+                             <field name="iot_datetime" attrs="{'readonly':1}"/>
+                             <field name="iot_owner" attrs="{'readonly':1}"/>
+                             <field name="iot_owner1" attrs="{'readonly':1}"/>
+                             <field name="iot_workorder" attrs="{'readonly':1}"/>
+                             <field name="iot_num" attrs="{'readonly':1}"/>
+                             <field name="iot_serial" attrs="{'readonly':1}"/>
+                        </tree>
+                    </field>
+                </page>
+               </xpath>
+               <xpath expr="//notebook" position="inside">
+                  <page string="電子磅秤投料數據" name="Scale_Line"  attrs="{'invisible':[('category_id','=',2)]}">
+                    <field name="scale_line" widget="one2many" nolabel="1">
+                        <tree >
+                             <field name="product_no" attrs="{'readonly':1}"/>
+                             <field name="lot_no" attrs="{'readonly':1}"/>
+                             <field name="scale_weight" attrs="{'readonly':1}"/>
+                             <field name="uom_id" attrs="{'readonly':1}"/>
+                             <field name="scale_owner" attrs="{'readonly':1}"/>
+                             <field name="picking_no" attrs="{'readonly':1}"/>
+                             <field name="scale_datetime" attrs="{'readonly':1}"/>
+                        </tree>
+                    </field>
+                </page>
+               </xpath>
+
+               <xpath expr="//field[@name='name']" position="after">
+                   <field name="equipment_no" placeholder="機台編號(條碼)"/>
+               </xpath>
+               <xpath expr="//field[@name='department_id']" position="after">
+                   <field name="image_filename" invisible="1"/>
+                   <field widget="binary" height="64" name="image" filename="image_filename" />
+               </xpath>
+               <xpath expr="//field[@name='category_id']" position="replace">
+                   <field name="category_id" options="{'no_create':true,'no_create_edit':true}"/>
+               </xpath>
+           </field>
+       </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="neweb_project_rev_cost_view_tree" model="ir.ui.view">
+           <field name="name">neweb.project.rev.cost.view.tree</field>
+           <field name="model">neweb_projectcontract.revenue_cost_analysis</field>
+           <field name="arch" type="xml">
+               <tree create="false">
+                   <field name="contract_no"/>
+                   <field name="project_no"/>
+                   <field name="customer_name"/>
+                   <field name="sales_id"/>
+                   <field name="start_date"/>
+                   <field name="end_date"/>
+               </tree>
+           </field>
+       </record>
+        <record id="neweb_project_rev_cost_view_form" model="ir.ui.view">
+            <field name="name">neweb.project.rev.cost.view.form</field>
+            <field name="model">neweb_projectcontract.revenue_cost_analysis</field>
+            <field name="arch" type="xml">
+                <form create="false">
+                    <sheet>
+                    <group>
+                        <group>
+                            <field name="contract_no"/>
+                            <field name="project_no"/>
+                            <field name="customer_name"/>
+                            <field name="sales_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="main_type"/>
+                        </group>
+                        <group>
+                            <field name="project_rev_amount"/>
+                            <field name="payment_type"/>
+                            <field name="project_cost_amount"/>
+                            <field name="supplier_name"/>
+                            <button name="gen_revenue_cost" type="object" string="手動生成分攤數據" class="oe_highlight"  context="{'contract_id': context.get('active_id') }"
+                                groups="neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi,neweb_project.neweb_cs40_user,neweb_project.neweb_sa50_assi"
+                                />
+                        </group>
+                    </group>
+                    <notebook>
+                            <page string="收入分攤表">
+                                 <field name="revenue_line" nolabel="1">
+                                            <tree editable="bottom" string="Revenue Info" widget="one2many">
+                                                <field name="itemnum" string="項次"/>
+                                                <field name="revenue_date" string="日期"/>
+                                                <field name="revenue_amount" string="收入分攤金額"/>
+                                            </tree>
+                                 </field>
+                            </page>
+                            <page string="成本分攤表">
+                                 <field name="cost_line" nolabel="1">
+                                            <tree editable="bottom" string="Cost Info" widget="one2many">
+                                                <field name="itemnum" string="項次"/>
+                                                <field name="cost_date" string="日期"/>
+                                                <field name="vendor_no" string="供應商"/>
+                                                <field name="purchase_no" string="採購單號"/>
+                                                <field name="cost_type" string="成本分類"/>
+                                                <field name="cost_amount" string="成本分攤金額"/>
+                                            </tree>
+                                 </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+        <record id="neweb_project_rev_cost_action" model="ir.actions.act_window">
+            <field name="name">專案合約分攤維護作業</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">neweb_projectcontract.revenue_cost_analysis</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+        <menuitem id="menu_neweb_project_rev_cost_action" name="" sequence="200"
+                  parent="menu_neweb_project_analysis_categ"
+                  action="neweb_project_rev_cost_action"/>
+    </data>
+</odoo>

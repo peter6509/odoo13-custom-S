@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="views_neweb_repair_state_wizard" model="ir.ui.view">
+             <field name="name">views.neweb.repair.state.wizard</field>
+             <field name="model">neweb_repair.change_state_wizard</field>
+             <field name="arch" type="xml">
+                 <form string="">
+                     <sheet>
+                         <h1>報修單狀態變更精靈</h1>
+                         <group>
+                             <field name="repair_no"/>
+                             <field name="now_state"/>
+                             <field name="new_state"/>
+                         </group>
+
+                     </sheet>
+                     <footer>
+                         <button type="object" name="run_repair_state" string="狀態變更" class="oe_highlight" />
+                         <button special="cancel" string="放棄離開"/>
+                     </footer>
+                 </form>
+             </field>
+         </record>
+          <record id="neweb_repair_state_wizard_action" model="ir.actions.act_window">
+              <field name="name">報修單狀態變更精靈</field>
+              <field name="res_model">neweb_repair.change_state_wizard</field>
+              <field name="view_mode">form</field>
+              <field name="target">new</field>
+          </record>
+        <menuitem id="menu_change_repair_state_action" parent="neweb_base.menu_repair" action="neweb_repair_state_wizard_action" sequence="210"
+            groups="neweb_project.neweb_en60_stock,neweb_project.neweb_en50_stockm"/>/>
+    </data>
+</odoo>
