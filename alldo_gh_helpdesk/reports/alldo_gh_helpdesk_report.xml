@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="action_report_custom_tracking" model="ir.actions.report">
+            <field name="name">品質異常處理單-(客訴)</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="report_type">controller</field>
+            <field name="report_name">alldo_gh_helpdesk.report_custom_tracking</field>
+            <field name="report_file">alldo_gh_helpdesk.report_custom_tracking</field>
+            <field name="print_report_name">('品質異常處理單-(客訴)_%s.pdf' % object.name)</field>
+            <field name="binding_model_id" ref="model_helpdesk_ticket"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_vendor_tracking" model="ir.actions.report">
+            <field name="name">品質異常處理單-(供應商/委外商)</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="report_type">controller</field>
+            <field name="report_name">alldo_gh_helpdesk.report_vendor_tracking</field>
+            <field name="report_file">alldo_gh_helpdesk.report_vendor_tracking</field>
+            <field name="print_report_name">('品質異常處理單-(供應商_委外商)_%s.pdf' % object.name)</field>
+            <field name="binding_model_id" ref="model_helpdesk_ticket"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_internal_tracking" model="ir.actions.report">
+            <field name="name">品質異常處理單-(內部)</field>
+            <field name="model">helpdesk.ticket</field>
+            <field name="report_type">controller</field>
+            <field name="report_name">alldo_gh_helpdesk.report_internal_tracking</field>
+            <field name="report_file">alldo_gh_helpdesk.report_internal_tracking</field>
+            <field name="print_report_name">('品質異常處理單-(內部)_%s.pdf' % object.name)</field>
+            <field name="binding_model_id" ref="model_helpdesk_ticket"/>
+            <field name="binding_type">report</field>
+        </record>
+
+    </data>
+</odoo>

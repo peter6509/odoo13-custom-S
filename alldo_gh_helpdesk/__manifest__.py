@@ -11,6 +11,8 @@
     'category': 'Help Desk',
     'depends': ['helpdesk_mgmt'],
     'data': ['views/alldo_helpdesk_mgmt_inherot.xml',
+             'data/gh_helpdesk_report_data.xml',
+             'reports/alldo_gh_helpdesk_report.xml',
     ],
     'installable': True,
     'application': True,

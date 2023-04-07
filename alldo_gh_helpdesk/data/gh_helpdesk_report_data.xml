@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="report_custom_tracking" model="ir.attachment">
+            <field name="name">report_custom_tracking</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="alldo_gh_helpdesk/reports/report_custom_tracking.odt"/>
+        </record>
+        <record id="report_vendor_tracking" model="ir.attachment">
+            <field name="name">report_vendor_tracking</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="alldo_gh_helpdesk/reports/report_vendor_tracking.odt"/>
+        </record>
+        <record id="report_internal_tracking" model="ir.attachment">
+            <field name="name">report_internal_tracking</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="alldo_gh_helpdesk/reports/report_internal_tracking.odt"/>
+        </record>
+    </data>
+</odoo>
