@@ -48,6 +48,7 @@
                             <field name="p_other_desc" attrs="{'invisible':[('process_method','in',('1','2','3',False))]}"/>
 <!--                            <field name="add_blank"/>-->
                             <field name="alert_reason"/>
+                            <field name="improve_plan"/>
                             <field name="improve_strategy"/>
                             <field name="management_desc"/>
                             <field name="response_date"/>

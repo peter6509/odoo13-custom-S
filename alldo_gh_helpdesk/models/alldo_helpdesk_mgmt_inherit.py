@@ -7,6 +7,35 @@ from odoo.exceptions import UserError
 class AlldoHelpDeskMgmtInherit(models.Model):
     _inherit = "helpdesk.ticket"
 
+    @api.depends('priority')
+    def _compute_priority_tag(self):
+        for record in self:
+            if record.priority == '0':
+                record.priority_tag = ''
+            elif record.priority == '1':
+                record.priority_tag = '*'
+            elif record.priority == '2':
+                record.priority_tag = '**'
+            elif record.priority == '3':
+                record.priority_tag = '***'
+
+    @api.depends('tag_ids')
+    def _compute_helpdesk_ticket_tag(self):
+        mytag=''
+        for record in self:
+            for record1 in record.tag_ids:
+                if mytag == '':
+                    mytag = record1.name
+                else:
+                    mytag = mytag + ',' + record1.name
+            record.helpdesk_ticket_tag = mytag
+
+    @api.depends('create_date')
+    def _compute_cdate(self):
+        for record in self:
+            record.cdate = record.create_date
+
+
     prod_id = fields.Many2one('product.product',string="產品名稱")
     prod_spec = fields.Char(string="材質規格")
     alert_num = fields.Integer(string="(客訴/異常/不良)數量")
@@ -34,6 +63,12 @@ class AlldoHelpDeskMgmtInherit(models.Model):
     process_num_desc = fields.Text(string="在製數量&處理方式")
     response_date = fields.Date(string="回覆日期")
     complete_date = fields.Date(string="結案日期")
+    priority_tag = fields.Char(string="優先標籤",compute="_compute_priority_tag")
+    helpdesk_ticket_tag = fields.Char(string="標籤",compute="_compute_helpdesk_ticket_tag")
+    cdate = fields.Date(string="客訴日期",complute="_compute_cdate")
+    response_term = fields.Char(string="回覆期限")
+    improve_plan = fields.Text(string="改善對策")
+
 
     # @api.model
     # def create(self, vals):

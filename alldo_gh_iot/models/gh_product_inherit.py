@@ -25,6 +25,7 @@ class ghproductinherit(models.Model):
     prod_material = fields.Char(string="材質")
     prod_spec = fields.Char(string="規格")
     prod_deliver = fields.Char(string="指送")
+    prod_location = fields.Char(string="儲位")
     cutter_line = fields.One2many('alldo_gh_iot.cutter','cutter_id',string="刀具",copy=False)
     equip_id = fields.Many2one('maintenance.equipment', string="機台")
 

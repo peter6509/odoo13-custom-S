@@ -17,6 +17,7 @@
                             domain="[('is_company','=',True),('active','=',True),('customer_rank','=',1)]"/>
                          <field name="wkorder_memo"/>
                         <field name="equip_id" options="{'no_create':true,'no_create_edit':true}"/>
+                        <field name="prod_location"/>
                     </group>
                     <field name="eng_line" widget="one2many" nolabel="1">
                         <tree editable="bottom">

@@ -929,18 +929,25 @@ class alldoiotstoreproc1(models.Model):
            q_rec record ;
            ld date ;
            ncount int ;
+           prodtmplid int ;
+           prodlocation  varchar ;
          BEGIN
            delete from alldo_gh_iot_cus_stocklist ;
            open p_cur for select * from ghiot_prodstock_view where cus_no=cusid and location_id in (8,19) and prodactive=True order by product_id,location_id ;
            loop
               fetch p_cur into p_rec ;
               exit when not found ;
+              select product_tmpl_id into prodtmplid from product_product where id=p_rec.product_id ;
+              select prod_location into prodlocation from product_template where id=prodtmplid ;
+              if prodlocation is null then
+                 prodlocation = ' ' ;
+              end if ;
               select count(*) into ncount from alldo_gh_iot_cus_stocklist where prod_no=p_rec.product_id and stock_loc = p_rec.location_id ;
               select max(coalesce(write_date,create_date)) into ld from stock_quant where product_id=p_rec.product_id and location_id=p_rec.location_id ;
               if ncount > 0 then
                  update alldo_gh_iot_cus_stocklist set stock_num = coalesce(stock_num,0) + coalesce(p_rec.quantity,0),last_update=ld  where prod_no=p_rec.product_id and stock_loc = p_rec.location_id ;
               else
-                 insert into alldo_gh_iot_cus_stocklist(cus_no,prod_no,stock_loc,stock_num,last_update) values (p_rec.cus_no,p_rec.product_id,p_rec.location_id,p_rec.quantity,ld) ;
+                 insert into alldo_gh_iot_cus_stocklist(cus_no,prod_no,stock_loc,stock_num,last_update,rack_loc) values (p_rec.cus_no,p_rec.product_id,p_rec.location_id,p_rec.quantity,ld,prodlocation) ;
               end if ;
            end loop ;
            close p_cur ;
