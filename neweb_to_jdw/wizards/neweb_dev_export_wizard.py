@@ -23,30 +23,30 @@ class newebdevexportjdwwizard(models.TransientModel):
     export_user = fields.Many2one('res.users', string="匯出人員", compute=_get_current_user, store=True)
     export_date = fields.Datetime(string="匯出日期時間",default=datetime.today())
 
-    def run_custom_export(self):
+    def run_dev_export(self):
         self.env.cr.execute("""select getjdwexportdev('%s','%s')""" % (self.start_date,self.end_date))
-        mycusid = self.env.cr.fetchall()
+        myconid = self.env.cr.fetchall()
 
         output = io.BytesIO()
-        mycus_rec = self.env['res.partner'].search([('id', 'in', mycusid)])
+        mycus_rec = self.env['neweb_contract.contract_line'].search([('id', 'in', myconid)],order='contract_id,id')
 
 
-        myxlsfilename1 = "客戶資料_%s.xlsx" % (datetime.now().strftime("%Y%m%d"))
-        mysubject = '客戶資料_%s.xlsx' % (datetime.now().strftime("%Y%m%d"))
+        myxlsfilename1 = "設備資料_%s.xlsx" % (datetime.now().strftime("%Y%m%d"))
+        mysubject = '設備資料_%s.xlsx' % (datetime.now().strftime("%Y%m%d"))
 
         wb1 = xlsxwriter.Workbook(output, {'in_memory': True})
         wb1.set_properties({
-            'title': '客戶資料(匯出For筋斗雲)',
+            'title': '設備資料(匯出For筋斗雲)',
             'subject': mysubject,
             'author': '%s' % self.env.user.name,
             'manager': 'NEWEB INFO',
             'company': '藍新資訊股份有限公司',
-            'category': '客戶資料(匯出For筋斗雲)',
-            'keywords': '客戶資料(匯出For筋斗雲)',
+            'category': '設備資料(匯出For筋斗雲)',
+            'keywords': '設備資料(匯出For筋斗雲)',
             'created': datetime.now(),
             'comments': 'Created By Odoo'})
 
-        ws1 = wb1.add_worksheet("客戶資料(匯出For筋斗雲)")
+        ws1 = wb1.add_worksheet("設備資料(匯出For筋斗雲)")
 
         ########################################
         title_format = wb1.add_format()
@@ -113,11 +113,6 @@ class newebdevexportjdwwizard(models.TransientModel):
         title_width = [20, 45, 20,20,20,20,20,20,20,20,45,45,20,30,30,30]
 
         row = 0
-
-        mytitle = "(維護案)成本分析主檔"
-
-        # ws1.write(row, 4, mytitle, title_format)
-        # row += 2
         col = 0
         for title in titles1:
             ws1.write(row, col, title, head_format)
@@ -164,13 +159,13 @@ class newebdevexportjdwwizard(models.TransientModel):
         output.close()
 
         myrec = self.env['neweb_to_jdw.excel_download'].search([])
-        myrec.write({'export_date':self.export_date,'export_owner':self.export_user,'download_type':'1','xls_file': myxlsfile1, 'xls_file_name': myxlsfilename1})
+        myrec.write({'export_date':self.export_date,'export_owner':self.export_user,'download_type':'2','xls_file': myxlsfile1, 'xls_file_name': myxlsfilename1})
 
         myviewid = self.env.ref('neweb_to_jdw.view_jdw_download_tree')
 
         return {
             'view_name': 'neweb_custom_to_jdw',
-            'name': ('客戶資料匯出給觔斗雲'),
+            'name': ('設備資料匯出給觔斗雲'),
             'type': 'ir.actions.act_window',
             'res_model': 'neweb_to_jdw.excel_download',
             'view_id': myviewid.id,
