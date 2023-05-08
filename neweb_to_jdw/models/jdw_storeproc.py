@@ -220,3 +220,42 @@ class newebjdwstoreproc(models.Model):
           return myres ; 
         end;$$
         language plpgsql;""")
+
+        self._cr.execute("""drop function if exists getjdwexportcontract(sdate date,edate date) cascade""")
+        self._cr.execute("""create or replace function getjdwexportcontract(sdate date,edate date) returns setof INT as $$
+        declare
+          myres int ;
+          con_cur refcursor ;
+          con_rec record ;
+        begin
+          open con_cur for select distinct contract_id from neweb_contract_contract_line where active = true and write_date between sdate and edate order by contract_id,id ;
+          loop
+            fetch con_cur into con_rec ;
+            exit when not found ;
+            myres := con_rec.contract_id ;
+            return next myres ;
+          end loop ;
+          close con_cur ;
+          open con_cur for select id from neweb_contract_contract where  active = true and write_date between sdate and edate ;
+          loop
+            fetch con_cur into con_rec ;
+            exit when not found ;
+            myres := con_rec.id ;
+            return next myres ;
+          end loop ;
+          close con_cur ;
+        end;$$
+        language plpgsql;""")
+
+        self._cr.execute("""drop function if exists getprojrevenue(projid int) cascade""")
+        self._cr.execute("""create or replace function getprojrevenue(projid int) returns INT as $$
+        declare
+            myres int ;
+        begin   
+            select sum(analysis_revenue) into myres from neweb_projanalysis where analysis_id = projid ;
+            if myres is null then
+               myres = 0 ;
+            end if ;
+            return myres ;
+        end;$$
+        language plpgsql;""")
