@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 # Author : Peter Wu
 
-# -*- coding: utf-8 -*-
 {
 	'name': u'<97>.NEWEB Odoo to 筋斗雲匯出精靈',
 	'version': '13.0',
