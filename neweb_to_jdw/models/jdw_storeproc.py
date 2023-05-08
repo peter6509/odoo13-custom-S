@@ -18,7 +18,7 @@ class newebjdwstoreproc(models.Model):
           cus_cur refcursor ;
           cus_rec record ;
         begin
-          open cus_cur for select id from res_partner where  active = true and write_date between sdate and edate ;
+          open cus_cur for select id from res_partner where  active = true and write_date between sdate and edate and is_company = true ;
           loop
             fetch cus_cur into cus_rec ;
             exit when not found ;
@@ -26,7 +26,7 @@ class newebjdwstoreproc(models.Model):
             return next myres ;
           end loop ;
           close cus_cur ;
-          open cus_cur for select id from res_partner where  active = true and write_date is null and create_date between sdate and edate ;
+          open cus_cur for select id from res_partner where  active = true and write_date is null and create_date between sdate and edate and is_company = true ;
           loop
             fetch cus_cur into cus_rec ;
             exit when not found ;
@@ -49,9 +49,9 @@ class newebjdwstoreproc(models.Model):
            loop
                 fetch rel_cur into rel_rec ;
                 exit when not found ;
-                select count(*) into ncount from hr_employee where employee_id = rel_rec.hr_employee_id and active = true ;
+                select count(*) into ncount from hr_employee where id = rel_rec.hr_employee_id and active = true ;
                 if ncount > 0 then
-                   select name into myres from hr_employee where employee_id = rel_rec.hr_employee_id and active = true ; 
+                   select name into myres from hr_employee where id = rel_rec.hr_employee_id and active = true ; 
                 end if ;
            end loop ;
            close rel_cur ;
@@ -65,7 +65,7 @@ class newebjdwstoreproc(models.Model):
             myres varchar ;
             projid int ;
         begin   
-            select max(id) into projid from neweb_project where cus_name = partnerid and active = true ;
+            select max(id) into projid from neweb_project where cus_name = partnerid  ;
             select cus_address into myres from neweb_projcustom where cus_id=projid and cus_type='5' ;
             if myres is null then
                select street into myres from res_partner where id = partnerid ;
@@ -80,22 +80,26 @@ class newebjdwstoreproc(models.Model):
             myres varchar ;
             projid int ;
             contactid int ;
+            partnerid1 int ;
          begin
-            select max(id) into projid from neweb_project where cus_name = partnerid and active = true ;
-            select contact_name into myres from neweb_projcontact where contact_type=11 and contact_id=projid ;
-            if myres is null then
-               select max(id) into contactid from neweb_projcontact where  contact_id=projid ;
-               select contact_name into myres from neweb_projcontact where id=contactid ;
+            select max(id) into projid from neweb_project where cus_name = partnerid ;
+            select contact_name into partnerid1 from neweb_projcontact where contact_type=11 and contact_id=projid ;
+            if partnerid1 is null then
+               select max(id) into contactid from neweb_projcontact where contact_id=projid ;
+               select contact_name into partnerid1 from neweb_projcontact where id = contactid ;
+               select name into myres from res_partner where id = partnerid1 ;
                return next myres ;
-               select contact_phone into myres from neweb_projcontact where id=contactid ;
+               select contact_phone into myres from neweb_projcontact where id = contactid ;
                 return next myres ;
-               select contact_email into myres from neweb_projcontact where id=contactid ;
+               select contact_email into myres from neweb_projcontact where id = contactid ;
                 return next myres ; 
             else
+                select name into myres from res_partner where id = partnerid1 ;
                 return next myres ;
-                select contact_phone into myres from neweb_projcontact where contact_type=11 and contact_id=projid ;
+                select max(id) into contactid from neweb_projcontact where contact_id=projid ;
+                select contact_phone into myres from neweb_projcontact where id = contactid ;
                 return next myres ;
-                select contact_email into myres from neweb_projcontact where contact_type=11 and contact_id=projid ;
+                select contact_email into myres from neweb_projcontact where id = contactid;
                 return next myres ;
             end if ;
          end;$$
@@ -108,7 +112,7 @@ class newebjdwstoreproc(models.Model):
           con_cur refcursor ;
           con_rec record ;
         begin
-          open con_cur for select id from neweb_contract_contract_line where active = true and write_date between sdate and edate order by contract_id,id ;
+          open con_cur for select id from neweb_contract_contract_line where  write_date between sdate and edate order by contract_id,id ;
           loop
             fetch con_cur into con_rec ;
             exit when not found ;
@@ -116,7 +120,7 @@ class newebjdwstoreproc(models.Model):
             return next myres ;
           end loop ;
           close con_cur ;
-          open con_cur for select id from neweb_contract_contract_line where  active = true and write_date is null and create_date between sdate and edate order by contract_id,id;
+          open con_cur for select id from neweb_contract_contract_line where  write_date is null and create_date between sdate and edate order by contract_id,id;
           loop
             fetch con_cur into con_rec ;
             exit when not found ;
@@ -228,7 +232,7 @@ class newebjdwstoreproc(models.Model):
           con_cur refcursor ;
           con_rec record ;
         begin
-          open con_cur for select distinct contract_id from neweb_contract_contract_line where active = true and write_date between sdate and edate order by contract_id,id ;
+          open con_cur for select distinct contract_id from neweb_contract_contract_line where  write_date between sdate and edate order by contract_id;
           loop
             fetch con_cur into con_rec ;
             exit when not found ;
@@ -236,7 +240,7 @@ class newebjdwstoreproc(models.Model):
             return next myres ;
           end loop ;
           close con_cur ;
-          open con_cur for select id from neweb_contract_contract where  active = true and write_date between sdate and edate ;
+          open con_cur for select id from neweb_contract_contract where  write_date between sdate and edate ;
           loop
             fetch con_cur into con_rec ;
             exit when not found ;
@@ -248,14 +252,71 @@ class newebjdwstoreproc(models.Model):
         language plpgsql;""")
 
         self._cr.execute("""drop function if exists getprojrevenue(projid int) cascade""")
-        self._cr.execute("""create or replace function getprojrevenue(projid int) returns INT as $$
+        self._cr.execute("""drop function if exists getprojrevenue(projno varchar) cascade""")
+        self._cr.execute("""create or replace function getprojrevenue(projno varchar) returns INT as $$
         declare
             myres int ;
+            projid int ;
         begin   
+            select id into projid from neweb_project where name = projno ;
             select sum(analysis_revenue) into myres from neweb_projanalysis where analysis_id = projid ;
             if myres is null then
                myres = 0 ;
             end if ;
+            return myres ;
+        end;$$
+        language plpgsql;""")
+
+        self._cr.execute("""drop function if exists getjdwexportcontractline(sdate date,edate date) cascade""")
+        self._cr.execute("""create or replace function getjdwexportcontractline(sdate date,edate date) returns setof INT as $$
+        declare
+          myres int ;
+          con_cur refcursor ;
+          con_rec record ;
+        begin
+          open con_cur for select distinct contract_id from neweb_contract_contract_line where write_date between sdate and edate order by contract_id ;
+          loop
+            fetch con_cur into con_rec ;
+            exit when not found ;
+            myres := con_rec.contract_id ;
+            return next myres ;
+          end loop ;
+          close con_cur ;
+          open con_cur for select id from neweb_contract_contract where write_date between sdate and edate ;
+          loop
+            fetch con_cur into con_rec ;
+            exit when not found ;
+            myres := con_rec.id ;
+            return next myres ;
+          end loop ;
+          close con_cur ;
+        end;$$
+        language plpgsql;""")
+
+        self._cr.execute("""drop function if exists getconsmonth(conid int) cascade""")
+        self._cr.execute("""create or replace function getconsmonth(conid int) returns INT as $$
+        declare
+            myres int ;
+        begin   
+            select date_part('month',maintenance_start_date)::INT into myres from neweb_contract_contract where id = conid ;
+            return myres ;
+        end;$$
+        language plpgsql;""")
+
+        self._cr.execute("""drop function if exists getconsales(conid int) cascade""")
+        self._cr.execute("""create or replace function getconsales(conid int) returns varchar as $$
+        declare
+            myres varchar ;
+            resourceid int ;
+            saleid int ;
+            userid int ;
+            partnerid int ;
+        begin
+            select sales into saleid from neweb_contract_contract where id = conid ;
+            select resource_id into resourceid from hr_employee where id = saleid and active = true ;
+            select user_id into userid from resource_resource where id = resourceid and active = true ;
+            select partner_id into partnerid from res_users where id = userid and active = true ;
+            select name into myres from res_partner where id = partnerid and active = true ;
             return myres ;
         end;$$
         language plpgsql;""")

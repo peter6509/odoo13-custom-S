@@ -10,17 +10,17 @@ from datetime import datetime,timedelta,date
 import xlsxwriter
 
 class newebdevexportjdwwizard(models.TransientModel):
-    _name = "neweb_export_jdw.dev_export_wizard"
+    _name = "neweb_to_jdw.dev_export_wizard"
     _description = "設備明細匯出給觔斗雲"
 
     @api.depends()
     def _get_current_user(self):
-        for rec in self:
-            rec.export_user = self.env.user.id
+        self.export_user = self.env.user.id
+        return self.env.user.id
 
     start_date = fields.Date(string="異動起始日")
     end_date = fields.Date(string="異動截止日")
-    export_user = fields.Many2one('res.users', string="匯出人員", compute=_get_current_user, store=True)
+    export_user = fields.Many2one('res.users', string="匯出人員")
     export_date = fields.Datetime(string="匯出日期時間",default=datetime.today())
 
     def run_dev_export(self):
@@ -28,7 +28,7 @@ class newebdevexportjdwwizard(models.TransientModel):
         myconid = self.env.cr.fetchall()
 
         output = io.BytesIO()
-        mydev_rec = self.env['neweb_contract.contract_line'].search([('id', 'in', myconid)],order='contract_id,id')
+        mydev_rec = self.env['neweb_contract.contract.line'].search([('id', 'in', myconid)],order='contract_id,id')
 
 
         myxlsfilename1 = "設備資料_%s.xlsx" % (datetime.now().strftime("%Y%m%d"))
@@ -139,14 +139,14 @@ class newebdevexportjdwwizard(models.TransientModel):
             self.env.cr.execute("""select getcontractae1(%d)""" % line.contract_id.id)
             myae1 = self.env.cr.fetchone()[0]
             ws1.write(row, 8, myae1 if myae1 else ' ', okl_content_format)
-            self.env.cr.execute("""select getslabrief(%d)""" % line.sla.id)
+            self.env.cr.execute("""select getslabrief(%d)""" % line.contract_id.sla.id)
             myslabrief = self.env.cr.fetchone()[0]
             ws1.write(row, 9, myslabrief if myslabrief else ' ', okl_content_format)
-            ws1.write(row, 10, line.maintenance_start_date if line.maintenance_start_date else ' ', date_format)
-            ws1.write(row, 11, line.maintenance_end_date if line.maintenance_end_date else ' ', date_format)
-            ws1.write(row, 12, line.main_service_rule_new.name if line.main_service_rule_new.name else ' ', okl_content_format)
+            ws1.write(row, 10, line.contract_id.maintenance_start_date if line.contract_id.maintenance_start_date else ' ', date_format)
+            ws1.write(row, 11, line.contract_id.maintenance_end_date if line.contract_id.maintenance_end_date else ' ', date_format)
+            ws1.write(row, 12, line.contract_id.main_service_rule_new.name if line.contract_id.main_service_rule_new.name else ' ', okl_content_format)
             ws1.write(row, 13, myae1 if myae1 else ' ', okl_content_format)
-            ws1.write(row, 14, line.routine_maintenance_new.name if line.routine_maintenance_new.name else ' ', okl_content_format)
+            ws1.write(row, 14, line.contract_id.routine_maintenance_new.name if line.contract_id.routine_maintenance_new.name else ' ', okl_content_format)
             ws1.write(row, 15, ' ', okl_content_format)
             ws1.write(row, 16, line.machine_loc if line.machine_loc else ' ', okl_content_format)
             ws1.write(row, 17, ' ', okl_content_format)
@@ -160,7 +160,7 @@ class newebdevexportjdwwizard(models.TransientModel):
         output.close()
 
         myrec = self.env['neweb_to_jdw.excel_download'].search([])
-        myrec.write({'export_date':self.export_date,'export_owner':self.export_user,'download_type':'2','xls_file': myxlsfile1, 'xls_file_name': myxlsfilename1})
+        myrec.create({'export_date':self.export_date,'export_owner':self.env.user.id,'download_type':'2','xls_file': myxlsfile1, 'xls_file_name': myxlsfilename1})
 
         myviewid = self.env.ref('neweb_to_jdw.view_jdw_download_tree')
 

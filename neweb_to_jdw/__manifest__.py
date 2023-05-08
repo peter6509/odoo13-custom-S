@@ -3,7 +3,7 @@
 
 # -*- coding: utf-8 -*-
 {
-	'name': u'<7>.NEWEB Odoo to 筋斗雲匯出精靈',
+	'name': u'<97>.NEWEB Odoo to 筋斗雲匯出精靈',
 	'version': '13.0',
 	'summary': "Odoo export CSV For JDW",
 	'sequence': 100,
@@ -16,9 +16,13 @@ Employee Timesheet management Module for Neweb.""",
     'category': 'Uncategorized',
     'version': '10',
     'depends': ['base','sh_message'],
-    'data': [
-
-
+    'data': ['security/ir.model.access.csv',
+             'view/jdw_download.xml',
+             'wizards/neweb_custom_export_wizard.xml',
+             'wizards/neweb_dev_export_wizard.xml',
+             'wizards/neweb_contract_export_wizard.xml',
+             'wizards/neweb_contractline_export_wizard.xml',
+             'view/jdw_menu.xml',
     ],
 
     'description' : '<97>.NEWEB Odoo to 筋斗雲匯出精靈',

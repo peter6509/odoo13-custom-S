@@ -9,9 +9,9 @@ import base64
 from datetime import datetime,timedelta,date
 import xlsxwriter
 
-class newebcustomexportjdwwizard(models.TransientModel):
-    _name = "neweb_to_jdw.custom_export_wizard"
-    _description = "客戶資料匯出給觔斗雲"
+class newebcontractlineexportjdwwizard(models.TransientModel):
+    _name = "neweb_to_jdw.contractline_export_wizard"
+    _description = "合約明細匯出給觔斗雲"
 
     @api.depends()
     def _get_current_user(self):
@@ -23,30 +23,30 @@ class newebcustomexportjdwwizard(models.TransientModel):
     export_user = fields.Many2one('res.users', string="匯出人員")
     export_date = fields.Datetime(string="匯出日期時間",default=datetime.today())
 
-    def run_custom_export(self):
-        self.env.cr.execute("""select getjdwexportcus('%s','%s')""" % (self.start_date,self.end_date))
-        mycusid = self.env.cr.fetchall()
+    def run_contractline_export(self):
+        self.env.cr.execute("""select getjdwexportcontractline('%s','%s')""" % (self.start_date,self.end_date))
+        myconid = self.env.cr.fetchall()
 
         output = io.BytesIO()
-        mycus_rec = self.env['res.partner'].search([('id', 'in', mycusid)])
+        mycon_rec = self.env['neweb_contract.contract'].search([('id', 'in', myconid)])
 
 
-        myxlsfilename1 = "客戶資料_%s.xlsx" % (datetime.now().strftime("%Y%m%d"))
-        mysubject = '客戶資料_%s.xlsx' % (datetime.now().strftime("%Y%m%d"))
+        myxlsfilename1 = "合約明細資料_%s.xlsx" % (datetime.now().strftime("%Y%m%d"))
+        mysubject = '合約明細資料_%s.xlsx' % (datetime.now().strftime("%Y%m%d"))
 
         wb1 = xlsxwriter.Workbook(output, {'in_memory': True})
         wb1.set_properties({
-            'title': '客戶資料(匯出For筋斗雲)',
+            'title': '合約列表資料(匯出For筋斗雲)',
             'subject': mysubject,
             'author': '%s' % self.env.user.name,
             'manager': 'NEWEB INFO',
             'company': '藍新資訊股份有限公司',
-            'category': '客戶資料(匯出For筋斗雲)',
-            'keywords': '客戶資料(匯出For筋斗雲)',
+            'category': '合約列表資料(匯出For筋斗雲)',
+            'keywords': '合約列表資料(匯出For筋斗雲)',
             'created': datetime.now(),
             'comments': 'Created By Odoo'})
 
-        ws1 = wb1.add_worksheet("客戶資料(匯出For筋斗雲)")
+        ws1 = wb1.add_worksheet("合約列表資料(匯出For筋斗雲)")
 
         ########################################
         title_format = wb1.add_format()
@@ -109,15 +109,10 @@ class newebcustomexportjdwwizard(models.TransientModel):
         date_format.set_align('vcenter')
         date_format.set_text_wrap()
 
-        titles1 = ['公司統編', '客戶名稱', '公司群組','客戶類型','負責業務','所屬部門','啟用狀態','統編','電話','傳真','服務地址','發票地址','備註','聯絡人1姓名','聯絡人1電話','聯絡人1通訊帳號']
-        title_width = [20, 45, 20,20,20,20,20,20,20,20,45,45,20,30,30,30]
+        titles1 = ['合約編號','設備編號','合約起日','合約迄日','定保週期','保養週期起算月份','金額','說明','不進行定保(Y/N)']
+        title_width = [20, 20, 15,15,20,25,25,40,25]
 
         row = 0
-
-        mytitle = "(維護案)成本分析主檔"
-
-        # ws1.write(row, 4, mytitle, title_format)
-        # row += 2
         col = 0
         for title in titles1:
             ws1.write(row, col, title, head_format)
@@ -130,36 +125,35 @@ class newebcustomexportjdwwizard(models.TransientModel):
         row += 1
         nitem = 1
 
-        for line in mycus_rec:
+        for line in mycon_rec:
+            for line1 in line.contract_line_ids:
+                ws1.write(row, 0, line.name if line.name else ' ', okl_content_format)
+                ws1.write(row, 1, line1.machine_serial_no if line1.machine_serial_no else ' ', okl_content_format)
+                ws1.write(row, 2, line.maintenance_start_date if line.maintenance_start_date else ' ', date_format)
+                ws1.write(row, 3, line.maintenance_end_date if line.maintenance_end_date else ' ', date_format)
+                mymethod = ' ';
+                if line.inspection_method == 'monthly':
+                    mymethod = '每月'
+                elif line.inspection_method == 'quarterly':
+                    mymethod = '每季'
+                elif line.inspection_method == 'bimonthly':
+                    mymethod = '雙月'
+                elif line.inspection_method == 'semiannually':
+                    mymethod = '半年'
+                elif line.inspection_method == 'annually':
+                     mymethod = '每年'
+                elif line.inspection_method == 'remote':
+                     mymethod = '遠端'
+                ws1.write(row, 4, mymethod if mymethod else ' ',okl_content_format)
+                self.env.cr.execute("""select getconsmonth(%d)""" % line.id)
+                mysmonth = self.env.cr.fetchone()[0]
+                ws1.write(row, 5, mysmonth if mysmonth else ' ', okl_content_format)
+                ws1.write(row, 6, 0, okl_content_format)
+                ws1.write(row, 7, line1.memo if line1.memo else ' ', okl_content_format)
+                ws1.write(row, 8, 'N',okl_content_format)
 
-
-            ws1.write(row, 0, line.vat if line.vat else ' ', okl_content_format)
-            ws1.write(row, 1, line.name if line.name else ' ', okl_content_format)
-            ws1.write(row, 2, ' ', okl_content_format)
-            ws1.write(row, 3, ' ', okl_content_format)
-            self.env.cr.execute("""select getcussale(%d)""" % line.id)
-            salename = self.env.cr.fetchone()[0]
-            ws1.write(row,4, salename if salename else ' ',okl_content_format)
-            ws1.write(row,5, ' ',okl_content_format)
-            ws1.write(row,6,'啟用',okl_content_format)
-            ws1.write(row, 7, line.vat if line.vat else ' ', okl_content_format)
-            ws1.write(row, 8, line.phone if line.phone else ' ', okl_content_format)
-            ws1.write(row, 9, line.fax if line.fax else ' ', okl_content_format)
-            ws1.write(row, 10, line.street if line.street else ' ', okl_content_format)
-            self.env.cr.execute("""select getcusinvaddr(%d)""" % line.id)
-            invaddr = self.env.cr.fetchone()[0]
-            ws1.write(row, 11, invaddr if invaddr else ' ', okl_content_format)
-            ws1.write(row, 12, ' ', okl_content_format)
-            self.env.cr.execute("""select getjdwcontact(%d)""" % line.id)
-            jdwcontact = self.env.cr.fetchall()
-            # c1 = jdwcontact[0][0]
-            # c2 = jdwcontact[1][0]
-            # c3 = jdwcontact[2][0]
-            ws1.write(row, 13, jdwcontact[0][0] if jdwcontact[0][0] else ' ', okl_content_format)
-            ws1.write(row, 14, jdwcontact[1][0] if jdwcontact[1][0] else ' ', okl_content_format)
-            ws1.write(row, 15, jdwcontact[2][0] if jdwcontact[2][0] else ' ', okl_content_format)
-            row += 1
-            nitem += 1
+                row += 1
+                nitem += 1
 
         wb1.close()
         output.seek(0)
@@ -167,13 +161,13 @@ class newebcustomexportjdwwizard(models.TransientModel):
         output.close()
 
         myrec = self.env['neweb_to_jdw.excel_download'].search([])
-        myrec.create({'export_date':self.export_date,'export_owner':self.env.user.id,'download_type':'1','xls_file': myxlsfile1, 'xls_file_name': myxlsfilename1})
+        myrec.create({'export_date':self.export_date,'export_owner':self.env.user.id,'download_type':'4','xls_file': myxlsfile1, 'xls_file_name': myxlsfilename1})
 
         myviewid = self.env.ref('neweb_to_jdw.view_jdw_download_tree')
 
         return {
             'view_name': 'neweb_custom_to_jdw',
-            'name': ('客戶資料匯出給觔斗雲'),
+            'name': ('合約明細資料匯出給觔斗雲'),
             'type': 'ir.actions.act_window',
             'res_model': 'neweb_to_jdw.excel_download',
             'view_id': myviewid.id,

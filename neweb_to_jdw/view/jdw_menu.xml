@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <menuitem id="menu_jdw_categ" name="FOR觔斗雲數據"  parent="neweb_base.menu_contract" sequence="900"/>
+       <menuitem id="menu_jdw1_view" name="客戶資料匯出" parent="menu_jdw_categ" action="neweb_to_jdw.menu_jdw_custom_export_wizard_action" sequence="10"/>
+       <menuitem id="menu_jdw2_view" name="設備明細資料匯出" parent="menu_jdw_categ" action="neweb_to_jdw.menu_jdw_dev_export_wizard_action" sequence="20"/>
+       <menuitem id="menu_jdw3_view" name="合約列表資料匯出" parent="menu_jdw_categ" action="neweb_to_jdw.menu_jdw_contract_export_wizard_action" sequence="30"/>
+       <menuitem id="menu_jdw4_view" name="合約明細資料匯出" parent="menu_jdw_categ" action="neweb_to_jdw.menu_jdw_contractline_export_wizard_action" sequence="40"/>
+       <menuitem id="menu_jdw_download_view" name="EXCEL匯出暫存區" parent="menu_jdw_categ" action="neweb_to_jdw.action_jdw_download_view" sequence="50"/>
+    </data>
+</odoo>
