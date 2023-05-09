@@ -5374,7 +5374,7 @@ class alldoiotstoreproc(models.Model):
 
         self.env.cr.execute("""drop view if exists ghiot_stockmovelist""")
         self.env.cr.execute("""CREATE OR REPLACE VIEW ghiot_stockmovelist AS
-            select C.id,C.date,C.product_id,C.qty_done,A.product_uom,A.state,A.picking_id,B.origin,A.reference,B.partner_id,A.picking_type_id,B.mo_group_id,(select getpono1(B.mo_group_id) as po_no1),(select getmoid(B.report_no,A.product_id) as moid),
+            select C.id,C.date,B.date_done,C.product_id,C.qty_done,A.product_uom,A.state,A.picking_id,B.origin,A.reference,B.partner_id,A.picking_type_id,B.mo_group_id,(select getpono1(B.mo_group_id) as po_no1),(select getmoid(B.report_no,A.product_id) as moid),
                 (select getpono2(C.id,C.product_id) as po_no),(select getpoloc(B.mo_group_id) as po_location),(select getcussystem(B.mo_group_id) as custom_system),B.report_no from stock_move_line C left join stock_move A on C.move_id=A.id and C.product_id=A.product_id left join stock_picking B on A.picking_id = B.id
                   where A.picking_type_id in (1,2) and A.state='done' and (B.location_id=5 or B.location_id=8 or B.location_dest_id=5 or B.location_dest_id=8)""")
 
@@ -5403,13 +5403,13 @@ class alldoiotstoreproc(models.Model):
             totqty = 0 ;
             nitem = 0 ;
             if partnerid = 0 then
-               open mv_cur for select * from ghiot_stockmovelist where (date::DATE between startdate::DATE and enddate::DATE)  and product_id=prodid 
+               open mv_cur for select * from ghiot_stockmovelist where (date_done::DATE between startdate::DATE and enddate::DATE)  and product_id=prodid 
                     order by partner_id,product_id ;
             elsif prodid = 0 then
-               open mv_cur for select * from ghiot_stockmovelist where (date::DATE between startdate::DATE and enddate::DATE) and  partner_id=partnerid 
+               open mv_cur for select * from ghiot_stockmovelist where (date_done::DATE between startdate::DATE and enddate::DATE) and  partner_id=partnerid 
                        order by product_id ;
             else
-               open mv_cur for select * from ghiot_stockmovelist where  (date::DATE between startdate::DATE and enddate::DATE) and  partner_id=partnerid
+               open mv_cur for select * from ghiot_stockmovelist where  (date_done::DATE between startdate::DATE and enddate::DATE) and  partner_id=partnerid
                   and product_id=prodid  order by product_id;     
             end if ;
             loop
@@ -5426,13 +5426,13 @@ class alldoiotstoreproc(models.Model):
                    select count(*) into ncount2 from alldo_gh_iot_stock_move_list where origin=mv_rec.reference ;
                    if ncount2 = 0 then
                        insert into alldo_gh_iot_stock_move_list(date,product_id,product_qty,product_uom,partner_id,origin,po_no,po_location,custom_system,mo_group_id,report_no,mo_no) values
-                         (mv_rec.date,mv_rec.product_id,(mv_rec.qty_done * -1),mv_rec.product_uom,mv_rec.partner_id,concat(mv_rec.reference,' (',mv_rec.origin,')'),mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
+                         (mv_rec.date_done,mv_rec.product_id,(mv_rec.qty_done * -1),mv_rec.product_uom,mv_rec.partner_id,concat(mv_rec.reference,' (',mv_rec.origin,')'),mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
                    end if ;  
                 elsif mv_rec.picking_type_id=2 then
                     select count(*) into ncount2 from alldo_gh_iot_stock_move_list where origin=mv_rec.reference ;
                     if ncount2 = 0 then
                        insert into alldo_gh_iot_stock_move_list(date,product_id,product_qty,product_uom,partner_id,origin,po_no,po_location,custom_system,mo_group_id,report_no,mo_no) values
-                         (mv_rec.date,mv_rec.product_id,mv_rec.qty_done,mv_rec.product_uom,mv_rec.partner_id,mv_rec.reference,mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
+                         (mv_rec.date_done,mv_rec.product_id,mv_rec.qty_done,mv_rec.product_uom,mv_rec.partner_id,mv_rec.reference,mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
                     end if ; 
                 end if ;
                 /* else
@@ -5496,13 +5496,13 @@ class alldoiotstoreproc(models.Model):
                    select count(*) into ncount2 from alldo_gh_iot_stock_move_list where origin=mv_rec.reference ;
                    if ncount2 = 0 then
                        insert into alldo_gh_iot_stock_move_list(date,product_id,product_qty,product_uom,partner_id,origin,po_no,po_location,custom_system,mo_group_id,report_no,mo_no) values
-                         (mv_rec.date,mv_rec.product_id,(mv_rec.qty_done * -1),mv_rec.product_uom,mv_rec.partner_id,concat(mv_rec.reference,' (',mv_rec.origin,')'),mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
+                         (mv_rec.date_done,mv_rec.product_id,(mv_rec.qty_done * -1),mv_rec.product_uom,mv_rec.partner_id,concat(mv_rec.reference,' (',mv_rec.origin,')'),mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
                    end if ;  
                 elsif mv_rec.picking_type_id=2 then
                     select count(*) into ncount2 from alldo_gh_iot_stock_move_list where origin=mv_rec.reference ;
                     if ncount2 = 0 then
                        insert into alldo_gh_iot_stock_move_list(date,product_id,product_qty,product_uom,partner_id,origin,po_no,po_location,custom_system,mo_group_id,report_no,mo_no) values
-                         (mv_rec.date,mv_rec.product_id,mv_rec.qty_done,mv_rec.product_uom,mv_rec.partner_id,mv_rec.reference,mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
+                         (mv_rec.date_done,mv_rec.product_id,mv_rec.qty_done,mv_rec.product_uom,mv_rec.partner_id,mv_rec.reference,mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
                     end if ; 
                 end if ;
                 /* else

@@ -361,7 +361,7 @@ class AlldoGhIotTrigger(models.Model):
              ncount int ;
              powkid int ;
           BEGIN
-             if NEW.state='4' then
+             if NEW.state='4' and OLD.state='3' then
                 update alldo_gh_iot_schedule_line set active=False where mo_no=NEW.id ;
              end if ;   
              return NEW ;
@@ -384,15 +384,35 @@ class AlldoGhIotTrigger(models.Model):
              select count(*) into ncount from stock_picking where report_no=NEW.name ;
              if ncount > 0 then
                 select id into spid from stock_picking where report_no=NEW.name ;
-                update stock_picking set date_done=NEW.report_date where id = spid ;
+                update stock_picking set date_done=NEW.report_date,date=NEW.report_date where id = spid ;
              end if ; 
              return NEW ;
           END;$BODY$
           LANGUAGE plpgsql;""")
 
+
+
         # 針對每次工單狀態變更 alldo_gh_iot_stockpicking_report report_date 作動一次 trigger
         self._cr.execute("""drop trigger if exists update_repdate_stockpicking_report on alldo_gh_iot_stockpicking_report ;""")
         self._cr.execute("""create trigger update_repdate_stockpicking_report after update of report_date on alldo_gh_iot_stockpicking_report
                                                  for each row execute procedure update_repdate_stockpicking_report();""")
+
+        self._cr.execute("""drop function if exists update_date_done() cascade""")
+        self._cr.execute("""create  or replace function update_date_done() returns trigger as $BODY$
+          DECLARE
+             ncount int ;
+          BEGIN
+             update stock_picking set date=NEW.date_done where id = NEW.id ;
+             return NEW ;
+          END;$BODY$
+          LANGUAGE plpgsql;""")
+
+
+        self._cr.execute("""drop trigger if exists update_date_done on stock_picking ;""")
+        self._cr.execute("""create trigger update_date_done after update of date_done on stock_picking
+                                                    for each row execute procedure update_date_done();""")
+
+        self._cr.execute("""update stock_picking set date=date_done where date_done is not null and picking_type_id = 2 ;""")
+
 
 

@@ -47,7 +47,7 @@ from . import gh_iot_purchase_inherit1
 from . import res_users_inherit
 from . import gh_iot_mintime_list
 from . import gh_product_inherit2
-from . import gh_iot_trigger
+#from . import gh_iot_trigger
 from . import gh_stock_change
 from . import product_category_inherit
 from . import alldo_gh_iot_supplierinfo
