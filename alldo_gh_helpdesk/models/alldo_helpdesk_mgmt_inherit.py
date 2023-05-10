@@ -30,10 +30,10 @@ class AlldoHelpDeskMgmtInherit(models.Model):
                     mytag = mytag + ',' + record1.name
             record.helpdesk_ticket_tag = mytag
 
-    @api.depends('create_date')
-    def _compute_cdate(self):
-        for record in self:
-            record.cdate = record.create_date
+    # @api.depends('create_date')
+    # def _compute_cdate(self):
+    #     for record in self:
+    #         record.cdate = record.create_date
 
 
     prod_id = fields.Many2one('product.product',string="產品名稱")
@@ -65,7 +65,7 @@ class AlldoHelpDeskMgmtInherit(models.Model):
     complete_date = fields.Date(string="結案日期")
     priority_tag = fields.Char(string="優先標籤",compute="_compute_priority_tag")
     helpdesk_ticket_tag = fields.Char(string="標籤",compute="_compute_helpdesk_ticket_tag")
-    cdate = fields.Date(string="客訴日期",complute="_compute_cdate")
+    cdate = fields.Date(string="客訴日期")
     response_term = fields.Char(string="回覆期限")
     improve_plan = fields.Text(string="改善對策")
 

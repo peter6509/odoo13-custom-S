@@ -114,7 +114,7 @@
               # 'wizards/conn_mysql_wizard.xml',
               'wizards/gh_iot_semiprod_moin.xml',
               'wizards/gh_semiprodout_in_wizard.xml',
-              # 'views/stock_picking_inherit1.xml',
+              'views/stock_picking_inherit1.xml',
               'views/purchase_order_inherit1.xml',
               'report/purchase_order_templates.xml',
               'report/purchase_order_templates1.xml',
