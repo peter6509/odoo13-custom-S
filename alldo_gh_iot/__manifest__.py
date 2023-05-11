@@ -133,6 +133,7 @@
               'views/gh_proofing.xml',
               'views/gh_iot_cus_stocklist.xml',
               'wizards/ghiot_cus_stocklist_wizard.xml',
+              'wizards/gh_iot_piprodsearch.xml',
               'views/gh_iot_menu.xml',
     ],
     'installable': True,

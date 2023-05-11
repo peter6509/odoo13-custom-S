@@ -50,6 +50,7 @@ from . import gh_iot_mintime_search
 from . import gh_supplierinfo_wizard
 from . import purchase_last10_wizard
 from . import ghiot_cus_stocklist_wizard
+from . import gh_iot_piprodsearch
 
 
 

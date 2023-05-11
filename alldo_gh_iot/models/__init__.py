@@ -57,5 +57,5 @@ from . import gh_iot_purchase_inherit2
 from . import gh_iot_cus_stocklist
 # from . import iot_storeproc
 # from . import iot_storeproc1
-
+from . import iot_storeproc2
 

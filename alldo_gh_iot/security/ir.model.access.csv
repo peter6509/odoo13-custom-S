@@ -190,3 +190,6 @@ access_alldo_gh_iot_proofing_manager,access.alldo.gh.iot.proofing.manager,model_
 access_alldoghiot_cus_stocklist_user,access.alldoghiot.cus.stocklist.user,model_alldo_gh_iot_cus_stocklist,base.group_user,1,1,1,1
 
 access_schedule_line_user,access.schedule.linbe.user,model_alldo_gh_iot_schedule_line,base.group_user,1,1,1,1
+
+access_piprod_analysis_user,access.piprod.analysis.user,model_alldo_gh_iot_piprod_analysis,base.group_user,1,1,1,1
+access_piprod_analysis_line_user,access.piprod.analysis.line.user,model_alldo_gh_iot_piprod_analysis_line_user,base.group_user,1,1,1,1

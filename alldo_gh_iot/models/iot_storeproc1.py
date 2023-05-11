@@ -976,3 +976,4 @@ class alldoiotstoreproc1(models.Model):
            return myres ;
          END;$BODY$
          LANGUAGE plpgsql;""")
+

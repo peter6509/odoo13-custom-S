@@ -10,5 +10,6 @@ from . import alldo_gh_iot_equipstatusbarcode_report
 from . import alldo_gh_iot_shipping_report
 from . import alldo_gh_iot_ngreturn_report
 from . import alldo_gh_iot_outsourcing_report
+from . import ghiot_piprod_analysis
 
 

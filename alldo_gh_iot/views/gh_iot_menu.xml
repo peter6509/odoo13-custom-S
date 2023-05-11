@@ -79,7 +79,7 @@
         <menuitem id="menu_iot_view5_10" name="供應商/料件複合查詢" parent="menu_iot_categ5" action="menu_supplierinfo_wizard_action" sequence="90"/>
 <!--        <menuitem id="menu_iot_view5_10" name="產品生產最低時間統計精靈" parent="menu_iot_categ5" action="ghiot_mintime_search_action" sequence="80"/>-->
         <menuitem id="menu_iot_view5_11" name="客戶產品庫存查詢匯出" parent="menu_iot_categ5" action="menu_cus_stocklist_wizard_action" sequence="100"/>
-
+        <menuitem id="menu_iot_view5_12" name="訂單產能查詢精靈" parent="menu_iot_categ5" action="menu_piprodsearch_wizard_action" sequence="110"/>
 
 
 
