@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_piprod_analysis_tree" model="ir.ui.view">
+            <field name="name">view.piprod.analysis.tree</field>
+            <field name="model">alldo_gh_iot.piprod_analysis</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="po_no"/>
+                    <field name="product_no"/>
+                    <field name="prod_std"/>
+                    <field name="onepcs_std"/>
+                    <field name="onepcs_complete"/>
+                    <field name="onepcs_time_total"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_piprod_analysis_form" model="ir.ui.view">
+            <field name="name">view.piprod.analysis.form</field>
+            <field name="model">alldo_gh_iot.piprod_analysis</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="po_no"/>
+                            <field name="product_no"/>
+                            <field name="prod_std"/>
+                            <field name="onepcs_std"/>
+                            <field name="onepcs_complete"/>
+                            <field name="onepcs_time_total"/>
+                        </group>
+                          <field name="piprod_lines" nolabel="1">
+                              <tree editable="bottom" string="Student Info" widget="one2many">
+                                  <field name="eng_type"/>
+                                  <field name="iot_node"/>
+                                  <field name="iot_owner"/>
+                                  <field name="prod_num"/>
+                                  <field name="std_num"/>
+                                  <field name="hitrate_per"/>
+                                  <field name="wk_time"/>
+                                  <field name="prod_power"/>
+                                  <field name="onepcs_time"/>
+                              </tree>
+                           </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_piprod_analysis_view" model="ir.actions.act_window">
+            <field name="name">訂單生產查詢精靈</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">alldo_gh_iot.piprod_analysis</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5,0,0),(0,0,{'sequence':2,'view_mode':'tree','view_id':ref('alldo_gh_iot.view_piprod_analysis_tree')}),(0,0,{'sequence':3,'view_mode':'form','view_id':ref('alldo_gh_iot.view_piprod_analysis_form')}),]"/>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+
+              </p><p>
+
+              </p>
+            </field>
+        </record>
+    </data>
+</odoo>

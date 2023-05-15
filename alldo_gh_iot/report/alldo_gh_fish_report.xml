@@ -21,14 +21,24 @@
             <field name="binding_model_id" ref="model_purchase_order"/>
             <field name="binding_type">report</field>
         </record>
-<!--        <report id="action_report_purchase_quotation"-->
-<!--                model="purchase.order"-->
-<!--                string="JH詢價單(NEW)"-->
+         <record id="action_report_pi_product_analysis" model="ir.actions.report">
+            <field name="name">訂單產能明細</field>
+            <field name="model">alldo_gh_iot.piprod_analysis</field>
+            <field name="report_type">controller</field>
+            <field name="report_name">alldo_gh_iot.report_pi_product_analysis</field>
+            <field name="report_file">alldo_gh_iot.report_pi_product_analysis</field>
+            <field name="print_report_name">('訂單產能明細_%s_%s.pdf' % (object.po_no,object.product_no))</field>
+            <field name="binding_model_id" ref="model_alldo_gh_iot_piprod_analysis"/>
+            <field name="binding_type">report</field>
+        </record>
+<!--        <report id="action_pi_product_analysis"-->
+<!--                model="alldo_gh_iot.piprod_analysis"-->
+<!--                string="訂單產能查詢"-->
 <!--                report_type="qweb-pdf"-->
-<!--                print_report_name="'詢價單_%s_%s.pdf' % (object.name,object.partner_id.name)"-->
-<!--                name="report_purchase_quotation"/>-->
-<!--        <record id="action_report_purchase_quotation" model="ir.actions.report">-->
-<!--            <field name="template_id" ref="alldo_gh_iot.report_purchase_quotation"/>-->
+<!--                print_report_name="'訂單產能明細_%s_%s.pdf' % (object.po_no,object.product_no)"-->
+<!--                name="report_pi_product_analysis"/>-->
+<!--        <record id="action_report_pi_product_analysis" model="ir.actions.report">-->
+<!--            <field name="template_id" ref="alldo_gh_iot.report_pi_product_analysis"/>-->
 <!--            <field name="output_file">pdf</field>-->
 <!--        </record>-->
 

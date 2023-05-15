@@ -3,7 +3,7 @@
     <data>
         <record id="views_piprodsearch_wizard" model="ir.ui.view">
              <field name="name">views.piprodsearch.wizard</field>
-             <field name="model">alldo_gh_iot.piprod_analysis</field>
+             <field name="model">alldo_gh_iot.piprod_search_wizard</field>
              <field name="arch" type="xml">
              <form string="">
                  <sheet>
@@ -21,7 +21,7 @@
          </record>
         <record id="menu_piprodsearch_wizard_action" model="ir.actions.act_window">
              <field name="name">訂單產能查詢精靈</field>
-             <field name="res_model">alldo_gh_iot.piprod_analysis</field>
+             <field name="res_model">alldo_gh_iot.piprod_search_wizard</field>
              <field name="view_mode">form</field>
              <field name="target">new</field>
          </record>

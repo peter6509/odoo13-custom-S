@@ -11,5 +11,10 @@
             <field name="type">binary</field>
             <field name="datas" type="base64" file="alldo_gh_iot/report/report_purchase_order.odt"/>
         </record>
+        <record id="report_pi_product_analysis" model="ir.attachment">
+            <field name="name">report_pi_product_analysis</field>
+            <field name="type">binary</field>
+            <field name="datas" type="base64" file="alldo_gh_iot/report/ghiot_pi_prod_analysis.odt"/>
+        </record>
     </data>
 </odoo>
