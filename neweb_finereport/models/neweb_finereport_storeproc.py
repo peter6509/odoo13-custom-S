@@ -134,7 +134,7 @@ class newebsalesima(models.Model):
 
         tools.drop_view_if_exists(self._cr, 'neweb_acceptance_acc_list_view')
         self._cr.execute("""create or replace view neweb_acceptance_acc_list_view as (
-                            select B.name as salename,A.project_no,A.project_no1,A.purchase_date,A.purchase_no,
+                            select B.name as salename,A.project_no,E.name as projectno1,F.date_approve as purdate,A.purchase_no,
                             C.name as stockoutno,D.name as partnername,A.cus_project,A.prod_modeltype,A.prod_desc,A.prod_num,
                             A.supplier,E.shipping_date,F.date_planned::DATE,A.acceptanced_date1,A.stockin_date,A.stockout_date,A.acceptanced_date2
                             from neweb_acceptance_acc_list A left join hr_employee B on A.proj_sale = B.id 
