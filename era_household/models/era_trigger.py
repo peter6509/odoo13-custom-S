@@ -71,3 +71,5 @@ class EraTrigger(models.Model):
         self._cr.execute("""create trigger insert_member_income_emeter before insert on era_member_income_emeter
                                          for each row execute procedure insert_member_income_emeter();""")
 
+
+

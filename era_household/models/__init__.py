@@ -14,7 +14,8 @@ from . import device_raspi
 from . import era_emeterhub
 from . import era_escaletot_line
 from . import era_house_member_chk
-from . import era_storeproc
-from . import era_trigger
+#from . import era_storeproc
+#from . import era_trigger
+from . import era_trigger1
 
 
