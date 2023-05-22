@@ -130,6 +130,32 @@ class newebsalesima(models.Model):
             return myym ;
         end; $$ language plpgsql;""")
 
+        self._cr.execute("""drop function if exists getpurfromto(purid int) cascade""")
+        self._cr.execute("""create or replace function getpurfromto(purid int) returns varchar as $$
+         declare
+           myres varchar ;
+           myfrom varchar ;
+           myto varchar ;
+         begin
+           select coalesce(deliver_date::TEXT,''),coalesce(deliver_date1::TEXT,'') into myfrom,myto from purchase_order where id = purid ;
+           if myfrom is not null and myto is not null then
+              myres = concat(myfrom,'~',myto);
+           else
+             myres = ' ' ;
+           end if ;
+           return myres ;
+         end; $$ language plpgsql;""")
+
+        # self._cr.execute("""drop function if exists getprojtopur(projid int) cascade""")
+        # self._cr.execute("""create ort replace function getprojtopur(projid int) returns varchar as $$
+        # declare
+        #   myres varchar ;
+        #   ncount int ;
+        # begin
+        #   select count(*) into ncount from neweb_projsaleitem where saleitem_id = projid and purchase_no is not null;
+        #   if ncount > 0 then /* 已有採購 */
+        # end; $$ language plpgsql;""")
+
 
         tools.drop_view_if_exists(self.env.cr, 'neweb_finrreport_sima_view')
         self.env.cr.execute("""CREATE or REPLACE VIEW neweb_finereport_sima_view as (select (select getprojyear(A.id)) as proj_year,B.name as proj_sale,(select getsinum(A.id)) as si_num,(select getmanum(A.id)) as ma_num,(select getsimatot(A.id)) as simatot from neweb_project A 
@@ -137,10 +163,11 @@ class newebsalesima(models.Model):
 
         tools.drop_view_if_exists(self._cr, 'neweb_acceptance_acc_list_view')
         self._cr.execute("""create or replace view neweb_acceptance_acc_list_view as (
-            select B.name as salename,A.project_no,E.name as projectno1,F.date_approve as purdate,A.purchase_no,A.proj_sale,
+            select B.name as salename,A.project_no,E.name as projectno1,F.date_approve::DATE as purdate,A.purchase_no,A.proj_sale,
             C.name as stockoutno,D.name as partnername,A.cus_project,A.prod_modeltype,A.prod_desc,A.prod_num,
             A.supplier,E.shipping_date,F.date_planned::DATE,A.acceptanced_date1,A.stockin_date,A.stockout_date,A.acceptanced_date2,
-            (select getprojyear(A.project_no)) as proj_year,(select getprojym(A.project_no)) as proj_ym,(select getpurym(A.purchase_no)) as pur_ym
+            (select getprojyear(A.project_no)) as proj_year,(select getprojym(A.project_no)) as proj_ym,(select getpurym(A.purchase_no)) as pur_ym,
+            (select getpurfromto(F.id)) as pur_fromto
             from neweb_acceptance_acc_list A left join hr_employee B on A.proj_sale = B.id 
             left join stock_picking C on A.stockout_no = C.id left join res_partner D on A.cus_name = D.id
             left join neweb_project E on A.project_no = E.id left join purchase_order F on A.purchase_no = F.name)""")
