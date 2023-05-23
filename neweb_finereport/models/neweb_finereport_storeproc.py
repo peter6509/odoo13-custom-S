@@ -171,3 +171,255 @@ class newebsalesima(models.Model):
             from neweb_acceptance_acc_list A left join hr_employee B on A.proj_sale = B.id 
             left join stock_picking C on A.stockout_no = C.id left join res_partner D on A.cus_name = D.id
             left join neweb_project E on A.project_no = E.id left join purchase_order F on A.purchase_no = F.name)""")
+
+        # 銷貨收入
+        self._cr.execute("""drop function if exists get_cost1_rev(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost1_rev(projid int) returns float as $$
+        declare
+          myres float ;
+        begin
+          if projid is not null then
+             select sum(coalesce(analysis_revenue,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype in (1,2,7,6,8) ;
+          end if ;
+          if myres is null then
+              myres = 0 ;
+          end if ;
+          return myres ;
+        end ; $$ language plpgsql;""")
+
+        # 銷貨毛利
+        self._cr.execute("""drop function if exists get_cost1_pro(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost1_pro(projid int) returns float as $$
+        declare
+          myres float ;
+        begin
+          if projid is not null then
+             select sum(coalesce(analysis_revenue,0) - coalesce(analysis_cost,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype in (1,2,7,6,8) ;
+          end if ;   
+          if myres is null then
+              myres = 0 ;
+          end if ;
+          return myres ;
+        end ; $$ language plpgsql;""")
+
+        # 建置收入
+        self._cr.execute("""drop function if exists get_cost2_rev(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost2_rev(projid int) returns float as $$
+        declare
+          myres float ;
+        begin
+          if projid is not null then
+             select sum(coalesce(analysis_revenue,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype=3 ;
+          end if ;   
+          if myres is null then
+              myres = 0 ;
+          end if ;
+          return myres ;
+        end ; $$ language plpgsql;""")
+
+        # 建置毛利
+        self._cr.execute("""drop function if exists get_cost2_pro(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost2_pro(projid int) returns float as $$
+        declare
+          myres float ;
+        begin
+          if projid is not null then
+             select sum(coalesce(analysis_revenue,0) - coalesce(analysis_cost,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype=3  ;
+          end if ;  
+          if myres is null then
+              myres = 0 ;
+          end if ;
+          return myres ;
+        end ; $$ language plpgsql;""")
+
+        # 維運人力收入
+        self._cr.execute("""drop function if exists get_cost3_rev(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost3_rev(projid int) returns float as $$
+        declare
+          myres float ;
+        begin
+          if projid is not null then
+             select sum(coalesce(analysis_revenue,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype=5 ;
+          end if ;   
+          if myres is null then
+              myres = 0 ;
+          end if ;
+          return myres ;
+        end ; $$ language plpgsql;""")
+
+        # 維運人力毛利
+        self._cr.execute("""drop function if exists get_cost3_pro(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost3_pro(projid int) returns float as $$
+        declare
+          myres float ;
+        begin
+          if projid is not null then
+             select sum(coalesce(analysis_revenue,0) - coalesce(analysis_cost,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype=5  ;
+          end if ;   
+          if myres is null then
+              myres = 0 ;
+          end if ;
+          return myres ;
+        end ; $$ language plpgsql;""")
+
+        # 維護舊約收入
+        self._cr.execute("""drop function if exists get_cost4_rev(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost4_rev(projid int) returns float as $$
+        declare
+          myres float ;
+        begin
+          if projid is not null then
+             select sum(coalesce(analysis_revenue,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype=4 ;
+          end if ;   
+          if myres is null then
+              myres = 0 ;
+          end if ;
+          return myres ;
+        end ; $$ language plpgsql;""")
+
+        # 維護舊約毛利
+        self._cr.execute("""drop function if exists get_cost4_pro(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost4_pro(projid int) returns float as $$
+        declare
+          myres float ;
+        begin
+          if projid is not null then 
+             select sum(coalesce(analysis_revenue,0) - coalesce(analysis_cost,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype=4  ;
+          end if ;   
+          if myres is null then
+              myres = 0 ;
+          end if ;
+          return myres ;
+        end ; $$ language plpgsql;""")
+
+        # 維護新約收入
+        self._cr.execute("""drop function if exists get_cost5_rev(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost5_rev(projid int) returns float as $$
+        declare
+          myres float ;
+        begin
+          if projid is not null then
+             select sum(coalesce(analysis_revenue,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype in (9,12) ;
+          end if ;   
+          if myres is null then
+              myres = 0 ;
+          end if ;
+          return myres ;
+        end ; $$ language plpgsql;""")
+
+        # 維護新約毛利
+        self._cr.execute("""drop function if exists get_cost5_pro(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost5_pro(projid int) returns float as $$
+        declare
+          myres float ;
+        begin
+          if projid is not null then
+             select sum(coalesce(analysis_revenue,0) - coalesce(analysis_cost,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype in (9,12) ;
+          end if ;   
+          if myres is null then
+              myres = 0 ;
+          end if ;
+          return myres ;
+        end ; $$ language plpgsql;""")
+
+        # 保固維護收入
+        self._cr.execute("""drop function if exists get_cost6_rev(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost6_rev(projid int) returns float as $$
+           declare
+             myres float ;
+           begin
+             if projid is not null then
+                select sum(coalesce(analysis_revenue,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype=12 ;
+             end if ;   
+             if myres is null then
+                 myres = 0 ;
+             end if ;
+             return myres ;
+           end ; $$ language plpgsql;""")
+
+        # 保固維護毛利
+        self._cr.execute("""drop function if exists get_cost6_pro(projid int) cascade""")
+        self._cr.execute("""create or replace function get_cost6_pro(projid int) returns float as $$
+           declare
+             myres float ;
+           begin
+             if projid is not null then
+                select sum(coalesce(analysis_revenue,0) - coalesce(analysis_cost,0)) into myres from neweb_projanalysis where analysis_id = projid and analysis_costtype=12 ;
+             end if ;   
+             if myres is null then
+                 myres = 0 ;
+             end if ;
+             return myres ;
+           end ; $$ language plpgsql;""")
+
+        tools.drop_view_if_exists(self._cr, 'neweb_projanalysis_costtype_view')
+        self._cr.execute("""create or replace view neweb_projanalysis_costtype_view as (
+        select A.name,(select getprojyear(A.id)) as proj_year,B.name as salename,C.name as partnername,A.proj_sale,A.cus_name,
+         (select get_cost1_rev(A.id)) as cost1rev,(select get_cost1_pro(A.id)) as cost1pro,
+          (select get_cost2_rev(A.id)) as cost2rev,(select get_cost2_pro(A.id)) as cost2pro,
+          (select get_cost3_rev(A.id)) as cost3rev,(select get_cost3_pro(A.id)) as cost3pro,
+          (select get_cost4_rev(A.id)) as cost4rev,(select get_cost4_pro(A.id)) as cost4pro,
+          (select get_cost5_rev(A.id)) as cost5rev,(select get_cost5_pro(A.id)) as cost5pro,
+          (select get_cost6_rev(A.id)) as cost6rev,(select get_cost6_pro(A.id)) as cost6pro    
+          from neweb_project A left join hr_employee B on A.proj_sale = B.id left join res_partner C on A.cus_name = C.id
+          where A.name is not null and A.cus_name is not null and A.proj_sale is not null)""")
+
+        self._cr.execute("""drop function if exists get_si_count(projid int) cascade""")
+        self._cr.execute("""create or replace function get_si_count(projid int) returns int as $$
+        declare
+          myres int ;
+          sirev float ;
+          marev float ;
+        begin
+          if projid is not null then
+                select sum(coalesce(analysis_revenue,0)) into sirev from neweb_projanalysis where analysis_id = projid and analysis_costtype in (1,2,3,7);
+                select sum(coalesce(analysis_revenue,0)) into marev from neweb_projanalysis where analysis_id = projid and analysis_costtype in (4,9);
+          end if ;
+          if sirev is null then
+              sirev = 0 ;
+          end if ;
+          if marev is null then
+              marev = 0 ;
+          end if ;
+          if sirev > marev then
+             myres = 1 ;
+          else
+              myres = 0 ;
+          end if ; 
+          return myres ;  
+        end; $$ language plpgsql;""")
+
+        self._cr.execute("""drop function if exists get_ma_count(projid int) cascade""")
+        self._cr.execute("""create or replace function get_ma_count(projid int) returns int as $$
+        declare
+          myres int ;
+          sirev float ;
+          marev float ;
+        begin
+          if projid is not null then
+                select sum(coalesce(analysis_revenue,0)) into sirev from neweb_projanalysis where analysis_id = projid and analysis_costtype in (1,2,3,7);
+                select sum(coalesce(analysis_revenue,0)) into marev from neweb_projanalysis where analysis_id = projid and analysis_costtype in (4,9);
+          end if ;
+          if sirev is null then
+              sirev = 0 ;
+          end if ;
+          if marev is null then
+              marev = 0 ;
+          end if ;
+          if marev > sirev then
+             myres = 1 ;
+          else
+              myres = 0 ;
+          end if ; 
+          return myres ;  
+        end; $$ language plpgsql;""")
+
+        tools.drop_view_if_exists(self._cr, 'neweb_proj_salecount_view')
+        self._cr.execute("""create or replace view neweb_proj_salecount_view as (select A.proj_sale,B.name as salename,(select getprojyear(A.id)) as proj_year,
+         (select get_si_count(A.id)) as sicount,(select get_ma_count(A.id)) as macount  from neweb_project A left join hr_employee B on A.proj_sale = B.id 
+         where A.name is not null and A.cus_name is not null and A.proj_sale is not null)""")
+
+
+
+
+
