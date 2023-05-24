@@ -15,7 +15,7 @@ Employee Timesheet management Module for Neweb.""",
     'category': 'Uncategorized',
     'version': '10',
     'depends': ['base','sh_message'],
-    'data': [
+    'data': ['views/neweb_finereport_menu.xml',
     ],
 
     'description' : '<96>.NEWEB Finereport',

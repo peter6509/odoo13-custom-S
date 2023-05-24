@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+      <record model="ir.actions.act_url" id="neweb_projanalysis_costtype_view">
+       <field name="name">年度客戶銷售表</field>
+       <field name="url">http://192.168.1.88:8080/webroot/decision/v10/entry/access/fc740f65-60ff-4dd2-9781-784c36fe8f46?preview=true</field>
+       <field name="target">new</field>
+     </record>
+       <record model="ir.actions.act_url" id="neweb_salemain_view">
+       <field name="name">銷售產生之維護分析</field>
+       <field name="url">http://192.168.1.88:8080/webroot/decision/v10/entry/access/cfeb99e0-2029-46f3-b417-9d181477ce39?preview=true</field>
+       <field name="target">new</field>
+     </record>
+     <record model="ir.actions.act_url" id="neweb_proj_salecount_view">
+       <field name="name">業務業案筆數分析</field>
+       <field name="url">http://192.168.1.88:8080/webroot/decision/v10/entry/access/d319538a-7100-4b14-b8a7-a90cf0c9eee5?preview=true</field>
+       <field name="target">new</field>
+     </record>
+      <record model="ir.actions.act_url" id="neweb_supplier_brand_view">
+       <field name="name">廠商及品牌分析</field>
+       <field name="url">http://192.168.10.135:8080/webroot/decision/v10/entry/access/2ea3a6b1-9b76-4add-a95d-2d8f5fd53116?preview=true</field>
+       <field name="target">new</field>
+     </record>
+
+      <record model="ir.actions.act_url" id="neweb_prodset_analysis_view">
+       <field name="name">產品組別統計分析</field>
+       <field name="url">http://192.168.10.135:8080/webroot/decision/v10/entry/access/0d0780a6-07bc-45cb-a59c-3d6006be79cb?preview=true</field>
+       <field name="target">new</field>
+     </record>
+
+        <record model="ir.actions.act_url" id="neweb_prodset_modeltype_view">
+       <field name="name">產品組別數量分析</field>
+       <field name="url">http://192.168.10.135:8080/webroot/decision/v10/entry/access/dd508f4c-54fc-4cd1-8baa-f1e82067ad8a?preview=true</field>
+       <field name="target">new</field>
+     </record>
+
+      <record model="ir.actions.act_url" id="neweb_acceptance_acc_list">
+       <field name="name">採購進度追蹤分析</field>
+       <field name="url">http://192.168.10.135:8080/webroot/decision/v10/entry/access/dd508f4c-54fc-4cd1-8baa-f1e82067ad8a?preview=true</field>
+       <field name="target">new</field>
+     </record>
+
+
+        <menuitem id="menu_finbereport_view"
+               name="BI數據樞紐分析"
+               groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+               sequence="900"/>
+        <menuitem id="menu_projanalysis_costtype_view"
+              name="年度客戶銷售表"
+              parent="menu_finbereport_view"
+              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              action="neweb_projanalysis_costtype_view"
+              sequence="5"/>
+        <menuitem id="menu_salemain_view"
+              name="銷售產生之維護分析"
+              parent="menu_finbereport_view"
+              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              action="neweb_salemain_view"
+              sequence="10"/>
+        <menuitem id="menu_proj_salecount_view"
+              name="業務業案筆數分析"
+              parent="menu_finbereport_view"
+              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              action="neweb_proj_salecount_view"
+              sequence="20"/>
+        <menuitem id="menu_supplier_brand_view"
+              name="廠商及品牌分析"
+              parent="menu_finbereport_view"
+              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              action="neweb_supplier_brand_view"
+              sequence="30"/>
+        <menuitem id="menu_prodset_analysis_view"
+              name="產品組別統計分析"
+              parent="menu_finbereport_view"
+              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              action="neweb_prodset_analysis_view"
+              sequence="40"/>
+        <menuitem id="menu_prodset_modeltype_view_view"
+              name="產品組別數量分析"
+              parent="menu_finbereport_view"
+              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              action="neweb_prodset_modeltype_view"
+              sequence="50"/>
+        <menuitem id="menu_acceptance_acc__view"
+              name="採購進度追蹤分析"
+              parent="menu_finbereport_view"
+              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              action="neweb_acceptance_acc_list"
+              sequence="50"/>
+    </data>
+</odoo>
