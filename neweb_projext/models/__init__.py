@@ -5,6 +5,7 @@ from . import sale_inherit
 from . import sale_inherit1
 from . import neweb_project_inherit
 from . import neweb_projext_storeproc1
+from . import neweb_projext_storeproc2
 from . import neweb_project_inherit1
 from . import neweb_project_inherit2
 from . import neweb_project_inherit3
@@ -28,6 +29,7 @@ from . import neweb_project_inherit13
 from . import neweb_project_inherit14
 from . import sale_order_trigger
 from . import neweb_open_account_day1
+from . import neweb_support_maillist
 from . import neweb_project_trigger
 
 

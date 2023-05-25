@@ -43,6 +43,7 @@ Specially designed Repair Module for Neweb.""",
 		'wizards/neweb_repair_repeat_wizard.xml',
 		'views/repair_inherit2.xml',
 		'wizards/neweb_care_call_report.xml',
+
 	],
 	# # only loaded in demonstration mode
 	# 'demo': [

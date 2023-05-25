@@ -19,4 +19,6 @@ access_open_account_day1_manager,access.open.account.day1.manager,model_neweb_op
 access_neweb_stockoutno_line_user,access.neweb.stockoutno.line.user,model_neweb_stockoutno_line,base.group_user,1,0,0,0
 access_neweb_stockoutno_line_manager,access.neweb.stockoutno.line.manager,model_neweb_stockoutno_line,base.group_system,1,1,1,1
 
+access_support_maillist_manager,access.support.maillist.manager,model_neweb_support_maillist,base.group_user,1,1,1,1
+
 

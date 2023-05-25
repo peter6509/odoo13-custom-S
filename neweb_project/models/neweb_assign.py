@@ -293,6 +293,7 @@ class projengassign(models.Model):
     completed_hour1 = fields.Char(string="實際時數bf",  compute=_get_comphour)
     proj_cus_name1 = fields.Char(string="專案客戶")
     assign_type = fields.Selection([('1', '未建檔新客戶'), ('2', '已建檔客戶')], string='客戶型態', default='2')
+    sendmail_dt = fields.Datetime(string="寄信時間")
 
 
     @api.model
@@ -437,9 +438,19 @@ class projengassign(models.Model):
 
 
     def get_assignemail_ids(self,assign_man):
-        myemail = str([assign.partner_id.email for assign in assign_man]).replace('[','').replace(']','').replace("'",'').replace('','')
-        myprojsale = self.proj_sale.work_email
-        allemail = myemail + ',' + myprojsale
+        # myemail = str([assign.partner_id.email for assign in assign_man]).replace('[','').replace(']','').replace("'",'').replace('','')
+        # myprojsale = self.proj_sale.work_email
+        # allemail = myemail + ',' + myprojsale
+
+        self.env.cr.execute("""select genengmaillist(%d)""" %self.id)
+        myids = self.env.cr.fetchall()
+        allemail = self.proj_sale.work_email
+        myrec = self.env['hr.employee'].search([('id','in',myids)])
+        for rec in myrec:
+            if allemail == '' :
+                allemail = rec.work_email
+            else:
+                allemail = allemail + ',' + rec.work_email
         # print "%s" % allemail
         return allemail
         # return str(assign_man.ids).replace('[','').replace(']','')
@@ -542,6 +553,8 @@ class projengassign(models.Model):
 
             # 'custom_layout': "sale.mail_template_data_notification_email_sale_order"
             })
+        self.env.cr.execute("""update neweb_proj_eng_assign set sendmail_dt = current_timestamp where id = %d""" % myid)
+        self.env.cr.execute("""commit""")
         ir_model_data.get_object_reference('neweb_project', 'email_template_assign_message')[1]
 
         self.env['mail.template'].browse(template_id).sudo().send_mail(myid)

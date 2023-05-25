@@ -19,6 +19,9 @@ access_neweb_repair_repair_user15,neweb_repair.repair15,model_neweb_repair_repai
 access_neweb_repair_repair_user16,neweb_repair.repair16,model_neweb_repair_repair,neweb_project.neweb_on10_gm,1,1,1,1
 
 
+
+
+
 access_neweb_repair_repair_line_sales,neweb_repair.repair_line,model_neweb_repair_repair_line,base.group_user,1,0,0,0
 access_neweb_repair_repair_line_sales1,neweb_repair.repair_line1,model_neweb_repair_repair_line,neweb_project.neweb_en80_assi,1,1,1,1
 access_neweb_repair_repair_line_sales2,neweb_repair.repair_line2,model_neweb_repair_repair_line,neweb_project.neweb_en70_user,1,1,1,1

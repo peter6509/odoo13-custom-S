@@ -60,6 +60,7 @@
              'security/neweb_openaccountday1_rule.xml',
              'security/neweb_project_acceptanced_rule.xml',
              'views/neweb_project_inherit19.xml',
+              'views/repair_support_maillist.xml',
              ],
     'application': True,
     'installable': True,

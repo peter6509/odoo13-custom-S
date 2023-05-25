@@ -36,8 +36,38 @@
     <li>裝機連絡人: ${object.setup_contact.name}</li>
     <li>連絡人電話: ${object.setup_contact_phone}</li>
     <li>連絡人行動: ${object.setup_contact_mobile}</li>
+    <li>派工需求說明: ${object.assign_man_desc}</li>
    </ul>
 
+   <font style="font-size: 12px;">裝機內容明細</font>
+    <div style="display:table;border:1px solid #000;">
+    <div style="display:table-header-group;">
+        <div style="display:table-row;">
+            <div style="display:table-cell;width:20%;border:1px solid #000;">產品組別</div>
+            <div style="display:table-cell;width:20%;border:1px solid #000;">機種-機型/料號</div>
+            <div style="display:table-cell;width:5%;border:1px solid #000;">序號</div>
+            <div style="display:table-cell;width:20%;border:1px solid #000;">規格說明</div>
+            <div style="display:table-cell;width:5%;border:1px solid #000;">數量</div>
+            <div style="display:table-cell;width:10%;border:1px solid #000;">軟體版本</div>
+            <div style="display:table-cell;width:20%;border:1px solid #000;">備註</div>
+        </div>
+    </div>
+    <div style="display:table-row-group;">
+        % for line in object.proj_setup_line:
+        <div style="display:table-row;">
+        <div style="display:table-cell;width:20%;border:1px solid #000;">${(line.prod_set.name or ' ')|safe}</div>
+            <div style="display:table-cell;width:20%;border:1px solid #000;">${(line.prod_modeltype or ' ')|safe}</div>
+            <div style="display:table-cell;width:5%;border:1px solid #000;">${(line.prod_serial or ' ')|safe}</div>
+            <div style="display:table-cell;width:20%;border:1px solid #000;">${(line.prod_desc or ' ')|safe}</div>
+            <div style="display:table-cell;width:5%;border:1px solid #000;">${(line.prod_num or ' ')|safe}</div>
+            <div style="display:table-cell;width:10%;border:1px solid #000;">${(line.software_ver or ' ')|safe}</div>
+            <div style="display:table-cell;width:20%;border:1px solid #000;">${(line.prod_memo or ' ')|safe}</div>
+
+        </div>
+        % endfor
+    </div>
+</div>
+<br/><br/>
    </p>
 
 <p>如果有任何問题，請及時與我聯繫！</p>
