@@ -213,6 +213,7 @@
                                         <field name="prod_modeltype" string="機種-機型/料號" attrs="{'readonly':1}"/>
                                         <field name="prod_modeltype1" string="機型名稱" attrs="{'readonly':1}"/>
                                         <field name="machine_serial_no" string="序號" attrs="{'readonly':1}"/>
+                                        <field name="machine_loc"/>
                                         <field name="rack_loc"/>
                                         <field name="warranty_duedate"/>
                                         <field name="server_name"/>

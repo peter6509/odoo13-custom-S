@@ -9,6 +9,7 @@
                 <sheet>
                     <h1>客戶資料匯出For筋斗雲</h1>
                     <group>
+                      <field name="cus_name" domain="[('is_company','=',True),('customer_rank','=',1)]"/>
                       <field name="start_date"/>
                       <field name="end_date"/>
 <!--                      <field name="export_user"/>-->

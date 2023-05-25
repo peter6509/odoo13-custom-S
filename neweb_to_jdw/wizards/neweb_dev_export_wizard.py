@@ -18,18 +18,23 @@ class newebdevexportjdwwizard(models.TransientModel):
         self.export_user = self.env.user.id
         return self.env.user.id
 
+    contract_no = fields.Char(string="合約編號")
     start_date = fields.Date(string="異動起始日")
     end_date = fields.Date(string="異動截止日")
     export_user = fields.Many2one('res.users', string="匯出人員")
     export_date = fields.Datetime(string="匯出日期時間",default=datetime.today())
 
     def run_dev_export(self):
-        self.env.cr.execute("""select getjdwexportdev('%s','%s')""" % (self.start_date,self.end_date))
-        myconid = self.env.cr.fetchall()
+        if self.contract_no:
+            self.env.cr.execute("""select getjdwexportdev1('%s')""" % self.contract_no)
+            myconid = self.env.cr.fetchone()[0]
+            mydev_rec = self.env['neweb_contract.contract.line'].search([('contract_id', '=', myconid)], order='contract_id,id')
+        else:
+            self.env.cr.execute("""select getjdwexportdev('%s','%s')""" % (self.start_date,self.end_date))
+            myconid = self.env.cr.fetchall()
+            mydev_rec = self.env['neweb_contract.contract.line'].search([('contract_id', 'in', myconid)], order='contract_id,id')
 
         output = io.BytesIO()
-        mydev_rec = self.env['neweb_contract.contract.line'].search([('id', 'in', myconid)],order='contract_id,id')
-
 
         myxlsfilename1 = "設備資料_%s.xlsx" % (datetime.now().strftime("%Y%m%d"))
         mysubject = '設備資料_%s.xlsx' % (datetime.now().strftime("%Y%m%d"))
@@ -149,7 +154,7 @@ class newebdevexportjdwwizard(models.TransientModel):
             ws1.write(row, 14, line.contract_id.routine_maintenance_new.name if line.contract_id.routine_maintenance_new.name else ' ', okl_content_format)
             ws1.write(row, 15, ' ', okl_content_format)
             ws1.write(row, 16, line.machine_loc if line.machine_loc else ' ', okl_content_format)
-            ws1.write(row, 17, ' ', okl_content_format)
+            ws1.write(row, 17, line.memo if line.memo else ' ', okl_content_format)
             ws1.write(row, 18, line.contract_id.name if line.contract_id.name else ' ', okl_content_format)
             row += 1
             nitem += 1

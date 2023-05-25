@@ -9,6 +9,7 @@
                 <sheet>
                     <h1>合約列表資料匯出For筋斗雲</h1>
                     <group>
+                      <field name="contract_no"/>
                       <field name="start_date"/>
                       <field name="end_date"/>
 <!--                      <field name="export_user"/>-->

@@ -18,18 +18,22 @@ class newebcustomexportjdwwizard(models.TransientModel):
         for rec in self:
             rec.export_user = self.env.user.id
 
+    cus_name = fields.Many2one('res.partner',string="客戶")
     start_date = fields.Date(string="異動起始日")
     end_date = fields.Date(string="異動截止日")
     export_user = fields.Many2one('res.users', string="匯出人員")
     export_date = fields.Datetime(string="匯出日期時間",default=datetime.today())
 
     def run_custom_export(self):
-        self.env.cr.execute("""select getjdwexportcus('%s','%s')""" % (self.start_date,self.end_date))
-        mycusid = self.env.cr.fetchall()
+        if self.cus_name:
+            mycusid = self.cus_name.id
+            mycus_rec = self.env['res.partner'].search([('id', '=', mycusid)])
+        else:
+            self.env.cr.execute("""select getjdwexportcus('%s','%s')""" % (self.start_date,self.end_date))
+            mycusid = self.env.cr.fetchall()
+            mycus_rec = self.env['res.partner'].search([('id', 'in', mycusid)])
 
         output = io.BytesIO()
-        mycus_rec = self.env['res.partner'].search([('id', 'in', mycusid)])
-
 
         myxlsfilename1 = "客戶資料_%s.xlsx" % (datetime.now().strftime("%Y%m%d"))
         mysubject = '客戶資料_%s.xlsx' % (datetime.now().strftime("%Y%m%d"))

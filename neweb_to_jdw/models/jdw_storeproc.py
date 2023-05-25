@@ -18,7 +18,7 @@ class newebjdwstoreproc(models.Model):
           cus_cur refcursor ;
           cus_rec record ;
         begin
-          open cus_cur for select id from res_partner where  active = true and write_date between sdate and edate and is_company = true ;
+          open cus_cur for select id from res_partner where  active = true and write_date >= sdate and write_date <= edate and is_company = true ;
           loop
             fetch cus_cur into cus_rec ;
             exit when not found ;
@@ -26,7 +26,7 @@ class newebjdwstoreproc(models.Model):
             return next myres ;
           end loop ;
           close cus_cur ;
-          open cus_cur for select id from res_partner where  active = true and write_date is null and create_date between sdate and edate and is_company = true ;
+          open cus_cur for select id from res_partner where  active = true and write_date is null and create_date >= sdate and create_date <= edate and is_company = true ;
           loop
             fetch cus_cur into cus_rec ;
             exit when not found ;
@@ -112,7 +112,7 @@ class newebjdwstoreproc(models.Model):
           con_cur refcursor ;
           con_rec record ;
         begin
-          open con_cur for select id from neweb_contract_contract_line where  write_date between sdate and edate order by contract_id,id ;
+          open con_cur for select id from neweb_contract_contract_line where  write_date >= sdate and write_date <= edate order by contract_id,id ;
           loop
             fetch con_cur into con_rec ;
             exit when not found ;
@@ -120,7 +120,7 @@ class newebjdwstoreproc(models.Model):
             return next myres ;
           end loop ;
           close con_cur ;
-          open con_cur for select id from neweb_contract_contract_line where  write_date is null and create_date between sdate and edate order by contract_id,id;
+          open con_cur for select id from neweb_contract_contract_line where  write_date is null and create_date >= sdate and create_date <= edate order by contract_id,id;
           loop
             fetch con_cur into con_rec ;
             exit when not found ;
@@ -128,6 +128,19 @@ class newebjdwstoreproc(models.Model):
             return next myres ;
           end loop ;
           close con_cur ;
+        end;$$
+        language plpgsql;""")
+
+        self._cr.execute("""drop function if exists getjdwexportdev1(contractno varchar) cascade""")
+        self._cr.execute("""create or replace function getjdwexportdev1(contractno varchar) returns INT as $$
+        declare
+          myres int ;
+        begin
+          select id into myres from neweb_contract_contract where name = contractno ;
+          if myres is null then
+             myres = 0 ;
+          end if ;
+          return myres ;
         end;$$
         language plpgsql;""")
 
@@ -144,9 +157,9 @@ class newebjdwstoreproc(models.Model):
             select response_time::INT::TEXT,onsite_time::INT::TEXT,maintenance_time::INT::TEXT,backup_equipment into restime,onsitetime,maintime,havebackup from neweb_base_sla where id = slaid and active=true;
             if restime is not null then
                if havebackup = true then
-                    cbackup = 'Y' ;
+                    cbackup = '備機' ;
                else
-                    cbackup = '-' ;
+                    cbackup = '無' ;
                end if ;
                   myres = concat(restime,'/',onsitetime,'/',maintime,'/',cbackup) ;
             else
@@ -232,7 +245,7 @@ class newebjdwstoreproc(models.Model):
           con_cur refcursor ;
           con_rec record ;
         begin
-          open con_cur for select distinct contract_id from neweb_contract_contract_line where  write_date between sdate and edate order by contract_id;
+          open con_cur for select distinct contract_id from neweb_contract_contract_line where  write_date >= sdate and write_date <= edate order by contract_id;
           loop
             fetch con_cur into con_rec ;
             exit when not found ;
@@ -240,7 +253,7 @@ class newebjdwstoreproc(models.Model):
             return next myres ;
           end loop ;
           close con_cur ;
-          open con_cur for select id from neweb_contract_contract where  write_date between sdate and edate ;
+          open con_cur for select id from neweb_contract_contract where  write_date >= sdate and write_date <= edate ;
           loop
             fetch con_cur into con_rec ;
             exit when not found ;
@@ -250,6 +263,19 @@ class newebjdwstoreproc(models.Model):
           close con_cur ;
         end;$$
         language plpgsql;""")
+
+        self._cr.execute("""drop function if exists getjdwexportcontract1(contractno varchar) cascade""")
+        self._cr.execute("""create or replace function getjdwexportcontract1(contractno varchar) returns INT as $$
+            declare
+              myres int ;
+            begin
+              select id into myres from neweb_contract_contract where name=contractno ;
+              if myres is null then
+                 myres = 0 ;
+              end if ;
+              return myres ;
+            end;$$
+            language plpgsql;""")
 
         self._cr.execute("""drop function if exists getprojrevenue(projid int) cascade""")
         self._cr.execute("""drop function if exists getprojrevenue(projno varchar) cascade""")
@@ -274,7 +300,7 @@ class newebjdwstoreproc(models.Model):
           con_cur refcursor ;
           con_rec record ;
         begin
-          open con_cur for select distinct contract_id from neweb_contract_contract_line where write_date between sdate and edate order by contract_id ;
+          open con_cur for select distinct contract_id from neweb_contract_contract_line where write_date >= sdate and write_date <= edate order by contract_id ;
           loop
             fetch con_cur into con_rec ;
             exit when not found ;
@@ -282,7 +308,7 @@ class newebjdwstoreproc(models.Model):
             return next myres ;
           end loop ;
           close con_cur ;
-          open con_cur for select id from neweb_contract_contract where write_date between sdate and edate ;
+          open con_cur for select id from neweb_contract_contract where write_date >= sdate and write_date <= edate ;
           loop
             fetch con_cur into con_rec ;
             exit when not found ;
@@ -290,6 +316,19 @@ class newebjdwstoreproc(models.Model):
             return next myres ;
           end loop ;
           close con_cur ;
+        end;$$
+        language plpgsql;""")
+
+        self._cr.execute("""drop function if exists getjdwexportcontractline1(contractno varchar) cascade""")
+        self._cr.execute("""create or replace function getjdwexportcontractline1(contractno varchar) returns INT as $$
+        declare
+          myres int ;
+        begin
+          select id into myres from neweb_contract_contract where name=contractno ;
+          if myres is null then
+             myres = 0 ;
+          end if ;
+          return myres ;
         end;$$
         language plpgsql;""")
 
@@ -319,4 +358,31 @@ class newebjdwstoreproc(models.Model):
             select name into myres from res_partner where id = partnerid and active = true ;
             return myres ;
         end;$$
+        language plpgsql;""")
+
+        self._cr.execute("""drop function if exists genmachineloc() cascade""")
+        self._cr.execute("""create or replace function genmachineloc() returns void as $$
+        declare
+          cstreet varchar ;
+          partnerid int ;
+          con_cur refcursor ;
+          con_rec record ;  
+          conl_cur refcursor ;
+          conl_rec record ;
+        begin
+          open con_cur for select id,end_customer from neweb_contract_contract ;
+          loop
+             fetch con_cur into con_rec ;
+             exit when not found ;
+             select street into cstreet from res_partner where id = con_rec.end_customer ;   
+             open conl_cur for select id from neweb_contract_contract_line1 where contract_id = con_rec.id ;
+             loop
+                fetch conl_cur into conl_rec ;
+                exit when not found ;
+                update neweb_contract_contract_line1 set machine_loc = cstreet where id = conl_rec.id and machine_loc is null ;
+             end loop ;
+             close conl_cur ;
+          end loop ;
+          close con_cur ;
+        end ;$$
         language plpgsql;""")

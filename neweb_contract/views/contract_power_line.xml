@@ -13,6 +13,7 @@
                            <field name="prod_modeltype" attrs="{'readonly':1}"/>
                            <field name="prod_modeltype1" attrs="{'readonly':1}" options="{'no_create_edit':True,'no_create':True,'no_open':True}"/>
                            <field name="machine_serial_no" attrs="{'readonly':1}"/>
+                           <field name="machine_loc"/>
                            <field name="rack_loc"/>
                            <field name="warranty_duedate"/>
                        </group>

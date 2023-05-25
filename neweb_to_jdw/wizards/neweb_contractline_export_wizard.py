@@ -18,18 +18,23 @@ class newebcontractlineexportjdwwizard(models.TransientModel):
         for rec in self:
             rec.export_user = self.env.user.id
 
+    contract_no = fields.Char(string="合約編號")
     start_date = fields.Date(string="異動起始日")
     end_date = fields.Date(string="異動截止日")
     export_user = fields.Many2one('res.users', string="匯出人員")
     export_date = fields.Datetime(string="匯出日期時間",default=datetime.today())
 
     def run_contractline_export(self):
-        self.env.cr.execute("""select getjdwexportcontractline('%s','%s')""" % (self.start_date,self.end_date))
-        myconid = self.env.cr.fetchall()
+        if self.contract_no:
+            self.env.cr.execute("""select getjdwexportcontractline1('%s')""" % self.contract_no)
+            myconid = self.env.cr.fetchone()[0]
+            mycon_rec = self.env['neweb_contract.contract'].search([('id', '=', myconid)])
+        else:
+            self.env.cr.execute("""select getjdwexportcontractline('%s','%s')""" % (self.start_date,self.end_date))
+            myconid = self.env.cr.fetchall()
+            mycon_rec = self.env['neweb_contract.contract'].search([('id', 'in', myconid)])
 
         output = io.BytesIO()
-        mycon_rec = self.env['neweb_contract.contract'].search([('id', 'in', myconid)])
-
 
         myxlsfilename1 = "合約明細資料_%s.xlsx" % (datetime.now().strftime("%Y%m%d"))
         mysubject = '合約明細資料_%s.xlsx' % (datetime.now().strftime("%Y%m%d"))
@@ -131,26 +136,33 @@ class newebcontractlineexportjdwwizard(models.TransientModel):
                 ws1.write(row, 1, line1.machine_serial_no if line1.machine_serial_no else ' ', okl_content_format)
                 ws1.write(row, 2, line.maintenance_start_date if line.maintenance_start_date else ' ', date_format)
                 ws1.write(row, 3, line.maintenance_end_date if line.maintenance_end_date else ' ', date_format)
-                mymethod = ' ';
+                mymethod = ' '
+                mypm = 'Y'
                 if line.inspection_method == 'monthly':
                     mymethod = '每月'
+                    mypm = 'N'
                 elif line.inspection_method == 'quarterly':
                     mymethod = '每季'
+                    mypm = 'N'
                 elif line.inspection_method == 'bimonthly':
                     mymethod = '雙月'
+                    mypm = 'N'
                 elif line.inspection_method == 'semiannually':
                     mymethod = '半年'
+                    mypm = 'N'
                 elif line.inspection_method == 'annually':
                      mymethod = '每年'
+                     mypm = 'N'
                 elif line.inspection_method == 'remote':
                      mymethod = '遠端'
+                     mypm = 'Y'
                 ws1.write(row, 4, mymethod if mymethod else ' ',okl_content_format)
                 self.env.cr.execute("""select getconsmonth(%d)""" % line.id)
                 mysmonth = self.env.cr.fetchone()[0]
                 ws1.write(row, 5, mysmonth if mysmonth else ' ', okl_content_format)
                 ws1.write(row, 6, 0, okl_content_format)
                 ws1.write(row, 7, line1.memo if line1.memo else ' ', okl_content_format)
-                ws1.write(row, 8, 'N',okl_content_format)
+                ws1.write(row, 8, mypm,okl_content_format)
 
                 row += 1
                 nitem += 1

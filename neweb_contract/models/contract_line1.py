@@ -36,6 +36,7 @@ class ContractLine1(models.Model):
     # power_num = fields.Integer(string="電源數量")
     expand_module = fields.Char(string="擴充模組")
     machine_other = fields.Char(string="其他")
+    machine_loc = fields.Char(string="設備位址")
     contract_line_id = fields.Integer(string="Origin ID")
     hd_line = fields.One2many('neweb_contract.hd_line', 'hd_id', string="硬碟明細")
     cpu_line = fields.One2many('neweb_contract.cpu_line', 'cpu_id', string="CPU明細")

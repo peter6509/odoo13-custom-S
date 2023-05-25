@@ -18,17 +18,24 @@ class newebcontractexportjdwwizard(models.TransientModel):
         for rec in self:
             rec.export_user = self.env.user.id
 
+    contract_no = fields.Char(string="合約編號")
     start_date = fields.Date(string="異動起始日")
     end_date = fields.Date(string="異動截止日")
     export_user = fields.Many2one('res.users', string="匯出人員")
     export_date = fields.Datetime(string="匯出日期時間",default=datetime.today())
 
     def run_contract_export(self):
-        self.env.cr.execute("""select getjdwexportcontract('%s','%s')""" % (self.start_date,self.end_date))
-        myconid = self.env.cr.fetchall()
+        if self.contract_no:
+            self.env.cr.execute("""select getjdwexportcontract1('%s')""" % self.contract_no)
+            myconid = self.env.cr.fetchone()[0]
+            mycon_rec = self.env['neweb_contract.contract'].search([('id', '=', myconid)])
+        else:
+            self.env.cr.execute("""select getjdwexportcontract('%s','%s')""" % (self.start_date,self.end_date))
+            myconid = self.env.cr.fetchall()
+            mycon_rec = self.env['neweb_contract.contract'].search([('id', 'in', myconid)])
 
         output = io.BytesIO()
-        mycon_rec = self.env['neweb_contract.contract'].search([('id', 'in', myconid)])
+
 
 
         myxlsfilename1 = "合約列表資料_%s.xlsx" % (datetime.now().strftime("%Y%m%d"))
