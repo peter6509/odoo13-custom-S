@@ -338,10 +338,10 @@ class AlldoGhIotTrigger(models.Model):
                 select name into stockno from stock_picking where id = NEW.picking_id ;
                 select count(*) into ncount from stock_move_line where move_id=NEW.id ;
                 if ncount = 0 then
-                   insert into stock_move_line(move_id,company_id,product_id,product_uom_id,product_qty,product_uom_qty,location_id,location_dest_id,state,reference,date,picking_id) values
-                    (NEW.id,NEW.company_id,NEW.product_id,NEW.product_uom,NEW.product_uom_qty,NEW.product_uom_qty,NEW.location_id,6,'assigned',stockno,current_timestamp,NEW.picking_id) ;
+                   insert into stock_move_line(move_id,company_id,product_id,product_uom_id,product_qty,product_uom_qty,location_id,location_dest_id,state,reference,picking_id) values
+                    (NEW.id,NEW.company_id,NEW.product_id,NEW.product_uom,NEW.product_uom_qty,NEW.product_uom_qty,NEW.location_id,6,'assigned',stockno,NEW.picking_id) ;
                 else
-                   update stock_move_line set product_qty=NEW.product_uom_qty,product_uom_qty=NEW.product_uom_qty,location_id=NEW.location_id,location_dest_id=6,date=current_timestamp,picking_id=NEW.picking_id,
+                   update stock_move_line set product_qty=NEW.product_uom_qty,product_uom_qty=NEW.product_uom_qty,location_id=NEW.location_id,location_dest_id=6,picking_id=NEW.picking_id,
                        state='assigned',reference=stockno where move_id=NEW.id and product_id=NEW.product_id ;
                 end if ;
              end if ;
@@ -384,7 +384,7 @@ class AlldoGhIotTrigger(models.Model):
              select count(*) into ncount from stock_picking where report_no=NEW.name ;
              if ncount > 0 then
                 select id into spid from stock_picking where report_no=NEW.name ;
-                update stock_picking set date_done=NEW.report_date,date=NEW.report_date where id = spid ;
+                update stock_picking set schedule_date=NEW.report_date,date_done=NEW.report_date,date=NEW.report_date where id = spid ;
              end if ; 
              return NEW ;
           END;$BODY$
@@ -402,14 +402,14 @@ class AlldoGhIotTrigger(models.Model):
           DECLARE
              ncount int ;
           BEGIN
-             update stock_picking set date=NEW.date_done where id = NEW.id ;
+             update stock_picking set date=NEW.scheduled_date,date_done=NEW.scheduled_date where id = NEW.id ;
              return NEW ;
           END;$BODY$
           LANGUAGE plpgsql;""")
 
 
         self._cr.execute("""drop trigger if exists update_date_done on stock_picking ;""")
-        self._cr.execute("""create trigger update_date_done after update of date_done on stock_picking
+        self._cr.execute("""create trigger update_date_done after update of scheduled_date on stock_picking
                                                     for each row execute procedure update_date_done();""")
 
         self._cr.execute("""update stock_picking set date=date_done where date_done is not null and picking_type_id = 2 ;""")

@@ -53,7 +53,7 @@ class newebcontractexportjdwwizard(models.TransientModel):
             'created': datetime.now(),
             'comments': 'Created By Odoo'})
 
-        ws1 = wb1.add_worksheet("合約列表資料(匯出For筋斗雲)")
+        ws1 = wb1.add_worksheet("合約列表")
 
         ########################################
         title_format = wb1.add_format()
@@ -116,7 +116,7 @@ class newebcontractexportjdwwizard(models.TransientModel):
         date_format.set_align('vcenter')
         date_format.set_text_wrap()
 
-        titles1 = ['合約編號','合約名稱','部門','客戶類型','客戶','合約起算日','合約到期日','合約業務員','服務對象(公司客戶)','服務對象(個人客戶)','總金額','定期維護條款','備註','權限設定','權限設定-依部門','權限設定-依人員','權限設定-依群組','權限設定-依專案組織']
+        titles1 = ['合約編號','合約名稱','部門','客戶類型(個人/公司)','客戶','合約起算日','合約到期日','合約業務員','服務對象(公司客戶)','服務對象(個人客戶)','總金額','定期維護條款','備註','權限設定','權限設定:依部門','權限設定:依人員','權限設定:依群組','權限設定:依專案組織']
         title_width = [20, 20, 15,15,20,15,15,15,20,15,20,20,20,20,20,20,20,20]
 
         row = 0

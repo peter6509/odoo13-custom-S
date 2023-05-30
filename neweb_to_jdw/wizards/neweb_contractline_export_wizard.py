@@ -51,7 +51,7 @@ class newebcontractlineexportjdwwizard(models.TransientModel):
             'created': datetime.now(),
             'comments': 'Created By Odoo'})
 
-        ws1 = wb1.add_worksheet("合約列表資料(匯出For筋斗雲)")
+        ws1 = wb1.add_worksheet("合約明細")
 
         ########################################
         title_format = wb1.add_format()
@@ -114,8 +114,8 @@ class newebcontractlineexportjdwwizard(models.TransientModel):
         date_format.set_align('vcenter')
         date_format.set_text_wrap()
 
-        titles1 = ['合約編號','設備編號','合約起日','合約迄日','定保週期','保養週期起算月份','金額','說明','不進行定保(Y/N)']
-        title_width = [20, 20, 15,15,20,25,25,40,25]
+        titles1 = ['設備編號','合約起日','合約迄日','定保週期','保養週期起算月份','金額','說明','不進行定保']
+        title_width = [ 20, 15,15,20,25,25,40,25]
 
         row = 0
         col = 0
@@ -132,10 +132,10 @@ class newebcontractlineexportjdwwizard(models.TransientModel):
 
         for line in mycon_rec:
             for line1 in line.contract_line_ids:
-                ws1.write(row, 0, line.name if line.name else ' ', okl_content_format)
-                ws1.write(row, 1, line1.machine_serial_no if line1.machine_serial_no else ' ', okl_content_format)
-                ws1.write(row, 2, line.maintenance_start_date if line.maintenance_start_date else ' ', date_format)
-                ws1.write(row, 3, line.maintenance_end_date if line.maintenance_end_date else ' ', date_format)
+                # ws1.write(row, 0, line.name if line.name else ' ', okl_content_format)
+                ws1.write(row, 0, line1.machine_serial_no if line1.machine_serial_no else ' ', okl_content_format)
+                ws1.write(row, 1, line.maintenance_start_date if line.maintenance_start_date else ' ', date_format)
+                ws1.write(row, 2, line.maintenance_end_date if line.maintenance_end_date else ' ', date_format)
                 mymethod = ' '
                 mypm = 'Y'
                 if line.inspection_method == 'monthly':
@@ -156,13 +156,13 @@ class newebcontractlineexportjdwwizard(models.TransientModel):
                 elif line.inspection_method == 'remote':
                      mymethod = '遠端'
                      mypm = 'Y'
-                ws1.write(row, 4, mymethod if mymethod else ' ',okl_content_format)
+                ws1.write(row, 3, mymethod if mymethod else ' ',okl_content_format)
                 self.env.cr.execute("""select getconsmonth(%d)""" % line.id)
                 mysmonth = self.env.cr.fetchone()[0]
-                ws1.write(row, 5, mysmonth if mysmonth else ' ', okl_content_format)
-                ws1.write(row, 6, 0, okl_content_format)
-                ws1.write(row, 7, line1.memo if line1.memo else ' ', okl_content_format)
-                ws1.write(row, 8, mypm,okl_content_format)
+                ws1.write(row, 4, mysmonth if mysmonth else ' ', okl_content_format)
+                ws1.write(row, 5, 0, okl_content_format)
+                ws1.write(row, 6, line1.memo if line1.memo else ' ', okl_content_format)
+                ws1.write(row, 7, mypm,okl_content_format)
 
                 row += 1
                 nitem += 1

@@ -36,7 +36,7 @@
 
       <record model="ir.actions.act_url" id="neweb_acceptance_acc_list">
        <field name="name">採購進度追蹤分析</field>
-       <field name="url">http://localhost:8075/webroot/decision/view/report?viewlet=neweb_acceptance_acc_list.cpt</field>
+       <field name="url">http://192.168.1.196:8080/webroot/decision/v10/entry/access/14a2cdbe-dc9d-4794-bb66-023616e51598?preview=true</field>
        <field name="target">new</field>
      </record>
 
@@ -45,45 +45,51 @@
                name="BI數據樞紐分析"
                groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
                sequence="900"/>
+        <menuitem id="menu_bi_categ" name="KPI" parent="menu_finbereport_view" sequence="5"/>
+        <menuitem id="menu_sale_categ" name="業務數據分析" parent="menu_finbereport_view" sequence="10"/>
+        <menuitem id="menu_purchase_categ" name="採購數據分析" parent="menu_finbereport_view" sequence="20"/>
+        <menuitem id="menu_contract_categ" name="合約數據分析" parent="menu_finbereport_view" sequence="30"/>
+        <menuitem id="menu_repair_categ" name="報修數據分析" parent="menu_finbereport_view" sequence="40"/>
+
         <menuitem id="menu_projanalysis_costtype_view"
               name="年度客戶銷售表"
-              parent="menu_finbereport_view"
-              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              parent="menu_sale_categ"
+              groups="neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
               action="neweb_projanalysis_costtype_view"
               sequence="5"/>
         <menuitem id="menu_salemain_view"
               name="銷售產生之維護分析"
-              parent="menu_finbereport_view"
-              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              parent="menu_sale_categ"
+              groups="neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
               action="neweb_salemain_view"
               sequence="10"/>
         <menuitem id="menu_proj_salecount_view"
               name="業務業案筆數分析"
-              parent="menu_finbereport_view"
-              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              parent="menu_sale_categ"
+              groups="neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
               action="neweb_proj_salecount_view"
               sequence="20"/>
         <menuitem id="menu_supplier_brand_view"
               name="廠商及品牌分析"
-              parent="menu_finbereport_view"
-              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              parent="menu_sale_categ"
+              groups="neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
               action="neweb_supplier_brand_view"
               sequence="30"/>
         <menuitem id="menu_prodset_analysis_view"
               name="產品組別統計分析"
-              parent="menu_finbereport_view"
-              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              parent="menu_sale_categ"
+              groups="neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
               action="neweb_prodset_analysis_view"
               sequence="40"/>
         <menuitem id="menu_prodset_modeltype_view_view"
               name="產品組別數量分析"
-              parent="menu_finbereport_view"
-              groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
+              parent="menu_sale_categ"
+              groups="neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
               action="neweb_prodset_modeltype_view"
               sequence="50"/>
         <menuitem id="menu_acceptance_acc__view"
               name="採購進度追蹤分析"
-              parent="menu_finbereport_view"
+              parent="menu_purchase_categ"
               groups="neweb_project.neweb_sa10_gm,neweb_project.neweb_sa20_vp,neweb_project.neweb_sa30_ass,neweb_project.neweb_sa40_user,neweb_project.neweb_sa50_assi,neweb_project.neweb_cs30_dir,neweb_project.neweb_cs50_assi"
               action="neweb_acceptance_acc_list"
               sequence="50"/>
