@@ -176,21 +176,22 @@ class AlldoGhIotTrigger(models.Model):
             locid int ;
             locdestid int ;
             poid int ;
+            schdate date ;
           BEGIN
             if NEW.state='done' and OLD.state != 'done' then
                select count(*) into ncount from ghiot_moveline_powk_rel where move_id = NEW.id ;
                 if ncount > 0 then  /* 有訂單 */
                    select picking_id into pickingid from stock_move where id = NEW.move_id ;
-                   select origin into ref1 from stock_picking where id =pickingid ;
+                   select origin,scheduled_date into ref1,schdate from stock_picking where id =pickingid ;
                    select max(po_id) into poid from ghiot_moveline_powk_rel where move_id = NEW.id ;
                    select count(*) into ncount from alldo_gh_iot_picking_line where picking_id=pickingid and po_id=poid ;
                     if ncount = 0 then
                        if NEW.location_id=8 and NEW.location_dest_id=5 then  /* 出貨 */
                           insert into alldo_gh_iot_picking_line(po_id,picking_id,picking_type_id,picking_date,picking_num,origin) values 
-                              (poid,pickingid,2,NEW.date::DATE,NEW.qty_done,ref1) ;  
+                              (poid,pickingid,2,schdate,NEW.qty_done,ref1) ;  
                        elsif NEW.location_id=5 and NEW.location_dest_id=8 then  /* 退貨 */ 
                           insert into alldo_gh_iot_picking_line(po_id,picking_id,picking_type_id,picking_date,picking_num,origin) values 
-                              (poid,pickingid,1,NEW.date::DATE,NEW.qty_done * -1,ref1) ;  
+                              (poid,pickingid,1,schdate,NEW.qty_done * -1,ref1) ;  
                        end if ;          
                     end if ;    
                 end if ;
@@ -331,11 +332,12 @@ class AlldoGhIotTrigger(models.Model):
             ptid int ;
             ncount int ;
             stockno varchar ;
+            schdate date ;
           BEGIN
              if NEW.picking_id is not null and NEW.picking_type_id in (select id from stock_picking_type where sequence_code='IN') then   /* 收貨 */
                 update stock_picking set location_dest_id=6 where id = NEW.picking_id ;  /* 入 Inter Company Trans  */
                 update stock_move set location_dest_id=6 where id=NEW.id ;
-                select name into stockno from stock_picking where id = NEW.picking_id ;
+                select name,scheduled_date into stockno,schdate from stock_picking where id = NEW.picking_id ;
                 select count(*) into ncount from stock_move_line where move_id=NEW.id ;
                 if ncount = 0 then
                    insert into stock_move_line(move_id,company_id,product_id,product_uom_id,product_qty,product_uom_qty,location_id,location_dest_id,state,reference,picking_id) values

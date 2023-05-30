@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+         <record id="neweb_bi_group" model="ir.module.category">
+           <field name="name">BI數據分析權限組</field>
+           <field name="sequence" eval="950"/>
+       </record>
+        <record id="group_bi_sale" model="res.groups">
+            <field name="name">BI業務數據分析</field>
+            <field name="category_id" ref="neweb_bi_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="group_bi_purchase" model="res.groups">
+            <field name="name">BI採購數據分析</field>
+            <field name="category_id" ref="neweb_bi_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="group_bi_contract" model="res.groups">
+            <field name="name">BI合約數據分析</field>
+            <field name="category_id" ref="neweb_bi_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+        <record id="group_bi_repair" model="res.groups">
+            <field name="name">BI報修數據分析</field>
+            <field name="category_id" ref="neweb_bi_group"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+    </data>
+</odoo>

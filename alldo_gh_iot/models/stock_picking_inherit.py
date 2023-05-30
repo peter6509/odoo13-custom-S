@@ -24,6 +24,8 @@ class stockpickinginherit(models.Model):
         """
         self._check_company()
 
+        #myschdate = self.scheduled_date
+        #print("1.scheduled_date:%s" % myschdate)
         todo_moves = self.mapped('move_lines').filtered(lambda self: self.state in ['draft', 'waiting', 'partially_available', 'assigned', 'confirmed'])
         # Check if there are ops not linked to moves yet
         for pick in self:
@@ -55,24 +57,32 @@ class stockpickinginherit(models.Model):
                     ops.move_id = moves[0].id
                 else:
                     new_move = self.env['stock.move'].create({
-                                                    'name': _('New Move:') + ops.product_id.display_name,
-                                                    'product_id': ops.product_id.id,
-                                                    'product_uom_qty': ops.qty_done,
-                                                    'product_uom': ops.product_uom_id.id,
-                                                    'description_picking': ops.description_picking,
-                                                    'location_id': pick.location_id.id,
-                                                    'location_dest_id': pick.location_dest_id.id,
-                                                    'picking_id': pick.id,
-                                                    'picking_type_id': pick.picking_type_id.id,
-                                                    'restrict_partner_id': pick.owner_id.id,
-                                                    'company_id': pick.company_id.id,
-                                                   })
+                            'name': _('New Move:') + ops.product_id.display_name,
+                            'product_id': ops.product_id.id,
+                            'product_uom_qty': ops.qty_done,
+                            'product_uom': ops.product_uom_id.id,
+                            'description_picking': ops.description_picking,
+                            'location_id': pick.location_id.id,
+                            'location_dest_id': pick.location_dest_id.id,
+                            'picking_id': pick.id,
+                            'picking_type_id': pick.picking_type_id.id,
+                            'restrict_partner_id': pick.owner_id.id,
+                            'company_id': pick.company_id.id,
+                            'date': pick.scheduled_date,
+                            'date_expected': pick.scheduled_date,
+                           })
                     ops.move_id = new_move.id
+                    #myschdate = self.scheduled_date
+                    #print("2.scheduled_date:%s" % myschdate)
                     new_move._action_confirm()
+                    #myschdate = self.scheduled_date
+                    #print("3.scheduled_date:%s" % myschdate)
                     todo_moves |= new_move
                     #'qty_done': ops.qty_done})
         todo_moves._action_done(cancel_backorder=self.env.context.get('cancel_backorder'))
-        self.write({'date_done': fields.Datetime.now()})
+        #myschdate = self.scheduled_date
+        #print("4.scheduled_date:%s" % myschdate)
+        self.write({'date_done': self.scheduled_date})
         self._send_confirmation_email()
         self.env.cr.execute("""select updateshippingwkorder(%d)""" % self.id)
         self.env.cr.execute("""commit""")
