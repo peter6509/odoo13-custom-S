@@ -342,7 +342,7 @@ class newebsetupcostline(models.Model):
     
 
     project_id = fields.Many2one('neweb.project',ondelete='cascade')
-    name = fields.Selection([('1','收入(手動)'),('2','零件設備成本(自動)'),('3','委外成本(自動)'),('4','委外成本(手動)')],string="類別")
+    name = fields.Selection([('1','收入(手動)'),('2','零件設備成本(自動)'),('3','委外成本(自動)'),('4','委外成本(手動)'),('5','工時(手動)')],string="類別")
     r6_revenue = fields.Float(digits=(11,0),string="R6")
     r6_revenue1 = fields.Float(digits=(10,0),compute=_get_r6revenue)
     r6_percent = fields.Float(digits=(5,2),string="R6%")

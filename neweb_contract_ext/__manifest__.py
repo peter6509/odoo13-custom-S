@@ -27,6 +27,7 @@ Specially designed Contract EXT Management Module for Neweb.""",
              'views/neweb_contract_contract_inherit4.xml',
              'views/neweb_contract_contract_inherit5.xml',
              'views/neweb_contract_contract_inherit6.xml',
+             'wizards/neweb_contract_inherit_wizard.xml',
     ],
 
     'description' : u'<5.2>.NEWEB 合約管理擴充模組',

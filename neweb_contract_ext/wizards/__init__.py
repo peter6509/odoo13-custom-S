@@ -2,5 +2,4 @@
 # Author : Peter Wu
 
 
-from . import models
-from . import wizards
+from . import neweb_contract_inherit_wizard

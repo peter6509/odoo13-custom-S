@@ -1451,3 +1451,25 @@ class newebchiinvoicingstoreproc(models.Model):
           close pitem_cur ;
         END;$BODY$
         LANGUAGE plpgsql;""")
+
+       self._cr.execute("""drop function if exists genprojtopitem(projno varchar,purno varchar) cascade""")
+       self._cr.execute("""create or replace function genprojtopitem(projno varchar,purno varchar) returns void as $BODY$
+        DECLARE
+          p_cur refcursor ;
+          p_rec record ;
+          projid int ;
+          purid int ;
+        BEGIN
+          select id into projid from neweb_project where name = projno ;
+          select id into purid from purchase_order where name = purno ;
+          if projid is not null and purid is not null then
+             open p_cur for select * from neweb_projsaleitem where saleitem_id= projid order by line_item ;
+             loop
+                fetch p_cur into p_rec ;
+                exit when not found ;
+                update neweb_pitem_list set pitem_origin_id=p_rec.id  where pitem_id = purid and pitem_litem = p_rec.line_item::numeric and pitem_origin_id is null ;
+             end loop ;
+             close p_cur ;
+          end if ;
+        END ;$BODY$
+        LANGUAGE plpgsql;""")
