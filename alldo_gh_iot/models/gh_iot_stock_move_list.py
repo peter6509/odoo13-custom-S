@@ -11,7 +11,7 @@ class ghiotstockmovelist(models.Model):
 
 
 
-    date = fields.Date(string="出貨日期")
+    date = fields.Datetime(string="出貨日期")
     product_id = fields.Many2one('product.product',string="產品料號")
     product_qty = fields.Float(digits=(10,0),string="數量")
     product_uom = fields.Many2one('uom.uom',string="單位")
