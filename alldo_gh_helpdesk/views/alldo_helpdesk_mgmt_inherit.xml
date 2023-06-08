@@ -9,14 +9,15 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='create_date']" position="replace">
-                    <field name="create_date" string="客訴時間"/>
+                    <field name="cus_alert_date" string="客訴時間"/>
                 </xpath>
                 <xpath expr="//field[@name='user_id']" position="replace">
                     <field name="user_id" options="{'no_create_edit':True,'no_create':True}" string="經辦人員"/>
                 </xpath>
 
                 <xpath expr="//field[@name='partner_id']" position="replace">
-                    <field name="partner_id" options="{'no_create_edit':True,'no_create':True}" string="客戶/客訴人員"/>
+                    <field name="partner_id" options="{'no_create_edit':True,'no_create':True}" string="客戶名稱"/>
+                    <field name="cus_alert_man" string="客戶/客訴人員"/>
                 </xpath>
                 <xpath expr="//field[@name='category_id']" position="replace">
                     <field name="category_id" options="{'no_create_edit':True,'no_create':True}" string="客訴類別"/>
@@ -38,10 +39,10 @@
                             <field name="alert_num_desc"/>
                             <field name="stock_num_desc"/>
                             <field name="process_num_desc"/>
-                            <field name="operation_man" options="{'no_create_edit':True,'no_create':True}"/>
-                            <field name="op_management" options="{'no_create_edit':True,'no_create':True}"/>
+                            <field name="operation_man1"/>
+                            <field name="op_management1"/>
                             <field name="operation_equip" options="{'no_create_edit':True,'no_create':True}"/>
-                            <field name="operation_dept"/>
+                            <field name="operation_dept1"/>
                         </group>
                         <group>
                             <field name="process_method" attrs="{'invisible':[('team_id','in',(2,3))]}"/>

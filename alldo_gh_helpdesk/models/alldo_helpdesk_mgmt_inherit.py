@@ -41,9 +41,12 @@ class AlldoHelpDeskMgmtInherit(models.Model):
     alert_num = fields.Integer(string="(客訴/異常/不良)數量")
     alert_desc = fields.Text(string="客訴不良原因")
     operation_man = fields.Many2one('hr.employee',string="操作人員")
+    operation_man1 = fields.Char(string="操作人員")
     op_management = fields.Many2one('hr.employee',string='部門主管')
+    op_management1 = fields.Char(string='部門主管')
     operation_equip = fields.Many2one('maintenance.equipment',string="操作機台")
     operation_dept = fields.Selection([('1','車床'),('2','銑床'),('3','倉管'),('4','品管'),('5','委外')],string="所屬部門")
+    operation_dept1 = fields.Char(string="所屬部門")
     process_method = fields.Selection([('1','重修'),('2','當下腳料'),('3','報廢'),('4','其他')],string="處理方式")
     p_other_desc = fields.Char(string="處理方式其他說明")
     add_blank = fields.Selection([('Y','是'),('N','否')],string="是否補胚",default='N')
@@ -68,6 +71,8 @@ class AlldoHelpDeskMgmtInherit(models.Model):
     cdate = fields.Date(string="客訴日期")
     response_term = fields.Char(string="回覆期限")
     improve_plan = fields.Text(string="改善對策")
+    cus_alert_man = fields.Char(string="客戶/客訴人員")
+    cus_alert_date = fields.Date(string="客訴日期")
 
 
     # @api.model
