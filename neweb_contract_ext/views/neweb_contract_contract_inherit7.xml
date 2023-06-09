@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="view_inherit_contract_line_ids1_form" model="ir.ui.view">
+            <field name="name">view.inherit.contract.line.ids1.form</field>
+            <field name="model">neweb_contract.contract</field>
+            <field name="inherit_id" ref="neweb_contract.contract_form"/>
+            <field name="arch" type="xml">
+
+                <!-- position: after|before|replace|attributes|inside -->
+                <xpath expr="//page/field[@name='contract_line_ids1']" position="before">
+                    <button type="action"  name="%(neweb_contract_ext.menu_contract_inherit_copy_wizard_action)d" string="舊約序號相關數據複製" class="oe_highlight oe_edit_only"
+                               context="{'newcontractid': context.get('active_id') }"/>
+                    <!-- Add your fields or attributes here -->
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>
