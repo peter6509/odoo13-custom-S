@@ -15,6 +15,9 @@
                               attrs="{'invisible':['|','|',('subscribe_build','!=',True),('routine_maintenance_new','=',False),('inspection_method','=','none')]}"
                                context="{'contract_id': context.get('active_id') }"/>
                    <!-- Add your fields or attributes here -->
+                   <button type="action"  name="%(neweb_contract_ext.menu_contract_inherit_copy_wizard_action)d" string="舊約序號相關數據複製" class="oe_highlight oe_edit_only"
+                              attrs="{'invisible':['|','|',('subscribe_build','!=',True),('routine_maintenance_new','=',False),('inspection_method','=','none')]}"
+                               context="{'newcontractid': context.get('active_id') }"/>
                </xpath>
 
            </field>

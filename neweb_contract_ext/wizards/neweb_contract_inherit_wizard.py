@@ -8,10 +8,12 @@ class NewebContractIhheritWizard(models.TransientModel):
     _name = "neweb_contract.contract_inherit_wizard"
     _description = "續約帶入第四頁籤有序號之數據"
 
-    origin_contract_id = fields.Many2one('neweb_contract.contract',string="續約來源合約",required=True)
+    origin_contract_id = fields.Many2one('neweb_contract.contract',string="COPY來源合約",required=True)
 
     def run_inherit_copy(self):
         newconid = self.env.context.get('newcontractid')
+        if self.origin_contract_id.id == newconid :
+            raise UserError("來源合約與目標合約相同,請重新選擇")
         if newconid:
             self.env.cr.execute("""select gencontractinherit4(%d,%d)""" % (self.origin_contract_id.id,newconid))
             self.env.cr.execute("""commit""")

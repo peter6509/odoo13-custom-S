@@ -393,8 +393,8 @@ class newebcontractstoreproc1(models.Model):
          END;$BODY$
          LANGUAGE plpgsql;""")
 
-        self._cr.execute("""drop function if exists gencontractinherit(conid int,conid1 int) cascade""")
-        self._cr.execute("""create or replace function gencontractinherit(conid int,conid1 int) returns void as $BODY$
+        self._cr.execute("""drop function if exists gencontractinherit4(conid int,conid1 int) cascade""")
+        self._cr.execute("""create or replace function gencontractinherit4(conid int,conid1 int) returns void as $BODY$
          DECLARE
            conl_cur refcursor ;
            conl_rec record ;

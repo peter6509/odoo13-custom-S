@@ -73,6 +73,7 @@ class AlldoHelpDeskMgmtInherit(models.Model):
     improve_plan = fields.Text(string="改善對策")
     cus_alert_man = fields.Char(string="客戶/客訴人員")
     cus_alert_date = fields.Date(string="客訴日期")
+    letter_page = fields.Integer(string="書信頁數")
 
 
     # @api.model

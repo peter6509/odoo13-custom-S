@@ -10,6 +10,7 @@
 
                 <xpath expr="//field[@name='create_date']" position="replace">
                     <field name="cus_alert_date" string="客訴時間"/>
+                    <field name="response_term"/>
                 </xpath>
                 <xpath expr="//field[@name='user_id']" position="replace">
                     <field name="user_id" options="{'no_create_edit':True,'no_create':True}" string="經辦人員"/>
@@ -24,6 +25,7 @@
                 </xpath>
                 <xpath expr="//field[@name='tag_ids']" position="replace">
                     <field name="tag_ids" widget="many2many_tags" options="{'no_create_edit':True,'no_create':True}" string="客訴方式"/>
+                    <field name="letter_page" />
                 </xpath>
 
                 <!-- position: after|before|replace|attributes|inside -->
