@@ -27,6 +27,24 @@ class acmeproductinherit(models.Model):
     material_onhand = fields.Float(digits=(10,0),string="原料在手數量",default=0)
     safe_num = fields.Float(digits=(10,0),string="安全存量",default=0)
     is_lowsafe = fields.Boolean(string="低於安全存量")
+    prod_pdf = fields.Binary(string="產品圖檔")
+    firstprod_checklist = fields.One2many('alldo_acme_iot.first_prod_checklist','checklist_id',string="首件檢查表")
+    #########  鑄造作業標準書  #########
+    sandcore = fields.Integer(string="砂芯數")
+    material = fields.Char(string="材質")
+    cave = fields.Integer(string="穴數")
+    casting_posture = fields.Char(string="澆鑄姿勢")
+    mold_temp = fields.Integer(string="模具溫度(℃)")
+    mold_temp_updown = fields.Integer(string="模具溫度上下限(℃)")
+    aluminum_temp = fields.Integer(string="鋁湯溫度(℃)")
+    aluminum_temp_updown = fields.Integer(string="鋁湯溫度上下限(℃)")
+    casting_duration = fields.Integer(string="澆鑄時間(秒)")
+    casting_duration_updown = fields.Integer(string="澆鑄時間上下限(秒)")
+    open_mold_duration = fields.Integer(string="開模時間(秒)")
+
+
+
+
 
 
     def lowsafealert(self):
@@ -127,3 +145,32 @@ class alldoacmeiotmold(models.Model):
     product_id = fields.Many2one('product.template', ondelete='cascade')
     mold_id = fields.Many2one('alldo_acme_iot.acme_mold',string="模具編號")
     active = fields.Boolean(string="啟用",default=True)
+
+
+class AllDoProdCheckList(models.Model):
+    _name = "alldo_acme_iot.first_prod_checklist"
+    _description = "生產首件檢查表"
+    _order = "checklist_seq"
+
+    checklist_id = fields.Many2one('product.template', ondelete='cascade')
+    checklist_seq = fields.Integer(string="SEQ")
+    checklist_item = fields.Many2one('alldo_acme_iot.checklist_item',string="檢查項目",required=True)
+    checklist_value = fields.Char(string="標準值")
+
+
+class AllDoAcmeIotChecklistItem(models.Model):
+    _name = "alldo_acme_iot.checklist_item"
+    _description = "檢查項目"
+
+    name =  fields.Char(string="檢查項目",required=True)
+
+    @api.model
+    def create(self, vals):
+        if 'name' in vals:
+            mycount = self.env['alldo_acme_iot.checklist_item'].search_count([('name', '=', vals['name'])])
+            if mycount > 0:
+                raise UserError("檢查項目已重複！")
+        res = super(AllDoAcmeIotChecklistItem, self).create(vals)
+        return res
+
+

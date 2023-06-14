@@ -145,6 +145,38 @@
                                     </tree>
                                     </field>
                                 </page>
+
+                                <page string="產品圖檔" name="PRODPDF">
+                                    <field name="prod_pdf" widget="pdf_viewer"/>
+                                </page>
+                                <page string="首件檢查表" name="FIRSTCHECK">
+                                  <button name="gen_first_checklist" string="產生首件檢查表" type="object" class="oe_highlight"/>
+                                  <field name="first_checklist" nolabel="1">
+                                      <tree editable="bottom" string="First Check Info" widget="one2many">
+                                          <field name="checklist_item" options="{'no_create_edit':True,'no_create':True}"/>
+                                          <field name="checklist_status"/>
+                                          <field name="checklist_user" options="{'no_create_edit':True,'no_create':True}"/>
+                                          <field name="checklist_date"/>
+                                      </tree>
+                                   </field>
+                                </page>
+                                <page string="巡檢紀錄" name="Inspection Checklist">
+                                      <field name="inspect_checklist" nolabel="1">
+                                          <tree editable="bottom" string="Inspection Check Info" widget="one2many">
+                                              <field name="checklist_datetime"/>
+                                              <field name="checklist_owner" options="{'no_create_edit':True,'no_create':True}"/>
+                                                <field name="checklist_owner1" options="{'no_create_edit':True,'no_create':True}"/>
+                                                <field name="check1"/>
+                                                <field name="check2"/>
+                                                <field name="check3"/>
+                                                <field name="check4"/>
+                                                <field name="check5"/>
+                                                <field name="check6"/>
+                                                <field name="check7"/>
+                                                <field name="memo"/>
+                                          </tree>
+                                       </field>
+                                </page>
                          </notebook>
                     </sheet>
 

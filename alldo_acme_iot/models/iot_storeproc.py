@@ -6222,8 +6222,8 @@ class alldoiotstoreproc(models.Model):
          END;$BODY$
          LANGUAGE plpgsql;""")
 
-        self._cr.execute("""update alldo_acme_iot_outsuborder_prodout set date_supply=prodout_datetime::DATE""")
-        self._cr.execute("""update alldo_acme_iot_outsuborder_prodin set date_delivery=prodin_datetime::DATE""")
+        # self._cr.execute("""update alldo_acme_iot_outsuborder_prodout set date_supply=prodout_datetime::DATE""")
+        # self._cr.execute("""update alldo_acme_iot_outsuborder_prodin set date_delivery=prodin_datetime::DATE""")
 
         self._cr.execute("""drop function if exists genoutsuborderkpi(partnerid int,sdate date,edate date) cascade""")
         self._cr.execute("""create or replace function genoutsuborderkpi(partnerid int,sdate date,edate date) returns void as $BODY$

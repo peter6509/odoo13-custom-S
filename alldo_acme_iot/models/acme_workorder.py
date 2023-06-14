@@ -71,6 +71,9 @@ class alldoacmeiotworkorder(models.Model):
     uncomplete_shipping = fields.Boolean(string='出貨未完成', compute='_get_uncomplete_ship', store=True)
     complete_shipping = fields.Boolean(string="已出貨完成", default=False)
     mo_production_num = fields.Integer(string="工單生產總數", store=False,compute=_get_moprodnum)
+    prod_pdf = fields.Binary(related='product_no.product_tmpl_id.prod_pdf',string="產品圖檔")
+    first_checklist = fields.One2many('alldo_acme_iot.wkfirst_checklist', 'checklist_id', string="首件檢查表")
+    inspect_checklist = fields.One2many('alldo_acme_iot.wkinspect_checklist', 'checklist_id', string="巡檢檢查表")
 
     # def run_complete(self):
     #     for rec in self:
@@ -142,6 +145,10 @@ class alldoacmeiotworkorder(models.Model):
                 raise UserError("工單已啟動,無法刪除了！")
         res = super(alldoacmeiotworkorder, self).unlink()
         return res
+
+    # 手動產生首件檢查表
+    def gen_first_checklist(self):
+        A=1
 
 
 class alldoacmeiotworkorderiotdata(models.Model):
@@ -312,4 +319,32 @@ class alldoacmeiotwkorderngratio(models.Model):
     cut_ng_num = fields.Float(digits=(10,0),string="切割不良數")
     ng_ratio = fields.Float(digits=(5,1),string="不良率")
 
+
+class alldoacmeiotwkinschercklist(models.Model):
+    _name = "alldo_acme_iot.wkinspect_checklist"
+    _description = "巡檢檢查表"
+
+    checklist_id = fields.Many2one('alldo_acme_iot.workorder',string="檢查表")
+    checklist_datetime = fields.Datetime(string="檢查時間",required=True,default=fields.Datetime.now)
+    checklist_owner = fields.Many2one('res.users',string="檢查者",required=True,default=lambda self: self.env.user)
+    checklist_owner1 = fields.Many2one('res.users', string="複查者")
+    check1 = fields.Selection([('ok','OK'),('ng','NG')],string="拉模",default='ok')
+    check2 = fields.Selection([('ok','OK'),('ng','NG')],string="變形",default='ok')
+    check3 = fields.Selection([('ok','OK'),('ng','NG')],string="缺料",default='ok')
+    check4 = fields.Selection([('ok','OK'),('ng','NG')],string="裂痕",default='ok')
+    check5 = fields.Selection([('ok','OK'),('ng','NG')],string="收縮不良",default='ok')
+    check6 = fields.Selection([('ok','OK'),('ng','NG')],string="砂孔",default='ok')
+    check7 = fields.Selection([('ok','OK'),('ng','NG')],string="掉藥",default='ok')
+    memo = fields.Text(string="備註")
+
+class alldoacmeiotwkfirstchecklist(models.Model):
+    _name = "alldo_acme_iot_wkfirst_checklist"
+    _description = "工單首件檢查表"
+
+    checklist_id = fields.Many2one('alldo_acme_iot.workorder',ondelete='cascade')
+    checklist_item = fields.Many2one('alldo_acme_iot.checklist_item', string="檢查項目", required=True)
+    checklist_value = fields.Char(string="標準值")
+    checklist_status = fields.Selection([('ok', 'OK'), ('ng', 'NG')], string="檢查結果", required=True, default='ok')
+    checklist_user = fields.Many2one('res.users', string="檢查人員", required=True, default=lambda self: self.env.user)
+    checklist_date = fields.Datetime(string="檢查時間", required=True, default=fields.Datetime.now)
 

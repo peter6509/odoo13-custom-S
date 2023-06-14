@@ -150,6 +150,7 @@
               'pivots/acme_outsourcing_kpi_pivot.xml',
               'pivots/acme_wkorderqc_kpi_pivot.xml',
               'pivots/acme_outorderqc_kpi_pivot.xml',
+              'views/acme_checklist_item.xml',
               'views/acme_iot_menu.xml',
 
     ],

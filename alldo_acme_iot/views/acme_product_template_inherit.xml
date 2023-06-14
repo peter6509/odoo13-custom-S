@@ -18,6 +18,7 @@
                           <field name="mold_id" options="{'no_create':true,'no_create_edit':true}"/>
                          <field name="cus_no" string="所屬客戶" options="{'no_create':true,'no_create_edit':true}"
                             domain="[('is_company','=',True),('active','=',True)]"/>
+                         <field name="prod_pdf" widget="pdf_viewer"/>
                     </group>
                     <field name="eng_line" widget="one2many" nolabel="1">
                         <tree editable="bottom">
@@ -45,7 +46,33 @@
                          <field name="active" string="生效"/>
                         </tree>
                     </field>
-                </page>
+                  </page>
+                  <page string="鑄造作業標準數據" name="CASTING STD PARAMETER">
+                      <field name="sandcore"/>
+                      <field name="material"/>
+                      <field name="cave"/>
+                      <field name="casting_posture"/>
+                      <group>
+                          <field name="mold_temp"/>
+                          <field name="aluminum_temp"/>
+                          <field name="casting_duration"/>
+                      </group>
+                      <group>
+                          <field name="mold_temp_updown"/>
+                          <field name="aluminum_temp_updown"/>
+                          <field name="casting_duration_updown"/>
+                      </group>
+                      <field name="open_mold_duration"/>
+                  </page>
+                  <page string="鑄造首件檢驗項目" name="FirstCheckList">
+                        <field name="firstprod_checklist" nolabel="1">
+                            <tree editable="bottom" string="First Prod CheckList Info" widget="one2many">
+                                <field name="checklist_seq"/>
+                                <field name="checklist_item" options="{'no_create_edit':True,'no_create':True}"/>
+                                <field name="checklist_value"/>
+                            </tree>
+                         </field>
+                  </page>
                </xpath>
 
                <xpath expr="//field[@name='default_code']" position="replace">
