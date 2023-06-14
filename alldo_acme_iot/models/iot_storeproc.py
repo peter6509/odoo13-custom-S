@@ -2,7 +2,7 @@
 # Author : Peter Wu
 
 
-from odoo import models,fields,api
+from odoo import models, fields, api
 from odoo.exceptions import UserError
 
 
@@ -63,7 +63,6 @@ class alldoiotstoreproc(models.Model):
          END;$BODY$
          LANGUAGE plpgsql;""")
 
-
         self.env.cr.execute("""drop function if exists ckoutoffstatus(nodename varchar) cascade""")
         self.env.cr.execute("""create or replace function ckoutoffstatus(nodename varchar) returns void as $BODY$
           DECLARE
@@ -83,8 +82,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql ;""")
 
-
-        self.env.cr.execute("""drop function if exists genworkorderqcline(workorderid int,qcdate date,iotnode int,prodnum float,iotowner int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genworkorderqcline(workorderid int,qcdate date,iotnode int,prodnum float,iotowner int) cascade""")
         self.env.cr.execute("""create or replace function genworkorderqcline(workorderid int,qcdate date,iotnode int,prodnum float,iotowner int) returns void as $BODY$ 
            DECLARE
              ncount int ;
@@ -106,7 +105,8 @@ class alldoiotstoreproc(models.Model):
         """)
 
         # iotstate => '1' 代表啟動   '2' 代表開工   '3' 代表暫停  '4' 代表停止
-        self.env.cr.execute("""drop function if exists setiotstatus(workorder varchar,iotnode varchar,iotstate char) cascade""")
+        self.env.cr.execute(
+            """drop function if exists setiotstatus(workorder varchar,iotnode varchar,iotstate char) cascade""")
         self.env.cr.execute("""create or replace function setiotstatus(workorder varchar,iotnode varchar,iotstate char) returns void as $BODY$
           DECLARE
             ncount int ;
@@ -170,7 +170,6 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql;""")
 
-
         self.env.cr.execute("""drop function if exists ipgetequipmentno(iotip varchar) cascade""")
         self.env.cr.execute("""create or replace function ipgetequipmentno(iotip varchar) returns varchar as $BODY$
           DECLARE
@@ -185,7 +184,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists geniotdata(nodename varchar,workorderno varchar,empno varchar,prodnum float,iotserial varchar)""")
+        self.env.cr.execute(
+            """drop function if exists geniotdata(nodename varchar,workorderno varchar,empno varchar,prodnum float,iotserial varchar)""")
         self.env.cr.execute("""create or replace function geniotdata(nodename varchar,workorderno varchar,empno varchar,prodnum float,iotserial varchar) returns void 
            as $BODY$
            DECLARE
@@ -269,7 +269,6 @@ class alldoiotstoreproc(models.Model):
               end if ;    
            END;$BODY$
            LANGUAGE plpgsql ;""")
-
 
         self.env.cr.execute("""drop function if exists checkdbinfo(mynodeno varchar) cascade""")
         self.env.cr.execute("""create or replace function checkdbinfo(mynodeno varchar) returns Integer as $BODY$
@@ -632,7 +631,6 @@ class alldoiotstoreproc(models.Model):
            END;$BODY$
            LANGUAGE plpgsql;""")
 
-
         self.env.cr.execute("""drop function if exists getalliotinfo() cascade""")
         self.env.cr.execute("""create or replace function getalliotinfo() returns setof TEXT[] as $BODY$
            DECLARE
@@ -959,7 +957,6 @@ class alldoiotstoreproc(models.Model):
            END;$BODY$
            LANGUAGE plpgsql;""")
 
-
         self.env.cr.execute("""drop function if exists createpowkorder(wkorderid int) cascade""")
         self.env.cr.execute("""create or replace function createpowkorder(wkorderid int) returns void as $BODY$
            DECLARE
@@ -1036,7 +1033,6 @@ class alldoiotstoreproc(models.Model):
              return myres ;
            END;$BODY$
            LANGUAGE plpgsql""")
-
 
         self.env.cr.execute("""drop function if exists genpowkorderngnum(wkorderid int) cascade""")
         self.env.cr.execute("""create or replace function genpowkorderngnum(wkorderid int) returns void as $BODY$
@@ -1262,8 +1258,10 @@ class alldoiotstoreproc(models.Model):
            END;$BODY$
            LANGUAGE plpgsql""")
 
-        self.env.cr.execute("""drop function if exists genoutsourcingout(outid1 int ,outid int,outownerid int,outnum int) cascade""")
-        self.env.cr.execute("""drop function if exists genoutsourcingout(outid1 int ,outid int,outownerid int,outnum int,datesupply date,datedue date) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genoutsourcingout(outid1 int ,outid int,outownerid int,outnum int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genoutsourcingout(outid1 int ,outid int,outownerid int,outnum int,datesupply date,datedue date) cascade""")
         self.env.cr.execute("""create or replace function genoutsourcingout(outid1 int,outid int,outownerid int,outnum int,datesupply date,datedue date) returns void as $BODY$
            DECLARE
               mynowdatetime timestamp ;
@@ -1285,10 +1283,10 @@ class alldoiotstoreproc(models.Model):
            END;$BODY$
            LANGUAGE plpgsql;""")
 
-
-
-        self.env.cr.execute("""drop function if exists genoutsourcingin(suborderid int,suborderid1 int,inownerid int,ingoodnum int,inngnum int) cascade""")
-        self.env.cr.execute("""drop function if exists genoutsourcingin(suborderid int,suborderid1 int,inownerid int,ingoodnum int,inngnum int,datedelivery date) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genoutsourcingin(suborderid int,suborderid1 int,inownerid int,ingoodnum int,inngnum int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genoutsourcingin(suborderid int,suborderid1 int,inownerid int,ingoodnum int,inngnum int,datedelivery date) cascade""")
         self.env.cr.execute("""create or replace function genoutsourcingin(suborderid int,suborderid1 int,inownerid int,ingoodnum int,inngnum int,datedelivery date) returns void as $BODY$
            DECLARE
              myprodid int ;
@@ -1332,7 +1330,6 @@ class alldoiotstoreproc(models.Model):
              update alldo_acme_iot_po_wkorder set state='3',write_date=mynowdatetime where id = powkorderid ;
            END;$BODY$
            LANGUAGE plpgsql;""")
-
 
         self.env.cr.execute("""drop function if exists getsonostocknum(sonoid int,prodid int) cascade""")
         self.env.cr.execute("""create or replace function getsonostocknum(sonoid int,prodid int) returns Float as $BODY$
@@ -1395,7 +1392,8 @@ class alldoiotstoreproc(models.Model):
           LANGUAGE plpgsql;
        """)
 
-        self.env.cr.execute("""drop function if exists genblankstockin(sonoid int,prodid int,blanknum float,outowner int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genblankstockin(sonoid int,prodid int,blanknum float,outowner int) cascade""")
         self.env.cr.execute("""create or replace function genblankstockin(sonoid int,prodid int,blanknum float,outowner int) returns void as $BODY$
            DECLARE
              myprodtmplid int ;
@@ -1696,8 +1694,6 @@ class alldoiotstoreproc(models.Model):
            END;$BODY$
            LANGUAGE plpgsql;""")
 
-
-
         self.env.cr.execute("""drop function if exists getnodelastmoid(nodename varchar) cascade""")
         self.env.cr.execute("""create or replace function getnodelastmoid(nodename varchar) returns INT as $BODY$
           DECLARE
@@ -1757,9 +1753,10 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql;""")
 
-
-        self.env.cr.execute("""drop function if exists runcncreplaceline(nodename varchar,empno varchar,wkorder varchar) cascade""")
-        self.env.cr.execute("""drop function if exists runcncreplaceline(nodename varchar,empno varchar,wkorder varchar,reptype varchar) cascade""")
+        self.env.cr.execute(
+            """drop function if exists runcncreplaceline(nodename varchar,empno varchar,wkorder varchar) cascade""")
+        self.env.cr.execute(
+            """drop function if exists runcncreplaceline(nodename varchar,empno varchar,wkorder varchar,reptype varchar) cascade""")
         self.env.cr.execute("""create or replace function runcncreplaceline(nodename varchar,empno varchar,wkorder varchar,reptype varchar) returns void as $BODY$
            DECLARE
              ncount int ;
@@ -1929,7 +1926,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists runcncstopline(cncerrcode varchar,empno varchar,nodename varchar) cascade""")
+        self.env.cr.execute(
+            """drop function if exists runcncstopline(cncerrcode varchar,empno varchar,nodename varchar) cascade""")
         self.env.cr.execute("""create or replace function runcncstopline(cncerrcode varchar,empno varchar,nodename varchar) returns void as $BODY$ 
            DECLARE
              statusid int ;
@@ -1953,7 +1951,6 @@ class alldoiotstoreproc(models.Model):
            END;$BODY$
            LANGUAGE plpgsql;""")
 
-
         self.env.cr.execute("""drop function if exists getpartnerprod(partnerid int) cascade""")
         self.env.cr.execute("""create or replace function getpartnerprod(partnerid int) returns setof INT as $BODY$
            DECLARE
@@ -1972,8 +1969,10 @@ class alldoiotstoreproc(models.Model):
            END;$BODY$
            LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists genoutpartner(partnerid int,prodid int,ownerid int,prodnum int,outdesc varchar,outmemo varchar,outretdate date) cascade""")
-        self.env.cr.execute("""drop function if exists genoutpartner(partnerid1 int,partnerid int,prodid int,ownerid int,prodnum int,outdesc varchar,outmemo varchar,outretdate date) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genoutpartner(partnerid int,prodid int,ownerid int,prodnum int,outdesc varchar,outmemo varchar,outretdate date) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genoutpartner(partnerid1 int,partnerid int,prodid int,ownerid int,prodnum int,outdesc varchar,outmemo varchar,outretdate date) cascade""")
         self.env.cr.execute("""create or replace function genoutpartner(partnerid1 int,partnerid int,prodid int,ownerid int,prodnum int,outdesc varchar,outmemo varchar,outretdate date) returns void as $BODY$
            DECLARE
              mynowdatetime timestamp ;
@@ -1990,8 +1989,10 @@ class alldoiotstoreproc(models.Model):
            END;$BODY$
            LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists geninpartner(partnerid int,prodid int,ownerid int,prodnum int,ngnum int,indesc varchar) cascade""")
-        self.env.cr.execute("""drop function if exists geninpartner(partnerid int,partnerid1 int,prodid int,ownerid int,prodnum int,ngnum int,indesc varchar) cascade""")
+        self.env.cr.execute(
+            """drop function if exists geninpartner(partnerid int,prodid int,ownerid int,prodnum int,ngnum int,indesc varchar) cascade""")
+        self.env.cr.execute(
+            """drop function if exists geninpartner(partnerid int,partnerid1 int,prodid int,ownerid int,prodnum int,ngnum int,indesc varchar) cascade""")
         self.env.cr.execute("""create or replace function geninpartner(partnerid int,partnerid1 int,prodid int,ownerid int,prodnum int,ngnum int,indesc varchar) returns void as $BODY$
            DECLARE
              mynowdatetime timestamp ;
@@ -2168,10 +2169,6 @@ class alldoiotstoreproc(models.Model):
             end if ;
           END;$BODY$
           LANGUAGE plpgsql;""")
-
-
-
-
 
         self.env.cr.execute("""drop function if exists getmooriginnum(moid int) cascade""")
         self.env.cr.execute("""create or replace function getmooriginnum(moid int) returns float as $BODY$
@@ -2887,8 +2884,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql;""")
 
-
-        self.env.cr.execute("""drop function if exists genoutsourcinginout(partnerid int,prodid int,startdate date,enddate date) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genoutsourcinginout(partnerid int,prodid int,startdate date,enddate date) cascade""")
         self.env.cr.execute("""create or replace function genoutsourcinginout(partnerid int,prodid int,startdate date,enddate date) returns void as $BODY$
           DECLARE
             out_cur refcursor ;
@@ -2956,7 +2953,8 @@ class alldoiotstoreproc(models.Model):
              SML.product_id,SML.qty_done,SML.picking_id from stock_picking SP left join stock_move_line SML on SP.id = SML.picking_id 
              where SP.state='done' and SP.picking_type_id=2 ;""")
 
-        self.env.cr.execute("""drop function if exists genshippingexcel(partnerid int,prodid int,startdate date,enddate date) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genshippingexcel(partnerid int,prodid int,startdate date,enddate date) cascade""")
         self.env.cr.execute("""create or replace function genshippingexcel(partnerid int,prodid int,startdate date,enddate date) returns void as $BODY$
           DECLARE
             mv_cur refcursor ;
@@ -2993,8 +2991,8 @@ class alldoiotstoreproc(models.Model):
              DT.id as dtid,DT.order_id,DT,iot_date,DT.iot_node,DT.iot_owner,DT.iot_num,DT.iot_duration,DT.std_duration 
              from alldo_acme_iot_workorder_iot_data DT left join alldo_acme_iot_workorder WK on WK.id= DT.order_id where WK.state in ('3','4') """)
 
-
-        self.env.cr.execute("""drop function if exists genwkperformance(startdate date,enddate date,prodid int,engtype char,empid int,equipid int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genwkperformance(startdate date,enddate date,prodid int,engtype char,empid int,equipid int) cascade""")
         self.env.cr.execute("""create or replace function genwkperformance(startdate date,enddate date,prodid int,engtype char,empid int,equipid int) returns void as $BODY$
           DECLARE
             iot_cur refcursor ;
@@ -3063,8 +3061,10 @@ class alldoiotstoreproc(models.Model):
            A.replace_start_datetime,A.replace_end_datetime,A.replace_duration,B.product_no,B.eng_type from alldo_acme_iot_wkorder_replaceline A left join
            alldo_acme_iot_workorder B on A.order_id = B.id ;""")
 
-        self.env.cr.execute("""drop function if exists genreplineperformance(startdate date,enddate date,prodid int,empid int,equipid int) cascade""")
-        self.env.cr.execute("""drop function if exists genreplineperformance(startdate date,enddate date,prodid int,empid int,equipid int,reptype char) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genreplineperformance(startdate date,enddate date,prodid int,empid int,equipid int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genreplineperformance(startdate date,enddate date,prodid int,empid int,equipid int,reptype char) cascade""")
         self.env.cr.execute("""create or replace function genreplineperformance(startdate date,enddate date,prodid int,empid int,equipid int,reptype char) returns void as $BODY$
               DECLARE
                 rep_cur refcursor ;
@@ -3138,8 +3138,6 @@ class alldoiotstoreproc(models.Model):
                 close rep_cur ;                                    
               END;$BODY$
               LANGUAGE plpgsql;""")
-
-
 
         self.env.cr.execute("""drop function if exists getmogpseq() cascade""")
         self.env.cr.execute("""create or replace function getmogpseq() returns INT as $BODY$
@@ -3262,7 +3260,6 @@ class alldoiotstoreproc(models.Model):
             close lot_cur ;     
           END;$BODY$
           LANGUAGE plpgsql;""")
-
 
         self.env.cr.execute("""drop function if exists getfurnace() cascade""")
         self.env.cr.execute("""create or replace function getfurnace() returns setof INT as $BODY$
@@ -3786,7 +3783,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists mo_produce_in(productno varchar,lotno varchar,equipno varchar,scaleweight float,scaleowner varchar)""")
+        self.env.cr.execute(
+            """drop function if exists mo_produce_in(productno varchar,lotno varchar,equipno varchar,scaleweight float,scaleowner varchar)""")
         self.env.cr.execute("""create or replace function mo_produce_in(productno varchar,lotno varchar,equipno varchar,scaleweight float,scaleowner varchar) returns Boolean as $BODY$
           DECLARE
             prodid int ;
@@ -3862,7 +3860,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists mo_stock_in(productno varchar,scaleweight float,scaleowner varchar)""")
+        self.env.cr.execute(
+            """drop function if exists mo_stock_in(productno varchar,scaleweight float,scaleowner varchar)""")
         self.env.cr.execute("""create or replace function mo_stock_in(productno varchar,scaleweight float,scaleowner varchar) returns Boolean as $BODY$
          DECLARE
            prodid int ;
@@ -3899,7 +3898,6 @@ class alldoiotstoreproc(models.Model):
             return myres ;
          END;$BODY$
          LANGUAGE plpgsql;""")
-
 
         self.env.cr.execute("""drop function if exists updateshippingwkorder(pickingid int) cascade""")
         self.env.cr.execute("""create or replace function updateshippingwkorder(pickingid int) returns void as $BODY$
@@ -4073,7 +4071,8 @@ class alldoiotstoreproc(models.Model):
            END;$BODY$
            LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists genpackagingbom(mypackagingno varchar,myprodno varchar,prodset int,childset int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genpackagingbom(mypackagingno varchar,myprodno varchar,prodset int,childset int) cascade""")
         self.env.cr.execute("""create or replace function genpackagingbom(mypackagingno varchar,myprodno varchar,prodset int,childset int) returns void as $BODY$
           DECLARE
             ncount int ;
@@ -4166,7 +4165,8 @@ class alldoiotstoreproc(models.Model):
             from alldo_acme_iot_outsuborder_prodin QC left join alldo_acme_iot_outsuborder SUB
              on QC.order_id = SUB.id where (coalesce(QC.in_ng_num,0) > 0 or coalesce(QC.in_good_num,0) > 0) order by prodin_datetime::DATE,name""")
 
-        self.env.cr.execute("""drop function if exists genngreturnexcel(partnerid int,prodid int,startdate date,enddate date) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genngreturnexcel(partnerid int,prodid int,startdate date,enddate date) cascade""")
         self.env.cr.execute("""create or replace function genngreturnexcel(partnerid int,prodid int,startdate date,enddate date) returns void as $BODY$
          DECLARE
            ng_cur refcursor ;
@@ -4195,7 +4195,8 @@ class alldoiotstoreproc(models.Model):
          END;$BODY$
          LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists gen_accountmove(partnerid int,startdate date,enddate date) cascade""")
+        self.env.cr.execute(
+            """drop function if exists gen_accountmove(partnerid int,startdate date,enddate date) cascade""")
         self.env.cr.execute("""create or replace function gen_accountmove(partnerid int,startdate date,enddate date) returns void as $BODY$
          DECLARE
            inv_cur refcursor ;
@@ -4401,8 +4402,10 @@ class alldoiotstoreproc(models.Model):
          LANGUAGE plpgsql;
          """)
 
-        self.env.cr.execute("""drop function if exists genscalemovemixsearch(startdate date,enddate date,prodid int) cascade""")
-        self.env.cr.execute("""drop function if exists genscalemovemixsearch(startdate date,enddate date,prodid int,scaletype char) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genscalemovemixsearch(startdate date,enddate date,prodid int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genscalemovemixsearch(startdate date,enddate date,prodid int,scaletype char) cascade""")
         self.env.cr.execute("""create or replace function genscalemovemixsearch(startdate date,enddate date,prodid int,scaletype char) returns void as $BODY$
          DECLARE
            sca_cur refcursor ;
@@ -4596,7 +4599,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql ;""")
 
-        self.env.cr.execute("""drop function if exists updatesuborderframe(subid int,outframe1 int,outframe2 int,outpallet int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists updatesuborderframe(subid int,outframe1 int,outframe2 int,outpallet int) cascade""")
         self.env.cr.execute("""create or replace function updatesuborderframe(subid int,outframe1 int,outframe2 int,outpallet int) returns void as $BODY$
           DECLARE
             ncount int ;
@@ -4606,7 +4610,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists updatesuborderframe1(subid int,inframe1 int,inframe2 int,inpallet int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists updatesuborderframe1(subid int,inframe1 int,inframe2 int,inpallet int) cascade""")
         self.env.cr.execute("""create or replace function updatesuborderframe1(subid int,inframe1 int,inframe2 int,inpallet int) returns void as $BODY$
           DECLARE
             ncount int ;
@@ -4616,7 +4621,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists updatesuborderframe2(subid1 int,subid2 int,tframe1 int,tframe2 int,tpallet int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists updatesuborderframe2(subid1 int,subid2 int,tframe1 int,tframe2 int,tpallet int) cascade""")
         self.env.cr.execute("""create or replace function updatesuborderframe2(subid1 int,subid2 int,tframe1 int,tframe2 int,tpallet int) returns void as $BODY$
           DECLARE
             ncount int ;
@@ -4628,9 +4634,9 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql;""")
 
-
         self.env.cr.execute("""drop function if exists genqcngnum(ngtype char,noid int,ngnum float) cascade""")
-        self.env.cr.execute("""drop function if exists genqcngnum(ngtype char,noid int,ngnum float,ngmemo varchar,inowner int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genqcngnum(ngtype char,noid int,ngnum float,ngmemo varchar,inowner int) cascade""")
         self.env.cr.execute("""create or replace function genqcngnum(ngtype char,noid int,ngnum float,ngmemo varchar,inowner int) returns void as $BODY$
          DECLARE
            ncount int ;
@@ -4660,7 +4666,8 @@ class alldoiotstoreproc(models.Model):
          END;$BODY$
          LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists updatemowkman(nodename varchar,wkorder varchar,empno1 varchar,empno2 varchar) cascade""")
+        self.env.cr.execute(
+            """drop function if exists updatemowkman(nodename varchar,wkorder varchar,empno1 varchar,empno2 varchar) cascade""")
         self.env.cr.execute("""create or replace function updatemowkman(nodename varchar,wkorder varchar,empno1 varchar,empno2 varchar) returns void as $BODY$
          DECLARE
            ncount int ;
@@ -4924,7 +4931,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql""")
 
-        self.env.cr.execute("""drop function if exists gencastloadstart(nodeno varchar,mono varchar,empno varchar) cascade""")
+        self.env.cr.execute(
+            """drop function if exists gencastloadstart(nodeno varchar,mono varchar,empno varchar) cascade""")
         self.env.cr.execute("""create or replace function gencastloadstart(nodeno varchar,mono varchar,empno varchar) returns varchar as $BODY$
           DECLARE
              mynowdate date ;
@@ -4962,7 +4970,8 @@ class alldoiotstoreproc(models.Model):
           END;$BODY$
           LANGUAGE plpgsql""")
 
-        self.env.cr.execute("""drop function if exists gencastloadend(nodeno varchar,mono varchar,empno varchar) cascade""")
+        self.env.cr.execute(
+            """drop function if exists gencastloadend(nodeno varchar,mono varchar,empno varchar) cascade""")
         self.env.cr.execute("""create or replace function gencastloadeend(nodeno varchar,mono varchar,empno varchar) returns varchar as $BODY$
           DECLARE
              mynowdate date ;
@@ -5139,7 +5148,8 @@ class alldoiotstoreproc(models.Model):
              END;$BODY$
              LANGUAGE plpgsql;""")
 
-        self.env.cr.execute("""drop function if exists genprodgoodng(startdate date,enddate date,prodid int,nodeid int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genprodgoodng(startdate date,enddate date,prodid int,nodeid int) cascade""")
         self.env.cr.execute("""create or replace function genprodgoodng(startdate date,enddate date,prodid int,nodeid int) returns void as $BODY$
         DECLARE
           totamount float ;
@@ -5619,7 +5629,6 @@ class alldoiotstoreproc(models.Model):
          END;$BODY$
          LANGUAGE plpgsql;""")
 
-
         self.env.cr.execute("""drop function if exists getquantlotnum(quantid int) cascade""")
         self.env.cr.execute("""create or replace function getquantlotnum(quantid int) returns float as $BODY$
          DECLARE
@@ -5844,7 +5853,8 @@ class alldoiotstoreproc(models.Model):
                         B.report_no,B.origin from stock_move A left join stock_picking B on A.picking_id = B.id
                          where A.picking_type_id=2 and A.state='done' and substring(B.report_no,1,1)='S' """)
 
-        self.env.cr.execute("""drop function if exists genstockmovemixsearch(startdate date,enddate date,partnerid int,prodid int) cascade""")
+        self.env.cr.execute(
+            """drop function if exists genstockmovemixsearch(startdate date,enddate date,partnerid int,prodid int) cascade""")
         self.env.cr.execute("""create or replace function genstockmovemixsearch(startdate date,enddate date,partnerid int,prodid int) returns void as $BODY$
          DECLARE
            mv_cur refcursor ;
@@ -6396,9 +6406,32 @@ class alldoiotstoreproc(models.Model):
          END;$BODY$
          LANGUAGE plpgsql;""")
 
-
-
-
+        self._cr.execute("""drop function if exists genfristchecklist(wid int,uid int) cascade""")
+        self._cr.execute("""create or replace function genfristchecklist(wid int,uid int) returns void as $BODY$
+        DECLARE 
+          prodid int ;
+          prodtmplid int ;
+          chk_cur refcursor ;
+          chk_rec record ;
+          ncount int ;
+          mynowdate date ;
+        BEGIN
+          mynowdate = now()::DATE ;
+          select product_no into prodid from alldo_acme_iot_workorder where id=wid ;
+          select product_tmpl_id into prodtmplid from product_product where id=prodid ;
+          open chk_cur for select * from alldo_acme_iot_frist_prod_checklist where checklist_id=prodtmplid order by checklist_seq ;  
+          loop
+            fetch chk_cur into chk_rec ;
+            exit when not found ;
+            select count(*) into ncount from alldo_acme_iot_wkfrist_checklist where checklist_id=wid and checklist_item=chk_rec.checklist_item and checklist_date::DATE = chk_rec.checklist_date::DATE ;    
+            if ncount = 0 then
+               insert into alldo_acme_iot_wkfrist_checklist(checklist_id,checklist_item,checklist_value,checklist_date,checklist_user,checklist_status) values
+                (wid,chk_rec.checklist_item,chk_rec.checklist_value,mynowdate,uid,'ok') ;
+            end if ;
+          end loop ;
+          close chk_cur ;
+        END ;$BODY$
+        LANGUAGE plpgsql;""")
 
         #
         # self.env.cr.execute("""drop index if exists equipment_iotdata_index1 cascade""")

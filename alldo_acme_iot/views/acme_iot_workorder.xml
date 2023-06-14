@@ -153,10 +153,12 @@
                                   <button name="gen_first_checklist" string="產生首件檢查表" type="object" class="oe_highlight"/>
                                   <field name="first_checklist" nolabel="1">
                                       <tree editable="bottom" string="First Check Info" widget="one2many">
+                                          <field name="checklist_date"/>
                                           <field name="checklist_item" options="{'no_create_edit':True,'no_create':True}"/>
+                                          <field name="checklist_value"/>
                                           <field name="checklist_status"/>
                                           <field name="checklist_user" options="{'no_create_edit':True,'no_create':True}"/>
-                                          <field name="checklist_date"/>
+
                                       </tree>
                                    </field>
                                 </page>

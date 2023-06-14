@@ -72,7 +72,7 @@ class alldoacmeiotworkorder(models.Model):
     complete_shipping = fields.Boolean(string="已出貨完成", default=False)
     mo_production_num = fields.Integer(string="工單生產總數", store=False,compute=_get_moprodnum)
     prod_pdf = fields.Binary(related='product_no.product_tmpl_id.prod_pdf',string="產品圖檔")
-    first_checklist = fields.One2many('alldo_acme_iot.wkfirst_checklist', 'checklist_id', string="首件檢查表")
+    first_checklist = fields.One2many('alldo_acme_iot.wkfrist_checklist', 'checklist_id', string="首件檢查表")
     inspect_checklist = fields.One2many('alldo_acme_iot.wkinspect_checklist', 'checklist_id', string="巡檢檢查表")
 
     # def run_complete(self):
@@ -148,7 +148,11 @@ class alldoacmeiotworkorder(models.Model):
 
     # 手動產生首件檢查表
     def gen_first_checklist(self):
-        A=1
+        myuid = self.env.user.id
+        myworkorderid = self.id
+        self.env.cr.execute("""select genfristchecklist(%d,%d)""" % (myworkorderid, myuid))
+        self.env.cr.execute("""commit""")
+
 
 
 class alldoacmeiotworkorderiotdata(models.Model):
@@ -338,13 +342,14 @@ class alldoacmeiotwkinschercklist(models.Model):
     memo = fields.Text(string="備註")
 
 class alldoacmeiotwkfirstchecklist(models.Model):
-    _name = "alldo_acme_iot_wkfirst_checklist"
+    _name = "alldo_acme_iot.wkfrist_checklist"
     _description = "工單首件檢查表"
+    _order = "checklist_date desc"
 
     checklist_id = fields.Many2one('alldo_acme_iot.workorder',ondelete='cascade')
     checklist_item = fields.Many2one('alldo_acme_iot.checklist_item', string="檢查項目", required=True)
     checklist_value = fields.Char(string="標準值")
     checklist_status = fields.Selection([('ok', 'OK'), ('ng', 'NG')], string="檢查結果", required=True, default='ok')
-    checklist_user = fields.Many2one('res.users', string="檢查人員", required=True, default=lambda self: self.env.user)
-    checklist_date = fields.Datetime(string="檢查時間", required=True, default=fields.Datetime.now)
+    checklist_user = fields.Many2one('res.users', string="檢查人員", required=True, default=lambda self:self.env.user)
+    checklist_date = fields.Datetime(string="檢查時間", default=fields.Datetime.now)
 

@@ -23,6 +23,11 @@
                   groups="base.group_no_one" sequence="60"/>
         <menuitem id="menu_iot_view2_12" name="投料樞鈕料號設定" parent="menu_iot_categ2" action="acme_scalegroup_setting_action"
                   groups="base.group_no_one" sequence="70"/>
+        <menuitem id="menu_iot_view2_13" name="檢驗項目設定" parent="menu_iot_categ2" action="action_acme_checklist_item_view"
+                  groups="alldo_acme_iot.group_iot_ass" sequence="80"/>
+
+
+
 
 
         <menuitem id="menu_iot_categ8" name="作業精靈" parent="menu_iot_root" sequence="25"/>

@@ -28,7 +28,7 @@ class acmeproductinherit(models.Model):
     safe_num = fields.Float(digits=(10,0),string="安全存量",default=0)
     is_lowsafe = fields.Boolean(string="低於安全存量")
     prod_pdf = fields.Binary(string="產品圖檔")
-    firstprod_checklist = fields.One2many('alldo_acme_iot.first_prod_checklist','checklist_id',string="首件檢查表")
+    firstprod_checklist = fields.One2many('alldo_acme_iot.frist_prod_checklist','checklist_id',string="首件檢查表")
     #########  鑄造作業標準書  #########
     sandcore = fields.Integer(string="砂芯數")
     material = fields.Char(string="材質")
@@ -148,7 +148,7 @@ class alldoacmeiotmold(models.Model):
 
 
 class AllDoProdCheckList(models.Model):
-    _name = "alldo_acme_iot.first_prod_checklist"
+    _name = "alldo_acme_iot.frist_prod_checklist"
     _description = "生產首件檢查表"
     _order = "checklist_seq"
 
