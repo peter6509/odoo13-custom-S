@@ -96,7 +96,7 @@ class newebfinereport1(models.Model):
         left join res_partner E on C.cus_name = E.id
         left join hr_employee D on C.proj_sale = D.id
         left join neweb_prodbrand F on A.prod_brand = F.id
-        where A.prod_set is not null   order by A.prod_set)""")
+        where A.prod_set is not null  order by A.prod_set)""")
 
 
 

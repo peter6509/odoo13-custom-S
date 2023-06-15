@@ -158,7 +158,8 @@ class newebsalesima(models.Model):
 
 
         tools.drop_view_if_exists(self.env.cr, 'neweb_finrreport_sima_view')
-        self.env.cr.execute("""CREATE or REPLACE VIEW neweb_finereport_sima_view as (select (select getprojyear(A.id)) as proj_year,B.name as proj_sale,(select getsinum(A.id)) as si_num,(select getmanum(A.id)) as ma_num,(select getsimatot(A.id)) as simatot from neweb_project A 
+        self.env.cr.execute("""CREATE or REPLACE VIEW neweb_finereport_sima_view as (select (select getprojyear(A.id)) as proj_year,B.name as proj_sale,
+        (select getsinum(A.id)) as si_num,(select getmanum(A.id)) as ma_num,(select getsimatot(A.id)) as simatot,A.proj_sale as projsaleid,B.department_id from neweb_project A 
             left join hr_employee B on A.proj_sale = B.id)""")
 
         tools.drop_view_if_exists(self._cr, 'neweb_acceptance_acc_list_view')
@@ -354,14 +355,15 @@ class newebsalesima(models.Model):
 
         tools.drop_view_if_exists(self._cr, 'neweb_projanalysis_costtype_view')
         self._cr.execute("""create or replace view neweb_projanalysis_costtype_view as (
-        select A.name,(select getprojyear(A.id)) as proj_year,B.name as salename,C.name as partnername,A.proj_sale,A.cus_name,
+        select A.name,(select getprojyear(A.id)) as proj_year,B.name as salename,C.name as partnername,A.proj_sale,A.cus_name,B.department_id,
          (select get_cost1_rev(A.id)) as cost1rev,(select get_cost1_pro(A.id)) as cost1pro,
           (select get_cost2_rev(A.id)) as cost2rev,(select get_cost2_pro(A.id)) as cost2pro,
           (select get_cost3_rev(A.id)) as cost3rev,(select get_cost3_pro(A.id)) as cost3pro,
           (select get_cost4_rev(A.id)) as cost4rev,(select get_cost4_pro(A.id)) as cost4pro,
           (select get_cost5_rev(A.id)) as cost5rev,(select get_cost5_pro(A.id)) as cost5pro,
           (select get_cost6_rev(A.id)) as cost6rev,(select get_cost6_pro(A.id)) as cost6pro    
-          from neweb_project A left join hr_employee B on A.proj_sale = B.id left join res_partner C on A.cus_name = C.id
+          from neweb_project A left join hr_employee B on A.proj_sale = B.id 
+          left join res_partner C on A.cus_name = C.id
           where A.name is not null and A.cus_name is not null and A.proj_sale is not null)""")
 
         self._cr.execute("""drop function if exists get_si_count(projid int) cascade""")
@@ -416,7 +418,7 @@ class newebsalesima(models.Model):
 
         tools.drop_view_if_exists(self._cr, 'neweb_proj_salecount_view')
         self._cr.execute("""create or replace view neweb_proj_salecount_view as (select A.proj_sale,B.name as salename,(select getprojyear(A.id)) as proj_year,
-         (select get_si_count(A.id)) as sicount,(select get_ma_count(A.id)) as macount  from neweb_project A left join hr_employee B on A.proj_sale = B.id 
+         (select get_si_count(A.id)) as sicount,(select get_ma_count(A.id)) as macount,B.department_id  from neweb_project A left join hr_employee B on A.proj_sale = B.id 
          where A.name is not null and A.cus_name is not null and A.proj_sale is not null)""")
 
 
