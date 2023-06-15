@@ -11,7 +11,7 @@
             </field>
         </record>
         <record id="action_support_maillist_view" model="ir.actions.act_window">
-            <field name="name">人力派工必要通知名單</field>
+            <field name="name">專案派工必要通知名單</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">neweb.support_maillist</field>
             <field name="view_mode">tree,form</field>
@@ -26,7 +26,7 @@
             </field>
         </record>
         <menuitem id="menu_support_maillist"
-                  name="人力派工必要通知名單"
+                  name="專案派工必要通知名單"
                   parent="neweb_project.menu_proj_assign_categ"
                   sequence="100"
                   action="action_support_maillist_view"

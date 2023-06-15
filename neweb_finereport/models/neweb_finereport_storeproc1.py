@@ -63,13 +63,26 @@ class newebfinereport1(models.Model):
             return myrate ;
         end ; $$ language plpgsql;""")
 
+        self._cr.execute("""drop function if exists getsaleitemdept(sitemid int) cascade""")
+        self._cr.execute("""create or replace function getsaleitemdept(sitemid int) returns INT as $$
+        declare
+          projid int ;
+          saleid int ;
+          deptid int ;
+        begin
+          select saleitem_id into projid from neweb_projsaleitem where id = sitemid ;
+          select proj_sale into saleid from neweb_project where id = projid ;
+          select department_id into deptid from hr_employee where id = saleid ;
+          return deptid ;
+        end ; $$ language plpgsql;""")
+
         tools.drop_view_if_exists(self._cr, 'neweb_prodset_analysis_view')
         self._cr.execute("""create or replace view neweb_prodset_analysis_view as (
         select (select getsaleitemyear(A.id)) as sitemyear,A.prod_set,B.name as setname,A.prod_num,A.prod_revenue,A.prod_price,
         (A.prod_num::numeric * A.prod_revenue::numeric) as rprice,
         (A.prod_num::numeric * A.prod_price::numeric) as cprice,
         (A.prod_num::numeric * (A.prod_revenue::numeric - A.prod_price::numeric)) as profit,
-        (select getsitemprofitrate(A.id)) as profitrate
+        (select getsitemprofitrate(A.id)) as profitrate,(select getsaleitemdept(A.id)) as saledept
         from neweb_projsaleitem A left join neweb_prodset B on A.prod_set = B.id
         where A.prod_set is not null and A.prod_num > 0 and A.prod_revenue > 0 order by A.prod_set)""")
 
@@ -77,7 +90,7 @@ class newebfinereport1(models.Model):
         self._cr.execute("""create or replace view neweb_prodset_modeltypeview as (
         select (select getsaleitemyear(A.id)) as sitemyear,A.prod_set,B.name as setname,A.prod_num,A.prod_price,
         (A.prod_num::numeric * A.prod_price::numeric) as cprice,D.name as salename,C.proj_sale,A.prod_brand,F.name as brandname,
-        A.prod_modeltype,A.prod_desc,C.name as projname,E.name as partnername
+        A.prod_modeltype,A.prod_desc,C.name as projname,E.name as partnername,(select getsaleitemdept(A.id)) as saledept
         from neweb_projsaleitem A left join neweb_prodset B on A.prod_set = B.id
         left join neweb_project C on A.saleitem_id = C.id
         left join res_partner E on C.cus_name = E.id

@@ -5,11 +5,8 @@
         <!--Email template -->
         <record id="email_template_assign_message" model="mail.template">
             <field name="name">專案派工通知Email</field>
-            <field name="email_from">
-                ${(object.write_uid.email and '%s &lt;%s&gt;' % (object.write_uid.name, object.write_uid.email) or '')|safe}
-            </field>
+            <field name="email_from">erp@newebinfo.com.tw</field>
             <field name="subject">專案: ${object.assign_no} 派工單通知訊息</field>
-            <!--<field name="partner_to">${object.stockin_checkman.id}</field>-->
             <field name="email_to">${object.get_assignemail_ids(object.assign_man)}</field>
             <field name="model_id" ref="neweb_project.model_neweb_proj_eng_assign"/>
             <field name="auto_delete" eval="True"/>
@@ -17,7 +14,7 @@
             <!--<field name="report_name">${(object.name or '').replace('/','_')}_${object.state == 'draft' and 'draft' or ''}</field>-->
             <field name="lang">${object.write_uid.partner_id.lang}</field>
             <field name="body_html"><![CDATA[
-<h1><p>工程部的同事 :${object.get_assignname_ids(object.assign_man)}  您好！</p>
+<p>工程部的同事 :${object.get_assignname_ids(object.assign_man)}  您好！</p>
 <p>
    請參照專案派工內容;進行安排安裝施工作業程序，不勝感谢!</strong>
 </p>
@@ -26,17 +23,18 @@
    <p>專案派工資訊如下：
    <ul>
     %if object.proj_no.name:
-       <li>專案號碼 :${object.proj_no.name}</li>
+       <li>專案號碼 :${(object.proj_no.name or ' ')|safe}</li>
     % endif
-    <li>派工單號 :${object.assign_no}</li>
-    <li>預定裝機日: ${object.setup_date}</li>
-    <li>專案業務員: ${object.proj_sale.name}</li>
-    <li>專案客戶 : ${object.proj_cus_name.name}</li>
-    <li>客戶地址 : ${object.setup_address}</li>
-    <li>裝機連絡人: ${object.setup_contact.name}</li>
-    <li>連絡人電話: ${object.setup_contact_phone}</li>
-    <li>連絡人行動: ${object.setup_contact_mobile}</li>
-    <li>派工需求說明: ${object.assign_man_desc}</li>
+    <li>派工單號 :${(object.assign_no or ' ')|safe}</li>
+    <li>預定裝機日: ${(object.setup_date or ' ')|safe}</li>
+    <li>專案業務員: ${(object.proj_sale.name or ' ')|safe}</li>
+    <li>專案客戶 : ${(object.proj_cus_name.name or ' ')|safe}</li>
+    <li>客戶地址 : ${(object.setup_address or ' ')|safe}</li>
+    <li>裝機連絡人: ${(object.setup_contact.name or ' ')|safe}</li>
+    <li>連絡人電話: ${(object.setup_contact_phone or ' ')|safe}</li>
+    <li>連絡人行動: ${(object.setup_contact_mobile or ' ')|safe}</li>
+    <li>派工主旨 : ${(object.assign_man_subject or ' ')|safe}</li>
+    <li>派工需求說明: ${(object.assign_man_desc or ' ')|safe}</li>
    </ul>
 
    <font style="font-size: 12px;">裝機內容明細</font>
@@ -72,7 +70,7 @@
 
 <p>如果有任何問题，請及時與我聯繫！</p>
 <p>谢谢！！</p>
-</h1>
+
 <p style="color:#eeeeee;">
 % if object.write_uid and object.write_uid.signature:
     ${object.write_uid.signature | safe}

@@ -25,14 +25,17 @@ class newebdevexportjdwwizard(models.TransientModel):
     export_date = fields.Datetime(string="匯出日期時間",default=datetime.today())
 
     def run_dev_export(self):
+        myconrec = []
         if self.contract_no:
             self.env.cr.execute("""select getjdwexportdev1('%s')""" % self.contract_no)
-            myconid = self.env.cr.fetchone()[0]
-            mydev_rec = self.env['neweb_contract.contract.line'].search([('contract_id', '=', myconid)], order='contract_id,id')
+            myconid = self.env.cr.fetchall()
+            mydev_rec = self.env['neweb_contract.contract.line'].search([('id', 'in', myconid)], order='contract_id,id')
         else:
             self.env.cr.execute("""select getjdwexportdev('%s','%s')""" % (self.start_date,self.end_date))
             myconid = self.env.cr.fetchall()
-            mydev_rec = self.env['neweb_contract.contract.line'].search([('contract_id', 'in', myconid)], order='contract_id,id')
+            #for myconid1 in myconid:
+                #myconrec.append((myconid1[0]))
+            mydev_rec = self.env['neweb_contract.contract.line'].search([('id', 'in', myconid)], order='contract_id,id')
 
         output = io.BytesIO()
 

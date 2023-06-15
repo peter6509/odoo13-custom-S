@@ -112,35 +112,36 @@ class newebjdwstoreproc(models.Model):
           con_cur refcursor ;
           con_rec record ;
         begin
-          open con_cur for select id from neweb_contract_contract_line where  write_date >= sdate and write_date <= edate order by contract_id,id ;
+          open con_cur for select contract_line_id from neweb_contract_contract_line_change where change_date >= sdate and change_date <= edate order by contract_line_id ;
           loop
-            fetch con_cur into con_rec ;
-            exit when not found ;
-            myres := con_rec.id ;
-            return next myres ;
-          end loop ;
-          close con_cur ;
-          open con_cur for select id from neweb_contract_contract_line where  write_date is null and create_date >= sdate and create_date <= edate order by contract_id,id;
-          loop
-            fetch con_cur into con_rec ;
-            exit when not found ;
-            myres := con_rec.id ;
-            return next myres ;
+             fetch con_cur into con_rec ;
+             exit when not found ;
+                myres := con_rec.contract_line_id ;
+                return next myres ;
           end loop ;
           close con_cur ;
         end;$$
         language plpgsql;""")
 
         self._cr.execute("""drop function if exists getjdwexportdev1(contractno varchar) cascade""")
-        self._cr.execute("""create or replace function getjdwexportdev1(contractno varchar) returns INT as $$
+        self._cr.execute("""create or replace function getjdwexportdev1(contractno varchar) returns setof INT as $$
         declare
           myres int ;
+          myres1 int ;
+          con_cur refcursor ;
+          con_rec record ;
         begin
           select id into myres from neweb_contract_contract where name = contractno ;
-          if myres is null then
-             myres = 0 ;
+          if myres is not null then
+             open con_cur for select * from neweb_contract_contract_line_change where contract_id = myres ;
+             loop
+                fetch con_cur into con_rec ;
+                exit when not found ;
+                myres1 := con_rec.contract_line_id ;
+                return next myres1 ;
+             end loop ;
+             close con_cur ;
           end if ;
-          return myres ;
         end;$$
         language plpgsql;""")
 
