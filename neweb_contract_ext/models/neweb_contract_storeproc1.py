@@ -468,6 +468,47 @@ class newebcontractstoreproc1(models.Model):
          END;$BODY$
          LANGUAGE plpgsql;""")
 
+        self._cr.execute("""drop function if exists gencontractline1byid(conid int) cascade""")
+        self._cr.execute("""create or replace function gencontractline1byid(conid int) returns void as $BODY$
+         DECLARE
+           l_cur refcursor ;
+           l_rec record ;
+           ncount int ;
+         BEGIN
+           open l_cur for select * from neweb_contract_contract_line where contract_id=conid order by sequence,id ;
+           loop
+             fetch l_cur into l_rec;
+             exit when not found ;
+             select count(*) into ncount from neweb_contract_contract_line1 where contract_line_id=l_rec.id and contract_id=l_rec.contract_id ;
+             if ncount = 0 then
+               insert into neweb_contract_contract_line1(contract_id,prod_set,prod_brand,prod_modeltype,prod_modeltype1,machine_serial_no,rack_loc,warranty_duedate,prod_line_os,contract_line_id,sequence) values
+                  (l_rec.contract_id,l_rec.prod_set,l_rec.prod_brand,l_rec.prod_modeltype,l_rec.prod_modeltype1,l_rec.machine_serial_no,l_rec.rack_loc,l_rec.warranty_duedate,l_rec.prod_line_os,l_rec.id,l_rec.sequence) ;
+             end if ;
+           end loop ;
+           close l_cur ;
+         END;$BODY$
+         LANGUAGE plpgsql;""")
+
+        self._cr.execute("""drop function if exists genlossconline1() cascade""")
+        self._cr.execute("""create or replace function genlossconline1() returns void as $BODY$
+        DECLARE
+          con_cur refcursor ;
+          con_rec record ;
+          mynowdate date ;
+        BEGIN
+          select now()::date into mynowdate ; 
+          open con_cur for select * from neweb_contract_contract where maintenance_end_date::DATE >= mynowdate::DATE  ;
+          loop
+            fetch con_cur into con_rec ;
+            exit when not found ;
+            delete from neweb_contract_contract_line1 where contract_id = con_rec.id ;
+            execute gencontractline1byid(con_rec.id) ;
+          end loop ;
+          close con_cur ;
+        END ;$BODY$
+        LANGUAGE plpgsql;""")
+
+
 
 
 

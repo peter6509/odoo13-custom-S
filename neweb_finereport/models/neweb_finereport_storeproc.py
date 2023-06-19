@@ -168,7 +168,7 @@ class newebsalesima(models.Model):
             C.name as stockoutno,D.name as partnername,A.cus_project,A.prod_modeltype,A.prod_desc,A.prod_num,
             A.supplier,E.shipping_date,F.date_planned::DATE,A.acceptanced_date1,A.stockin_date,A.stockout_date,A.acceptanced_date2,
             (select getprojyear(A.project_no)) as proj_year,(select getprojym(A.project_no)) as proj_ym,(select getpurym(A.purchase_no)) as pur_ym,
-            (select getpurfromto(F.id)) as pur_fromto
+            (select getpurfromto(F.id)) as pur_fromto,B.department_id
             from neweb_acceptance_acc_list A left join hr_employee B on A.proj_sale = B.id 
             left join stock_picking C on A.stockout_no = C.id left join res_partner D on A.cus_name = D.id
             left join neweb_project E on A.project_no = E.id left join purchase_order F on A.purchase_no = F.name)""")

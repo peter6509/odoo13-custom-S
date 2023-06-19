@@ -495,8 +495,10 @@ class newebcontractstoreproc(models.Model):
            loop
              fetch l_cur into l_rec;
              exit when not found ;
+            
              insert into neweb_contract_contract_line1(contract_id,prod_set,prod_brand,prod_modeltype,prod_modeltype1,machine_serial_no,rack_loc,warranty_duedate,prod_line_os,contract_line_id,sequence) values
               (l_rec.contract_id,l_rec.prod_set,l_rec.prod_brand,l_rec.prod_modeltype,l_rec.prod_modeltype1,l_rec.machine_serial_no,l_rec.rack_loc,l_rec.warranty_duedate,l_rec.prod_line_os,l_rec.id,l_rec.sequence) ;
+           
            end loop ;
            close l_cur ;
          END;$BODY$

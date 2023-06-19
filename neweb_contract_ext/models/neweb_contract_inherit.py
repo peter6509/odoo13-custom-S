@@ -39,3 +39,7 @@ class newebcontractinherit1(models.Model):
         self.env.cr.execute("""select gencontractae1(%d)""" % self.id)
         self.env.cr.execute("""commit""")
         return res
+
+    def gen_contract_line1byid(self):
+        self.env.cr.execute("""select gencontractline1byid(%d)""" % self.id)
+        self.env.cr.execute("""commit""")

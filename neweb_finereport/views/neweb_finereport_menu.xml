@@ -6,6 +6,11 @@
        <field name="url">http://192.168.1.196:8080/webroot/decision/v10/entry/access/89a9c513-216c-42c4-b074-eb40c0167a2d?preview=true</field>
        <field name="target">new</field>
      </record>
+        <record model="ir.actions.act_url" id="neweb_projanalysis_costtype_cus_view">
+       <field name="name">年度客戶銷售表BY(客戶)</field>
+       <field name="url">http://192.168.1.196:8080/webroot/decision/v10/entry/access/89a9c513-216c-42c4-b074-eb40c0167a2d?preview=true</field>
+       <field name="target">new</field>
+     </record>
        <record model="ir.actions.act_url" id="neweb_salemain_view">
        <field name="name">銷售產生之維護分析</field>
        <field name="url">http://192.168.1.196:8080/webroot/decision/v10/entry/access/c9a9cabe-494b-4b87-b326-2e4814dfcd64?preview=true</field>
@@ -65,6 +70,12 @@
               groups="neweb_finereport.group_bi_sale"
               action="neweb_projanalysis_costtype_view"
               sequence="5"/>
+        <menuitem id="menu_projanalysis_costtype_cus_view"
+              name="年度客戶銷售表BY(客戶)"
+              parent="menu_sale_categ"
+              groups="neweb_finereport.group_bi_sale"
+              action="neweb_projanalysis_costtype_cus_view"
+              sequence="7"/>
         <menuitem id="menu_salemain_view"
               name="銷售產生之維護分析"
               parent="menu_sale_categ"
