@@ -2,3 +2,6 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 
 access_routine_maintenance_user,access.routine.maintenance.user,neweb_project.model_neweb_routine_maintenance,base.group_user,1,0,0,0
 access_main_service_rule_user,access.main.service.rule.user,neweb_project.model_neweb_main_service_rule,base.group_user,1,0,0,0
+
+access_neweb_contract_sel_user,access.neweb.contract.sel.user,neweb_project.model_neweb_contract_sel,base.group_user,1,1,1,1
+access_neweb_contract_selline_user,access.neweb.contract.selline.user,neweb_project.model_neweb_contract_selline,base.group_user,1,1,1,1
