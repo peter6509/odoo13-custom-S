@@ -508,6 +508,119 @@ class newebcontractstoreproc1(models.Model):
         END ;$BODY$
         LANGUAGE plpgsql;""")
 
+        self._cr.execute("""drop function if exists gencontractsel(conid int,conid1 int) cascade""")
+        self._cr.execute("""create or replace function gencontractsel(conid int,conid1 int) returns void as $BODY$
+         DECLARE
+           conl_cur refcursor ;
+           conl_rec record ;
+           ncount int ;
+           maxid int ;
+           lineid int ; 
+         BEGIN
+           delete from neweb_contract_contract_selline ;
+           delete from neweb_contract_contract_sel ;
+           select count(*) into ncount from neweb_contract_contract_line1 where contract_id = conid and machine_serial_no is not null ;
+           if ncount > 0 then
+               insert into neweb_contract_contract_sel(contract_id,contract_id1) values (conid,conid1) ;
+               select max(id) into maxid from neweb_contract_contract_sel ;
+               open conl_cur for select * from neweb_contract_contract_line1 where contract_id = conid and machine_serial_no is not null ;
+               loop
+                 fetch conl_cur into conl_rec ;
+                 exit when not found ;
+                 insert into neweb_contract_contract_selline(sel_id,contract_id,prod_set,prod_brand,prod_modeltype,prod_modeltype1,machine_serial_no,rack_loc,warranty_duedate,server_name,machine_used_desc,prod_line_os,expand_module,machine_other,machine_loc,contract_line_id) 
+                  values (maxid,conid,conl_rec.prod_set,conl_rec.prod_brand,conl_rec.prod_modeltype,conl_rec.prod_modeltype1,conl_rec.machine_serial_no,conl_rec.rack_loc,conl_rec.warranty_duedate,conl_rec.server_name,conl_rec.machine_used_desc,conl_rec.prod_line_os,conl_rec.expand_module,
+                  conl_rec.machine_other,conl_rec.machine_loc,conl_rec.id) ;
+               end loop ;
+               close conl_cur ;
+           end if ;    
+         END;$BODY$
+         LANGUAGE plpgsql;""")
+
+        self._cr.execute("""drop function if exists gencontractselline() cascade""")
+        self._cr.execute("""create or replace function gencontractselline() returns void as $BODY$
+         DECLARE
+           conl_cur refcursor ;
+           conl_rec record ;
+           consl_cur refcursor ;
+           consl_rec record ;
+           ncount int ;
+           ncount1 int ;
+           lineid int ;
+           hd_cur refcursor ;
+           hd_rec record ;
+           cpu_cur refcursor ;
+           cpu_rec record ;
+           ram_cur refcursor ;
+           ram_rec record ;
+           expcard_cur refcursor ;
+           expcard_rec record ;
+           power_cur refcursor ;
+           power_rec record ;   
+           conid int ;
+           conid1 int ;
+         BEGIN
+           select contract_id,contract_id1 into conid,conid1 from neweb_contract_contract_sel order by id desc limit 1 ;
+           open consl_cur for select * from neweb_contract_contract_selline where  selitem=True ;
+           loop
+             fetch consl_cur into consl_rec ;
+             exit when not found ;
+             open conl_cur for select * from neweb_contract_contract_line1 where  id=consl_rec.contract_line_id ;
+             loop
+                fetch conl_cur into conl_rec ;
+                exit when not found ;
+                select id into lineid from neweb_contract_contract_line1 where contract_id = conid1 and machine_serial_no = conl_rec.machine_serial_no ;
+                update neweb_contract_contract_line1 set rack_loc=conl_rec.rack_loc,warranty_duedate=conl_rec.warranty_duedate,server_name=conl_rec.server_name,
+                machine_used_desc=conl_rec.machine_used_desc,prod_line_os=conl_rec.prod_line_os,expand_module=conl_rec.expand_module,machine_other=conl_rec.machine_other,
+                machine_loc=conl_rec.machine_loc where id=lineid ;
+                delete from neweb_contract_hd_line where hd_id = lineid ;
+                open hd_cur for select * from neweb_contract_hd_line where hd_id = conl_rec.id ;
+                loop
+                  fetch hd_cur into hd_rec ;
+                  exit when not found ;
+                  insert into neweb_contract_hd_line(hd_id,hd_item,hd_no,hd_num) values(lineid,hd_rec.hd_item,hd_rec.hd_no,hd_rec.hd_num) ;
+                end loop;
+                close hd_cur ;
+                delete from neweb_contract_cpu_line where cpu_id = lineid ;
+                open cpu_cur for select * from neweb_contract_cpu_line where cpu_id = conl_rec.id ;
+                loop
+                  fetch cpu_cur into cpu_rec ;
+                  exit when not found ;
+                  insert into neweb_contract_cpu_line(cpu_id,cpu_item,cpu_no,cpu_num) values(lineid,cpu_rec.cpu_item,cpu_rec.cpu_no,cpu_rec.cpu_num) ;
+                end loop;
+                close cpu_cur ; 
+                delete from neweb_contract_ram_line where ram_id = lineid ;
+                open ram_cur for select * from neweb_contract_ram_line where ram_id = conl_rec.id ;
+                loop
+                  fetch ram_cur into ram_rec ;
+                  exit when not found ;
+                  insert into neweb_contract_ram_line(ram_id,ram_item,ram_no,ram_num) values(lineid,ram_rec.ram_item,ram_rec.ram_no,ram_rec.ram_num) ;
+                end loop;
+                close ram_cur ; 
+                delete from neweb_contract_expand_card_line where expand_card_id = lineid ;
+                open expcard_cur for select * from neweb_contract_expand_card_line where expand_card_id = conl_rec.id ;
+                loop
+                  fetch expcard_cur into expcard_rec ;
+                  exit when not found ;
+                  insert into neweb_contract_expand_card_line(expand_card_id,expand_card_item,expand_card_no,expand_card_num) values(lineid,expcard_rec.expand_card_item,expcard_rec.expand_card_no,expcard_rec.expand_card_num) ;
+                end loop;
+                close expcard_cur ;  
+                delete from neweb_contract_power_line where power_id = conl_rec.id ;
+                open power_cur for select * from neweb_contract_power_line where power_id = conl_rec.id ;
+                loop
+                  fetch power_cur into power_rec ;
+                  exit when not found ;
+                  insert into neweb_contract_power_line(power_id,power_item,power_no,power_num) values(lineid,power_rec.power_item,power_rec.power_no,power_rec.power_num) ;
+                end loop;
+                close power_cur ;
+             end loop ;
+             close conl_cur ;   
+           end loop ;
+           close consl_cur ; 
+           delete from neweb_contract_contract_selline ;
+           delete from neweb_contract_contract_sel ;
+         END;$BODY$
+         LANGUAGE plpgsql;""")
+
 
 
 

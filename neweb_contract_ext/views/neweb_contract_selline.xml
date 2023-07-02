@@ -16,7 +16,6 @@
                                    <button type="object" name="allnosel_button" string="全不選" class="oe_highlight"/>
                                </group>
                            </group>
-
                                 <field name="sel_line" nolabel="1" >
                                     <tree  widget="one2many" create="false">
                                         <button type="object" name="sel_button" string="點選" class="oe_highlight"/>
@@ -45,10 +44,10 @@
                </form>
            </field>
        </record>
-        <record id="action_neweb_chi_invoicing_un_export_purinv_view" model="ir.actions.act_window">
-            <field name="name">匯出進項記錄列表</field>
+        <record id="action_view_contract_selline_form" model="ir.actions.act_window">
+            <field name="name">舊約有序號紀錄列表</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">neweb_chi_invoicing.un_export_purinv</field>
+            <field name="res_model">neweb_contract.contract_sel</field>
             <field name="view_mode">form</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">

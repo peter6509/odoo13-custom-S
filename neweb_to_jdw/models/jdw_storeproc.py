@@ -123,6 +123,27 @@ class newebjdwstoreproc(models.Model):
         end;$$
         language plpgsql;""")
 
+        self._cr.execute("""drop function if exists getjdwexportdevall(sdate date,edate date) cascade""")
+        self._cr.execute("""create or replace function getjdwexportdevall(sdate date,edate date) returns setof INT as $$
+        declare
+          myres int ;
+          con_cur refcursor ;
+          con_rec record ;
+        begin
+          open con_cur for select id from neweb_contract_contract_line where 
+             contract_id in 
+             (select id from neweb_contract_contract where maintenance_start_date >= sdate and maintenance_start_date <= edate) 
+             order by id ;
+          loop
+             fetch con_cur into con_rec ;
+             exit when not found ;
+                myres := con_rec.id ;
+                return next myres ;
+          end loop ;
+          close con_cur ;
+        end;$$
+        language plpgsql;""")
+
         self._cr.execute("""drop function if exists getjdwexportdev1(contractno varchar) cascade""")
         self._cr.execute("""create or replace function getjdwexportdev1(contractno varchar) returns setof INT as $$
         declare
@@ -138,6 +159,28 @@ class newebjdwstoreproc(models.Model):
                 fetch con_cur into con_rec ;
                 exit when not found ;
                 myres1 := con_rec.contract_line_id ;
+                return next myres1 ;
+             end loop ;
+             close con_cur ;
+          end if ;
+        end;$$
+        language plpgsql;""")
+
+        self._cr.execute("""drop function if exists getjdwexportdevall1(contractno varchar) cascade""")
+        self._cr.execute("""create or replace function getjdwexportdevall1(contractno varchar) returns setof INT as $$
+        declare
+          myres int ;
+          myres1 int ;
+          con_cur refcursor ;
+          con_rec record ;
+        begin
+          select id into myres from neweb_contract_contract where name = contractno ;
+          if myres is not null then
+             open con_cur for select * from neweb_contract_contract_line where contract_id = myres ;
+             loop
+                fetch con_cur into con_rec ;
+                exit when not found ;
+                myres1 := con_rec.id ;
                 return next myres1 ;
              end loop ;
              close con_cur ;

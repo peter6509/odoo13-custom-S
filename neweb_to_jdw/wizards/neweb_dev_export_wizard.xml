@@ -9,6 +9,7 @@
                 <sheet>
                     <h1>設備明細資料匯出For筋斗雲</h1>
                     <group>
+                      <field name="export_type"/>
                       <field name="contract_no"/>
                       <field name="start_date"/>
                       <field name="end_date"/>

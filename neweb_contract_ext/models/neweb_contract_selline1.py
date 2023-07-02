@@ -9,7 +9,8 @@ class NewConSelcontract(models.Model):
     _description = "舊約勾選項目HEAD"
 
     sel_line = fields.One2many('neweb_contract.contract_selline', 'sel_id', string="勾選項目LINE")
-    contract_id = fields.Integer(string="合約ID")
+    contract_id = fields.Integer(string="Origin 合約ID")
+    contract_id1 = fields.Integer(string="NEW 合約ID")
 
     def allsel_button(self):
         myrec = self.env['neweb_contract.contract_selline'].search([])
@@ -20,7 +21,22 @@ class NewConSelcontract(models.Model):
         myrec.selitem=False
 
     def selectbtn(self):
-        A=1
+        myid = self.env['neweb_contract.contract_sel'].search([]).contract_id1
+        myrec = self.env['neweb_contract.contract'].search([('id','=',myid)])
+        self.env.cr.execute("""select gencontractselline()""")
+        self.env.cr.execute("""commit""")
+        return {'view_name': 'neweb_contract_contract',
+                'name': ('合約主檔'),
+                'views': [[False, 'form'], [False, 'tree']],
+                'res_model': 'neweb_contract.contract',
+                'context': self._context,
+                'type': 'ir.actions.act_window',
+                'target': 'main',
+                'res_id': myrec.id,
+                'view_mode': 'form',
+                'view_type': 'form',
+                'flags': {'action_buttons': True, 'initial_mode': 'edit'},
+                }
 
 class NewebConSelLine1(models.Model):
     _name = "neweb_contract.contract_selline"
