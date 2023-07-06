@@ -12,6 +12,7 @@
     'depends': ['helpdesk_mgmt'],
     'data': ['views/alldo_helpdesk_mgmt_inherit.xml',
              'data/gh_helpdesk_report_data.xml',
+             'data/gh_helpdesk_sequence.xml',
              'reports/alldo_gh_helpdesk_report.xml',
     ],
     'installable': True,

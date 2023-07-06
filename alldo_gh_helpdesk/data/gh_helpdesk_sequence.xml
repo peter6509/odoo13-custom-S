@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="helpdesk_ticket_int" model="ir.sequence">
+            <field name="name">Helpdesk Ticket Sequence INT</field>
+            <field name="code">helpdesk.ticket.INT</field>
+            <field name="prefix">INT%(y)s%(month)s%(day)s</field>
+            <field name="padding">3</field>
+            <field name="company_id"/>
+        </record>
+        <record id="helpdesk_ticket_cus" model="ir.sequence">
+            <field name="name">Helpdesk Ticket Sequence CUS</field>
+            <field name="code">helpdesk.ticket.CUS</field>
+            <field name="prefix">CUS%(y)s%(month)s%(day)s</field>
+            <field name="padding">3</field>
+            <field name="company_id"/>
+        </record>
+        <record id="helpdesk_ticket_sup" model="ir.sequence">
+            <field name="name">Helpdesk Ticket Sequence SUP</field>
+            <field name="code">helpdesk.ticket.SUP</field>
+            <field name="prefix">SUP%(y)s%(month)s%(day)s</field>
+            <field name="padding">3</field>
+            <field name="company_id"/>
+        </record>
+
+    </data>
+</odoo>

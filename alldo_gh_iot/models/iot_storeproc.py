@@ -5303,11 +5303,14 @@ class alldoiotstoreproc(models.Model):
           DECLARE
             myres varchar ;
             powkid int ;
+            wkid int;
           BEGIN 
             if mogid is null then
                myres = ' ' ;
             else
-               select po_no1 into powkid from alldo_gh_iot_workorder where mo_group_id=mogid ;
+               select min(id) into wkid from alldo_gh_iot_workorder where mo_group_id=mogid ;
+               select max(po_id) into powkid from powkorder_iotwkorder_rel where wk_id in (select id from alldo_gh_iot_workorder where mo_group_id=mogid) ;
+               /* select po_no1 into powkid from alldo_gh_iot_workorder where mo_group_id=mogid ; */
                select po_location into myres from alldo_gh_iot_po_wkorder where id = powkid ;
             end if ;
             if myres is null then
@@ -5366,6 +5369,35 @@ class alldoiotstoreproc(models.Model):
          END;$BODY$
          LANGUAGE plpgsql;""")
 
+        self._cr.execute("""drop function if exists getponoloc2(mvlid int,prodid int) cascade""")
+        self._cr.execute("""create or replace function getponoloc2(mvlid int,prodid int) returns varchar as $BODY$
+        DECLARE
+          powk_cur refcursor ;
+          powk_rec record ;
+          poloc varchar ;
+          myres varchar ;
+          ncount int ;
+        BEGIN
+          /*select max(id) into mvlid from stock_move_line where move_id=mvid  ;*/
+          open powk_cur for select * from ghiot_moveline_powk_rel where move_id=mvlid ;
+          loop
+            fetch powk_cur into powk_rec ;
+            exit when not found ;
+            select count(*) into ncount from alldo_gh_iot_po_wkorder where id=powk_rec.po_id and product_no=prodid ;
+            if ncount > 0 then
+                select po_location into poloc from alldo_gh_iot_po_wkorder where id=powk_rec.po_id  ;
+                if myres=null then
+                   myres = polo ;
+                else
+                   myres = concat(myres,'/',poloc) ;
+                end if ;
+            end if ;    
+          end loop ;
+          close powk_cur ;
+          return myres ;
+        END;$BODY$
+        LANGUAGE plpgsql;""")
+
         # self.env.cr.execute("""drop view if exists ghiot_stockmovelist""")
         # self.env.cr.execute("""CREATE OR REPLACE VIEW ghiot_stockmovelist AS
         #     select A.id,A.date,A.product_id,A.product_qty,A.product_uom,A.state,A.picking_id,B.origin,A.reference,B.partner_id,A.picking_type_id,B.mo_group_id,(select getpono1(B.mo_group_id) as po_no1),(select getmoid(B.report_no,A.product_id) as moid),
@@ -5374,8 +5406,8 @@ class alldoiotstoreproc(models.Model):
 
         self.env.cr.execute("""drop view if exists ghiot_stockmovelist""")
         self.env.cr.execute("""CREATE OR REPLACE VIEW ghiot_stockmovelist AS
-            select C.id,C.date,B.date_done,C.product_id,C.qty_done,A.product_uom,A.state,A.picking_id,B.origin,A.reference,B.partner_id,A.picking_type_id,B.mo_group_id,(select getpono1(B.mo_group_id) as po_no1),(select getmoid(B.report_no,A.product_id) as moid),
-                (select getpono2(C.id,C.product_id) as po_no),(select getpoloc(B.mo_group_id) as po_location),(select getcussystem(B.mo_group_id) as custom_system),B.report_no from stock_move_line C left join stock_move A on C.move_id=A.id and C.product_id=A.product_id left join stock_picking B on A.picking_id = B.id
+            select C.id,C.date,B.scheduled_date,C.product_id,C.qty_done,A.product_uom,A.state,A.picking_id,B.origin,A.reference,B.partner_id,A.picking_type_id,B.mo_group_id,(select getpono1(B.mo_group_id) as po_no1),(select getmoid(B.report_no,A.product_id) as moid),
+                (select getpono2(C.id,C.product_id) as po_no),(select getponoloc2(C.id,C.product_id) as po_location),(select getcussystem(B.mo_group_id) as custom_system),B.report_no from stock_move_line C left join stock_move A on C.move_id=A.id and C.product_id=A.product_id left join stock_picking B on A.picking_id = B.id
                   where A.picking_type_id in (1,2) and A.state='done' and (B.location_id=5 or B.location_id=8 or B.location_dest_id=5 or B.location_dest_id=8)""")
 
 
@@ -5426,13 +5458,13 @@ class alldoiotstoreproc(models.Model):
                    select count(*) into ncount2 from alldo_gh_iot_stock_move_list where origin=mv_rec.reference ;
                    if ncount2 = 0 then
                        insert into alldo_gh_iot_stock_move_list(date,product_id,product_qty,product_uom,partner_id,origin,po_no,po_location,custom_system,mo_group_id,report_no,mo_no) values
-                         (mv_rec.date_done,mv_rec.product_id,(mv_rec.qty_done * -1),mv_rec.product_uom,mv_rec.partner_id,concat(mv_rec.reference,' (',mv_rec.origin,')'),mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
+                         (mv_rec.scheduled_date,mv_rec.product_id,(mv_rec.qty_done * -1),mv_rec.product_uom,mv_rec.partner_id,concat(mv_rec.reference,' (',mv_rec.origin,')'),mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
                    end if ;  
                 elsif mv_rec.picking_type_id=2 then
                     select count(*) into ncount2 from alldo_gh_iot_stock_move_list where origin=mv_rec.reference ;
                     if ncount2 = 0 then
                        insert into alldo_gh_iot_stock_move_list(date,product_id,product_qty,product_uom,partner_id,origin,po_no,po_location,custom_system,mo_group_id,report_no,mo_no) values
-                         (mv_rec.date_done,mv_rec.product_id,mv_rec.qty_done,mv_rec.product_uom,mv_rec.partner_id,mv_rec.reference,mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
+                         (mv_rec.scheduled_date,mv_rec.product_id,mv_rec.qty_done,mv_rec.product_uom,mv_rec.partner_id,mv_rec.reference,mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
                     end if ; 
                 end if ;
                 /* else
@@ -5496,13 +5528,13 @@ class alldoiotstoreproc(models.Model):
                    select count(*) into ncount2 from alldo_gh_iot_stock_move_list where origin=mv_rec.reference ;
                    if ncount2 = 0 then
                        insert into alldo_gh_iot_stock_move_list(date,product_id,product_qty,product_uom,partner_id,origin,po_no,po_location,custom_system,mo_group_id,report_no,mo_no) values
-                         (mv_rec.date_done,mv_rec.product_id,(mv_rec.qty_done * -1),mv_rec.product_uom,mv_rec.partner_id,concat(mv_rec.reference,' (',mv_rec.origin,')'),mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
+                         (mv_rec.scheduled_done,mv_rec.product_id,(mv_rec.qty_done * -1),mv_rec.product_uom,mv_rec.partner_id,concat(mv_rec.reference,' (',mv_rec.origin,')'),mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
                    end if ;  
                 elsif mv_rec.picking_type_id=2 then
                     select count(*) into ncount2 from alldo_gh_iot_stock_move_list where origin=mv_rec.reference ;
                     if ncount2 = 0 then
                        insert into alldo_gh_iot_stock_move_list(date,product_id,product_qty,product_uom,partner_id,origin,po_no,po_location,custom_system,mo_group_id,report_no,mo_no) values
-                         (mv_rec.date_done,mv_rec.product_id,mv_rec.qty_done,mv_rec.product_uom,mv_rec.partner_id,mv_rec.reference,mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
+                         (mv_rec.scheduled_date,mv_rec.product_id,mv_rec.qty_done,mv_rec.product_uom,mv_rec.partner_id,mv_rec.reference,mv_rec.po_no,coalesce(mv_rec.po_location,' '),mv_rec.custom_system,mv_rec.mo_group_id,coalesce(mv_rec.report_no,' '),mv_rec.moid) ;
                     end if ; 
                 end if ;
                 /* else

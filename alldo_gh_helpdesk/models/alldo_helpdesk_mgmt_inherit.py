@@ -75,6 +75,47 @@ class AlldoHelpDeskMgmtInherit(models.Model):
     cus_alert_date = fields.Date(string="客訴日期")
     letter_page = fields.Integer(string="書信頁數")
 
+    def _prepare_ticket_number(self, values):
+        seq = self.env["ir.sequence"]
+        if "company_id" in values:
+            seq = seq.with_context(force_company=values["company_id"])
+        if self.team_id==1:  # 內部
+           return seq.next_by_code("helpdesk.ticket.INT") or "/"
+        elif self.team_id==2:  # 客訴
+           return seq.next_by_code("helpdesk.ticket.CUS") or "/"
+        elif self.team_id==3:  # 供應商/委外
+           return seq.next_by_code("helpdesk.ticket.SUP") or "/"
+
+    @api.model
+    def create(self, vals):
+        if vals['team_id'] == 1:
+            vals['number'] = self.env['ir.sequence'].next_by_code('helpdesk.ticket.INT')
+        elif vals['team_id'] == 2:
+            vals['number'] = self.env['ir.sequence'].next_by_code('helpdesk.ticket.CUS')
+        elif vals['team_id'] == 3:
+            vals['number'] = self.env['ir.sequence'].next_by_code('helpdesk.ticket.SUP')    
+        return super().create(vals)
+
+    def copy(self, default=None):
+        self.ensure_one()
+        if default is None:
+            default = {}
+        if "number" not in default:
+            default["number"] = self._prepare_ticket_number(default)
+        res = super().copy(default)
+        return res
+
+
+
+    def name_get(self):
+        res = []
+        for rec in self:
+            if rec.number:
+                res.append((rec.id, rec.number + " - " + rec.name))
+            else:
+                res.append((rec.id, rec.name))
+        return res
+
 
     # @api.model
     # def create(self, vals):

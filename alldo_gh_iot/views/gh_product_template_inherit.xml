@@ -30,9 +30,11 @@
                          <field name="cnc_prog"/>
                          <field name="clamping_power"/>
                          <field name="standard_num"/>
-                         <field name="prod_real_num" attrs="{'readonly':1}"/>
+                         <field name="prod_real_num" invisible="1"/>
                          <field name="replace_std"/>
-                         <field name="replace_real_time" attrs="{'readonly':1}"/>
+                         <field name="single_time"/>
+                         <field name="prod_rate"/>
+                         <field name="replace_real_time" invisible="1"/>
                          <field name="mold_cavity"/>
 <!--                         <field name="is_combine"/>-->
                          <field name="image_filename" invisible="1"/>
@@ -47,6 +49,8 @@
                          <field name="sequence" widget="handle"/>
                          <field name="eng_type"/>
                          <field name="iot_machine"/>
+                         <field name="prod_real_num"/>
+                         <field name="replace_real_time"/>
                          <field name="iot_single_avg"/>
                          <field name="iot_min_avg"/>
                         </tree>
@@ -80,7 +84,7 @@
                         </tree>
                     </field>
                    </page>
-                    <page string="PDF文件" name="pdf_preview">
+                    <page string="製程標準書" name="pdf_preview">
                         <field name="pdf_preview" widget="pdf_viewer" nolabel="1"/>
                     </page>
                </xpath>
@@ -93,7 +97,15 @@
                <xpath expr="//field[@name='barcode']" position="after">
                    <field name="is_blank" string="毛胚"/>
                    <field name="stock_location"/>
+                    <field name="outsub_memo"/>
+                    <field name="purchase_memo"/>
                </xpath>
+<!--               <xpath expr="//field[@name='standard_price']" position="after">-->
+<!--                   <label for="outsub_memo" string="委外備註"/>-->
+<!--                  -->
+<!--                   <label for="purchase_memo" string="採購備註"/>-->
+<!--                  -->
+<!--               </xpath>-->
            </field>
        </record>
     </data>

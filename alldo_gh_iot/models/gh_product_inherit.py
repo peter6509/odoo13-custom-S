@@ -28,6 +28,8 @@ class ghproductinherit(models.Model):
     prod_location = fields.Char(string="儲位")
     cutter_line = fields.One2many('alldo_gh_iot.cutter','cutter_id',string="刀具",copy=False)
     equip_id = fields.Many2one('maintenance.equipment', string="機台")
+    outsub_memo = fields.Text(string="委外備註")
+    purchase_memo = fields.Text(string="採購備註")
 
     @api.model
     def create(self, vals):
@@ -86,6 +88,8 @@ class alldoghiotproductengorder(models.Model):
     replace_real_time = fields.Integer(string="架機均值(H)")
     is_combine = fields.Boolean(string="有中暫停",default=False)
     equip_id = fields.Many2one('maintenance.equipment',string="機台")
+    single_time = fields.Integer(string="單件時間(S)")
+    prod_rate = fields.Float(digits=(5,2),string="佔比(%)")
 
     def name_get(self):
         res = []

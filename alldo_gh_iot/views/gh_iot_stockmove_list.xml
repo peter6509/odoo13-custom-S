@@ -16,7 +16,7 @@
                     <field name="product_qty"/>
                     <field name="product_uom"/>
                     <field name="partner_id"/>
-                    <field name="custom_system"/>
+<!--                    <field name="custom_system"/>-->
                 </tree>
             </field>
         </record>
