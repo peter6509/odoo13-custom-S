@@ -35,7 +35,10 @@
                           <field name="attendance_type"/>
                         </tree>
                     </field>
-                </page>
+                   </page>
+                    <page string="PDF文件" name="pdf_preview">
+                        <field name="pdf_preview" widget="pdf_viewer" nolabel="1"/>
+                     </page>
                </xpath>
            </field>
        </record>

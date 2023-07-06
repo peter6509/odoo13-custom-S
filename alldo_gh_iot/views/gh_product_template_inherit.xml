@@ -80,6 +80,9 @@
                         </tree>
                     </field>
                    </page>
+                    <page string="PDF文件" name="pdf_preview">
+                        <field name="pdf_preview" widget="pdf_viewer" nolabel="1"/>
+                    </page>
                </xpath>
                <xpath expr="//field[@name='default_code']" position="replace">
                    <field name="default_code" string="料號"/>

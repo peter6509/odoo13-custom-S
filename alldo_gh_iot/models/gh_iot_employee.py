@@ -14,6 +14,7 @@ class alldoghiotempinerit(models.Model):
     duty_type = fields.Selection([('1',u'正常上班'),('2',u'正常下班'),('3','加班上班'),('4','加班下班')],string=u"出勤狀態",default='2')
     duty_name = fields.Char(string="出勤狀態",compute='_get_duty')
     duty_datetime = fields.Datetime(string="最後異動時間")
+    pdf_preview = fields.Binary(string="PDF文件",attachment=True)
 
     @api.depends('duty_type')
     def _get_duty(self):

@@ -11,6 +11,7 @@ class respartnerinherit3(models.Model):
     blank_loc = fields.Many2one('stock.location', string="毛胚倉")
     sales1 = fields.Many2one('res.users',string="業務1")
     sales2 = fields.Many2one('res.users',string="業務2")
+    pdf_preview = fields.Binary(string="PDF文件",attachment=True)
 
     
 

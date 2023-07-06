@@ -364,6 +364,7 @@ class alldoghiotworkordermeasuretool(models.Model):
     inspect_code = fields.Char(string="代號", required=True)
     name = fields.Char(string="量測工具", required=True)
     inspect_line = fields.One2many('alldo_gh_iot.tool_inspect','inspect_id',copy=False)
+    pdf_preview = fields.Binary(string="PDF文件", attachment=True)
 
 
 class alldoghiotlastwork(models.Model):

@@ -24,6 +24,11 @@
                            <field name="status_name"/>
                             <field name="status_type"/>
                        </group>
+                       <notebook>
+                           <page string="PDF文件" name="pdf_preview">
+                           <field name="pdf_preview" widget="pdf_viewer" nolabel="1"/>
+                         </page>
+                       </notebook>
                    </sheet>
                </form>
            </field>

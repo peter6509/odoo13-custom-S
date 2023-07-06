@@ -32,6 +32,7 @@ class alldomaintenanceinherit(models.Model):
     image_filename = fields.Char("Image Filename")
     main_line = fields.One2many('maintenance.repair_line','main_id',copy=False)
     schedule_line = fields.One2many('alldo_gh_iot.schedule_line', 'schedule_id', copy=False)
+    pdf_preview = fields.Binary('PDF文件', attachment=True)
 
     def run_alliot_restart(self):
         myrec = self.env['maintenance.equipment'].search([])

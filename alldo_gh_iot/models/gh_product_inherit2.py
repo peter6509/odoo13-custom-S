@@ -9,6 +9,7 @@ class producttemplateinherit2(models.Model):
     _inherit = "product.template"
 
     avgdata_line = fields.One2many('alldo_gh_iot.workorder_avgdata', 'prod_id', copy=False)
+    pdf_preview = fields.Binary(string="PDF文件", attachment=True)
 
     def run_tot_avg_data(self):  # cron job 每日執行一次 (夜間執行)
         self.env.cr.execute("""select geniotseq()""")

@@ -12,6 +12,7 @@ class ghmaintenanceinherit1(models.Model):
     status_name = fields.Char(string="停機說明",required=True)
     status_type = fields.Selection([('1','故障'),('2','換線'),('3','復歸')],string='類別')
     sequence = fields.Integer(string="SEQ",default=20)
+    pdf_preview = fields.Binary(string="PDF文件",attachment=True)
 
     def name_get(self):
         result = []
